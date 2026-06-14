@@ -1,0 +1,88 @@
+# FanPhysical 题库可视化 Demo 上下文记录
+
+记录日期：2026-06-14
+
+本记录用于保存 FanPhysical 题库可视化教学 demo 的当前状态，作为后续继续开发题库可视化的上下文。
+
+## Demo 文件
+
+主要产物是单文件 HTML：
+
+`/Users/apple/Documents/Codex/2026-06-14/goal-demo-html-demo-tab-1/outputs/classical-mechanics-demo.html`
+
+## 基础约束
+
+- 单文件 HTML，使用 p5.js CDN：`https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js`
+- 全中文 UI，白底深色界面，画布固定为 `1000x500`
+- 左侧树状目录，右侧工作区
+- 动画区为左侧 `0~570`，图表区为右侧 `574~1000`
+- 动画区坐标约定：原点 `(400,250)`，y 轴向上为正，`1px = 1物理单位`
+- 所有顶层状态变量必须使用 `var`，因为内联事件处理器需要访问 `window` 作用域变量
+- Canvas 虚线使用 `drawingContext.setLineDash([4,4])`，不使用 SVG 的 `strokeDasharray/strokeDashoffset`
+- 绘制文字前注意 `noStroke()`，避免文字被残留 stroke 描边
+
+## 当前目录结构
+
+- `Sample`
+  - 弹簧振子
+  - 单摆
+  - 布朗运动
+- `FanPhysical / 课时4：竖直上抛运动和图像问题 / B组`
+  - 第7题：双球上抛相遇
+  - 第10题：金属管穿球
+  - 第11题：三车防追尾
+- `FanPhysical / 必修一结业测试 / 单选题`
+  - 第3题：光滑斜槽下滑
+
+## 已实现题目页
+
+### 第7题：双球上抛相遇
+
+- A 先以 `2v0` 从地面竖直上抛，B 间隔 `Delta t` 后以 `v0` 上抛
+- 条件：`2v0/g < Delta t < 4v0/g` 时能在空中相遇
+- 右侧绘制两球高度-时间图像，并标出相遇点
+
+### 第10题：金属管穿球
+
+- 金属管从地面以初速度上抛，小球从管口上方自由下落
+- 公式：
+  - 管底 `y = vt - 1/2gt^2`
+  - 管顶 `y = vt - 1/2gt^2 + L`
+  - 小球 `y = h - 1/2gt^2`
+- 穿过条件：管底 <= 小球高度 <= 管顶
+- 右侧绘制管底、管顶、小球高度-时间曲线，并高亮穿过区间
+
+### 第11题：三车防追尾
+
+- 甲乙丙同向行驶，初速度分别 `6, 8, 9 m/s`，相邻车距 `5m`
+- 甲减速度 `1 m/s^2`，乙丙立即匀减速
+- 结论：`a乙,min = 7/5 m/s^2`，`a丙,min = 189/130 m/s^2`
+- 左侧三车纵向错开仅为看清，水平投影是同一公路位置
+- 右侧绘制甲乙、乙丙间距-时间曲线，`0m` 为安全边界
+
+### 必修一结业测试单选第3题：光滑斜槽下滑
+
+- 来源：`/Users/apple/.codex/skills/FanPhysical/corrected-sources/IMG_6915.md`
+- 原题摘要：AB、CD 为光滑斜槽，端点分别在半径 R 和 r 的圆周上，延长线交于共同切点 P，P 为最低点；AP、CP 与竖直方向夹角分别为 `30deg`、`45deg`；比较加速度、下滑时间、粗糙影响、质量影响
+- 答案标注：C
+- 实现采用题干“夹角相对竖直方向”：`a = g cos(theta)`
+- 圆几何：`s = 2R cos(theta)`
+- 到达时间：`t = sqrt(2s/a) = 2sqrt(R/g)`，同一半径下与角度抵消，质量 m 不影响
+- 默认参数：`R=160`、`r=100`、`theta1=30deg`、`theta2=45deg`、`g=10`
+- 默认验收：`a1 ~= 8.66m/s^2`，`a2 ~= 7.07m/s^2`，`t1=8.00s > t2=6.32s`
+- 右侧绘制 A 槽/C 槽沿槽位移-时间曲线，标记到达 P 的时刻
+
+## 最近一次验证
+
+- HTML 内联脚本用 `new Function(script)` 语法检查通过
+- `rg` 检查没有新增 `let/const`
+- `rg` 检查没有 `strokeDasharray/strokeDashoffset`
+- 浏览器打开 `http://127.0.0.1:8123/classical-mechanics-demo.html`，新目录项可点击，控制区显示正常，画布为 `1000x500`，控制台无错误
+
+## 后续开发约定
+
+继续加题时沿用左侧树结构：
+
+`FanPhysical / 章节或测试卷 / 题型或组别 / 题号：标题`
+
+每题新增独立 controls、scene 状态变量、draw/update/graph 函数，并保持单文件和 `var` 顶层变量约束。
