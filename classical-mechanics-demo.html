@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>经典力学可视化教学 Demo</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --ink: #111827;
+      --muted: #5b6472;
+      --line: #d7dce5;
+      --panel: #f6f8fb;
+      --spring: #dc2626;
+      --pendulum: #2563eb;
+      --brownian: #0f766e;
+      --gold: #d97706;
+      --pipe: #0891b2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    }
+
+    .wrap {
+      width: 1260px;
+      margin: 24px auto 32px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: 0;
+      font-weight: 800;
+    }
+
+    .sub {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .app-layout {
+      display: grid;
+      grid-template-columns: 230px 1000px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .sidebar {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 14px;
+      min-height: 500px;
+    }
+
+    .tree-title {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .tree-folder {
+      margin: 14px 0 6px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .tree-subfolder {
+      margin: 8px 0 5px 14px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .tree-item {
+      width: 100%;
+      border: none;
+      border-radius: 7px;
+      background: transparent;
+      color: var(--ink);
+      padding: 8px 10px;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .tree-item.indent {
+      padding-left: 24px;
+    }
+
+    .tree-item.active {
+      background: #111827;
+      color: #fff;
+    }
+
+    .workspace {
+      width: 1000px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 14px;
+      padding: 14px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .control label {
+      width: 96px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .control input[type="range"] {
+      flex: 1;
+      min-width: 80px;
+      accent-color: var(--brownian);
+    }
+
+    .value {
+      width: 54px;
+      text-align: right;
+      color: var(--pendulum);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    button.action {
+      height: 36px;
+      border: none;
+      border-radius: 8px;
+      background: #111827;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button.action:hover {
+      background: #243244;
+    }
+
+    #canvas-holder {
+      width: 1000px;
+      height: 500px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .note {
+      width: 1000px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <h1>经典力学可视化：Sample 与 FanPhysical 题目库</h1>
+    <p class="sub">左侧是动画区域，右侧是实时曲线图。动画区物理原点固定在 (400, 250)，并采用 y 轴向上为正、1 像素 = 1 物理单位。</p>
+
+    <div class="app-layout">
+      <aside class="sidebar">
+        <p class="tree-title">目录</p>
+        <div class="tree-folder">Sample</div>
+        <button id="treeSpring" class="tree-item active" onclick="switchScene('spring')">弹簧振子</button>
+        <button id="treePendulum" class="tree-item" onclick="switchScene('pendulum')">单摆</button>
+        <button id="treeBrownian" class="tree-item" onclick="switchScene('brownian')">布朗运动</button>
+
+        <div class="tree-folder">FanPhysical</div>
+        <div class="tree-subfolder">课时4：竖直上抛运动和图像问题</div>
+        <div class="tree-subfolder">B组</div>
+        <button id="treeDoubleThrow" class="tree-item indent" onclick="switchScene('doubleThrow')">第7题：双球上抛相遇</button>
+        <button id="treePipeDrop" class="tree-item indent" onclick="switchScene('pipeDrop')">第10题：金属管穿球</button>
+        <button id="treeThreeCar" class="tree-item indent" onclick="switchScene('threeCar')">第11题：三车防追尾</button>
+        <div class="tree-subfolder">必修一结业测试</div>
+        <div class="tree-subfolder">单选题</div>
+        <button id="treeInclineSlot" class="tree-item indent" onclick="switchScene('inclineSlot')">第3题：光滑斜槽下滑</button>
+      </aside>
+
+      <section class="workspace">
+
+    <div id="springControls" class="controls">
+      <div class="control">
+        <label>质量 m</label>
+        <input id="springM" type="range" min="0.5" max="5" step="0.1" value="2" oninput="springM=this.valueAsNumber; updateLabels();" />
+        <span id="springMVal" class="value">2.0</span>
+      </div>
+      <div class="control">
+        <label>弹性系数 k</label>
+        <input id="springK" type="range" min="1" max="50" step="1" value="10" oninput="springK=this.valueAsNumber; updateLabels();" />
+        <span id="springKVal" class="value">10</span>
+      </div>
+      <div class="control">
+        <label>阻尼 c</label>
+        <input id="springC" type="range" min="0" max="2" step="0.01" value="0.1" oninput="springC=this.valueAsNumber; updateLabels();" />
+        <span id="springCVal" class="value">0.10</span>
+      </div>
+      <button class="action" onclick="kickSpring()">🔄 重新激发</button>
+    </div>
+
+    <div id="pendulumControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>绳长 L</label>
+        <input id="pendulumL" type="range" min="50" max="300" step="1" value="150" oninput="pendulumL=this.valueAsNumber; resetPendulum();" />
+        <span id="pendulumLVal" class="value">150</span>
+      </div>
+      <div class="control">
+        <label>重力 g</label>
+        <input id="pendulumG" type="range" min="1" max="20" step="0.1" value="9.8" oninput="pendulumG=this.valueAsNumber; updateLabels();" />
+        <span id="pendulumGVal" class="value">9.8</span>
+      </div>
+      <div class="control">
+        <label>初始角度 θ₀</label>
+        <input id="pendulumTheta0" type="range" min="-90" max="90" step="1" value="40" oninput="pendulumTheta0=this.valueAsNumber; resetPendulum();" />
+        <span id="pendulumTheta0Val" class="value">40°</span>
+      </div>
+    </div>
+
+    <div id="brownianControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>温度 T</label>
+        <input id="brownianT" type="range" min="0.1" max="5" step="0.1" value="1" oninput="brownianT=this.valueAsNumber; updateLabels();" />
+        <span id="brownianTVal" class="value">1.0</span>
+      </div>
+      <div class="control">
+        <label>粒子数 N</label>
+        <input id="brownianN" type="range" min="10" max="300" step="1" value="60" oninput="brownianN=this.valueAsNumber; resetBrownian();" />
+        <span id="brownianNVal" class="value">60</span>
+      </div>
+      <button class="action" onclick="switchTrackedParticle()">切换追踪粒子</button>
+    </div>
+
+    <div id="pipeDropControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>管长 L</label>
+        <input id="pipeL" type="range" min="40" max="160" step="1" value="80" oninput="pipeL=this.valueAsNumber; pipePlaying=false; updateLabels();" />
+        <span id="pipeLVal" class="value">80</span>
+      </div>
+      <div class="control">
+        <label>高度 h</label>
+        <input id="pipeH" type="range" min="180" max="420" step="1" value="260" oninput="pipeH=this.valueAsNumber; pipePlaying=false; updateLabels();" />
+        <span id="pipeHVal" class="value">260</span>
+      </div>
+      <div class="control">
+        <label>初速度 v</label>
+        <input id="pipeV0" type="range" min="20" max="120" step="1" value="70" oninput="pipeV0=this.valueAsNumber; pipePlaying=false; updateLabels();" />
+        <span id="pipeV0Val" class="value">70</span>
+      </div>
+      <div class="control">
+        <label>重力 g</label>
+        <input id="pipeG" type="range" min="1" max="20" step="0.1" value="9.8" oninput="pipeG=this.valueAsNumber; pipePlaying=false; updateLabels();" />
+        <span id="pipeGVal" class="value">9.8</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="pipeT" type="range" min="0" max="16" step="0.1" value="3" oninput="pipeT=this.valueAsNumber; pipePlaying=false; updateLabels();" />
+        <span id="pipeTVal" class="value">3.0s</span>
+      </div>
+      <button id="pipePlayBtn" class="action" onclick="togglePipeDropPlay()">播放</button>
+      <button class="action" onclick="resetPipeDropTime()">回到 0 秒</button>
+    </div>
+
+    <div id="doubleThrowControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>初速度 v₀</label>
+        <input id="throwV0" type="range" min="10" max="60" step="1" value="30" oninput="throwV0=this.valueAsNumber; throwPlaying=false; updateLabels();" />
+        <span id="throwV0Val" class="value">30</span>
+      </div>
+      <div class="control">
+        <label>重力 g</label>
+        <input id="throwG" type="range" min="1" max="20" step="0.1" value="10" oninput="throwG=this.valueAsNumber; throwPlaying=false; updateLabels();" />
+        <span id="throwGVal" class="value">10.0</span>
+      </div>
+      <div class="control">
+        <label>抛出间隔 Δt</label>
+        <input id="throwDelay" type="range" min="0" max="16" step="0.1" value="7" oninput="throwDelay=this.valueAsNumber; throwPlaying=false; updateLabels();" />
+        <span id="throwDelayVal" class="value">7.0s</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="throwT" type="range" min="0" max="18" step="0.1" value="0" oninput="throwT=this.valueAsNumber; throwPlaying=false; updateLabels();" />
+        <span id="throwTVal" class="value">0.0s</span>
+      </div>
+      <button id="throwPlayBtn" class="action" onclick="toggleDoubleThrowPlay()">播放</button>
+      <button class="action" onclick="resetDoubleThrowTime()">回到 0 秒</button>
+    </div>
+
+    <div id="threeCarControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="carT" type="range" min="0" max="8" step="0.1" value="0" oninput="carT=this.valueAsNumber; carPlaying=false; updateLabels();" />
+        <span id="carTVal" class="value">0.0s</span>
+      </div>
+      <button id="carPlayBtn" class="action" onclick="toggleThreeCarPlay()">播放</button>
+      <button class="action" onclick="resetThreeCarTime()">回到 0 秒</button>
+    </div>
+
+    <div id="inclineSlotControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>半径 R</label>
+        <input id="slotR" type="range" min="60" max="220" step="1" value="160" oninput="slotR=this.valueAsNumber; slotPlaying=false; updateLabels();" />
+        <span id="slotRVal" class="value">160</span>
+      </div>
+      <div class="control">
+        <label>半径 r</label>
+        <input id="slotr" type="range" min="60" max="220" step="1" value="100" oninput="slotr=this.valueAsNumber; slotPlaying=false; updateLabels();" />
+        <span id="slotrVal" class="value">100</span>
+      </div>
+      <div class="control">
+        <label>夹角 θ₁</label>
+        <input id="slotTheta1" type="range" min="10" max="75" step="1" value="30" oninput="slotTheta1=this.valueAsNumber; slotPlaying=false; updateLabels();" />
+        <span id="slotTheta1Val" class="value">30°</span>
+      </div>
+      <div class="control">
+        <label>夹角 θ₂</label>
+        <input id="slotTheta2" type="range" min="10" max="75" step="1" value="45" oninput="slotTheta2=this.valueAsNumber; slotPlaying=false; updateLabels();" />
+        <span id="slotTheta2Val" class="value">45°</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="slotT" type="range" min="0" max="12" step="0.1" value="0" oninput="slotT=this.valueAsNumber; slotPlaying=false; updateLabels();" />
+        <span id="slotTVal" class="value">0.0s</span>
+      </div>
+      <button id="slotPlayBtn" class="action" onclick="toggleInclineSlotPlay()">播放</button>
+      <button class="action" onclick="resetInclineSlotTime()">回到 0 秒</button>
+    </div>
+
+    <div id="canvas-holder"></div>
+
+    <p class="note">
+      Sample 目录保留三个独立演示；FanPhysical 目录按课时、测试卷和题目组织。图表横轴显示绝对时间；弹簧和单摆达到肉眼基本静止的阈值后，曲线停止追加，坐标轴冻结，并在标题中显示“已稳定”。FanPhysical 题目展示竖直上抛、追及、防追尾、斜槽下滑等运动模型。
+    </p>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    var currentScene = "spring";
+
+    var canvasW = 1000;
+    var canvasH = 500;
+    var animRight = 570;
+    var graphLeft = 574;
+    var graphRight = 1000;
+    var originX = 400;
+    var originY = 250;
+
+    var springM = 2;
+    var springK = 10;
+    var springC = 0.1;
+    var springY = -110;
+    var springV = 0;
+    var springInitialY = -110;
+    var springData = [];
+    var springStable = false;
+
+    var pendulumL = 150;
+    var pendulumG = 9.8;
+    var pendulumTheta0 = 40;
+    var pendulumTheta = 40 * Math.PI / 180;
+    var pendulumOmega = 0;
+    var pendulumData = [];
+    var pendulumStable = false;
+    var pendulumDamping = 0.025;
+
+    var brownianT = 1;
+    var brownianN = 60;
+    var particles = [];
+    var trackedIndex = 0;
+    var trackedTrail = [];
+    var brownianData = [];
+
+    var pipeL = 80;
+    var pipeH = 260;
+    var pipeV0 = 70;
+    var pipeG = 9.8;
+    var pipeT = 3;
+    var pipeMaxT = 16;
+    var pipePlaying = false;
+
+    var throwV0 = 30;
+    var throwG = 10;
+    var throwDelay = 7;
+    var throwT = 0;
+    var throwMaxT = 18;
+    var throwPlaying = false;
+
+    var carT = 0;
+    var carMaxT = 8;
+    var carPlaying = false;
+    var carVa0 = 6;
+    var carVb0 = 8;
+    var carVc0 = 9;
+    var carGap0 = 5;
+    var carAa = 1;
+    var carAb = 7 / 5;
+    var carAc = 189 / 130;
+
+    var slotR = 160;
+    var slotr = 100;
+    var slotTheta1 = 30;
+    var slotTheta2 = 45;
+    var slotT = 0;
+    var slotMaxT = 12;
+    var slotPlaying = false;
+    var slotG = 10;
+
+    var simTime = 0;
+    var lastMillis = 0;
+    var graphWindow = 14;
+
+    function setup() {
+      var cnv = createCanvas(canvasW, canvasH);
+      cnv.parent("canvas-holder");
+      pixelDensity(1);
+      textFont('"Noto Sans SC", "Microsoft YaHei", sans-serif');
+      resetBrownian();
+      updateLabels();
+      lastMillis = millis();
+    }
+
+    function draw() {
+      var now = millis();
+      var dt = Math.min((now - lastMillis) / 1000, 0.033);
+      lastMillis = now;
+      simTime += dt;
+
+      background(255);
+      drawLayout();
+
+      if (currentScene === "spring") {
+        updateSpring(dt);
+        drawSpringScene();
+        drawGraph(springData, "位移 y(t)" + (springStable ? "（已稳定）" : ""), "y", "#dc2626", springStable);
+      }
+
+      if (currentScene === "pendulum") {
+        updatePendulum(dt);
+        drawPendulumScene();
+        drawGraph(pendulumData, "角度 θ(t)" + (pendulumStable ? "（已稳定）" : ""), "θ", "#2563eb", pendulumStable);
+      }
+
+      if (currentScene === "brownian") {
+        updateBrownian(dt);
+        drawBrownianScene();
+        drawGraph(brownianData, "追踪粒子 X 坐标", "x", "#0f766e", false);
+      }
+
+      if (currentScene === "pipeDrop") {
+        updatePipeDrop(dt);
+        drawPipeDropScene();
+        drawPipeDropGraph();
+      }
+
+      if (currentScene === "doubleThrow") {
+        updateDoubleThrow(dt);
+        drawDoubleThrowScene();
+        drawDoubleThrowGraph();
+      }
+
+      if (currentScene === "threeCar") {
+        updateThreeCar(dt);
+        drawThreeCarScene();
+        drawThreeCarGraph();
+      }
+
+      if (currentScene === "inclineSlot") {
+        updateInclineSlot(dt);
+        drawInclineSlotScene();
+        drawInclineSlotGraph();
+      }
+    }
+
+    function switchScene(sceneName) {
+      currentScene = sceneName;
+
+      document.getElementById("treeSpring").className = sceneName === "spring" ? "tree-item active" : "tree-item";
+      document.getElementById("treePendulum").className = sceneName === "pendulum" ? "tree-item active" : "tree-item";
+      document.getElementById("treeBrownian").className = sceneName === "brownian" ? "tree-item active" : "tree-item";
+      document.getElementById("treeDoubleThrow").className = sceneName === "doubleThrow" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treePipeDrop").className = sceneName === "pipeDrop" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treeThreeCar").className = sceneName === "threeCar" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treeInclineSlot").className = sceneName === "inclineSlot" ? "tree-item indent active" : "tree-item indent";
+
+      document.getElementById("springControls").style.display = sceneName === "spring" ? "grid" : "none";
+      document.getElementById("pendulumControls").style.display = sceneName === "pendulum" ? "grid" : "none";
+      document.getElementById("brownianControls").style.display = sceneName === "brownian" ? "grid" : "none";
+      document.getElementById("doubleThrowControls").style.display = sceneName === "doubleThrow" ? "grid" : "none";
+      document.getElementById("pipeDropControls").style.display = sceneName === "pipeDrop" ? "grid" : "none";
+      document.getElementById("threeCarControls").style.display = sceneName === "threeCar" ? "grid" : "none";
+      document.getElementById("inclineSlotControls").style.display = sceneName === "inclineSlot" ? "grid" : "none";
+    }
+
+    function updateLabels() {
+      if (pipeH <= pipeL) {
+        pipeH = pipeL + 20;
+        if (pipeH > 420) {
+          pipeH = 420;
+          pipeL = 160;
+        }
+      }
+
+      document.getElementById("springMVal").innerText = springM.toFixed(1);
+      document.getElementById("springKVal").innerText = springK.toFixed(0);
+      document.getElementById("springCVal").innerText = springC.toFixed(2);
+      document.getElementById("pendulumLVal").innerText = pendulumL.toFixed(0);
+      document.getElementById("pendulumGVal").innerText = pendulumG.toFixed(1);
+      document.getElementById("pendulumTheta0Val").innerText = pendulumTheta0.toFixed(0) + "°";
+      document.getElementById("brownianTVal").innerText = brownianT.toFixed(1);
+      document.getElementById("brownianNVal").innerText = brownianN.toFixed(0);
+      document.getElementById("pipeLVal").innerText = pipeL.toFixed(0);
+      document.getElementById("pipeHVal").innerText = pipeH.toFixed(0);
+      document.getElementById("pipeV0Val").innerText = pipeV0.toFixed(0);
+      document.getElementById("pipeGVal").innerText = pipeG.toFixed(1);
+      document.getElementById("pipeTVal").innerText = pipeT.toFixed(1) + "s";
+      document.getElementById("pipeL").value = pipeL.toFixed(0);
+      document.getElementById("pipeH").value = pipeH.toFixed(0);
+      document.getElementById("pipeT").value = pipeT.toFixed(1);
+      document.getElementById("pipePlayBtn").innerText = pipePlaying ? "暂停" : "播放";
+      document.getElementById("throwV0Val").innerText = throwV0.toFixed(0);
+      document.getElementById("throwGVal").innerText = throwG.toFixed(1);
+      document.getElementById("throwDelayVal").innerText = throwDelay.toFixed(1) + "s";
+      document.getElementById("throwTVal").innerText = throwT.toFixed(1) + "s";
+      document.getElementById("throwT").value = throwT.toFixed(1);
+      document.getElementById("throwPlayBtn").innerText = throwPlaying ? "暂停" : "播放";
+      document.getElementById("carTVal").innerText = carT.toFixed(1) + "s";
+      document.getElementById("carT").value = carT.toFixed(1);
+      document.getElementById("carPlayBtn").innerText = carPlaying ? "暂停" : "播放";
+      document.getElementById("slotRVal").innerText = slotR.toFixed(0);
+      document.getElementById("slotrVal").innerText = slotr.toFixed(0);
+      document.getElementById("slotTheta1Val").innerText = slotTheta1.toFixed(0) + "°";
+      document.getElementById("slotTheta2Val").innerText = slotTheta2.toFixed(0) + "°";
+      document.getElementById("slotTVal").innerText = slotT.toFixed(1) + "s";
+      document.getElementById("slotT").value = slotT.toFixed(1);
+      document.getElementById("slotPlayBtn").innerText = slotPlaying ? "暂停" : "播放";
+    }
+
+    function drawLayout() {
+      stroke("#d7dce5");
+      strokeWeight(1);
+      line(animRight, 0, animRight, canvasH);
+      line(graphLeft, 0, graphLeft, canvasH);
+
+      noStroke();
+      fill("#f6f8fb");
+      rect(graphLeft, 0, graphRight - graphLeft, canvasH);
+
+      stroke("#d7dce5");
+      strokeWeight(1);
+      line(originX - 26, originY, originX + 26, originY);
+      line(originX, originY - 26, originX, originY + 26);
+
+      noStroke();
+      fill("#5b6472");
+      textSize(12);
+      textAlign(LEFT, TOP);
+      text("动画区原点 (400,250)，y 轴向上为正", 18, 16);
+    }
+
+    function physYToScreen(y) {
+      return originY - y;
+    }
+
+    function kickSpring() {
+      springY = springInitialY;
+      springV = 0;
+      springData = [];
+      springStable = false;
+    }
+
+    function updateSpring(dt) {
+      if (springStable) {
+        return;
+      }
+
+      var accel = (-springK * springY - springC * springV) / springM;
+      springV += accel * dt;
+      springY += springV * dt;
+
+      if (Math.abs(springV) < 0.5 && Math.abs(springY) < 2) {
+        springY = 0;
+        springV = 0;
+        springStable = true;
+      }
+
+      springData.push({ t: simTime, v: springY });
+      trimData(springData);
+    }
+
+    function drawSpringScene() {
+      var anchorX = originX;
+      var anchorY = 70;
+      var ballX = originX;
+      var ballY = physYToScreen(springY);
+      var coils = 12;
+      var springAmp = 24;
+      var i;
+
+      stroke("#111827");
+      strokeWeight(4);
+      line(anchorX - 70, anchorY, anchorX + 70, anchorY);
+
+      stroke("#64748b");
+      strokeWeight(3);
+      noFill();
+      beginShape();
+      vertex(anchorX, anchorY);
+      for (i = 0; i <= coils; i++) {
+        var p = i / coils;
+        var x = anchorX + (i % 2 === 0 ? -springAmp : springAmp);
+        var y = anchorY + p * (ballY - anchorY - 34);
+        vertex(x, y);
+      }
+      vertex(ballX, ballY - 34);
+      endShape();
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      line(originX - 110, originY, originX + 110, originY);
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#dc2626");
+      circle(ballX, ballY, 56);
+
+      noStroke();
+      fill("#991b1b");
+      circle(ballX - 12, ballY - 12, 12);
+
+      noStroke();
+      fill("#111827");
+      textAlign(CENTER, TOP);
+      textSize(15);
+      text("竖直弹簧振子", 285, 430);
+
+      noStroke();
+      fill("#5b6472");
+      textSize(13);
+      text("红球相对平衡点的位移 y = " + springY.toFixed(1), 285, 454);
+    }
+
+    function resetPendulum() {
+      pendulumTheta = pendulumTheta0 * Math.PI / 180;
+      pendulumOmega = 0;
+      pendulumData = [];
+      pendulumStable = false;
+      updateLabels();
+    }
+
+    function updatePendulum(dt) {
+      if (pendulumStable) {
+        return;
+      }
+
+      var accel = -(pendulumG * 55 / pendulumL) * Math.sin(pendulumTheta) - pendulumDamping * pendulumOmega;
+      pendulumOmega += accel * dt;
+      pendulumTheta += pendulumOmega * dt;
+
+      if (Math.abs(pendulumOmega) < 0.02 && Math.abs(pendulumTheta) < 0.02) {
+        pendulumTheta = 0;
+        pendulumOmega = 0;
+        pendulumStable = true;
+      }
+
+      pendulumData.push({ t: simTime, v: pendulumTheta });
+      trimData(pendulumData);
+    }
+
+    function drawPendulumScene() {
+      var pivotX = originX;
+      var pivotY = originY;
+      var bobX = pivotX + pendulumL * Math.sin(pendulumTheta);
+      var bobY = pivotY + pendulumL * Math.cos(pendulumTheta);
+
+      stroke("#111827");
+      strokeWeight(4);
+      line(pivotX - 75, pivotY - 16, pivotX + 75, pivotY - 16);
+
+      stroke("#475569");
+      strokeWeight(3);
+      line(pivotX, pivotY, bobX, bobY);
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      line(pivotX, pivotY, pivotX, pivotY + Math.min(250, pendulumL + 28));
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#2563eb");
+      circle(bobX, bobY, 46);
+
+      noStroke();
+      fill("#bfdbfe");
+      circle(bobX - 9, bobY - 9, 10);
+
+      noStroke();
+      fill("#111827");
+      circle(pivotX, pivotY, 12);
+
+      noFill();
+      stroke("#d97706");
+      strokeWeight(2);
+      arc(pivotX, pivotY, 80, 80, Math.PI / 2 - Math.abs(pendulumTheta), Math.PI / 2 + Math.abs(pendulumTheta));
+
+      noStroke();
+      fill("#111827");
+      textAlign(CENTER, TOP);
+      textSize(15);
+      text("单摆", 285, 430);
+
+      noStroke();
+      fill("#5b6472");
+      textSize(13);
+      text("当前角度 θ = " + (pendulumTheta * 180 / Math.PI).toFixed(1) + "°", 285, 454);
+    }
+
+    function resetBrownian() {
+      particles = [];
+      trackedTrail = [];
+      brownianData = [];
+      trackedIndex = Math.min(trackedIndex, brownianN - 1);
+
+      var i;
+      for (i = 0; i < brownianN; i++) {
+        particles.push({
+          x: random(80, 520),
+          y: random(80, 420)
+        });
+      }
+      updateLabels();
+    }
+
+    function switchTrackedParticle() {
+      if (particles.length === 0) {
+        return;
+      }
+      trackedIndex = (trackedIndex + 1) % particles.length;
+      trackedTrail = [];
+      brownianData = [];
+    }
+
+    function updateBrownian(dt) {
+      var i;
+      var stepScale = Math.sqrt(brownianT) * 48;
+
+      for (i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.x += randomGaussian() * stepScale * dt;
+        p.y += randomGaussian() * stepScale * dt;
+
+        if (p.x < 55) {
+          p.x = 55;
+        }
+        if (p.x > 535) {
+          p.x = 535;
+        }
+        if (p.y < 55) {
+          p.y = 55;
+        }
+        if (p.y > 445) {
+          p.y = 445;
+        }
+      }
+
+      var tp = particles[trackedIndex];
+      if (tp) {
+        trackedTrail.push({ x: tp.x, y: tp.y });
+        if (trackedTrail.length > 260) {
+          trackedTrail.shift();
+        }
+        brownianData.push({ t: simTime, v: tp.x - originX });
+        trimData(brownianData);
+      }
+    }
+
+    function drawBrownianScene() {
+      var i;
+
+      noFill();
+      stroke("#111827");
+      strokeWeight(3);
+      rect(50, 50, 490, 400, 4);
+
+      noStroke();
+      for (i = 0; i < particles.length; i++) {
+        if (i !== trackedIndex) {
+          fill("#64748b");
+          circle(particles[i].x, particles[i].y, 6);
+        }
+      }
+
+      noFill();
+      stroke("#0f766e");
+      strokeWeight(2);
+      beginShape();
+      for (i = 0; i < trackedTrail.length; i++) {
+        vertex(trackedTrail[i].x, trackedTrail[i].y);
+      }
+      endShape();
+
+      var tp = particles[trackedIndex];
+      if (tp) {
+        noStroke();
+        fill("#f97316");
+        circle(tp.x, tp.y, 18);
+
+        noStroke();
+        fill("#7c2d12");
+        circle(tp.x - 4, tp.y - 4, 5);
+      }
+
+      noStroke();
+      fill("#111827");
+      textAlign(CENTER, TOP);
+      textSize(15);
+      text("布朗运动", 285, 430);
+
+      noStroke();
+      fill("#5b6472");
+      textSize(13);
+      text("橙色粒子被追踪，轨迹实时保留", 285, 454);
+    }
+
+    function drawArrow(x1, y1, x2, y2, colorHex) {
+      var angle = Math.atan2(y2 - y1, x2 - x1);
+
+      stroke(colorHex);
+      strokeWeight(4);
+      line(x1, y1, x2, y2);
+
+      push();
+      translate(x2, y2);
+      rotate(angle);
+      noStroke();
+      fill(colorHex);
+      triangle(0, 0, -12, -6, -12, 6);
+      pop();
+    }
+
+    function togglePipeDropPlay() {
+      pipePlaying = !pipePlaying;
+      updateLabels();
+    }
+
+    function resetPipeDropTime() {
+      pipeT = 0;
+      pipePlaying = false;
+      updateLabels();
+    }
+
+    function pipeLandTime() {
+      return 2 * pipeV0 / pipeG;
+    }
+
+    function pipeBottomAt(t) {
+      return pipeV0 * t - 0.5 * pipeG * t * t;
+    }
+
+    function pipeTopAt(t) {
+      return pipeBottomAt(t) + pipeL;
+    }
+
+    function ballYAt(t) {
+      return pipeH - 0.5 * pipeG * t * t;
+    }
+
+    function pipeVelocityAt(t) {
+      return pipeV0 - pipeG * t;
+    }
+
+    function isBallInsidePipe(t) {
+      var bottomY = pipeBottomAt(t);
+      var topY = bottomY + pipeL;
+      var ballY = ballYAt(t);
+      return t <= pipeLandTime() && bottomY <= ballY && ballY <= topY;
+    }
+
+    function getPipePassIntervals() {
+      var startT = (pipeH - pipeL) / pipeV0;
+      var endT = pipeH / pipeV0;
+      var landT = pipeLandTime();
+
+      startT = Math.max(0, startT);
+      endT = Math.min(endT, landT);
+
+      if (startT <= endT && endT >= 0 && startT <= landT) {
+        return [{ start: startT, end: endT }];
+      }
+      return [];
+    }
+
+    function updatePipeDrop(dt) {
+      if (pipePlaying) {
+        pipeT += dt;
+        if (pipeT >= pipeMaxT || pipeT >= pipeLandTime()) {
+          pipeT = Math.min(pipeMaxT, pipeLandTime());
+          pipePlaying = false;
+        }
+        updateLabels();
+      }
+    }
+
+    function drawPipeDropScene() {
+      var groundY = 430;
+      var axisX = 95;
+      var pipeX = 330;
+      var ballX = 330;
+      var landT = pipeLandTime();
+      var drawT = Math.min(pipeT, landT);
+      var bottomY = pipeBottomAt(drawT);
+      var topY = pipeTopAt(drawT);
+      var ballY = ballYAt(pipeT);
+      var maxY = Math.max(pipeH + 50, pipeTopAt(Math.min(pipeV0 / pipeG, landT)) + 40, pipeL + 80);
+      var bottomScreen = map(Math.max(0, bottomY), 0, maxY, groundY, 58);
+      var topScreen = map(Math.max(0, topY), 0, maxY, groundY, 58);
+      var ballScreen = map(Math.max(0, ballY), 0, maxY, groundY, 58);
+      var pipeW = 64;
+      var insideNow = isBallInsidePipe(pipeT);
+      var vPipe = pipeVelocityAt(pipeT);
+      var phaseText = "金属管上升阶段";
+      var phaseColor = "#2563eb";
+      var intervals = getPipePassIntervals();
+      var passText = "金属管落地前未穿过";
+
+      if (Math.abs(vPipe) < 0.15) {
+        phaseText = "金属管到达最高点";
+        phaseColor = "#d97706";
+      } else if (vPipe < 0) {
+        phaseText = "金属管下降阶段";
+        phaseColor = "#dc2626";
+      }
+
+      if (intervals.length > 0) {
+        var midT = (intervals[0].start + intervals[0].end) / 2;
+        var midV = pipeVelocityAt(midT);
+        var passPhase = midV >= 0 ? "上升阶段穿过" : "下降阶段穿过";
+        passText = passPhase + "：" + intervals[0].start.toFixed(2) + "s ~ " + intervals[0].end.toFixed(2) + "s";
+      }
+      if (insideNow) {
+        passText = "正在穿过金属管";
+      }
+
+      stroke("#111827");
+      strokeWeight(3);
+      line(55, groundY, 545, groundY);
+
+      stroke("#94a3b8");
+      strokeWeight(2);
+      line(axisX, groundY, axisX, 58);
+      drawArrow(axisX, groundY, axisX, 62, "#64748b");
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("y/m", axisX + 10, 60);
+      text("地面 y = 0", 60, groundY + 10);
+
+      noStroke();
+      fill("#dbeafe");
+      rect(pipeX - pipeW / 2, topScreen, pipeW, bottomScreen - topScreen, 10);
+
+      stroke(insideNow ? "#f97316" : "#0891b2");
+      strokeWeight(5);
+      noFill();
+      rect(pipeX - pipeW / 2, topScreen, pipeW, bottomScreen - topScreen, 8);
+
+      stroke(insideNow ? "#f97316" : "#0891b2");
+      strokeWeight(4);
+      line(pipeX - pipeW / 2 - 12, topScreen, pipeX + pipeW / 2 + 12, topScreen);
+      line(pipeX - pipeW / 2 - 12, bottomScreen, pipeX + pipeW / 2 + 12, bottomScreen);
+
+      noStroke();
+      fill(insideNow ? "#f97316" : "#dc2626");
+      circle(ballX, ballScreen, 24);
+
+      noStroke();
+      fill("#7c2d12");
+      circle(ballX - 5, ballScreen - 5, 6);
+
+      if (insideNow) {
+        noStroke();
+        fill(255, 247, 237);
+        rect(185, 258, 292, 34, 8);
+        noStroke();
+        fill("#c2410c");
+        textAlign(CENTER, CENTER);
+        textSize(16);
+        text("正在穿过金属管", 331, 275);
+      }
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(15);
+      text("课时4 B组第10题：金属管穿球", 130, 86);
+
+      noStroke();
+      fill("#5b6472");
+      textSize(12);
+      text("管顶：y = vt - 1/2gt² + L", 130, 112);
+      text("管底：y = vt - 1/2gt²", 130, 132);
+      text("小球：y = h - 1/2gt²", 130, 152);
+      text("穿过条件：管底 ≤ 小球高度 ≤ 管顶", 130, 172);
+
+      noStroke();
+      fill(phaseColor);
+      textSize(14);
+      text(phaseText + "，v管 = " + vPipe.toFixed(1) + " m/s", 130, 202);
+
+      noStroke();
+      fill(insideNow ? "#c2410c" : "#111827");
+      text("判定：" + passText, 130, 226);
+
+      noStroke();
+      fill("#111827");
+      textAlign(CENTER, TOP);
+      textSize(15);
+      text("同一重力加速度下，相对位置 h - vt 决定小球是否在管内", 285, 454);
+    }
+
+    function drawPipeDropGraph() {
+      var gx = graphLeft + 50;
+      var gy = 62;
+      var gw = graphRight - graphLeft - 80;
+      var gh = 360;
+      var landT = pipeLandTime();
+      var tMax = Math.max(1, Math.min(pipeMaxT, landT));
+      var yMin = 0;
+      var yMax = pipeH;
+      var i;
+      var intervals = getPipePassIntervals();
+
+      for (i = 0; i <= 160; i++) {
+        var sampleT = i * tMax / 160;
+        var sampleBottom = Math.max(0, pipeBottomAt(sampleT));
+        var sampleTop = Math.max(0, pipeTopAt(sampleT));
+        var sampleBall = Math.max(0, ballYAt(sampleT));
+        yMax = Math.max(yMax, sampleBottom, sampleTop, sampleBall);
+      }
+      yMax += Math.max(20, yMax * 0.12);
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("高度-时间图像 y(t)", graphLeft + 24, 20);
+
+      noStroke();
+      fill("#5b6472");
+      textSize(12);
+      text("横轴：绝对时间 t / s；纵轴：高度 y / m", graphLeft + 24, 44);
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      noFill();
+      rect(gx, gy, gw, gh);
+
+      if (intervals.length > 0) {
+        var passStartX = map(intervals[0].start, 0, tMax, gx, gx + gw);
+        var passEndX = map(intervals[0].end, 0, tMax, gx, gx + gw);
+        noStroke();
+        fill(255, 237, 213);
+        rect(passStartX, gy, passEndX - passStartX, gh);
+      }
+
+      stroke("#e5e7eb");
+      strokeWeight(1);
+      for (i = 0; i <= 4; i++) {
+        var gridY = gy + i * gh / 4;
+        line(gx, gridY, gx + gw, gridY);
+      }
+      for (i = 0; i <= 4; i++) {
+        var gridX = gx + i * gw / 4;
+        line(gridX, gy, gridX, gy + gh);
+      }
+
+      noStroke();
+      fill("#5b6472");
+      textSize(11);
+      textAlign(RIGHT, CENTER);
+      for (i = 0; i <= 4; i++) {
+        var tickY = gy + i * gh / 4;
+        var valY = map(i, 0, 4, yMax, yMin);
+        text(valY.toFixed(0), gx - 8, tickY);
+      }
+
+      textAlign(CENTER, TOP);
+      for (i = 0; i <= 4; i++) {
+        var tickX = gx + i * gw / 4;
+        var valT = i * tMax / 4;
+        text(valT.toFixed(1) + "s", tickX, gy + gh + 10);
+      }
+
+      drawPipeCurve(gx, gy, gw, gh, tMax, yMin, yMax, "bottom");
+      drawPipeCurve(gx, gy, gw, gh, tMax, yMin, yMax, "top");
+      drawPipeCurve(gx, gy, gw, gh, tMax, yMin, yMax, "ball");
+
+      var currentT = Math.min(pipeT, tMax);
+      var currentX = map(currentT, 0, tMax, gx, gx + gw);
+      stroke("#111827");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      line(currentX, gy, currentX, gy + gh);
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#0891b2");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("管顶", gx + 10, gy + 10);
+      fill("#2563eb");
+      text("管底", gx + 10, gy + 28);
+      fill("#dc2626");
+      text("小球", gx + 10, gy + 46);
+
+      noStroke();
+      fill("#111827");
+      textAlign(RIGHT, TOP);
+      text("落地时刻 " + landT.toFixed(2) + "s", gx + gw, gy - 22);
+    }
+
+    function drawPipeCurve(gx, gy, gw, gh, tMax, yMin, yMax, kind) {
+      var i;
+      var colorHex = "#2563eb";
+
+      if (kind === "top") {
+        colorHex = "#0891b2";
+      }
+      if (kind === "ball") {
+        colorHex = "#dc2626";
+      }
+
+      noFill();
+      stroke(colorHex);
+      strokeWeight(2.4);
+      beginShape();
+      for (i = 0; i <= 160; i++) {
+        var t = i * tMax / 160;
+        var y = pipeBottomAt(t);
+        if (kind === "top") {
+          y = pipeTopAt(t);
+        }
+        if (kind === "ball") {
+          y = ballYAt(t);
+        }
+        y = Math.max(0, y);
+        var px = map(t, 0, tMax, gx, gx + gw);
+        var py = map(y, yMin, yMax, gy + gh, gy);
+        vertex(px, py);
+      }
+      endShape();
+    }
+
+    function toggleThreeCarPlay() {
+      carPlaying = !carPlaying;
+      updateLabels();
+    }
+
+    function resetThreeCarTime() {
+      carT = 0;
+      carPlaying = false;
+      updateLabels();
+    }
+
+    function carStopTime(v0, a) {
+      return v0 / a;
+    }
+
+    function carPosition(v0, a, t, x0) {
+      var stopT = carStopTime(v0, a);
+      if (t <= stopT) {
+        return x0 + v0 * t - 0.5 * a * t * t;
+      }
+      return x0 + v0 * v0 / (2 * a);
+    }
+
+    function carVelocity(v0, a, t) {
+      return Math.max(0, v0 - a * t);
+    }
+
+    function threeCarPositions(t) {
+      return {
+        a: carPosition(carVa0, carAa, t, 0),
+        b: carPosition(carVb0, carAb, t, -carGap0),
+        c: carPosition(carVc0, carAc, t, -2 * carGap0)
+      };
+    }
+
+    function threeCarGaps(t) {
+      var pos = threeCarPositions(t);
+      return {
+        ab: pos.a - pos.b,
+        bc: pos.b - pos.c
+      };
+    }
+
+    function updateThreeCar(dt) {
+      if (carPlaying) {
+        carT += dt;
+        if (carT >= carMaxT) {
+          carT = carMaxT;
+          carPlaying = false;
+        }
+        updateLabels();
+      }
+    }
+
+    function drawCarShape(x, y, colorHex, name, speedText) {
+      noStroke();
+      fill(colorHex);
+      rect(x - 24, y - 18, 48, 20, 7);
+      fill("#111827");
+      circle(x - 14, y + 2, 10);
+      circle(x + 14, y + 2, 10);
+
+      noStroke();
+      fill("#fff");
+      textAlign(CENTER, CENTER);
+      textSize(14);
+      text(name, x, y - 8);
+
+      noStroke();
+      fill("#111827");
+      textAlign(CENTER, TOP);
+      textSize(12);
+      text(speedText, x, y + 16);
+    }
+
+    function drawThreeCarScene() {
+      var axisY = 366;
+      var laneA = 278;
+      var laneB = 330;
+      var laneC = 382;
+      var leftX = 80;
+      var rightX = 540;
+      var posNow = threeCarPositions(carT);
+      var gapsNow = threeCarGaps(carT);
+      var stopA = carPosition(carVa0, carAa, carMaxT, 0);
+      var stopB = carPosition(carVb0, carAb, carMaxT, -carGap0);
+      var stopC = carPosition(carVc0, carAc, carMaxT, -2 * carGap0);
+      var minX = -2 * carGap0 - 2;
+      var maxX = Math.max(stopA, stopB, stopC) + 2;
+      var screenA = map(posNow.a, minX, maxX, leftX, rightX);
+      var screenB = map(posNow.b, minX, maxX, leftX, rightX);
+      var screenC = map(posNow.c, minX, maxX, leftX, rightX);
+      var stopScreenA = map(stopA, minX, maxX, leftX, rightX);
+      var stopScreenB = map(stopB, minX, maxX, leftX, rightX);
+      var stopScreenC = map(stopC, minX, maxX, leftX, rightX);
+      var criticalAB = Math.abs(gapsNow.ab) < 0.08;
+      var criticalBC = Math.abs(gapsNow.bc) < 0.08;
+
+      stroke("#111827");
+      strokeWeight(3);
+      line(leftX, axisY, rightX, axisY);
+
+      stroke("#e5e7eb");
+      strokeWeight(1);
+      line(leftX, laneA + 2, rightX, laneA + 2);
+      line(leftX, laneB + 2, rightX, laneB + 2);
+      line(leftX, laneC + 2, rightX, laneC + 2);
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      line(stopScreenA, laneA - 42, stopScreenA, axisY + 22);
+      line(stopScreenB, laneB - 42, stopScreenB, axisY + 22);
+      line(stopScreenC, laneC - 42, stopScreenC, axisY + 22);
+      line(screenA, laneA + 6, screenA, axisY);
+      line(screenB, laneB + 6, screenB, axisY);
+      line(screenC, laneC + 6, screenC, axisY);
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(CENTER, TOP);
+      textSize(11);
+      text("甲停车点", stopScreenA, axisY + 28);
+      text("乙/丙停车点", stopScreenB, axisY + 44);
+
+      stroke(criticalAB ? "#f97316" : "#94a3b8");
+      strokeWeight(2);
+      line(screenB, axisY - 24, screenA, axisY - 24);
+      stroke(criticalBC ? "#f97316" : "#94a3b8");
+      line(screenC, axisY - 50, screenB, axisY - 50);
+
+      noStroke();
+      fill(criticalAB ? "#c2410c" : "#5b6472");
+      textAlign(CENTER, BOTTOM);
+      textSize(12);
+      text("s_AB = " + Math.max(0, gapsNow.ab).toFixed(2) + "m", (screenA + screenB) / 2, axisY - 28);
+
+      noStroke();
+      fill(criticalBC ? "#c2410c" : "#5b6472");
+      text("s_BC = " + Math.max(0, gapsNow.bc).toFixed(2) + "m", (screenB + screenC) / 2, axisY - 54);
+
+      drawCarShape(screenA, laneA, "#dc2626", "甲", carVelocity(carVa0, carAa, carT).toFixed(1) + "m/s");
+      drawCarShape(screenB, laneB, "#2563eb", "乙", carVelocity(carVb0, carAb, carT).toFixed(1) + "m/s");
+      drawCarShape(screenC, laneC, "#0f766e", "丙", carVelocity(carVc0, carAc, carT).toFixed(1) + "m/s");
+
+      if (criticalAB || criticalBC || carT >= carStopTime(carVc0, carAc)) {
+        noStroke();
+        fill(255, 247, 237);
+        rect(178, 240, 286, 34, 8);
+        noStroke();
+        fill("#c2410c");
+        textAlign(CENTER, CENTER);
+        textSize(16);
+        text("刚好不追尾", 321, 257);
+      }
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(15);
+      text("课时4 B组第11题：三车防追尾", 130, 86);
+
+      noStroke();
+      fill("#5b6472");
+      textSize(12);
+      text("初速：甲 6m/s，乙 8m/s，丙 9m/s；初始相邻车距 5m", 130, 112);
+      text("甲车减速度 a甲 = 1m/s²，乙、丙立即匀减速", 130, 132);
+      text("图中三车纵向错开只是为了看清，水平投影位置才是同一公路位置。", 130, 152);
+
+      noStroke();
+      fill("#111827");
+      textSize(13);
+      text("甲乙：s_AB = 5 - 2t + 1/2(a乙 - 1)t²，令最小值为 0", 130, 184);
+      text("得 a乙,min = 7/5 m/s²；丙车相对乙车继续追及到停车点", 130, 206);
+      text("最终 x丙停 = x乙停，得 a丙,min = 189/130 m/s²", 130, 228);
+
+      noStroke();
+      fill("#111827");
+      textAlign(CENTER, TOP);
+      textSize(15);
+      text("观察间距曲线是否碰到 0m 安全边界", 285, 454);
+    }
+
+    function drawThreeCarGraph() {
+      var gx = graphLeft + 50;
+      var gy = 62;
+      var gw = graphRight - graphLeft - 80;
+      var gh = 360;
+      var yMin = 0;
+      var yMax = 5;
+      var i;
+
+      for (i = 0; i <= 160; i++) {
+        var sampleT = i * carMaxT / 160;
+        var sampleGaps = threeCarGaps(sampleT);
+        yMax = Math.max(yMax, sampleGaps.ab, sampleGaps.bc);
+      }
+      yMax += Math.max(1, yMax * 0.14);
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("间距-时间图像 s(t)", graphLeft + 24, 20);
+
+      noStroke();
+      fill("#5b6472");
+      textSize(12);
+      text("横轴：绝对时间 t / s；纵轴：车距 s / m", graphLeft + 24, 44);
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      noFill();
+      rect(gx, gy, gw, gh);
+
+      stroke("#e5e7eb");
+      strokeWeight(1);
+      for (i = 0; i <= 4; i++) {
+        var gridY = gy + i * gh / 4;
+        line(gx, gridY, gx + gw, gridY);
+      }
+      for (i = 0; i <= 4; i++) {
+        var gridX = gx + i * gw / 4;
+        line(gridX, gy, gridX, gy + gh);
+      }
+
+      var zeroY = map(0, yMin, yMax, gy + gh, gy);
+      stroke("#ef4444");
+      strokeWeight(1.5);
+      drawingContext.setLineDash([4, 4]);
+      line(gx, zeroY, gx + gw, zeroY);
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#5b6472");
+      textSize(11);
+      textAlign(RIGHT, CENTER);
+      for (i = 0; i <= 4; i++) {
+        var tickY = gy + i * gh / 4;
+        var valY = map(i, 0, 4, yMax, yMin);
+        text(valY.toFixed(1), gx - 8, tickY);
+      }
+
+      textAlign(CENTER, TOP);
+      for (i = 0; i <= 4; i++) {
+        var tickX = gx + i * gw / 4;
+        var valT = i * carMaxT / 4;
+        text(valT.toFixed(0) + "s", tickX, gy + gh + 10);
+      }
+
+      drawThreeCarGapCurve(gx, gy, gw, gh, yMin, yMax, "ab");
+      drawThreeCarGapCurve(gx, gy, gw, gh, yMin, yMax, "bc");
+
+      var currentT = Math.min(carT, carMaxT);
+      var currentX = map(currentT, 0, carMaxT, gx, gx + gw);
+      stroke("#111827");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      line(currentX, gy, currentX, gy + gh);
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#2563eb");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("甲乙间距 s_AB", gx + 10, gy + 10);
+      fill("#0f766e");
+      text("乙丙间距 s_BC", gx + 10, gy + 28);
+      fill("#ef4444");
+      text("0m 安全边界", gx + 10, gy + 46);
+
+      noStroke();
+      fill("#111827");
+      textAlign(RIGHT, TOP);
+      text("a丙,min = 189/130 m/s²", gx + gw, gy - 22);
+    }
+
+    function drawThreeCarGapCurve(gx, gy, gw, gh, yMin, yMax, kind) {
+      var i;
+      var colorHex = kind === "ab" ? "#2563eb" : "#0f766e";
+
+      noFill();
+      stroke(colorHex);
+      strokeWeight(2.5);
+      beginShape();
+      for (i = 0; i <= 160; i++) {
+        var t = i * carMaxT / 160;
+        var gaps = threeCarGaps(t);
+        var gap = kind === "ab" ? gaps.ab : gaps.bc;
+        gap = Math.max(0, gap);
+        var px = map(t, 0, carMaxT, gx, gx + gw);
+        var py = map(gap, yMin, yMax, gy + gh, gy);
+        vertex(px, py);
+      }
+      endShape();
+    }
+
+    function toggleDoubleThrowPlay() {
+      throwPlaying = !throwPlaying;
+      updateLabels();
+    }
+
+    function resetDoubleThrowTime() {
+      throwT = 0;
+      throwPlaying = false;
+      updateLabels();
+    }
+
+    function updateDoubleThrow(dt) {
+      if (throwPlaying) {
+        throwT += dt;
+        if (throwT >= throwMaxT) {
+          throwT = throwMaxT;
+          throwPlaying = false;
+        }
+        updateLabels();
+      }
+    }
+
+    function throwYA(t) {
+      return 2 * throwV0 * t - 0.5 * throwG * t * t;
+    }
+
+    function throwYB(t) {
+      if (t < throwDelay) {
+        return 0;
+      }
+      var s = t - throwDelay;
+      return throwV0 * s - 0.5 * throwG * s * s;
+    }
+
+    function getDoubleThrowMeet() {
+      var low = 2 * throwV0 / throwG;
+      var high = 4 * throwV0 / throwG;
+      if (throwDelay <= low || throwDelay >= high) {
+        return { canMeet: false, low: low, high: high, t: 0, y: 0, s: 0 };
+      }
+
+      var s = (2 * throwV0 * throwDelay - 0.5 * throwG * throwDelay * throwDelay) / (throwG * throwDelay - throwV0);
+      var tMeet = throwDelay + s;
+      var yMeet = throwV0 * s - 0.5 * throwG * s * s;
+      if (s <= 0 || yMeet <= 0) {
+        return { canMeet: false, low: low, high: high, t: tMeet, y: yMeet, s: s };
+      }
+      return { canMeet: true, low: low, high: high, t: tMeet, y: yMeet, s: s };
+    }
+
+    function drawDoubleThrowScene() {
+      var groundY = 430;
+      var axisX = 95;
+      var ballAX = 300;
+      var ballBX = 360;
+      var meet = getDoubleThrowMeet();
+      var maxY = Math.max(120, 2 * throwV0 * throwV0 / (2 * throwG), throwV0 * throwV0 / (2 * throwG), meet.y + 30);
+      var yA = Math.max(0, throwYA(throwT));
+      var yB = Math.max(0, throwYB(throwT));
+      var aScreen = map(yA, 0, maxY, groundY, 58);
+      var bScreen = map(yB, 0, maxY, groundY, 58);
+      var meetScreen = map(Math.max(0, meet.y), 0, maxY, groundY, 58);
+      var statusText = meet.canMeet ? "能在空中相遇" : "不能在空中相遇";
+      var statusColor = meet.canMeet ? "#0f766e" : "#dc2626";
+
+      stroke("#111827");
+      strokeWeight(3);
+      line(55, groundY, 545, groundY);
+
+      stroke("#94a3b8");
+      strokeWeight(2);
+      line(axisX, groundY, axisX, 58);
+      drawArrow(axisX, groundY, axisX, 62, "#64748b");
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("y/m", axisX + 10, 60);
+      text("地面 y = 0", 60, groundY + 10);
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      line(ballAX, 58, ballAX, groundY);
+      line(ballBX, 58, ballBX, groundY);
+      if (meet.canMeet) {
+        line(250, meetScreen, 410, meetScreen);
+      }
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#2563eb");
+      circle(ballAX, aScreen, 28);
+      fill("#bfdbfe");
+      circle(ballAX - 6, aScreen - 6, 8);
+
+      noStroke();
+      fill(throwT < throwDelay ? "#94a3b8" : "#dc2626");
+      circle(ballBX, bScreen, 28);
+      fill(throwT < throwDelay ? "#e2e8f0" : "#fecaca");
+      circle(ballBX - 6, bScreen - 6, 8);
+
+      noStroke();
+      fill("#111827");
+      textAlign(CENTER, TOP);
+      textSize(13);
+      text("A：2v₀", ballAX, groundY + 28);
+      text(throwT < throwDelay ? "B：待抛" : "B：v₀", ballBX, groundY + 28);
+
+      if (meet.canMeet) {
+        noStroke();
+        fill("#f97316");
+        circle((ballAX + ballBX) / 2, meetScreen, 10);
+        noStroke();
+        fill("#c2410c");
+        textAlign(CENTER, BOTTOM);
+        textSize(12);
+        text("相遇点 " + meet.y.toFixed(1) + "m，t=" + meet.t.toFixed(2) + "s", (ballAX + ballBX) / 2, meetScreen - 8);
+      }
+
+      if (meet.canMeet && Math.abs(throwT - meet.t) < 0.08) {
+        noStroke();
+        fill(255, 247, 237);
+        rect(190, 258, 250, 34, 8);
+        noStroke();
+        fill("#c2410c");
+        textAlign(CENTER, CENTER);
+        textSize(16);
+        text("此刻两球在空中相遇", 315, 275);
+      }
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(15);
+      text("课时4 B组第7题：双球上抛相遇", 130, 86);
+
+      noStroke();
+      fill("#5b6472");
+      textSize(12);
+      text("A：t=0 从地面以 2v₀ 上抛；B：间隔 Δt 后以 v₀ 上抛", 130, 112);
+      text("y_A = 2v₀t - 1/2gt²；y_B = v₀(t-Δt) - 1/2g(t-Δt)²", 130, 132);
+      text("B 抛出瞬间：y_A(Δt)=2v₀Δt - 1/2gΔt²", 130, 152);
+      text("相对速度：v_A - v_B = v₀ - gΔt", 130, 172);
+
+      noStroke();
+      fill(statusColor);
+      textSize(14);
+      text("判定：" + statusText + "；条件 2v₀/g < Δt < 4v₀/g", 130, 202);
+
+      noStroke();
+      fill("#111827");
+      textSize(13);
+      text("当前范围：" + meet.low.toFixed(1) + "s < Δt < " + meet.high.toFixed(1) + "s，当前 Δt=" + throwDelay.toFixed(1) + "s", 130, 226);
+
+      noStroke();
+      fill("#111827");
+      textAlign(CENTER, TOP);
+      textSize(15);
+      text("拖动 Δt，观察从“追不上”到“空中相遇”再到“落地后才相遇”的变化", 285, 454);
+    }
+
+    function drawDoubleThrowGraph() {
+      var gx = graphLeft + 50;
+      var gy = 62;
+      var gw = graphRight - graphLeft - 80;
+      var gh = 360;
+      var meet = getDoubleThrowMeet();
+      var yMin = 0;
+      var yMax = 1;
+      var i;
+
+      for (i = 0; i <= 180; i++) {
+        var sampleT = i * throwMaxT / 180;
+        yMax = Math.max(yMax, Math.max(0, throwYA(sampleT)), Math.max(0, throwYB(sampleT)));
+      }
+      yMax = Math.max(yMax, meet.y + 20);
+      yMax += Math.max(10, yMax * 0.12);
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("高度-时间图像 y(t)", graphLeft + 24, 20);
+
+      noStroke();
+      fill("#5b6472");
+      textSize(12);
+      text("横轴：绝对时间 t / s；纵轴：高度 y / m", graphLeft + 24, 44);
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      noFill();
+      rect(gx, gy, gw, gh);
+
+      stroke("#e5e7eb");
+      strokeWeight(1);
+      for (i = 0; i <= 4; i++) {
+        var gridY = gy + i * gh / 4;
+        line(gx, gridY, gx + gw, gridY);
+      }
+      for (i = 0; i <= 4; i++) {
+        var gridX = gx + i * gw / 4;
+        line(gridX, gy, gridX, gy + gh);
+      }
+
+      noStroke();
+      fill("#5b6472");
+      textSize(11);
+      textAlign(RIGHT, CENTER);
+      for (i = 0; i <= 4; i++) {
+        var tickY = gy + i * gh / 4;
+        var valY = map(i, 0, 4, yMax, yMin);
+        text(valY.toFixed(0), gx - 8, tickY);
+      }
+
+      textAlign(CENTER, TOP);
+      for (i = 0; i <= 4; i++) {
+        var tickX = gx + i * gw / 4;
+        var valT = i * throwMaxT / 4;
+        text(valT.toFixed(1) + "s", tickX, gy + gh + 10);
+      }
+
+      drawThrowCurve(gx, gy, gw, gh, yMin, yMax, "a");
+      drawThrowCurve(gx, gy, gw, gh, yMin, yMax, "b");
+
+      if (meet.canMeet) {
+        var meetX = map(meet.t, 0, throwMaxT, gx, gx + gw);
+        var meetY = map(meet.y, yMin, yMax, gy + gh, gy);
+        noStroke();
+        fill("#f97316");
+        circle(meetX, meetY, 10);
+      }
+
+      var currentX = map(Math.min(throwT, throwMaxT), 0, throwMaxT, gx, gx + gw);
+      stroke("#111827");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      line(currentX, gy, currentX, gy + gh);
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#2563eb");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("A：初速度 2v₀", gx + 10, gy + 10);
+      fill("#dc2626");
+      text("B：延迟 Δt 后初速度 v₀", gx + 10, gy + 28);
+      fill("#f97316");
+      text("橙点：空中相遇", gx + 10, gy + 46);
+
+      noStroke();
+      fill("#111827");
+      textAlign(RIGHT, TOP);
+      text("条件：" + meet.low.toFixed(1) + "s < Δt < " + meet.high.toFixed(1) + "s", gx + gw, gy - 22);
+    }
+
+    function drawThrowCurve(gx, gy, gw, gh, yMin, yMax, kind) {
+      var i;
+      var colorHex = kind === "a" ? "#2563eb" : "#dc2626";
+
+      noFill();
+      stroke(colorHex);
+      strokeWeight(2.5);
+      beginShape();
+      for (i = 0; i <= 180; i++) {
+        var t = i * throwMaxT / 180;
+        var y = kind === "a" ? throwYA(t) : throwYB(t);
+        y = Math.max(0, y);
+        var px = map(t, 0, throwMaxT, gx, gx + gw);
+        var py = map(y, yMin, yMax, gy + gh, gy);
+        vertex(px, py);
+      }
+      endShape();
+    }
+
+    function toggleInclineSlotPlay() {
+      slotPlaying = !slotPlaying;
+      updateLabels();
+    }
+
+    function resetInclineSlotTime() {
+      slotT = 0;
+      slotPlaying = false;
+      updateLabels();
+    }
+
+    function updateInclineSlot(dt) {
+      if (slotPlaying) {
+        slotT += dt;
+        if (slotT >= slotMaxT) {
+          slotT = slotMaxT;
+          slotPlaying = false;
+        }
+        updateLabels();
+      }
+    }
+
+    function slotAccel(thetaDeg) {
+      return slotG * Math.cos(thetaDeg * Math.PI / 180);
+    }
+
+    function slotLength(radius, thetaDeg) {
+      return 2 * radius * Math.cos(thetaDeg * Math.PI / 180);
+    }
+
+    function slotArriveTime(radius) {
+      return 2 * Math.sqrt(radius / slotG);
+    }
+
+    function slotDisplacement(radius, thetaDeg, t) {
+      var a = slotAccel(thetaDeg);
+      var sMax = slotLength(radius, thetaDeg);
+      var s = 0.5 * a * t * t;
+      return Math.min(s, sMax);
+    }
+
+    function slotPointAt(pX, pY, radius, thetaDeg, s) {
+      var theta = thetaDeg * Math.PI / 180;
+      var length = slotLength(radius, thetaDeg);
+      var startX = pX - length * Math.sin(theta);
+      var startY = pY - length * Math.cos(theta);
+      var progress = length > 0 ? s / length : 1;
+      return {
+        x: startX + (pX - startX) * progress,
+        y: startY + (pY - startY) * progress,
+        startX: startX,
+        startY: startY
+      };
+    }
+
+    function drawInclineSlotScene() {
+      var pX = 330;
+      var pY = 388;
+      var axisX = 88;
+      var scale = 0.78;
+      var drawR = slotR * scale;
+      var drawr = slotr * scale;
+      var theta1 = slotTheta1 * Math.PI / 180;
+      var theta2 = slotTheta2 * Math.PI / 180;
+      var drawLen1 = 2 * drawR * Math.cos(theta1);
+      var drawLen2 = 2 * drawr * Math.cos(theta2);
+      var start1X = pX - drawLen1 * Math.sin(theta1);
+      var start1Y = pY - drawLen1 * Math.cos(theta1);
+      var start2X = pX + drawLen2 * Math.sin(theta2);
+      var start2Y = pY - drawLen2 * Math.cos(theta2);
+      var s1 = slotDisplacement(slotR, slotTheta1, slotT);
+      var s2 = slotDisplacement(slotr, slotTheta2, slotT);
+      var progress1 = s1 / slotLength(slotR, slotTheta1);
+      var progress2 = s2 / slotLength(slotr, slotTheta2);
+      var ball1X = start1X + (pX - start1X) * progress1;
+      var ball1Y = start1Y + (pY - start1Y) * progress1;
+      var ball2X = start2X + (pX - start2X) * progress2;
+      var ball2Y = start2Y + (pY - start2Y) * progress2;
+      var t1 = slotArriveTime(slotR);
+      var t2 = slotArriveTime(slotr);
+      var relation = "t₁ = t₂";
+
+      if (Math.abs(t1 - t2) > 0.02) {
+        relation = t1 > t2 ? "t₁ > t₂" : "t₁ < t₂";
+      }
+
+      stroke("#111827");
+      strokeWeight(3);
+      line(55, pY, 545, pY);
+
+      stroke("#94a3b8");
+      strokeWeight(2);
+      line(axisX, pY, axisX, 58);
+      drawArrow(axisX, pY, axisX, 62, "#64748b");
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("高度示意", axisX + 10, 60);
+      text("P 为最低点", pX + 10, pY + 10);
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      noFill();
+      circle(pX, pY - drawR, drawR * 2);
+      circle(pX, pY - drawr, drawr * 2);
+      line(pX, pY, pX, 82);
+      drawingContext.setLineDash([]);
+
+      stroke("#111827");
+      strokeWeight(5);
+      line(start1X, start1Y, pX, pY);
+      line(start2X, start2Y, pX, pY);
+
+      stroke("#2563eb");
+      strokeWeight(3);
+      line(start1X, start1Y, ball1X, ball1Y);
+      stroke("#dc2626");
+      line(start2X, start2Y, ball2X, ball2Y);
+
+      noStroke();
+      fill("#2563eb");
+      circle(ball1X, ball1Y, 24);
+      fill("#bfdbfe");
+      circle(ball1X - 5, ball1Y - 5, 7);
+
+      noStroke();
+      fill("#dc2626");
+      circle(ball2X, ball2Y, 24);
+      fill("#fecaca");
+      circle(ball2X - 5, ball2Y - 5, 7);
+
+      noStroke();
+      fill("#111827");
+      circle(pX, pY, 8);
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(CENTER, TOP);
+      textSize(12);
+      text("A 槽 θ₁=" + slotTheta1.toFixed(0) + "°", start1X, start1Y - 28);
+      text("C 槽 θ₂=" + slotTheta2.toFixed(0) + "°", start2X, start2Y - 28);
+      text("R=" + slotR.toFixed(0), pX - drawR - 22, pY - drawR - 8);
+      text("r=" + slotr.toFixed(0), pX + drawr + 22, pY - drawr - 8);
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(15);
+      text("必修一结业测试 单选第3题：光滑斜槽下滑", 130, 72);
+
+      noStroke();
+      fill("#5b6472");
+      textSize(12);
+      text("题干：光滑斜槽，两个重物均由静止下滑，P 为共同最低点", 130, 98);
+      text("角度相对竖直方向：a = g cosθ；圆几何：s = 2R cosθ", 130, 118);
+      text("t = sqrt(2s/a) = 2sqrt(R/g)，质量 m 不影响", 130, 138);
+      text("答案标注：C；若有粗糙，耗时会变长且需另看摩擦模型", 130, 158);
+
+      noStroke();
+      fill("#111827");
+      textSize(13);
+      text("a₁=" + slotAccel(slotTheta1).toFixed(2) + "m/s²，t₁=" + t1.toFixed(2) + "s", 130, 188);
+      text("a₂=" + slotAccel(slotTheta2).toFixed(2) + "m/s²，t₂=" + t2.toFixed(2) + "s，结论：" + relation, 130, 210);
+
+      noStroke();
+      fill("#111827");
+      textAlign(CENTER, TOP);
+      textSize(15);
+      text("拖动 R、r 可看见到达时间按 sqrt(半径) 比较；拖动角度只改变加速度和槽长", 285, 454);
+    }
+
+    function drawInclineSlotGraph() {
+      var gx = graphLeft + 50;
+      var gy = 62;
+      var gw = graphRight - graphLeft - 80;
+      var gh = 360;
+      var s1Max = slotLength(slotR, slotTheta1);
+      var s2Max = slotLength(slotr, slotTheta2);
+      var t1 = slotArriveTime(slotR);
+      var t2 = slotArriveTime(slotr);
+      var yMin = 0;
+      var yMax = Math.max(s1Max, s2Max) * 1.14;
+      var tMax = Math.max(slotMaxT, t1, t2);
+      var i;
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("沿槽位移-时间图像 s(t)", graphLeft + 24, 20);
+
+      noStroke();
+      fill("#5b6472");
+      textSize(12);
+      text("横轴：绝对时间 t / s；纵轴：沿槽位移 s / m", graphLeft + 24, 44);
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      noFill();
+      rect(gx, gy, gw, gh);
+
+      stroke("#e5e7eb");
+      strokeWeight(1);
+      for (i = 0; i <= 4; i++) {
+        var gridY = gy + i * gh / 4;
+        line(gx, gridY, gx + gw, gridY);
+      }
+      for (i = 0; i <= 4; i++) {
+        var gridX = gx + i * gw / 4;
+        line(gridX, gy, gridX, gy + gh);
+      }
+
+      noStroke();
+      fill("#5b6472");
+      textSize(11);
+      textAlign(RIGHT, CENTER);
+      for (i = 0; i <= 4; i++) {
+        var tickY = gy + i * gh / 4;
+        var valY = map(i, 0, 4, yMax, yMin);
+        text(valY.toFixed(0), gx - 8, tickY);
+      }
+
+      textAlign(CENTER, TOP);
+      for (i = 0; i <= 4; i++) {
+        var tickX = gx + i * gw / 4;
+        var valT = i * tMax / 4;
+        text(valT.toFixed(1) + "s", tickX, gy + gh + 10);
+      }
+
+      drawInclineSlotCurve(gx, gy, gw, gh, tMax, yMin, yMax, "one");
+      drawInclineSlotCurve(gx, gy, gw, gh, tMax, yMin, yMax, "two");
+
+      var arriveX1 = map(t1, 0, tMax, gx, gx + gw);
+      var arriveY1 = map(s1Max, yMin, yMax, gy + gh, gy);
+      var arriveX2 = map(t2, 0, tMax, gx, gx + gw);
+      var arriveY2 = map(s2Max, yMin, yMax, gy + gh, gy);
+
+      noStroke();
+      fill("#2563eb");
+      circle(arriveX1, arriveY1, 9);
+      fill("#dc2626");
+      circle(arriveX2, arriveY2, 9);
+
+      var currentX = map(Math.min(slotT, tMax), 0, tMax, gx, gx + gw);
+      stroke("#111827");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      line(currentX, gy, currentX, gy + gh);
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#2563eb");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("A 槽：s₁(t)，t₁=" + t1.toFixed(2) + "s", gx + 10, gy + 10);
+      fill("#dc2626");
+      text("C 槽：s₂(t)，t₂=" + t2.toFixed(2) + "s", gx + 10, gy + 28);
+      fill("#111827");
+      text("a = g cosθ，g=10m/s²", gx + 10, gy + 46);
+
+      noStroke();
+      fill("#111827");
+      textAlign(RIGHT, TOP);
+      text("到达 P 的时刻由半径决定", gx + gw, gy - 22);
+    }
+
+    function drawInclineSlotCurve(gx, gy, gw, gh, tMax, yMin, yMax, kind) {
+      var i;
+      var radius = kind === "one" ? slotR : slotr;
+      var thetaDeg = kind === "one" ? slotTheta1 : slotTheta2;
+      var colorHex = kind === "one" ? "#2563eb" : "#dc2626";
+
+      noFill();
+      stroke(colorHex);
+      strokeWeight(2.5);
+      beginShape();
+      for (i = 0; i <= 180; i++) {
+        var t = i * tMax / 180;
+        var s = slotDisplacement(radius, thetaDeg, t);
+        var px = map(t, 0, tMax, gx, gx + gw);
+        var py = map(s, yMin, yMax, gy + gh, gy);
+        vertex(px, py);
+      }
+      endShape();
+    }
+
+    function trimData(arr) {
+      while (arr.length > 2 && arr[0].t < simTime - graphWindow) {
+        arr.shift();
+      }
+    }
+
+    function drawGraph(data, title, yLabel, colorHex, frozen) {
+      var gx = graphLeft + 48;
+      var gy = 62;
+      var gw = graphRight - graphLeft - 78;
+      var gh = 360;
+      var i;
+      var tMin;
+      var tMax;
+      var yMin = -1;
+      var yMax = 1;
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text(title, graphLeft + 24, 20);
+
+      noStroke();
+      fill("#5b6472");
+      textSize(12);
+      text("横轴：绝对时间 t / s；纵轴：" + yLabel, graphLeft + 24, 44);
+
+      if (data.length > 0) {
+        tMax = Math.max(graphWindow, data[data.length - 1].t);
+      } else {
+        tMax = Math.max(graphWindow, simTime);
+      }
+      tMin = Math.max(0, tMax - graphWindow);
+
+      if (data.length > 0) {
+        yMin = data[0].v;
+        yMax = data[0].v;
+        for (i = 0; i < data.length; i++) {
+          if (data[i].v < yMin) {
+            yMin = data[i].v;
+          }
+          if (data[i].v > yMax) {
+            yMax = data[i].v;
+          }
+        }
+      }
+
+      var pad = Math.max(1, (yMax - yMin) * 0.18);
+      if (Math.abs(yMax - yMin) < 0.001) {
+        pad = Math.max(1, Math.abs(yMax) * 0.2);
+      }
+      yMin -= pad;
+      yMax += pad;
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      noFill();
+      rect(gx, gy, gw, gh);
+
+      stroke("#e5e7eb");
+      strokeWeight(1);
+      for (i = 0; i <= 4; i++) {
+        var yy = gy + i * gh / 4;
+        line(gx, yy, gx + gw, yy);
+      }
+
+      for (i = 0; i <= 4; i++) {
+        var xx = gx + i * gw / 4;
+        line(xx, gy, xx, gy + gh);
+      }
+
+      noStroke();
+      fill("#5b6472");
+      textSize(11);
+      textAlign(RIGHT, CENTER);
+      for (i = 0; i <= 4; i++) {
+        var tickY = gy + i * gh / 4;
+        var valY = map(i, 0, 4, yMax, yMin);
+        text(valY.toFixed(1), gx - 8, tickY);
+      }
+
+      textAlign(CENTER, TOP);
+      for (i = 0; i <= 4; i++) {
+        var tickX = gx + i * gw / 4;
+        var valT = tMin + i * (tMax - tMin) / 4;
+        text(valT.toFixed(0) + "s", tickX, gy + gh + 10);
+      }
+
+      if (data.length > 1) {
+        noFill();
+        stroke(colorHex);
+        strokeWeight(2.5);
+        beginShape();
+        for (i = 0; i < data.length; i++) {
+          var px = map(data[i].t, tMin, tMax, gx, gx + gw);
+          var py = map(data[i].v, yMin, yMax, gy + gh, gy);
+          vertex(px, py);
+        }
+        endShape();
+      }
+
+      if (frozen) {
+        noStroke();
+        fill("#111827");
+        textAlign(RIGHT, TOP);
+        textSize(12);
+        text("图表已冻结", gx + gw, gy - 22);
+      }
+    }
+  </script>
+</body>
+</html>
