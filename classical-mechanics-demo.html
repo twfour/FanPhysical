@@ -175,6 +175,72 @@
       background: #fff;
     }
 
+    .problem-notes {
+      display: none;
+      width: 1000px;
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .problem-notes-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .problem-note-block {
+      padding: 16px 18px;
+      min-height: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .problem-note-block:last-child {
+      border-bottom: none;
+      background: var(--panel);
+    }
+
+    .problem-note-kicker {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .problem-note-block h2 {
+      margin: 0 0 10px;
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.35;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .problem-note-block p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .problem-note-block strong {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .formula-line {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 5px 8px;
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
     .note {
       width: 1000px;
       margin-top: 12px;
@@ -359,9 +425,86 @@
 
     <div id="canvas-holder"></div>
 
-    <p class="note">
-      Sample 目录保留三个独立演示；FanPhysical 目录按课时、测试卷和题目组织。图表横轴显示绝对时间；弹簧和单摆达到肉眼基本静止的阈值后，曲线停止追加，坐标轴冻结，并在标题中显示“已稳定”。FanPhysical 题目展示竖直上抛、追及、防追尾、斜槽下滑等运动模型。
-    </p>
+    <div id="doubleThrowNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>课时4 B组第7题：双球上抛相遇</h2>
+          <p>A 球先从地面以初速度 2v0 竖直上抛；经过时间 Delta t 后，B 球再从地面以初速度 v0 竖直上抛。判断两球能否在空中相遇，并用高度-时间图像理解相遇条件。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>先看 B 抛出时 A 是否还在空中，再看相对速度</h2>
+          <p>B 抛出时 A 的高度为 <strong>yA(Delta t)=2v0 Delta t - 1/2 g Delta t^2</strong>。若 A 已落地则无空中相遇；若 A 还在空中，还要 B 能追上 A。联立位移式可得空中相遇条件 <span class="formula-line">2v0/g &lt; Delta t &lt; 4v0/g</span>。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>晚抛的球要“追得上”，早抛的球也要“还没落地”</h2>
+          <p>下界来自 B 抛出后必须比 A 更快接近，上界来自 A 落地前必须完成相遇。</p>
+        </section>
+      </div>
+    </div>
+
+    <div id="pipeDropNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>课时4 B组第10题：金属管穿球</h2>
+          <p>金属管从地面以初速度 v 竖直上抛，管长为 L；小球从管口上方高度 h 处由静止释放。判断小球是否会穿过金属管，并分析穿过发生在金属管上升还是下降阶段。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>同加速度问题，消掉重力项看相对位置</h2>
+          <p>管底 <strong>y = vt - 1/2gt^2</strong>，管顶 <strong>y = vt - 1/2gt^2 + L</strong>，小球 <strong>y = h - 1/2gt^2</strong>。穿过条件是 <span class="formula-line">管底 <= 小球高度 <= 管顶</span>，等价于 <strong>h-L <= vt <= h</strong>，所以穿过区间由 h、L、v 决定。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>两者都受 g，关键只剩 h - vt</h2>
+          <p>把小球和金属管放到相对运动里看，重力加速度相同会抵消，判断就变成小球是否落在管底和管顶之间。</p>
+        </section>
+      </div>
+    </div>
+
+    <div id="threeCarNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>课时4 B组第11题：三车防追尾</h2>
+          <p>甲、乙、丙三车同向行驶，初速度分别为 6m/s、8m/s、9m/s，相邻车距均为 5m。甲车以 1m/s^2 减速，乙、丙立即匀减速，求乙、丙为避免追尾所需的最小减速度。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>让最危险间距的最小值刚好等于 0</h2>
+          <p>先看甲乙：<strong>sAB = 5 - 2t + 1/2(a乙 - 1)t^2</strong>，令它的最小值刚好为 0，得 <span class="formula-line">a乙,min = 7/5 m/s^2</span>。再看丙相对乙的追及，最小安全情形是丙停车点刚好不超过乙停车点，得 <span class="formula-line">a丙,min = 189/130 m/s^2</span>。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>“最小减速度”就是刚好擦着安全边界</h2>
+          <p>防追尾题不要只看速度大小，要看车间距曲线的最低点；最低点碰到 0m，就是临界答案。</p>
+        </section>
+      </div>
+    </div>
+
+    <div id="inclineSlotNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>必修一结业测试 单选第3题：光滑斜槽下滑</h2>
+          <p>AB、CD 是光滑斜槽，端点分别在半径为 R 和 r 的两个圆周上，延长线交于共同切点 P，P 为最低点。两个质量均为 m 的重物分别沿 AB、CD 由静止下滑；AP、CP 与竖直方向夹角分别为 30°、45°，比较加速度、下滑时间、粗糙影响和质量影响。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>从外圆滑到内圆，不是滑到 P 点</h2>
+          <p>夹角相对竖直方向，沿槽加速度 <strong>a = g cosθ</strong>。从外圆到内圆的槽长为 <strong>s = 2(R-r)cosθ</strong>，所以 <span class="formula-line">t = sqrt(2s/a) = 2sqrt((R-r)/g)</span>。时间与角度抵消，质量 m 不影响；粗糙时摩擦做负功，耗时变长。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>看半径差，不看角度</h2>
+          <p>本题的关键是 AB、CD 都只走“外圆到内圆”这一段，因此下滑时间由 <strong>R-r</strong> 决定；角度会同时改变加速度和槽长，最后被抵消。</p>
+        </section>
+      </div>
+    </div>
+
       </section>
     </div>
   </main>
@@ -521,6 +664,10 @@
       document.getElementById("pipeDropControls").style.display = sceneName === "pipeDrop" ? "grid" : "none";
       document.getElementById("threeCarControls").style.display = sceneName === "threeCar" ? "grid" : "none";
       document.getElementById("inclineSlotControls").style.display = sceneName === "inclineSlot" ? "grid" : "none";
+      document.getElementById("doubleThrowNotes").style.display = sceneName === "doubleThrow" ? "block" : "none";
+      document.getElementById("pipeDropNotes").style.display = sceneName === "pipeDrop" ? "block" : "none";
+      document.getElementById("threeCarNotes").style.display = sceneName === "threeCar" ? "block" : "none";
+      document.getElementById("inclineSlotNotes").style.display = sceneName === "inclineSlot" ? "block" : "none";
     }
 
     function updateLabels() {
@@ -1041,19 +1188,17 @@
       noStroke();
       fill("#5b6472");
       textSize(12);
-      text("管顶：y = vt - 1/2gt² + L", 130, 112);
-      text("管底：y = vt - 1/2gt²", 130, 132);
-      text("小球：y = h - 1/2gt²", 130, 152);
-      text("穿过条件：管底 ≤ 小球高度 ≤ 管顶", 130, 172);
+      text("动画展示管底、管顶和小球的相对位置", 130, 112);
+      text("完整题目、解析和总结见画布下方", 130, 132);
 
       noStroke();
       fill(phaseColor);
       textSize(14);
-      text(phaseText + "，v管 = " + vPipe.toFixed(1) + " m/s", 130, 202);
+      text(phaseText + "，v管 = " + vPipe.toFixed(1) + " m/s", 130, 166);
 
       noStroke();
       fill(insideNow ? "#c2410c" : "#111827");
-      text("判定：" + passText, 130, 226);
+      text("判定：" + passText, 130, 190);
 
       noStroke();
       fill("#111827");
@@ -1361,16 +1506,15 @@
       noStroke();
       fill("#5b6472");
       textSize(12);
-      text("初速：甲 6m/s，乙 8m/s，丙 9m/s；初始相邻车距 5m", 130, 112);
-      text("甲车减速度 a甲 = 1m/s²，乙、丙立即匀减速", 130, 132);
-      text("图中三车纵向错开只是为了看清，水平投影位置才是同一公路位置。", 130, 152);
+      text("动画展示三车水平投影位置和相邻车距", 130, 112);
+      text("图中三车纵向错开只是为了看清", 130, 132);
+      text("完整题目、解析和总结见画布下方", 130, 152);
 
       noStroke();
       fill("#111827");
       textSize(13);
-      text("甲乙：s_AB = 5 - 2t + 1/2(a乙 - 1)t²，令最小值为 0", 130, 184);
-      text("得 a乙,min = 7/5 m/s²；丙车相对乙车继续追及到停车点", 130, 206);
-      text("最终 x丙停 = x乙停，得 a丙,min = 189/130 m/s²", 130, 228);
+      text("a乙,min = 7/5 m/s²", 130, 184);
+      text("a丙,min = 189/130 m/s²", 130, 206);
 
       noStroke();
       fill("#111827");
@@ -1634,20 +1778,18 @@
       noStroke();
       fill("#5b6472");
       textSize(12);
-      text("A：t=0 从地面以 2v₀ 上抛；B：间隔 Δt 后以 v₀ 上抛", 130, 112);
-      text("y_A = 2v₀t - 1/2gt²；y_B = v₀(t-Δt) - 1/2g(t-Δt)²", 130, 132);
-      text("B 抛出瞬间：y_A(Δt)=2v₀Δt - 1/2gΔt²", 130, 152);
-      text("相对速度：v_A - v_B = v₀ - gΔt", 130, 172);
+      text("动画展示 A、B 两球高度和相遇点", 130, 112);
+      text("完整题目、解析和总结见画布下方", 130, 132);
 
       noStroke();
       fill(statusColor);
       textSize(14);
-      text("判定：" + statusText + "；条件 2v₀/g < Δt < 4v₀/g", 130, 202);
+      text("判定：" + statusText, 130, 166);
 
       noStroke();
       fill("#111827");
       textSize(13);
-      text("当前范围：" + meet.low.toFixed(1) + "s < Δt < " + meet.high.toFixed(1) + "s，当前 Δt=" + throwDelay.toFixed(1) + "s", 130, 226);
+      text("条件：" + meet.low.toFixed(1) + "s < Δt < " + meet.high.toFixed(1) + "s，当前 Δt=" + throwDelay.toFixed(1) + "s", 130, 190);
 
       noStroke();
       fill("#111827");
@@ -1927,16 +2069,14 @@
       noStroke();
       fill("#5b6472");
       textSize(12);
-      text("题干：小球分别从外圆 A、C 沿光滑斜槽滑到内圆 B、D", 130, 98);
-      text("角度相对竖直方向：a = g cosθ；槽长：s = 2(R-r)cosθ", 130, 118);
-      text("t = sqrt(2s/a) = 2sqrt((R-r)/g)，质量 m 不影响", 130, 138);
-      text("答案标注：C；若有粗糙，耗时会变长且需另看摩擦模型", 130, 158);
+      text("动画只展示外圆 A/C 到内圆 B/D 的滑行段", 130, 98);
+      text("完整题目、解析和总结见画布下方", 130, 118);
 
       noStroke();
       fill("#111827");
       textSize(13);
-      text("a₁=" + slotAccel(slotTheta1).toFixed(2) + "m/s²，t₁=" + t1.toFixed(2) + "s", 130, 188);
-      text("a₂=" + slotAccel(slotTheta2).toFixed(2) + "m/s²，t₂=" + t2.toFixed(2) + "s，结论：" + relation, 130, 210);
+      text("a₁=" + slotAccel(slotTheta1).toFixed(2) + "m/s²，t₁=" + t1.toFixed(2) + "s", 130, 152);
+      text("a₂=" + slotAccel(slotTheta2).toFixed(2) + "m/s²，t₂=" + t2.toFixed(2) + "s，结论：" + relation, 130, 174);
 
       noStroke();
       fill("#111827");
