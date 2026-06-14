@@ -558,11 +558,20 @@
       document.getElementById("carTVal").innerText = carT.toFixed(1) + "s";
       document.getElementById("carT").value = carT.toFixed(1);
       document.getElementById("carPlayBtn").innerText = carPlaying ? "暂停" : "播放";
+      if (slotR <= slotr) {
+        slotr = slotR - 10;
+        if (slotr < 60) {
+          slotr = 60;
+          slotR = 70;
+        }
+      }
       document.getElementById("slotRVal").innerText = slotR.toFixed(0);
       document.getElementById("slotrVal").innerText = slotr.toFixed(0);
       document.getElementById("slotTheta1Val").innerText = slotTheta1.toFixed(0) + "°";
       document.getElementById("slotTheta2Val").innerText = slotTheta2.toFixed(0) + "°";
       document.getElementById("slotTVal").innerText = slotT.toFixed(1) + "s";
+      document.getElementById("slotR").value = slotR.toFixed(0);
+      document.getElementById("slotr").value = slotr.toFixed(0);
       document.getElementById("slotT").value = slotT.toFixed(1);
       document.getElementById("slotPlayBtn").innerText = slotPlaying ? "暂停" : "播放";
     }
@@ -1787,32 +1796,35 @@
       return slotG * Math.cos(thetaDeg * Math.PI / 180);
     }
 
-    function slotLength(radius, thetaDeg) {
-      return 2 * radius * Math.cos(thetaDeg * Math.PI / 180);
+    function slotLength(thetaDeg) {
+      return 2 * (slotR - slotr) * Math.cos(thetaDeg * Math.PI / 180);
     }
 
-    function slotArriveTime(radius) {
-      return 2 * Math.sqrt(radius / slotG);
+    function slotArriveTime() {
+      return 2 * Math.sqrt((slotR - slotr) / slotG);
     }
 
-    function slotDisplacement(radius, thetaDeg, t) {
+    function slotDisplacement(thetaDeg, t) {
       var a = slotAccel(thetaDeg);
-      var sMax = slotLength(radius, thetaDeg);
+      var sMax = slotLength(thetaDeg);
       var s = 0.5 * a * t * t;
       return Math.min(s, sMax);
     }
 
-    function slotPointAt(pX, pY, radius, thetaDeg, s) {
+    function slotEndpoints(pX, pY, scale, thetaDeg, side) {
       var theta = thetaDeg * Math.PI / 180;
-      var length = slotLength(radius, thetaDeg);
-      var startX = pX - length * Math.sin(theta);
-      var startY = pY - length * Math.cos(theta);
-      var progress = length > 0 ? s / length : 1;
+      var direction = side === "left" ? -1 : 1;
+      var outerLen = 2 * slotR * scale * Math.cos(theta);
+      var innerLen = 2 * slotr * scale * Math.cos(theta);
+      var startX = pX + direction * outerLen * Math.sin(theta);
+      var startY = pY - outerLen * Math.cos(theta);
+      var endX = pX + direction * innerLen * Math.sin(theta);
+      var endY = pY - innerLen * Math.cos(theta);
       return {
-        x: startX + (pX - startX) * progress,
-        y: startY + (pY - startY) * progress,
         startX: startX,
-        startY: startY
+        startY: startY,
+        endX: endX,
+        endY: endY
       };
     }
 
@@ -1823,24 +1835,18 @@
       var scale = 0.78;
       var drawR = slotR * scale;
       var drawr = slotr * scale;
-      var theta1 = slotTheta1 * Math.PI / 180;
-      var theta2 = slotTheta2 * Math.PI / 180;
-      var drawLen1 = 2 * drawR * Math.cos(theta1);
-      var drawLen2 = 2 * drawr * Math.cos(theta2);
-      var start1X = pX - drawLen1 * Math.sin(theta1);
-      var start1Y = pY - drawLen1 * Math.cos(theta1);
-      var start2X = pX + drawLen2 * Math.sin(theta2);
-      var start2Y = pY - drawLen2 * Math.cos(theta2);
-      var s1 = slotDisplacement(slotR, slotTheta1, slotT);
-      var s2 = slotDisplacement(slotr, slotTheta2, slotT);
-      var progress1 = s1 / slotLength(slotR, slotTheta1);
-      var progress2 = s2 / slotLength(slotr, slotTheta2);
-      var ball1X = start1X + (pX - start1X) * progress1;
-      var ball1Y = start1Y + (pY - start1Y) * progress1;
-      var ball2X = start2X + (pX - start2X) * progress2;
-      var ball2Y = start2Y + (pY - start2Y) * progress2;
-      var t1 = slotArriveTime(slotR);
-      var t2 = slotArriveTime(slotr);
+      var endpoints1 = slotEndpoints(pX, pY, scale, slotTheta1, "left");
+      var endpoints2 = slotEndpoints(pX, pY, scale, slotTheta2, "right");
+      var s1 = slotDisplacement(slotTheta1, slotT);
+      var s2 = slotDisplacement(slotTheta2, slotT);
+      var progress1 = s1 / slotLength(slotTheta1);
+      var progress2 = s2 / slotLength(slotTheta2);
+      var ball1X = endpoints1.startX + (endpoints1.endX - endpoints1.startX) * progress1;
+      var ball1Y = endpoints1.startY + (endpoints1.endY - endpoints1.startY) * progress1;
+      var ball2X = endpoints2.startX + (endpoints2.endX - endpoints2.startX) * progress2;
+      var ball2Y = endpoints2.startY + (endpoints2.endY - endpoints2.startY) * progress2;
+      var t1 = slotArriveTime();
+      var t2 = slotArriveTime();
       var relation = "t₁ = t₂";
 
       if (Math.abs(t1 - t2) > 0.02) {
@@ -1874,14 +1880,14 @@
 
       stroke("#111827");
       strokeWeight(5);
-      line(start1X, start1Y, pX, pY);
-      line(start2X, start2Y, pX, pY);
+      line(endpoints1.startX, endpoints1.startY, endpoints1.endX, endpoints1.endY);
+      line(endpoints2.startX, endpoints2.startY, endpoints2.endX, endpoints2.endY);
 
       stroke("#2563eb");
       strokeWeight(3);
-      line(start1X, start1Y, ball1X, ball1Y);
+      line(endpoints1.startX, endpoints1.startY, ball1X, ball1Y);
       stroke("#dc2626");
-      line(start2X, start2Y, ball2X, ball2Y);
+      line(endpoints2.startX, endpoints2.startY, ball2X, ball2Y);
 
       noStroke();
       fill("#2563eb");
@@ -1898,13 +1904,17 @@
       noStroke();
       fill("#111827");
       circle(pX, pY, 8);
+      fill("#2563eb");
+      circle(endpoints1.endX, endpoints1.endY, 8);
+      fill("#dc2626");
+      circle(endpoints2.endX, endpoints2.endY, 8);
 
       noStroke();
       fill("#5b6472");
       textAlign(CENTER, TOP);
       textSize(12);
-      text("A 槽 θ₁=" + slotTheta1.toFixed(0) + "°", start1X, start1Y - 28);
-      text("C 槽 θ₂=" + slotTheta2.toFixed(0) + "°", start2X, start2Y - 28);
+      text("A→B 槽 θ₁=" + slotTheta1.toFixed(0) + "°", endpoints1.startX, endpoints1.startY - 28);
+      text("C→D 槽 θ₂=" + slotTheta2.toFixed(0) + "°", endpoints2.startX, endpoints2.startY - 28);
       text("R=" + slotR.toFixed(0), pX - drawR - 22, pY - drawR - 8);
       text("r=" + slotr.toFixed(0), pX + drawr + 22, pY - drawr - 8);
 
@@ -1917,9 +1927,9 @@
       noStroke();
       fill("#5b6472");
       textSize(12);
-      text("题干：光滑斜槽，两个重物均由静止下滑，P 为共同最低点", 130, 98);
-      text("角度相对竖直方向：a = g cosθ；圆几何：s = 2R cosθ", 130, 118);
-      text("t = sqrt(2s/a) = 2sqrt(R/g)，质量 m 不影响", 130, 138);
+      text("题干：小球分别从外圆 A、C 沿光滑斜槽滑到内圆 B、D", 130, 98);
+      text("角度相对竖直方向：a = g cosθ；槽长：s = 2(R-r)cosθ", 130, 118);
+      text("t = sqrt(2s/a) = 2sqrt((R-r)/g)，质量 m 不影响", 130, 138);
       text("答案标注：C；若有粗糙，耗时会变长且需另看摩擦模型", 130, 158);
 
       noStroke();
@@ -1932,7 +1942,7 @@
       fill("#111827");
       textAlign(CENTER, TOP);
       textSize(15);
-      text("拖动 R、r 可看见到达时间按 sqrt(半径) 比较；拖动角度只改变加速度和槽长", 285, 454);
+      text("拖动 R、r 可看见到达时间按 sqrt(R-r) 比较；拖动角度只改变加速度和槽长", 285, 454);
     }
 
     function drawInclineSlotGraph() {
@@ -1940,10 +1950,10 @@
       var gy = 62;
       var gw = graphRight - graphLeft - 80;
       var gh = 360;
-      var s1Max = slotLength(slotR, slotTheta1);
-      var s2Max = slotLength(slotr, slotTheta2);
-      var t1 = slotArriveTime(slotR);
-      var t2 = slotArriveTime(slotr);
+      var s1Max = slotLength(slotTheta1);
+      var s2Max = slotLength(slotTheta2);
+      var t1 = slotArriveTime();
+      var t2 = slotArriveTime();
       var yMin = 0;
       var yMax = Math.max(s1Max, s2Max) * 1.14;
       var tMax = Math.max(slotMaxT, t1, t2);
@@ -2027,12 +2037,11 @@
       noStroke();
       fill("#111827");
       textAlign(RIGHT, TOP);
-      text("到达 P 的时刻由半径决定", gx + gw, gy - 22);
+      text("到达内圆 B、D 的时刻由 R-r 决定", gx + gw, gy - 22);
     }
 
     function drawInclineSlotCurve(gx, gy, gw, gh, tMax, yMin, yMax, kind) {
       var i;
-      var radius = kind === "one" ? slotR : slotr;
       var thetaDeg = kind === "one" ? slotTheta1 : slotTheta2;
       var colorHex = kind === "one" ? "#2563eb" : "#dc2626";
 
@@ -2042,7 +2051,7 @@
       beginShape();
       for (i = 0; i <= 180; i++) {
         var t = i * tMax / 180;
-        var s = slotDisplacement(radius, thetaDeg, t);
+        var s = slotDisplacement(thetaDeg, t);
         var px = map(t, 0, tMax, gx, gx + gw);
         var py = map(s, yMin, yMax, gy + gh, gy);
         vertex(px, py);
