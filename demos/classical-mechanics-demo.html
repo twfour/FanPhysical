@@ -273,6 +273,9 @@
         <div class="tree-subfolder">必修一结业测试</div>
         <div class="tree-subfolder">单选题</div>
         <button id="treeInclineSlot" class="tree-item indent" onclick="switchScene('inclineSlot')">第3题：光滑斜槽下滑</button>
+        <div class="tree-subfolder">曲线运动与平抛运动</div>
+        <button id="treeRiverCrossing" class="tree-item indent" onclick="switchScene('riverCrossing')">小船渡河</button>
+        <button id="treeProjectileBasic" class="tree-item indent" onclick="switchScene('projectileBasic')">平抛运动基础</button>
       </aside>
 
       <section class="workspace">
@@ -423,6 +426,61 @@
       <button class="action" onclick="resetInclineSlotTime()">回到 0 秒</button>
     </div>
 
+    <div id="riverCrossingControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>河宽 d</label>
+        <input id="riverWidth" type="range" min="120" max="320" step="10" value="220" oninput="riverWidth=this.valueAsNumber; riverPlaying=false; updateLabels();" />
+        <span id="riverWidthVal" class="value">220</span>
+      </div>
+      <div class="control">
+        <label>船速 v船</label>
+        <input id="riverBoatSpeed" type="range" min="2" max="12" step="0.5" value="6" oninput="riverBoatSpeed=this.valueAsNumber; riverPlaying=false; updateLabels();" />
+        <span id="riverBoatSpeedVal" class="value">6.0</span>
+      </div>
+      <div class="control">
+        <label>水速 v水</label>
+        <input id="riverWaterSpeed" type="range" min="0" max="10" step="0.5" value="3" oninput="riverWaterSpeed=this.valueAsNumber; riverPlaying=false; updateLabels();" />
+        <span id="riverWaterSpeedVal" class="value">3.0</span>
+      </div>
+      <div class="control">
+        <label>船头角 θ</label>
+        <input id="riverTheta" type="range" min="30" max="150" step="1" value="90" oninput="riverTheta=this.valueAsNumber; riverPlaying=false; updateLabels();" />
+        <span id="riverThetaVal" class="value">90°</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="riverT" type="range" min="0" max="120" step="0.5" value="0" oninput="riverT=this.valueAsNumber; riverPlaying=false; updateLabels();" />
+        <span id="riverTVal" class="value">0.0s</span>
+      </div>
+      <button id="riverPlayBtn" class="action" onclick="toggleRiverPlay()">播放</button>
+      <button class="action" onclick="resetRiverTime()">回到 0 秒</button>
+    </div>
+
+    <div id="projectileBasicControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>高度 h</label>
+        <input id="projHeight" type="range" min="40" max="280" step="5" value="160" oninput="projHeight=this.valueAsNumber; projPlaying=false; updateLabels();" />
+        <span id="projHeightVal" class="value">160</span>
+      </div>
+      <div class="control">
+        <label>初速度 v₀</label>
+        <input id="projV0" type="range" min="5" max="60" step="1" value="28" oninput="projV0=this.valueAsNumber; projPlaying=false; updateLabels();" />
+        <span id="projV0Val" class="value">28</span>
+      </div>
+      <div class="control">
+        <label>重力 g</label>
+        <input id="projG" type="range" min="1" max="20" step="0.1" value="10" oninput="projG=this.valueAsNumber; projPlaying=false; updateLabels();" />
+        <span id="projGVal" class="value">10.0</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="projT" type="range" min="0" max="10" step="0.05" value="0" oninput="projT=this.valueAsNumber; projPlaying=false; updateLabels();" />
+        <span id="projTVal" class="value">0.00s</span>
+      </div>
+      <button id="projPlayBtn" class="action" onclick="toggleProjectilePlay()">播放</button>
+      <button class="action" onclick="resetProjectileTime()">回到 0 秒</button>
+    </div>
+
     <div id="canvas-holder"></div>
 
     <div id="doubleThrowNotes" class="problem-notes">
@@ -505,6 +563,46 @@
       </div>
     </div>
 
+    <div id="riverCrossingNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>曲线运动：小船渡河</h2>
+          <p>河宽为 d，小船相对静水速度为 v船，水流速度为 v水。船头与河岸夹角为 θ，判断实际航迹、渡河时间、下游偏移，并比较最短时间与最小位移策略。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>速度合成：船对地速度 = 船对水速度 + 水流速度</h2>
+          <p>把船速分解为沿河岸和垂直河岸两个方向：<strong>v⊥ = v船 sinθ</strong>，<strong>v∥ = v水 + v船 cosθ</strong>。渡河时间由垂直河岸分量决定，<span class="formula-line">t = d / (v船 sinθ)</span>；下游偏移为 <strong>x = v∥t</strong>。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>过河看垂直分量，漂移看沿岸分量</h2>
+          <p>船头正对对岸通常是最短时间；若 v船 大于 v水，可以让船头偏向上游来抵消水流，得到最小位移。</p>
+        </section>
+      </div>
+    </div>
+
+    <div id="projectileBasicNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>平抛运动基础</h2>
+          <p>物体从高度 h 处以水平初速度 v0 抛出，不计空气阻力。观察轨迹、落地时间、水平射程、竖直分速度和落地速度方向。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>水平匀速，竖直自由落体</h2>
+          <p>平抛运动可以拆成两个互不影响的分运动：水平方向 <strong>x=v0t</strong>，竖直方向 <strong>y=1/2gt^2</strong>，<strong>vy=gt</strong>。高度先决定时间，<span class="formula-line">t落 = sqrt(2h/g)</span>，再由 <strong>x落=v0t落</strong> 求射程。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>先竖直定时间，再水平定距离</h2>
+          <p>平抛题不要先猜轨迹，先拆轴：竖直方向决定“飞多久”，水平方向决定“飞多远”。</p>
+        </section>
+      </div>
+    </div>
+
       </section>
     </div>
   </main>
@@ -580,6 +678,19 @@
     var slotPlaying = false;
     var slotG = 10;
 
+    var riverWidth = 220;
+    var riverBoatSpeed = 6;
+    var riverWaterSpeed = 3;
+    var riverTheta = 90;
+    var riverT = 0;
+    var riverPlaying = false;
+
+    var projHeight = 160;
+    var projV0 = 28;
+    var projG = 10;
+    var projT = 0;
+    var projPlaying = false;
+
     var simTime = 0;
     var lastMillis = 0;
     var graphWindow = 14;
@@ -644,6 +755,18 @@
         drawInclineSlotScene();
         drawInclineSlotGraph();
       }
+
+      if (currentScene === "riverCrossing") {
+        updateRiver(dt);
+        drawRiverScene();
+        drawRiverGraph();
+      }
+
+      if (currentScene === "projectileBasic") {
+        updateProjectile(dt);
+        drawProjectileScene();
+        drawProjectileGraph();
+      }
     }
 
     function switchScene(sceneName) {
@@ -656,6 +779,8 @@
       document.getElementById("treePipeDrop").className = sceneName === "pipeDrop" ? "tree-item indent active" : "tree-item indent";
       document.getElementById("treeThreeCar").className = sceneName === "threeCar" ? "tree-item indent active" : "tree-item indent";
       document.getElementById("treeInclineSlot").className = sceneName === "inclineSlot" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treeRiverCrossing").className = sceneName === "riverCrossing" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treeProjectileBasic").className = sceneName === "projectileBasic" ? "tree-item indent active" : "tree-item indent";
 
       document.getElementById("springControls").style.display = sceneName === "spring" ? "grid" : "none";
       document.getElementById("pendulumControls").style.display = sceneName === "pendulum" ? "grid" : "none";
@@ -664,10 +789,14 @@
       document.getElementById("pipeDropControls").style.display = sceneName === "pipeDrop" ? "grid" : "none";
       document.getElementById("threeCarControls").style.display = sceneName === "threeCar" ? "grid" : "none";
       document.getElementById("inclineSlotControls").style.display = sceneName === "inclineSlot" ? "grid" : "none";
+      document.getElementById("riverCrossingControls").style.display = sceneName === "riverCrossing" ? "grid" : "none";
+      document.getElementById("projectileBasicControls").style.display = sceneName === "projectileBasic" ? "grid" : "none";
       document.getElementById("doubleThrowNotes").style.display = sceneName === "doubleThrow" ? "block" : "none";
       document.getElementById("pipeDropNotes").style.display = sceneName === "pipeDrop" ? "block" : "none";
       document.getElementById("threeCarNotes").style.display = sceneName === "threeCar" ? "block" : "none";
       document.getElementById("inclineSlotNotes").style.display = sceneName === "inclineSlot" ? "block" : "none";
+      document.getElementById("riverCrossingNotes").style.display = sceneName === "riverCrossing" ? "block" : "none";
+      document.getElementById("projectileBasicNotes").style.display = sceneName === "projectileBasic" ? "block" : "none";
     }
 
     function updateLabels() {
@@ -721,6 +850,27 @@
       document.getElementById("slotr").value = slotr.toFixed(0);
       document.getElementById("slotT").value = slotT.toFixed(1);
       document.getElementById("slotPlayBtn").innerText = slotPlaying ? "暂停" : "播放";
+      if (riverBoatSpeed * Math.sin(riverTheta * Math.PI / 180) < 0.25) {
+        riverT = 0;
+        riverPlaying = false;
+      }
+      riverT = Math.min(riverT, riverArriveTime());
+      document.getElementById("riverWidthVal").innerText = riverWidth.toFixed(0);
+      document.getElementById("riverBoatSpeedVal").innerText = riverBoatSpeed.toFixed(1);
+      document.getElementById("riverWaterSpeedVal").innerText = riverWaterSpeed.toFixed(1);
+      document.getElementById("riverThetaVal").innerText = riverTheta.toFixed(0) + "°";
+      document.getElementById("riverTVal").innerText = riverT.toFixed(1) + "s";
+      document.getElementById("riverT").max = Math.max(10, riverArriveTime()).toFixed(1);
+      document.getElementById("riverT").value = riverT.toFixed(1);
+      document.getElementById("riverPlayBtn").innerText = riverPlaying ? "暂停" : "播放";
+      projT = Math.min(projT, projectileFlightTime());
+      document.getElementById("projHeightVal").innerText = projHeight.toFixed(0);
+      document.getElementById("projV0Val").innerText = projV0.toFixed(0);
+      document.getElementById("projGVal").innerText = projG.toFixed(1);
+      document.getElementById("projTVal").innerText = projT.toFixed(2) + "s";
+      document.getElementById("projT").max = Math.max(1, projectileFlightTime()).toFixed(2);
+      document.getElementById("projT").value = projT.toFixed(2);
+      document.getElementById("projPlayBtn").innerText = projPlaying ? "暂停" : "播放";
     }
 
     function drawLayout() {
@@ -1179,32 +1329,6 @@
         text("正在穿过金属管", 331, 275);
       }
 
-      noStroke();
-      fill("#111827");
-      textAlign(LEFT, TOP);
-      textSize(15);
-      text("课时4 B组第10题：金属管穿球", 130, 86);
-
-      noStroke();
-      fill("#5b6472");
-      textSize(12);
-      text("动画展示管底、管顶和小球的相对位置", 130, 112);
-      text("完整题目、解析和总结见画布下方", 130, 132);
-
-      noStroke();
-      fill(phaseColor);
-      textSize(14);
-      text(phaseText + "，v管 = " + vPipe.toFixed(1) + " m/s", 130, 166);
-
-      noStroke();
-      fill(insideNow ? "#c2410c" : "#111827");
-      text("判定：" + passText, 130, 190);
-
-      noStroke();
-      fill("#111827");
-      textAlign(CENTER, TOP);
-      textSize(15);
-      text("同一重力加速度下，相对位置 h - vt 决定小球是否在管内", 285, 454);
     }
 
     function drawPipeDropGraph() {
@@ -1497,30 +1621,6 @@
         text("刚好不追尾", 321, 257);
       }
 
-      noStroke();
-      fill("#111827");
-      textAlign(LEFT, TOP);
-      textSize(15);
-      text("课时4 B组第11题：三车防追尾", 130, 86);
-
-      noStroke();
-      fill("#5b6472");
-      textSize(12);
-      text("动画展示三车水平投影位置和相邻车距", 130, 112);
-      text("图中三车纵向错开只是为了看清", 130, 132);
-      text("完整题目、解析和总结见画布下方", 130, 152);
-
-      noStroke();
-      fill("#111827");
-      textSize(13);
-      text("a乙,min = 7/5 m/s²", 130, 184);
-      text("a丙,min = 189/130 m/s²", 130, 206);
-
-      noStroke();
-      fill("#111827");
-      textAlign(CENTER, TOP);
-      textSize(15);
-      text("观察间距曲线是否碰到 0m 安全边界", 285, 454);
     }
 
     function drawThreeCarGraph() {
@@ -1611,10 +1711,6 @@
       fill("#ef4444");
       text("0m 安全边界", gx + 10, gy + 46);
 
-      noStroke();
-      fill("#111827");
-      textAlign(RIGHT, TOP);
-      text("a丙,min = 189/130 m/s²", gx + gw, gy - 22);
     }
 
     function drawThreeCarGapCurve(gx, gy, gw, gh, yMin, yMax, kind) {
@@ -1769,33 +1865,6 @@
         text("此刻两球在空中相遇", 315, 275);
       }
 
-      noStroke();
-      fill("#111827");
-      textAlign(LEFT, TOP);
-      textSize(15);
-      text("课时4 B组第7题：双球上抛相遇", 130, 86);
-
-      noStroke();
-      fill("#5b6472");
-      textSize(12);
-      text("动画展示 A、B 两球高度和相遇点", 130, 112);
-      text("完整题目、解析和总结见画布下方", 130, 132);
-
-      noStroke();
-      fill(statusColor);
-      textSize(14);
-      text("判定：" + statusText, 130, 166);
-
-      noStroke();
-      fill("#111827");
-      textSize(13);
-      text("条件：" + meet.low.toFixed(1) + "s < Δt < " + meet.high.toFixed(1) + "s，当前 Δt=" + throwDelay.toFixed(1) + "s", 130, 190);
-
-      noStroke();
-      fill("#111827");
-      textAlign(CENTER, TOP);
-      textSize(15);
-      text("拖动 Δt，观察从“追不上”到“空中相遇”再到“落地后才相遇”的变化", 285, 454);
     }
 
     function drawDoubleThrowGraph() {
@@ -1887,10 +1956,6 @@
       fill("#f97316");
       text("橙点：空中相遇", gx + 10, gy + 46);
 
-      noStroke();
-      fill("#111827");
-      textAlign(RIGHT, TOP);
-      text("条件：" + meet.low.toFixed(1) + "s < Δt < " + meet.high.toFixed(1) + "s", gx + gw, gy - 22);
     }
 
     function drawThrowCurve(gx, gy, gw, gh, yMin, yMax, kind) {
@@ -2061,28 +2126,6 @@
       text("r=" + slotr.toFixed(0), pX + drawr + 22, pY - drawr - 8);
 
       noStroke();
-      fill("#111827");
-      textAlign(LEFT, TOP);
-      textSize(15);
-      text("必修一结业测试 单选第3题：光滑斜槽下滑", 130, 72);
-
-      noStroke();
-      fill("#5b6472");
-      textSize(12);
-      text("动画只展示外圆 A/C 到内圆 B/D 的滑行段", 130, 98);
-      text("完整题目、解析和总结见画布下方", 130, 118);
-
-      noStroke();
-      fill("#111827");
-      textSize(13);
-      text("a₁=" + slotAccel(slotTheta1).toFixed(2) + "m/s²，t₁=" + t1.toFixed(2) + "s", 130, 152);
-      text("a₂=" + slotAccel(slotTheta2).toFixed(2) + "m/s²，t₂=" + t2.toFixed(2) + "s，结论：" + relation, 130, 174);
-
-      noStroke();
-      fill("#111827");
-      textAlign(CENTER, TOP);
-      textSize(15);
-      text("拖动 R、r 可看见到达时间按 sqrt(R-r) 比较；拖动角度只改变加速度和槽长", 285, 454);
     }
 
     function drawInclineSlotGraph() {
@@ -2171,13 +2214,6 @@
       text("A 槽：s₁(t)，t₁=" + t1.toFixed(2) + "s", gx + 10, gy + 10);
       fill("#dc2626");
       text("C 槽：s₂(t)，t₂=" + t2.toFixed(2) + "s", gx + 10, gy + 28);
-      fill("#111827");
-      text("a = g cosθ，g=10m/s²", gx + 10, gy + 46);
-
-      noStroke();
-      fill("#111827");
-      textAlign(RIGHT, TOP);
-      text("到达内圆 B、D 的时刻由 R-r 决定", gx + gw, gy - 22);
     }
 
     function drawInclineSlotCurve(gx, gy, gw, gh, tMax, yMin, yMax, kind) {
@@ -2195,6 +2231,384 @@
         var px = map(t, 0, tMax, gx, gx + gw);
         var py = map(s, yMin, yMax, gy + gh, gy);
         vertex(px, py);
+      }
+      endShape();
+    }
+
+    function riverVX() {
+      return riverWaterSpeed + riverBoatSpeed * Math.cos(riverTheta * Math.PI / 180);
+    }
+
+    function riverVY() {
+      return riverBoatSpeed * Math.sin(riverTheta * Math.PI / 180);
+    }
+
+    function riverArriveTime() {
+      var vy = Math.max(0.25, riverVY());
+      return riverWidth / vy;
+    }
+
+    function riverDrift() {
+      return riverVX() * riverArriveTime();
+    }
+
+    function riverMinDisplacementAngle() {
+      if (riverBoatSpeed <= riverWaterSpeed) {
+        return null;
+      }
+      return Math.acos(-riverWaterSpeed / riverBoatSpeed) * 180 / Math.PI;
+    }
+
+    function toggleRiverPlay() {
+      riverPlaying = !riverPlaying;
+      updateLabels();
+    }
+
+    function resetRiverTime() {
+      riverT = 0;
+      riverPlaying = false;
+      updateLabels();
+    }
+
+    function updateRiver(dt) {
+      if (riverPlaying) {
+        riverT += dt * 4;
+        if (riverT >= riverArriveTime()) {
+          riverT = riverArriveTime();
+          riverPlaying = false;
+        }
+        updateLabels();
+      }
+    }
+
+    function drawRiverScene() {
+      var bankLeft = 82;
+      var bankRight = 530;
+      var nearY = 388;
+      var farY = 92;
+      var startX = 170;
+      var scale = (nearY - farY) / riverWidth;
+      var tNow = Math.min(riverT, riverArriveTime());
+      var vx = riverVX();
+      var vy = riverVY();
+      var boatX = startX + vx * tNow * scale;
+      var boatY = nearY - vy * tNow * scale;
+      var endX = startX + riverDrift() * scale;
+      var minTheta = riverMinDisplacementAngle();
+      var bestText = minTheta === null ? "船速小于等于水速，无法垂直到岸" : "最小位移角 θ≈" + minTheta.toFixed(0) + "°";
+
+      noStroke();
+      fill("#e0f2fe");
+      rect(bankLeft, farY, bankRight - bankLeft, nearY - farY, 10);
+
+      stroke("#111827");
+      strokeWeight(3);
+      line(bankLeft, nearY, bankRight, nearY);
+      line(bankLeft, farY, bankRight, farY);
+
+      stroke("#bae6fd");
+      strokeWeight(1);
+      for (var i = 0; i < 7; i++) {
+        var streamY = farY + 35 + i * 36;
+        line(bankLeft + 22, streamY, bankRight - 28, streamY);
+        drawArrow(bankRight - 46, streamY, bankRight - 24, streamY, "#38bdf8");
+      }
+
+      stroke("#2563eb");
+      strokeWeight(3);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 80; i++) {
+        var t = i * riverArriveTime() / 80;
+        var px = startX + vx * t * scale;
+        var py = nearY - vy * t * scale;
+        vertex(px, py);
+      }
+      endShape();
+
+      stroke("#94a3b8");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      line(startX, nearY, startX, farY);
+      line(endX, farY, endX, nearY);
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#111827");
+      circle(startX, nearY, 8);
+      fill("#f97316");
+      circle(endX, farY, 8);
+
+      push();
+      translate(boatX, boatY);
+      rotate(Math.atan2(-vy, vx));
+      noStroke();
+      fill("#0f766e");
+      triangle(18, 0, -16, -10, -16, 10);
+      fill("#ccfbf1");
+      ellipse(-4, 0, 16, 10);
+      pop();
+
+      drawVectorArrow(boatX, boatY, riverBoatSpeed * Math.cos(riverTheta * Math.PI / 180) * 11, -riverBoatSpeed * Math.sin(riverTheta * Math.PI / 180) * 11, "#0f766e", "v船");
+      drawVectorArrow(boatX, boatY, riverWaterSpeed * 11, 0, "#0284c7", "v水");
+      drawVectorArrow(boatX, boatY, vx * 11, -vy * 11, "#f97316", "v合");
+
+    }
+
+    function drawVectorArrow(x, y, dx, dy, colorHex, labelText) {
+      var len = Math.sqrt(dx * dx + dy * dy);
+      if (len < 1) {
+        return;
+      }
+      stroke(colorHex);
+      strokeWeight(2.5);
+      line(x, y, x + dx, y + dy);
+      drawArrow(x + dx * 0.72, y + dy * 0.72, x + dx, y + dy, colorHex);
+      noStroke();
+      fill(colorHex);
+      textAlign(LEFT, CENTER);
+      textSize(12);
+      text(labelText, x + dx + 6, y + dy);
+    }
+
+    function drawRiverGraph() {
+      var gx = graphLeft + 50;
+      var gy = 62;
+      var gw = graphRight - graphLeft - 80;
+      var gh = 360;
+      var tMax = Math.max(1, riverArriveTime());
+      var driftAbs = Math.abs(riverDrift());
+      var xMin = Math.min(0, riverDrift()) - Math.max(15, driftAbs * 0.15);
+      var xMax = Math.max(0, riverDrift()) + Math.max(15, driftAbs * 0.15);
+      var i;
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("下游偏移-时间图像 x(t)", graphLeft + 24, 20);
+      fill("#5b6472");
+      textSize(12);
+      text("横轴：时间 t / s；纵轴：下游偏移 x / m", graphLeft + 24, 44);
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      noFill();
+      rect(gx, gy, gw, gh);
+      stroke("#e5e7eb");
+      for (i = 0; i <= 4; i++) {
+        line(gx, gy + i * gh / 4, gx + gw, gy + i * gh / 4);
+        line(gx + i * gw / 4, gy, gx + i * gw / 4, gy + gh);
+      }
+
+      noStroke();
+      fill("#5b6472");
+      textSize(11);
+      textAlign(RIGHT, CENTER);
+      for (i = 0; i <= 4; i++) {
+        var valX = map(i, 0, 4, xMax, xMin);
+        text(valX.toFixed(0), gx - 8, gy + i * gh / 4);
+      }
+      textAlign(CENTER, TOP);
+      for (i = 0; i <= 4; i++) {
+        text((i * tMax / 4).toFixed(1) + "s", gx + i * gw / 4, gy + gh + 10);
+      }
+
+      stroke("#2563eb");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 120; i++) {
+        var t = i * tMax / 120;
+        var x = riverVX() * t;
+        vertex(map(t, 0, tMax, gx, gx + gw), map(x, xMin, xMax, gy + gh, gy));
+      }
+      endShape();
+
+      var currentX = map(Math.min(riverT, tMax), 0, tMax, gx, gx + gw);
+      stroke("#111827");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      line(currentX, gy, currentX, gy + gh);
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("过河进度", gx + 10, gy + 10);
+      text("下游偏移", gx + 10, gy + 28);
+    }
+
+    function projectileFlightTime() {
+      return Math.sqrt(2 * projHeight / projG);
+    }
+
+    function projectileX(t) {
+      return projV0 * t;
+    }
+
+    function projectileY(t) {
+      return Math.max(0, projHeight - 0.5 * projG * t * t);
+    }
+
+    function projectileVY(t) {
+      return projG * t;
+    }
+
+    function toggleProjectilePlay() {
+      projPlaying = !projPlaying;
+      updateLabels();
+    }
+
+    function resetProjectileTime() {
+      projT = 0;
+      projPlaying = false;
+      updateLabels();
+    }
+
+    function updateProjectile(dt) {
+      if (projPlaying) {
+        projT += dt;
+        if (projT >= projectileFlightTime()) {
+          projT = projectileFlightTime();
+          projPlaying = false;
+        }
+        updateLabels();
+      }
+    }
+
+    function drawProjectileScene() {
+      var groundY = 430;
+      var startX = 95;
+      var startY = 92;
+      var tFlight = projectileFlightTime();
+      var range = projectileX(tFlight);
+      var sx = Math.min(3.2, 430 / Math.max(1, range));
+      var sy = (groundY - startY) / projHeight;
+      var tNow = Math.min(projT, tFlight);
+      var ballX = startX + projectileX(tNow) * sx;
+      var ballY = groundY - projectileY(tNow) * sy;
+      var vy = projectileVY(tNow);
+      var speed = Math.sqrt(projV0 * projV0 + vy * vy);
+      var angle = Math.atan2(vy, projV0) * 180 / Math.PI;
+      var i;
+
+      stroke("#111827");
+      strokeWeight(3);
+      line(55, groundY, 545, groundY);
+
+      stroke("#94a3b8");
+      strokeWeight(2);
+      line(startX, groundY, startX, 58);
+      drawArrow(startX, groundY, startX, 62, "#64748b");
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("y/m", startX + 10, 60);
+      text("地面 y = 0", 60, groundY + 10);
+
+      stroke("#2563eb");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 120; i++) {
+        var t = i * tFlight / 120;
+        vertex(startX + projectileX(t) * sx, groundY - projectileY(t) * sy);
+      }
+      endShape();
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      line(startX, startY, ballX, startY);
+      line(ballX, startY, ballX, ballY);
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#f97316");
+      circle(ballX, ballY, 24);
+      fill("#ffedd5");
+      circle(ballX - 5, ballY - 5, 7);
+
+      drawVectorArrow(ballX, ballY, projV0 * 2.2, 0, "#2563eb", "vx");
+      drawVectorArrow(ballX, ballY, 0, vy * 2.2, "#dc2626", "vy");
+
+    }
+
+    function drawProjectileGraph() {
+      var gx = graphLeft + 50;
+      var gy = 62;
+      var gw = graphRight - graphLeft - 80;
+      var gh = 360;
+      var tMax = projectileFlightTime();
+      var xMax = projectileX(tMax);
+      var yMax = projHeight;
+      var i;
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("分运动图像", graphLeft + 24, 20);
+      fill("#5b6472");
+      textSize(12);
+      text("蓝线：x(t)；红线：下落高度 y落(t)", graphLeft + 24, 44);
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      noFill();
+      rect(gx, gy, gw, gh);
+      stroke("#e5e7eb");
+      for (i = 0; i <= 4; i++) {
+        line(gx, gy + i * gh / 4, gx + gw, gy + i * gh / 4);
+        line(gx + i * gw / 4, gy, gx + i * gw / 4, gy + gh);
+      }
+
+      noStroke();
+      fill("#5b6472");
+      textSize(11);
+      textAlign(RIGHT, CENTER);
+      for (i = 0; i <= 4; i++) {
+        var val = map(i, 0, 4, Math.max(xMax, yMax), 0);
+        text(val.toFixed(0), gx - 8, gy + i * gh / 4);
+      }
+      textAlign(CENTER, TOP);
+      for (i = 0; i <= 4; i++) {
+        text((i * tMax / 4).toFixed(1) + "s", gx + i * gw / 4, gy + gh + 10);
+      }
+
+      drawProjectileComponentCurve(gx, gy, gw, gh, tMax, Math.max(xMax, yMax), "x");
+      drawProjectileComponentCurve(gx, gy, gw, gh, tMax, Math.max(xMax, yMax), "y");
+
+      var currentX = map(Math.min(projT, tMax), 0, tMax, gx, gx + gw);
+      stroke("#111827");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      line(currentX, gy, currentX, gy + gh);
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#2563eb");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("水平位移", gx + 10, gy + 10);
+      fill("#dc2626");
+      text("下落高度", gx + 10, gy + 28);
+    }
+
+    function drawProjectileComponentCurve(gx, gy, gw, gh, tMax, vMax, kind) {
+      var colorHex = kind === "x" ? "#2563eb" : "#dc2626";
+      noFill();
+      stroke(colorHex);
+      strokeWeight(2.5);
+      beginShape();
+      for (var i = 0; i <= 120; i++) {
+        var t = i * tMax / 120;
+        var value = kind === "x" ? projectileX(t) : 0.5 * projG * t * t;
+        vertex(map(t, 0, tMax, gx, gx + gw), map(value, 0, vMax, gy + gh, gy));
       }
       endShape();
     }
