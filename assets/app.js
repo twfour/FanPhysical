@@ -814,29 +814,49 @@ function renderStepAiAnswer(target, text) {
 }
 
 function markdownLiteToHtml(text) {
-  var escaped = String(text || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-  escaped = escaped.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  var placeholders = [];
+  var protectedText = String(text || "").replace(/\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\)/g, function (match) {
+    var token = "@@MATH" + placeholders.length + "@@";
+    placeholders.push(match);
+    return token;
+  });
 
-  return escaped.split(/\n{2,}/).map(function (part) {
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function restoreMath(value) {
+    return value.replace(/@@MATH(\d+)@@/g, function (_, index) {
+      return placeholders[Number(index)] || "";
+    });
+  }
+
+  function renderInline(value) {
+    var escaped = escapeHtml(value);
+    escaped = escaped.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    return restoreMath(escaped);
+  }
+
+  return protectedText.split(/\n{2,}/).map(function (part) {
     var lines = part.split("\n");
     if (lines.length > 0 && /^#{1,4}\s+/.test(lines[0])) {
       var title = lines.shift().replace(/^#{1,4}\s+/, "");
       var rest = lines.join("\n").trim();
-      return "<p class=\"step-ai-subtitle\">" + title + "</p>" +
-        (rest ? markdownLiteToHtml(rest) : "");
+      return "<p class=\"step-ai-subtitle\">" + renderInline(title) + "</p>" +
+        (rest ? markdownLiteToHtml(restoreMath(rest)) : "");
     }
     var isList = lines.every(function (line) {
       return /^\s*[-*]\s+/.test(line);
     });
     if (isList) {
       return "<ul>" + lines.map(function (line) {
-        return "<li>" + line.replace(/^\s*[-*]\s+/, "") + "</li>";
+        return "<li>" + renderInline(line.replace(/^\s*[-*]\s+/, "")) + "</li>";
       }).join("") + "</ul>";
     }
-    return "<p>" + part.replace(/\n/g, "<br>") + "</p>";
+    return "<p>" + lines.map(renderInline).join("<br>") + "</p>";
   }).join("");
 }
 

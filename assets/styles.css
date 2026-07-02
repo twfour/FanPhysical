@@ -136,10 +136,11 @@ body {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fff;
-  padding: 14px;
+  padding: 14px 12px;
   min-height: 500px;
   position: sticky;
   top: 18px;
+  overflow: hidden;
 }
 
 .tree-title {
@@ -152,14 +153,16 @@ body {
 .tree-folder {
   margin: 14px 0 6px;
   color: var(--ink);
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1.35;
   font-weight: 900;
 }
 
 .tree-subfolder {
   margin: 8px 0 5px 14px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
+  line-height: 1.35;
   font-weight: 800;
 }
 
@@ -173,8 +176,11 @@ body {
   align-items: center;
   gap: 6px;
   border-radius: 7px;
+  min-height: 28px;
+  padding: 3px 6px;
   cursor: pointer;
   user-select: none;
+  white-space: normal;
 }
 
 .tree-node summary::-webkit-details-marker {
@@ -183,6 +189,7 @@ body {
 
 .tree-node summary::before {
   content: "▸";
+  flex: 0 0 auto;
   color: var(--muted);
   font-size: 11px;
   transform: translateY(-1px);
@@ -194,15 +201,15 @@ body {
 }
 
 .tree-node > summary.tree-folder {
-  margin: 14px 0 6px;
+  margin: 12px 0 6px;
 }
 
 .tree-node > summary.tree-subfolder {
-  margin: 8px 0 5px 0;
+  margin: 6px 0 4px 0;
 }
 
 .tree-children {
-  margin-left: 12px;
+  margin-left: 8px;
   padding-left: 8px;
   border-left: 1px solid var(--line);
 }
@@ -213,20 +220,27 @@ body {
   border-radius: 7px;
   background: transparent;
   color: var(--ink);
-  padding: 8px 10px;
+  padding: 7px 8px;
   text-align: left;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 600;
   cursor: pointer;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .tree-item.indent {
-  padding-left: 24px;
+  padding-left: 12px;
 }
 
 .tree-item.active {
   background: var(--brand);
   color: #fff;
+  font-weight: 800;
 }
 
 .tree-static {
