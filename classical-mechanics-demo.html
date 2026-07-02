@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>经典力学可视化教学 Demo</title>
+  <title>FanPhysics动态模型库</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     :root {
       --bg: #ffffff;
@@ -204,7 +205,7 @@
     .problem-note-kicker {
       margin: 0 0 8px;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 15px;
       font-weight: 900;
       letter-spacing: 0.08em;
     }
@@ -212,7 +213,7 @@
     .problem-note-block h2 {
       margin: 0 0 10px;
       color: var(--ink);
-      font-size: 17px;
+      font-size: 21px;
       line-height: 1.35;
       font-weight: 900;
       letter-spacing: 0;
@@ -221,13 +222,38 @@
     .problem-note-block p {
       margin: 0;
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.75;
+      font-size: 18px;
+      line-height: 1.85;
     }
 
     .problem-note-block strong {
       color: var(--ink);
       font-weight: 900;
+    }
+
+    .model-source {
+      display: none;
+      width: 1000px;
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 16px 18px;
+    }
+
+    .model-source h2 {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.35;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .model-source p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
     }
 
     .formula-line {
@@ -253,34 +279,40 @@
 
 <body>
   <main class="wrap">
-    <h1>经典力学可视化：Sample 与 FanPhysical 题目库</h1>
+    <h1>FanPhysics动态模型库</h1>
     <p class="sub">左侧是动画区域，右侧是实时曲线图。动画区物理原点固定在 (400, 250)，并采用 y 轴向上为正、1 像素 = 1 物理单位。</p>
 
     <div class="app-layout">
       <aside class="sidebar">
         <p class="tree-title">目录</p>
-        <div class="tree-folder">Sample</div>
-        <button id="treeSpring" class="tree-item active" onclick="switchScene('spring')">弹簧振子</button>
-        <button id="treePendulum" class="tree-item" onclick="switchScene('pendulum')">单摆</button>
-        <button id="treeBrownian" class="tree-item" onclick="switchScene('brownian')">布朗运动</button>
-
-        <div class="tree-folder">FanPhysical</div>
+        <div class="tree-folder">FanPhysics</div>
         <div class="tree-subfolder">课时4：竖直上抛运动和图像问题</div>
         <div class="tree-subfolder">B组</div>
-        <button id="treeDoubleThrow" class="tree-item indent" onclick="switchScene('doubleThrow')">第7题：双球上抛相遇</button>
-        <button id="treePipeDrop" class="tree-item indent" onclick="switchScene('pipeDrop')">第10题：金属管穿球</button>
-        <button id="treeThreeCar" class="tree-item indent" onclick="switchScene('threeCar')">第11题：三车防追尾</button>
+        <button id="treeDoubleThrow" class="tree-item indent" onclick="switchScene('doubleThrow')">双球上抛相遇</button>
+        <button id="treePipeDrop" class="tree-item indent" onclick="switchScene('pipeDrop')">金属管穿球</button>
+        <button id="treeThreeCar" class="tree-item indent" onclick="switchScene('threeCar')">三车防追尾</button>
         <div class="tree-subfolder">必修一结业测试</div>
         <div class="tree-subfolder">单选题</div>
-        <button id="treeInclineSlot" class="tree-item indent" onclick="switchScene('inclineSlot')">第3题：光滑斜槽下滑</button>
-        <div class="tree-subfolder">曲线运动与平抛运动</div>
+        <button id="treeInclineSlot" class="tree-item indent" onclick="switchScene('inclineSlot')">光滑斜槽下滑</button>
+        <div class="tree-subfolder">曲线运动</div>
+        <button id="treeCurveForce" class="tree-item indent" onclick="switchScene('curveForce')">曲线受力方向</button>
+        <button id="treeMotionCompose" class="tree-item indent" onclick="switchScene('motionCompose')">二维运动合成</button>
         <button id="treeRiverCrossing" class="tree-item indent" onclick="switchScene('riverCrossing')">小船渡河</button>
+        <button id="treeRiverAdvanced" class="tree-item indent" onclick="switchScene('riverAdvanced')">渡河进阶</button>
+        <button id="treeRainWindow" class="tree-item indent" onclick="switchScene('rainWindow')">车窗雨滴</button>
+        <button id="treeRodConstraint" class="tree-item indent" onclick="switchScene('rodConstraint')">杆约束速度</button>
+        <div class="tree-subfolder">平抛运动</div>
         <button id="treeProjectileBasic" class="tree-item indent" onclick="switchScene('projectileBasic')">平抛运动基础</button>
+        <button id="treeProjectileSlope" class="tree-item indent" onclick="switchScene('projectileSlope')">平抛落斜面</button>
+        <button id="treeProjectileWindow" class="tree-item indent" onclick="switchScene('projectileWindow')">平抛穿窗</button>
+        <button id="treeProjectileNormal" class="tree-item indent" onclick="switchScene('projectileNormal')">垂直打斜面</button>
+        <button id="treeProjectileBounce" class="tree-item indent" onclick="switchScene('projectileBounce')">反弹过挡板</button>
+        <button id="treeSemiCircleThrow" class="tree-item indent" onclick="switchScene('semiCircleThrow')">平抛落圆弧</button>
       </aside>
 
       <section class="workspace">
 
-    <div id="springControls" class="controls">
+    <div id="springControls" class="controls" style="display:none;">
       <div class="control">
         <label>质量 m</label>
         <input id="springM" type="range" min="0.5" max="5" step="0.1" value="2" oninput="springM=this.valueAsNumber; updateLabels();" />
@@ -481,19 +513,256 @@
       <button class="action" onclick="resetProjectileTime()">回到 0 秒</button>
     </div>
 
+    <div id="projectileSlopeControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>斜面角 θ</label>
+        <input id="slopeAngle" type="range" min="10" max="55" step="1" value="30" oninput="slopeAngle=this.valueAsNumber; slopePlaying=false; updateLabels();" />
+        <span id="slopeAngleVal" class="value">30°</span>
+      </div>
+      <div class="control">
+        <label>初速度 v₀</label>
+        <input id="slopeV0" type="range" min="8" max="60" step="1" value="32" oninput="slopeV0=this.valueAsNumber; slopePlaying=false; updateLabels();" />
+        <span id="slopeV0Val" class="value">32</span>
+      </div>
+      <div class="control">
+        <label>重力 g</label>
+        <input id="slopeG" type="range" min="1" max="20" step="0.1" value="10" oninput="slopeG=this.valueAsNumber; slopePlaying=false; updateLabels();" />
+        <span id="slopeGVal" class="value">10.0</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="slopeT" type="range" min="0" max="10" step="0.05" value="0" oninput="slopeT=this.valueAsNumber; slopePlaying=false; updateLabels();" />
+        <span id="slopeTVal" class="value">0.00s</span>
+      </div>
+      <button id="slopePlayBtn" class="action" onclick="toggleSlopePlay()">播放</button>
+      <button class="action" onclick="resetSlopeTime()">回到 0 秒</button>
+    </div>
+
+    <div id="projectileWindowControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>距墙 L</label>
+        <input id="winL" type="range" min="0.8" max="3.0" step="0.1" value="1.4" oninput="winL=this.valueAsNumber; winPlaying=false; updateLabels();" />
+        <span id="winLVal" class="value">1.4</span>
+      </div>
+      <div class="control">
+        <label>墙厚 d</label>
+        <input id="winD" type="range" min="0.1" max="1.0" step="0.1" value="0.4" oninput="winD=this.valueAsNumber; winPlaying=false; updateLabels();" />
+        <span id="winDVal" class="value">0.4</span>
+      </div>
+      <div class="control">
+        <label>窗高 H</label>
+        <input id="winH" type="range" min="0.6" max="2.4" step="0.1" value="1.6" oninput="winH=this.valueAsNumber; winPlaying=false; updateLabels();" />
+        <span id="winHVal" class="value">1.6</span>
+      </div>
+      <div class="control">
+        <label>上沿下距 h</label>
+        <input id="winTopDrop" type="range" min="0.0" max="0.8" step="0.05" value="0.2" oninput="winTopDrop=this.valueAsNumber; winPlaying=false; updateLabels();" />
+        <span id="winTopDropVal" class="value">0.20</span>
+      </div>
+      <div class="control">
+        <label>初速度 v</label>
+        <input id="winV0" type="range" min="1" max="12" step="0.1" value="4" oninput="winV0=this.valueAsNumber; winPlaying=false; updateLabels();" />
+        <span id="winV0Val" class="value">4.0</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="winT" type="range" min="0" max="3" step="0.02" value="0" oninput="winT=this.valueAsNumber; winPlaying=false; updateLabels();" />
+        <span id="winTVal" class="value">0.00s</span>
+      </div>
+      <button id="winPlayBtn" class="action" onclick="toggleWindowPlay()">播放</button>
+      <button class="action" onclick="resetWindowTime()">回到 0 秒</button>
+    </div>
+
+    <div id="rainWindowControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>车速 v车</label>
+        <input id="rainTrainV" type="range" min="0" max="40" step="1" value="18" oninput="rainTrainV=this.valueAsNumber; updateLabels();" />
+        <span id="rainTrainVVal" class="value">18</span>
+      </div>
+      <div class="control">
+        <label>雨速 v雨</label>
+        <input id="rainDropV" type="range" min="5" max="40" step="1" value="24" oninput="rainDropV=this.valueAsNumber; updateLabels();" />
+        <span id="rainDropVVal" class="value">24</span>
+      </div>
+      <div class="control">
+        <label>雨滴密度</label>
+        <input id="rainDensity" type="range" min="4" max="18" step="1" value="10" oninput="rainDensity=this.valueAsNumber; updateLabels();" />
+        <span id="rainDensityVal" class="value">10</span>
+      </div>
+    </div>
+
+    <div id="projectileNormalControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>斜面角 θ</label>
+        <input id="normalAngle" type="range" min="15" max="60" step="1" value="37" oninput="normalAngle=this.valueAsNumber; normalPlaying=false; updateLabels();" />
+        <span id="normalAngleVal" class="value">37°</span>
+      </div>
+      <div class="control">
+        <label>初速度 v₀</label>
+        <input id="normalV0" type="range" min="8" max="60" step="1" value="28" oninput="normalV0=this.valueAsNumber; normalPlaying=false; updateLabels();" />
+        <span id="normalV0Val" class="value">28</span>
+      </div>
+      <div class="control">
+        <label>重力 g</label>
+        <input id="normalG" type="range" min="1" max="20" step="0.1" value="10" oninput="normalG=this.valueAsNumber; normalPlaying=false; updateLabels();" />
+        <span id="normalGVal" class="value">10.0</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="normalT" type="range" min="0" max="10" step="0.05" value="0" oninput="normalT=this.valueAsNumber; normalPlaying=false; updateLabels();" />
+        <span id="normalTVal" class="value">0.00s</span>
+      </div>
+      <button id="normalPlayBtn" class="action" onclick="toggleNormalPlay()">播放</button>
+      <button class="action" onclick="resetNormalTime()">回到 0 秒</button>
+    </div>
+
+    <div id="projectileBounceControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>高度 H</label>
+        <input id="bounceH" type="range" min="2" max="8" step="0.2" value="4" oninput="bounceH=this.valueAsNumber; bouncePlaying=false; updateLabels();" />
+        <span id="bounceHVal" class="value">4.0</span>
+      </div>
+      <div class="control">
+        <label>挡板位置 AD/2</label>
+        <input id="bounceWallX" type="range" min="2" max="8" step="0.2" value="5" disabled />
+        <span id="bounceWallXVal" class="value">6.0</span>
+      </div>
+      <div class="control">
+        <label>落点 D</label>
+        <input id="bounceD" type="range" min="7" max="14" step="0.2" value="10" oninput="bounceD=this.valueAsNumber; bouncePlaying=false; updateLabels();" />
+        <span id="bounceDVal" class="value">10.0</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="bounceT" type="range" min="0" max="4" step="0.02" value="0" oninput="bounceT=this.valueAsNumber; bouncePlaying=false; updateLabels();" />
+        <span id="bounceTVal" class="value">0.00s</span>
+      </div>
+      <button id="bouncePlayBtn" class="action" onclick="toggleBouncePlay()">播放</button>
+      <button class="action" onclick="resetBounceTime()">回到 0 秒</button>
+    </div>
+
+    <div id="curveForceControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>法向分力</label>
+        <input id="forceNormal" type="range" min="10" max="90" step="1" value="55" oninput="forceNormal=this.valueAsNumber; updateLabels();" />
+        <span id="forceNormalVal" class="value">55</span>
+      </div>
+      <div class="control">
+        <label>切向分力</label>
+        <input id="forceTangential" type="range" min="-60" max="60" step="1" value="28" oninput="forceTangential=this.valueAsNumber; updateLabels();" />
+        <span id="forceTangentialVal" class="value">28</span>
+      </div>
+      <div class="control">
+        <label>观察点</label>
+        <input id="forcePoint" type="range" min="0.15" max="0.85" step="0.01" value="0.45" oninput="forcePoint=this.valueAsNumber; updateLabels();" />
+        <span id="forcePointVal" class="value">45%</span>
+      </div>
+    </div>
+
+    <div id="motionComposeControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>vx0</label>
+        <input id="composeVx0" type="range" min="-40" max="60" step="1" value="24" oninput="composeVx0=this.valueAsNumber; composePlaying=false; updateLabels();" />
+        <span id="composeVx0Val" class="value">24</span>
+      </div>
+      <div class="control">
+        <label>vy0</label>
+        <input id="composeVy0" type="range" min="-40" max="60" step="1" value="12" oninput="composeVy0=this.valueAsNumber; composePlaying=false; updateLabels();" />
+        <span id="composeVy0Val" class="value">12</span>
+      </div>
+      <div class="control">
+        <label>ax</label>
+        <input id="composeAx" type="range" min="-12" max="12" step="0.5" value="3" oninput="composeAx=this.valueAsNumber; composePlaying=false; updateLabels();" />
+        <span id="composeAxVal" class="value">3.0</span>
+      </div>
+      <div class="control">
+        <label>ay</label>
+        <input id="composeAy" type="range" min="-12" max="12" step="0.5" value="-8" oninput="composeAy=this.valueAsNumber; composePlaying=false; updateLabels();" />
+        <span id="composeAyVal" class="value">-8.0</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="composeT" type="range" min="0" max="8" step="0.05" value="0" oninput="composeT=this.valueAsNumber; composePlaying=false; updateLabels();" />
+        <span id="composeTVal" class="value">0.00s</span>
+      </div>
+      <button id="composePlayBtn" class="action" onclick="toggleComposePlay()">播放</button>
+      <button class="action" onclick="resetComposeTime()">回到 0 秒</button>
+    </div>
+
+    <div id="riverAdvancedControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>河宽 d</label>
+        <input id="advRiverWidth" type="range" min="100" max="320" step="10" value="200" oninput="advRiverWidth=this.valueAsNumber; advRiverPlaying=false; updateLabels();" />
+        <span id="advRiverWidthVal" class="value">200</span>
+      </div>
+      <div class="control">
+        <label>船速 v船</label>
+        <input id="advBoatSpeed" type="range" min="1" max="8" step="0.5" value="2" oninput="advBoatSpeed=this.valueAsNumber; advRiverPlaying=false; updateLabels();" />
+        <span id="advBoatSpeedVal" class="value">2.0</span>
+      </div>
+      <div class="control">
+        <label>水速 v水</label>
+        <input id="advWaterSpeed" type="range" min="1" max="10" step="0.5" value="4" oninput="advWaterSpeed=this.valueAsNumber; advRiverPlaying=false; updateLabels();" />
+        <span id="advWaterSpeedVal" class="value">4.0</span>
+      </div>
+      <div class="control">
+        <label>船头角 θ</label>
+        <input id="advRiverTheta" type="range" min="45" max="150" step="1" value="120" oninput="advRiverTheta=this.valueAsNumber; advRiverPlaying=false; updateLabels();" />
+        <span id="advRiverThetaVal" class="value">120°</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="advRiverT" type="range" min="0" max="160" step="0.5" value="0" oninput="advRiverT=this.valueAsNumber; advRiverPlaying=false; updateLabels();" />
+        <span id="advRiverTVal" class="value">0.0s</span>
+      </div>
+      <button id="advRiverPlayBtn" class="action" onclick="toggleAdvRiverPlay()">播放</button>
+      <button class="action" onclick="resetAdvRiverTime()">回到 0 秒</button>
+    </div>
+
+    <div id="rodConstraintControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>杆与竖直夹角 α</label>
+        <input id="rodAlpha" type="range" min="15" max="70" step="1" value="38" oninput="rodAlpha=this.valueAsNumber; updateLabels();" />
+        <span id="rodAlphaVal" class="value">38°</span>
+      </div>
+      <div class="control">
+        <label>B 端速度 vB</label>
+        <input id="rodVB" type="range" min="8" max="50" step="1" value="24" oninput="rodVB=this.valueAsNumber; updateLabels();" />
+        <span id="rodVBVal" class="value">24</span>
+      </div>
+    </div>
+
+    <div id="semiCircleThrowControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>半径 R</label>
+        <input id="semiR" type="range" min="90" max="180" step="5" value="135" oninput="semiR=this.valueAsNumber; updateLabels();" />
+        <span id="semiRVal" class="value">135</span>
+      </div>
+      <div class="control">
+        <label>OA 角 α</label>
+        <input id="semiAlpha" type="range" min="18" max="72" step="1" value="38" oninput="semiAlpha=this.valueAsNumber; updateLabels();" />
+        <span id="semiAlphaVal" class="value">38°</span>
+      </div>
+      <div class="control">
+        <label>重力 g</label>
+        <input id="semiG" type="range" min="1" max="20" step="0.1" value="10" oninput="semiG=this.valueAsNumber; updateLabels();" />
+        <span id="semiGVal" class="value">10.0</span>
+      </div>
+    </div>
+
     <div id="canvas-holder"></div>
 
     <div id="doubleThrowNotes" class="problem-notes">
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>课时4 B组第7题：双球上抛相遇</h2>
-          <p>A 球先从地面以初速度 2v0 竖直上抛；经过时间 Delta t 后，B 球再从地面以初速度 v0 竖直上抛。判断两球能否在空中相遇，并用高度-时间图像理解相遇条件。</p>
+          <h2>双球上抛相遇</h2>
+          <p>\(A\) 球先从地面以初速度 \(2v_0\) 竖直上抛；经过时间 \(\Delta t\) 后，\(B\) 球再从地面以初速度 \(v_0\) 竖直上抛。判断两球能否在空中相遇，并用高度-时间图像理解相遇条件。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
-          <h2>先看 B 抛出时 A 是否还在空中，再看相对速度</h2>
-          <p>B 抛出时 A 的高度为 <strong>yA(Delta t)=2v0 Delta t - 1/2 g Delta t^2</strong>。若 A 已落地则无空中相遇；若 A 还在空中，还要 B 能追上 A。联立位移式可得空中相遇条件 <span class="formula-line">2v0/g &lt; Delta t &lt; 4v0/g</span>。</p>
+          <h2>用相对运动找相遇区间</h2>
+          <p>设 \(A\) 抛出后经过 \(\Delta t\) 再抛 \(B\)。\(B\) 抛出时，\(A\) 还在空中的条件是 \(0&lt;\Delta t&lt;\frac{4v_0}{g}\)。从 \(B\) 抛出后计时 \(\tau\)，两球加速度相同，相对加速度为 \(0\)，相对速度 \(v_{BA}=v_0-(2v_0-g\Delta t)=g\Delta t-v_0\)。要追上 \(A\)，需 \(v_{BA}&gt;0\)，且追上时 \(A\) 未落地，整理得 <span class="formula-line">\(\frac{2v_0}{g}&lt;\Delta t&lt;\frac{4v_0}{g}\)</span>。答案：时间间隔必须在这个开区间内。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">一句话总结</p>
@@ -507,17 +776,17 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>课时4 B组第10题：金属管穿球</h2>
-          <p>金属管从地面以初速度 v 竖直上抛，管长为 L；小球从管口上方高度 h 处由静止释放。判断小球是否会穿过金属管，并分析穿过发生在金属管上升还是下降阶段。</p>
+          <h2>金属管穿球</h2>
+          <p>金属管从地面以初速度 \(v\) 竖直上抛，管长为 \(L\)；小球从管口上方高度 \(h\) 处由静止释放。判断小球是否会穿过金属管，并分析穿过发生在金属管上升还是下降阶段。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
-          <h2>同加速度问题，消掉重力项看相对位置</h2>
-          <p>管底 <strong>y = vt - 1/2gt^2</strong>，管顶 <strong>y = vt - 1/2gt^2 + L</strong>，小球 <strong>y = h - 1/2gt^2</strong>。穿过条件是 <span class="formula-line">管底 <= 小球高度 <= 管顶</span>，等价于 <strong>h-L <= vt <= h</strong>，所以穿过区间由 h、L、v 决定。</p>
+          <h2>两者加速度相同，转为相对匀速</h2>
+          <p>管底 \(y_{\text{底}}=vt-\frac{1}{2}gt^2\)，管顶 \(y_{\text{顶}}=vt-\frac{1}{2}gt^2+L\)，小球 \(y_{\text{球}}=h-\frac{1}{2}gt^2\)。小球进入管口：\(y_{\text{球}}=y_{\text{顶}}\)，得 \(t_1=\frac{h-L}{v}\)；小球离开管底：\(y_{\text{球}}=y_{\text{底}}\)，得 \(t_2=\frac{h}{v}\)。穿管时间 <span class="formula-line">\(\Delta t=t_2-t_1=\frac{L}{v}\)</span>。若全过程在上升阶段，需 \(t_2&lt;\frac{v}{g}\)，即 \(v&gt;\sqrt{gh}\)；若全过程在下降阶段，需 \(t_1&gt;\frac{v}{g}\)，即 \(v&lt;\sqrt{g(h-L)}\)。答案：穿管用时为 \(\frac{L}{v}\)，阶段由 \(v\) 与 \(\sqrt{g(h-L)},\sqrt{gh}\) 比较判断。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">一句话总结</p>
-          <h2>两者都受 g，关键只剩 h - vt</h2>
+          <h2>两者都受 \(g\)，关键只剩 \(h-vt\)</h2>
           <p>把小球和金属管放到相对运动里看，重力加速度相同会抵消，判断就变成小球是否落在管底和管顶之间。</p>
         </section>
       </div>
@@ -527,18 +796,18 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>课时4 B组第11题：三车防追尾</h2>
-          <p>甲、乙、丙三车同向行驶，初速度分别为 6m/s、8m/s、9m/s，相邻车距均为 5m。甲车以 1m/s^2 减速，乙、丙立即匀减速，求乙、丙为避免追尾所需的最小减速度。</p>
+          <h2>三车防追尾</h2>
+          <p>甲、乙、丙三车同向行驶，初速度分别为 \(6\,\text{m/s}\)、\(8\,\text{m/s}\)、\(9\,\text{m/s}\)，相邻车距均为 \(5\,\text{m}\)。甲车以 \(1\,\text{m/s}^2\) 减速，乙、丙立即匀减速，求乙、丙为避免追尾所需的最小减速度。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
-          <h2>让最危险间距的最小值刚好等于 0</h2>
-          <p>先看甲乙：<strong>sAB = 5 - 2t + 1/2(a乙 - 1)t^2</strong>，令它的最小值刚好为 0，得 <span class="formula-line">a乙,min = 7/5 m/s^2</span>。再看丙相对乙的追及，最小安全情形是丙停车点刚好不超过乙停车点，得 <span class="formula-line">a丙,min = 189/130 m/s^2</span>。</p>
+          <h2>先求乙的临界减速度，再用停车距离约束丙</h2>
+          <p>甲、乙间距 \(s_{AB}=5+(6t-\frac{1}{2}t^2)-(8t-\frac{1}{2}a_{\text{乙}}t^2)=5-2t+\frac{1}{2}(a_{\text{乙}}-1)t^2\)。临界不追尾时最小值为 \(0\)，得 <span class="formula-line">\(a_{\text{乙},\min}=\frac{7}{5}\,\text{m/s}^2\)</span>。乙以此减速时停车距离 \(x_{\text{乙}}=\frac{8^2}{2a_{\text{乙}}}=\frac{160}{7}\,\text{m}\)。丙的临界情况是停车点刚好到乙停车点，\(5+\frac{160}{7}-\frac{9^2}{2a_{\text{丙}}}=0\)，解得 <span class="formula-line">\(a_{\text{丙},\min}=\frac{189}{130}\,\text{m/s}^2\)</span>。答案：丙至少以 \(\frac{189}{130}\,\text{m/s}^2\) 减速。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">一句话总结</p>
           <h2>“最小减速度”就是刚好擦着安全边界</h2>
-          <p>防追尾题不要只看速度大小，要看车间距曲线的最低点；最低点碰到 0m，就是临界答案。</p>
+          <p>防追尾题不要只看速度大小，要看车间距曲线的最低点；最低点碰到 \(0\,\text{m}\)，就是临界答案。</p>
         </section>
       </div>
     </div>
@@ -547,18 +816,18 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>必修一结业测试 单选第3题：光滑斜槽下滑</h2>
-          <p>AB、CD 是光滑斜槽，端点分别在半径为 R 和 r 的两个圆周上，延长线交于共同切点 P，P 为最低点。两个质量均为 m 的重物分别沿 AB、CD 由静止下滑；AP、CP 与竖直方向夹角分别为 30°、45°，比较加速度、下滑时间、粗糙影响和质量影响。</p>
+          <h2>光滑斜槽下滑</h2>
+          <p>\(AB\)、\(CD\) 是光滑斜槽，端点分别在半径为 \(R\) 和 \(r\) 的两个圆周上，延长线交于共同切点 \(P\)，\(P\) 为最低点。两个质量均为 \(m\) 的重物分别沿 \(AB\)、\(CD\) 由静止下滑；\(AP\)、\(CP\) 与竖直方向夹角分别为 \(30^\circ\)、\(45^\circ\)，比较加速度、下滑时间、粗糙影响和质量影响。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
-          <h2>从外圆滑到内圆，不是滑到 P 点</h2>
-          <p>夹角相对竖直方向，沿槽加速度 <strong>a = g cosθ</strong>。从外圆到内圆的槽长为 <strong>s = 2(R-r)cosθ</strong>，所以 <span class="formula-line">t = sqrt(2s/a) = 2sqrt((R-r)/g)</span>。时间与角度抵消，质量 m 不影响；粗糙时摩擦做负功，耗时变长。</p>
+          <h2>从外圆到内圆，槽长和加速度同含 \(\cos\theta\)</h2>
+          <p>题目问的是 \(A\to B\)、\(C\to D\)，不是滑到 \(P\)。若槽与竖直方向夹角为 \(\theta\)，沿槽加速度 \(a=g\cos\theta\)，所以 \(a_{AB}=g\cos30^\circ\)、\(a_{CD}=g\cos45^\circ\)，得 \(a_{AB}&gt;a_{CD}\)。由圆几何，外圆到内圆的槽长 \(s=2(R-r)\cos\theta\)，于是 \(t=\sqrt{\frac{2s}{a}}=2\sqrt{\frac{R-r}{g}}\)，两槽时间相同。粗糙时摩擦做负功，时间变长；质量 \(m\) 不影响。答案：\(a_{AB}&gt;a_{CD}\)，两段下滑时间相同，粗糙时耗时变长，质量不影响。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">一句话总结</p>
           <h2>看半径差，不看角度</h2>
-          <p>本题的关键是 AB、CD 都只走“外圆到内圆”这一段，因此下滑时间由 <strong>R-r</strong> 决定；角度会同时改变加速度和槽长，最后被抵消。</p>
+          <p>本题的关键是 \(AB\)、\(CD\) 都只走“外圆到内圆”这一段，因此下滑时间由 <strong>\(R-r\)</strong> 决定；角度会同时改变加速度和槽长，最后被抵消。</p>
         </section>
       </div>
     </div>
@@ -568,17 +837,28 @@
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
           <h2>曲线运动：小船渡河</h2>
-          <p>河宽为 d，小船相对静水速度为 v船，水流速度为 v水。船头与河岸夹角为 θ，判断实际航迹、渡河时间、下游偏移，并比较最短时间与最小位移策略。</p>
+          <p>河宽为 \(d\)，船在静水中的速度为 \(v_{\text{船}}\)，水流速度为 \(v_{\text{水}}\)。船速方向与河岸的夹角为 \(\theta\)，已知 \(v_{\text{船}}>v_{\text{水}}\)。</p>
+          <p><strong>问题 1：</strong>求渡河所用时间及横向位移，并讨论 \(\theta\) 等于多少时，渡河时间最短。</p>
+          <p><strong>问题 2：</strong>怎样渡河，船的合位移最小？此时对船速有何要求？</p>
+          <p><strong>要求：</strong></p>
+          <p>1. 写出渡河时间 \(t\)</p>
+          <p>2. 写出横向位移 \(s\)</p>
+          <p>3. 找出渡河时间最短时的 \(\theta\)</p>
+          <p>4. 说明合位移最小时的渡河方式和船速条件</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
-          <h2>速度合成：船对地速度 = 船对水速度 + 水流速度</h2>
-          <p>把船速分解为沿河岸和垂直河岸两个方向：<strong>v⊥ = v船 sinθ</strong>，<strong>v∥ = v水 + v船 cosθ</strong>。渡河时间由垂直河岸分量决定，<span class="formula-line">t = d / (v船 sinθ)</span>；下游偏移为 <strong>x = v∥t</strong>。</p>
+          <h2>取课上第8题：先分解船速，再合成对地速度</h2>
+          <p><strong>1. 建立速度合成。</strong> 船对地速度满足 <span class="formula-line">\(\vec v_{\text{船对地}}=\vec v_{\text{船对水}}+\vec v_{\text{水对地}}\)</span>。把 \(v_{\text{船}}\) 分解为垂直河岸分量和沿河岸分量。</p>
+          <p><strong>2. 求渡河时间。</strong> 垂直河岸分量为 \(v_{\perp}=v_{\text{船}}\sin\theta\)，只有它负责跨过河宽 \(d\)，所以 <span class="formula-line">\(t=\frac{d}{v_{\text{船}}\sin\theta}\)</span>。</p>
+          <p><strong>3. 求横向位移。</strong> 若水流方向与船沿河岸分量同向，则沿河岸合速度为 \(v_{\parallel}=v_{\text{船}}\cos\theta+v_{\text{水}}\)，横向位移为 <span class="formula-line">\(s=(v_{\text{船}}\cos\theta+v_{\text{水}})t\)</span>。代入时间得 <span class="formula-line">\(s=(v_{\text{船}}\cos\theta+v_{\text{水}})\frac{d}{v_{\text{船}}\sin\theta}\)</span>。</p>
+          <p><strong>4. 判断最短时间。</strong> \(t=\frac{d}{v_{\text{船}}\sin\theta}\)，要使 \(t\) 最小，就要让 \(\sin\theta\) 最大，因此 <span class="formula-line">\(\theta=90^\circ\)</span>。答案：船头垂直河岸时渡河时间最短。</p>
+          <p><strong>5. 判断合位移最小。</strong> 合位移最小时，希望船实际到达正对岸，即沿河岸合速度为 \(0\)。这要求船头偏向上游，使船速沿岸分量抵消水流：<span class="formula-line">\(v_{\text{船}}\cos\alpha=v_{\text{水}}\)</span>。能做到这一点的条件是 <span class="formula-line">\(v_{\text{船}}>v_{\text{水}}\)</span>。答案：船头偏向上游并刚好抵消水流时，合位移最小，最小合位移为河宽 \(d\)。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">一句话总结</p>
           <h2>过河看垂直分量，漂移看沿岸分量</h2>
-          <p>船头正对对岸通常是最短时间；若 v船 大于 v水，可以让船头偏向上游来抵消水流，得到最小位移。</p>
+          <p>船头正对对岸通常是最短时间；若 \(v_{\text{船}}>v_{\text{水}}\)，可以让船头偏向上游来抵消水流，得到最小位移。</p>
         </section>
       </div>
     </div>
@@ -588,12 +868,12 @@
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
           <h2>平抛运动基础</h2>
-          <p>物体从高度 h 处以水平初速度 v0 抛出，不计空气阻力。观察轨迹、落地时间、水平射程、竖直分速度和落地速度方向。</p>
+          <p>物体从高度 \(h\) 处以水平初速度 \(v_0\) 抛出，不计空气阻力。观察轨迹、落地时间、水平射程、竖直分速度和落地速度方向。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
-          <h2>水平匀速，竖直自由落体</h2>
-          <p>平抛运动可以拆成两个互不影响的分运动：水平方向 <strong>x=v0t</strong>，竖直方向 <strong>y=1/2gt^2</strong>，<strong>vy=gt</strong>。高度先决定时间，<span class="formula-line">t落 = sqrt(2h/g)</span>，再由 <strong>x落=v0t落</strong> 求射程。</p>
+          <h2>取平抛课上第1题：相遇必须同时满足水平和竖直</h2>
+          <p>两球平抛后，水平方向 \(x=vt\)，竖直方向 \(y=\frac{1}{2}gt^2\)。乙球要击中甲球，必须在同一时刻到达同一水平位置，所以水平速度和抛出先后要配合；同时甲比乙高 \(h\)，乙要追上甲的竖直位置，甲不能同时先抛，否则二者竖直下落量相同，高差不变。若甲迟抛，乙先下落一段时间后才可能补上高度差；同一相遇点还要求水平位移相等。答案：相遇条件由“同一时刻同一水平位置”和“竖直高度差被补上”共同决定。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">一句话总结</p>
@@ -603,12 +883,309 @@
       </div>
     </div>
 
+    <div id="projectileSlopeNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>平抛落斜面</h2>
+          <p>小球从斜面顶点水平抛出，不计空气阻力。调节初速度和斜面倾角，观察小球何时落到斜面上，以及落点如何随参数变化。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>取平抛课上第2题：高度定时间，水平位移定初速度</h2>
+          <p>三个小球都做平抛，竖直方向 \(y=\frac{1}{2}gt^2\)，所以落点越低，飞行时间越长；水平方向 \(x=v_0t\)，在落点已知时可反求 \(v_0=\frac{x}{t}\)。速度变化量只由重力产生，\(\Delta v=gt\)，因此只和飞行时间有关。答案：时间按下落高度比较，速度变化量也按时间比较；初速度要用水平位移除以对应时间，不能只看水平距离。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>落到斜面，就是“抛物线碰到直线”</h2>
+          <p>先写平抛轨迹，再写斜面几何；两条线的交点就是落点。</p>
+        </section>
+      </div>
+    </div>
+
+    <div id="projectileWindowNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>平抛穿窗</h2>
+          <p>物体从 P 点水平抛出，前方有一定厚度的墙和窗口。要求物体在进入墙面和离开墙面时都位于窗口上下沿之间，判断当前初速度是否可穿窗。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>取平抛课上第6题：入口和出口都要在窗口内</h2>
+          <p>题源数据为 \(H=1.6\,\text{m}\)、\(d=0.4\,\text{m}\)、\(L=1.4\,\text{m}\)、\(h=0.2\,\text{m}\)。水平速度为 \(v\) 时，入口 \(x=L\) 的下落量 \(y_1=\frac{1}{2}g(\frac{L}{v})^2\)，出口 \(x=L+d\) 的下落量 \(y_2=\frac{1}{2}g(\frac{L+d}{v})^2\)。穿窗条件为 \(h\le y_1\le h+H\) 且 \(h\le y_2\le h+H\)。代入 \(g=10\) 试选项 \(2,4,8,10\,\text{m/s}\)：只有 \(v=4\,\text{m/s}\) 时 \(y_1\approx0.61\,\text{m}\)、\(y_2\approx1.01\,\text{m}\)，均在 \([0.2,1.8]\) 内。答案：\(4\,\text{m/s}\)。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>穿窗不是看一个点，而是看一段墙厚</h2>
+          <p>速度太大来不及下落，速度太小会撞到下沿；厚墙要同时检查入口和出口。</p>
+        </section>
+      </div>
+    </div>
+
+    <div id="rainWindowNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>车窗雨滴相对速度</h2>
+          <p>火车匀速行驶，无风时雨滴对地竖直下落。乘客在车窗中看到雨滴斜着划过，判断车速、雨速和轨迹夹角之间的关系。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>取课后作业 B组第10题：车窗里看到的是相对速度</h2>
+          <p>无风时雨滴对地速度竖直向下，火车对地速度水平向前。乘客看到的雨滴速度为 \(\vec v_{\text{雨对车}}=\vec v_{\text{雨对地}}-\vec v_{\text{车对地}}\)，其水平分量大小为 \(v_1\)，竖直分量大小为 \(v_2\)。若雨线与竖直方向夹角为 \(\theta\)，则 <span class="formula-line">\(\tan\theta=\frac{v_1}{v_2}\)</span>，所以 \(v_1=v_2\tan\theta\)。答案：车速与雨速满足 \(v_1=v_2\tan\theta\)。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>换参考系，雨线就倾斜</h2>
+          <p>雨本来竖直落下，但车向前跑，乘客看到的雨滴相对速度就多了一个向后的水平分量。</p>
+        </section>
+      </div>
+    </div>
+
+    <div id="projectileNormalNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>垂直打到斜面</h2>
+          <p>固定斜面 \(PO\)、\(QO\) 与水平面 \(MN\) 的夹角均为 \(45^\circ\)。由 \(A\) 点分别以 \(v_1\)、\(v_2\) 先后沿水平方向抛出两个小球，不计空气阻力。</p>
+          <p>以 \(v_1\) 抛出的小球恰能垂直于 \(QO\) 落于 \(C\) 点，飞行时间为 \(t\)；以 \(v_2\) 抛出的小球落在 \(PO\) 斜面上的 \(B\) 点，且 \(B\)、\(C\) 在同一水平面上。</p>
+          <p><strong>判断：</strong></p>
+          <p>A. 落于 \(B\) 点的小球飞行时间为 \(t\)</p>
+          <p>B. \(v_2=gt\)</p>
+          <p>C. 落于 \(C\) 点的小球的水平位移为 \(gt^2\)</p>
+          <p>D. \(A\) 点距水平面 \(MN\) 的高度为 \(\frac{3}{4}gt^2\)</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>取平抛课上第3题：一个球看速度方向，另一个球看斜面位置</h2>
+          <p><strong>1. 先看落于 \(C\) 的小球。</strong> 末速度垂直 \(QO\)，而 \(QO\) 与水平面夹角为 \(45^\circ\)，所以末速度方向满足 <span class="formula-line">\(\frac{v_y}{v_x}=1\)</span>。又 \(v_y=gt\)、\(v_x=v_1\)，得 \(v_1=gt\)。因此 \(C\) 点水平位移 <span class="formula-line">\(x_C=v_1t=gt^2\)</span>，C 正确。</p>
+          <p><strong>2. 再看落于 \(B\) 的小球。</strong> \(B\)、\(C\) 在同一水平面上，两球竖直下落高度相同，所以飞行时间相同，都是 \(t\)，A 正确。</p>
+          <p>\(B\) 点在 \(PO\) 上，且 \(PO\) 为 \(45^\circ\) 斜面，因此 \(x_B=y_B\)。竖直方向 \(y_B=\frac{1}{2}gt^2\)，所以 <span class="formula-line">\(v_2=\frac{x_B}{t}=\frac{1}{2}gt\)</span>，B 错误。</p>
+          <p><strong>3. 最后看高度。</strong> 由图中 \(45^\circ\) 几何关系，\(O\) 点相对 \(A\) 的水平、竖直距离均为 \(\frac{3}{4}gt^2\)，所以 \(A\) 点距水平面 \(MN\) 的高度为 <span class="formula-line">\(\frac{3}{4}gt^2\)</span>，D 正确。</p>
+          <p><strong>答案：</strong>A、C、D。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>落斜面看位置，垂直打斜面还要看速度方向</h2>
+          <p>同样是平抛，位置方程决定“打到哪里”，速度分解决定“怎么打上去”。</p>
+        </section>
+      </div>
+    </div>
+
+    <div id="projectileBounceNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>反弹过挡板</h2>
+          <p>从高 \(H=4\,\text{m}\) 处的 \(A\) 先后水平抛出两个小球 1 和 2。</p>
+          <p>球 1 与地面碰撞一次后，恰好越过位于水平地面上高为 \(h\) 的竖直挡板，然后落在水平地面上的 \(D\) 点。碰撞碰后速度水平方向不变，竖直方向等大反向。</p>
+          <p>球 2 恰好越过挡板，也落在 \(D\) 点。忽略空气阻力，求挡板高度 \(h\)。</p>
+          <p><strong>选项：</strong>A. \(3.5\,\text{m}\)　B. \(3\,\text{m}\)　C. \(2.5\,\text{m}\)　D. \(2\,\text{m}\)</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>取课后作业第12题：同一落点比较挡板处高度</h2>
+          <p><strong>1. 先设自由下落到地面的时间。</strong> 从高度 \(H\) 平抛到地面，竖直方向满足 \(H=\frac{1}{2}gT^2\)。球 1 第一次落地到 \(C\) 用时 \(T\)。</p>
+          <p><strong>2. 看球 1 的水平距离比例。</strong> 球 1 反弹后竖直速度等大反向，从 \(C\) 再落回地面用时 \(2T\)。因此球 1 从 \(A\to C\) 和 \(C\to D\) 的水平距离之比为 \(1:2\)，所以 \(AC:CD=1:2\)，\(AD=3AC\)。</p>
+          <p><strong>3. 看球 2 的运动。</strong> 球 2 从 \(A\) 直接落到 \(D\)，竖直下落仍用时 \(T\)，所以球 2 的水平速度是球 1 的 \(3\) 倍。</p>
+          <p><strong>4. 挡板顶端两球都恰好越过。</strong> 设球 1 反弹后经过时间 \(uT\) 到达挡板，则球 1 高度为 \(H(2u-u^2)\)。同一位置对球 2 的时间为 \(\frac{1+u}{3}T\)，高度为 \(H\left[1-\frac{(1+u)^2}{9}\right]\)。两球都恰好越过同一挡板顶端，令两高度相等，解得 \(u=\frac{1}{2}\)。</p>
+          <p><strong>5. 求高度。</strong> 代入球 1 高度：<span class="formula-line">\(h=H\left(2\cdot\frac{1}{2}-\frac{1}{4}\right)=\frac{3}{4}H\)</span>。又 \(H=4\,\text{m}\)，所以 <span class="formula-line">\(h=3\,\text{m}\)</span>。</p>
+          <p><strong>答案：</strong>B. \(3\,\text{m}\)。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>反弹题的关键是分段，不是换公式</h2>
+          <p>碰撞前后水平运动连续，竖直运动在碰撞点把速度翻上去，轨迹就能拼起来。</p>
+        </section>
+      </div>
+    </div>
+
+    <div id="curveForceNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>曲线运动受力方向判断</h2>
+          <p>质点沿曲线运动，已知某点速度方向沿轨迹切线。通过调节切向分力和法向分力，观察合力方向如何同时改变速率和运动方向。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>取课上第5题：减速看切向反向，转弯看凹侧</h2>
+          <p>曲线运动某点速度方向沿轨迹切线。题目给出质点从 \(A\) 到 \(B\) 速度逐渐减小，所以合力在切向上必须有与速度相反的分量；同时轨迹弯曲，合力还必须有指向曲线凹侧的法向分量。把“切向反向”和“指向凹侧”合成，就得到 \(C\) 点合力方向。答案：合力应同时指向轨迹凹侧，并带有沿切线反向的减速分量。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>看曲线题，先找切线，再找凹侧</h2>
+          <p>切线告诉你速度方向，凹侧告诉你法向加速度方向，切向分力决定快慢变化。</p>
+        </section>
+      </div>
+    </div>
+
+    <div id="motionComposeNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>二维运动合成</h2>
+          <p>给定水平方向和竖直方向的初速度、加速度，观察两个互相独立的一维运动如何合成为平面轨迹，并判断合运动的性质。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>取课上第4题：由图像分别读 \(v_x\)、\(v_y\)、\(a_x\)</h2>
+          <p>题目给出 \(x\) 方向速度图像和 \(y\) 方向位移图像。先由 \(v_x-t\) 图像斜率读 \(a_x\)，由 \(y-t\) 图像斜率读 \(v_y\)；再合成 \(\vec v=(v_x,v_y)\)、\(\vec a=(a_x,0)\)，合力 \(\vec F=m\vec a\)。因为合加速度与合速度一般不共线，轨迹为匀变速曲线运动。答案：按图像分别读出分速度和分加速度，再用 \(\vec F=m\vec a\) 与速度、加速度是否共线来判断合运动。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>先分轴算，再合成判形状</h2>
+          <p>合运动是否弯曲，不看有没有加速度，而看加速度方向是否和速度方向共线。</p>
+        </section>
+      </div>
+    </div>
+
+    <div id="riverAdvancedNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>小船渡河进阶：船速小于水速</h2>
+          <p>当船在静水中的速度小于水流速度时，小船无法正对到达对岸。调节船头方向，观察实际航迹和最短位移对应的临界方向。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>取课上第9题：船速小于水速，用速度圆切线</h2>
+          <p>题源数据：河宽 \(d=200\,\text{m}\)，静水船速 \(2\,\text{m/s}\)，水流速度 \(4\,\text{m/s}\)。因为 \(v_{\text{船}}&lt;v_{\text{水}}\)，不可能让沿河方向合速度为 \(0\)，所以不能正对到达对岸。最短位移时，合速度方向与以水流速度端点为圆心、船速为半径的速度圆相切；几何关系 \(\frac{v_{\text{船}}}{v_{\text{水}}}=\frac{1}{2}\)，得临界角约 \(60^\circ\)。答案：船头取切线对应方向，角度约 \(60^\circ\)。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>船太慢时，最短不是正对岸，而是擦着可达边界</h2>
+          <p>这类题不要硬套“垂直到岸”，先判断船速和水速大小，再决定能否抵消水流。</p>
+        </section>
+      </div>
+    </div>
+
+    <div id="rodConstraintNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>杆约束速度</h2>
+          <p>均匀直杆连接 \(A\)、\(B\) 两点。杆与竖直方向夹角为 \(\alpha\)，\(B\) 端沿水平方向运动，求 \(A\) 端速度大小。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>取课上第13题：刚性杆沿杆方向速度分量相等</h2>
+          <p>杆长不变，说明两端沿杆方向不能相互靠近或远离，所以 \(A\)、\(B\) 两端速度在杆方向上的投影相等。图中 \(A\) 端速度与杆方向夹角为 \(\alpha\)，\(B\) 端水平速度与杆方向夹角为 \(90^\circ-\alpha\)，因此 <span class="formula-line">\(v_A\cos\alpha=v_B\sin\alpha\)</span>。解得 <span class="formula-line">\(v_A=v_B\tan\alpha\)</span>。答案：\(v_A=v_B\tan\alpha\)。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>杆约束题先投影到杆上</h2>
+          <p>杆不会变长，沿杆方向不能拉开也不能挤近；速度分量相等就是破题口。</p>
+        </section>
+      </div>
+    </div>
+
+    <div id="semiCircleThrowNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>平抛落圆弧</h2>
+          <p>如图所示，在竖直放置的半圆形容器的中心 \(O\) 点，分别以水平速度 \(v_1\)、\(v_2\) 抛出两个小球。小球可视为质点，最终它们分别落在圆弧上的 \(A\) 点和 \(B\) 点。</p>
+          <p>已知 \(OA\perp OB\)，且 \(OA\) 与竖直方向成 \(\alpha\) 角，求两小球初速度之比 \(\frac{v_1}{v_2}\)。</p>
+          <p><strong>选项：</strong>A. \(\tan\alpha\)　B. \(\cos\alpha\)　C. \(\tan\alpha\sqrt{\tan\alpha}\)　D. \(\cos\alpha\sqrt{\cos\alpha}\)</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>取平抛课上第5题：两点坐标分别代入平抛</h2>
+          <p><strong>1. 建立坐标。</strong> 以 \(O\) 为原点，向右为 \(x\) 正方向、向下为 \(y\) 正方向，设半圆半径为 \(R\)。</p>
+          <p><strong>2. 读出 \(A\)、\(B\) 坐标。</strong> 原题给出 \(OA\) 与竖直方向夹角为 \(\alpha\)，且 \(OA\perp OB\)。按题图方向，\(A\) 点在左下方，坐标为 <span class="formula-line">\(A(-R\sin\alpha,\;R\cos\alpha)\)</span>；\(B\) 点在右下方，坐标为 <span class="formula-line">\(B(R\cos\alpha,\;R\sin\alpha)\)</span>。</p>
+          <p><strong>3. 由竖直方向求时间。</strong> 平抛竖直方向满足 \(y=\frac{1}{2}gt^2\)，所以 <span class="formula-line">\(t_A=\sqrt{\frac{2R\cos\alpha}{g}}\)</span>，<span class="formula-line">\(t_B=\sqrt{\frac{2R\sin\alpha}{g}}\)</span>。</p>
+          <p><strong>4. 由水平方向求初速度。</strong> 水平方向满足 \(x=vt\)，求速度大小时用水平位移的绝对值，所以 <span class="formula-line">\(v_1=\frac{R\sin\alpha}{t_A}\)</span>，<span class="formula-line">\(v_2=\frac{R\cos\alpha}{t_B}\)</span>。</p>
+          <p><strong>5. 求比值。</strong> 两式相除：<span class="formula-line">\(\frac{v_1}{v_2}=\frac{\sin\alpha}{\cos\alpha}\sqrt{\frac{\sin\alpha}{\cos\alpha}}=\tan\alpha\sqrt{\tan\alpha}\)</span>。</p>
+          <p><strong>答案：</strong>C. \(\tan\alpha\sqrt{\tan\alpha}\)。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>圆上的点先变成坐标，再套平抛</h2>
+          <p>圆弧题不要被图吓住，核心只是把落点的 \(x\)、\(y\) 坐标翻译出来。</p>
+        </section>
+      </div>
+    </div>
+
+    <div id="modelSource" class="model-source">
+      <p class="problem-note-kicker">题目来源</p>
+      <h2 id="modelSourceTitle">题目来源</h2>
+      <p id="modelSourceText"></p>
+    </div>
+
       </section>
     </div>
   </main>
 
   <script>
-    var currentScene = "spring";
+    var currentScene = "doubleThrow";
+    var modelSourceMap = {
+      doubleThrow: {
+        title: "课时4：竖直上抛运动和图像问题 / B组",
+        text: "第7题"
+      },
+      pipeDrop: {
+        title: "课时4：竖直上抛运动和图像问题 / B组",
+        text: "第10题"
+      },
+      threeCar: {
+        title: "课时4：竖直上抛运动和图像问题 / B组",
+        text: "第11题"
+      },
+      inclineSlot: {
+        title: "必修一结业测试 / 单选题",
+        text: "第3题"
+      },
+      curveForce: {
+        title: "暑期课时1曲线运动课上内容",
+        text: "第5题、第6题"
+      },
+      motionCompose: {
+        title: "暑期课时1曲线运动课上内容 / 曲线运动课后作业",
+        text: "课上第4题；课后作业 A组第2题"
+      },
+      riverCrossing: {
+        title: "暑期课时1曲线运动课上内容 / 曲线运动课后作业",
+        text: "课上第8题；课后作业 A组第3题"
+      },
+      riverAdvanced: {
+        title: "暑期课时1曲线运动课上内容 / 曲线运动课后作业",
+        text: "课上第9题；课后作业 A组第4题"
+      },
+      rainWindow: {
+        title: "曲线运动课后作业",
+        text: "B组第10题"
+      },
+      rodConstraint: {
+        title: "暑期课时1曲线运动课上内容",
+        text: "第13题"
+      },
+      projectileBasic: {
+        title: "平抛运动课上内容",
+        text: "第1题、第2题基础模型"
+      },
+      projectileSlope: {
+        title: "平抛运动课上内容 / 平抛运动课后作业",
+        text: "课上第2题；课后作业第11题"
+      },
+      projectileWindow: {
+        title: "平抛运动课上内容",
+        text: "第6题"
+      },
+      projectileNormal: {
+        title: "平抛运动课上内容 / 平抛运动课后作业",
+        text: "课上第3题；课后作业第8题"
+      },
+      projectileBounce: {
+        title: "平抛运动课后作业",
+        text: "第12题"
+      },
+      semiCircleThrow: {
+        title: "平抛运动课上内容",
+        text: "第5题"
+      }
+    };
 
     var canvasW = 1000;
     var canvasH = 500;
@@ -691,6 +1268,64 @@
     var projT = 0;
     var projPlaying = false;
 
+    var slopeAngle = 30;
+    var slopeV0 = 32;
+    var slopeG = 10;
+    var slopeT = 0;
+    var slopePlaying = false;
+
+    var winL = 1.4;
+    var winD = 0.4;
+    var winH = 1.6;
+    var winTopDrop = 0.2;
+    var winV0 = 4;
+    var winG = 10;
+    var winT = 0;
+    var winPlaying = false;
+
+    var rainTrainV = 18;
+    var rainDropV = 24;
+    var rainDensity = 10;
+
+    var normalAngle = 37;
+    var normalV0 = 28;
+    var normalG = 10;
+    var normalT = 0;
+    var normalPlaying = false;
+
+    var bounceH = 4;
+    var bounceWallX = 6;
+    var bounceD = 10;
+    var bounceG = 10;
+    var bounceT = 0;
+    var bouncePlaying = false;
+
+    var forceNormal = 55;
+    var forceTangential = 28;
+    var forcePoint = 0.45;
+
+    var composeVx0 = 24;
+    var composeVy0 = 12;
+    var composeAx = 3;
+    var composeAy = -8;
+    var composeT = 0;
+    var composeMaxT = 8;
+    var composePlaying = false;
+
+    var advRiverWidth = 200;
+    var advBoatSpeed = 2;
+    var advWaterSpeed = 4;
+    var advRiverTheta = 120;
+    var advRiverT = 0;
+    var advRiverPlaying = false;
+
+    var rodAlpha = 38;
+    var rodVB = 24;
+
+    var semiR = 135;
+    var semiAlpha = 38;
+    var semiG = 10;
+
     var simTime = 0;
     var lastMillis = 0;
     var graphWindow = 14;
@@ -702,6 +1337,7 @@
       textFont('"Noto Sans SC", "Microsoft YaHei", sans-serif');
       resetBrownian();
       updateLabels();
+      switchScene(currentScene);
       lastMillis = millis();
     }
 
@@ -716,71 +1352,145 @@
 
       if (currentScene === "spring") {
         updateSpring(dt);
-        drawSpringScene();
+        drawAnimScene(drawSpringScene);
         drawGraph(springData, "位移 y(t)" + (springStable ? "（已稳定）" : ""), "y", "#dc2626", springStable);
       }
 
       if (currentScene === "pendulum") {
         updatePendulum(dt);
-        drawPendulumScene();
+        drawAnimScene(drawPendulumScene);
         drawGraph(pendulumData, "角度 θ(t)" + (pendulumStable ? "（已稳定）" : ""), "θ", "#2563eb", pendulumStable);
       }
 
       if (currentScene === "brownian") {
         updateBrownian(dt);
-        drawBrownianScene();
+        drawAnimScene(drawBrownianScene);
         drawGraph(brownianData, "追踪粒子 X 坐标", "x", "#0f766e", false);
       }
 
       if (currentScene === "pipeDrop") {
         updatePipeDrop(dt);
-        drawPipeDropScene();
+        drawAnimScene(drawPipeDropScene);
         drawPipeDropGraph();
       }
 
       if (currentScene === "doubleThrow") {
         updateDoubleThrow(dt);
-        drawDoubleThrowScene();
+        drawAnimScene(drawDoubleThrowScene);
         drawDoubleThrowGraph();
       }
 
       if (currentScene === "threeCar") {
         updateThreeCar(dt);
-        drawThreeCarScene();
+        drawAnimScene(drawThreeCarScene);
         drawThreeCarGraph();
       }
 
       if (currentScene === "inclineSlot") {
         updateInclineSlot(dt);
-        drawInclineSlotScene();
+        drawAnimScene(drawInclineSlotScene);
         drawInclineSlotGraph();
       }
 
       if (currentScene === "riverCrossing") {
         updateRiver(dt);
-        drawRiverScene();
+        drawAnimScene(drawRiverScene);
         drawRiverGraph();
       }
 
       if (currentScene === "projectileBasic") {
         updateProjectile(dt);
-        drawProjectileScene();
+        drawAnimScene(drawProjectileScene);
         drawProjectileGraph();
       }
+
+      if (currentScene === "projectileSlope") {
+        updateSlope(dt);
+        drawAnimScene(drawSlopeScene);
+        drawSlopeGraph();
+      }
+
+      if (currentScene === "projectileWindow") {
+        updateWindow(dt);
+        drawAnimScene(drawWindowScene);
+        drawWindowGraph();
+      }
+
+      if (currentScene === "rainWindow") {
+        drawAnimScene(drawRainScene);
+        drawRainGraph();
+      }
+
+      if (currentScene === "projectileNormal") {
+        updateNormal(dt);
+        drawAnimScene(drawNormalScene);
+        drawNormalGraph();
+      }
+
+      if (currentScene === "projectileBounce") {
+        updateBounce(dt);
+        drawAnimScene(drawBounceScene);
+        drawBounceGraph();
+      }
+
+      if (currentScene === "curveForce") {
+        drawAnimScene(drawCurveForceScene);
+        drawCurveForceGraph();
+      }
+
+      if (currentScene === "motionCompose") {
+        updateCompose(dt);
+        drawAnimScene(drawComposeScene);
+        drawComposeGraph();
+      }
+
+      if (currentScene === "riverAdvanced") {
+        updateAdvRiver(dt);
+        drawAnimScene(drawAdvRiverScene);
+        drawAdvRiverGraph();
+      }
+
+      if (currentScene === "rodConstraint") {
+        drawAnimScene(drawRodConstraintScene);
+        drawRodConstraintGraph();
+      }
+
+      if (currentScene === "semiCircleThrow") {
+        drawAnimScene(drawSemiCircleScene);
+        drawSemiCircleGraph();
+      }
+    }
+
+    function drawAnimScene(sceneDrawer) {
+      push();
+      drawingContext.save();
+      drawingContext.beginPath();
+      drawingContext.rect(0, 0, animRight, canvasH);
+      drawingContext.clip();
+      sceneDrawer();
+      drawingContext.restore();
+      pop();
     }
 
     function switchScene(sceneName) {
       currentScene = sceneName;
 
-      document.getElementById("treeSpring").className = sceneName === "spring" ? "tree-item active" : "tree-item";
-      document.getElementById("treePendulum").className = sceneName === "pendulum" ? "tree-item active" : "tree-item";
-      document.getElementById("treeBrownian").className = sceneName === "brownian" ? "tree-item active" : "tree-item";
       document.getElementById("treeDoubleThrow").className = sceneName === "doubleThrow" ? "tree-item indent active" : "tree-item indent";
       document.getElementById("treePipeDrop").className = sceneName === "pipeDrop" ? "tree-item indent active" : "tree-item indent";
       document.getElementById("treeThreeCar").className = sceneName === "threeCar" ? "tree-item indent active" : "tree-item indent";
       document.getElementById("treeInclineSlot").className = sceneName === "inclineSlot" ? "tree-item indent active" : "tree-item indent";
       document.getElementById("treeRiverCrossing").className = sceneName === "riverCrossing" ? "tree-item indent active" : "tree-item indent";
       document.getElementById("treeProjectileBasic").className = sceneName === "projectileBasic" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treeProjectileSlope").className = sceneName === "projectileSlope" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treeProjectileWindow").className = sceneName === "projectileWindow" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treeRainWindow").className = sceneName === "rainWindow" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treeProjectileNormal").className = sceneName === "projectileNormal" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treeProjectileBounce").className = sceneName === "projectileBounce" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treeCurveForce").className = sceneName === "curveForce" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treeMotionCompose").className = sceneName === "motionCompose" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treeRiverAdvanced").className = sceneName === "riverAdvanced" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treeRodConstraint").className = sceneName === "rodConstraint" ? "tree-item indent active" : "tree-item indent";
+      document.getElementById("treeSemiCircleThrow").className = sceneName === "semiCircleThrow" ? "tree-item indent active" : "tree-item indent";
 
       document.getElementById("springControls").style.display = sceneName === "spring" ? "grid" : "none";
       document.getElementById("pendulumControls").style.display = sceneName === "pendulum" ? "grid" : "none";
@@ -791,12 +1501,55 @@
       document.getElementById("inclineSlotControls").style.display = sceneName === "inclineSlot" ? "grid" : "none";
       document.getElementById("riverCrossingControls").style.display = sceneName === "riverCrossing" ? "grid" : "none";
       document.getElementById("projectileBasicControls").style.display = sceneName === "projectileBasic" ? "grid" : "none";
+      document.getElementById("projectileSlopeControls").style.display = sceneName === "projectileSlope" ? "grid" : "none";
+      document.getElementById("projectileWindowControls").style.display = sceneName === "projectileWindow" ? "grid" : "none";
+      document.getElementById("rainWindowControls").style.display = sceneName === "rainWindow" ? "grid" : "none";
+      document.getElementById("projectileNormalControls").style.display = sceneName === "projectileNormal" ? "grid" : "none";
+      document.getElementById("projectileBounceControls").style.display = sceneName === "projectileBounce" ? "grid" : "none";
+      document.getElementById("curveForceControls").style.display = sceneName === "curveForce" ? "grid" : "none";
+      document.getElementById("motionComposeControls").style.display = sceneName === "motionCompose" ? "grid" : "none";
+      document.getElementById("riverAdvancedControls").style.display = sceneName === "riverAdvanced" ? "grid" : "none";
+      document.getElementById("rodConstraintControls").style.display = sceneName === "rodConstraint" ? "grid" : "none";
+      document.getElementById("semiCircleThrowControls").style.display = sceneName === "semiCircleThrow" ? "grid" : "none";
       document.getElementById("doubleThrowNotes").style.display = sceneName === "doubleThrow" ? "block" : "none";
       document.getElementById("pipeDropNotes").style.display = sceneName === "pipeDrop" ? "block" : "none";
       document.getElementById("threeCarNotes").style.display = sceneName === "threeCar" ? "block" : "none";
       document.getElementById("inclineSlotNotes").style.display = sceneName === "inclineSlot" ? "block" : "none";
       document.getElementById("riverCrossingNotes").style.display = sceneName === "riverCrossing" ? "block" : "none";
       document.getElementById("projectileBasicNotes").style.display = sceneName === "projectileBasic" ? "block" : "none";
+      document.getElementById("projectileSlopeNotes").style.display = sceneName === "projectileSlope" ? "block" : "none";
+      document.getElementById("projectileWindowNotes").style.display = sceneName === "projectileWindow" ? "block" : "none";
+      document.getElementById("rainWindowNotes").style.display = sceneName === "rainWindow" ? "block" : "none";
+      document.getElementById("projectileNormalNotes").style.display = sceneName === "projectileNormal" ? "block" : "none";
+      document.getElementById("projectileBounceNotes").style.display = sceneName === "projectileBounce" ? "block" : "none";
+      document.getElementById("curveForceNotes").style.display = sceneName === "curveForce" ? "block" : "none";
+      document.getElementById("motionComposeNotes").style.display = sceneName === "motionCompose" ? "block" : "none";
+      document.getElementById("riverAdvancedNotes").style.display = sceneName === "riverAdvanced" ? "block" : "none";
+      document.getElementById("rodConstraintNotes").style.display = sceneName === "rodConstraint" ? "block" : "none";
+      document.getElementById("semiCircleThrowNotes").style.display = sceneName === "semiCircleThrow" ? "block" : "none";
+      updateModelSource(sceneName);
+      renderMath();
+    }
+
+    function renderMath() {
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise();
+      }
+    }
+
+    function updateModelSource(sceneName) {
+      var source = modelSourceMap[sceneName];
+      var sourceBox = document.getElementById("modelSource");
+      if (!sourceBox) {
+        return;
+      }
+      if (!source) {
+        sourceBox.style.display = "none";
+        return;
+      }
+      document.getElementById("modelSourceTitle").innerText = source.title;
+      document.getElementById("modelSourceText").innerText = source.text;
+      sourceBox.style.display = "block";
     }
 
     function updateLabels() {
@@ -871,6 +1624,78 @@
       document.getElementById("projT").max = Math.max(1, projectileFlightTime()).toFixed(2);
       document.getElementById("projT").value = projT.toFixed(2);
       document.getElementById("projPlayBtn").innerText = projPlaying ? "暂停" : "播放";
+      slopeT = Math.min(slopeT, slopeHitTime());
+      document.getElementById("slopeAngleVal").innerText = slopeAngle.toFixed(0) + "°";
+      document.getElementById("slopeV0Val").innerText = slopeV0.toFixed(0);
+      document.getElementById("slopeGVal").innerText = slopeG.toFixed(1);
+      document.getElementById("slopeTVal").innerText = slopeT.toFixed(2) + "s";
+      document.getElementById("slopeT").max = Math.max(1, slopeHitTime()).toFixed(2);
+      document.getElementById("slopeT").value = slopeT.toFixed(2);
+      document.getElementById("slopePlayBtn").innerText = slopePlaying ? "暂停" : "播放";
+      winT = Math.min(winT, windowEndTime());
+      document.getElementById("winLVal").innerText = winL.toFixed(1);
+      document.getElementById("winDVal").innerText = winD.toFixed(1);
+      document.getElementById("winHVal").innerText = winH.toFixed(1);
+      document.getElementById("winTopDropVal").innerText = winTopDrop.toFixed(2);
+      document.getElementById("winV0Val").innerText = winV0.toFixed(1);
+      document.getElementById("winTVal").innerText = winT.toFixed(2) + "s";
+      document.getElementById("winT").max = Math.max(0.8, windowEndTime()).toFixed(2);
+      document.getElementById("winT").value = winT.toFixed(2);
+      document.getElementById("winPlayBtn").innerText = winPlaying ? "暂停" : "播放";
+      document.getElementById("rainTrainVVal").innerText = rainTrainV.toFixed(0);
+      document.getElementById("rainDropVVal").innerText = rainDropV.toFixed(0);
+      document.getElementById("rainDensityVal").innerText = rainDensity.toFixed(0);
+      normalT = Math.min(normalT, normalSceneMaxTime());
+      document.getElementById("normalAngleVal").innerText = normalAngle.toFixed(0) + "°";
+      document.getElementById("normalV0Val").innerText = normalV0.toFixed(0);
+      document.getElementById("normalGVal").innerText = normalG.toFixed(1);
+      document.getElementById("normalTVal").innerText = normalT.toFixed(2) + "s";
+      document.getElementById("normalT").max = Math.max(1, normalSceneMaxTime()).toFixed(2);
+      document.getElementById("normalT").value = normalT.toFixed(2);
+      document.getElementById("normalPlayBtn").innerText = normalPlaying ? "暂停" : "播放";
+      if (bounceD <= 2.2) {
+        bounceD = 2.2;
+      }
+      bounceWallX = bounceD / 2;
+      bounceT = Math.min(bounceT, bounceTotalTime());
+      document.getElementById("bounceHVal").innerText = bounceH.toFixed(1);
+      document.getElementById("bounceWallXVal").innerText = bounceWallX.toFixed(1);
+      document.getElementById("bounceDVal").innerText = bounceD.toFixed(1);
+      document.getElementById("bounceTVal").innerText = bounceT.toFixed(2) + "s";
+      document.getElementById("bounceD").value = bounceD.toFixed(1);
+      document.getElementById("bounceWallX").value = bounceWallX.toFixed(1);
+      document.getElementById("bounceT").max = Math.max(1, bounceTotalTime()).toFixed(2);
+      document.getElementById("bounceT").value = bounceT.toFixed(2);
+      document.getElementById("bouncePlayBtn").innerText = bouncePlaying ? "暂停" : "播放";
+      document.getElementById("forceNormalVal").innerText = forceNormal.toFixed(0);
+      document.getElementById("forceTangentialVal").innerText = forceTangential.toFixed(0);
+      document.getElementById("forcePointVal").innerText = (forcePoint * 100).toFixed(0) + "%";
+      composeT = Math.min(composeT, composeMaxT);
+      document.getElementById("composeVx0Val").innerText = composeVx0.toFixed(0);
+      document.getElementById("composeVy0Val").innerText = composeVy0.toFixed(0);
+      document.getElementById("composeAxVal").innerText = composeAx.toFixed(1);
+      document.getElementById("composeAyVal").innerText = composeAy.toFixed(1);
+      document.getElementById("composeTVal").innerText = composeT.toFixed(2) + "s";
+      document.getElementById("composeT").value = composeT.toFixed(2);
+      document.getElementById("composePlayBtn").innerText = composePlaying ? "暂停" : "播放";
+      if (advBoatSpeed * Math.sin(advRiverTheta * Math.PI / 180) < 0.25) {
+        advRiverT = 0;
+        advRiverPlaying = false;
+      }
+      advRiverT = Math.min(advRiverT, advRiverArriveTime());
+      document.getElementById("advRiverWidthVal").innerText = advRiverWidth.toFixed(0);
+      document.getElementById("advBoatSpeedVal").innerText = advBoatSpeed.toFixed(1);
+      document.getElementById("advWaterSpeedVal").innerText = advWaterSpeed.toFixed(1);
+      document.getElementById("advRiverThetaVal").innerText = advRiverTheta.toFixed(0) + "°";
+      document.getElementById("advRiverTVal").innerText = advRiverT.toFixed(1) + "s";
+      document.getElementById("advRiverT").max = Math.max(10, advRiverArriveTime()).toFixed(1);
+      document.getElementById("advRiverT").value = advRiverT.toFixed(1);
+      document.getElementById("advRiverPlayBtn").innerText = advRiverPlaying ? "暂停" : "播放";
+      document.getElementById("rodAlphaVal").innerText = rodAlpha.toFixed(0) + "°";
+      document.getElementById("rodVBVal").innerText = rodVB.toFixed(0);
+      document.getElementById("semiRVal").innerText = semiR.toFixed(0);
+      document.getElementById("semiAlphaVal").innerText = semiAlpha.toFixed(0) + "°";
+      document.getElementById("semiGVal").innerText = semiG.toFixed(1);
     }
 
     function drawLayout() {
@@ -2611,6 +3436,1426 @@
         vertex(map(t, 0, tMax, gx, gx + gw), map(value, 0, vMax, gy + gh, gy));
       }
       endShape();
+    }
+
+    function slopeThetaRad() {
+      return slopeAngle * Math.PI / 180;
+    }
+
+    function slopeHitTime() {
+      return Math.max(0.2, 2 * slopeV0 * Math.tan(slopeThetaRad()) / slopeG);
+    }
+
+    function slopeX(t) {
+      return slopeV0 * t;
+    }
+
+    function slopeDrop(t) {
+      return 0.5 * slopeG * t * t;
+    }
+
+    function toggleSlopePlay() {
+      slopePlaying = !slopePlaying;
+      updateLabels();
+    }
+
+    function resetSlopeTime() {
+      slopeT = 0;
+      slopePlaying = false;
+      updateLabels();
+    }
+
+    function updateSlope(dt) {
+      if (slopePlaying) {
+        slopeT += dt;
+        if (slopeT >= slopeHitTime()) {
+          slopeT = slopeHitTime();
+          slopePlaying = false;
+        }
+        updateLabels();
+      }
+    }
+
+    function drawSlopeScene() {
+      var startX = 86;
+      var startY = 92;
+      var tMax = slopeHitTime();
+      var xHit = slopeX(tMax);
+      var yHit = slopeDrop(tMax);
+      var scale = Math.min(420 / Math.max(1, xHit), 330 / Math.max(1, yHit));
+      var tNow = Math.min(slopeT, tMax);
+      var ballX = startX + slopeX(tNow) * scale;
+      var ballY = startY + slopeDrop(tNow) * scale;
+      var slopeEndX = startX + xHit * scale * 1.08;
+      var slopeEndY = startY + xHit * Math.tan(slopeThetaRad()) * scale * 1.08;
+      var i;
+
+      stroke("#111827");
+      strokeWeight(3);
+      line(startX - 28, startY, slopeEndX, slopeEndY);
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      for (i = 1; i <= 4; i++) {
+        var guideX = startX + i * (slopeEndX - startX) / 5;
+        var guideY = startY + i * (slopeEndY - startY) / 5;
+        line(guideX - 12, guideY + 18, guideX + 32, guideY - 4);
+      }
+
+      stroke("#2563eb");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 120; i++) {
+        var t = i * tMax / 120;
+        vertex(startX + slopeX(t) * scale, startY + slopeDrop(t) * scale);
+      }
+      endShape();
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      line(ballX, startY, ballX, ballY);
+      line(startX, ballY, ballX, ballY);
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#f97316");
+      circle(ballX, ballY, 24);
+      fill("#ffedd5");
+      circle(ballX - 5, ballY - 5, 7);
+
+      drawVectorArrow(ballX, ballY, slopeV0 * 1.8, 0, "#2563eb", "vx");
+      drawVectorArrow(ballX, ballY, 0, slopeG * tNow * 1.8, "#dc2626", "vy");
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("斜面", slopeEndX - 38, slopeEndY - 20);
+      text("落点", startX + xHit * scale + 8, startY + yHit * scale - 24);
+    }
+
+    function drawSlopeGraph() {
+      var gx = graphLeft + 50;
+      var gy = 62;
+      var gw = graphRight - graphLeft - 80;
+      var gh = 360;
+      var tMax = slopeHitTime();
+      var yMax = slopeDrop(tMax);
+      var i;
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("下落量-时间图像", graphLeft + 24, 20);
+      fill("#5b6472");
+      textSize(12);
+      text("蓝线：小球下落量；灰线：斜面高度", graphLeft + 24, 44);
+
+      drawBasicGrid(gx, gy, gw, gh);
+      drawGraphTicks(gx, gy, gw, gh, tMax, yMax, "s");
+
+      stroke("#94a3b8");
+      strokeWeight(2);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 120; i++) {
+        var tLine = i * tMax / 120;
+        var slopeValue = slopeX(tLine) * Math.tan(slopeThetaRad());
+        vertex(map(tLine, 0, tMax, gx, gx + gw), map(slopeValue, 0, yMax, gy + gh, gy));
+      }
+      endShape();
+
+      stroke("#2563eb");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 120; i++) {
+        var tBall = i * tMax / 120;
+        vertex(map(tBall, 0, tMax, gx, gx + gw), map(slopeDrop(tBall), 0, yMax, gy + gh, gy));
+      }
+      endShape();
+
+      drawTimeMarker(gx, gy, gw, gh, Math.min(slopeT, tMax), tMax);
+    }
+
+    function windowEndTime() {
+      return (winL + winD + 1.1) / Math.max(0.2, winV0);
+    }
+
+    function windowDropAtX(x) {
+      var t = x / Math.max(0.2, winV0);
+      return 0.5 * winG * t * t;
+    }
+
+    function windowCanPass() {
+      var dropIn = windowDropAtX(winL);
+      var dropOut = windowDropAtX(winL + winD);
+      var bottom = winTopDrop + winH;
+      return dropIn >= winTopDrop && dropIn <= bottom && dropOut >= winTopDrop && dropOut <= bottom;
+    }
+
+    function toggleWindowPlay() {
+      winPlaying = !winPlaying;
+      updateLabels();
+    }
+
+    function resetWindowTime() {
+      winT = 0;
+      winPlaying = false;
+      updateLabels();
+    }
+
+    function updateWindow(dt) {
+      if (winPlaying) {
+        winT += dt;
+        if (winT >= windowEndTime()) {
+          winT = windowEndTime();
+          winPlaying = false;
+        }
+        updateLabels();
+      }
+    }
+
+    function drawWindowScene() {
+      var startX = 72;
+      var startY = 130;
+      var scale = 130;
+      var wallX = startX + winL * scale;
+      var wallW = Math.max(18, winD * scale);
+      var wallTop = 70;
+      var wallBottom = 430;
+      var slotTop = startY + winTopDrop * scale;
+      var slotBottom = startY + (winTopDrop + winH) * scale;
+      var tNow = Math.min(winT, windowEndTime());
+      var ballX = startX + winV0 * tNow * scale;
+      var ballY = startY + 0.5 * winG * tNow * tNow * scale;
+      var xMax = winL + winD + 1.0;
+      var tMax = xMax / Math.max(0.2, winV0);
+      var i;
+
+      noStroke();
+      fill("#e5e7eb");
+      rect(wallX, wallTop, wallW, wallBottom - wallTop, 4);
+      fill("#ffffff");
+      rect(wallX - 1, slotTop, wallW + 2, slotBottom - slotTop);
+
+      stroke("#111827");
+      strokeWeight(3);
+      line(45, wallBottom, 545, wallBottom);
+
+      stroke("#2563eb");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 120; i++) {
+        var t = i * tMax / 120;
+        vertex(startX + winV0 * t * scale, startY + 0.5 * winG * t * t * scale);
+      }
+      endShape();
+
+      stroke(windowCanPass() ? "#16a34a" : "#dc2626");
+      strokeWeight(3);
+      noFill();
+      rect(wallX, slotTop, wallW, slotBottom - slotTop);
+
+      noStroke();
+      fill("#111827");
+      circle(startX, startY, 7);
+      fill("#f97316");
+      circle(ballX, ballY, 22);
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("P", startX - 16, startY - 8);
+      text("窗口", wallX + wallW + 8, slotTop + 8);
+    }
+
+    function drawWindowGraph() {
+      var gx = graphLeft + 50;
+      var gy = 62;
+      var gw = graphRight - graphLeft - 80;
+      var gh = 360;
+      var xMax = winL + winD + 1.0;
+      var yMax = Math.max(winTopDrop + winH + 0.6, windowDropAtX(xMax));
+      var i;
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("下落量-水平位置图像", graphLeft + 24, 20);
+      fill("#5b6472");
+      textSize(12);
+      text("绿色区间：窗口允许范围", graphLeft + 24, 44);
+
+      drawBasicGrid(gx, gy, gw, gh);
+      drawGraphTicks(gx, gy, gw, gh, xMax, yMax, "m");
+
+      var bandTop = map(winTopDrop, 0, yMax, gy + gh, gy);
+      var bandBottom = map(winTopDrop + winH, 0, yMax, gy + gh, gy);
+      noStroke();
+      fill(220, 252, 231, 170);
+      rect(map(winL, 0, xMax, gx, gx + gw), bandBottom, map(winL + winD, 0, xMax, gx, gx + gw) - map(winL, 0, xMax, gx, gx + gw), bandTop - bandBottom);
+
+      stroke("#2563eb");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 160; i++) {
+        var x = i * xMax / 160;
+        vertex(map(x, 0, xMax, gx, gx + gw), map(windowDropAtX(x), 0, yMax, gy + gh, gy));
+      }
+      endShape();
+    }
+
+    function rainAngle() {
+      return Math.atan2(rainTrainV, rainDropV) * 180 / Math.PI;
+    }
+
+    function drawRainScene() {
+      var winX = 90;
+      var winY = 70;
+      var winW = 390;
+      var winHLocal = 310;
+      var relX = -rainTrainV;
+      var relY = rainDropV;
+      var len = Math.sqrt(relX * relX + relY * relY);
+      var ux = relX / Math.max(1, len);
+      var uy = relY / Math.max(1, len);
+      var i;
+
+      noStroke();
+      fill("#e0f2fe");
+      rect(winX, winY, winW, winHLocal, 10);
+      fill("#f8fafc");
+      rect(winX + 18, winY + 18, winW - 36, winHLocal - 36, 8);
+
+      stroke("#111827");
+      strokeWeight(4);
+      noFill();
+      rect(winX, winY, winW, winHLocal, 10);
+      line(winX + winW / 2, winY, winX + winW / 2, winY + winHLocal);
+
+      stroke("#38bdf8");
+      strokeWeight(2);
+      for (i = 0; i < rainDensity * 3; i++) {
+        var baseX = winX + 35 + ((i * 73 + simTime * rainTrainV * 16) % (winW - 70));
+        var baseY = winY + 28 + ((i * 47 + simTime * rainDropV * 18) % (winHLocal - 56));
+        line(baseX, baseY, baseX - ux * 38, baseY - uy * 38);
+      }
+
+      drawVectorArrow(305, 420, rainTrainV * 3, 0, "#2563eb", "v车");
+      drawVectorArrow(305, 420, 0, rainDropV * 3, "#0f766e", "v雨");
+      drawVectorArrow(305, 420, -rainTrainV * 3, rainDropV * 3, "#f97316", "v相");
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("车窗视角", winX + 16, winY + 14);
+      text("θ=" + rainAngle().toFixed(1) + "°", 342, 394);
+    }
+
+    function drawRainGraph() {
+      var cx = graphLeft + 210;
+      var cy = 258;
+      var scale = 6;
+      var maxLen = Math.max(1, Math.sqrt(rainTrainV * rainTrainV + rainDropV * rainDropV));
+      if (maxLen * scale > 160) {
+        scale = 160 / maxLen;
+      }
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("相对速度矢量图", graphLeft + 24, 20);
+      fill("#5b6472");
+      textSize(12);
+      text("橙色：乘客看到的雨滴速度", graphLeft + 24, 44);
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      line(cx - 170, cy, cx + 170, cy);
+      line(cx, cy - 170, cx, cy + 170);
+
+      drawVectorArrow(cx, cy, rainTrainV * scale, 0, "#2563eb", "v车");
+      drawVectorArrow(cx, cy, 0, rainDropV * scale, "#0f766e", "v雨");
+      drawVectorArrow(cx, cy, -rainTrainV * scale, rainDropV * scale, "#f97316", "v相");
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("夹角 θ=" + rainAngle().toFixed(1) + "°", graphLeft + 30, 420);
+    }
+
+    function drawBasicGrid(gx, gy, gw, gh) {
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      noFill();
+      rect(gx, gy, gw, gh);
+      stroke("#e5e7eb");
+      for (var i = 0; i <= 4; i++) {
+        line(gx, gy + i * gh / 4, gx + gw, gy + i * gh / 4);
+        line(gx + i * gw / 4, gy, gx + i * gw / 4, gy + gh);
+      }
+    }
+
+    function drawGraphTicks(gx, gy, gw, gh, xMax, yMax, xUnit) {
+      noStroke();
+      fill("#5b6472");
+      textSize(11);
+      textAlign(RIGHT, CENTER);
+      for (var i = 0; i <= 4; i++) {
+        var valY = map(i, 0, 4, yMax, 0);
+        text(valY.toFixed(1), gx - 8, gy + i * gh / 4);
+      }
+      textAlign(CENTER, TOP);
+      for (i = 0; i <= 4; i++) {
+        text((i * xMax / 4).toFixed(1) + xUnit, gx + i * gw / 4, gy + gh + 10);
+      }
+    }
+
+    function drawTimeMarker(gx, gy, gw, gh, tNow, tMax) {
+      var currentX = map(tNow, 0, tMax, gx, gx + gw);
+      stroke("#111827");
+      strokeWeight(1);
+      drawingContext.setLineDash([4, 4]);
+      line(currentX, gy, currentX, gy + gh);
+      drawingContext.setLineDash([]);
+    }
+
+    function normalThetaRad() {
+      return normalAngle * Math.PI / 180;
+    }
+
+    function normalExamTime() {
+      return normalV0 / Math.max(0.1, normalG);
+    }
+
+    function normalHitTime() {
+      return normalExamTime();
+    }
+
+    function normalSlopeHitTime() {
+      return normalExamTime();
+    }
+
+    function normalSceneMaxTime() {
+      return normalExamTime();
+    }
+
+    function normalX1(t) {
+      return normalV0 * t;
+    }
+
+    function normalX2(t) {
+      return 0.5 * normalV0 * t;
+    }
+
+    function normalDrop(t) {
+      return 0.5 * normalG * t * t;
+    }
+
+    function normalXC() {
+      var t = normalExamTime();
+      return normalX1(t);
+    }
+
+    function normalXB() {
+      var t = normalExamTime();
+      return normalX2(t);
+    }
+
+    function normalYBC() {
+      return normalDrop(normalExamTime());
+    }
+
+    function normalHeightMN() {
+      return 1.5 * normalYBC();
+    }
+
+    function toggleNormalPlay() {
+      normalPlaying = !normalPlaying;
+      updateLabels();
+    }
+
+    function resetNormalTime() {
+      normalT = 0;
+      normalPlaying = false;
+      updateLabels();
+    }
+
+    function updateNormal(dt) {
+      if (normalPlaying) {
+        normalT += dt;
+        if (normalT >= normalSceneMaxTime()) {
+          normalT = normalSceneMaxTime();
+          normalPlaying = false;
+        }
+        updateLabels();
+      }
+    }
+
+    function drawNormalScene() {
+      var startX = 86;
+      var startY = 86;
+      var tMax = normalSceneMaxTime();
+      var xB = normalXB();
+      var xC = normalXC();
+      var yBC = normalYBC();
+      var heightMN = normalHeightMN();
+      var scale = Math.min(420 / Math.max(1, xC), 330 / Math.max(1, heightMN));
+      var tNow = Math.min(normalT, tMax);
+      var ball1X = startX + normalX1(tNow) * scale;
+      var ball1Y = startY + normalDrop(tNow) * scale;
+      var ball2X = startX + normalX2(tNow) * scale;
+      var ball2Y = startY + normalDrop(tNow) * scale;
+      var bx = startX + xB * scale;
+      var by = startY + yBC * scale;
+      var cx = startX + xC * scale;
+      var cy = startY + yBC * scale;
+      var ox = startX + heightMN * scale;
+      var oy = startY + heightMN * scale;
+      var pX = startX;
+      var pY = startY;
+      var qX = ox + 120;
+      var qY = oy - 120;
+      var i;
+
+      stroke("#111827");
+      strokeWeight(3);
+      line(pX, pY, ox, oy);
+      line(ox, oy, qX, qY);
+      line(startX - 20, oy, Math.min(animRight - 25, qX + 18), oy);
+
+      stroke("#94a3b8");
+      strokeWeight(2);
+      line(cx, cy, cx - 54, cy - 54);
+      drawingContext.setLineDash([4, 4]);
+      line(bx, by, cx, cy);
+      line(startX, startY, startX, oy);
+      drawingContext.setLineDash([]);
+
+      stroke("#2563eb");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 120; i++) {
+        var t1 = i * tMax / 120;
+        vertex(startX + normalX1(t1) * scale, startY + normalDrop(t1) * scale);
+      }
+      endShape();
+
+      stroke("#dc2626");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 120; i++) {
+        var t2 = i * tMax / 120;
+        vertex(startX + normalX2(t2) * scale, startY + normalDrop(t2) * scale);
+      }
+      endShape();
+
+      noStroke();
+      fill("#2563eb");
+      circle(ball1X, ball1Y, 22);
+      fill("#dbeafe");
+      circle(ball1X - 5, ball1Y - 5, 6);
+      fill("#dc2626");
+      circle(ball2X, ball2Y, 20);
+      fill("#fee2e2");
+      circle(ball2X - 5, ball2Y - 5, 6);
+      fill("#2563eb");
+      circle(cx, cy, 9);
+      fill("#dc2626");
+      circle(bx, by, 9);
+
+      drawVectorArrow(ball1X, ball1Y, normalV0 * 1.35, 0, "#2563eb", "v1x");
+      drawVectorArrow(ball1X, ball1Y, 0, normalG * tNow * 1.35, "#2563eb", "v1y");
+      drawVectorArrow(ball2X, ball2Y, normalV0 * 0.7, 0, "#dc2626", "v2x");
+      drawVectorArrow(ball2X, ball2Y, 0, normalG * tNow * 1.25, "#dc2626", "v2y");
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("A/P", startX - 20, startY - 18);
+      text("O", ox + 6, oy - 4);
+      text("MN", startX - 18, oy + 8);
+      text("法线", cx - 62, cy - 68);
+      fill("#2563eb");
+      text("C：v1 垂直 QO", cx + 10, cy - 30);
+      fill("#dc2626");
+      text("B：v2 落 PO", bx - 88, by - 20);
+      fill("#5b6472");
+      text("B、C 同一水平面", bx + 20, by + 8);
+    }
+
+    function drawNormalGraph() {
+      var gx = graphLeft + 50;
+      var gy = 62;
+      var gw = graphRight - graphLeft - 80;
+      var gh = 360;
+      var tMax = normalSceneMaxTime();
+      var xMax = normalXC();
+      var i;
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("两球水平位移-时间图像", graphLeft + 24, 20);
+      fill("#5b6472");
+      textSize(12);
+      text("蓝线：v1 到 C；红线：v2 到 B；两球飞行时间相同", graphLeft + 24, 44);
+
+      drawBasicGrid(gx, gy, gw, gh);
+      drawGraphTicks(gx, gy, gw, gh, tMax, xMax, "s");
+
+      stroke("#cbd5e1");
+      strokeWeight(1.5);
+      drawingContext.setLineDash([4, 4]);
+      line(gx, map(normalXB(), 0, xMax, gy + gh, gy), gx + gw, map(normalXB(), 0, xMax, gy + gh, gy));
+      line(gx, map(normalXC(), 0, xMax, gy + gh, gy), gx + gw, map(normalXC(), 0, xMax, gy + gh, gy));
+      drawingContext.setLineDash([]);
+
+      stroke("#2563eb");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 120; i++) {
+        var t = i * tMax / 120;
+        vertex(map(t, 0, tMax, gx, gx + gw), map(normalX1(t), 0, xMax, gy + gh, gy));
+      }
+      endShape();
+
+      stroke("#dc2626");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 120; i++) {
+        var tRed = i * tMax / 120;
+        vertex(map(tRed, 0, tMax, gx, gx + gw), map(normalX2(tRed), 0, xMax, gy + gh, gy));
+      }
+      endShape();
+
+      noStroke();
+      fill("#2563eb");
+      circle(gx + gw, map(normalXC(), 0, xMax, gy + gh, gy), 8);
+      fill("#dc2626");
+      circle(gx + gw, map(normalXB(), 0, xMax, gy + gh, gy), 8);
+      fill("#5b6472");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("C: x=gt²", gx + gw - 78, map(normalXC(), 0, xMax, gy + gh, gy) - 28);
+      text("B: x=1/2gt²", gx + gw - 98, map(normalXB(), 0, xMax, gy + gh, gy) + 8);
+
+      drawTimeMarker(gx, gy, gw, gh, Math.min(normalT, tMax), tMax);
+    }
+
+    function bounceFallTime() {
+      return Math.sqrt(2 * bounceH / bounceG);
+    }
+
+    function bounceTotalTime() {
+      return 3 * bounceFallTime();
+    }
+
+    function bounceV1() {
+      return bounceD / bounceTotalTime();
+    }
+
+    function bounceV2() {
+      return bounceD / bounceFallTime();
+    }
+
+    function bounceV0() {
+      return bounceV1();
+    }
+
+    function bounceY1AtTime(t) {
+      var tf = bounceFallTime();
+      if (t <= tf) {
+        return bounceH - 0.5 * bounceG * t * t;
+      }
+      var after = t - tf;
+      var upV = bounceG * tf;
+      return Math.max(0, upV * after - 0.5 * bounceG * after * after);
+    }
+
+    function bounceY2AtTime(t) {
+      return Math.max(0, bounceH - 0.5 * bounceG * t * t);
+    }
+
+    function bounceY1AtX(x) {
+      var t = x / Math.max(0.1, bounceV1());
+      return bounceY1AtTime(t);
+    }
+
+    function bounceY2AtX(x) {
+      var t = x / Math.max(0.1, bounceV2());
+      return bounceY2AtTime(t);
+    }
+
+    function bounceBoardHeight() {
+      return bounceH * 0.75;
+    }
+
+    function bounceYDirectAtX(x) {
+      var t = x / Math.max(0.1, bounceV2());
+      return Math.max(0, bounceH - 0.5 * bounceG * t * t);
+    }
+
+    function toggleBouncePlay() {
+      bouncePlaying = !bouncePlaying;
+      updateLabels();
+    }
+
+    function resetBounceTime() {
+      bounceT = 0;
+      bouncePlaying = false;
+      updateLabels();
+    }
+
+    function updateBounce(dt) {
+      if (bouncePlaying) {
+        bounceT += dt;
+        if (bounceT >= bounceTotalTime()) {
+          bounceT = bounceTotalTime();
+          bouncePlaying = false;
+        }
+        updateLabels();
+      }
+    }
+
+    function drawBounceScene() {
+      var groundY = 430;
+      var startX = 70;
+      var scaleX = 450 / Math.max(1, bounceD);
+      var scaleY = 330 / Math.max(1, bounceH);
+      var v1 = bounceV1();
+      var v2 = bounceV2();
+      var tNow = Math.min(bounceT, bounceTotalTime());
+      var t2Now = Math.min(tNow, bounceFallTime());
+      var ball1X = startX + v1 * tNow * scaleX;
+      var ball1Y = groundY - bounceY1AtTime(tNow) * scaleY;
+      var ball2X = startX + v2 * t2Now * scaleX;
+      var ball2Y = groundY - bounceY2AtTime(t2Now) * scaleY;
+      var bounceX = startX + v1 * bounceFallTime() * scaleX;
+      var wallX = startX + bounceWallX * scaleX;
+      var wallH = bounceBoardHeight();
+      var wallTopY = groundY - wallH * scaleY;
+      var i;
+
+      stroke("#111827");
+      strokeWeight(3);
+      line(45, groundY, 545, groundY);
+
+      stroke("#16a34a");
+      strokeWeight(5);
+      line(wallX, groundY, wallX, wallTopY);
+
+      stroke("#2563eb");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 160; i++) {
+        var t = i * bounceTotalTime() / 160;
+        vertex(startX + v1 * t * scaleX, groundY - bounceY1AtTime(t) * scaleY);
+      }
+      endShape();
+
+      stroke("#dc2626");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 100; i++) {
+        var tDirect = i * bounceFallTime() / 100;
+        vertex(startX + v2 * tDirect * scaleX, groundY - bounceY2AtTime(tDirect) * scaleY);
+      }
+      endShape();
+
+      noStroke();
+      fill("#111827");
+      circle(startX, groundY - bounceH * scaleY, 7);
+      circle(bounceX, groundY, 7);
+      circle(startX + bounceD * scaleX, groundY, 7);
+      fill("#16a34a");
+      circle(wallX, wallTopY, 9);
+      fill("#2563eb");
+      circle(ball1X, ball1Y, 22);
+      fill("#dbeafe");
+      circle(ball1X - 5, ball1Y - 5, 6);
+      fill("#dc2626");
+      circle(ball2X, ball2Y, 20);
+      fill("#ffedd5");
+      circle(ball2X - 5, ball2Y - 5, 6);
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("A", startX - 18, groundY - bounceH * scaleY - 8);
+      text("C：球1反弹点", bounceX - 32, groundY + 8);
+      text("D：共同落点", startX + bounceD * scaleX - 28, groundY + 8);
+      text("挡板 h=3/4H", wallX + 8, wallTopY - 20);
+      fill("#2563eb");
+      text("球1：先反弹", startX + 18, 54);
+      fill("#dc2626");
+      text("球2：直接越过", startX + 18, 74);
+    }
+
+    function drawBounceGraph() {
+      var gx = graphLeft + 50;
+      var gy = 62;
+      var gw = graphRight - graphLeft - 80;
+      var gh = 360;
+      var tMax = bounceTotalTime();
+      var yMax = bounceH;
+      var i;
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("两球高度-时间图像", graphLeft + 24, 20);
+      fill("#5b6472");
+      textSize(12);
+      text("绿线：挡板顶端 h=3/4H；蓝点/红点：两球恰好越过同一高度", graphLeft + 24, 44);
+
+      drawBasicGrid(gx, gy, gw, gh);
+      drawGraphTicks(gx, gy, gw, gh, tMax, yMax, "s");
+
+      stroke("#dc2626");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 160; i++) {
+        var td = i * bounceFallTime() / 160;
+        vertex(map(td, 0, tMax, gx, gx + gw), map(bounceY2AtTime(td), 0, yMax, gy + gh, gy));
+      }
+      endShape();
+
+      stroke("#2563eb");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 160; i++) {
+        var tb = i * tMax / 160;
+        vertex(map(tb, 0, tMax, gx, gx + gw), map(bounceY1AtTime(tb), 0, yMax, gy + gh, gy));
+      }
+      endShape();
+
+      var tWall1 = bounceWallX / Math.max(0.1, bounceV1());
+      var tWall2 = bounceWallX / Math.max(0.1, bounceV2());
+      var yWall1 = bounceY1AtX(bounceWallX);
+      var yWall2 = bounceY2AtX(bounceWallX);
+      var boardH = bounceBoardHeight();
+
+      stroke("#16a34a");
+      strokeWeight(1.5);
+      drawingContext.setLineDash([4, 4]);
+      line(gx, map(boardH, 0, yMax, gy + gh, gy), gx + gw, map(boardH, 0, yMax, gy + gh, gy));
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#2563eb");
+      circle(map(tWall1, 0, tMax, gx, gx + gw), map(yWall1, 0, yMax, gy + gh, gy), 7);
+      fill("#dc2626");
+      circle(map(tWall2, 0, tMax, gx, gx + gw), map(yWall2, 0, yMax, gy + gh, gy), 7);
+      fill("#16a34a");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("挡板高 h=" + boardH.toFixed(2) + "m", gx + 14, map(boardH, 0, yMax, gy + gh, gy) - 22);
+
+      drawTimeMarker(gx, gy, gw, gh, Math.min(bounceT, tMax), tMax);
+    }
+
+    function curveForcePoint() {
+      var u = forcePoint;
+      var x = 85 + 430 * u;
+      var y = 360 - 210 * Math.sin(u * Math.PI * 0.92);
+      var dx = 430;
+      var dy = -210 * Math.PI * 0.92 * Math.cos(u * Math.PI * 0.92);
+      var len = Math.sqrt(dx * dx + dy * dy);
+      var tx = dx / len;
+      var ty = dy / len;
+      var nx = -ty;
+      var ny = tx;
+      if (ny > 0) {
+        nx = -nx;
+        ny = -ny;
+      }
+      return { x: x, y: y, tx: tx, ty: ty, nx: nx, ny: ny };
+    }
+
+    function drawCurveForceScene() {
+      var p = curveForcePoint();
+      var i;
+
+      stroke("#2563eb");
+      strokeWeight(3);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 120; i++) {
+        var u = i / 120;
+        vertex(85 + 430 * u, 360 - 210 * Math.sin(u * Math.PI * 0.92));
+      }
+      endShape();
+
+      noStroke();
+      fill("#f97316");
+      circle(p.x, p.y, 24);
+      fill("#ffedd5");
+      circle(p.x - 5, p.y - 5, 7);
+
+      drawVectorArrow(p.x, p.y, p.tx * 78, p.ty * 78, "#2563eb", "v");
+      drawVectorArrow(p.x, p.y, p.nx * forceNormal, p.ny * forceNormal, "#dc2626", "Fn");
+      drawVectorArrow(p.x, p.y, p.tx * forceTangential, p.ty * forceTangential, "#0f766e", "Ft");
+      drawVectorArrow(p.x, p.y, p.nx * forceNormal + p.tx * forceTangential, p.ny * forceNormal + p.ty * forceTangential, "#111827", "F");
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text(forceTangential >= 0 ? "加速" : "减速", p.x + 36, p.y + 28);
+    }
+
+    function drawCurveForceGraph() {
+      var cx = graphLeft + 210;
+      var cy = 260;
+      var p = curveForcePoint();
+      var scale = 1.35;
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("力的分解示意", graphLeft + 24, 20);
+      fill("#5b6472");
+      textSize(12);
+      text("红：法向；绿：切向；黑：合力", graphLeft + 24, 44);
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      line(cx - 165, cy, cx + 165, cy);
+      line(cx, cy - 165, cx, cy + 165);
+
+      drawVectorArrow(cx, cy, p.nx * forceNormal * scale, p.ny * forceNormal * scale, "#dc2626", "Fn");
+      drawVectorArrow(cx, cy, p.tx * forceTangential * scale, p.ty * forceTangential * scale, "#0f766e", "Ft");
+      drawVectorArrow(cx, cy, (p.nx * forceNormal + p.tx * forceTangential) * scale, (p.ny * forceNormal + p.ty * forceTangential) * scale, "#111827", "F");
+    }
+
+    function composeX(t) {
+      return composeVx0 * t + 0.5 * composeAx * t * t;
+    }
+
+    function composeY(t) {
+      return composeVy0 * t + 0.5 * composeAy * t * t;
+    }
+
+    function toggleComposePlay() {
+      composePlaying = !composePlaying;
+      updateLabels();
+    }
+
+    function resetComposeTime() {
+      composeT = 0;
+      composePlaying = false;
+      updateLabels();
+    }
+
+    function updateCompose(dt) {
+      if (composePlaying) {
+        composeT += dt;
+        if (composeT >= composeMaxT) {
+          composeT = composeMaxT;
+          composePlaying = false;
+        }
+        updateLabels();
+      }
+    }
+
+    function drawComposeScene() {
+      var minX = 0;
+      var maxX = 1;
+      var minY = 0;
+      var maxY = 1;
+      var i;
+      for (i = 0; i <= 120; i++) {
+        var tScan = i * composeMaxT / 120;
+        minX = Math.min(minX, composeX(tScan));
+        maxX = Math.max(maxX, composeX(tScan));
+        minY = Math.min(minY, composeY(tScan));
+        maxY = Math.max(maxY, composeY(tScan));
+      }
+      var sx = 430 / Math.max(1, maxX - minX);
+      var sy = 320 / Math.max(1, maxY - minY);
+      var scale = Math.min(sx, sy);
+      var baseX = 92 - minX * scale;
+      var baseY = 405 + minY * scale;
+      var tNow = Math.min(composeT, composeMaxT);
+      var ballX = baseX + composeX(tNow) * scale;
+      var ballY = baseY - composeY(tNow) * scale;
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      line(60, baseY, 540, baseY);
+      line(baseX, 58, baseX, 430);
+
+      stroke("#2563eb");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 160; i++) {
+        var t = i * composeMaxT / 160;
+        vertex(baseX + composeX(t) * scale, baseY - composeY(t) * scale);
+      }
+      endShape();
+
+      noStroke();
+      fill("#f97316");
+      circle(ballX, ballY, 24);
+      fill("#ffedd5");
+      circle(ballX - 5, ballY - 5, 7);
+
+      drawVectorArrow(ballX, ballY, (composeVx0 + composeAx * tNow) * 2.2, -(composeVy0 + composeAy * tNow) * 2.2, "#2563eb", "v");
+      drawVectorArrow(ballX, ballY, composeAx * 8, -composeAy * 8, "#dc2626", "a");
+    }
+
+    function drawComposeGraph() {
+      var gx = graphLeft + 50;
+      var gy = 62;
+      var gw = graphRight - graphLeft - 80;
+      var gh = 360;
+      var maxAbs = 1;
+      var i;
+      for (i = 0; i <= 120; i++) {
+        var tScan = i * composeMaxT / 120;
+        maxAbs = Math.max(maxAbs, Math.abs(composeX(tScan)), Math.abs(composeY(tScan)));
+      }
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("分运动位移图像", graphLeft + 24, 20);
+      fill("#5b6472");
+      textSize(12);
+      text("蓝线：x 分运动；红线：y 分运动", graphLeft + 24, 44);
+
+      drawBasicGrid(gx, gy, gw, gh);
+      stroke("#94a3b8");
+      strokeWeight(1);
+      line(gx, map(0, -maxAbs, maxAbs, gy + gh, gy), gx + gw, map(0, -maxAbs, maxAbs, gy + gh, gy));
+
+      stroke("#2563eb");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 160; i++) {
+        var tx = i * composeMaxT / 160;
+        vertex(map(tx, 0, composeMaxT, gx, gx + gw), map(composeX(tx), -maxAbs, maxAbs, gy + gh, gy));
+      }
+      endShape();
+
+      stroke("#dc2626");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 160; i++) {
+        var ty = i * composeMaxT / 160;
+        vertex(map(ty, 0, composeMaxT, gx, gx + gw), map(composeY(ty), -maxAbs, maxAbs, gy + gh, gy));
+      }
+      endShape();
+
+      drawTimeMarker(gx, gy, gw, gh, composeT, composeMaxT);
+    }
+
+    function advRiverVX() {
+      return advWaterSpeed + advBoatSpeed * Math.cos(advRiverTheta * Math.PI / 180);
+    }
+
+    function advRiverVY() {
+      return advBoatSpeed * Math.sin(advRiverTheta * Math.PI / 180);
+    }
+
+    function advRiverArriveTime() {
+      return advRiverWidth / Math.max(0.25, advRiverVY());
+    }
+
+    function advRiverBestTheta() {
+      if (advBoatSpeed >= advWaterSpeed) {
+        return Math.acos(-advWaterSpeed / advBoatSpeed) * 180 / Math.PI;
+      }
+      return Math.acos(-advBoatSpeed / advWaterSpeed) * 180 / Math.PI;
+    }
+
+    function toggleAdvRiverPlay() {
+      advRiverPlaying = !advRiverPlaying;
+      updateLabels();
+    }
+
+    function resetAdvRiverTime() {
+      advRiverT = 0;
+      advRiverPlaying = false;
+      updateLabels();
+    }
+
+    function updateAdvRiver(dt) {
+      if (advRiverPlaying) {
+        advRiverT += dt * 4;
+        if (advRiverT >= advRiverArriveTime()) {
+          advRiverT = advRiverArriveTime();
+          advRiverPlaying = false;
+        }
+        updateLabels();
+      }
+    }
+
+    function drawAdvRiverScene() {
+      var bankLeft = 82;
+      var bankRight = 530;
+      var nearY = 388;
+      var farY = 92;
+      var startX = 170;
+      var scale = (nearY - farY) / advRiverWidth;
+      var tNow = Math.min(advRiverT, advRiverArriveTime());
+      var vx = advRiverVX();
+      var vy = advRiverVY();
+      var boatX = startX + vx * tNow * scale;
+      var boatY = nearY - vy * tNow * scale;
+      var i;
+
+      noStroke();
+      fill("#e0f2fe");
+      rect(bankLeft, farY, bankRight - bankLeft, nearY - farY, 10);
+
+      stroke("#111827");
+      strokeWeight(3);
+      line(bankLeft, nearY, bankRight, nearY);
+      line(bankLeft, farY, bankRight, farY);
+
+      stroke("#bae6fd");
+      strokeWeight(1);
+      for (i = 0; i < 7; i++) {
+        var streamY = farY + 35 + i * 36;
+        line(bankLeft + 22, streamY, bankRight - 28, streamY);
+        drawArrow(bankRight - 46, streamY, bankRight - 24, streamY, "#38bdf8");
+      }
+
+      stroke("#2563eb");
+      strokeWeight(2.5);
+      noFill();
+      beginShape();
+      for (i = 0; i <= 90; i++) {
+        var t = i * advRiverArriveTime() / 90;
+        vertex(startX + vx * t * scale, nearY - vy * t * scale);
+      }
+      endShape();
+
+      push();
+      translate(boatX, boatY);
+      rotate(Math.atan2(-vy, vx));
+      noStroke();
+      fill("#0f766e");
+      triangle(18, 0, -16, -10, -16, 10);
+      fill("#ccfbf1");
+      ellipse(-4, 0, 16, 10);
+      pop();
+
+      drawVectorArrow(boatX, boatY, advBoatSpeed * Math.cos(advRiverTheta * Math.PI / 180) * 13, -advBoatSpeed * Math.sin(advRiverTheta * Math.PI / 180) * 13, "#0f766e", "v船");
+      drawVectorArrow(boatX, boatY, advWaterSpeed * 13, 0, "#0284c7", "v水");
+      drawVectorArrow(boatX, boatY, vx * 13, -vy * 13, "#f97316", "v合");
+    }
+
+    function drawAdvRiverGraph() {
+      var cx = graphLeft + 210;
+      var cy = 260;
+      var scale = 34;
+      var best = advRiverBestTheta();
+      var bx = advWaterSpeed + advBoatSpeed * Math.cos(best * Math.PI / 180);
+      var by = advBoatSpeed * Math.sin(best * Math.PI / 180);
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("速度圆与临界方向", graphLeft + 24, 20);
+      fill("#5b6472");
+      textSize(12);
+      text(advBoatSpeed < advWaterSpeed ? "船速小于水速：切线方向最短" : "船速足够：可抵消水流", graphLeft + 24, 44);
+
+      stroke("#cbd5e1");
+      strokeWeight(1);
+      line(cx - 170, cy, cx + 170, cy);
+      line(cx, cy - 170, cx, cy + 170);
+
+      noFill();
+      stroke("#0f766e");
+      strokeWeight(2);
+      circle(cx + advWaterSpeed * scale, cy, advBoatSpeed * scale * 2);
+
+      drawVectorArrow(cx, cy, advWaterSpeed * scale, 0, "#0284c7", "v水");
+      drawVectorArrow(cx, cy, bx * scale, -by * scale, "#f97316", "v最短");
+      drawVectorArrow(cx, cy, advRiverVX() * scale, -advRiverVY() * scale, "#111827", "v当前");
+    }
+
+    function rodAlphaRad() {
+      return rodAlpha * Math.PI / 180;
+    }
+
+    function rodVA() {
+      return rodVB * Math.tan(rodAlphaRad());
+    }
+
+    function drawRodConstraintScene() {
+      var wallX = 120;
+      var floorY = 405;
+      var rodLen = 260;
+      var ax = wallX;
+      var ay = floorY - rodLen * Math.cos(rodAlphaRad());
+      var bx = wallX + rodLen * Math.sin(rodAlphaRad());
+      var by = floorY;
+      var rodUx = (bx - ax) / rodLen;
+      var rodUy = (by - ay) / rodLen;
+      var projA = rodVA() * Math.cos(rodAlphaRad());
+      var projB = rodVB * Math.sin(rodAlphaRad());
+
+      stroke("#111827");
+      strokeWeight(4);
+      line(wallX, 70, wallX, floorY + 18);
+      line(65, floorY, 535, floorY);
+
+      stroke("#0f766e");
+      strokeWeight(8);
+      line(ax, ay, bx, by);
+
+      noStroke();
+      fill("#2563eb");
+      circle(ax, ay, 24);
+      fill("#f97316");
+      circle(bx, by, 24);
+      fill("#ffffff");
+      textAlign(CENTER, CENTER);
+      textSize(13);
+      text("A", ax, ay);
+      text("B", bx, by);
+
+      drawVectorArrow(ax, ay, 0, rodVA() * 2.2, "#2563eb", "vA");
+      drawVectorArrow(bx, by, rodVB * 2.2, 0, "#f97316", "vB");
+
+      stroke("#94a3b8");
+      strokeWeight(2);
+      drawingContext.setLineDash([4, 4]);
+      line(ax, ay, ax + rodUx * projA * 3.4, ay + rodUy * projA * 3.4);
+      line(bx, by, bx - rodUx * projB * 3.4, by - rodUy * projB * 3.4);
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("沿杆投影相等", 250, 84);
+      text("α", wallX + 18, ay + 18);
+    }
+
+    function drawRodConstraintGraph() {
+      var cx = graphLeft + 210;
+      var cy = 260;
+      var rodLen = 150;
+      var rodUx = Math.sin(rodAlphaRad());
+      var rodUy = Math.cos(rodAlphaRad());
+      var proj = rodVB * Math.sin(rodAlphaRad()) * 3.4;
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("速度投影图", graphLeft + 24, 20);
+      fill("#5b6472");
+      textSize(12);
+      text("虚线投影到杆方向后等长", graphLeft + 24, 44);
+
+      stroke("#0f766e");
+      strokeWeight(5);
+      line(cx - rodUx * rodLen / 2, cy - rodUy * rodLen / 2, cx + rodUx * rodLen / 2, cy + rodUy * rodLen / 2);
+
+      drawVectorArrow(cx - 78, cy - 15, 0, rodVA() * 2.2, "#2563eb", "vA");
+      drawVectorArrow(cx + 28, cy + 55, rodVB * 2.2, 0, "#f97316", "vB");
+
+      stroke("#94a3b8");
+      strokeWeight(2);
+      drawingContext.setLineDash([4, 4]);
+      line(cx - 78, cy - 15, cx - 78 + rodUx * proj, cy - 15 + rodUy * proj);
+      line(cx + 28, cy + 55, cx + 28 - rodUx * proj, cy + 55 - rodUy * proj);
+      drawingContext.setLineDash([]);
+    }
+
+    function semiAlphaRad() {
+      return semiAlpha * Math.PI / 180;
+    }
+
+    function semiPointA() {
+      var theta = semiAlphaRad();
+      return {
+        x: -semiR * Math.sin(theta),
+        y: semiR * Math.cos(theta)
+      };
+    }
+
+    function semiPointB() {
+      var beta = Math.PI / 2 - semiAlphaRad();
+      return {
+        x: semiR * Math.sin(beta),
+        y: semiR * Math.cos(beta)
+      };
+    }
+
+    function semiTime(point) {
+      if (point.y <= 0.1) {
+        return null;
+      }
+      return Math.sqrt(2 * point.y / semiG);
+    }
+
+    function semiV(point) {
+      var t = semiTime(point);
+      if (t === null) {
+        return null;
+      }
+      return Math.abs(point.x) / t;
+    }
+
+    function drawSemiCircleScene() {
+      var cx = 235;
+      var cy = 185;
+      var scale = Math.min(1.2, 185 / semiR);
+      var rPix = semiR * scale;
+      var a = semiPointA();
+      var b = semiPointB();
+      var ax = cx + a.x * scale;
+      var ay = cy + a.y * scale;
+      var bx = cx + b.x * scale;
+      var by = cy + b.y * scale;
+      var va = semiV(a);
+      var vb = semiV(b);
+      var ta = semiTime(a);
+      var tb = semiTime(b);
+      var i;
+
+      stroke("#111827");
+      strokeWeight(3);
+      noFill();
+      arc(cx, cy, 2 * rPix, 2 * rPix, 0, Math.PI);
+      line(cx - rPix, cy, cx + rPix, cy);
+
+      stroke("#cbd5e1");
+      strokeWeight(1.5);
+      line(cx, cy, ax, ay);
+      line(cx, cy, bx, by);
+      drawingContext.setLineDash([4, 4]);
+      line(ax, cy, ax, ay);
+      line(cx, ay, ax, ay);
+      line(bx, cy, bx, by);
+      line(cx, by, bx, by);
+      drawingContext.setLineDash([]);
+
+      stroke("#2563eb");
+      strokeWeight(2.5);
+      noFill();
+      if (ta !== null && va !== null) {
+        beginShape();
+        for (i = 0; i <= 90; i++) {
+          var tA = i * ta / 90;
+          vertex(cx + a.x / Math.abs(a.x || 1) * va * tA * scale, cy + 0.5 * semiG * tA * tA * scale);
+        }
+        endShape();
+      }
+
+      stroke("#dc2626");
+      strokeWeight(2.5);
+      noFill();
+      if (tb !== null && vb !== null) {
+        beginShape();
+        for (i = 0; i <= 90; i++) {
+          var tB = i * tb / 90;
+          vertex(cx + b.x / Math.abs(b.x || 1) * vb * tB * scale, cy + 0.5 * semiG * tB * tB * scale);
+        }
+        endShape();
+      }
+
+      noStroke();
+      fill("#111827");
+      circle(cx, cy, 7);
+      fill("#2563eb");
+      circle(ax, ay, 12);
+      fill("#dc2626");
+      circle(bx, by, 12);
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("O", cx + 10, cy - 8);
+      text("A", ax + 10, ay - 14);
+      text("B", bx + 10, by - 14);
+      text("xA", (cx + ax) / 2, ay + 8);
+      text("yA", ax + 8, (cy + ay) / 2);
+      text("xB", (cx + bx) / 2 - 16, by + 8);
+      text("yB", bx - 28, (cy + by) / 2);
+    }
+
+    function drawSemiCircleGraph() {
+      var gx = graphLeft + 50;
+      var gy = 62;
+      var gw = graphRight - graphLeft - 80;
+      var gh = 360;
+      var a = semiPointA();
+      var b = semiPointB();
+      var va = semiV(a);
+      var vb = semiV(b);
+      var validA = va !== null;
+      var validB = vb !== null;
+      var maxV = Math.max(validA ? va : 0, validB ? vb : 0, 1) * 1.25;
+
+      noStroke();
+      fill("#111827");
+      textAlign(LEFT, TOP);
+      textSize(18);
+      text("两次初速度比较", graphLeft + 24, 20);
+      fill("#5b6472");
+      textSize(12);
+      text("蓝：落 A；红：落 B", graphLeft + 24, 44);
+
+      drawBasicGrid(gx, gy, gw, gh);
+
+      noStroke();
+      if (validA) {
+        fill("#2563eb");
+        rect(gx + 80, map(va, 0, maxV, gy + gh, gy), 70, gy + gh - map(va, 0, maxV, gy + gh, gy));
+      }
+      if (validB) {
+        fill("#dc2626");
+        rect(gx + 220, map(vb, 0, maxV, gy + gh, gy), 70, gy + gh - map(vb, 0, maxV, gy + gh, gy));
+      }
+
+      fill("#111827");
+      textAlign(CENTER, TOP);
+      textSize(12);
+      text("vA", gx + 115, gy + gh + 12);
+      text("vB", gx + 255, gy + gh + 12);
+      textAlign(LEFT, TOP);
+      text(validA && validB ? "vA/vB = " + (va / vb).toFixed(2) : "上半圆点不能由水平平抛落到", gx + 20, gy + 20);
+      text("A(" + a.x.toFixed(0) + ", " + a.y.toFixed(0) + ")", gx + 20, gy + 48);
+      text("B(" + b.x.toFixed(0) + ", " + b.y.toFixed(0) + ")", gx + 20, gy + 76);
     }
 
     function trimData(arr) {
