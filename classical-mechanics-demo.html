@@ -86,6 +86,50 @@
       font-weight: 800;
     }
 
+    .tree-node {
+      margin: 4px 0;
+    }
+
+    .tree-node summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 7px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .tree-node summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .tree-node summary::before {
+      content: "▸";
+      color: var(--muted);
+      font-size: 11px;
+      transform: translateY(-1px);
+      transition: transform 0.16s ease;
+    }
+
+    .tree-node[open] > summary::before {
+      transform: rotate(90deg) translateX(1px);
+    }
+
+    .tree-node > summary.tree-folder {
+      margin: 14px 0 6px;
+    }
+
+    .tree-node > summary.tree-subfolder {
+      margin: 8px 0 5px 0;
+    }
+
+    .tree-children {
+      margin-left: 12px;
+      padding-left: 8px;
+      border-left: 1px solid var(--line);
+    }
+
     .tree-item {
       width: 100%;
       border: none;
@@ -285,29 +329,52 @@
     <div class="app-layout">
       <aside class="sidebar">
         <p class="tree-title">目录</p>
-        <div class="tree-folder">FanPhysics</div>
-        <div class="tree-subfolder">课时4：竖直上抛运动和图像问题</div>
-        <div class="tree-subfolder">B组</div>
-        <button id="treeDoubleThrow" class="tree-item indent" onclick="switchScene('doubleThrow')">双球上抛相遇</button>
-        <button id="treePipeDrop" class="tree-item indent" onclick="switchScene('pipeDrop')">金属管穿球</button>
-        <button id="treeThreeCar" class="tree-item indent" onclick="switchScene('threeCar')">三车防追尾</button>
-        <div class="tree-subfolder">必修一结业测试</div>
-        <div class="tree-subfolder">单选题</div>
-        <button id="treeInclineSlot" class="tree-item indent" onclick="switchScene('inclineSlot')">光滑斜槽下滑</button>
-        <div class="tree-subfolder">曲线运动</div>
-        <button id="treeCurveForce" class="tree-item indent" onclick="switchScene('curveForce')">曲线受力方向</button>
-        <button id="treeMotionCompose" class="tree-item indent" onclick="switchScene('motionCompose')">二维运动合成</button>
-        <button id="treeRiverCrossing" class="tree-item indent" onclick="switchScene('riverCrossing')">小船渡河</button>
-        <button id="treeRiverAdvanced" class="tree-item indent" onclick="switchScene('riverAdvanced')">渡河进阶</button>
-        <button id="treeRainWindow" class="tree-item indent" onclick="switchScene('rainWindow')">车窗雨滴</button>
-        <button id="treeRodConstraint" class="tree-item indent" onclick="switchScene('rodConstraint')">杆约束速度</button>
-        <div class="tree-subfolder">平抛运动</div>
-        <button id="treeProjectileBasic" class="tree-item indent" onclick="switchScene('projectileBasic')">平抛运动基础</button>
-        <button id="treeProjectileSlope" class="tree-item indent" onclick="switchScene('projectileSlope')">平抛落斜面</button>
-        <button id="treeProjectileWindow" class="tree-item indent" onclick="switchScene('projectileWindow')">平抛穿窗</button>
-        <button id="treeProjectileNormal" class="tree-item indent" onclick="switchScene('projectileNormal')">垂直打斜面</button>
-        <button id="treeProjectileBounce" class="tree-item indent" onclick="switchScene('projectileBounce')">反弹过挡板</button>
-        <button id="treeSemiCircleThrow" class="tree-item indent" onclick="switchScene('semiCircleThrow')">平抛落圆弧</button>
+        <details class="tree-node" open>
+          <summary class="tree-folder">2026春季班</summary>
+          <div class="tree-children">
+            <details class="tree-node" open>
+              <summary class="tree-subfolder">竖直上抛运动</summary>
+              <div class="tree-children">
+                <button id="treeDoubleThrow" class="tree-item indent" onclick="switchScene('doubleThrow')">双球上抛相遇</button>
+                <button id="treePipeDrop" class="tree-item indent" onclick="switchScene('pipeDrop')">金属管穿球</button>
+                <button id="treeThreeCar" class="tree-item indent" onclick="switchScene('threeCar')">三车防追尾</button>
+              </div>
+            </details>
+            <details class="tree-node" open>
+              <summary class="tree-subfolder">必修一结业测试</summary>
+              <div class="tree-children">
+                <button id="treeInclineSlot" class="tree-item indent" onclick="switchScene('inclineSlot')">光滑斜槽下滑</button>
+              </div>
+            </details>
+          </div>
+        </details>
+        <details class="tree-node" open>
+          <summary class="tree-folder">2026暑假班</summary>
+          <div class="tree-children">
+            <details class="tree-node" open>
+              <summary class="tree-subfolder">曲线运动</summary>
+              <div class="tree-children">
+                <button id="treeCurveForce" class="tree-item indent" onclick="switchScene('curveForce')">曲线受力方向</button>
+                <button id="treeMotionCompose" class="tree-item indent" onclick="switchScene('motionCompose')">二维运动合成</button>
+                <button id="treeRiverCrossing" class="tree-item indent" onclick="switchScene('riverCrossing')">小船渡河</button>
+                <button id="treeRiverAdvanced" class="tree-item indent" onclick="switchScene('riverAdvanced')">渡河进阶</button>
+                <button id="treeRainWindow" class="tree-item indent" onclick="switchScene('rainWindow')">车窗雨滴</button>
+                <button id="treeRodConstraint" class="tree-item indent" onclick="switchScene('rodConstraint')">杆约束速度</button>
+              </div>
+            </details>
+            <details class="tree-node" open>
+              <summary class="tree-subfolder">平抛运动</summary>
+              <div class="tree-children">
+                <button id="treeProjectileBasic" class="tree-item indent" onclick="switchScene('projectileBasic')">平抛运动基础</button>
+                <button id="treeProjectileSlope" class="tree-item indent" onclick="switchScene('projectileSlope')">平抛落斜面</button>
+                <button id="treeProjectileWindow" class="tree-item indent" onclick="switchScene('projectileWindow')">平抛穿窗</button>
+                <button id="treeProjectileNormal" class="tree-item indent" onclick="switchScene('projectileNormal')">垂直打斜面</button>
+                <button id="treeProjectileBounce" class="tree-item indent" onclick="switchScene('projectileBounce')">反弹过挡板</button>
+                <button id="treeSemiCircleThrow" class="tree-item indent" onclick="switchScene('semiCircleThrow')">平抛落圆弧</button>
+              </div>
+            </details>
+          </div>
+        </details>
       </aside>
 
       <section class="workspace">
@@ -888,17 +955,22 @@
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
           <h2>平抛落斜面</h2>
-          <p>小球从斜面顶点水平抛出，不计空气阻力。调节初速度和斜面倾角，观察小球何时落到斜面上，以及落点如何随参数变化。</p>
+          <p>两个相同直角三角形斜面固定在水平面上，三个小球从左边斜面顶点以不同初速度水平抛出，分别落在同一斜面的 \(a\)、\(b\)、\(c\) 三点。</p>
+          <p>比较三个小球的飞行时间、水平初速度、速度变化量以及落到斜面时的末速度方向。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
-          <h2>取平抛课上第2题：高度定时间，水平位移定初速度</h2>
-          <p>三个小球都做平抛，竖直方向 \(y=\frac{1}{2}gt^2\)，所以落点越低，飞行时间越长；水平方向 \(x=v_0t\)，在落点已知时可反求 \(v_0=\frac{x}{t}\)。速度变化量只由重力产生，\(\Delta v=gt\)，因此只和飞行时间有关。答案：时间按下落高度比较，速度变化量也按时间比较；初速度要用水平位移除以对应时间，不能只看水平距离。</p>
+          <h2>取平抛课上第2题：同一斜面上，越远越久也越快</h2>
+          <p><strong>1. 先看时间。</strong> 三个球都做平抛，竖直方向满足 <span class="formula-line">\(y=\frac{1}{2}gt^2\)</span>。落点越低，下落高度 \(y\) 越大，所以飞行时间越长。若图中 \(a,b,c\) 沿斜面从近到远排列，则 <span class="formula-line">\(t_a&lt;t_b&lt;t_c\)</span>。</p>
+          <p><strong>2. 再看初速度。</strong> 斜面倾角为 \(\theta\)，落点在斜面上满足 <span class="formula-line">\(y=x\tan\theta\)</span>。代入 \(x=v_0t\)、\(y=\frac{1}{2}gt^2\)，得 <span class="formula-line">\(v_0=\frac{gt}{2\tan\theta}\)</span>。同一斜面上 \(\theta\) 相同，所以 \(v_0\) 随 \(t\) 增大，故 <span class="formula-line">\(v_a&lt;v_b&lt;v_c\)</span>。</p>
+          <p><strong>3. 看速度变化量。</strong> 平抛过程中水平方向速度不变，速度变化量只来自竖直方向重力加速度：<span class="formula-line">\(\Delta v=gt\)</span>。因此 <span class="formula-line">\(\Delta v_a&lt;\Delta v_b&lt;\Delta v_c\)</span>。</p>
+          <p><strong>4. 看末速度方向。</strong> 落到同一斜面时，\(\frac{v_y}{v_x}=\frac{gt}{v_0}=2\tan\theta\)，只由斜面角 \(\theta\) 决定，与落点远近无关，所以三个球末速度方向相同。</p>
+          <p><strong>答案：</strong>时间、水平初速度、速度变化量均按 \(a,b,c\) 依次增大；末速度方向相同。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">一句话总结</p>
-          <h2>落到斜面，就是“抛物线碰到直线”</h2>
-          <p>先写平抛轨迹，再写斜面几何；两条线的交点就是落点。</p>
+          <h2>同一斜面落点越远，时间越长，速度也越大</h2>
+          <p>把斜面条件 \(y=x\tan\theta\) 和平抛方程联立，就能同时比较时间、初速度和末速度方向。</p>
         </section>
       </div>
     </div>
@@ -908,17 +980,24 @@
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
           <h2>平抛穿窗</h2>
-          <p>物体从 P 点水平抛出，前方有一定厚度的墙和窗口。要求物体在进入墙面和离开墙面时都位于窗口上下沿之间，判断当前初速度是否可穿窗。</p>
+          <p>如图所示，窗子上下沿间的高度 \(H=1.6\,\mathrm{m}\)，墙的厚度 \(d=0.4\,\mathrm{m}\)。某人与离墙壁距离 \(L=1.4\,\mathrm{m}\)，在距窗子上沿 \(h=0.2\,\mathrm{m}\) 处的 \(P\) 点，将可视为质点的小物件以速度 \(v\) 水平抛出。</p>
+          <p>要求小物件能直接穿过窗口并落在水平地面上，不计空气阻力，问可以实现上述要求的速度大小是哪一个？</p>
+          <p><strong>选项：</strong>A. \(2\,\mathrm{m/s}\)　B. \(4\,\mathrm{m/s}\)　C. \(8\,\mathrm{m/s}\)　D. \(10\,\mathrm{m/s}\)</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
-          <h2>取平抛课上第6题：入口和出口都要在窗口内</h2>
-          <p>题源数据为 \(H=1.6\,\text{m}\)、\(d=0.4\,\text{m}\)、\(L=1.4\,\text{m}\)、\(h=0.2\,\text{m}\)。水平速度为 \(v\) 时，入口 \(x=L\) 的下落量 \(y_1=\frac{1}{2}g(\frac{L}{v})^2\)，出口 \(x=L+d\) 的下落量 \(y_2=\frac{1}{2}g(\frac{L+d}{v})^2\)。穿窗条件为 \(h\le y_1\le h+H\) 且 \(h\le y_2\le h+H\)。代入 \(g=10\) 试选项 \(2,4,8,10\,\text{m/s}\)：只有 \(v=4\,\text{m/s}\) 时 \(y_1\approx0.61\,\text{m}\)、\(y_2\approx1.01\,\text{m}\)，均在 \([0.2,1.8]\) 内。答案：\(4\,\text{m/s}\)。</p>
+          <h2>取平抛课上第6题：厚墙要同时检查入口和出口</h2>
+          <p><strong>1. 建立判断区间。</strong> 以 \(P\) 点为原点，水平向墙为 \(x\) 正方向，竖直向下为 \(y\) 正方向。窗户上沿比 \(P\) 点低 \(h\)，下沿比 \(P\) 点低 \(h+H\)，所以穿窗允许区间是 <span class="formula-line">\(h\le y\le h+H\)</span>，即 <span class="formula-line">\(0.2\le y\le1.8\)</span>。</p>
+          <p><strong>2. 写出平抛方程。</strong> 水平方向 \(x=vt\)，竖直方向 \(y=\frac{1}{2}gt^2\)。因此到达墙前表面 \(x=L\) 时 <span class="formula-line">\(y_1=\frac{1}{2}g\left(\frac{L}{v}\right)^2\)</span>；到达墙后表面 \(x=L+d\) 时 <span class="formula-line">\(y_2=\frac{1}{2}g\left(\frac{L+d}{v}\right)^2\)</span>。</p>
+          <p><strong>3. 同时满足两端条件。</strong> 小物件要穿过有厚度的墙，必须满足 <span class="formula-line">\(0.2\le y_1\le1.8\)</span> 且 <span class="formula-line">\(0.2\le y_2\le1.8\)</span>。</p>
+          <p><strong>4. 代入选项。</strong> 取 \(g=10\,\mathrm{m/s^2}\)。当 \(v=4\,\mathrm{m/s}\) 时，<span class="formula-line">\(y_1=\frac{1}{2}\cdot10\left(\frac{1.4}{4}\right)^2\approx0.61\,\mathrm{m}\)</span>，<span class="formula-line">\(y_2=\frac{1}{2}\cdot10\left(\frac{1.8}{4}\right)^2\approx1.01\,\mathrm{m}\)</span>，都在 \([0.2,1.8]\) 内。</p>
+          <p><strong>5. 排除其它速度。</strong> \(v=2\,\mathrm{m/s}\) 时下落过多，会低于窗口；\(v=8\,\mathrm{m/s}\)、\(10\,\mathrm{m/s}\) 时下落不足，会高于窗口。</p>
+          <p><strong>答案：</strong>B. \(4\,\mathrm{m/s}\)。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">一句话总结</p>
-          <h2>穿窗不是看一个点，而是看一段墙厚</h2>
-          <p>速度太大来不及下落，速度太小会撞到下沿；厚墙要同时检查入口和出口。</p>
+          <h2>穿窗题查两个截面，不只查墙面一个点</h2>
+          <p>速度太小会下落过多，速度太大会下落不足；有墙厚时，前表面和后表面都必须在窗口高度范围内。</p>
         </section>
       </div>
     </div>
@@ -928,12 +1007,20 @@
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
           <h2>车窗雨滴相对速度</h2>
-          <p>火车匀速行驶，无风时雨滴对地竖直下落。乘客在车窗中看到雨滴斜着划过，判断车速、雨速和轨迹夹角之间的关系。</p>
+          <p>如图所示，某人在沿直线匀速行驶的火车车厢中面对车窗观察到雨滴下落时与竖直方向的夹角为 \(\theta\)。已知车窗外无风，火车速度为 \(v_1\)，雨滴对地速度为 \(v_2\)。</p>
+          <p>判断火车速度方向、雨滴对地速度方向，以及 \(v_1\)、\(v_2\)、\(\theta\) 之间的关系。</p>
+          <p>A. \(v_1\) 水平向他的右手方向，\(v_2\) 竖直向下，且 \(v_1=v_2\tan\theta\)</p>
+          <p>B. \(v_1\) 水平向他的左手方向，\(v_2\) 竖直向下，且 \(v_1=v_2\tan\theta\)</p>
+          <p>C. \(v_1\) 水平向他的右手方向，\(v_2\) 与竖直方向成 \(\theta\) 角向下，且 \(v_1=v_2\cos\theta\)</p>
+          <p>D. \(v_1\) 水平向他的左手方向，\(v_2\) 与竖直方向成 \(\theta\) 角向下，且 \(v_1=v_2\cos\theta\)</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
           <h2>取课后作业 B组第10题：车窗里看到的是相对速度</h2>
-          <p>无风时雨滴对地速度竖直向下，火车对地速度水平向前。乘客看到的雨滴速度为 \(\vec v_{\text{雨对车}}=\vec v_{\text{雨对地}}-\vec v_{\text{车对地}}\)，其水平分量大小为 \(v_1\)，竖直分量大小为 \(v_2\)。若雨线与竖直方向夹角为 \(\theta\)，则 <span class="formula-line">\(\tan\theta=\frac{v_1}{v_2}\)</span>，所以 \(v_1=v_2\tan\theta\)。答案：车速与雨速满足 \(v_1=v_2\tan\theta\)。</p>
+          <p><strong>1. 先确定真实雨速。</strong> 题中说明“车窗外无风”，所以雨滴对地速度 \(\vec v_2\) 竖直向下，不会本身斜着落。</p>
+          <p><strong>2. 换到火车参考系。</strong> 乘客看到的是雨滴相对火车的速度：<span class="formula-line">\(\vec v_{\text{雨对车}}=\vec v_{\text{雨对地}}-\vec v_{\text{车对地}}\)</span>。因此相对速度的竖直分量大小为 \(v_2\)，水平分量大小为 \(v_1\)，方向与火车运动方向相反。</p>
+          <p><strong>3. 用夹角列式。</strong> 雨线与竖直方向夹角为 \(\theta\)，所以 <span class="formula-line">\(\tan\theta=\frac{\text{水平分量}}{\text{竖直分量}}=\frac{v_1}{v_2}\)</span>。</p>
+          <p><strong>答案：</strong>B。雨滴对地竖直向下，车速方向与车窗中雨线的水平偏向相反，且 <span class="formula-line">\(v_1=v_2\tan\theta\)</span>。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">一句话总结</p>
@@ -1006,12 +1093,16 @@
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
           <h2>曲线运动受力方向判断</h2>
-          <p>质点沿曲线运动，已知某点速度方向沿轨迹切线。通过调节切向分力和法向分力，观察合力方向如何同时改变速率和运动方向。</p>
+          <p>质点沿如图所示的轨迹从 \(A\) 点运动到 \(B\) 点，已知其速度逐渐减小。判断图中能正确表示质点在 \(C\) 点所受合力方向的是哪一个。</p>
+          <p>题图给出四个候选方向，关键是同时满足“使速度减小”和“使轨迹弯曲”两个条件。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
           <h2>取课上第5题：减速看切向反向，转弯看凹侧</h2>
-          <p>曲线运动某点速度方向沿轨迹切线。题目给出质点从 \(A\) 到 \(B\) 速度逐渐减小，所以合力在切向上必须有与速度相反的分量；同时轨迹弯曲，合力还必须有指向曲线凹侧的法向分量。把“切向反向”和“指向凹侧”合成，就得到 \(C\) 点合力方向。答案：合力应同时指向轨迹凹侧，并带有沿切线反向的减速分量。</p>
+          <p><strong>1. 先找速度方向。</strong> 曲线运动中某点瞬时速度方向沿轨迹切线，\(C\) 点速度沿 \(C\) 点切线指向 \(B\) 的方向。</p>
+          <p><strong>2. 用“速度逐渐减小”判断切向分力。</strong> 速度大小减小，说明合力沿切向的分量必须与速度方向相反，起减速作用。</p>
+          <p><strong>3. 用轨迹弯曲判断法向分力。</strong> 质点从 \(A\) 到 \(B\) 的轨迹在 \(C\) 附近向凹侧弯曲，合力还必须有指向轨迹凹侧的法向分量，用来改变速度方向。</p>
+          <p><strong>4. 合成判断。</strong> 合力方向应同时“指向凹侧”并“带有沿切线反向的分量”。原题四图中符合这一点的是 <strong>C</strong>。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">一句话总结</p>
@@ -1026,12 +1117,18 @@
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
           <h2>二维运动合成</h2>
-          <p>给定水平方向和竖直方向的初速度、加速度，观察两个互相独立的一维运动如何合成为平面轨迹，并判断合运动的性质。</p>
+          <p>一个质量为 \(4\,\mathrm{kg}\) 的质点在 \(xOy\) 平面内运动。题图分别给出 \(x\) 方向的速度图像和 \(y\) 方向的位移图像。</p>
+          <p>图像信息为：\(v_x\) 在 \(0\sim2\,\mathrm{s}\) 内由 \(3\,\mathrm{m/s}\) 匀增至 \(6\,\mathrm{m/s}\)；\(y\) 在 \(0\sim2\,\mathrm{s}\) 内由 \(8\,\mathrm{m}\) 匀减至 \(0\)。判断下列说法正确的是哪一个。</p>
+          <p>A. 质点做匀变速直线运动　B. 质点所受合外力为 \(22\,\mathrm{N}\)　C. \(2\,\mathrm{s}\) 时质点速度为 \(6\,\mathrm{m/s}\)　D. 零时刻质点速度为 \(5\,\mathrm{m/s}\)</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
           <h2>取课上第4题：由图像分别读 \(v_x\)、\(v_y\)、\(a_x\)</h2>
-          <p>题目给出 \(x\) 方向速度图像和 \(y\) 方向位移图像。先由 \(v_x-t\) 图像斜率读 \(a_x\)，由 \(y-t\) 图像斜率读 \(v_y\)；再合成 \(\vec v=(v_x,v_y)\)、\(\vec a=(a_x,0)\)，合力 \(\vec F=m\vec a\)。因为合加速度与合速度一般不共线，轨迹为匀变速曲线运动。答案：按图像分别读出分速度和分加速度，再用 \(\vec F=m\vec a\) 与速度、加速度是否共线来判断合运动。</p>
+          <p><strong>1. 读 \(x\) 方向。</strong> 由 \(v_x-t\) 图像斜率得 <span class="formula-line">\(a_x=\frac{6-3}{2}=1.5\,\mathrm{m/s^2}\)</span>，且 \(v_{x0}=3\,\mathrm{m/s}\)。</p>
+          <p><strong>2. 读 \(y\) 方向。</strong> \(y-t\) 图像为直线，说明 \(y\) 方向匀速运动，<span class="formula-line">\(v_y=\frac{0-8}{2}=-4\,\mathrm{m/s}\)</span>，\(a_y=0\)。</p>
+          <p><strong>3. 判断运动性质和合力。</strong> 合加速度 \(\vec a=(1.5,0)\)，初速度 \(\vec v_0=(3,-4)\)，二者不共线，所以质点做匀变速曲线运动，A 错误。合外力 <span class="formula-line">\(F=ma=4\times1.5=6\,\mathrm{N}\)</span>，B 错误。</p>
+          <p><strong>4. 比较速度大小。</strong> \(2\,\mathrm{s}\) 时 \(\vec v=(6,-4)\)，速度大小 <span class="formula-line">\(\sqrt{6^2+4^2}=2\sqrt{13}\,\mathrm{m/s}\)</span>，不是 \(6\,\mathrm{m/s}\)，C 错误。零时刻速度大小 <span class="formula-line">\(\sqrt{3^2+4^2}=5\,\mathrm{m/s}\)</span>。</p>
+          <p><strong>答案：</strong>D。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">一句话总结</p>
@@ -1046,12 +1143,16 @@
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
           <h2>小船渡河进阶：船速小于水速</h2>
-          <p>当船在静水中的速度小于水流速度时，小船无法正对到达对岸。调节船头方向，观察实际航迹和最短位移对应的临界方向。</p>
+          <p>小船在宽 \(d=200\,\mathrm{m}\) 的河水中行驶，船在静水中的速度 \(v_{\text{船}}=2\,\mathrm{m/s}\)，水流速度 \(v_{\text{水}}=4\,\mathrm{m/s}\)。</p>
+          <p>若要使船能在最短距离内渡河，船应向什么方向划船？</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
           <h2>取课上第9题：船速小于水速，用速度圆切线</h2>
-          <p>题源数据：河宽 \(d=200\,\text{m}\)，静水船速 \(2\,\text{m/s}\)，水流速度 \(4\,\text{m/s}\)。因为 \(v_{\text{船}}&lt;v_{\text{水}}\)，不可能让沿河方向合速度为 \(0\)，所以不能正对到达对岸。最短位移时，合速度方向与以水流速度端点为圆心、船速为半径的速度圆相切；几何关系 \(\frac{v_{\text{船}}}{v_{\text{水}}}=\frac{1}{2}\)，得临界角约 \(60^\circ\)。答案：船头取切线对应方向，角度约 \(60^\circ\)。</p>
+          <p><strong>1. 先判断能否正对岸到达。</strong> 若要合速度垂直河岸，需要船速在沿河方向上完全抵消水流速度。但 \(v_{\text{船}}=2\,\mathrm{m/s}&lt;v_{\text{水}}=4\,\mathrm{m/s}\)，无法抵消水流，所以不能到达正对岸。</p>
+          <p><strong>2. 最短距离对应速度圆切线。</strong> 在速度矢量图中，以水流速度矢量末端为圆心、\(v_{\text{船}}\) 为半径作速度圆。船速小于水速时，合速度方向能取得的最靠近垂直河岸的方向，是从出发点向速度圆作切线的方向。</p>
+          <p><strong>3. 求角度。</strong> 设最短位移时船头方向与上游河岸方向的夹角为 \(\alpha\)，由切线直角三角形得 <span class="formula-line">\(\cos\alpha=\frac{v_{\text{船}}}{v_{\text{水}}}=\frac{2}{4}=\frac{1}{2}\)</span>，所以 <span class="formula-line">\(\alpha=60^\circ\)</span>。</p>
+          <p><strong>答案：</strong>船头应偏向上游，取速度圆切线对应方向，即与上游河岸方向约成 \(60^\circ\)。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">一句话总结</p>
@@ -1066,12 +1167,16 @@
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
           <h2>杆约束速度</h2>
-          <p>均匀直杆连接 \(A\)、\(B\) 两点。杆与竖直方向夹角为 \(\alpha\)，\(B\) 端沿水平方向运动，求 \(A\) 端速度大小。</p>
+          <p>如图所示，均匀直杆上连着两个小球 \(A\)、\(B\)，不计一切摩擦。当杆滑到图示位置时，\(B\) 球的水平速度为 \(v_B\)，杆与竖直方向夹角为 \(\alpha\)。</p>
+          <p>求此时 \(A\) 球的速度大小。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
           <h2>取课上第13题：刚性杆沿杆方向速度分量相等</h2>
-          <p>杆长不变，说明两端沿杆方向不能相互靠近或远离，所以 \(A\)、\(B\) 两端速度在杆方向上的投影相等。图中 \(A\) 端速度与杆方向夹角为 \(\alpha\)，\(B\) 端水平速度与杆方向夹角为 \(90^\circ-\alpha\)，因此 <span class="formula-line">\(v_A\cos\alpha=v_B\sin\alpha\)</span>。解得 <span class="formula-line">\(v_A=v_B\tan\alpha\)</span>。答案：\(v_A=v_B\tan\alpha\)。</p>
+          <p><strong>1. 抓住杆长不变。</strong> 刚性杆不能被拉长或压短，所以 \(A\)、\(B\) 两端沿杆方向的速度分量必须相等。</p>
+          <p><strong>2. 分别投影到杆方向。</strong> 图中 \(A\) 球沿竖直方向运动，\(A\) 的速度与杆方向夹角为 \(\alpha\)，沿杆分量为 \(v_A\cos\alpha\)。\(B\) 球沿水平方向运动，\(B\) 的速度与杆方向夹角为 \(90^\circ-\alpha\)，沿杆分量为 \(v_B\sin\alpha\)。</p>
+          <p><strong>3. 列约束方程。</strong> <span class="formula-line">\(v_A\cos\alpha=v_B\sin\alpha\)</span>，解得 <span class="formula-line">\(v_A=v_B\tan\alpha\)</span>。</p>
+          <p><strong>答案：</strong>\(v_A=v_B\tan\alpha\)。</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">一句话总结</p>
@@ -1122,36 +1227,36 @@
     var currentScene = "doubleThrow";
     var modelSourceMap = {
       doubleThrow: {
-        title: "课时4：竖直上抛运动和图像问题 / B组",
+        title: "2026春季班 / 竖直上抛运动",
         text: "第7题"
       },
       pipeDrop: {
-        title: "课时4：竖直上抛运动和图像问题 / B组",
+        title: "2026春季班 / 竖直上抛运动",
         text: "第10题"
       },
       threeCar: {
-        title: "课时4：竖直上抛运动和图像问题 / B组",
+        title: "2026春季班 / 竖直上抛运动",
         text: "第11题"
       },
       inclineSlot: {
-        title: "必修一结业测试 / 单选题",
+        title: "2026春季班 / 必修一结业测试",
         text: "第3题"
       },
       curveForce: {
         title: "暑期课时1曲线运动课上内容",
-        text: "第5题、第6题"
+        text: "第5题"
       },
       motionCompose: {
-        title: "暑期课时1曲线运动课上内容 / 曲线运动课后作业",
-        text: "课上第4题；课后作业 A组第2题"
+        title: "暑期课时1曲线运动课上内容",
+        text: "第4题"
       },
       riverCrossing: {
         title: "暑期课时1曲线运动课上内容 / 曲线运动课后作业",
         text: "课上第8题；课后作业 A组第3题"
       },
       riverAdvanced: {
-        title: "暑期课时1曲线运动课上内容 / 曲线运动课后作业",
-        text: "课上第9题；课后作业 A组第4题"
+        title: "暑期课时1曲线运动课上内容",
+        text: "第9题"
       },
       rainWindow: {
         title: "曲线运动课后作业",
@@ -1166,8 +1271,8 @@
         text: "第1题、第2题基础模型"
       },
       projectileSlope: {
-        title: "平抛运动课上内容 / 平抛运动课后作业",
-        text: "课上第2题；课后作业第11题"
+        title: "平抛运动课上内容",
+        text: "第2题"
       },
       projectileWindow: {
         title: "平抛运动课上内容",
@@ -1624,12 +1729,12 @@
       document.getElementById("projT").max = Math.max(1, projectileFlightTime()).toFixed(2);
       document.getElementById("projT").value = projT.toFixed(2);
       document.getElementById("projPlayBtn").innerText = projPlaying ? "暂停" : "播放";
-      slopeT = Math.min(slopeT, slopeHitTime());
+      slopeT = Math.min(slopeT, slopeMaxTime());
       document.getElementById("slopeAngleVal").innerText = slopeAngle.toFixed(0) + "°";
       document.getElementById("slopeV0Val").innerText = slopeV0.toFixed(0);
       document.getElementById("slopeGVal").innerText = slopeG.toFixed(1);
       document.getElementById("slopeTVal").innerText = slopeT.toFixed(2) + "s";
-      document.getElementById("slopeT").max = Math.max(1, slopeHitTime()).toFixed(2);
+      document.getElementById("slopeT").max = Math.max(1, slopeMaxTime()).toFixed(2);
       document.getElementById("slopeT").value = slopeT.toFixed(2);
       document.getElementById("slopePlayBtn").innerText = slopePlaying ? "暂停" : "播放";
       winT = Math.min(winT, windowEndTime());
@@ -1707,11 +1812,6 @@
       noStroke();
       fill("#f6f8fb");
       rect(graphLeft, 0, graphRight - graphLeft, canvasH);
-
-      stroke("#d7dce5");
-      strokeWeight(1);
-      line(originX - 26, originY, originX + 26, originY);
-      line(originX, originY - 26, originX, originY + 26);
 
       noStroke();
       fill("#5b6472");
@@ -3446,12 +3546,37 @@
       return Math.max(0.2, 2 * slopeV0 * Math.tan(slopeThetaRad()) / slopeG);
     }
 
-    function slopeX(t) {
-      return slopeV0 * t;
+    function slopeCaseFactors() {
+      return [0.72, 1, 1.28];
     }
 
-    function slopeDrop(t) {
+    function slopeCaseTime(index) {
+      return slopeHitTime() * slopeCaseFactors()[index];
+    }
+
+    function slopeCaseV0(index) {
+      return slopeG * slopeCaseTime(index) / (2 * Math.tan(slopeThetaRad()));
+    }
+
+    function slopeCasePoint(index) {
+      var t = slopeCaseTime(index);
+      var v = slopeCaseV0(index);
+      return {
+        x: v * t,
+        y: 0.5 * slopeG * t * t
+      };
+    }
+
+    function slopeCaseX(index, t) {
+      return slopeCaseV0(index) * t;
+    }
+
+    function slopeCaseDrop(t) {
       return 0.5 * slopeG * t * t;
+    }
+
+    function slopeMaxTime() {
+      return slopeCaseTime(2);
     }
 
     function toggleSlopePlay() {
@@ -3468,8 +3593,8 @@
     function updateSlope(dt) {
       if (slopePlaying) {
         slopeT += dt;
-        if (slopeT >= slopeHitTime()) {
-          slopeT = slopeHitTime();
+        if (slopeT >= slopeMaxTime()) {
+          slopeT = slopeMaxTime();
           slopePlaying = false;
         }
         updateLabels();
@@ -3479,15 +3604,13 @@
     function drawSlopeScene() {
       var startX = 86;
       var startY = 92;
-      var tMax = slopeHitTime();
-      var xHit = slopeX(tMax);
-      var yHit = slopeDrop(tMax);
-      var scale = Math.min(420 / Math.max(1, xHit), 330 / Math.max(1, yHit));
-      var tNow = Math.min(slopeT, tMax);
-      var ballX = startX + slopeX(tNow) * scale;
-      var ballY = startY + slopeDrop(tNow) * scale;
-      var slopeEndX = startX + xHit * scale * 1.08;
-      var slopeEndY = startY + xHit * Math.tan(slopeThetaRad()) * scale * 1.08;
+      var labels = ["a", "b", "c"];
+      var colors = ["#2563eb", "#f97316", "#dc2626"];
+      var farPoint = slopeCasePoint(2);
+      var scale = Math.min(420 / Math.max(1, farPoint.x), 330 / Math.max(1, farPoint.y));
+      var tNow = Math.min(slopeT, slopeMaxTime());
+      var slopeEndX = startX + farPoint.x * scale * 1.08;
+      var slopeEndY = startY + farPoint.x * Math.tan(slopeThetaRad()) * scale * 1.08;
       var i;
 
       stroke("#111827");
@@ -3502,38 +3625,49 @@
         line(guideX - 12, guideY + 18, guideX + 32, guideY - 4);
       }
 
-      stroke("#2563eb");
-      strokeWeight(2.5);
-      noFill();
-      beginShape();
-      for (i = 0; i <= 120; i++) {
-        var t = i * tMax / 120;
-        vertex(startX + slopeX(t) * scale, startY + slopeDrop(t) * scale);
+      for (i = 0; i < 3; i++) {
+        var hitT = slopeCaseTime(i);
+        var drawT = Math.min(tNow, hitT);
+        var point = slopeCasePoint(i);
+        var ballX = startX + slopeCaseX(i, drawT) * scale;
+        var ballY = startY + slopeCaseDrop(drawT) * scale;
+        var hitX = startX + point.x * scale;
+        var hitY = startY + point.y * scale;
+        var j;
+
+        stroke(colors[i]);
+        strokeWeight(2.5);
+        noFill();
+        beginShape();
+        for (j = 0; j <= 90; j++) {
+          var t = j * hitT / 90;
+          vertex(startX + slopeCaseX(i, t) * scale, startY + slopeCaseDrop(t) * scale);
+        }
+        endShape();
+
+        noStroke();
+        fill(colors[i]);
+        circle(hitX, hitY, 9);
+        circle(ballX, ballY, 22);
+        fill("#ffffff");
+        textAlign(CENTER, CENTER);
+        textSize(12);
+        text(labels[i], hitX, hitY);
       }
-      endShape();
 
-      stroke("#cbd5e1");
-      strokeWeight(1);
-      drawingContext.setLineDash([4, 4]);
-      line(ballX, startY, ballX, ballY);
-      line(startX, ballY, ballX, ballY);
-      drawingContext.setLineDash([]);
-
-      noStroke();
-      fill("#f97316");
-      circle(ballX, ballY, 24);
-      fill("#ffedd5");
-      circle(ballX - 5, ballY - 5, 7);
-
-      drawVectorArrow(ballX, ballY, slopeV0 * 1.8, 0, "#2563eb", "vx");
-      drawVectorArrow(ballX, ballY, 0, slopeG * tNow * 1.8, "#dc2626", "vy");
+      var midIndex = 1;
+      var midT = Math.min(tNow, slopeCaseTime(midIndex));
+      var midX = startX + slopeCaseX(midIndex, midT) * scale;
+      var midY = startY + slopeCaseDrop(midT) * scale;
+      drawVectorArrow(midX, midY, slopeCaseV0(midIndex) * 1.3, 0, "#2563eb", "vx");
+      drawVectorArrow(midX, midY, 0, slopeG * midT * 1.3, "#dc2626", "vy");
 
       noStroke();
       fill("#5b6472");
       textAlign(LEFT, TOP);
       textSize(12);
       text("斜面", slopeEndX - 38, slopeEndY - 20);
-      text("落点", startX + xHit * scale + 8, startY + yHit * scale - 24);
+      text("同一斜面：a、b、c 由近到远", startX + 10, startY + 22);
     }
 
     function drawSlopeGraph() {
@@ -3541,44 +3675,71 @@
       var gy = 62;
       var gw = graphRight - graphLeft - 80;
       var gh = 360;
-      var tMax = slopeHitTime();
-      var yMax = slopeDrop(tMax);
+      var labels = ["a", "b", "c"];
+      var colors = ["#2563eb", "#f97316", "#dc2626"];
+      var tMax = slopeMaxTime();
+      var vMax = slopeCaseV0(2);
+      var dvMax = slopeG * tMax;
       var i;
+      var groupW = gw / 3;
+      var barW = 28;
+      var baseY = gy + gh;
 
       noStroke();
       fill("#111827");
       textAlign(LEFT, TOP);
       textSize(18);
-      text("下落量-时间图像", graphLeft + 24, 20);
+      text("三球比较图像", graphLeft + 24, 20);
       fill("#5b6472");
       textSize(12);
-      text("蓝线：小球下落量；灰线：斜面高度", graphLeft + 24, 44);
+      text("时间 t、初速度 v₀、速度变化量 Δv 均由 a 到 c 增大", graphLeft + 24, 44);
 
       drawBasicGrid(gx, gy, gw, gh);
-      drawGraphTicks(gx, gy, gw, gh, tMax, yMax, "s");
 
-      stroke("#94a3b8");
-      strokeWeight(2);
-      noFill();
-      beginShape();
-      for (i = 0; i <= 120; i++) {
-        var tLine = i * tMax / 120;
-        var slopeValue = slopeX(tLine) * Math.tan(slopeThetaRad());
-        vertex(map(tLine, 0, tMax, gx, gx + gw), map(slopeValue, 0, yMax, gy + gh, gy));
+      for (i = 0; i < 3; i++) {
+        var centerX = gx + groupW * (i + 0.5);
+        var tVal = slopeCaseTime(i);
+        var vVal = slopeCaseV0(i);
+        var dvVal = slopeG * tVal;
+        var hT = map(tVal, 0, tMax, 0, gh * 0.84);
+        var hV = map(vVal, 0, vMax, 0, gh * 0.84);
+        var hD = map(dvVal, 0, dvMax, 0, gh * 0.84);
+
+        noStroke();
+        fill("#2563eb");
+        rect(centerX - 42, baseY - hT, barW, hT);
+        fill("#f97316");
+        rect(centerX - 10, baseY - hV, barW, hV);
+        fill("#dc2626");
+        rect(centerX + 22, baseY - hD, barW, hD);
+
+        fill("#111827");
+        textAlign(CENTER, TOP);
+        textSize(13);
+        text(labels[i], centerX, baseY + 12);
       }
-      endShape();
 
-      stroke("#2563eb");
-      strokeWeight(2.5);
-      noFill();
-      beginShape();
-      for (i = 0; i <= 120; i++) {
-        var tBall = i * tMax / 120;
-        vertex(map(tBall, 0, tMax, gx, gx + gw), map(slopeDrop(tBall), 0, yMax, gy + gh, gy));
-      }
-      endShape();
+      fill("#2563eb");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("蓝：t", gx + 10, gy + 10);
+      fill("#f97316");
+      text("橙：v₀", gx + 10, gy + 28);
+      fill("#dc2626");
+      text("红：Δv", gx + 10, gy + 46);
 
-      drawTimeMarker(gx, gy, gw, gh, Math.min(slopeT, tMax), tMax);
+      stroke("#111827");
+      strokeWeight(1);
+      var markerX = map(Math.min(slopeT, tMax), 0, tMax, gx, gx + gw);
+      drawingContext.setLineDash([4, 4]);
+      line(markerX, gy, markerX, gy + gh);
+      drawingContext.setLineDash([]);
+
+      noStroke();
+      fill("#5b6472");
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text("末速度方向：tanφ = vy/vx = 2tanθ，三球相同", gx + 72, gy + 12);
     }
 
     function windowEndTime() {
