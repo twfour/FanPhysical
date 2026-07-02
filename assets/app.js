@@ -286,7 +286,7 @@ var graphWindow = 14;
 function setup() {
   var cnv = createCanvas(canvasW, canvasH);
   cnv.parent("canvas-holder");
-  pixelDensity(1);
+  pixelDensity(Math.min(window.devicePixelRatio || 1, 2));
   textFont('"Noto Sans SC", "Microsoft YaHei", sans-serif');
   enhanceProblemNotes();
   resetBrownian();
