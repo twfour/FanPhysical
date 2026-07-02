@@ -82,6 +82,37 @@ var modelSourceMap = {
   }
 };
 
+var knowledgePointMap = {
+  doubleThrow: ["竖直上抛", "相对运动", "相遇条件"],
+  pipeDrop: ["相对运动", "自由落体", "同加速度模型"],
+  threeCar: ["匀减速", "追及相遇", "临界条件"],
+  inclineSlot: ["斜面运动", "圆几何", "等时性"],
+  curveForce: ["曲线运动", "受力分析", "切向与法向"],
+  motionCompose: ["运动合成", "图像读取", "牛顿第二定律"],
+  riverCrossing: ["速度合成", "渡河模型", "分运动"],
+  riverAdvanced: ["速度圆", "最短位移", "矢量合成"],
+  rainWindow: ["相对速度", "参考系", "速度分解"],
+  rodConstraint: ["杆约束", "速度投影", "关联速度"],
+  projectileBasic: ["平抛运动", "分解运动", "运动学公式"],
+  projectileSlope: ["平抛运动", "斜面几何", "末速度方向"],
+  projectileWindow: ["平抛运动", "区间判断", "厚墙模型"],
+  volleyballServe: ["平抛运动", "临界过网", "落点判断"],
+  dartTarget: ["斜抛运动", "命中条件", "速度方向"],
+  projectileNormal: ["平抛运动", "垂直斜面", "速度分解"],
+  projectileBounce: ["平抛运动", "碰撞反弹", "分段运动"],
+  semiCircleThrow: ["平抛运动", "圆弧坐标", "速度比"],
+  bulletCylinder: ["圆周运动", "角速度", "穿筒时间"],
+  bikeGear: ["圆周运动", "链传动", "角速度"]
+};
+
+var aiPromptList = [
+  "我第一步怎么想？",
+  "给我一点提示",
+  "用初中生能懂的话解释",
+  "为什么动画这样动？",
+  "出一道类似题"
+];
+
 var canvasW = 1000;
 var canvasH = 500;
 var animRight = 570;
@@ -257,6 +288,7 @@ function setup() {
   cnv.parent("canvas-holder");
   pixelDensity(1);
   textFont('"Noto Sans SC", "Microsoft YaHei", sans-serif');
+  enhanceProblemNotes();
   resetBrownian();
   updateLabels();
   switchScene(currentScene);
@@ -489,12 +521,394 @@ function switchScene(sceneName) {
   document.getElementById("bulletCylinderNotes").style.display = sceneName === "bulletCylinder" ? "block" : "none";
   document.getElementById("bikeGearNotes").style.display = sceneName === "bikeGear" ? "block" : "none";
   updateModelSource(sceneName);
+  updateLearningAside(sceneName);
+  updateMobileAiContext(sceneName);
   renderMath();
 }
 
-function renderMath() {
+function enhanceProblemNotes() {
+  var notes = document.querySelectorAll(".problem-notes");
+  notes.forEach(function (note) {
+    var sceneName = note.id.replace("Notes", "");
+    var grid = note.querySelector(".problem-notes-grid");
+    if (!grid || grid.querySelector(".learning-aside")) {
+      return;
+    }
+
+    var blocks = grid.querySelectorAll(".problem-note-block");
+    blocks.forEach(function (block, index) {
+      if (block.querySelector(".note-body")) {
+        return;
+      }
+      var body = document.createElement("div");
+      body.className = "note-body";
+      var children = Array.prototype.slice.call(block.children);
+      children.forEach(function (child) {
+        if (child.classList && child.classList.contains("problem-note-kicker")) {
+          return;
+        }
+        body.appendChild(child);
+      });
+      if (index > 0) {
+        block.classList.add("is-collapsed");
+        var toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "note-toggle";
+        toggle.innerText = "展开";
+        toggle.onclick = function () {
+          var collapsed = block.classList.toggle("is-collapsed");
+          toggle.innerText = collapsed ? "展开" : "收起";
+          renderMath();
+        };
+        block.appendChild(toggle);
+        addStepAiButtons(body);
+      }
+      block.appendChild(body);
+    });
+
+    var aside = document.createElement("aside");
+    aside.className = "learning-aside";
+    aside.setAttribute("data-scene", sceneName);
+    aside.innerHTML = [
+      "<p class=\"eyebrow\">当前题上下文</p>",
+      "<h3>AI 物理助教</h3>",
+      "<p class=\"ai-helper-copy\">它跟着当前题走，可以直接问动画、参数、公式和某一步为什么这样写。</p>",
+      "<div class=\"ai-actions\"></div>",
+      "<div class=\"ai-current-question\">选择一个问题，AI 会围绕当前题解释。</div>",
+      "<h3>涉及知识点</h3>",
+      "<div class=\"knowledge-tags\"></div>"
+    ].join("");
+    grid.appendChild(aside);
+  });
+}
+
+function addStepAiButtons(body) {
+  var paragraphs = Array.prototype.slice.call(body.querySelectorAll("p"));
+  paragraphs.forEach(function (paragraph, paragraphIndex) {
+    if (paragraph.nextElementSibling && paragraph.nextElementSibling.classList.contains("step-ai-tools")) {
+      return;
+    }
+    var tools = document.createElement("div");
+    tools.className = "step-ai-tools";
+    [
+      ["why", "为什么？", "为什么这里要这样分析？"],
+      ["hint", "提示", "给我一点提示，不要直接给答案"],
+      ["knowledge", "知识点", "这一句对应哪个知识点？"],
+      ["similar", "类似题", "出一道只练这一步的类似题"]
+    ].forEach(function (item) {
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "step-ai-button";
+      button.innerText = item[1];
+      button.onclick = function () {
+        askStepAi(paragraph, item[2], item[0], paragraphIndex);
+      };
+      tools.appendChild(button);
+    });
+    var response = document.createElement("div");
+    response.className = "step-ai-response";
+    tools.appendChild(response);
+    paragraph.insertAdjacentElement("afterend", tools);
+  });
+}
+
+function updateLearningAside(sceneName) {
+  var tags = knowledgePointMap[sceneName] || [];
+  var aside = document.querySelector("#" + sceneName + "Notes .learning-aside");
+  if (!aside) {
+    return;
+  }
+  var actionBox = aside.querySelector(".ai-actions");
+  actionBox.innerHTML = "";
+  aiPromptList.forEach(function (prompt) {
+    var button = document.createElement("button");
+    button.type = "button";
+    button.innerText = prompt;
+    button.onclick = function () {
+      askStepAi(getDefaultStepElement(), prompt, "sidebar", 0);
+    };
+    actionBox.appendChild(button);
+  });
+
+  var tagBox = aside.querySelector(".knowledge-tags");
+  tagBox.innerHTML = "";
+  tags.forEach(function (tag) {
+    var button = document.createElement("button");
+    button.type = "button";
+    button.innerText = tag;
+    tagBox.appendChild(button);
+  });
+}
+
+function updateMobileAiContext(sceneName) {
+  var fab = document.getElementById("mobileAiFab");
+  var title = document.getElementById("mobileAiTitle");
+  var promptBox = document.getElementById("mobileAiPrompts");
+  if (!fab || !title || !promptBox) {
+    return;
+  }
+
+  var source = modelSourceMap[sceneName];
+  fab.classList.toggle("is-hidden", sceneName === "home");
+  title.innerText = source ? source.text + " · AI 物理助教" : "AI 物理助教";
+  promptBox.innerHTML = "";
+  aiPromptList.forEach(function (prompt) {
+    var button = document.createElement("button");
+    button.type = "button";
+    button.innerText = prompt;
+    button.onclick = function () {
+      openAiWithPrompt(prompt);
+    };
+    promptBox.appendChild(button);
+  });
+
+  var drawer = document.getElementById("mobileAiDrawer");
+  var sendButton = drawer ? drawer.querySelector(".mobile-ai-input button") : null;
+  var input = drawer ? drawer.querySelector(".mobile-ai-input input") : null;
+  if (sendButton && input && !sendButton.dataset.bound) {
+    sendButton.dataset.bound = "1";
+    sendButton.onclick = function () {
+      askStepAi(getDefaultStepElement(), input.value || "请解释当前步骤", "mobile", 0);
+    };
+  }
+}
+
+function openAiWithPrompt(prompt) {
+  var input = document.querySelector("#mobileAiDrawer .mobile-ai-input input");
+  if (input) {
+    input.value = prompt;
+  }
+  askStepAi(getDefaultStepElement(), prompt, "mobile", 0);
+  if (window.matchMedia && window.matchMedia("(max-width: 900px)").matches) {
+    toggleMobileAiDrawer(true);
+  }
+}
+
+function getDefaultStepElement() {
+  var activeNotes = document.querySelector("#" + currentScene + "Notes");
+  if (!activeNotes) {
+    return null;
+  }
+  return activeNotes.querySelector(".problem-note-block:nth-child(2) .note-body p") ||
+    activeNotes.querySelector(".problem-note-block .note-body p");
+}
+
+function getStepContext(paragraph, prompt, intent, fallbackStepIndex) {
+  var note = document.querySelector("#" + currentScene + "Notes");
+  var block = paragraph ? paragraph.closest(".problem-note-block") : null;
+  var body = paragraph ? paragraph.closest(".note-body") : null;
+  var paragraphs = body ? Array.prototype.slice.call(body.querySelectorAll("p")) : [];
+  var stepIndex = paragraph ? paragraphs.indexOf(paragraph) : fallbackStepIndex;
+  var source = modelSourceMap[currentScene] || {};
+  var heading = block ? block.querySelector("h2") : null;
+  var stepTitle = "";
+  var strong = paragraph ? paragraph.querySelector("strong") : null;
+  if (strong) {
+    stepTitle = strong.innerText.replace(/[：:。.\s]+$/, "");
+  } else if (heading) {
+    stepTitle = heading.innerText;
+  }
+
+  return {
+    problemId: currentScene,
+    problemTitle: source.title || currentScene,
+    stepId: stepIndex + 1,
+    stepTitle: stepTitle || "当前步骤",
+    stepContent: paragraph ? paragraph.innerText : "",
+    previousSteps: paragraphs.slice(0, Math.max(stepIndex, 0)).map(function (item) {
+      return item.innerText;
+    }),
+    knowledge: knowledgePointMap[currentScene] || [],
+    commonMistakes: getCommonMistakes(currentScene),
+    animationState: getAnimationState(currentScene),
+    studentState: getStudentState(currentScene, stepIndex + 1),
+    intent: intent,
+    userQuestion: prompt,
+    noteTitle: note ? (note.querySelector(".problem-note-block h2") || {}).innerText : ""
+  };
+}
+
+function getCommonMistakes(sceneName) {
+  var defaults = {
+    projectileBasic: ["误认为水平速度会变小", "混淆位移方向和速度方向"],
+    projectileSlope: ["只看水平位移，不看斜面几何", "误认为末速度方向随落点改变"],
+    riverCrossing: ["把船速直接当合速度", "忘记分解垂直河岸分量"],
+    curveForce: ["把速度方向当成合力方向", "忽略切向分力对快慢的影响"],
+    rodConstraint: ["没有把速度投影到杆方向", "误把两端速度大小看成相等"],
+    bikeGear: ["混淆同轴角速度相等和链条线速度相等"]
+  };
+  return defaults[sceneName] || [];
+}
+
+function getStudentState(sceneName, stepId) {
+  var key = "fanphysics_step_ai_" + sceneName + "_" + stepId;
+  var count = Number(localStorage.getItem(key) || "0");
+  return {
+    currentStepQuestionCount: count,
+    status: count > 0 ? "提问中" : "未提问"
+  };
+}
+
+function incrementStudentState(sceneName, stepId) {
+  var key = "fanphysics_step_ai_" + sceneName + "_" + stepId;
+  var count = Number(localStorage.getItem(key) || "0") + 1;
+  localStorage.setItem(key, String(count));
+}
+
+function getAnimationState(sceneName) {
+  var state = { scene: sceneName };
+  if (sceneName === "projectileBasic") {
+    state.time = projT;
+    state.x = projV0 * projT;
+    state.y = projHeight - 0.5 * projG * projT * projT;
+    state.vx = projV0;
+    state.vy = -projG * projT;
+    return state;
+  }
+  if (sceneName === "projectileSlope") {
+    state.time = slopeT;
+    state.vx = slopeV0;
+    state.vy = -slopeG * slopeT;
+    state.slopeAngle = slopeAngle;
+    return state;
+  }
+  if (sceneName === "riverCrossing") {
+    state.time = riverT;
+    state.boatSpeed = riverBoatSpeed;
+    state.waterSpeed = riverWaterSpeed;
+    state.theta = riverTheta;
+    return state;
+  }
+  if (sceneName === "curveForce") {
+    state.forceNormal = forceNormal;
+    state.forceTangential = forceTangential;
+    state.forcePoint = forcePoint;
+    return state;
+  }
+  if (sceneName === "rodConstraint") {
+    state.alpha = rodAlpha;
+    state.vB = rodVB;
+    return state;
+  }
+  state.time = typeof simTime === "number" ? Number(simTime.toFixed(2)) : null;
+  return state;
+}
+
+function getOrCreateStepResponse(paragraph) {
+  if (!paragraph) {
+    return document.querySelector("#" + currentScene + "Notes .ai-current-question");
+  }
+  var tools = paragraph.nextElementSibling;
+  if (tools && tools.classList.contains("step-ai-tools")) {
+    return tools.querySelector(".step-ai-response");
+  }
+  return null;
+}
+
+function renderStepAiAnswer(target, text) {
+  if (!target) {
+    return;
+  }
+  target.innerHTML = "<p class=\"step-ai-title\">AI 解释</p>" + markdownLiteToHtml(text);
+  renderMath(target);
+}
+
+function markdownLiteToHtml(text) {
+  var escaped = String(text || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+  escaped = escaped.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+
+  return escaped.split(/\n{2,}/).map(function (part) {
+    var lines = part.split("\n");
+    if (lines.length > 0 && /^#{1,4}\s+/.test(lines[0])) {
+      var title = lines.shift().replace(/^#{1,4}\s+/, "");
+      var rest = lines.join("\n").trim();
+      return "<p class=\"step-ai-subtitle\">" + title + "</p>" +
+        (rest ? markdownLiteToHtml(rest) : "");
+    }
+    var isList = lines.every(function (line) {
+      return /^\s*[-*]\s+/.test(line);
+    });
+    if (isList) {
+      return "<ul>" + lines.map(function (line) {
+        return "<li>" + line.replace(/^\s*[-*]\s+/, "") + "</li>";
+      }).join("") + "</ul>";
+    }
+    return "<p>" + part.replace(/\n/g, "<br>") + "</p>";
+  }).join("");
+}
+
+function renderStepAiError(target, message) {
+  if (!target) {
+    return;
+  }
+  target.innerHTML = "<p class=\"step-ai-title\">AI 暂时不可用</p><p>" + message + "</p>";
+}
+
+function setAiCurrentQuestion(prompt) {
+  var currentQuestionBoxes = document.querySelectorAll(".ai-current-question");
+  currentQuestionBoxes.forEach(function (box) {
+    box.innerText = "已选择：" + prompt;
+  });
+}
+
+async function askStepAi(paragraph, prompt, intent, fallbackStepIndex) {
+  if (!paragraph) {
+    setAiCurrentQuestion("请先进入一道题，再选择要问的步骤。");
+    return;
+  }
+  var block = paragraph.closest(".problem-note-block");
+  if (block && block.classList.contains("is-collapsed")) {
+    block.classList.remove("is-collapsed");
+    var toggle = block.querySelector(".note-toggle");
+    if (toggle) {
+      toggle.innerText = "收起";
+    }
+  }
+  var context = getStepContext(paragraph, prompt, intent, fallbackStepIndex);
+  var target = getOrCreateStepResponse(paragraph);
+  setAiCurrentQuestion(prompt);
+  if (target) {
+    target.classList.add("is-open");
+    target.innerHTML = "<p class=\"step-ai-title\">AI 正在看这一小步...</p>";
+  }
+
+  try {
+    var response = await fetch("/api/step-ai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(context)
+    });
+    var data = await response.json();
+    if (!response.ok || !data.ok) {
+      throw new Error(data.error || "请求失败");
+    }
+    incrementStudentState(context.problemId, context.stepId);
+    renderStepAiAnswer(target, data.answer);
+  } catch (error) {
+    renderStepAiError(target, "请确认已通过 server.py 运行，并设置 DEEPSEEK_API_KEY。错误：" + error.message);
+  }
+}
+
+function toggleMobileAiDrawer(open) {
+  var drawer = document.getElementById("mobileAiDrawer");
+  var overlay = document.getElementById("mobileAiOverlay");
+  if (!drawer || !overlay) {
+    return;
+  }
+  drawer.classList.toggle("is-open", open);
+  overlay.classList.toggle("is-open", open);
+}
+
+function renderMath(root) {
   if (window.MathJax && window.MathJax.typesetPromise) {
-    window.MathJax.typesetPromise();
+    if (root) {
+      window.MathJax.typesetPromise([root]);
+    } else {
+      window.MathJax.typesetPromise();
+    }
   }
 }
 

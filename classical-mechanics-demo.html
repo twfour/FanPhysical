@@ -11,8 +11,15 @@
 
 <body>
   <main class="wrap">
-    <h1>FanPhysics动态模型库</h1>
-    <p class="sub">左侧是动画区域，右侧是实时曲线图。动画区物理原点固定在 (400, 250)，并采用 y 轴向上为正、1 像素 = 1 物理单位。</p>
+    <header class="brand-bar">
+      <button class="brand-lockup" type="button" onclick="switchScene('home')" aria-label="返回首页">
+        <span class="brand-mark">F</span>
+        <span>
+          <span class="brand-name">FanPhysics</span>
+          <span class="brand-tagline">Physics Through Animation</span>
+        </span>
+      </button>
+    </header>
 
     <div class="app-layout">
       <aside class="sidebar">
@@ -85,12 +92,96 @@
 
     <div id="homePanel" class="home-panel">
       <section class="home-hero">
-        <h2>FanPhysics动态模型库</h2>
-        <p>按课程阶段浏览模型，点击卡片进入对应动画、图像、题目与解析。</p>
+        <div class="hero-copy">
+          <p class="eyebrow">初中物理互动学习平台</p>
+          <h1>用动画真正理解物理</h1>
+          <p>把题目、模型、参数实验和分步解析放在同一个学习流里，让抽象公式变成可观察、可调节、可解释的物理过程。</p>
+          <div class="hero-actions">
+            <button class="primary-action" type="button" onclick="switchScene('projectileBasic')">开始学习</button>
+            <button class="ghost-action" type="button" onclick="switchScene('riverCrossing')">体验动画实验室</button>
+          </div>
+        </div>
+        <div class="hero-lab" aria-label="动画实验室预览">
+          <div class="lab-orbit">
+            <span></span>
+            <span></span>
+          </div>
+          <div class="lab-panel">
+            <strong>平抛运动</strong>
+            <span>速度 v0 = 28</span>
+            <span>高度 h = 160</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-section compact">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">按章节学习</p>
+            <h3>从模型出发，而不是从题堆出发</h3>
+          </div>
+        </div>
+        <div class="chapter-grid">
+          <button class="chapter-card tone-blue" type="button" onclick="switchScene('motionCompose')"><strong>运动</strong><span>二维运动合成</span></button>
+          <button class="chapter-card tone-teal" type="button" onclick="switchScene('curveForce')"><strong>力学</strong><span>曲线受力方向</span></button>
+          <button class="chapter-card tone-amber" type="button" onclick="switchScene('riverCrossing')"><strong>浮力与流体</strong><span>小船渡河</span></button>
+          <button class="chapter-card tone-purple" type="button" onclick="switchScene('projectileBasic')"><strong>抛体运动</strong><span>平抛基础</span></button>
+          <button class="chapter-card tone-green" type="button" onclick="switchScene('bulletCylinder')"><strong>圆周运动</strong><span>旋转圆筒</span></button>
+          <div class="chapter-card is-muted"><strong>电学 / 光学</strong><span>预留知识图谱入口</span></div>
+        </div>
+      </section>
+
+      <section class="home-section split">
+        <div class="feature-card lab-card">
+          <p class="eyebrow">动画实验室</p>
+          <h3>先动手调参数，再回到题目</h3>
+          <p>每个模型都保留播放、重置、时间轴和参数滑杆。动画区是主舞台，曲线和解析服务于理解。</p>
+          <button class="primary-action" type="button" onclick="switchScene('projectileSlope')">进入实验室</button>
+        </div>
+        <div class="feature-card progress-card">
+          <p class="eyebrow">最近学习</p>
+          <div class="stats-grid">
+            <span><strong>6</strong>今日完成</span>
+            <span><strong>18</strong>AI 提问</span>
+            <span><strong>受力分析</strong>最易错</span>
+            <span><strong>平抛</strong>推荐继续</span>
+          </div>
+        </div>
       </section>
 
       <section class="home-section">
-        <h3>2026春季班</h3>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">今日推荐</p>
+            <h3>高频模型先练起来</h3>
+          </div>
+        </div>
+        <div class="recommend-grid">
+          <button class="home-card is-featured" onclick="switchScene('projectileBasic')">
+            <span class="card-icon">01</span>
+            <strong>平抛运动基础</strong>
+            <span>10 分钟 / 拆轴建模</span>
+          </button>
+          <button class="home-card is-featured" onclick="switchScene('rodConstraint')">
+            <span class="card-icon">02</span>
+            <strong>杆约束速度</strong>
+            <span>8 分钟 / 投影约束</span>
+          </button>
+          <button class="home-card is-featured" onclick="switchScene('bikeGear')">
+            <span class="card-icon">03</span>
+            <strong>变速自行车传动</strong>
+            <span>12 分钟 / 同轴与链速</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="home-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">课程模型库</p>
+            <h3>2026春季班</h3>
+          </div>
+        </div>
         <div class="home-grid">
           <button class="home-card" onclick="switchScene('doubleThrow')">
             <strong>双球上抛相遇</strong>
@@ -1300,6 +1391,24 @@
 
       </section>
     </div>
+
+    <button id="mobileAiFab" class="mobile-ai-fab" type="button" onclick="toggleMobileAiDrawer(true)">问 AI</button>
+    <div id="mobileAiOverlay" class="mobile-ai-overlay" onclick="toggleMobileAiDrawer(false)"></div>
+    <section id="mobileAiDrawer" class="mobile-ai-drawer" aria-label="AI 物理助教">
+      <div class="mobile-ai-handle"></div>
+      <div class="mobile-ai-head">
+        <div>
+          <p class="eyebrow">当前题</p>
+          <h2 id="mobileAiTitle">AI 物理助教</h2>
+        </div>
+        <button type="button" class="drawer-close" onclick="toggleMobileAiDrawer(false)" aria-label="关闭">×</button>
+      </div>
+      <div id="mobileAiPrompts" class="ai-actions"></div>
+      <div class="mobile-ai-input">
+        <input type="text" placeholder="问这道题里的某一步..." />
+        <button type="button">发送</button>
+      </div>
+    </section>
   </main>
 
   <script src="assets/app.js"></script>
