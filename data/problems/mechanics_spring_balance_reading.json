@@ -19,54 +19,17 @@
     "content": "乙图中，外壳固定在地面上，外壳重力由地面支持力平衡，因此弹簧的示数等于作用在拉杆上的外力\\(F_0\\)减去外壳重力对弹簧的影响（弹簧上端受外壳重力拉扯），故读数为\\(F_0-G\\)。丙图中，圆环固定在地面上，外壳重力通过弹簧作用在拉杆上，因此示数为\\(F_0+G\\)。"
   },
   "animation": {
-    "level": "interactive_diagram",
-    "type": "force_diagram",
+    "enabled": false,
+    "level": "none",
+    "type": "none",
     "playable": false,
-    "interactive": true,
-    "confidence": 0.8,
-    "notes": "展示两种固定方式下弹簧、外壳、拉力及重力的受力情况",
-    "params": {
-      "pull": {
-        "label": "拉力大小",
-        "value": 10,
-        "min": 1,
-        "max": 20,
-        "step": 0.5,
-        "unit": "N"
-      },
-      "G": {
-        "label": "外壳重力",
-        "value": 2,
-        "min": 0.5,
-        "max": 10,
-        "step": 0.5,
-        "unit": "N"
-      },
-      "angle": {
-        "label": "角度",
-        "value": 90,
-        "min": 0,
-        "max": 180,
-        "step": 1,
-        "unit": "°"
-      }
-    },
+    "interactive": false,
+    "params": {},
     "timeline": {
       "duration": 0,
       "loop": false
     },
-    "forces": [
-      {
-        "label": "G",
-        "direction": "down",
-        "color": "#dc2626"
-      },
-      {
-        "label": "F₀",
-        "direction": "up",
-        "color": "#2563eb"
-      }
-    ]
+    "forces": []
   },
   "knowledge": [
     "弹簧测力计读数原理",

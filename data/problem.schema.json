@@ -41,8 +41,10 @@
         },
         "type": {
           "type": "string",
-          "enum": ["projectile", "spring_balance", "force_diagram", "none"]
+          "enum": ["projectile", "spring_balance", "force_diagram", "bullet_cylinder", "codex_scene", "none"]
         },
+        "key": { "type": "string" },
+        "enabled": { "type": "boolean" },
         "playable": { "type": "boolean" },
         "interactive": { "type": "boolean" },
         "confidence": { "type": "number" },

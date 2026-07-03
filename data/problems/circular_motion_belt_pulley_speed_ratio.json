@@ -1,0 +1,74 @@
+{
+  "slug": "belt_pulley_speed_ratio",
+  "originalNumber": "1",
+  "skip": false,
+  "skipReason": "",
+  "model": "皮带轮圆周运动模型",
+  "id": "circular_motion_belt_pulley_speed_ratio",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 皮带轮的线速度与角速度比值分析",
+  "question": "两个大轮半径相等的皮带轮的结构如图所示，A、B两点的半径之比为2:1，C、D两点的半径之比也为2:1，下列说法正确的是（ ）",
+  "options": [
+    "A. A、B两点的线速度之比为\\(v_A:v_B = 1:2\\)",
+    "B. A、C两点的角速度之比为\\(\\omega_A:\\omega_C = 1:2\\)",
+    "C. A、C两点的线速度之比为\\(v_A:v_C = 1:2\\)",
+    "D. A、D两点的线速度之比为\\(v_A:v_D = 1:2\\)"
+  ],
+  "answer": "【待校对】",
+  "analysis": {
+    "title": "皮带传动与同轴转动的圆周运动规律",
+    "content": "皮带传动的两轮边缘线速度大小相等，同轴转动的各点角速度相等，结合圆周运动线速度与角速度的关系\\(v=\\omega r\\)分析各点的线速度和角速度比值，判断选项正误。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {},
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
+    "forces": []
+  },
+  "knowledge": [
+    "圆周运动的线速度与角速度关系",
+    "皮带传动的特点",
+    "同轴转动的特点"
+  ],
+  "source": {
+    "title": "圆周运动课后习题A组",
+    "text": "第1题",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分析传动关系",
+      "content": "A、B两点在同一轮上，属于同轴转动，角速度相等；A、C两点通过皮带传动，线速度大小相等；C、D两点在同一轮上，属于同轴转动，角速度相等。",
+      "knowledge": [
+        "同轴转动特点",
+        "皮带传动特点"
+      ],
+      "commonMistakes": [
+        "混淆皮带传动和同轴转动的规律"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "逐一分析选项",
+      "content": "根据\\(v=\\omega r\\)，结合各点的半径关系和传动关系，计算各点的线速度和角速度比值，判断每个选项的正误。",
+      "knowledge": [
+        "线速度与角速度的关系"
+      ],
+      "commonMistakes": [
+        "错误应用线速度与角速度的关系，混淆半径比例"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "皮带轮圆周运动的比值分析",
+    "content": "本题考查皮带轮结构中各点的线速度和角速度的比值，需利用皮带传动线速度相等、同轴转动角速度相等的规律，结合圆周运动公式进行分析。"
+  }
+}

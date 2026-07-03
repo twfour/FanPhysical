@@ -1,0 +1,78 @@
+{
+  "slug": "bullet_cylinder_circular_motion",
+  "originalNumber": "第4题",
+  "skip": false,
+  "skipReason": "",
+  "model": "子弹穿匀速转动圆筒的平抛与圆周运动结合模型",
+  "id": "circular_motion_bullet_cylinder_circular_motion",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 子弹射穿匀速转动圆筒的运动分析",
+  "question": "如图所示，半径为\\(R\\)的竖直圆筒绕中心轴线以恒定的转速匀速转动。子弹（可视为质点）以大小为\\(v_0\\)的水平速度沿圆筒直径方向从左侧射入圆筒，从右侧射穿圆筒后发现两弹孔在同一竖直线上，不计空气阻力及圆筒对子弹运动的影响，重力加速度大小为\\(g\\)，圆筒足够长，下列说法正确的是（ ）",
+  "options": [
+    "A. 在圆筒中的运动时间为\\(\frac{2\\pi R}{v_0}\\)",
+    "B. 两弹孔的高度差为\\(\frac{2gR^2}{v_0^2}\\)",
+    "C. 圆筒转动的周期可能为\\(\frac{R}{v_0}\\)",
+    "D. 【待校对】"
+  ],
+  "answer": "B",
+  "analysis": {
+    "title": "子弹与圆筒的运动结合分析",
+    "content": "子弹在圆筒内做平抛运动，水平方向匀速直线运动，竖直方向自由落体运动；圆筒匀速转动，两弹孔在同一竖直线上，说明子弹穿过圆筒的时间内，圆筒转动的角度为\\((2n+1)\\pi\\)（\\(n=0,1,2,...\\)），据此分析各选项。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {},
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
+    "forces": []
+  },
+  "knowledge": [
+    "平抛运动",
+    "匀速圆周运动",
+    "运动的合成与分解"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "第4题",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "计算子弹在圆筒中的运动时间",
+      "content": "子弹水平方向做匀速直线运动，位移为圆筒直径\\(2R\\)，故运动时间\\(t=\frac{2R}{v_0}\\)，选项A错误。",
+      "knowledge": [
+        "平抛运动水平分运动"
+      ],
+      "commonMistakes": "水平位移误算为\\(R\\)，时间计算错误"
+    },
+    {
+      "stepId": 2,
+      "title": "计算两弹孔的高度差",
+      "content": "子弹竖直方向做自由落体运动，高度差\\(h=\frac{1}{2}gt^2=\frac{1}{2}g\\left(\frac{2R}{v_0}\right)^2=\frac{2gR^2}{v_0^2}\\)，选项B正确。",
+      "knowledge": [
+        "平抛运动竖直分运动"
+      ],
+      "commonMistakes": "竖直位移公式应用错误"
+    },
+    {
+      "stepId": 3,
+      "title": "分析圆筒转动的周期",
+      "content": "两弹孔在同一竖直线上，说明子弹穿过圆筒时，圆筒转动的角度为\\((2n+1)\\pi\\)（\\(n=0,1,2,...\\)），故时间\\(t=\frac{(2n+1)\\pi}{\\omega}=\frac{(2n+1)T}{2}\\)，结合\\(t=\frac{2R}{v_0}\\)得\\(T=\frac{4R}{(2n+1)v_0}\\)，当\\(n=0\\)时\\(T=\frac{4R}{v_0}\\)，不可能为\\(\frac{R}{v_0}\\)，选项C错误。",
+      "knowledge": [
+        "匀速圆周运动周期与角速度关系"
+      ],
+      "commonMistakes": "转动角度误算为\\(2n\\pi\\)，周期公式推导错误"
+    }
+  ],
+  "summary": {
+    "title": "子弹射穿转动圆筒的运动分析",
+    "content": "本题结合平抛运动和匀速圆周运动，分析子弹穿过转动圆筒的时间、高度差及圆筒周期，需明确两弹孔在同一竖直线上时圆筒的转动角度，结合分运动规律求解。"
+  }
+}

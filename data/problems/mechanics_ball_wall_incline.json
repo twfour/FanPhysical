@@ -19,56 +19,17 @@
     "content": "球受重力、斜面弹力（方向垂直斜面向上）、水平力F。若F足够大，则球与墙接触且受墙向左的弹力；若F较小，则球可能不接触墙，无墙弹力。但无论F大小，球必须与斜面相接触才能保持静止，故斜面弹力一定存在且垂直斜面向上。因此B、D正确。"
   },
   "animation": {
-    "level": "interactive_diagram",
-    "type": "force_diagram",
+    "enabled": false,
+    "level": "none",
+    "type": "none",
     "playable": false,
-    "interactive": true,
-    "confidence": 0.95,
-    "notes": "通过滑块调整F大小，观察球与墙是否接触及弹力变化",
-    "params": {
-      "F": {
-        "label": "水平推力",
-        "value": 10,
-        "min": 0,
-        "max": 20,
-        "step": 0.5,
-        "unit": "N"
-      },
-      "angle": {
-        "label": "斜面倾角",
-        "value": 45,
-        "min": 30,
-        "max": 60,
-        "step": 1,
-        "unit": "°"
-      }
-    },
+    "interactive": false,
+    "params": {},
     "timeline": {
       "duration": 0,
       "loop": false
     },
-    "forces": [
-      {
-        "label": "G",
-        "direction": "down",
-        "color": "#dc2626"
-      },
-      {
-        "label": "N",
-        "direction": "up-left",
-        "color": "#2563eb"
-      },
-      {
-        "label": "F",
-        "direction": "right",
-        "color": "#16a34a"
-      },
-      {
-        "label": "N_wall",
-        "direction": "left",
-        "color": "#9333ea"
-      }
-    ]
+    "forces": []
   },
   "knowledge": [
     "共点力平衡",

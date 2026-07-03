@@ -19,14 +19,16 @@
     "content": "A选项正确：演员和长杆作为一个整体，重心与钢丝在同一竖直平面内才能保持稳定平衡。B选项错误：手对长杆的弹力是手发生形变产生的，不是长杆形变。C选项错误：重力是地球引力的一个分力（并非严格等于引力）。D选项错误：手拿长杆可以降低重心，有利于保持平衡。"
   },
   "animation": {
+    "enabled": false,
     "level": "none",
     "type": "none",
     "playable": false,
     "interactive": false,
-    "confidence": 0.0,
-    "notes": "本题为概念辨析题，无需动画",
     "params": {},
-    "timeline": {},
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
     "forces": []
   },
   "knowledge": [

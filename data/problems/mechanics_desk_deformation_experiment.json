@@ -19,14 +19,16 @@
     "content": "A错误：桌面受到向下的弹力是由于手发生了形变，不是桌面形变。B正确：光点的移动放大了桌面的微小形变，说明桌面发生了形变。C错误：手受到向上的弹力是由于桌面发生了形变。D错误：本实验用到了放大法，并非理想实验法。"
   },
   "animation": {
+    "enabled": false,
     "level": "none",
     "type": "none",
     "playable": false,
     "interactive": false,
-    "confidence": 0.0,
-    "notes": "本题为实验方法辨析题，无需动画",
     "params": {},
-    "timeline": {},
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
     "forces": []
   },
   "knowledge": [

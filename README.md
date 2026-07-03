@@ -112,6 +112,37 @@ python3 scripts/process_problem_images.py work/images/projectile_001.jpg \
   --ocr-lang ch
 ```
 
+如果图片里有较多手写笔迹、图表或公式，普通 OCR 容易漏题，可以改用视觉模型直接读图：
+
+```bash
+python3 scripts/process_problem_images.py work/images/projectile_001.jpg \
+  --chapter 平抛运动 \
+  --ocr-engine vision-llm \
+  --force
+```
+
+如果一张整页照片包含多道题，推荐纵向分段读取，避免模型只输出上半页、漏掉底部题目：
+
+```bash
+python3 scripts/process_problem_images.py work/images/projectile_001.jpg \
+  --chapter 平抛运动 \
+  --ocr-engine vision-llm \
+  --split-vertical 3 \
+  --force
+```
+
+脚本会把图片临时切到 `work/image_segments/`，每段之间默认保留 12% 重叠，最后按题号合并去重。
+
+`vision-llm` 使用 OpenAI-compatible 的图片消息格式，需要在 `.env` 中配置一个支持图片输入的接口：
+
+```text
+VISION_API_KEY="你的视觉模型 API Key"
+VISION_API_URL="https://api.openai.com/v1/chat/completions"
+VISION_MODEL="gpt-4o"
+```
+
+如果使用 OpenAI，也可以只配置 `OPENAI_API_KEY`。当前 DeepSeek 文本接口用于整理 OCR 文本，不会直接看到图片；`vision-llm` 适合 `IMG_7022` 这类手写覆盖题干、表格和公式的页面。
+
 如果你想跳过 OCR，改用已有 OCR 文本，也可以这样：
 
 ```bash

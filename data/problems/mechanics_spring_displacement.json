@@ -14,48 +14,14 @@
     "content": "初始状态：上面木块使弹簧\\(k_1\\)压缩量\\(x_1 = m_1g/k_1\\)，下面弹簧\\(k_2\\)压缩量\\(x_2 = (m_1+m_2)g/k_2\\)。末状态：下方弹簧恰好恢复原长（弹力为零），此时上面弹簧需承担两个木块的总重力，故伸长量\\(x_1' = (m_1+m_2)g/k_1\\)。上面木块的移动距离等于下面弹簧压缩量\\(x_2\\)加上上面弹簧的压缩量转化为伸长量的变化量\\(x_1 + x_1'\\)，即\\(\\Delta x = x_2 + x_1 + x_1' = \\frac{(m_1+m_2)g}{k_2} + \\frac{m_1g}{k_1} \\)。"
   },
   "animation": {
-    "level": "animated",
-    "type": "spring_balance",
-    "playable": true,
-    "interactive": true,
-    "confidence": 0.7,
-    "notes": "模拟缓慢上提过程中木块位置变化及弹簧形变",
-    "params": {
-      "m1": {
-        "label": "上木块质量",
-        "value": 1,
-        "min": 0.5,
-        "max": 5,
-        "step": 0.1,
-        "unit": "kg"
-      },
-      "m2": {
-        "label": "下木块质量",
-        "value": 2,
-        "min": 0.5,
-        "max": 5,
-        "step": 0.1,
-        "unit": "kg"
-      },
-      "k1": {
-        "label": "弹簧1劲度系数",
-        "value": 10,
-        "min": 1,
-        "max": 50,
-        "step": 1,
-        "unit": "N/m"
-      },
-      "k2": {
-        "label": "弹簧2劲度系数",
-        "value": 20,
-        "min": 1,
-        "max": 50,
-        "step": 1,
-        "unit": "N/m"
-      }
-    },
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {},
     "timeline": {
-      "duration": 3,
+      "duration": 0,
       "loop": false
     },
     "forces": []

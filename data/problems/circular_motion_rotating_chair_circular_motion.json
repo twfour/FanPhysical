@@ -1,0 +1,69 @@
+{
+  "slug": "rotating_chair_circular_motion",
+  "originalNumber": "12",
+  "skip": false,
+  "skipReason": "",
+  "model": "匀速圆周运动受力与向心加速度分析模型",
+  "id": "circular_motion_rotating_chair_circular_motion",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 旋转飞椅匀速圆周运动的受力与选项分析",
+  "question": "图甲是游乐场中的“旋转飞椅”项目。“旋转飞椅”简化结构如图乙，转动轴带动顶部圆盘转动，长为\\(L\\)的轻质悬绳一端系在圆盘上，另一端系着椅子。悬点分别为\\(A\\)、\\(B\\)的两绳与竖直方向夹角分别为\\(\theta_1 = 37^\\circ\\)、\\(\theta_2 = 53^\\circ\\)，椅子与游客总质量分别为\\(m_A\\)、\\(m_B\\)，绳子拉力分别为\\(F_A\\)、\\(F_B\\)，向心加速度分别为\\(a_A\\)、\\(a_B\\)。忽略空气阻力，则椅子和游客随圆盘匀速转动的过程中（  ）",
+  "options": [
+    "A. 由重力与绳子拉力的合力提供向心力",
+    "B. \\(F_A:F_B = 4m_A:3m_B\\)",
+    "C. \\(a_A:a_B = 16:9\\)",
+    "D. 悬绳与竖直方向的夹角与游客质量无关"
+  ],
+  "answer": "A,D",
+  "analysis": {
+    "title": "旋转飞椅问题的受力分析与圆周运动规律应用",
+    "content": "本题考查匀速圆周运动的向心力来源及受力分析。旋转飞椅做匀速圆周运动时，物体受重力和绳子拉力，二者的合力提供向心力；通过受力分解结合圆周运动公式分析各选项：竖直方向受力平衡、水平方向合力提供向心力，推导拉力、向心加速度与夹角、质量的关系，判断选项正误。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {},
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
+    "forces": []
+  },
+  "knowledge": [
+    "匀速圆周运动向心力",
+    "受力分析",
+    "力的分解"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "C组第12题",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "受力分析与向心力来源判断",
+      "content": "对椅子和游客整体受力分析，受竖直向下的重力和沿绳向上的拉力，匀速圆周运动的向心力由这两个力的合力指向转轴提供，因此选项A正确。",
+      "knowledge": [
+        "匀速圆周运动向心力",
+        "受力分析"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "各选项推导分析",
+      "content": "根据竖直方向受力平衡 \\(F\\cos\theta = mg\\)，水平方向合力提供向心力 \\(F\\sin\theta = m\\omega^2 r\\)，可得：拉力 \\(F = \frac{mg}{\\cos\theta}\\)，向心加速度 \\(a = \\omega^2 r\\)，且 \\(\tan\theta = \frac{\\omega^2 r}{g}\\)。由此可知：拉力比 \\(F_A:F_B = \frac{m_A}{\\cos37^\\circ}:\frac{m_B}{\\cos53^\\circ} = \frac{3m_A}{4}:\frac{3m_B}{5} = \frac{5m_A}{4}:\frac{3m_B}{5}\\)，选项B错误；向心加速度比因转动半径关系未知，无法得出16:9，选项C错误；夹角\\(\theta\\)的表达式中无质量项，与游客质量无关，选项D正确。",
+      "knowledge": [
+        "力的分解",
+        "圆周运动向心加速度"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "旋转飞椅圆周运动问题结论",
+    "content": "本题正确选项为A、D，核心是匀速圆周运动的向心力由重力与拉力的合力提供，夹角与质量无关，拉力和向心加速度需结合受力分解推导。"
+  }
+}

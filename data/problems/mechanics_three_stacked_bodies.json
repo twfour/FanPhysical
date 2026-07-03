@@ -19,49 +19,17 @@
     "content": "三个物体叠放静止，整体与局部均平衡。A与C不直接接触，故A错误；A和B均不接触地面，故B错误；地面对C的支持力是地面发生弹性形变产生的，故C正确；物体A对B的压力是由于A发生形变产生的，故D错误。"
   },
   "animation": {
-    "level": "static_diagram",
-    "type": "force_diagram",
+    "enabled": false,
+    "level": "none",
+    "type": "none",
     "playable": false,
     "interactive": false,
-    "confidence": 0.9,
-    "notes": "展示叠放物体的重力、支持力和压力方向",
     "params": {},
     "timeline": {
       "duration": 0,
       "loop": false
     },
-    "forces": [
-      {
-        "label": "G_A",
-        "direction": "down",
-        "color": "#dc2626"
-      },
-      {
-        "label": "N_BA",
-        "direction": "up",
-        "color": "#2563eb"
-      },
-      {
-        "label": "G_B",
-        "direction": "down",
-        "color": "#dc2626"
-      },
-      {
-        "label": "N_CB",
-        "direction": "up",
-        "color": "#2563eb"
-      },
-      {
-        "label": "G_C",
-        "direction": "down",
-        "color": "#dc2626"
-      },
-      {
-        "label": "N_地面",
-        "direction": "up",
-        "color": "#2563eb"
-      }
-    ]
+    "forces": []
   },
   "knowledge": [
     "弹力",

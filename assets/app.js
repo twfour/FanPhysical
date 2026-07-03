@@ -508,7 +508,7 @@ function switchScene(sceneName) {
   document.getElementById("treeBikeGear").className = sceneName === "bikeGear" ? "tree-item indent active" : "tree-item indent";
 
   document.getElementById("homePanel").style.display = sceneName === "home" ? "block" : "none";
-  document.getElementById("canvas-holder").style.display = sceneName === "home" ? "none" : "block";
+  document.getElementById("canvas-holder").style.display = shouldShowCanvas(sceneName) ? "block" : "none";
   document.getElementById("springControls").style.display = sceneName === "spring" ? "grid" : "none";
   document.getElementById("pendulumControls").style.display = sceneName === "pendulum" ? "grid" : "none";
   document.getElementById("brownianControls").style.display = sceneName === "brownian" ? "grid" : "none";
@@ -611,6 +611,9 @@ function renderProblemDataNotes() {
     note.appendChild(grid);
 
     grid.appendChild(createProblemNoteBlock("题目", problem.title, problem.question || ""));
+    if (isProblemAnimationEnabled(problem)) {
+      grid.appendChild(createProblemAnimationBlock(problem));
+    }
     var analysisBlock = createProblemAnalysisBlock(problem);
     analysisBlock.dataset.analysisBlock = "1";
     grid.appendChild(analysisBlock);
@@ -618,6 +621,20 @@ function renderProblemDataNotes() {
       grid.appendChild(createProblemNoteBlock("一句话总结", problem.summary.title || "总结", problem.summary.content || ""));
     }
   });
+}
+
+function createProblemAnimationBlock(problem) {
+  var animation = problem.animation || {};
+  var params = Object.keys(animation.params || {}).map(function (key) {
+    var param = animation.params[key] || {};
+    return (param.label || key) + " " + formatParamValue(Number(param.value || 0), param.unit);
+  }).join("，");
+  var content = [
+    "这道题的题干、解析、步骤来自 JSON。",
+    "画图和图表不由 OCR 自动生成，而是绑定 Codex 旧方法的 `" + animation.key + "` 动画模型。",
+    params ? "默认参数：" + params + "。" : ""
+  ].filter(Boolean).join("\n\n");
+  return createProblemNoteBlock("动画模型", "Codex 手写动画：" + animation.key, content);
 }
 
 function createProblemAnalysisBlock(problem) {
@@ -702,6 +719,12 @@ function renderProblemDataHome() {
     meta.innerText = [problem.chapter, (problem.knowledge || []).slice(0, 3).join(" / ")].filter(Boolean).join(" · ");
     button.appendChild(title);
     button.appendChild(meta);
+    if (isProblemAnimationEnabled(problem)) {
+      var badge = document.createElement("span");
+      badge.className = "home-card-badge";
+      badge.innerText = "Codex 动画：" + problem.animation.key;
+      button.appendChild(badge);
+    }
     grid.appendChild(button);
   });
   homePanel.appendChild(section);
@@ -760,7 +783,9 @@ function enhanceProblemNotes() {
           renderMath();
         };
         block.appendChild(toggle);
-        addStepAiButtons(body);
+        if (block.dataset.analysisBlock === "1") {
+          addStepAiButtons(body);
+        }
       }
       block.appendChild(body);
     });
@@ -769,7 +794,7 @@ function enhanceProblemNotes() {
 }
 
 function addStepAiButtons(body) {
-  var paragraphs = Array.prototype.slice.call(body.querySelectorAll("p"));
+  var paragraphs = Array.prototype.slice.call(body.querySelectorAll(".analysis-step p"));
   paragraphs.forEach(function (paragraph, paragraphIndex) {
     if (paragraph.nextElementSibling && paragraph.nextElementSibling.classList.contains("step-ai-tools")) {
       return;
@@ -865,28 +890,19 @@ function getCommonMistakes(sceneName) {
 }
 
 function normalizeProblemAnimation(problem) {
-  var animation = problem.animation || inferProblemAnimation(problem);
+  var animation = problem.animation || {};
   if (!animation || animation.type === "none") {
-    var inferred = inferProblemAnimation(problem);
-    if (inferred && inferred.type !== "none" && problem.animation && problem.animation.params) {
-      inferred.params = problem.animation.params;
-      inferred.notes = problem.animation.notes || inferred.notes;
-      inferred.timeline = problem.animation.timeline || inferred.timeline;
-      inferred.playable = problem.animation.playable !== false;
-      inferred.interactive = problem.animation.interactive !== false;
-    }
-    animation = inferred;
-    if (!animation || animation.type === "none") {
-      return {
-        level: "none",
-        type: "none",
-        playable: false,
-        interactive: false,
-        params: {},
-        timeline: { duration: 0, loop: false }
-      };
-    }
+    return {
+      enabled: false,
+      level: "none",
+      type: "none",
+      playable: false,
+      interactive: false,
+      params: {},
+      timeline: { duration: 0, loop: false }
+    };
   }
+  animation.enabled = animation.enabled === true;
   animation.params = animation.params || {};
   animation.timeline = animation.timeline || {};
   if (typeof animation.playable !== "boolean") {
@@ -901,10 +917,41 @@ function normalizeProblemAnimation(problem) {
   return animation;
 }
 
+function isProblemAnimationEnabled(problem) {
+  return Boolean(problem && problem.animation && problem.animation.enabled === true && problem.animation.type !== "none");
+}
+
+function shouldShowCanvas(sceneName) {
+  if (sceneName === "home") {
+    return false;
+  }
+  if (isJsonProblemScene(sceneName)) {
+    return isJsonAnimationScene(sceneName);
+  }
+  return true;
+}
+
 function inferProblemAnimation(problem) {
   var text = [problem.id, problem.model, problem.title, problem.question, (problem.knowledge || []).join(" ")]
     .filter(Boolean)
     .join(" ");
+  if (/子弹.*(圆筒|纸筒)|弹孔|穿.*(圆筒|纸筒)|bullet.*cylinder/i.test(text)) {
+    return {
+      level: "animated",
+      type: "codex_scene",
+      key: "bulletCylinder",
+      playable: true,
+      interactive: true,
+      confidence: 0.72,
+      notes: "题目解析来自 JSON，动画与图表绑定 Codex 手写模型 bulletCylinder",
+      params: {
+        d: { label: "圆筒直径", value: 0.2, min: 0.05, max: 1, step: 0.01, unit: "m" },
+        omega: { label: "圆筒角速度", value: 3, min: 0.5, max: 8, step: 0.1, unit: "rad/s" },
+        phi: { label: "弹孔夹角", value: 65, min: 10, max: 160, step: 1, unit: "deg" }
+      },
+      timeline: { duration: 1, loop: false }
+    };
+  }
   if (/平抛|抛体|projectile/i.test(text)) {
     return {
       level: "animated",
@@ -960,7 +1007,7 @@ function inferProblemAnimation(problem) {
 
 function isJsonAnimationScene(sceneName) {
   var problem = problemDataMap[sceneName];
-  return Boolean(problem && !legacySceneMap[sceneName] && problem.animation && problem.animation.type !== "none");
+  return Boolean(problem && !legacySceneMap[sceneName] && isProblemAnimationEnabled(problem));
 }
 
 function isJsonProblemScene(sceneName) {
@@ -985,6 +1032,11 @@ function getJsonParam(sceneName, key, fallback) {
   var state = getJsonAnimationState(sceneName);
   var value = state.values[key];
   return typeof value === "number" ? value : fallback;
+}
+
+function getCodexAnimationKey(sceneName) {
+  var animation = (problemDataMap[sceneName] || {}).animation || {};
+  return animation.key || animation.animationKey || "";
 }
 
 function renderJsonAnimationControls(sceneName) {
@@ -1109,6 +1161,16 @@ function getJsonDuration(sceneName) {
     var g = Math.max(0.1, getJsonParam(sceneName, "g", 9.8));
     return Math.sqrt(2 * height / g);
   }
+  if (animation.type === "bullet_cylinder") {
+    var omega = Math.max(0.1, getJsonParam(sceneName, "omega", 3));
+    var phi = getJsonBulletPhi(sceneName);
+    return Math.max(0.2, (Math.PI - phi) / omega);
+  }
+  if (getCodexAnimationKey(sceneName) === "bulletCylinder") {
+    var codexOmega = Math.max(0.1, getJsonParam(sceneName, "omega", 3));
+    var codexPhi = getJsonBulletPhi(sceneName);
+    return Math.max(0.2, (Math.PI - codexPhi) / codexOmega);
+  }
   return Math.max(0.5, Number((animation.timeline || {}).duration || 4));
 }
 
@@ -1155,7 +1217,13 @@ function updateJsonAnimation(dt) {
 
 function drawJsonAnimationScene() {
   var animation = problemDataMap[currentScene].animation;
-  if (animation.type === "projectile") {
+  var codexKey = getCodexAnimationKey(currentScene);
+  if (codexKey === "bulletCylinder") {
+    syncCodexBulletCylinderScene(currentScene);
+    drawAnimScene(drawBulletScene);
+    drawBulletGraph();
+    drawCodexSceneBadge("Codex 动画模型：bulletCylinder");
+  } else if (animation.type === "projectile") {
     drawAnimScene(drawJsonProjectileScene);
     drawJsonProjectileGraph();
   } else if (animation.type === "spring_balance") {
@@ -1164,10 +1232,35 @@ function drawJsonAnimationScene() {
   } else if (animation.type === "force_diagram") {
     drawAnimScene(drawJsonForceDiagramScene);
     drawJsonForceDiagramGraph();
+  } else if (animation.type === "bullet_cylinder") {
+    drawAnimScene(drawJsonBulletCylinderScene);
+    drawJsonBulletCylinderGraph();
   } else {
     drawAnimScene(drawJsonPlaceholderScene);
     drawJsonPlaceholderGraph();
   }
+}
+
+function drawCodexSceneBadge(label) {
+  push();
+  noStroke();
+  fill("#0f172a");
+  rect(24, 22, 214, 30, 7);
+  fill("#ffffff");
+  textAlign(LEFT, CENTER);
+  textSize(12);
+  text(label, 36, 37);
+  pop();
+}
+
+function syncCodexBulletCylinderScene(sceneName) {
+  var state = getJsonAnimationState(sceneName);
+  var d = Math.max(0.01, getJsonParam(sceneName, "d", 0.2));
+  bulletD = d <= 2 ? constrain(d * 750, 80, 220) : constrain(d, 80, 220);
+  bulletOmega = Math.max(0.1, getJsonParam(sceneName, "omega", 3));
+  bulletPhi = constrain(getJsonBulletPhi(sceneName) * 180 / Math.PI, 10, 160);
+  bulletT = Math.min(state.time, bulletTransitTime());
+  bulletPlaying = Boolean(state.playing);
 }
 
 function drawJsonPlaceholderScene() {
@@ -1206,7 +1299,7 @@ function drawJsonPlaceholderGraph() {
   text("当前类型：" + (((problem.animation || {}).type) || "none"), x, y);
   fill("#64748b");
   textSize(13);
-  text("建议类型：projectile / spring_balance / force_diagram", x, y + 34);
+  text("建议类型：projectile / spring_balance / force_diagram / codex_scene", x, y + 34);
 }
 
 function drawJsonProjectileScene() {
@@ -1428,6 +1521,141 @@ function drawJsonForceDiagramGraph() {
     fill("#334155");
     text((force.label || "F") + "：" + force.direction, x + 24, y + 34 + index * 34);
   });
+}
+
+function getJsonBulletPhi(sceneName) {
+  var raw = getJsonParam(sceneName, "phi", Math.PI / 3);
+  if (raw > Math.PI + 0.01) {
+    return raw * Math.PI / 180;
+  }
+  return raw;
+}
+
+function getJsonBulletValues(sceneName) {
+  var d = Math.max(0.01, getJsonParam(sceneName, "d", 0.2));
+  var omega = Math.max(0.1, getJsonParam(sceneName, "omega", 3));
+  var phi = constrain(getJsonBulletPhi(sceneName), 0.05, Math.PI - 0.05);
+  var delta = Math.PI - phi;
+  var time = delta / omega;
+  var speed = d / time;
+  return { d: d, omega: omega, phi: phi, delta: delta, time: time, speed: speed };
+}
+
+function drawJsonBulletCylinderScene() {
+  var values = getJsonBulletValues(currentScene);
+  var state = getJsonAnimationState(currentScene);
+  var cx = 280;
+  var cy = 245;
+  var r = 142;
+  var tMax = getJsonDuration(currentScene);
+  var tNow = Math.min(state.time, tMax);
+  var progress = tNow / Math.max(0.001, tMax);
+  var bulletX = cx - r - 85 + (2 * r + 170) * progress;
+  var bulletY = cy;
+  var rotateNow = values.omega * tNow;
+  var aAng = Math.PI + rotateNow;
+  var bAng = values.phi + rotateNow;
+  var aX = cx + r * Math.cos(aAng);
+  var aY = cy + r * Math.sin(aAng);
+  var bX = cx + r * Math.cos(bAng);
+  var bY = cy + r * Math.sin(bAng);
+
+  stroke("#111827");
+  strokeWeight(3);
+  noFill();
+  circle(cx, cy, 2 * r);
+
+  stroke("#cbd5e1");
+  strokeWeight(1);
+  for (var i = 0; i < 12; i++) {
+    var spoke = rotateNow + i * Math.PI / 6;
+    line(cx, cy, cx + r * Math.cos(spoke), cy + r * Math.sin(spoke));
+  }
+
+  stroke("#94a3b8");
+  strokeWeight(2);
+  drawingContext.setLineDash([4, 4]);
+  line(cx - r - 96, cy, cx + r + 96, cy);
+  drawingContext.setLineDash([]);
+
+  stroke("#2563eb");
+  strokeWeight(4);
+  line(cx - r, cy, cx + r, cy);
+  drawArrow(cx - r - 70, cy, cx - r - 18, cy, "#2563eb");
+
+  noStroke();
+  fill("#111827");
+  circle(cx, cy, 7);
+  fill("#2563eb");
+  circle(aX, aY, 11);
+  fill("#dc2626");
+  circle(bX, bY, 11);
+  fill("#f97316");
+  circle(bulletX, bulletY, 20);
+  fill("#ffedd5");
+  circle(bulletX - 5, bulletY - 5, 6);
+
+  noStroke();
+  fill("#5b6472");
+  textAlign(LEFT, TOP);
+  textSize(12);
+  text("O", cx + 10, cy - 8);
+  text("a", aX + 10, aY - 14);
+  text("b", bX + 10, bY - 14);
+  text("圆筒转角 Δθ = π - φ", 88, 64);
+  text("子弹路程 = d", 88, 86);
+  text("v = ωd/(π-φ) = " + values.speed.toFixed(2) + " m/s", 88, 108);
+
+  stroke("#16a34a");
+  strokeWeight(2);
+  noFill();
+  arc(cx, cy, 64, 64, values.phi, Math.PI);
+  drawArrow(
+    cx + 32 * Math.cos((values.phi + Math.PI) / 2),
+    cy + 32 * Math.sin((values.phi + Math.PI) / 2),
+    cx + 32 * Math.cos(Math.PI - 0.15),
+    cy + 32 * Math.sin(Math.PI - 0.15),
+    "#16a34a"
+  );
+}
+
+function drawJsonBulletCylinderGraph() {
+  var values = getJsonBulletValues(currentScene);
+  var state = getJsonAnimationState(currentScene);
+  var gx = graphLeft + 50;
+  var gy = 82;
+  var gw = graphRight - graphLeft - 90;
+  var gh = 330;
+  var tMax = getJsonDuration(currentScene);
+  var angleMax = Math.PI;
+
+  drawGraphFrame("转角-时间图像", "圆筒转到 π-φ 时，子弹刚穿过直径 d");
+
+  stroke("#2563eb");
+  strokeWeight(2.5);
+  noFill();
+  beginShape();
+  for (var i = 0; i <= 120; i++) {
+    var t = i * tMax / 120;
+    vertex(map(t, 0, tMax, gx, gx + gw), map(values.omega * t, 0, angleMax, gy + gh, gy));
+  }
+  endShape();
+
+  var targetY = map(values.delta, 0, angleMax, gy + gh, gy);
+  stroke("#16a34a");
+  strokeWeight(1.5);
+  drawingContext.setLineDash([4, 4]);
+  line(gx, targetY, gx + gw, targetY);
+  drawingContext.setLineDash([]);
+
+  drawTimeMarker(gx, gy, gw, gh, Math.min(state.time, tMax), tMax);
+
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(12);
+  text("t = (π-φ)/ω = " + values.time.toFixed(2) + "s", gx + 14, gy + 12);
+  text("v = ωd/(π-φ) = " + values.speed.toFixed(2) + "m/s", gx + 14, gy + 34);
 }
 
 function drawGraphFrame(title, subtitle) {

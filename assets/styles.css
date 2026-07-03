@@ -305,6 +305,19 @@ body {
   line-height: 1.6;
 }
 
+.home-card-badge {
+  align-self: flex-start;
+  display: inline-flex;
+  margin-top: 10px;
+  padding: 4px 8px;
+  border-radius: 7px;
+  border: 1px solid #99f6e4;
+  background: #ecfeff;
+  color: #0f766e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .analysis-step {
   margin-top: 16px;
   padding-top: 16px;

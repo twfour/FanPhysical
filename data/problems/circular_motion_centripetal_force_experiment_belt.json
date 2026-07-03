@@ -1,0 +1,85 @@
+{
+  "slug": "centripetal_force_experiment_belt",
+  "originalNumber": "B组第7题",
+  "skip": false,
+  "skipReason": "",
+  "model": "向心力影响因素实验模型",
+  "id": "circular_motion_centripetal_force_experiment_belt",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 探究向心力大小影响因素的实验分析",
+  "question": "用如图甲的装置探究向心力大小的影响因素，在实验中，将质量相同的钢球①放在长槽A的边缘，钢球②放在短槽B的边缘，如图乙所示。A、B两槽的半径之比为2：1，a、b分别是与A槽、B槽同轴的塔轮，a轮、b轮半径之比为1：2，当a、b两轮在同一皮带带动下匀速转动时，皮带不打滑，且钢球①、②相对槽静止，则（ ）",
+  "options": [
+    "A. 乙图可以探究向心力与半径的关系",
+    "B. \\( a \\) 轮与 \\( b \\) 轮边缘上的点线速度大小相等",
+    "C. \\( A \\) 槽与 \\( B \\) 槽的角速度之比为 \\( 1:2 \\)",
+    "D. 钢球①、②所需的向心力之比为 \\( 8:1 \\)"
+  ],
+  "answer": "D",
+  "analysis": {
+    "title": "皮带传动与同轴转动的圆周运动规律应用",
+    "content": "皮带传动的两轮边缘线速度相等，同轴转动的角速度相等，结合圆周运动的线速度、角速度、半径关系及向心力公式，分析各选项的正确性。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {},
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
+    "forces": []
+  },
+  "knowledge": [
+    "向心力公式",
+    "皮带传动特点",
+    "同轴转动特点",
+    "线速度与角速度关系"
+  ],
+  "source": {
+    "title": "圆周运动章节",
+    "text": "B组第7题",
+    "page": "待校对"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分析皮带传动的线速度关系",
+      "content": "皮带不打滑，因此a轮和b轮边缘的线速度大小相等，即 \\( v_a = v_b \\)，故选项B本身正确，但需结合其他关系分析。",
+      "knowledge": [
+        "皮带传动 线速度相等"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "分析同轴转动的角速度关系",
+      "content": "a轮与A槽同轴，角速度相等；b轮与B槽同轴，角速度相等，即 \\( \\omega_A = \\omega_a \\)，\\( \\omega_B = \\omega_b \\)。由 \\( v = \\omega r \\)，得 \\( \\frac{\\omega_a}{\\omega_b} = \\frac{r_b}{r_a} = \\frac{2}{1} \\)，故 \\( \\frac{\\omega_A}{\\omega_B} = \\frac{2}{1} \\)，选项C错误。",
+      "knowledge": [
+        "同轴转动 角速度相等",
+        "角速度与线速度关系"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "推导向心力之比",
+      "content": "钢球质量相同，向心力 \\( F = m\\omega^2 r \\)，代入 \\( \\omega_A:\\omega_B = 2:1 \\)，\\( r_A:r_B = 2:1 \\)，得 \\( \\frac{F_1}{F_2} = \\frac{\\omega_A^2 r_A}{\\omega_B^2 r_B} = (\\frac{2}{1})^2 \\times \\frac{2}{1} = \\frac{8}{1} \\)，故选项D正确。",
+      "knowledge": [
+        "向心力公式"
+      ]
+    },
+    {
+      "stepId": 4,
+      "title": "分析选项A",
+      "content": "探究向心力与半径的关系需控制角速度和质量相同，本题中钢球质量相同，但角速度不同，故无法探究向心力与半径的关系，选项A错误。",
+      "knowledge": [
+        "控制变量法 向心力实验"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "皮带传动圆周运动的向心力分析",
+    "content": "皮带传动的两轮边缘线速度相等，同轴转动的角速度相等，结合向心力公式可计算不同钢球的向心力之比，本题中两钢球向心力之比为8:1。"
+  }
+}

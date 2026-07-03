@@ -19,51 +19,17 @@
     "content": "小球受重力、细绳拉力和斜面支持力三力平衡。A错误：拉力方向沿细绳向上（不是竖直向上）。B正确：斜面对小球有支持力（垂直于斜面向上），若为零则小球无法静止（因为重力与绳拉力不在同一直线），所以不可能为零。C错误：拉力是由细绳形变产生的。D错误：重力方向竖直向下，不是垂直斜面向下。"
   },
   "animation": {
-    "level": "interactive_diagram",
-    "type": "force_diagram",
-    "playable": true,
-    "interactive": true,
-    "confidence": 0.9,
-    "notes": "展示小球受力情况，可通过滑块改变斜面角度观察力的变化",
-    "params": {
-      "angle": {
-        "label": "斜面倾角",
-        "value": 30,
-        "min": 0,
-        "max": 90,
-        "step": 1,
-        "unit": "°"
-      },
-      "mg": {
-        "label": "小球重力",
-        "value": 5,
-        "min": 1,
-        "max": 20,
-        "step": 0.5,
-        "unit": "N"
-      }
-    },
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {},
     "timeline": {
       "duration": 0,
       "loop": false
     },
-    "forces": [
-      {
-        "label": "G",
-        "direction": "down",
-        "color": "#dc2626"
-      },
-      {
-        "label": "T",
-        "direction": "up",
-        "color": "#16a34a"
-      },
-      {
-        "label": "N",
-        "direction": "up_right",
-        "color": "#2563eb"
-      }
-    ]
+    "forces": []
   },
   "knowledge": [
     "共点力平衡",

@@ -1,0 +1,77 @@
+{
+  "slug": "male_female_skaters_circular_motion",
+  "originalNumber": "例9",
+  "skip": false,
+  "skipReason": "",
+  "model": "圆周运动双星模型",
+  "id": "circular_motion_male_female_skaters_circular_motion",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 男女溜冰运动员圆周运动双星模型问题",
+  "question": "一对男女溜冰运动员质量分别为\\( m_{男}=80\\ \\text{kg} \\)和\\( m_{女}=40\\ \\text{kg} \\)，面对面拉着一弹簧秤做圆周运动的溜冰表演，两人相距0.9m，弹簧秤的示数为9.2 N，则两人（多选）",
+  "options": [
+    "速度大小相同约为40 m/s",
+    "运动半径分别为\\( r_{男}=0.3\\ \\text{m} \\)和\\( r_{女}=0.6\\ \\text{m} \\)",
+    "角速度相同为6 rad/s",
+    "运动速率之比为\\( v_{男}:v_{女}=1:2 \\)"
+  ],
+  "answer": "BD",
+  "analysis": {
+    "title": "双星模型圆周运动分析",
+    "content": "本题考查圆周运动的双星模型，两人做圆周运动时角速度相同，向心力由弹簧秤的拉力提供，结合向心力公式和几何关系可求解各物理量。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {},
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
+    "forces": []
+  },
+  "knowledge": [
+    "圆周运动",
+    "双星模型",
+    "向心力"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "例9",
+    "page": "第 2 题"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "确定双星模型的基本关系",
+      "content": "两人做圆周运动时角速度\\( \\omega \\)相同，向心力大小相等，即\\( m_{男}\\omega²r_{男}=m_{女}\\omega²r_{女} \\)，且两人的运动半径之和为间距，即\\( r_{男}+r_{女}=0.9\\ \\text{m} \\)。",
+      "knowledge": [
+        "双星模型",
+        "角速度相同"
+      ],
+      "commonMistakes": [
+        "混淆双星模型的角速度和线速度关系"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "求解运动半径",
+      "content": "由向心力相等的关系化简得\\( m_{男}r_{男}=m_{女}r_{女} \\)，代入质量\\( m_{男}=80\\ \\text{kg} \\)、\\( m_{女}=40\\ \\text{kg} \\)，得\\( r_{女}=2r_{男} \\)，结合\\( r_{男}+r_{女}=0.9\\ \\text{m} \\)，解得\\( r_{男}=0.3\\ \\text{m} \\)，\\( r_{女}=0.6\\ \\text{m} \\)，故选项B正确。",
+      "knowledge": "向心力公式",
+      "commonMistakes": "半径关系推导错误"
+    },
+    {
+      "stepId": 3,
+      "title": "分析角速度和线速度",
+      "content": "由向心力公式\\( F=m_{男}\\omega²r_{男} \\)，代入\\( F=9.2\\ \\text{N} \\)，解得\\( \\omega≈0.62\\ \\text{rad/s} \\)，故选项C错误；线速度\\( v=\\omega r \\)，角速度相同，故\\( \\frac{v_{男}}{v_{女}}=\\frac{r_{男}}{r_{女}}=\\frac{1}{2} \\)，选项D正确，A错误。",
+      "knowledge": "线速度与角速度关系",
+      "commonMistakes": "线速度和角速度的比例关系混淆"
+    }
+  ],
+  "summary": {
+    "title": "男女溜冰运动员圆周运动问题总结",
+    "content": "本题核心是双星模型的应用，利用角速度相同、向心力相等的特点，结合几何关系求解半径，再推导角速度和线速度的关系，正确选项为BD。"
+  }
+}

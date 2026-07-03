@@ -60,6 +60,114 @@
     {
       "id": "mechanics_series_spring_equivalent_k",
       "file": "mechanics_series_spring_equivalent_k.json"
+    },
+    {
+      "id": "circular_motion_motorboat_circular_motion_ratio",
+      "file": "circular_motion_motorboat_circular_motion_ratio.json"
+    },
+    {
+      "id": "circular_motion_bullet_paper_cylinder_speed",
+      "file": "circular_motion_bullet_paper_cylinder_speed.json"
+    },
+    {
+      "id": "circular_motion_bicycle_pedal_angular_speed",
+      "file": "circular_motion_bicycle_pedal_angular_speed.json"
+    },
+    {
+      "id": "circular_motion_cake_disc_rotation_angular_speed",
+      "file": "circular_motion_cake_disc_rotation_angular_speed.json"
+    },
+    {
+      "id": "circular_motion_dart_projectile_disc_rotation",
+      "file": "circular_motion_dart_projectile_disc_rotation.json"
+    },
+    {
+      "id": "circular_motion_belt_drive_centripetal_acceleration",
+      "file": "circular_motion_belt_drive_centripetal_acceleration.json"
+    },
+    {
+      "id": "circular_motion_car_bend_max_speed",
+      "file": "circular_motion_car_bend_max_speed.json"
+    },
+    {
+      "id": "circular_motion_conical_pendulum_rotating_disk",
+      "file": "circular_motion_conical_pendulum_rotating_disk.json"
+    },
+    {
+      "id": "circular_motion_male_female_skaters_circular_motion",
+      "file": "circular_motion_male_female_skaters_circular_motion.json"
+    },
+    {
+      "id": "circular_motion_rotating_platform_objects_sliding",
+      "file": "circular_motion_rotating_platform_objects_sliding.json"
+    },
+    {
+      "id": "circular_motion_sudden_stop_car_pendulum_tension",
+      "file": "circular_motion_sudden_stop_car_pendulum_tension.json"
+    },
+    {
+      "id": "circular_motion_two_nail_circular_motion_multiple_choice",
+      "file": "circular_motion_two_nail_circular_motion_multiple_choice.json"
+    },
+    {
+      "id": "circular_motion_belt_pulley_speed_ratio",
+      "file": "circular_motion_belt_pulley_speed_ratio.json"
+    },
+    {
+      "id": "circular_motion_water_splashing_circular_motion",
+      "file": "circular_motion_water_splashing_circular_motion.json"
+    },
+    {
+      "id": "circular_motion_gear_transmission_circular_motion",
+      "file": "circular_motion_gear_transmission_circular_motion.json"
+    },
+    {
+      "id": "circular_motion_bullet_cylinder_circular_motion",
+      "file": "circular_motion_bullet_cylinder_circular_motion.json"
+    },
+    {
+      "id": "circular_motion_bullet_rotating_cylinder",
+      "file": "circular_motion_bullet_rotating_cylinder.json"
+    },
+    {
+      "id": "circular_motion_pendulum_pin_radius_change",
+      "file": "circular_motion_pendulum_pin_radius_change.json"
+    },
+    {
+      "id": "circular_motion_banked_track_circular_motion",
+      "file": "circular_motion_banked_track_circular_motion.json"
+    },
+    {
+      "id": "circular_motion_banked_curve_no_slip",
+      "file": "circular_motion_banked_curve_no_slip.json"
+    },
+    {
+      "id": "circular_motion_centripetal_force_experiment_belt",
+      "file": "circular_motion_centripetal_force_experiment_belt.json"
+    },
+    {
+      "id": "circular_motion_connected_blocks_rotating_disk",
+      "file": "circular_motion_connected_blocks_rotating_disk.json"
+    },
+    {
+      "id": "circular_motion_tamper_light_rod_circular_motion",
+      "file": "circular_motion_tamper_light_rod_circular_motion.json"
+    },
+    {
+      "id": "circular_motion_funnel_ball_circular_motion",
+      "file": "circular_motion_funnel_ball_circular_motion.json"
+    },
+    {
+      "id": "circular_motion_funnel_three_balls_circular_motion",
+      "file": "circular_motion_funnel_three_balls_circular_motion.json"
+    },
+    {
+      "id": "circular_motion_horizontal_plank_vertical_circular_motion",
+      "file": "circular_motion_horizontal_plank_vertical_circular_motion.json"
+    },
+    {
+      "id": "circular_motion_rotating_chair_circular_motion",
+      "file": "circular_motion_rotating_chair_circular_motion.json"
     }
   ]
 }

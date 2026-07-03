@@ -19,59 +19,17 @@
     "content": "第一步：隔离A，受力分析：重力3N向下，弹簧弹力2N向下（弹簧压缩对A有向下力），绳拉力T向上。三力平衡：T = G_A + F = 3+2=5N。第二步：隔离B，受力分析：重力4N向下，弹簧弹力2N向上（对B向上），地面支持力N向上。平衡：N = G_B - F = 4-2=2N。B对地面压力等于支持力N，为2N。因此绳张力5N，压力2N，对应选项B。"
   },
   "animation": {
-    "level": "interactive_diagram",
-    "type": "force_diagram",
-    "playable": true,
-    "interactive": true,
-    "confidence": 0.9,
-    "notes": "展示A和B的受力分析，用户可调整重力等参数观察变化",
-    "params": {
-      "Ga": {
-        "label": "A的重力",
-        "value": 3,
-        "min": 1,
-        "max": 10,
-        "step": 0.5,
-        "unit": "N"
-      },
-      "Gb": {
-        "label": "B的重力",
-        "value": 4,
-        "min": 1,
-        "max": 10,
-        "step": 0.5,
-        "unit": "N"
-      },
-      "Fspring": {
-        "label": "弹簧弹力",
-        "value": 2,
-        "min": 0,
-        "max": 10,
-        "step": 0.5,
-        "unit": "N"
-      }
-    },
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {},
     "timeline": {
       "duration": 0,
       "loop": false
     },
-    "forces": [
-      {
-        "label": "G_A",
-        "direction": "down",
-        "color": "#dc2626"
-      },
-      {
-        "label": "F弹簧对A",
-        "direction": "down",
-        "color": "#2563eb"
-      },
-      {
-        "label": "T",
-        "direction": "up",
-        "color": "#16a34a"
-      }
-    ]
+    "forces": []
   },
   "knowledge": [
     "共点力平衡",

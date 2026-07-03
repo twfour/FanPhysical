@@ -1,0 +1,90 @@
+{
+  "slug": "conical_pendulum_rotating_disk",
+  "originalNumber": "例8",
+  "skip": false,
+  "skipReason": "",
+  "model": "匀速圆周运动圆锥摆模型",
+  "id": "circular_motion_conical_pendulum_rotating_disk",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 转盘上小球匀速圆周运动的加速度与速度计算",
+  "question": "已知小球跟着转盘一起做匀速圆周运动，不计小球尺寸，根据图中转盘半径\\( R \\)、绳长\\( L \\)、绳与竖直方向偏角\\( \\theta \\)，求小球的加速度和速度。",
+  "options": [],
+  "answer": "向心加速度\\( a = g\\tan\\theta \\)，速度\\( v = \\sqrt{g\\tan\\theta (R + L\\sin\\theta)} \\)",
+  "analysis": {
+    "title": "解题思路",
+    "content": "小球做匀速圆周运动，向心力由重力与绳子拉力的合力提供，通过受力分析结合圆周运动公式即可求解加速度和速度。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {},
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
+    "forces": []
+  },
+  "knowledge": [
+    "匀速圆周运动向心力",
+    "圆锥摆受力分析"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "例8",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "受力分析",
+      "content": "小球受重力\\( G = mg \\)和绳子拉力\\( T \\)，两力合力提供匀速圆周运动的向心力。",
+      "knowledge": [
+        "受力分析",
+        "向心力"
+      ],
+      "commonMistakes": [
+        "误将转盘半径当作小球圆周运动轨道半径"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "确定轨道半径",
+      "content": "小球圆周运动轨道半径为转盘半径与绳子水平分量之和，即\\( r = R + L\\sin\\theta \\)。",
+      "knowledge": [
+        "圆周运动轨道半径"
+      ],
+      "commonMistakes": [
+        "忽略转盘半径，直接用\\( L\\sin\\theta \\)作为轨道半径"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "求解向心加速度",
+      "content": "竖直方向受力平衡\\( T\\cos\\theta = mg \\)，水平方向合力提供向心力\\( T\\sin\\theta = ma \\)，联立得\\( a = g\\tan\\theta \\)。",
+      "knowledge": [
+        "匀速圆周运动加速度公式"
+      ],
+      "commonMistakes": [
+        "混淆向心力公式，错误推导加速度"
+      ]
+    },
+    {
+      "stepId": 4,
+      "title": "求解速度",
+      "content": "由向心加速度公式\\( a = \\frac{v^2}{r} \\)，代入\\( a \\)和\\( r \\)，解得\\( v = \\sqrt{g\\tan\\theta (R + L\\sin\\theta)} \\)。",
+      "knowledge": [
+        "圆周运动线速度与加速度关系"
+      ],
+      "commonMistakes": [
+        "公式变形错误，计算速度时出错"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "转盘小球匀速圆周运动问题",
+    "content": "本题通过圆锥摆模型分析转盘上小球的匀速圆周运动，关键在于确定小球轨道半径和受力关系，结合圆周运动公式求解加速度与速度。"
+  }
+}

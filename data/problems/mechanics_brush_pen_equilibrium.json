@@ -19,14 +19,16 @@
     "content": "毛笔静止，受重力、桌面支持力、笔架支持力。由于笔架对毛笔的支持力垂直于笔杆斜向上，所以其竖直分力与重力平衡，水平分力由桌面的静摩擦力平衡，因此桌面与笔架之间有摩擦力。选项A错误，笔架支持力不是竖直向上；选项B错误，桌面与毛笔之间应该有摩擦力；选项D错误，这两个力是一对相互作用力，不是平衡力。所以C正确。"
   },
   "animation": {
+    "enabled": false,
     "level": "none",
     "type": "none",
     "playable": false,
     "interactive": false,
-    "confidence": 0.2,
-    "notes": "无动画",
     "params": {},
-    "timeline": {},
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
     "forces": []
   },
   "knowledge": [

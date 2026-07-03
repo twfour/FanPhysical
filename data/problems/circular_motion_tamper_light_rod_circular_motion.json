@@ -1,0 +1,76 @@
+{
+  "slug": "tamper-light-rod-circular-motion",
+  "originalNumber": "9",
+  "skip": false,
+  "model": "轻杆带动质点的竖直圆周运动模型",
+  "id": "circular_motion_tamper_light_rod_circular_motion",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 打夯机轻杆带动铁球的竖直圆周运动分析",
+  "question": "如图甲所示为建筑行业使用的一种小型打夯机，其原理可简化为一个质量为\\( M \\)的支架（含电动机）上由一根长为\\( l \\)的轻杆带动一个质量为\\( m \\)的铁球（铁球可视为质点），如图乙所示，重力加速度为\\( g \\)。若在某次打夯过程中，铁球以角速度\\( \\omega \\)匀速转动，则（ ）",
+  "options": [
+    "A. 铁球转动过程线速度不变",
+    "B. 铁球做圆周运动的向心加速度大小是\\( \\omega^2 l + g \\)",
+    "C. 铁球转动到最低点时，打夯机整体对地面压力最大",
+    "D. 若铁球转动到最高点时，支架对地面的压力刚好为零，则\\( \\omega = \\sqrt{\frac{(M+m)g}{ml}} \\)"
+  ],
+  "answer": "CD",
+  "analysis": {
+    "title": "打夯机轻杆圆周运动受力分析",
+    "content": "本题考查竖直圆周运动的线速度、向心加速度及整体法受力分析。线速度是矢量，圆周运动中线速度方向沿切线时刻改变，A错误；向心加速度大小为\\( a = \\omega^2 l \\)，B错误；铁球在最低点时，杆对铁球的拉力大于铁球重力，整体对地面压力为支架重力与拉力之和，为转动过程最大值，C正确；最高点时支架对地面压力为零，说明铁球对杆的作用力等于支架重力，结合向心力公式推导可得\\( \\omega = \\sqrt{\frac{(M+m)g}{ml}} \\)，D正确。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {},
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
+    "forces": []
+  },
+  "knowledge": [
+    "竖直圆周运动",
+    "整体法受力分析",
+    "向心力公式"
+  ],
+  "source": {
+    "title": "圆周运动章节",
+    "text": "第9题",
+    "page": "1"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分析线速度与向心加速度",
+      "content": "线速度是矢量，圆周运动中方向不断变化，故A错误；向心加速度大小为\\( a = \\omega^2 r = \\omega^2 l \\)，B错误。",
+      "knowledge": [
+        "线速度",
+        "向心加速度"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "分析最低点整体压力",
+      "content": "铁球在最低点时，向心力满足\\( T - mg = m\\omega^2 l \\)，得杆的拉力\\( T = mg + m\\omega^2 l \\)，整体对地面压力为\\( Mg + T = Mg + mg + m\\omega^2 l \\)，为转动过程最大值，C正确。",
+      "knowledge": [
+        "整体法",
+        "向心力"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "分析最高点压力为零的条件",
+      "content": "最高点时支架对地面压力为零，说明铁球对杆的向下作用力等于\\( Mg \\)，铁球的向心力为\\( mg + Mg = m\\omega^2 l \\)，整理得\\( \\omega = \\sqrt{\frac{(M+m)g}{ml}} \\)，D正确。",
+      "knowledge": [
+        "竖直圆周运动最高点受力"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "待总结",
+    "content": ""
+  }
+}

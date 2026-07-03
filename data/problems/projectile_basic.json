@@ -75,5 +75,18 @@
   "summary": {
     "title": "先竖直定时间，再水平定距离",
     "content": "平抛题不要先猜轨迹，先拆轴：竖直方向决定“飞多久”，水平方向决定“飞多远”。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {},
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
+    "forces": []
   }
 }
