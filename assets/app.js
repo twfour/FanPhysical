@@ -794,7 +794,7 @@ function enhanceProblemNotes() {
           renderMath();
         };
         block.appendChild(toggle);
-        if (block.dataset.analysisBlock === "1") {
+        if (isAnalysisNoteBlock(block)) {
           addStepAiButtons(body);
         }
       }
@@ -804,8 +804,19 @@ function enhanceProblemNotes() {
   });
 }
 
+function isAnalysisNoteBlock(block) {
+  if (!block) {
+    return false;
+  }
+  if (block.dataset.analysisBlock === "1") {
+    return true;
+  }
+  var kicker = block.querySelector(".problem-note-kicker");
+  return kicker && kicker.innerText.trim() === "解析";
+}
+
 function addStepAiButtons(body) {
-  var paragraphs = Array.prototype.slice.call(body.querySelectorAll(".analysis-step p"));
+  var paragraphs = getStepAiParagraphs(body);
   paragraphs.forEach(function (paragraph, paragraphIndex) {
     if (paragraph.nextElementSibling && paragraph.nextElementSibling.classList.contains("step-ai-tools")) {
       return;
@@ -813,9 +824,11 @@ function addStepAiButtons(body) {
     var tools = document.createElement("div");
     tools.className = "step-ai-tools";
     [
-      ["why", "为什么？", "为什么这里要这样分析？"],
-      ["hint", "提示", "给我一点提示，不要直接给答案"],
-      ["knowledge", "知识点", "这一句对应哪个知识点？"]
+      [
+        "explain",
+        "AI 解析",
+        "学生已经看过解析，但是还是没懂。请把这一步当成第一次教初中学生，不要出现专业术语，从基础开始一步一步解释，不要重复解析的内容。"
+      ]
     ].forEach(function (item) {
       var button = document.createElement("button");
       button.type = "button";
@@ -830,6 +843,29 @@ function addStepAiButtons(body) {
     response.className = "step-ai-response";
     tools.appendChild(response);
     paragraph.insertAdjacentElement("afterend", tools);
+  });
+}
+
+function getStepAiParagraphs(body) {
+  if (!body) {
+    return [];
+  }
+  var jsonStepParagraphs = Array.prototype.slice.call(body.querySelectorAll(".analysis-step p"));
+  if (jsonStepParagraphs.length) {
+    return jsonStepParagraphs;
+  }
+  var directParagraphs = Array.prototype.slice.call(body.children).filter(function (child) {
+    return child.tagName === "P";
+  });
+  var numberedParagraphs = directParagraphs.filter(function (paragraph) {
+    var text = paragraph.innerText.trim();
+    return /^\d+\s*[.、．]/.test(text);
+  });
+  if (numberedParagraphs.length) {
+    return numberedParagraphs;
+  }
+  return directParagraphs.filter(function (paragraph) {
+    return !/^答案[：:]/.test(paragraph.innerText.trim());
   });
 }
 
