@@ -138,9 +138,30 @@ body {
   background: #fff;
   padding: 14px 12px;
   min-height: 500px;
+  max-height: calc(100vh - 40px);
   position: sticky;
   top: 18px;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #cbd5e1;
+}
+
+.sidebar:hover::-webkit-scrollbar-thumb {
+  background: #94a3b8;
 }
 
 .tree-title {
@@ -263,6 +284,44 @@ body {
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: 0 14px 36px rgba(15, 23, 42, 0.06);
+}
+
+.json-animation-controls {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.json-animation-controls .control {
+  min-height: 38px;
+}
+
+.json-animation-controls .control label {
+  width: 88px;
+}
+
+.json-animation-meta {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.analysis-step {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.analysis-step:first-of-type {
+  margin-top: 6px;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.analysis-step h3 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.45;
 }
 
 .control {
@@ -894,6 +953,8 @@ button.action:hover {
 
   .sidebar {
     position: static;
+    max-height: none;
+    overflow: visible;
   }
 
   .chapter-grid,

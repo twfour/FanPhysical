@@ -1,0 +1,56 @@
+{
+  "slug": "magnetic_box_static",
+  "skip": false,
+  "skipReason": "",
+  "model": "静摩擦力与平衡",
+  "id": "mechanics_magnetic_box_static",
+  "chapter": "力学基础",
+  "title": "磁性盒子放入笔后受力变化",
+  "question": "7. 如图所示，背部有磁力贴的小盒子吸附在竖直的磁性墙板上并保持静止。现往盒子里放入一支笔，盒子仍保持静止。放笔后与放笔前相比，下列说法正确的是\nA. 盒子的重力变大\nB. 盒子与墙板之间的磁力变大\nC. 盒子与墙板之间的弹力变大\nD. 盒子与墙板之间的摩擦力变大",
+  "options": [
+    "A. 盒子的重力变大",
+    "B. 盒子与墙板之间的磁力变大",
+    "C. 盒子与墙板之间的弹力变大",
+    "D. 盒子与墙板之间的摩擦力变大"
+  ],
+  "answer": "",
+  "analysis": {
+    "title": "解析",
+    "content": ""
+  },
+  "animation": {
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "confidence": 0.2,
+    "notes": "无动画",
+    "params": {},
+    "timeline": {},
+    "forces": []
+  },
+  "knowledge": [
+    "平衡条件",
+    "静摩擦力"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "整体受力分析",
+      "content": "",
+      "knowledge": [
+        "平衡条件"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": ""
+  },
+  "source": {
+    "title": "力学基础",
+    "text": "第 2 题",
+    "page": "第 2 题"
+  }
+}

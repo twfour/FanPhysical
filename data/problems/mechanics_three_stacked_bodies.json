@@ -1,0 +1,105 @@
+{
+  "slug": "three_stacked_bodies",
+  "skip": false,
+  "skipReason": "",
+  "model": "叠放物体弹力与受力分析",
+  "id": "mechanics_three_stacked_bodies",
+  "chapter": "力学基础",
+  "title": "叠放物体静止时的弹力分析",
+  "question": "如图，A、B、C三个物体叠放在水平桌面上处于静止状态，那么以下说法正确的是（   ）",
+  "options": [
+    "A. 物体A对C有向下的压力作用",
+    "B. 物体A和B对地面都有压力作用",
+    "C. 地面对C的支持力是由于地面发生形变产生的",
+    "D. 物体A对B的压力是由于B物体发生形变产生的"
+  ],
+  "answer": "C",
+  "analysis": {
+    "title": "叠放物体受力分析",
+    "content": "三个物体叠放静止，整体与局部均平衡。A与C不直接接触，故A错误；A和B均不接触地面，故B错误；地面对C的支持力是地面发生弹性形变产生的，故C正确；物体A对B的压力是由于A发生形变产生的，故D错误。"
+  },
+  "animation": {
+    "level": "static_diagram",
+    "type": "force_diagram",
+    "playable": false,
+    "interactive": false,
+    "confidence": 0.9,
+    "notes": "展示叠放物体的重力、支持力和压力方向",
+    "params": {},
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
+    "forces": [
+      {
+        "label": "G_A",
+        "direction": "down",
+        "color": "#dc2626"
+      },
+      {
+        "label": "N_BA",
+        "direction": "up",
+        "color": "#2563eb"
+      },
+      {
+        "label": "G_B",
+        "direction": "down",
+        "color": "#dc2626"
+      },
+      {
+        "label": "N_CB",
+        "direction": "up",
+        "color": "#2563eb"
+      },
+      {
+        "label": "G_C",
+        "direction": "down",
+        "color": "#dc2626"
+      },
+      {
+        "label": "N_地面",
+        "direction": "up",
+        "color": "#2563eb"
+      }
+    ]
+  },
+  "knowledge": [
+    "弹力",
+    "共点力平衡",
+    "受力分析"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "隔离各物体",
+      "content": "分别分析A、B、C的受力情况，注意弹力产生条件。",
+      "knowledge": [
+        "受力分析"
+      ],
+      "commonMistakes": [
+        "错误认为A与C直接接触",
+        "混淆施力物体与受力物体"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "判断各选项",
+      "content": "A选项：A与C不接触，无压力；B选项：A、B不接触地面；C选项：地面形变产生支持力；D选项：A对B的压力是A形变产生的。",
+      "knowledge": [
+        "弹力方向"
+      ],
+      "commonMistakes": [
+        "误以为压力总是由被压物体形变产生"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "叠放物体弹力分析要点",
+    "content": "叠放物体静止时，只有直接接触且发生形变的物体间才有弹力。弹力的方向与施力物体形变方向相反。"
+  },
+  "source": {
+    "title": "力学基础",
+    "text": "第 1 题",
+    "page": "第 1 题"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "slug": "desk_deformation_experiment",
+  "skip": false,
+  "skipReason": "",
+  "model": "微小形变放大法实验模型",
+  "id": "mechanics_desk_deformation_experiment",
+  "chapter": "力学基础",
+  "title": "桌面微小形变的放大实验",
+  "question": "在实验室中可以看到如图所示的实验现象：当用手按压桌面时，反射在天花板上的光点会发生移动，下列说法正确的是（  ）",
+  "options": [
+    "A. 桌面受到向下的弹力，是由于桌面发生了形变",
+    "B. 反射在天花板上的光点发生移动，说明桌面发生了形变",
+    "C. 手受到向上的弹力，是由于手发生了形变",
+    "D. 本实验用到的实验方法是理想实验法"
+  ],
+  "answer": "B",
+  "analysis": {
+    "title": "微小形变的放大实验分析",
+    "content": "A错误：桌面受到向下的弹力是由于手发生了形变，不是桌面形变。B正确：光点的移动放大了桌面的微小形变，说明桌面发生了形变。C错误：手受到向上的弹力是由于桌面发生了形变。D错误：本实验用到了放大法，并非理想实验法。"
+  },
+  "animation": {
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "confidence": 0.0,
+    "notes": "本题为实验方法辨析题，无需动画",
+    "params": {},
+    "timeline": {},
+    "forces": []
+  },
+  "knowledge": [
+    "弹力的产生",
+    "放大法",
+    "形变"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分析A选项",
+      "content": "桌面受到手向下的弹力，施力物体是手，所以弹力是手形变产生的，选项说桌面形变产生，错误。",
+      "knowledge": [
+        "弹力方向与施力物体形变关系"
+      ],
+      "commonMistakes": [
+        "认为受力物体形变产生弹力"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "分析B选项",
+      "content": "光点的移动是桌面微小形变被放大的结果，因此直接证明了桌面发生了形变。",
+      "knowledge": [
+        "放大法实验原理"
+      ],
+      "commonMistakes": [
+        "忽略放大法的本质"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "分析C选项",
+      "content": "手受到向上的弹力是桌面形变产生的，不是手本身形变产生。",
+      "knowledge": [
+        "弹力方向与受力物体形变关系"
+      ],
+      "commonMistakes": [
+        "混淆施力与受力物体的形变"
+      ]
+    },
+    {
+      "stepId": 4,
+      "title": "分析D选项",
+      "content": "本实验通过光点移动放大微小形变，属于放大法（转换法），不是理想实验法。理想实验法是伽利略斜面实验等。",
+      "knowledge": [
+        "实验方法分类"
+      ],
+      "commonMistakes": [
+        "误认为放大法就是理想实验法"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "实验方法识别",
+    "content": "抓住弹力产生条件（施力物体形变）和实验方法特点（放大法）。"
+  },
+  "source": {
+    "title": "力学基础",
+    "text": "第 2 题",
+    "page": "第 2 题"
+  }
+}

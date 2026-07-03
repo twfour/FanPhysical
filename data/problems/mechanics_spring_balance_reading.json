@@ -1,0 +1,108 @@
+{
+  "slug": "spring_balance_reading",
+  "skip": false,
+  "skipReason": "",
+  "model": "弹簧测力计读数",
+  "id": "mechanics_spring_balance_reading",
+  "chapter": "力学基础",
+  "title": "弹簧测力计在不同固定方式下的读数",
+  "question": "实验室常用的弹簧测力计如图甲所示，连接有挂钩的拉杆与弹簧相连，并固定在外壳一端上，外壳上固定一个圆环，可以认为弹簧测力计的总质量主要集中在外壳(重力为\\(G\\))上，弹簧和拉杆的质量忽略不计。现将该弹簧测力计以两种方式固定于地面上，如图乙、丙所示，分别用恒力\\(F_0\\)竖直向上拉弹簧测力计，静止时弹簧测力计的读数分别为？",
+  "options": [
+    "A. 乙图读数为\\(F_0-G\\)，丙图读数为\\(F_0+G\\)",
+    "B. 乙图读数为\\(F_0+G\\)，丙图读数为\\(F_0-G\\)",
+    "C. 乙图读数为\\(F_0\\)，丙图读数为\\(F_0-G\\)",
+    "D. 乙图读数为\\(F_0-G\\)，丙图读数为\\(F_0\\)"
+  ],
+  "answer": "A",
+  "analysis": {
+    "title": "受力分析策略",
+    "content": "乙图中，外壳固定在地面上，外壳重力由地面支持力平衡，因此弹簧的示数等于作用在拉杆上的外力\\(F_0\\)减去外壳重力对弹簧的影响（弹簧上端受外壳重力拉扯），故读数为\\(F_0-G\\)。丙图中，圆环固定在地面上，外壳重力通过弹簧作用在拉杆上，因此示数为\\(F_0+G\\)。"
+  },
+  "animation": {
+    "level": "interactive_diagram",
+    "type": "force_diagram",
+    "playable": false,
+    "interactive": true,
+    "confidence": 0.8,
+    "notes": "展示两种固定方式下弹簧、外壳、拉力及重力的受力情况",
+    "params": {
+      "pull": {
+        "label": "拉力大小",
+        "value": 10,
+        "min": 1,
+        "max": 20,
+        "step": 0.5,
+        "unit": "N"
+      },
+      "G": {
+        "label": "外壳重力",
+        "value": 2,
+        "min": 0.5,
+        "max": 10,
+        "step": 0.5,
+        "unit": "N"
+      },
+      "angle": {
+        "label": "角度",
+        "value": 90,
+        "min": 0,
+        "max": 180,
+        "step": 1,
+        "unit": "°"
+      }
+    },
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
+    "forces": [
+      {
+        "label": "G",
+        "direction": "down",
+        "color": "#dc2626"
+      },
+      {
+        "label": "F₀",
+        "direction": "up",
+        "color": "#2563eb"
+      }
+    ]
+  },
+  "knowledge": [
+    "弹簧测力计读数原理",
+    "受力分析"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分析乙图",
+      "content": "乙图中外壳固定在地面上，外壳重力由地面支持力平衡，对弹簧受力分析可知其示数为\\(F_0-G\\)。",
+      "knowledge": [
+        "受力分析"
+      ],
+      "commonMistakes": [
+        "误认为示数等于F₀而忽略外壳重力影响"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "分析丙图",
+      "content": "丙图中圆环固定在地面上，外壳重力通过弹簧传递到拉杆上，因此示数为\\(F_0+G\\)。",
+      "knowledge": [
+        "受力分析"
+      ],
+      "commonMistakes": [
+        "认为示数与乙图相同"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "关键点",
+    "content": "弹簧测力计的读数等于作用在拉杆上弹簧的弹力大小，固定方式会影响外壳重力是否作用于弹簧。"
+  },
+  "source": {
+    "title": "力学基础",
+    "text": "第 1 题",
+    "page": "第 1 题"
+  }
+}

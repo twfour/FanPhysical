@@ -1,0 +1,129 @@
+{
+  "slug": "incline_suspended_ball",
+  "skip": false,
+  "skipReason": "",
+  "model": "斜面上悬挂小球的受力平衡模型",
+  "id": "mechanics_incline_suspended_ball",
+  "chapter": "力学基础",
+  "title": "斜面上悬挂小球的受力分析",
+  "question": "如图所示，上表面光滑的斜面固定在水平地面上，将可以看作质点的小球用细绳悬挂，使其静止在斜面上，下列说法正确的是（  ）",
+  "options": [
+    "A. 细绳对小球的拉力方向竖直向上",
+    "B. 斜面对小球的作用力不可能等于零",
+    "C. 细绳对小球的拉力是由于小球发生形变产生的",
+    "D. 小球所受重力方向垂直斜面向下"
+  ],
+  "answer": "B",
+  "analysis": {
+    "title": "斜面静止小球的受力分析",
+    "content": "小球受重力、细绳拉力和斜面支持力三力平衡。A错误：拉力方向沿细绳向上（不是竖直向上）。B正确：斜面对小球有支持力（垂直于斜面向上），若为零则小球无法静止（因为重力与绳拉力不在同一直线），所以不可能为零。C错误：拉力是由细绳形变产生的。D错误：重力方向竖直向下，不是垂直斜面向下。"
+  },
+  "animation": {
+    "level": "interactive_diagram",
+    "type": "force_diagram",
+    "playable": true,
+    "interactive": true,
+    "confidence": 0.9,
+    "notes": "展示小球受力情况，可通过滑块改变斜面角度观察力的变化",
+    "params": {
+      "angle": {
+        "label": "斜面倾角",
+        "value": 30,
+        "min": 0,
+        "max": 90,
+        "step": 1,
+        "unit": "°"
+      },
+      "mg": {
+        "label": "小球重力",
+        "value": 5,
+        "min": 1,
+        "max": 20,
+        "step": 0.5,
+        "unit": "N"
+      }
+    },
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
+    "forces": [
+      {
+        "label": "G",
+        "direction": "down",
+        "color": "#dc2626"
+      },
+      {
+        "label": "T",
+        "direction": "up",
+        "color": "#16a34a"
+      },
+      {
+        "label": "N",
+        "direction": "up_right",
+        "color": "#2563eb"
+      }
+    ]
+  },
+  "knowledge": [
+    "共点力平衡",
+    "弹力方向",
+    "重力方向",
+    "受力分析"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分析A选项",
+      "content": "细绳对球的拉力方向沿绳子收缩方向（指向绳子方向），因为绳子是倾斜的，所以拉力方向不是竖直向上。",
+      "knowledge": [
+        "绳子拉力方向"
+      ],
+      "commonMistakes": [
+        "误认为绳子拉力总是竖直向上"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "分析B选项",
+      "content": "斜面对小球的作用力是支持力，垂直于斜面向上。如果支持力为零，则小球只受重力和绳拉力，这两个力不在同一直线上，不能平衡，所以支持力不可能为零。",
+      "knowledge": [
+        "三力平衡条件"
+      ],
+      "commonMistakes": [
+        "认为在光滑斜面上支持力可以为0"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "分析C选项",
+      "content": "细绳对球的拉力是细绳发生形变试图恢复原状而产生的，不是小球形变。",
+      "knowledge": [
+        "弹力的产生"
+      ],
+      "commonMistakes": [
+        "混淆施力物体与受力物体的形变"
+      ]
+    },
+    {
+      "stepId": 4,
+      "title": "分析D选项",
+      "content": "重力的方向总是竖直向下，垂直于水平面，而不是垂直于斜面。",
+      "knowledge": [
+        "重力方向"
+      ],
+      "commonMistakes": [
+        "误认为重力方向垂直于接触面"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "平衡状态下力的方向判断",
+    "content": "注意区分绳子拉力、支持力、重力的方向，理解三力平衡时各力必须满足矢量三角形法则。"
+  },
+  "source": {
+    "title": "力学基础",
+    "text": "第 5 题",
+    "page": "第 5 题"
+  }
+}

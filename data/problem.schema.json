@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FanPhysics Problem",
+  "type": "object",
+  "required": ["id", "chapter", "title", "question", "steps", "knowledge"],
+  "properties": {
+    "id": { "type": "string" },
+    "chapter": { "type": "string" },
+    "title": { "type": "string" },
+    "question": { "type": "string" },
+    "options": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "answer": { "type": "string" },
+    "analysis": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "content": { "type": "string" }
+      }
+    },
+    "knowledge": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "text": { "type": "string" },
+        "page": { "type": "string" }
+      }
+    },
+    "animation": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["animated", "interactive_diagram", "static_diagram", "none"]
+        },
+        "type": {
+          "type": "string",
+          "enum": ["projectile", "spring_balance", "force_diagram", "none"]
+        },
+        "playable": { "type": "boolean" },
+        "interactive": { "type": "boolean" },
+        "confidence": { "type": "number" },
+        "notes": { "type": "string" },
+        "params": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "value": { "type": "number" },
+              "min": { "type": "number" },
+              "max": { "type": "number" },
+              "step": { "type": "number" },
+              "unit": { "type": "string" }
+            }
+          }
+        },
+        "timeline": {
+          "type": "object",
+          "properties": {
+            "duration": { "type": "number" },
+            "loop": { "type": "boolean" }
+          }
+        },
+        "forces": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "direction": { "type": "string" },
+              "color": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["title", "content"],
+        "properties": {
+          "stepId": { "type": "integer" },
+          "title": { "type": "string" },
+          "content": { "type": "string" },
+          "knowledge": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "commonMistakes": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "animationRange": {
+            "type": "object",
+            "properties": {
+              "start": { "type": "number" },
+              "end": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "content": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "slug": "two_body_spring_equilibrium",
+  "skip": false,
+  "skipReason": "",
+  "model": "弹簧连接的两物体平衡模型",
+  "id": "mechanics_two_body_spring_equilibrium",
+  "chapter": "力学基础",
+  "title": "弹簧连接的两物体平衡问题",
+  "question": "如图所示，A、B两物体的重力分别是 G_A=3N、 G_B=4N，A用悬绳挂在天花板上，B放在水平地面上，A、B间的轻弹簧为压缩状态，弹力 F=2N，则绳中张力和B对地面的压力分别为（  ）",
+  "options": [
+    "A. 7N 和 10N",
+    "B. 5N 和 2N",
+    "C. 1N 和 6N",
+    "D. 2N 和 5N"
+  ],
+  "answer": "B",
+  "analysis": {
+    "title": "隔离法与整体法求绳张力和压力",
+    "content": "第一步：隔离A，受力分析：重力3N向下，弹簧弹力2N向下（弹簧压缩对A有向下力），绳拉力T向上。三力平衡：T = G_A + F = 3+2=5N。第二步：隔离B，受力分析：重力4N向下，弹簧弹力2N向上（对B向上），地面支持力N向上。平衡：N = G_B - F = 4-2=2N。B对地面压力等于支持力N，为2N。因此绳张力5N，压力2N，对应选项B。"
+  },
+  "animation": {
+    "level": "interactive_diagram",
+    "type": "force_diagram",
+    "playable": true,
+    "interactive": true,
+    "confidence": 0.9,
+    "notes": "展示A和B的受力分析，用户可调整重力等参数观察变化",
+    "params": {
+      "Ga": {
+        "label": "A的重力",
+        "value": 3,
+        "min": 1,
+        "max": 10,
+        "step": 0.5,
+        "unit": "N"
+      },
+      "Gb": {
+        "label": "B的重力",
+        "value": 4,
+        "min": 1,
+        "max": 10,
+        "step": 0.5,
+        "unit": "N"
+      },
+      "Fspring": {
+        "label": "弹簧弹力",
+        "value": 2,
+        "min": 0,
+        "max": 10,
+        "step": 0.5,
+        "unit": "N"
+      }
+    },
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
+    "forces": [
+      {
+        "label": "G_A",
+        "direction": "down",
+        "color": "#dc2626"
+      },
+      {
+        "label": "F弹簧对A",
+        "direction": "down",
+        "color": "#2563eb"
+      },
+      {
+        "label": "T",
+        "direction": "up",
+        "color": "#16a34a"
+      }
+    ]
+  },
+  "knowledge": [
+    "共点力平衡",
+    "弹簧弹力",
+    "隔离法",
+    "作用力与反作用力"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "隔离A分析受力",
+      "content": "对A：受到重力G_A=3N向下，弹簧弹力F=2N向下（弹簧压缩时对连接物体产生推力，方向指向原长），绳拉力T向上。根据平衡条件：T = G_A + F = 5N。",
+      "knowledge": [
+        "平衡条件",
+        "弹簧弹力方向"
+      ],
+      "commonMistakes": [
+        "弹簧压缩时弹力方向判断错误"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "隔离B分析受力",
+      "content": "对B：受到重力G_B=4N向下，弹簧弹力F=2N向上（弹簧对B施加向上的弹力），地面支持力N向上。平衡：N = G_B - F = 2N。",
+      "knowledge": [
+        "平衡条件",
+        "支持力与压力关系"
+      ],
+      "commonMistakes": [
+        "忽略弹簧弹力对B的方向"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "确定B对地面压力",
+      "content": "B对地面的压力与支持力N是作用力与反作用力，大小相等，方向相反，所以压力大小也为2N。",
+      "knowledge": [
+        "牛顿第三定律"
+      ],
+      "commonMistakes": [
+        "误将B的重力作为压力"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "隔离法解决连接体平衡问题",
+    "content": "分别隔离两个物体，明确弹簧弹力方向（压缩状态向外推），列平衡方程即可。"
+  },
+  "source": {
+    "title": "力学基础",
+    "text": "第 3 题",
+    "page": "第 3 题"
+  }
+}

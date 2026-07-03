@@ -35,8 +35,181 @@ POST /api/step-ai
 
 可选环境变量：
 
-- `DEEPSEEK_MODEL`：默认 `deepseek-v4-pro`
+- `DEEPSEEK_MODEL`：默认 `deepseek-v4-flash`
 - `DEEPSEEK_API_URL`：默认 `https://api.deepseek.com/chat/completions`
+
+## 题目录入架构
+
+新增题目不再推荐直接改 HTML。推荐流程：
+
+```text
+图片 / PDF
+  → 本地 macOS Vision OCR
+  → 生成 work/ocr/*.txt
+  → DeepSeek 拆题并整理为标准 JSON
+  → 多个题目 JSON
+  → 人工校对
+  → 网页自动读取 /data/problems/index.json
+```
+
+第一版不依赖 Mathpix，所以不需要 `MATHPIX_APP_ID` 或 `MATHPIX_APP_KEY`。你的输入就是图片；脚本默认调用 macOS 自带 Vision OCR 生成文本，再让 DeepSeek 拆题生成 JSON。图片选项题、看图选择题等无法由 OCR 还原完整题意的内容会自动跳过，后续人工录入。
+
+题目文件放在：
+
+```text
+data/problems/
+```
+
+索引文件：
+
+```text
+data/problems/index.json
+```
+
+每道题一个 JSON，例如：
+
+```text
+data/problems/projectile_basic.json
+```
+
+校验 JSON：
+
+```bash
+python3 scripts/validate_problems.py
+```
+
+一键处理图片：Vision OCR → DeepSeek 自动拆题并生成 JSON → 自动更新 `index.json`。
+
+运行：
+
+```bash
+python3 scripts/process_problem_images.py work/images/projectile_001.jpg \
+  --chapter 平抛运动
+```
+
+脚本会把 OCR 文本保存到：
+
+```text
+work/ocr/projectile_001.txt
+```
+
+脚本会根据 `--chapter` 的中文名自动生成英文标题前缀和默认文件名前缀。例如 `--chapter 平抛运动` 会让题目标题带上 `Projectile Motion - ...`，默认 id 前缀为 `projectile_motion_`。
+
+如果要强制使用自定义 id 前缀：
+
+```bash
+python3 scripts/process_problem_images.py work/images/projectile_001.jpg \
+  --chapter 平抛运动 \
+  --id-prefix projectile_
+```
+
+如果想改用 PaddleOCR：
+
+```bash
+python3 scripts/process_problem_images.py work/images/projectile_001.jpg \
+  --chapter 平抛运动 \
+  --ocr-engine paddle \
+  --ocr-lang ch
+```
+
+如果你想跳过 OCR，改用已有 OCR 文本，也可以这样：
+
+```bash
+python3 scripts/process_problem_images.py work/images/projectile_001.jpg \
+  --ocr-engine sidecar \
+  --ocr-file path/to/ocr.txt \
+  --chapter 平抛运动 \
+  --id-prefix projectile_
+```
+
+一个 OCR 文本里有多道题时，DeepSeek 会自动拆成多个题目 JSON，并自动生成标题、模型名称、题干、解析步骤和知识点。`--chapter` 是默认章节；`--id-prefix` 可选。
+
+如果多个图片和同名 OCR 文本都属于同一章节，也可以批量处理图片目录：
+
+```bash
+python3 scripts/process_problem_images.py work/images --chapter 平抛运动 --id-prefix projectile_
+```
+
+这个脚本会记录图片和 OCR 文本的 SHA-256 到 `work/problem_pipeline_state.json`。下次再跑时，图片和 OCR 文本都没变，并且对应 JSON 已存在，就会自动跳过；新增或修改过的图片/文本才会重新生成。
+
+先预览这张图片会不会被处理，不调用 API：
+
+```bash
+python3 scripts/process_problem_images.py work/images/projectile_001.jpg \
+  --chapter 平抛运动 \
+  --id-prefix projectile_ \
+  --dry-run
+```
+
+强制全部重新处理：
+
+```bash
+python3 scripts/process_problem_images.py work/images --chapter 平抛运动 --id-prefix projectile_ --force
+```
+
+以后如果要接 Mathpix，可以用下面的可选脚本先把公式/表格图片识别成文本和 LaTeX：
+
+```bash
+python3 scripts/mathpix_image_to_text.py path/to/image.jpg --out-dir work/ocr
+```
+
+批量识别一个图片文件夹：
+
+```bash
+python3 scripts/mathpix_image_to_text.py path/to/images --out-dir work/ocr --raw-dir work/ocr_raw
+```
+
+需要在 `.env` 里配置：
+
+```text
+MATHPIX_APP_ID="你的 Mathpix app id"
+MATHPIX_APP_KEY="你的 Mathpix app key"
+```
+
+把 OCR 文本先包成待校对草稿：
+
+```bash
+python3 scripts/make_problem_from_ocr.py ocr.txt --id motion_001 --chapter 运动 --title 匀速直线运动
+```
+
+用 DeepSeek 把 OCR 文本整理成标准 JSON：
+
+```bash
+python3 scripts/deepseek_ocr_to_problem.py ocr.txt --id motion_001 --chapter 运动 --title 匀速直线运动
+```
+
+前端启动时会读取 `data/problems/index.json`，再加载每道题 JSON。JSON 中的 `steps` 会成为 Step AI 的上下文来源；以后 Codex 主要负责模板、脚本和校验，不再参与每道题手工改页面。
+
+## JSON 动画
+
+旧题目 JSON 不需要全部重新生成。网页会兼容没有 `animation` 字段的题目：能根据标题、模型、知识点推断出 `projectile`、`spring_balance`、`force_diagram` 时，会使用通用动画；无法判断时就不硬画。
+
+新生成的 JSON 推荐包含 `animation` 字段。前端会根据 `animation.type` 自动绘图，并根据 `params` 自动生成变量滑块、播放按钮、重置按钮和时间轴。
+
+示例：
+
+```json
+{
+  "animation": {
+    "level": "animated",
+    "type": "projectile",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "vx": { "label": "水平速度", "value": 8, "min": 1, "max": 30, "step": 0.5, "unit": "m/s" },
+      "height": { "label": "高度", "value": 20, "min": 1, "max": 80, "step": 1, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 9.8, "min": 1, "max": 15, "step": 0.1, "unit": "m/s^2" }
+    },
+    "timeline": { "duration": 3, "loop": false }
+  }
+}
+```
+
+当前通用动画类型：
+
+- `projectile`：平抛/抛体，支持播放、时间轴和参数滑块。
+- `spring_balance`：弹簧平衡/胡克定律，支持播放、时间轴和参数滑块。
+- `force_diagram`：受力图，支持参数滑块，不依赖原图。
 
 ## Render Free 部署
 

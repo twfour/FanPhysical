@@ -1,0 +1,56 @@
+{
+  "slug": "spring_length_maximization",
+  "skip": false,
+  "skipReason": "",
+  "model": "弹簧串联与形变",
+  "id": "mechanics_spring_length_maximization",
+  "chapter": "力学基础",
+  "title": "弹簧串联总长度最长配置",
+  "question": "8. 劲度系数分别为\\(k_1\\)、\\(k_2\\)的轻质弹簧甲、乙，且\\(k_1 > k_2\\)；质量分别为\\(m_1\\)、\\(m_2\\)的小物块丙、丁，且\\(m_1 > m_2\\)。将轻质弹簧、小物块按图示方式悬挂起来处于平衡状态时，为使两根弹簧的总长度最长，下面操作可行的是\nA. 甲在上，丙在上\nB. 甲在上，丁在上\nC. 乙在上，丙在上\nD. 乙在上，丁在上",
+  "options": [
+    "A. 甲在上，丙在上",
+    "B. 甲在上，丁在上",
+    "C. 乙在上，丙在上",
+    "D. 乙在上，丁在上"
+  ],
+  "answer": "",
+  "analysis": {
+    "title": "解析",
+    "content": ""
+  },
+  "animation": {
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "confidence": 0.2,
+    "notes": "无动画",
+    "params": {},
+    "timeline": {},
+    "forces": []
+  },
+  "knowledge": [
+    "胡克定律",
+    "弹簧串联受力分析"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分析总长度表达式",
+      "content": "",
+      "knowledge": [
+        "胡克定律"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": ""
+  },
+  "source": {
+    "title": "力学基础",
+    "text": "第 3 题",
+    "page": "第 3 题"
+  }
+}

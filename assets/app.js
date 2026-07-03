@@ -105,6 +105,35 @@ var knowledgePointMap = {
   bikeGear: ["圆周运动", "链传动", "角速度"]
 };
 
+var problemDataMap = {};
+var problemDataList = [];
+var legacySceneMap = {
+  spring: true,
+  pendulum: true,
+  brownian: true,
+  doubleThrow: true,
+  pipeDrop: true,
+  threeCar: true,
+  inclineSlot: true,
+  riverCrossing: true,
+  projectileBasic: true,
+  projectileSlope: true,
+  projectileWindow: true,
+  volleyballServe: true,
+  dartTarget: true,
+  rainWindow: true,
+  projectileNormal: true,
+  projectileBounce: true,
+  curveForce: true,
+  motionCompose: true,
+  riverAdvanced: true,
+  rodConstraint: true,
+  semiCircleThrow: true,
+  bulletCylinder: true,
+  bikeGear: true
+};
+var jsonAnimationState = {};
+
 var canvasW = 1000;
 var canvasH = 500;
 var animRight = 570;
@@ -280,6 +309,12 @@ function setup() {
   cnv.parent("canvas-holder");
   pixelDensity(Math.min(window.devicePixelRatio || 1, 2));
   textFont('"Noto Sans SC", "Microsoft YaHei", sans-serif');
+  loadProblemData().then(function () {
+    renderProblemDataNotes();
+    renderProblemDataHome();
+    enhanceProblemNotes();
+    switchScene(currentScene);
+  });
   enhanceProblemNotes();
   resetBrownian();
   updateLabels();
@@ -429,6 +464,11 @@ function draw() {
     drawAnimScene(drawBikeGearScene);
     drawBikeGearGraph();
   }
+
+  if (isJsonProblemScene(currentScene)) {
+    updateJsonAnimation(dt);
+    drawJsonAnimationScene();
+  }
 }
 
 function drawAnimScene(sceneDrawer) {
@@ -492,6 +532,7 @@ function switchScene(sceneName) {
   document.getElementById("semiCircleThrowControls").style.display = sceneName === "semiCircleThrow" ? "grid" : "none";
   document.getElementById("bulletCylinderControls").style.display = sceneName === "bulletCylinder" ? "grid" : "none";
   document.getElementById("bikeGearControls").style.display = sceneName === "bikeGear" ? "grid" : "none";
+  renderJsonAnimationControls(sceneName);
   document.getElementById("doubleThrowNotes").style.display = sceneName === "doubleThrow" ? "block" : "none";
   document.getElementById("pipeDropNotes").style.display = sceneName === "pipeDrop" ? "block" : "none";
   document.getElementById("threeCarNotes").style.display = sceneName === "threeCar" ? "block" : "none";
@@ -512,8 +553,176 @@ function switchScene(sceneName) {
   document.getElementById("semiCircleThrowNotes").style.display = sceneName === "semiCircleThrow" ? "block" : "none";
   document.getElementById("bulletCylinderNotes").style.display = sceneName === "bulletCylinder" ? "block" : "none";
   document.getElementById("bikeGearNotes").style.display = sceneName === "bikeGear" ? "block" : "none";
+  document.querySelectorAll(".problem-notes").forEach(function (note) {
+    note.style.display = note.id === sceneName + "Notes" ? "block" : "none";
+  });
   updateModelSource(sceneName);
   renderMath();
+}
+
+async function loadProblemData() {
+  try {
+    var response = await fetch("/data/problems/index.json", { cache: "no-store" });
+    if (!response.ok) {
+      return;
+    }
+    var index = await response.json();
+    var items = Array.isArray(index.problems) ? index.problems : [];
+    var loaded = await Promise.all(items.map(async function (item) {
+      var itemResponse = await fetch("/data/problems/" + item.file, { cache: "no-store" });
+      if (!itemResponse.ok) {
+        return null;
+      }
+      return itemResponse.json();
+    }));
+    problemDataList = loaded.filter(Boolean);
+    problemDataList.forEach(function (problem) {
+      problem.animation = normalizeProblemAnimation(problem);
+      problemDataMap[problem.id] = problem;
+      if (problem.knowledge) {
+        knowledgePointMap[problem.id] = problem.knowledge;
+      }
+      modelSourceMap[problem.id] = normalizeProblemSource(problem);
+    });
+  } catch (error) {
+    console.warn("Problem JSON load failed", error);
+  }
+}
+
+function renderProblemDataNotes() {
+  problemDataList.forEach(function (problem) {
+    if (!problem || !problem.id) {
+      return;
+    }
+    var note = document.getElementById(problem.id + "Notes");
+    var modelSource = document.getElementById("modelSource");
+    if (!note) {
+      note = document.createElement("div");
+      note.id = problem.id + "Notes";
+      note.className = "problem-notes";
+      if (modelSource && modelSource.parentNode) {
+        modelSource.parentNode.insertBefore(note, modelSource);
+      }
+    }
+    note.dataset.problemJson = "1";
+    note.innerHTML = "";
+    var grid = document.createElement("div");
+    grid.className = "problem-notes-grid";
+    note.appendChild(grid);
+
+    grid.appendChild(createProblemNoteBlock("题目", problem.title, problem.question || ""));
+    var analysisBlock = createProblemAnalysisBlock(problem);
+    analysisBlock.dataset.analysisBlock = "1";
+    grid.appendChild(analysisBlock);
+    if (problem.summary && !problem.analysis) {
+      grid.appendChild(createProblemNoteBlock("一句话总结", problem.summary.title || "总结", problem.summary.content || ""));
+    }
+  });
+}
+
+function createProblemAnalysisBlock(problem) {
+  var block = createProblemNoteBlock("解析", (problem.analysis && problem.analysis.title) || "分步解析", "");
+  var steps = Array.isArray(problem.steps) ? problem.steps : [];
+  var content = problem.analysis && problem.analysis.content ? problem.analysis.content.trim() : "";
+  if (content && !steps.length) {
+    appendMarkdownChildren(block, content);
+    return block;
+  }
+  if (steps.length) {
+    steps.forEach(function (step, index) {
+      var stepWrap = document.createElement("div");
+      stepWrap.className = "analysis-step";
+      stepWrap.dataset.stepIndex = String(index);
+      var title = document.createElement("h3");
+      title.innerText = "步骤 " + (index + 1) + "：" + (step.title || "分析");
+      stepWrap.appendChild(title);
+      appendMarkdownChildren(stepWrap, step.content || "");
+      block.appendChild(stepWrap);
+    });
+    return block;
+  }
+  appendMarkdownChildren(block, content || (problem.summary && problem.summary.content) || "这道题的解析还需要补充。");
+  return block;
+}
+
+function appendMarkdownChildren(parent, content) {
+  var contentWrap = document.createElement("div");
+  contentWrap.innerHTML = markdownLiteToHtml(content || "");
+  Array.prototype.slice.call(contentWrap.children).forEach(function (child) {
+    parent.appendChild(child);
+  });
+}
+
+function normalizeProblemSource(problem) {
+  var source = problem.source || {};
+  var title = source.title || problem.chapter || "题目来源";
+  var text = source.text || source.page || "";
+  var imageLike = /(^|\/)(IMG_|image|photo)|\.(jpg|jpeg|png|webp|bmp|gif)$/i.test(text);
+  if (!title || title === "图片 OCR 导入" || title === "OCR 文本导入") {
+    title = problem.chapter || "题目来源";
+  }
+  if (!text || imageLike) {
+    text = source.page || "来源待校对";
+  }
+  return { title: title, text: text };
+}
+
+function renderProblemDataHome() {
+  var homePanel = document.getElementById("homePanel");
+  if (!homePanel || !problemDataList.length) {
+    return;
+  }
+  var oldSection = document.getElementById("jsonProblemSection");
+  if (oldSection) {
+    oldSection.remove();
+  }
+  var section = document.createElement("section");
+  section.id = "jsonProblemSection";
+  section.className = "home-section";
+  section.innerHTML = [
+    "<div class=\"section-heading\">",
+    "<div>",
+    "<p class=\"eyebrow\">JSON 题库</p>",
+    "<h3>自动读取 /data/problems</h3>",
+    "</div>",
+    "</div>",
+    "<div class=\"home-grid\"></div>"
+  ].join("");
+  var grid = section.querySelector(".home-grid");
+  problemDataList.forEach(function (problem) {
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "home-card";
+    button.onclick = function () {
+      switchScene(problem.id);
+    };
+    var title = document.createElement("strong");
+    title.innerText = problem.title;
+    var meta = document.createElement("span");
+    meta.innerText = [problem.chapter, (problem.knowledge || []).slice(0, 3).join(" / ")].filter(Boolean).join(" · ");
+    button.appendChild(title);
+    button.appendChild(meta);
+    grid.appendChild(button);
+  });
+  homePanel.appendChild(section);
+}
+
+function createProblemNoteBlock(kicker, title, content) {
+  var section = document.createElement("section");
+  section.className = "problem-note-block";
+  var kickerEl = document.createElement("p");
+  kickerEl.className = "problem-note-kicker";
+  kickerEl.innerText = kicker;
+  var titleEl = document.createElement("h2");
+  titleEl.innerText = title || "";
+  section.appendChild(kickerEl);
+  section.appendChild(titleEl);
+  var contentWrap = document.createElement("div");
+  contentWrap.innerHTML = markdownLiteToHtml(content || "");
+  Array.prototype.slice.call(contentWrap.children).forEach(function (child) {
+    section.appendChild(child);
+  });
+  return section;
 }
 
 function enhanceProblemNotes() {
@@ -591,14 +800,29 @@ function addStepAiButtons(body) {
 function getStepContext(paragraph, prompt, intent, fallbackStepIndex) {
   var note = document.querySelector("#" + currentScene + "Notes");
   var block = paragraph ? paragraph.closest(".problem-note-block") : null;
+  var analysisStep = paragraph ? paragraph.closest(".analysis-step") : null;
   var body = paragraph ? paragraph.closest(".note-body") : null;
   var paragraphs = body ? Array.prototype.slice.call(body.querySelectorAll("p")) : [];
-  var stepIndex = paragraph ? paragraphs.indexOf(paragraph) : fallbackStepIndex;
+  var noteBlocks = note ? Array.prototype.slice.call(note.querySelectorAll(".problem-note-block")) : [];
+  var blockIndex = block ? noteBlocks.indexOf(block) : -1;
+  var stepIndex = analysisStep && analysisStep.dataset.stepIndex
+    ? Number(analysisStep.dataset.stepIndex)
+    : block && block.dataset.stepIndex
+    ? Number(block.dataset.stepIndex)
+    : (blockIndex > 0 ? blockIndex - 1 : (paragraph ? paragraphs.indexOf(paragraph) : fallbackStepIndex));
   var source = modelSourceMap[currentScene] || {};
+  var problemData = problemDataMap[currentScene];
   var heading = block ? block.querySelector("h2") : null;
+  var kicker = block ? block.querySelector(".problem-note-kicker") : null;
+  var isAnalysisOverview = problemData && problemData.analysis && block && block.dataset.analysisBlock === "1" && !analysisStep;
+  var dataStep = !isAnalysisOverview && problemData && problemData.steps ? problemData.steps[stepIndex] : null;
   var stepTitle = "";
   var strong = paragraph ? paragraph.querySelector("strong") : null;
-  if (strong) {
+  if (dataStep && dataStep.title) {
+    stepTitle = dataStep.title;
+  } else if (isAnalysisOverview && problemData.analysis.title) {
+    stepTitle = problemData.analysis.title;
+  } else if (strong) {
     stepTitle = strong.innerText.replace(/[：:。.\s]+$/, "");
   } else if (heading) {
     stepTitle = heading.innerText;
@@ -606,20 +830,25 @@ function getStepContext(paragraph, prompt, intent, fallbackStepIndex) {
 
   return {
     problemId: currentScene,
-    problemTitle: source.title || currentScene,
-    stepId: stepIndex + 1,
+    problemTitle: (problemData && problemData.title) || source.title || currentScene,
+    stepId: isAnalysisOverview ? "analysis" : stepIndex + 1,
     stepTitle: stepTitle || "当前步骤",
-    stepContent: paragraph ? paragraph.innerText : "",
-    previousSteps: paragraphs.slice(0, Math.max(stepIndex, 0)).map(function (item) {
-      return item.innerText;
-    }),
-    knowledge: knowledgePointMap[currentScene] || [],
-    commonMistakes: getCommonMistakes(currentScene),
+    stepContent: (dataStep && dataStep.content) || (isAnalysisOverview && problemData.analysis.content) || (paragraph ? paragraph.innerText : ""),
+    previousSteps: !isAnalysisOverview && problemData && problemData.steps
+      ? problemData.steps.slice(0, Math.max(stepIndex, 0)).map(function (item) {
+        return item.title + "：" + item.content;
+      })
+      : paragraphs.slice(0, Math.max(stepIndex, 0)).map(function (item) {
+        return item.innerText;
+      }),
+    knowledge: (dataStep && dataStep.knowledge) || (problemData && problemData.knowledge) || knowledgePointMap[currentScene] || [],
+    commonMistakes: (dataStep && dataStep.commonMistakes) || getCommonMistakes(currentScene),
     animationState: getAnimationState(currentScene),
     studentState: getStudentState(currentScene, stepIndex + 1),
     intent: intent,
     userQuestion: prompt,
-    noteTitle: note ? (note.querySelector(".problem-note-block h2") || {}).innerText : ""
+    noteTitle: note ? (note.querySelector(".problem-note-block h2") || {}).innerText : "",
+    animationRange: dataStep ? dataStep.animationRange : null
   };
 }
 
@@ -633,6 +862,679 @@ function getCommonMistakes(sceneName) {
     bikeGear: ["混淆同轴角速度相等和链条线速度相等"]
   };
   return defaults[sceneName] || [];
+}
+
+function normalizeProblemAnimation(problem) {
+  var animation = problem.animation || inferProblemAnimation(problem);
+  if (!animation || animation.type === "none") {
+    var inferred = inferProblemAnimation(problem);
+    if (inferred && inferred.type !== "none" && problem.animation && problem.animation.params) {
+      inferred.params = problem.animation.params;
+      inferred.notes = problem.animation.notes || inferred.notes;
+      inferred.timeline = problem.animation.timeline || inferred.timeline;
+      inferred.playable = problem.animation.playable !== false;
+      inferred.interactive = problem.animation.interactive !== false;
+    }
+    animation = inferred;
+    if (!animation || animation.type === "none") {
+      return {
+        level: "none",
+        type: "none",
+        playable: false,
+        interactive: false,
+        params: {},
+        timeline: { duration: 0, loop: false }
+      };
+    }
+  }
+  animation.params = animation.params || {};
+  animation.timeline = animation.timeline || {};
+  if (typeof animation.playable !== "boolean") {
+    animation.playable = animation.level === "animated";
+  }
+  if (typeof animation.interactive !== "boolean") {
+    animation.interactive = true;
+  }
+  if (!animation.level) {
+    animation.level = animation.playable ? "animated" : "interactive_diagram";
+  }
+  return animation;
+}
+
+function inferProblemAnimation(problem) {
+  var text = [problem.id, problem.model, problem.title, problem.question, (problem.knowledge || []).join(" ")]
+    .filter(Boolean)
+    .join(" ");
+  if (/平抛|抛体|projectile/i.test(text)) {
+    return {
+      level: "animated",
+      type: "projectile",
+      playable: true,
+      interactive: true,
+      confidence: 0.7,
+      notes: "根据题目关键词自动选择平抛模型",
+      params: {
+        vx: { label: "水平速度", value: 8, min: 1, max: 30, step: 0.5, unit: "m/s" },
+        height: { label: "高度", value: 20, min: 1, max: 80, step: 1, unit: "m" },
+        g: { label: "重力加速度", value: 9.8, min: 1, max: 15, step: 0.1, unit: "m/s²" }
+      },
+      timeline: { duration: 3, loop: false }
+    };
+  }
+  if (/弹簧|胡克|劲度|伸长|spring/i.test(text)) {
+    return {
+      level: "animated",
+      type: "spring_balance",
+      playable: true,
+      interactive: true,
+      confidence: 0.65,
+      notes: "根据题目关键词自动选择弹簧平衡模型",
+      params: {
+        k: { label: "劲度系数", value: 100, min: 20, max: 300, step: 10, unit: "N/m" },
+        mass: { label: "质量", value: 0.5, min: 0.1, max: 2, step: 0.1, unit: "kg" },
+        g: { label: "重力加速度", value: 9.8, min: 1, max: 15, step: 0.1, unit: "m/s²" }
+      },
+      timeline: { duration: 4, loop: true }
+    };
+  }
+  if (/受力|弹力|摩擦|平衡|斜面|支持力|force|friction/i.test(text)) {
+    return {
+      level: "interactive_diagram",
+      type: "force_diagram",
+      playable: false,
+      interactive: true,
+      confidence: 0.6,
+      notes: "根据题目关键词自动选择受力图",
+      params: {
+        angle: { label: "接触面角度", value: 25, min: 0, max: 60, step: 1, unit: "deg" }
+      },
+      forces: [
+        { label: "G", direction: "down", color: "#dc2626" },
+        { label: "N", direction: "normal", color: "#2563eb" },
+        { label: "f", direction: "surface", color: "#f59e0b" }
+      ]
+    };
+  }
+  return { level: "none", type: "none", playable: false, interactive: false, params: {} };
+}
+
+function isJsonAnimationScene(sceneName) {
+  var problem = problemDataMap[sceneName];
+  return Boolean(problem && !legacySceneMap[sceneName] && problem.animation && problem.animation.type !== "none");
+}
+
+function isJsonProblemScene(sceneName) {
+  return Boolean(problemDataMap[sceneName] && !legacySceneMap[sceneName]);
+}
+
+function getJsonAnimationState(sceneName) {
+  if (!jsonAnimationState[sceneName]) {
+    jsonAnimationState[sceneName] = { time: 0, playing: false, values: {} };
+  }
+  var state = jsonAnimationState[sceneName];
+  var animation = (problemDataMap[sceneName] || {}).animation || {};
+  Object.keys(animation.params || {}).forEach(function (key) {
+    if (typeof state.values[key] !== "number") {
+      state.values[key] = Number(animation.params[key].value || 0);
+    }
+  });
+  return state;
+}
+
+function getJsonParam(sceneName, key, fallback) {
+  var state = getJsonAnimationState(sceneName);
+  var value = state.values[key];
+  return typeof value === "number" ? value : fallback;
+}
+
+function renderJsonAnimationControls(sceneName) {
+  var container = document.getElementById("jsonAnimationControls");
+  if (!container) {
+    return;
+  }
+  container.innerHTML = "";
+  if (!isJsonAnimationScene(sceneName)) {
+    container.style.display = "none";
+    return;
+  }
+  var problem = problemDataMap[sceneName];
+  var animation = problem.animation;
+  var state = getJsonAnimationState(sceneName);
+  var params = animation.params || {};
+  Object.keys(params).forEach(function (key) {
+    var param = params[key] || {};
+    var control = document.createElement("div");
+    control.className = "control";
+    var label = document.createElement("label");
+    label.innerText = param.label || key;
+    var input = document.createElement("input");
+    input.type = "range";
+    input.min = param.min;
+    input.max = param.max;
+    input.step = param.step || 1;
+    input.value = getJsonParam(sceneName, key, Number(param.value || 0));
+    var value = document.createElement("span");
+    value.className = "value";
+    value.innerText = formatParamValue(Number(input.value), param.unit);
+    input.oninput = function () {
+      state.values[key] = input.valueAsNumber;
+      state.playing = false;
+      value.innerText = formatParamValue(state.values[key], param.unit);
+      syncJsonTimeControl(sceneName);
+    };
+    control.appendChild(label);
+    control.appendChild(input);
+    control.appendChild(value);
+    container.appendChild(control);
+  });
+  if (animation.playable) {
+    var duration = getJsonDuration(sceneName);
+    var timeControl = document.createElement("div");
+    timeControl.className = "control";
+    var timeLabel = document.createElement("label");
+    timeLabel.innerText = "观察时间";
+    var timeInput = document.createElement("input");
+    timeInput.id = "jsonAnimTime";
+    timeInput.type = "range";
+    timeInput.min = 0;
+    timeInput.max = duration;
+    timeInput.step = 0.02;
+    timeInput.value = Math.min(state.time, duration);
+    var timeValue = document.createElement("span");
+    timeValue.id = "jsonAnimTimeVal";
+    timeValue.className = "value";
+    timeValue.innerText = Number(timeInput.value).toFixed(2) + "s";
+    timeInput.oninput = function () {
+      state.time = timeInput.valueAsNumber;
+      state.playing = false;
+      syncJsonTimeControl(sceneName);
+    };
+    timeControl.appendChild(timeLabel);
+    timeControl.appendChild(timeInput);
+    timeControl.appendChild(timeValue);
+    container.appendChild(timeControl);
+
+    var play = document.createElement("button");
+    play.id = "jsonAnimPlayBtn";
+    play.type = "button";
+    play.className = "action";
+    play.innerText = state.playing ? "暂停" : "播放";
+    play.onclick = function () {
+      state.playing = !state.playing;
+      syncJsonTimeControl(sceneName);
+    };
+    container.appendChild(play);
+
+    var reset = document.createElement("button");
+    reset.type = "button";
+    reset.className = "action";
+    reset.innerText = "回到 0 秒";
+    reset.onclick = function () {
+      state.time = 0;
+      state.playing = false;
+      syncJsonTimeControl(sceneName);
+    };
+    container.appendChild(reset);
+  }
+  if (animation.notes) {
+    var meta = document.createElement("div");
+    meta.className = "json-animation-meta";
+    meta.innerText = animation.notes;
+    container.appendChild(meta);
+  }
+  container.style.display = "grid";
+}
+
+function formatParamValue(value, unit) {
+  var fixed = Math.abs(value) >= 10 ? value.toFixed(0) : value.toFixed(1);
+  var cleanUnit = formatPhysicsUnit(unit);
+  if (cleanUnit === "deg" || cleanUnit === "°") {
+    return fixed + "°";
+  }
+  return cleanUnit ? fixed + cleanUnit : fixed;
+}
+
+function formatPhysicsUnit(unit) {
+  return String(unit || "")
+    .replace(/\^2/g, "²")
+    .replace(/\^3/g, "³")
+    .replace(/m\/s2/g, "m/s²")
+    .replace(/m\/s²²/g, "m/s²");
+}
+
+function getJsonDuration(sceneName) {
+  var animation = (problemDataMap[sceneName] || {}).animation || {};
+  if (animation.type === "projectile") {
+    var height = getJsonParam(sceneName, "height", 20);
+    var g = Math.max(0.1, getJsonParam(sceneName, "g", 9.8));
+    return Math.sqrt(2 * height / g);
+  }
+  return Math.max(0.5, Number((animation.timeline || {}).duration || 4));
+}
+
+function syncJsonTimeControl(sceneName) {
+  var state = getJsonAnimationState(sceneName);
+  var duration = getJsonDuration(sceneName);
+  state.time = Math.min(state.time, duration);
+  var input = document.getElementById("jsonAnimTime");
+  var value = document.getElementById("jsonAnimTimeVal");
+  var play = document.getElementById("jsonAnimPlayBtn");
+  if (input) {
+    input.max = duration.toFixed(2);
+    input.value = state.time.toFixed(2);
+  }
+  if (value) {
+    value.innerText = state.time.toFixed(2) + "s";
+  }
+  if (play) {
+    play.innerText = state.playing ? "暂停" : "播放";
+  }
+}
+
+function updateJsonAnimation(dt) {
+  if (!isJsonAnimationScene(currentScene)) {
+    return;
+  }
+  var state = getJsonAnimationState(currentScene);
+  var animation = problemDataMap[currentScene].animation;
+  if (!state.playing || !animation.playable) {
+    return;
+  }
+  var duration = getJsonDuration(currentScene);
+  state.time += dt;
+  if (state.time >= duration) {
+    if ((animation.timeline || {}).loop) {
+      state.time = 0;
+    } else {
+      state.time = duration;
+      state.playing = false;
+    }
+  }
+  syncJsonTimeControl(currentScene);
+}
+
+function drawJsonAnimationScene() {
+  var animation = problemDataMap[currentScene].animation;
+  if (animation.type === "projectile") {
+    drawAnimScene(drawJsonProjectileScene);
+    drawJsonProjectileGraph();
+  } else if (animation.type === "spring_balance") {
+    drawAnimScene(drawJsonSpringScene);
+    drawJsonSpringGraph();
+  } else if (animation.type === "force_diagram") {
+    drawAnimScene(drawJsonForceDiagramScene);
+    drawJsonForceDiagramGraph();
+  } else {
+    drawAnimScene(drawJsonPlaceholderScene);
+    drawJsonPlaceholderGraph();
+  }
+}
+
+function drawJsonPlaceholderScene() {
+  var problem = problemDataMap[currentScene] || {};
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(18);
+  text("暂未生成动画模型", 28, 30);
+  fill("#5b6472");
+  textSize(13);
+  text("这道题已经有题干和分步解析，但 animation.type 还不是可绘制模型。", 28, 62);
+  fill("#eff6ff");
+  stroke("#bfdbfe");
+  strokeWeight(2);
+  rect(92, 138, 390, 190, 12);
+  noStroke();
+  fill("#2563eb");
+  textAlign(CENTER, CENTER);
+  textSize(18);
+  text(problem.model || "待补充模型", 287, 218);
+  fill("#475569");
+  textSize(13);
+  text((problem.knowledge || []).slice(0, 4).join(" / ") || "请校对 animation 字段", 287, 252);
+}
+
+function drawJsonPlaceholderGraph() {
+  drawGraphFrame("模型信息", "右图会在 animation.type 可识别后自动绘制");
+  var problem = problemDataMap[currentScene] || {};
+  var x = graphLeft + 30;
+  var y = 100;
+  noStroke();
+  textAlign(LEFT, TOP);
+  fill("#111827");
+  textSize(14);
+  text("当前类型：" + (((problem.animation || {}).type) || "none"), x, y);
+  fill("#64748b");
+  textSize(13);
+  text("建议类型：projectile / spring_balance / force_diagram", x, y + 34);
+}
+
+function drawJsonProjectileScene() {
+  var vx = getJsonParam(currentScene, "vx", 8);
+  var height = getJsonParam(currentScene, "height", 20);
+  var g = Math.max(0.1, getJsonParam(currentScene, "g", 9.8));
+  var state = getJsonAnimationState(currentScene);
+  var duration = getJsonDuration(currentScene);
+  var tNow = Math.min(state.time, duration);
+  var range = vx * duration;
+  var groundY = 430;
+  var startX = 85;
+  var startY = 80;
+  var sx = Math.min(8, 440 / Math.max(1, range));
+  var sy = (groundY - startY) / Math.max(1, height);
+  var x = vx * tNow;
+  var y = Math.max(0, height - 0.5 * g * tNow * tNow);
+  var ballX = startX + x * sx;
+  var ballY = groundY - y * sy;
+  var vy = g * tNow;
+
+  stroke("#111827");
+  strokeWeight(3);
+  line(45, groundY, 545, groundY);
+  stroke("#94a3b8");
+  strokeWeight(2);
+  line(startX, groundY, startX, 60);
+  drawArrow(startX, groundY, startX, 64, "#64748b");
+
+  stroke("#2563eb");
+  strokeWeight(2.5);
+  noFill();
+  beginShape();
+  for (var i = 0; i <= 120; i++) {
+    var t = i * duration / 120;
+    vertex(startX + vx * t * sx, groundY - Math.max(0, height - 0.5 * g * t * t) * sy);
+  }
+  endShape();
+
+  stroke("#cbd5e1");
+  strokeWeight(1);
+  drawingContext.setLineDash([4, 4]);
+  line(startX, startY, ballX, startY);
+  line(ballX, startY, ballX, ballY);
+  drawingContext.setLineDash([]);
+
+  noStroke();
+  fill("#f97316");
+  circle(ballX, ballY, 24);
+  fill("#ffedd5");
+  circle(ballX - 5, ballY - 5, 7);
+  drawVectorArrow(ballX, ballY, vx * 5, 0, "#2563eb", "vx");
+  drawVectorArrow(ballX, ballY, 0, vy * 5, "#dc2626", "vy");
+
+  noStroke();
+  fill("#111827");
+  textSize(16);
+  textAlign(LEFT, TOP);
+  text("JSON 平抛动画", 24, 28);
+  fill("#5b6472");
+  textSize(12);
+  text("t = " + tNow.toFixed(2) + "s，x = " + x.toFixed(1) + "m，y = " + y.toFixed(1) + "m", 24, 52);
+}
+
+function drawJsonProjectileGraph() {
+  var vx = getJsonParam(currentScene, "vx", 8);
+  var height = getJsonParam(currentScene, "height", 20);
+  var g = Math.max(0.1, getJsonParam(currentScene, "g", 9.8));
+  var state = getJsonAnimationState(currentScene);
+  var tMax = getJsonDuration(currentScene);
+  drawGraphFrame("分运动图像", "蓝线：x(t)；红线：下落高度");
+  var gx = graphLeft + 50;
+  var gy = 82;
+  var gw = graphRight - graphLeft - 90;
+  var gh = 330;
+  var maxValue = Math.max(vx * tMax, height);
+  drawSimpleCurve(gx, gy, gw, gh, tMax, maxValue, "#2563eb", function (t) { return vx * t; });
+  drawSimpleCurve(gx, gy, gw, gh, tMax, maxValue, "#dc2626", function (t) { return 0.5 * g * t * t; });
+  var currentX = map(Math.min(state.time, tMax), 0, tMax, gx, gx + gw);
+  stroke("#111827");
+  strokeWeight(1);
+  drawingContext.setLineDash([4, 4]);
+  line(currentX, gy, currentX, gy + gh);
+  drawingContext.setLineDash([]);
+}
+
+function drawJsonSpringScene() {
+  var values = getJsonSpringValues();
+  var k = values.k;
+  var mass = values.mass;
+  var g = values.g;
+  var state = getJsonAnimationState(currentScene);
+  var extension = mass * g / k;
+  var pxExtension = constrain(extension * 900, 30, 210);
+  var wave = Math.sin(state.time * 5) * 10 * Math.exp(-state.time * 0.5);
+  var topX = 285;
+  var topY = 70;
+  var bottomY = topY + 125 + pxExtension + wave;
+  var massY = bottomY + 40;
+
+  stroke("#111827");
+  strokeWeight(5);
+  line(160, topY, 410, topY);
+  drawSpringCoil(topX, topY, bottomY, 28, 12, "#14b8a6");
+  noStroke();
+  fill("#2563eb");
+  rect(topX - 42, massY - 28, 84, 56, 8);
+  fill("#fff");
+  textAlign(CENTER, CENTER);
+  textSize(14);
+  text("m", topX, massY);
+  drawVectorArrow(topX, massY + 34, 0, 70, "#dc2626", "G");
+  drawVectorArrow(topX, bottomY - 8, 0, -70, "#2563eb", "F");
+
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(16);
+  text("JSON 弹簧动画", 24, 28);
+  fill("#5b6472");
+  textSize(12);
+  text("平衡伸长量 Δx = mg/k = " + extension.toFixed(3) + " m", 24, 52);
+}
+
+function drawJsonSpringGraph() {
+  var values = getJsonSpringValues();
+  var k = values.k;
+  var mass = values.mass;
+  var g = values.g;
+  var extension = mass * g / k;
+  drawGraphFrame("弹簧平衡关系", "蓝线：F = kx；橙点：当前平衡位置");
+  var gx = graphLeft + 50;
+  var gy = 82;
+  var gw = graphRight - graphLeft - 90;
+  var gh = 330;
+  var xMax = Math.max(0.05, extension * 2.2);
+  var fMax = k * xMax;
+  drawSimpleCurve(gx, gy, gw, gh, xMax, fMax, "#2563eb", function (x) { return k * x; });
+  noStroke();
+  fill("#f97316");
+  circle(map(extension, 0, xMax, gx, gx + gw), map(mass * g, 0, fMax, gy + gh, gy), 12);
+}
+
+function getJsonSpringValues() {
+  var g = Math.max(0.1, getJsonParam(currentScene, "g", 9.8));
+  var m1 = getJsonParam(currentScene, "m1", NaN);
+  var m2 = getJsonParam(currentScene, "m2", NaN);
+  var mass = getJsonParam(currentScene, "mass", NaN);
+  if (!Number.isFinite(mass)) {
+    mass = (Number.isFinite(m1) ? m1 : 0) + (Number.isFinite(m2) ? m2 : 0);
+  }
+  if (!Number.isFinite(mass) || mass <= 0) {
+    mass = 0.5;
+  }
+
+  var k = getJsonParam(currentScene, "k", NaN);
+  var k1 = getJsonParam(currentScene, "k1", NaN);
+  var k2 = getJsonParam(currentScene, "k2", NaN);
+  if (!Number.isFinite(k) && Number.isFinite(k1) && Number.isFinite(k2) && k1 > 0 && k2 > 0) {
+    k = (k1 * k2) / (k1 + k2);
+  }
+  if (!Number.isFinite(k) || k <= 0) {
+    k = 100;
+  }
+  return { k: Math.max(1, k), mass: Math.max(0.01, mass), g: g };
+}
+
+function drawJsonForceDiagramScene() {
+  var animation = problemDataMap[currentScene].animation;
+  var angle = getJsonParam(currentScene, "angle", 25) * Math.PI / 180;
+  var cx = 285;
+  var cy = 275;
+  var planeLen = 360;
+  var dx = Math.cos(angle) * planeLen / 2;
+  var dy = Math.sin(angle) * planeLen / 2;
+
+  stroke("#111827");
+  strokeWeight(3);
+  line(cx - dx, cy + dy, cx + dx, cy - dy);
+  push();
+  translate(cx, cy - 34);
+  rotate(-angle);
+  fill("#e0f2fe");
+  stroke("#2563eb");
+  strokeWeight(2);
+  rectMode(CENTER);
+  rect(0, 0, 90, 54, 8);
+  pop();
+
+  (animation.forces || []).forEach(function (force) {
+    var vector = forceDirectionVector(force.direction, angle);
+    var scale = forceVectorScale(force, animation);
+    drawVectorArrow(cx, cy - 34, vector.x * scale, vector.y * scale, force.color || "#2563eb", force.label || "");
+  });
+
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(16);
+  text("JSON 受力图", 24, 28);
+  fill("#5b6472");
+  textSize(12);
+  text("调节接触面角度，观察弹力/摩擦力方向如何随接触面变化。", 24, 52);
+}
+
+function drawJsonForceDiagramGraph() {
+  var animation = problemDataMap[currentScene].animation;
+  drawGraphFrame("当前受力上下文", "方向由 animation.forces 结构化描述");
+  var x = graphLeft + 28;
+  var y = 95;
+  noStroke();
+  textAlign(LEFT, TOP);
+  textSize(14);
+  fill("#111827");
+  text("力的方向", x, y);
+  (animation.forces || []).forEach(function (force, index) {
+    fill(force.color || "#2563eb");
+    circle(x + 8, y + 42 + index * 34, 10);
+    fill("#334155");
+    text((force.label || "F") + "：" + force.direction, x + 24, y + 34 + index * 34);
+  });
+}
+
+function drawGraphFrame(title, subtitle) {
+  var gx = graphLeft + 50;
+  var gy = 82;
+  var gw = graphRight - graphLeft - 90;
+  var gh = 330;
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(18);
+  text(title, graphLeft + 24, 22);
+  fill("#5b6472");
+  textSize(12);
+  text(subtitle, graphLeft + 24, 48);
+  stroke("#cbd5e1");
+  strokeWeight(1);
+  noFill();
+  rect(gx, gy, gw, gh);
+  stroke("#e5e7eb");
+  for (var i = 0; i <= 4; i++) {
+    line(gx, gy + i * gh / 4, gx + gw, gy + i * gh / 4);
+    line(gx + i * gw / 4, gy, gx + i * gw / 4, gy + gh);
+  }
+}
+
+function drawSimpleCurve(gx, gy, gw, gh, xMax, yMax, colorHex, fn) {
+  noFill();
+  stroke(colorHex);
+  strokeWeight(2.5);
+  beginShape();
+  for (var i = 0; i <= 120; i++) {
+    var x = i * xMax / 120;
+    var y = fn(x);
+    vertex(map(x, 0, xMax, gx, gx + gw), map(y, 0, yMax, gy + gh, gy));
+  }
+  endShape();
+}
+
+function drawSpringCoil(x, y1, y2, radius, turns, colorHex) {
+  noFill();
+  stroke(colorHex);
+  strokeWeight(3);
+  beginShape();
+  vertex(x, y1);
+  for (var i = 0; i <= turns * 12; i++) {
+    var p = i / (turns * 12);
+    var y = lerp(y1 + 14, y2 - 14, p);
+    var xOffset = Math.sin(p * Math.PI * turns * 2) * radius;
+    vertex(x + xOffset, y);
+  }
+  vertex(x, y2);
+  endShape();
+}
+
+function forceDirectionVector(direction, angle) {
+  direction = String(direction || "").toLowerCase();
+  if (direction === "down") {
+    return { x: 0, y: 1 };
+  }
+  if (direction === "up") {
+    return { x: 0, y: -1 };
+  }
+  if (direction === "normal") {
+    return { x: -Math.sin(angle), y: -Math.cos(angle) };
+  }
+  if (direction === "up-left" || direction === "upleft") {
+    return { x: -0.7, y: -0.7 };
+  }
+  if (direction === "up-right" || direction === "upright") {
+    return { x: 0.7, y: -0.7 };
+  }
+  if (direction === "down-left" || direction === "downleft") {
+    return { x: -0.7, y: 0.7 };
+  }
+  if (direction === "down-right" || direction === "downright") {
+    return { x: 0.7, y: 0.7 };
+  }
+  if (direction === "surface" || direction === "up_slope") {
+    return { x: Math.cos(angle), y: -Math.sin(angle) };
+  }
+  if (direction === "down_slope") {
+    return { x: -Math.cos(angle), y: Math.sin(angle) };
+  }
+  if (direction === "left") {
+    return { x: -1, y: 0 };
+  }
+  if (direction === "right") {
+    return { x: 1, y: 0 };
+  }
+  return { x: 0.75, y: -0.45 };
+}
+
+function forceVectorScale(force, animation) {
+  var label = String(force.label || "").replace(/[^0-9A-Za-z_]/g, "");
+  var params = animation.params || {};
+  if (params[label]) {
+    var value = Math.abs(getJsonParam(currentScene, label, params[label].value || 0));
+    var maxValue = Math.max(1, Math.abs(Number(params[label].max || value || 1)));
+    return 48 + 72 * Math.min(1, value / maxValue);
+  }
+  if (/wall/i.test(label) && params.F) {
+    var fValue = Math.abs(getJsonParam(currentScene, "F", params.F.value || 0));
+    var fMax = Math.max(1, Math.abs(Number(params.F.max || fValue || 1)));
+    return 35 + 65 * Math.min(1, fValue / fMax);
+  }
+  return 95;
 }
 
 function getStudentState(sceneName, stepId) {
@@ -652,6 +1554,18 @@ function incrementStudentState(sceneName, stepId) {
 
 function getAnimationState(sceneName) {
   var state = { scene: sceneName };
+  if (isJsonAnimationScene(sceneName)) {
+    var animation = (problemDataMap[sceneName] || {}).animation || {};
+    var jsonState = getJsonAnimationState(sceneName);
+    return {
+      scene: sceneName,
+      type: animation.type,
+      level: animation.level,
+      time: jsonState.time,
+      playing: jsonState.playing,
+      params: jsonState.values
+    };
+  }
   if (sceneName === "projectileBasic") {
     state.time = projT;
     state.x = projV0 * projT;

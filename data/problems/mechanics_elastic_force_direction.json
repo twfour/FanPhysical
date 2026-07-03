@@ -1,0 +1,56 @@
+{
+  "slug": "elastic_force_direction",
+  "skip": false,
+  "skipReason": "",
+  "model": "弹力方向判断",
+  "id": "mechanics_elastic_force_direction",
+  "chapter": "力学基础",
+  "title": "弹力的存在及方向",
+  "question": "6.（多选）关于图中物体弹力的存在及方向，下列说法正确的是\nA. 甲图小车匀速运动，小球受到车厢的弹力，方向竖直向上\nB. 乙图斜面静止，小球受到斜面的弹力，方向垂直斜面向上\nC. 丙图中b绳对小球有弹力，方向沿b绳斜向上\nD. 丁图中右侧小球对左侧小球有弹力，方向水平向左",
+  "options": [
+    "A. 甲图小车匀速运动，小球受到车厢的弹力，方向竖直向上",
+    "B. 乙图斜面静止，小球受到斜面的弹力，方向垂直斜面向上",
+    "C. 丙图中b绳对小球有弹力，方向沿b绳斜向上",
+    "D. 丁图中右侧小球对左侧小球有弹力，方向水平向左"
+  ],
+  "answer": "",
+  "analysis": {
+    "title": "解析",
+    "content": ""
+  },
+  "animation": {
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "confidence": 0.2,
+    "notes": "无动画",
+    "params": {},
+    "timeline": {},
+    "forces": []
+  },
+  "knowledge": [
+    "弹力产生条件",
+    "弹力方向"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分析各图弹力",
+      "content": "",
+      "knowledge": [
+        "弹力方向"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": ""
+  },
+  "source": {
+    "title": "力学基础",
+    "text": "第 1 题",
+    "page": "第 1 题"
+  }
+}

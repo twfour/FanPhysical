@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "problems": [
+    {
+      "id": "projectileBasic",
+      "file": "projectile_basic.json"
+    },
+    {
+      "id": "mechanics_three_stacked_bodies",
+      "file": "mechanics_three_stacked_bodies.json"
+    },
+    {
+      "id": "mechanics_ball_wall_incline",
+      "file": "mechanics_ball_wall_incline.json"
+    },
+    {
+      "id": "mechanics_spring_balance_reading",
+      "file": "mechanics_spring_balance_reading.json"
+    },
+    {
+      "id": "mechanics_spring_displacement",
+      "file": "mechanics_spring_displacement.json"
+    },
+    {
+      "id": "mechanics_tightrope_center_of_gravity",
+      "file": "mechanics_tightrope_center_of_gravity.json"
+    },
+    {
+      "id": "mechanics_desk_deformation_experiment",
+      "file": "mechanics_desk_deformation_experiment.json"
+    },
+    {
+      "id": "mechanics_two_body_spring_equilibrium",
+      "file": "mechanics_two_body_spring_equilibrium.json"
+    },
+    {
+      "id": "mechanics_force_experiment_methods",
+      "file": "mechanics_force_experiment_methods.json"
+    },
+    {
+      "id": "mechanics_incline_suspended_ball",
+      "file": "mechanics_incline_suspended_ball.json"
+    },
+    {
+      "id": "mechanics_elastic_force_direction",
+      "file": "mechanics_elastic_force_direction.json"
+    },
+    {
+      "id": "mechanics_magnetic_box_static",
+      "file": "mechanics_magnetic_box_static.json"
+    },
+    {
+      "id": "mechanics_spring_length_maximization",
+      "file": "mechanics_spring_length_maximization.json"
+    },
+    {
+      "id": "mechanics_brush_pen_equilibrium",
+      "file": "mechanics_brush_pen_equilibrium.json"
+    },
+    {
+      "id": "mechanics_series_spring_equivalent_k",
+      "file": "mechanics_series_spring_equivalent_k.json"
+    }
+  ]
+}
