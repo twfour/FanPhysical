@@ -610,7 +610,7 @@ function renderProblemDataNotes() {
     grid.className = "problem-notes-grid";
     note.appendChild(grid);
 
-    grid.appendChild(createProblemNoteBlock("题目", problem.title, problem.question || ""));
+    grid.appendChild(createProblemQuestionBlock(problem));
     if (isProblemAnimationEnabled(problem)) {
       grid.appendChild(createProblemAnimationBlock(problem));
     }
@@ -621,6 +621,17 @@ function renderProblemDataNotes() {
       grid.appendChild(createProblemNoteBlock("一句话总结", problem.summary.title || "总结", problem.summary.content || ""));
     }
   });
+}
+
+function createProblemQuestionBlock(problem) {
+  var parts = [problem.question || ""];
+  var options = Array.isArray(problem.options) ? problem.options : [];
+  if (options.length) {
+    parts.push(options.map(function (option) {
+      return "- " + option;
+    }).join("\n"));
+  }
+  return createProblemNoteBlock("题目", problem.title, parts.filter(Boolean).join("\n\n"));
 }
 
 function createProblemAnimationBlock(problem) {
