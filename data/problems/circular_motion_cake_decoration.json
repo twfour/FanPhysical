@@ -1,0 +1,88 @@
+{
+  "slug": "cake_decoration",
+  "originalNumber": "4",
+  "skip": false,
+  "skipReason": "",
+  "model": "匀速圆周运动裱花模型",
+  "id": "circular_motion_cake_decoration",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 蛋糕裱花",
+  "question": "杭州某高中开设了糕点制作的选修课，小明同学在体验糕点制作“裱花”环节时，他在绕中心匀速转动的圆盘上放了一块直径8英寸(20cm)的蛋糕，在蛋糕上每隔4s均匀“点”一次奶油，蛋糕一周均匀“点”上15个奶油，则下列说法正确的是（）\n【示意图：蛋糕裱花示意图，圆形蛋糕边缘有奶油点；相关图像描述：圆形蛋糕裱花的示意图，展示蛋糕边缘的奶油点】",
+  "options": [
+    "A. 圆盘转动的转速约为2π r/min",
+    "B. 圆盘转动的角速度大小为π/30 rad/s",
+    "C. 蛋糕边缘的奶油线速度大小约为π/3 m/s",
+    "D. 蛋糕边缘的奶油线速度大小约为0.4π m/s"
+  ],
+  "answer": "B",
+  "analysis": {
+    "title": "总览",
+    "content": "根据每隔4s点一次，共15个奶油，先求周期，再求角速度，最后验证线速度。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "周期与角速度的关系",
+    "线速度与角速度的关系",
+    "转速与角速度的换算"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "第4题",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "求旋转周期",
+      "content": "每隔4s点一次奶油，共15个，因此圆盘旋转一周所需时间 \\(T = 4 \\times 15 = 60\\text{s}\\)。",
+      "knowledge": [
+        "周期定义"
+      ],
+      "commonMistakes": [
+        "误以为每4s点一次就是周期"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "求角速度",
+      "content": "角速度 \\(\\omega = \\frac{2\\pi}{T} = \\frac{\\pi}{30}\\text{rad/s}\\)，对应选项B。",
+      "knowledge": [
+        "角速度与周期关系"
+      ],
+      "commonMistakes": [
+        "单位混淆，rad/s和r/min换算错误"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "验证线速度",
+      "content": "蛋糕半径 \\(r = 0.1\\text{m}\\)，线速度 \\(v = \\omega r = \\frac{\\pi}{30} \\times 0.1 = \\frac{\\pi}{300}\\text{m/s}\\)，不与C、D相符。故选B。",
+      "knowledge": [
+        "线速度与角速度关系"
+      ],
+      "commonMistakes": [
+        "忽视单位换算，如将cm直接当m用"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "根据奶油点数确定周期，进而求角速度和线速度，对比选项选出正确项。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7022/例4_q4_img1.jpg",
+      "alt": "放置在旋转圆盘上的奶油蛋糕实物图",
+      "caption": "放置在旋转圆盘上的奶油蛋糕实物图",
+      "source": "IMG_7022_part01_clean.jpg",
+      "questionNo": "例4"
+    }
+  ]
+}

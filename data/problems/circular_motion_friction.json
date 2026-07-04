@@ -1,0 +1,77 @@
+{
+  "slug": "problem_7",
+  "originalNumber": "7",
+  "skip": false,
+  "skipReason": "",
+  "model": "水平弯道模型",
+  "id": "circular_motion_friction",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 第7题",
+  "question": "有一辆汽车匀速通过一个水平弯道，已知该圆弧形弯道对应的圆周半径为R，汽车与路面之间的动摩擦因数为μ，求汽车过弯道时的最大速度。已知重力加速度为g，且忽略空气阻力。",
+  "options": [],
+  "answer": "",
+  "analysis": {
+    "title": "总览",
+    "content": "汽车在水平弯道上转弯时，由摩擦力提供向心力，最大静摩擦力等于滑动摩擦力，根据牛顿第二定律求解最大速度。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "圆周运动",
+    "向心力",
+    "摩擦力",
+    "牛顿第二定律"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "第7题",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "受力分析",
+      "content": "汽车在水平弯道上运动，竖直方向重力和支持力平衡，水平方向由静摩擦力提供向心力。最大静摩擦力f_max = μmg。",
+      "knowledge": [
+        "受力分析",
+        "摩擦力"
+      ],
+      "commonMistakes": [
+        "误将重力作为向心力"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "列出向心力方程",
+      "content": "由牛顿第二定律，向心力F = mv²/R，而最大静摩擦力f_max = μmg，当v最大时，有 μmg ≥ mv²/R，即 v² ≤ μgR。",
+      "knowledge": [
+        "向心力公式",
+        "牛顿第二定律"
+      ],
+      "commonMistakes": [
+        "忘记最大静摩擦力等于滑动摩擦力"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "求解最大速度",
+      "content": "由不等式得最大速度 v_max = √(μgR)。",
+      "knowledge": [
+        "极值求解"
+      ],
+      "commonMistakes": [
+        "忽略等号成立条件"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "最大速度由向心力与最大静摩擦力平衡决定，结果与半径和摩擦因数有关。"
+  }
+}

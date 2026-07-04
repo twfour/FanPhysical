@@ -68,5 +68,14 @@
   "summary": {
     "title": "平抛与圆周运动的相遇条件",
     "content": "飞镖平抛的时间由水平和竖直位移决定，圆盘转动的角度需满足半圈的奇数倍，联立两运动的时间关系得到正确的关系式。"
-  }
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7022/例5_q5_img1.jpg",
+      "alt": "飞镖对准圆盘上A点抛出的示意图，标注有L、O、d等参数",
+      "caption": "飞镖对准圆盘上A点抛出的示意图，标注有L、O、d等参数",
+      "source": "IMG_7022_part02_clean.jpg",
+      "questionNo": "例5"
+    }
+  ]
 }

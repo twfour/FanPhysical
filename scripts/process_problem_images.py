@@ -9,7 +9,15 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from deepseek_ocr_to_problem import ROOT, call_deepseek_batch, call_vision_batch, load_env_file
+from deepseek_ocr_to_problem import (
+    ROOT,
+    call_deepseek_batch,
+    call_deepseek_from_questions,
+    call_question_segmentation,
+    call_vision_batch,
+    load_env_file,
+    save_question_segments,
+)
 
 
 STATE_PATH = ROOT / "work" / "problem_pipeline_state.json"
@@ -20,8 +28,11 @@ IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".bmp", ".gif", ".tif", ".
 TEXT_EXTENSIONS = {".txt", ".md", ".markdown"}
 OCR_CLEAN_DIR = ROOT / "work" / "ocr_clean"
 IMAGE_SEGMENT_DIR = ROOT / "work" / "image_segments"
+QUESTION_IMAGE_DIR = ROOT / "work" / "question_images"
+HANDWRITING_CLEAN_DIR = ROOT / "work" / "clean_images"
 OCR_CLEAN_VERSION = 3
 VISION_LLM_VERSION = 2
+QUESTION_SEGMENT_VERSION = 3
 CHAPTER_TITLE_PREFIXES = {
     "平抛运动": "Projectile Motion",
     "运动": "Motion",
@@ -439,6 +450,137 @@ def split_image_vertical(image_path, segments, overlap_ratio):
     return paths
 
 
+def expand_mask(mask, radius):
+    expanded = mask.copy()
+    for _ in range(max(0, radius)):
+        padded = expanded.copy()
+        padded[:-1, :] |= expanded[1:, :]
+        padded[1:, :] |= expanded[:-1, :]
+        padded[:, :-1] |= expanded[:, 1:]
+        padded[:, 1:] |= expanded[:, :-1]
+        expanded = padded
+    return expanded
+
+
+def clean_handwriting_image(image_path):
+    try:
+        from PIL import Image
+        import numpy as np
+    except ImportError as error:
+        raise RuntimeError("Pillow and NumPy are required for handwriting cleanup.") from error
+
+    HANDWRITING_CLEAN_DIR.mkdir(parents=True, exist_ok=True)
+    output_path = HANDWRITING_CLEAN_DIR / f"{image_path.stem}_clean.jpg"
+    with Image.open(image_path) as image:
+        rgb = image.convert("RGB")
+        array = np.asarray(rgb).copy()
+
+    red = array[:, :, 0].astype("int16")
+    green = array[:, :, 1].astype("int16")
+    blue = array[:, :, 2].astype("int16")
+    max_channel = np.maximum.reduce([red, green, blue])
+    min_channel = np.minimum.reduce([red, green, blue])
+    saturation = max_channel - min_channel
+
+    # Remove common colored annotations while preserving black printed text.
+    colored_ink = (
+        (saturation > 42)
+        & (max_channel > 85)
+        & (min_channel < 225)
+        & ~((red > 215) & (green > 215) & (blue > 215))
+    )
+    red_ink = (red > 135) & (green < 150) & (blue < 150) & ((red - np.maximum(green, blue)) > 28)
+    blue_ink = (blue > 115) & (red < 180) & (green < 190) & ((blue - np.minimum(red, green)) > 24)
+    green_ink = (green > 115) & (red < 170) & (blue < 170) & ((green - np.maximum(red, blue)) > 24)
+    handwriting_mask = expand_mask(colored_ink | red_ink | blue_ink | green_ink, 1)
+
+    if handwriting_mask.any():
+        array[handwriting_mask] = [255, 255, 255]
+
+    Image.fromarray(array, mode="RGB").save(output_path, quality=94)
+    return output_path
+
+
+def parse_bbox(value):
+    if not isinstance(value, dict):
+        return None
+    try:
+        x = float(value.get("x"))
+        y = float(value.get("y"))
+        w = float(value.get("w"))
+        h = float(value.get("h"))
+    except (TypeError, ValueError):
+        return None
+    if w <= 0 or h <= 0:
+        return None
+    if x > 1 or y > 1 or w > 1 or h > 1:
+        return {"mode": "pixel", "x": x, "y": y, "w": w, "h": h}
+    x = max(0.0, min(1.0, x))
+    y = max(0.0, min(1.0, y))
+    w = max(0.0, min(1.0 - x, w))
+    h = max(0.0, min(1.0 - y, h))
+    if w <= 0 or h <= 0:
+        return None
+    return {"mode": "relative", "x": x, "y": y, "w": w, "h": h}
+
+
+def safe_image_id(value, fallback):
+    value = re.sub(r"[^0-9A-Za-z_\-]+", "_", str(value or "")).strip("_")
+    return value or fallback
+
+
+def crop_question_images(image_path, questions):
+    try:
+        from PIL import Image
+    except ImportError as error:
+        raise RuntimeError("Pillow is required to crop related question images. Install pillow or use --vision-mode direct.") from error
+
+    output_dir = QUESTION_IMAGE_DIR / image_path.stem
+    output_dir.mkdir(parents=True, exist_ok=True)
+    saved = []
+    with Image.open(image_path) as image:
+        width, height = image.size
+        for question_index, question in enumerate(questions, start=1):
+            related_images = question.get("related_images")
+            if not isinstance(related_images, list):
+                continue
+            for image_index, related in enumerate(related_images, start=1):
+                if not isinstance(related, dict):
+                    continue
+                bbox = parse_bbox(related.get("bbox"))
+                if not bbox:
+                    continue
+                if bbox["mode"] == "pixel":
+                    left = int(round(bbox["x"]))
+                    top = int(round(bbox["y"]))
+                    right = int(round(bbox["x"] + bbox["w"]))
+                    bottom = int(round(bbox["y"] + bbox["h"]))
+                else:
+                    left = int(round(bbox["x"] * width))
+                    top = int(round(bbox["y"] * height))
+                    right = int(round((bbox["x"] + bbox["w"]) * width))
+                    bottom = int(round((bbox["y"] + bbox["h"]) * height))
+                pad_x = max(4, int((right - left) * 0.04))
+                pad_y = max(4, int((bottom - top) * 0.04))
+                left = max(0, left - pad_x)
+                top = max(0, top - pad_y)
+                right = min(width, right + pad_x)
+                bottom = min(height, bottom + pad_y)
+                if right - left < 12 or bottom - top < 12:
+                    continue
+                question_no = safe_image_id(question.get("question_no"), f"q{question_index}")
+                image_id = safe_image_id(related.get("image_id"), f"img{image_index}")
+                output_path = output_dir / f"{question_no}_{image_id}.jpg"
+                crop = image.crop((left, top, right, bottom))
+                if crop.mode not in ("RGB", "L"):
+                    crop = crop.convert("RGB")
+                crop.save(output_path, quality=92)
+                related["crop_path"] = str(output_path.relative_to(ROOT))
+                related["crop_bbox_pixels"] = {"x": left, "y": top, "w": right - left, "h": bottom - top}
+                saved.append(output_path)
+    return saved
+
+
 def problem_dedupe_key(problem):
     original_number = str(problem.get("originalNumber") or "").strip()
     if original_number:
@@ -496,6 +638,8 @@ def process_image(image_path, args, state):
     current_model = current_vision_model() if args.ocr_engine == "vision-llm" else ""
     current_split_vertical = args.split_vertical if args.ocr_engine == "vision-llm" else 1
     current_split_overlap = args.split_overlap if args.ocr_engine == "vision-llm" else 0
+    current_vision_mode = args.vision_mode if args.ocr_engine == "vision-llm" else ""
+    current_clean_handwriting_image = args.clean_handwriting_image if args.ocr_engine == "vision-llm" and current_vision_mode == "segment" else False
     clean_version_matches = (
         args.ocr_engine == "vision-llm"
         or (not args.clean_ocr and not previous.get("cleanOcrVersion"))
@@ -504,6 +648,9 @@ def process_image(image_path, args, state):
     engine_matches = (
         previous.get("ocrEngine", "vision") == current_engine
         and previous.get("visionLlmVersion", None) == (VISION_LLM_VERSION if current_engine == "vision-llm" else None)
+        and previous.get("questionSegmentVersion", None) == (QUESTION_SEGMENT_VERSION if current_engine == "vision-llm" and current_vision_mode == "segment" else None)
+        and previous.get("visionMode", "") == current_vision_mode
+        and previous.get("cleanHandwritingImage", False) == current_clean_handwriting_image
         and previous.get("visionModel", "") == current_model
         and previous.get("splitVertical", 1) == current_split_vertical
         and previous.get("splitOverlap", 0) == current_split_overlap
@@ -527,7 +674,7 @@ def process_image(image_path, args, state):
 
     if args.dry_run:
         action = (
-            f"read image with vision LLM in {args.split_vertical} segment(s)"
+            f"read image with vision LLM ({args.vision_mode}) in {args.split_vertical} segment(s)"
             if args.ocr_engine == "vision-llm"
             else f"OCR with {args.ocr_engine}"
         )
@@ -540,12 +687,22 @@ def process_image(image_path, args, state):
     clean_path = None
     if args.ocr_engine == "vision-llm":
         segment_paths = split_image_vertical(image_path, args.split_vertical, args.split_overlap)
-        print(f"VISION {image_path.name} via {current_vision_model()} segments={len(segment_paths)}")
+        print(f"VISION {image_path.name} via {current_vision_model()} mode={args.vision_mode} segments={len(segment_paths)}")
         batches = []
         for segment_index, segment_path in enumerate(segment_paths, start=1):
             print(f"  -> segment {segment_index}/{len(segment_paths)} {segment_path.relative_to(ROOT)}")
             segment_source = f"{image_path.name} 第 {segment_index}/{len(segment_paths)} 段"
-            batches.append(call_vision_batch(segment_path, args.chapter, api_id_prefix, segment_source))
+            if args.vision_mode == "direct":
+                batches.append(call_vision_batch(segment_path, args.chapter, api_id_prefix, segment_source))
+            else:
+                model_image_path = clean_handwriting_image(segment_path) if args.clean_handwriting_image else segment_path
+                if model_image_path != segment_path:
+                    print(f"     clean handwriting -> {model_image_path.relative_to(ROOT)}")
+                questions = call_question_segmentation(model_image_path, args.chapter, segment_source)
+                cropped_paths = crop_question_images(model_image_path, questions)
+                segments_path = save_question_segments(model_image_path, questions)
+                print(f"     cut {len(questions)} question(s), crop {len(cropped_paths)} image(s) -> {segments_path.relative_to(ROOT)}")
+                batches.append(call_deepseek_from_questions(questions, args.chapter, api_id_prefix, segment_source))
         problems = merge_segment_problems(batches)
     else:
         print(f"OCR  {image_path.name} via {args.ocr_engine}")
@@ -604,6 +761,9 @@ def process_image(image_path, args, state):
             "imagePath": str(image_path),
             "ocrEngine": args.ocr_engine,
             "visionLlmVersion": VISION_LLM_VERSION if args.ocr_engine == "vision-llm" else None,
+            "questionSegmentVersion": QUESTION_SEGMENT_VERSION if args.ocr_engine == "vision-llm" and args.vision_mode == "segment" else None,
+            "visionMode": current_vision_mode,
+            "cleanHandwritingImage": current_clean_handwriting_image,
             "visionModel": current_vision_model() if args.ocr_engine == "vision-llm" else "",
             "splitVertical": current_split_vertical,
             "splitOverlap": current_split_overlap,
@@ -625,6 +785,9 @@ def process_image(image_path, args, state):
         "imagePath": str(image_path),
         "ocrEngine": args.ocr_engine,
         "visionLlmVersion": VISION_LLM_VERSION if args.ocr_engine == "vision-llm" else None,
+        "questionSegmentVersion": QUESTION_SEGMENT_VERSION if args.ocr_engine == "vision-llm" and args.vision_mode == "segment" else None,
+        "visionMode": current_vision_mode,
+        "cleanHandwritingImage": current_clean_handwriting_image,
         "visionModel": current_vision_model() if args.ocr_engine == "vision-llm" else "",
         "splitVertical": current_split_vertical,
         "splitOverlap": current_split_overlap,
@@ -653,11 +816,13 @@ def main():
     parser.add_argument("--ocr-max-side", type=int, default=1800, help="Resize image longest side before OCR, default: 1800")
     parser.add_argument("--ocr-file", help="Explicit OCR .txt/.md for a single image")
     parser.add_argument("--ocr-dir", default="work/ocr", help="OCR output/search directory")
+    parser.add_argument("--vision-mode", choices=["segment", "direct"], default="segment", help="For vision-llm: segment cuts questions first, direct uses the old one-shot image-to-problems flow.")
+    parser.add_argument("--no-clean-handwriting-image", dest="clean_handwriting_image", action="store_false", help="For vision-llm segment mode, do not create a cleaned image before segmentation/cropping.")
     parser.add_argument("--no-clean-ocr", dest="clean_ocr", action="store_false", help="Send raw OCR text to DeepSeek without local handwriting/noise cleanup")
     parser.add_argument("--state", default=str(STATE_PATH), help="Incremental state file")
     parser.add_argument("--force", action="store_true", help="Reprocess images even if unchanged")
     parser.add_argument("--dry-run", action="store_true", help="Show what would be processed without API calls")
-    parser.set_defaults(clean_ocr=True)
+    parser.set_defaults(clean_ocr=True, clean_handwriting_image=True)
     args = parser.parse_args()
 
     load_env_file(ROOT / ".env")
@@ -671,6 +836,8 @@ def main():
         raise RuntimeError("--ocr-file can only be used with a single image file")
     if args.ocr_engine != "vision-llm" and args.split_vertical != 1:
         raise RuntimeError("--split-vertical only works with --ocr-engine vision-llm")
+    if args.ocr_engine != "vision-llm" and args.vision_mode != "segment":
+        raise RuntimeError("--vision-mode only works with --ocr-engine vision-llm")
     if args.split_vertical < 1:
         raise RuntimeError("--split-vertical must be >= 1")
 

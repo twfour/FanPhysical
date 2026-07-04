@@ -59,5 +59,14 @@
   "summary": {
     "title": "皮带传动的向心加速度计算",
     "content": "利用同轴转动角速度相同、皮带传动线速度相同的特点，结合向心加速度公式计算不同点的向心加速度。"
-  }
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7022/例6_q6_img1.jpg",
+      "alt": "大小两轮通过皮带传动的示意图，大轮上标有P、S、O，小轮上标有Q、O'",
+      "caption": "大小两轮通过皮带传动的示意图，大轮上标有P、S、O，小轮上标有Q、O'",
+      "source": "IMG_7022_part02_clean.jpg",
+      "questionNo": "例6"
+    }
+  ]
 }

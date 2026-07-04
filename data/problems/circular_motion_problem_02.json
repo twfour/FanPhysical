@@ -1,0 +1,80 @@
+{
+  "slug": "q3",
+  "originalNumber": "3",
+  "skip": false,
+  "skipReason": "",
+  "model": "齿轮传动模型",
+  "id": "circular_motion_problem_02",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 例3",
+  "question": "例3.如图所示，某种变速自行车，有五个飞轮和三个链轮，链轮和飞轮的齿数如下所示，后轮的直径为d=660mm。人骑该车行进的速度为v=4m/s时，脚踩踏板作匀速圆周运动的角速度最小是（）（表格：链轮齿数：48、38、28；飞轮齿数：15、18、21、24、28）（示意图：变速自行车结构示意图，标注脚踏板、链轮、链条、飞轮、后轮）【待校对】",
+  "options": [
+    "A. 1.9rad/s",
+    "B. 3.8rad/s",
+    "C. 6.5rad/s",
+    "D. 7.1rad/s"
+  ],
+  "answer": "【待校对】",
+  "analysis": {
+    "title": "解析",
+    "content": "脚踏板与链轮同轴，角速度相同。链轮通过链条带动飞轮，线速度相等。飞轮与后轮同轴，角速度相同。要使脚踏板角速度最小，应选择链轮与飞轮齿数比最大的组合，从而获得最大传动比。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "圆周运动",
+    "齿轮传动",
+    "线速度与角速度关系",
+    "齿数比与半径比"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "第3题",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "确定传动关系",
+      "content": "脚踏板带动链轮（半径与齿数成正比），链条线速度 v_chain = ω_chain * r_chain。飞轮与链轮链条线速度相等，故 ω_fly * r_fly = v_chain。后轮与飞轮同轴，ω_wheel = ω_fly。后轮边缘线速度即自行车速度 v = ω_wheel * (d/2)。",
+      "knowledge": [
+        "齿轮传动",
+        "线速度与角速度关系"
+      ],
+      "commonMistakes": [
+        "忽略齿数与半径成正比关系"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "寻找最小角速度对应的齿数组合",
+      "content": "由传动关系可得 ω_pedal = (r_fly / r_chain) * (2v / d)。由于齿数与半径成正比，ω_pedal ∝ (N_fly / N_chain)。要使 ω_pedal 最小，应选择 N_chain 最大（48）、N_fly 最小（15），此时比值最小。代入计算得 ω_pedal = (15/48) * (2*4 / 0.66) ≈ 3.8 rad/s。",
+      "knowledge": [
+        "圆周运动",
+        "齿数比"
+      ],
+      "commonMistakes": [
+        "误选最大齿数比导致角速度最大"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "小结",
+    "content": "变速自行车传动问题，注意齿数比与角速度成反比。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7022/例3_q3_img1.jpg",
+      "alt": "变速自行车的脚踏板、链轮、链条、飞轮、后轮的传动结构示意图",
+      "caption": "变速自行车的脚踏板、链轮、链条、飞轮、后轮的传动结构示意图",
+      "source": "IMG_7022_part01_clean.jpg",
+      "questionNo": "例3"
+    }
+  ]
+}

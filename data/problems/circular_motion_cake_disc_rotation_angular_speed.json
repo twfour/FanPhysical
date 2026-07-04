@@ -67,5 +67,14 @@
   "summary": {
     "title": "圆盘转动的基本物理量",
     "content": "通过奶油点的分布求出圆盘转动周期，进而计算转速、角速度和线速度，核心是匀速圆周运动各物理量的转换关系。"
-  }
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7022/例4_q4_img1.jpg",
+      "alt": "放置在旋转圆盘上的奶油蛋糕实物图",
+      "caption": "放置在旋转圆盘上的奶油蛋糕实物图",
+      "source": "IMG_7022_part01_clean.jpg",
+      "questionNo": "例4"
+    }
+  ]
 }

@@ -1,0 +1,91 @@
+{
+  "slug": "q2",
+  "originalNumber": "2",
+  "skip": false,
+  "skipReason": "",
+  "model": "圆周运动参数计算",
+  "id": "circular_motion_problem_06",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 圆盘上点奶油问题",
+  "question": "在绕中心匀速转动的圆盘上放了一块直径8英寸(20cm)的蛋糕，在蛋糕上每隔4s均匀“点”一次奶油，蛋糕一周均匀“点”上15个奶油，则下列说法正确的是( )（附图：放置在转动圆盘上的蛋糕实物图【待校对】）",
+  "options": [
+    "A. 圆盘转动的转速约为2π r/min",
+    "B. 圆盘转动的角速度大小为\\(\\frac{\\pi}{30}\\) rad/s",
+    "C. 蛋糕边缘的奶油线速度大小约为\\(\\frac{\\pi}{3}\\) m/s",
+    "D. 蛋糕边缘的奶油线速度大小约为0.4π m/s"
+  ],
+  "answer": "待确定",
+  "analysis": {
+    "title": "解题思路",
+    "content": "本题需先根据奶油点的时间间隔和数量求出圆盘的周期，进而计算角速度、转速和线速度，再与选项比较。具体步骤见下。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "匀速圆周运动",
+    "周期、角速度、线速度、转速"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "第2题",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "求周期",
+      "content": "每4s点一次，一周15个点，所以周期 \\(T = 4\\mathrm{s} \\times 15 = 60\\mathrm{s}\\)。",
+      "knowledge": [
+        "匀速圆周运动的周期"
+      ],
+      "commonMistakes": [
+        "误区：误以为每4s点一次就是周期"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "求角速度",
+      "content": "角速度 \\(\\omega = 2\\pi/T = 2\\pi/60 = \\pi/30\\ \\mathrm{rad/s}\\)",
+      "knowledge": [
+        "角速度与周期关系"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "判断选项",
+      "content": "A. 转速 \\(n = 1/T = 1/60\\ \\mathrm{r/s} = 1\\ \\mathrm{r/min} \\approx 0.0167\\ \\mathrm{r/min}\\)，不是2π r/min，A错。B. \\(\\omega = \\pi/30\\ \\mathrm{rad/s}\\)，B正确。C. 线速度 \\(v = \\omega r\\)，半径 \\(r = 20\\mathrm{cm}/2 = 0.1\\mathrm{m}\\)，\\(v = (\\pi/30)\\times 0.1 = \\pi/300\\ \\mathrm{m/s}\\)，不是π/3 m/s，C错。D. v = 0.4π ≈ 1.256 m/s，而实际 π/300≈0.0105 m/s，故D错。",
+      "knowledge": [
+        "线速度与角速度关系",
+        "单位换算"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "本题关键是通过奶油点数确定周期，然后熟练运用公式。最终答案为B。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7022/例2_q2_img1.jpg",
+      "alt": "子弹沿水平方向射击绕中心轴旋转的圆筒的示意图，标注有子弹、圆筒旋转方向ω、弹孔a和b",
+      "caption": "子弹沿水平方向射击绕中心轴旋转的圆筒的示意图，标注有子弹、圆筒旋转方向ω、弹孔a和b",
+      "source": "IMG_7022_part01_clean.jpg",
+      "questionNo": "例2"
+    },
+    {
+      "src": "data/problem-images/IMG_7022/2_q2_img1.jpg",
+      "alt": "放置在转动圆盘上的蛋糕实物图",
+      "caption": "放置在转动圆盘上的蛋糕实物图",
+      "source": "IMG_7022_part02_clean.jpg",
+      "questionNo": "2"
+    }
+  ]
+}

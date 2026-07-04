@@ -782,6 +782,35 @@ button.action:hover {
   font-weight: 900;
 }
 
+.problem-image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.problem-image-figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.problem-image-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.problem-image-figure figcaption {
+  padding: 8px 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  border-top: 1px solid var(--line);
+}
+
 .note-toggle {
   display: inline-flex;
   align-items: center;

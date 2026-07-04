@@ -1,0 +1,75 @@
+{
+  "slug": "car_turn",
+  "originalNumber": "例7",
+  "skip": false,
+  "skipReason": "",
+  "model": "水平转弯（摩擦力提供向心力）",
+  "id": "circular_motion_car_turn",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 汽车过弯最大速度",
+  "question": "例7.有一辆汽车匀速通过一个水平弯道,已知该圆弧形弯道对应的圆周半径为R,汽车与路面之间的动摩擦因数为μ,求汽车过弯道时的最大速度。已知重力加速度为g,且忽略空气阻力。",
+  "options": [],
+  "answer": "\\ (v_{\\max} = \\sqrt{\\mu g R}\\) ",
+  "analysis": {
+    "title": "解析",
+    "content": "汽车做匀速圆周运动，由静摩擦力提供向心力。当静摩擦力达到最大时速度最大，最大静摩擦力\\(f_{\\max}=\\mu mg\\)，由牛顿第二定律\\(\\mu mg = m\\frac{v^2}{R}\\)，解得\\(v_{\\max}=\\sqrt{\\mu g R}\\)。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "摩擦力",
+    "向心力",
+    "圆周运动"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "例7",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "受力分析",
+      "content": "汽车在水平弯道上匀速转弯，竖直方向受力平衡，水平方向由静摩擦力提供向心力。",
+      "knowledge": [
+        "受力分析"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "最大静摩擦力",
+      "content": "最大静摩擦力\\(f_{\\max}=\\mu mg\\)。",
+      "knowledge": [
+        "摩擦力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "向心力公式",
+      "content": "由牛顿第二定律：\\(f_{\\max}=m\\frac{v^2}{R}\\)，即\\(\\mu mg = m\\frac{v^2}{R}\\)。",
+      "knowledge": [
+        "向心力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "求解最大速度",
+      "content": "解得\\(v_{\\max}=\\sqrt{\\mu g R}\\)。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "本题基本模型为水平面内的圆周运动，注意指向圆心的合力提供向心力。"
+  }
+}

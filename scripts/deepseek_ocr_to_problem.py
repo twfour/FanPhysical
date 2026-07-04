@@ -16,6 +16,7 @@ MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash")
 VISION_API_URL = os.environ.get("VISION_API_URL", "https://api.openai.com/v1/chat/completions")
 VISION_MODEL = os.environ.get("VISION_MODEL", os.environ.get("OPENAI_VISION_MODEL", "gpt-4o"))
 VISION_RAW_DIR = ROOT / "work" / "vision_raw"
+QUESTION_SEGMENT_DIR = ROOT / "work" / "question_segments"
 
 
 def load_env_file(path):
@@ -164,6 +165,45 @@ def problem_batch_schema():
     }
 
 
+def question_segmentation_schema():
+    return {
+        "questions": [
+            {
+                "question_no": "2",
+                "question_type": "single_choice | multiple_choice | fill_blank | calculation | experiment | unknown",
+                "text": "题干正文，尽量保留原文，不要解题",
+                "options": [
+                    {"label": "A", "text": "选项内容"}
+                ],
+                "related_blocks": [
+                    {
+                        "type": "formula | table | note | condition | unknown",
+                        "text": "公式、表格、补充条件或图中文字",
+                        "position_hint": "题目下方/右侧/图中标注"
+                    }
+                ],
+                "related_images": [
+                    {
+                        "image_id": "q2_img1",
+                        "description": "示意图内容描述",
+                        "position_hint": "第2题右侧",
+                        "belongs_to": "question_body",
+                        "bbox": {
+                            "x": 0.52,
+                            "y": 0.18,
+                            "w": 0.30,
+                            "h": 0.22
+                        },
+                        "crop_path": ""
+                    }
+                ],
+                "confidence": 0.92,
+                "uncertainty": ""
+            }
+        ]
+    }
+
+
 def batch_requirements(input_kind):
     target = "图片" if input_kind == "image" else "OCR 文本"
     return [
@@ -198,10 +238,33 @@ def parse_problems_response(content, source_label):
     raise ValueError(f"{source_label} response did not contain problems")
 
 
+def parse_questions_response(content, source_label):
+    payload = extract_json(content)
+    if isinstance(payload, dict) and isinstance(payload.get("questions"), list):
+        return payload["questions"]
+    if isinstance(payload, dict) and isinstance(payload.get("question_no"), (str, int)):
+        return [payload]
+    output_schema = payload.get("outputSchema") if isinstance(payload, dict) else None
+    if isinstance(output_schema, dict) and isinstance(output_schema.get("questions"), list):
+        return output_schema["questions"]
+    raise ValueError(f"{source_label} response did not contain questions")
+
+
 def save_raw_vision_response(image_path, content):
     VISION_RAW_DIR.mkdir(parents=True, exist_ok=True)
     output_path = VISION_RAW_DIR / f"{Path(image_path).stem}.txt"
     output_path.write_text(content, encoding="utf-8")
+    return output_path
+
+
+def save_question_segments(image_path, questions):
+    QUESTION_SEGMENT_DIR.mkdir(parents=True, exist_ok=True)
+    output_path = QUESTION_SEGMENT_DIR / f"{Path(image_path).stem}.json"
+    payload = {
+        "sourceImage": Path(image_path).name,
+        "questions": questions
+    }
+    output_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return output_path
 
 
@@ -348,6 +411,156 @@ def call_deepseek_batch(ocr_text, chapter, id_prefix, source_name):
     with urllib.request.urlopen(request, timeout=90) as response:
         result = json.loads(response.read().decode("utf-8"))
     return parse_problems_response(result["choices"][0]["message"]["content"], "DeepSeek")
+
+
+def call_deepseek_from_questions(questions, chapter, id_prefix, source_name):
+    api_key = os.environ.get("DEEPSEEK_API_KEY")
+    if not api_key:
+        raise RuntimeError("Missing DEEPSEEK_API_KEY")
+
+    system = (
+        "你是 FanPhysics 的题目 JSON 规范化助手。"
+        "用户会给你 Question Segmentation Agent 已经切好的独立题目。"
+        "你的任务是把每道题转成 FanPhysics problem JSON。"
+        "不要重新切题，不要漏题，不要合并题目。"
+        "公式必须使用 LaTeX，行内公式用 \\(...\\)。"
+        "如果切题内容里有 related_blocks、related_images，要把其中有效信息合并进 question 或 steps；"
+        "如果图像只被描述而没有具体数值，保留描述并标记“【待校对】”。"
+        "只输出 JSON，不要输出解释。"
+    )
+    user = {
+        "chapter": chapter,
+        "idPrefix": id_prefix,
+        "sourceName": source_name,
+        "outputSchema": problem_batch_schema(),
+        "requirements": [
+            "输入 questions 已经按题号切好；输出 problems 数量应与可解析 questions 数量一致。",
+            "question_no 写入 originalNumber；source.text 优先使用 question_no，例如“第 2 题”。",
+            "选项必须来自 options，不能丢失 A/B/C/D。",
+            "不要解读手写痕迹；uncertainty 中的不确定信息用“【待校对】”保留。",
+            "如果某题 text 太少，无法构成完整题目，输出 skip=true 并写明 skipReason。",
+            "当前阶段只做题目录入和解析展示，默认不生成动画。所有题的 animation.enabled 必须为 false，animation.level/type 用 none，key 留空，params 用空对象。",
+            "analysis.content 必须有可展示文字，不要留空；可以写简短总览。",
+            "steps 必须按解题步骤拆分；每题至少 2 步，除非题目本身只有一步。",
+            "每题至少给出 1 个 knowledge。"
+        ],
+        "questions": questions
+    }
+    body = {
+        "model": MODEL,
+        "messages": [
+            {"role": "system", "content": system},
+            {"role": "user", "content": json.dumps(user, ensure_ascii=False)}
+        ],
+        "temperature": 0.1,
+        "stream": False
+    }
+    request = urllib.request.Request(
+        API_URL,
+        data=json.dumps(body, ensure_ascii=False).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}"
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=120) as response:
+        result = json.loads(response.read().decode("utf-8"))
+    return parse_problems_response(result["choices"][0]["message"]["content"], "DeepSeek questions")
+
+
+def call_question_segmentation(image_path, chapter, source_name):
+    api_key = (
+        os.environ.get("VISION_API_KEY")
+        or os.environ.get("OPENAI_API_KEY")
+    )
+    if not api_key:
+        raise RuntimeError(
+            "Missing VISION_API_KEY or OPENAI_API_KEY. "
+            "Configure an OpenAI-compatible vision endpoint for image segmentation."
+        )
+
+    system = (
+        "你是 Question Segmentation Agent。"
+        "你的任务是把试卷图片按题号切分成独立题目，不要解题。"
+        "你必须忽略手写笔迹、圈画答案、草稿、批注和涂改。"
+        "每道题必须独立完整，图片、表格、公式、选项必须绑定到对应题号。"
+        "每个 related_images 项必须尽量给出 bbox，用归一化坐标表示原图区域：x,y,w,h 都是 0 到 1 的小数。"
+        "不确定时写 uncertainty，不要硬猜。"
+        "只输出 JSON，不要输出解释文字。"
+    )
+    user = {
+        "chapter": chapter,
+        "sourceName": source_name,
+        "outputSchema": question_segmentation_schema(),
+        "requirements": [
+            "每道题必须独立完整，不能把上一题条件漏到下一题。",
+            "图片、表格、公式、选项必须绑定到对应题号。",
+            "related_images 中必须尽量填写 bbox；bbox 是围住题图的最小矩形，不要包含整道题文字。",
+            "bbox 使用归一化坐标：左上角 x/y、宽 w、高 h，取值范围 0 到 1。",
+            "如果某题没有独立图像，related_images 用空数组。",
+            "如果图像位置能看出但边界不确定，仍给出大致 bbox，并在 uncertainty 说明。",
+            "如果某个图像或文字归属不确定，写入 uncertainty。",
+            "不要解题，不要生成解析。",
+            "不要改写题意，尽量保留原文。",
+            "如果一页中有多个题号，必须全部输出。",
+            "如果看到手写笔迹、批注、答案痕迹，忽略它们，不要放入题干。",
+            "只有印刷题目主体几乎无法识别时，才输出 text 为空并在 uncertainty 说明原因。"
+        ]
+    }
+    body = {
+        "model": os.environ.get("VISION_MODEL", VISION_MODEL),
+        "messages": [
+            {"role": "system", "content": system},
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": json.dumps(user, ensure_ascii=False)},
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": read_image_data_url(image_path),
+                            "detail": os.environ.get("VISION_IMAGE_DETAIL", "high")
+                        }
+                    }
+                ]
+            }
+        ],
+        "temperature": 0,
+        "stream": False
+    }
+    request = urllib.request.Request(
+        os.environ.get("VISION_API_URL", VISION_API_URL),
+        data=json.dumps(body, ensure_ascii=False).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}"
+        },
+        method="POST",
+    )
+    timeout = int(os.environ.get("VISION_TIMEOUT_SECONDS", "300"))
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            result = json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as error:
+        body = error.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"Vision API HTTP {error.code}: {body}") from error
+    content = result["choices"][0]["message"]["content"]
+    raw_path = save_raw_vision_response(image_path, content)
+    try:
+        return parse_questions_response(content, "Question segmentation")
+    except json.JSONDecodeError as error:
+        print(f"Question segmentation JSON parse failed; raw response saved to {raw_path.relative_to(ROOT)}. Trying DeepSeek JSON repair...")
+        repaired = repair_json_with_deepseek(content)
+        repaired_path = raw_path.with_suffix(".segments.repaired.txt")
+        repaired_path.write_text(repaired, encoding="utf-8")
+        try:
+            return parse_questions_response(repaired, "Question segmentation repaired")
+        except json.JSONDecodeError as repaired_error:
+            raise RuntimeError(
+                f"Question segmentation JSON parse failed after repair. Raw: {raw_path.relative_to(ROOT)}, "
+                f"repaired: {repaired_path.relative_to(ROOT)}"
+            ) from repaired_error
 
 
 def call_vision_batch(image_path, chapter, id_prefix, source_name):

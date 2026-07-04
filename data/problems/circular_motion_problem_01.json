@@ -1,0 +1,82 @@
+{
+  "slug": "q2",
+  "originalNumber": "2",
+  "skip": false,
+  "skipReason": "",
+  "model": "子弹穿过圆筒模型",
+  "id": "circular_motion_problem_01",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 例2",
+  "question": "例2.如图所示，直径为d的纸筒以角速度ω绕轴O匀速转动，从枪口发射的子弹沿直径穿过圆筒.若子弹在圆筒旋转不到半周时在圆筒上留下a、b两个弹孔，已知aO和bO夹角为φ，则子弹的速度大小为____. （示意图：纸筒与子弹的运动示意图，标注角速度ω、弹孔a、b及圆心O）【待校对】",
+  "options": [],
+  "answer": "【待校对】",
+  "analysis": {
+    "title": "解析",
+    "content": "根据子弹在圆筒旋转不到半周时留下两个弹孔，可知子弹穿过圆筒的时间与圆筒转过的角度对应，结合圆周运动角速度公式可求子弹速度。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "圆周运动",
+    "角速度",
+    "匀速圆周运动",
+    "相对运动"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "第2题",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分析运动时间关系",
+      "content": "子弹从入口a到出口b飞行的时间等于圆筒转过的角度（π - φ或类似，需根据几何关系确定）所对应的时间。设子弹速度为v，则飞行时间 t = d / v。圆筒转过的角度为 ωt，由几何关系知 ωt = π - φ（因为不到半周，子弹与入口的夹角为φ，但圆心角为π - φ？此处需根据实际情况判定）【待校对】。",
+      "knowledge": [
+        "圆周运动",
+        "角速度"
+      ],
+      "commonMistakes": [
+        "混淆角度关系，未考虑旋转不到半周的条件"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "列式求解",
+      "content": "由 ω * (d/v) = π - φ 可得 v = ωd / (π - φ)。注意最终表达式需化简。",
+      "knowledge": [
+        "匀速圆周运动",
+        "相对运动"
+      ],
+      "commonMistakes": [
+        "忘记单位换算，忽略角速度单位"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "小结",
+    "content": "子弹穿过圆筒问题，关键是找到子弹飞行时间与圆筒转角的关系。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7022/例2_q2_img1.jpg",
+      "alt": "子弹沿水平方向射击绕中心轴旋转的圆筒的示意图，标注有子弹、圆筒旋转方向ω、弹孔a和b",
+      "caption": "子弹沿水平方向射击绕中心轴旋转的圆筒的示意图，标注有子弹、圆筒旋转方向ω、弹孔a和b",
+      "source": "IMG_7022_part01_clean.jpg",
+      "questionNo": "例2"
+    },
+    {
+      "src": "data/problem-images/IMG_7022/2_q2_img1.jpg",
+      "alt": "放置在转动圆盘上的蛋糕实物图",
+      "caption": "放置在转动圆盘上的蛋糕实物图",
+      "source": "IMG_7022_part02_clean.jpg",
+      "questionNo": "2"
+    }
+  ]
+}

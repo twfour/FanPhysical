@@ -1,0 +1,84 @@
+{
+  "slug": "example5",
+  "originalNumber": "例5",
+  "skip": false,
+  "skipReason": "",
+  "model": "平抛与圆周运动相遇模型",
+  "id": "circular_motion_example5",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 飞镖与转盘游戏",
+  "question": "如图所示，一位同学做飞镖游戏，已知圆盘的直径为d，飞镖距圆盘的距离为L，且对准圆盘上边缘的A点水平抛出，初速度为\\(v_0\\)，飞镖抛出的同时，圆盘绕过圆心O且垂直盘面的水平轴匀速转动，角速度为\\(\\omega\\)，重力加速度为g。若飞镖恰好击中A点，则下列关系式正确的是( )（附图：飞镖对准圆盘上A点抛出的示意图，标注有L、O、d等参数【待校对】）",
+  "options": [
+    "A. \\(dv_0^2=L^2g\\)",
+    "B. \\(\\omega L=(1+2n)\\pi v_0 \\quad (n=0,1,2,3,\\ldots)\\)",
+    "C. \\(v_0=\\omega d/2\\)",
+    "D. \\(d\\omega^2=(1+2n)^2\\pi^2g \\quad (n=0,1,2,3,\\ldots)\\)"
+  ],
+  "answer": "待确定",
+  "analysis": {
+    "title": "解题思路",
+    "content": "飞镖做平抛运动，圆盘做匀速圆周运动。飞镖击中A点需满足平抛的竖直位移为d（圆盘直径），同时A点恰好转到飞镖落点处。需要建立平抛时间和圆周运动时间相等的关系。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "平抛运动",
+    "匀速圆周运动",
+    "时间相等关系"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "例5",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "平抛运动分析",
+      "content": "飞镖做平抛运动，水平位移\\(L = v_0 t\\)，竖直位移\\(d = \\frac{1}{2} g t^2\\)。",
+      "knowledge": [
+        "平抛运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "圆周运动分析",
+      "content": "圆盘角速度\\(\\omega\\)，在时间t内转过的角度\\(\\theta = \\omega t\\)。A点初始位于圆盘最高点，要恰好击中A点，则\\(\\theta\\)必须满足\\(\\theta = (1+2n)\\pi\\)（\\(n=0,1,2,\\ldots\\)），即半周期的奇数倍。",
+      "knowledge": [
+        "匀速圆周运动角度与时间关系"
+      ],
+      "commonMistakes": [
+        "忽略周期性，只考虑第一次到达"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "联立方程",
+      "content": "由平抛得\\(L/v_0 = \\sqrt{2d/g}\\)。由圆周有\\(\\omega t = (1+2n)\\pi\\)。代入t得\\(\\omega L/v_0 = (1+2n)\\pi\\)，即\\(\\omega L = (1+2n)\\pi v_0\\)，故B正确。另外，由竖直位移表达式可推得其他关系。",
+      "knowledge": [
+        "平抛与圆周运动的结合"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "本题的关键是平抛运动时间与圆周运动时间相等，并考虑转盘转动的周期性。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7022/例5_q5_img1.jpg",
+      "alt": "飞镖对准圆盘上A点抛出的示意图，标注有L、O、d等参数",
+      "caption": "飞镖对准圆盘上A点抛出的示意图，标注有L、O、d等参数",
+      "source": "IMG_7022_part02_clean.jpg",
+      "questionNo": "例5"
+    }
+  ]
+}

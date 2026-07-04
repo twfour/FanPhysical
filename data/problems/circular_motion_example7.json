@@ -1,0 +1,64 @@
+{
+  "slug": "example7",
+  "originalNumber": "例7",
+  "skip": false,
+  "skipReason": "",
+  "model": "汽车过弯临界速度",
+  "id": "circular_motion_example7",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 汽车过弯最大速度",
+  "question": "有一辆汽车匀速通过一个水平弯道，已知该圆弧形弯道对应的圆周半径为R，汽车与路面之间的动摩擦因数为\\(\\mu\\)，求汽车过弯道时的最大速度。已知重力加速度为g，且忽略空气阻力。",
+  "options": [],
+  "answer": "\\(v_{\\max}=\\sqrt{\\mu gR}\\)",
+  "analysis": {
+    "title": "解题思路",
+    "content": "汽车在水平弯道做匀速圆周运动，摩擦力提供向心力。当摩擦力达到最大静摩擦力（等于滑动摩擦力）时，速度最大。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "匀速圆周运动",
+    "摩擦力提供向心力",
+    "临界速度"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "例7",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "受力分析",
+      "content": "汽车在弯道上做圆周运动，水平方向摩擦力提供向心力，竖直方向重力和支持力平衡。设最大速度为\\(v_{\\max}\\)，则有：\\(f = m v_{\\max}^2 / R\\)，且\\(f \\leq \\mu mg\\)（最大静摩擦力等于滑动摩擦力）。",
+      "knowledge": [
+        "向心力来源",
+        "摩擦力"
+      ],
+      "commonMistakes": [
+        "忽略重力和支持力平衡"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "列方程求解",
+      "content": "由临界条件\\(f = \\mu mg\\)得\\(\\mu mg = m v_{\\max}^2 / R\\)，解得\\(v_{\\max} = \\sqrt{\\mu gR}\\)。注意\\(v_{\\max}\\)与质量无关。",
+      "knowledge": [
+        "最大静摩擦力公式"
+      ],
+      "commonMistakes": [
+        "误认为最大速度还与质量有关"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "本题是典型的汽车转弯临界速度问题，关键明确最大静摩擦力提供向心力。"
+  }
+}

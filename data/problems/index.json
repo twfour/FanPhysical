@@ -168,6 +168,90 @@
     {
       "id": "circular_motion_rotating_chair_circular_motion",
       "file": "circular_motion_rotating_chair_circular_motion.json"
+    },
+    {
+      "id": "circular_motion_boat_circular_motion",
+      "file": "circular_motion_boat_circular_motion.json"
+    },
+    {
+      "id": "circular_motion_bullet_paper_tube",
+      "file": "circular_motion_bullet_paper_tube.json"
+    },
+    {
+      "id": "circular_motion_bicycle_gear",
+      "file": "circular_motion_bicycle_gear.json"
+    },
+    {
+      "id": "circular_motion_cake_decoration",
+      "file": "circular_motion_cake_decoration.json"
+    },
+    {
+      "id": "circular_motion_cake_cream",
+      "file": "circular_motion_cake_cream.json"
+    },
+    {
+      "id": "circular_motion_dart_disk",
+      "file": "circular_motion_dart_disk.json"
+    },
+    {
+      "id": "circular_motion_belt_drive",
+      "file": "circular_motion_belt_drive.json"
+    },
+    {
+      "id": "circular_motion_car_turn",
+      "file": "circular_motion_car_turn.json"
+    },
+    {
+      "id": "circular_motion_problem_01",
+      "file": "circular_motion_problem_01.json"
+    },
+    {
+      "id": "circular_motion_problem_02",
+      "file": "circular_motion_problem_02.json"
+    },
+    {
+      "id": "circular_motion_problem_03",
+      "file": "circular_motion_problem_03.json"
+    },
+    {
+      "id": "circular_motion_problem_04",
+      "file": "circular_motion_problem_04.json"
+    },
+    {
+      "id": "circular_motion_problem_05",
+      "file": "circular_motion_problem_05.json"
+    },
+    {
+      "id": "circular_motion_friction",
+      "file": "circular_motion_friction.json"
+    },
+    {
+      "id": "circular_motion_a_b_boats",
+      "file": "circular_motion_a_b_boats.json"
+    },
+    {
+      "id": "circular_motion_bullet_through_cylinder",
+      "file": "circular_motion_bullet_through_cylinder.json"
+    },
+    {
+      "id": "circular_motion_cake_decoration_rotation",
+      "file": "circular_motion_cake_decoration_rotation.json"
+    },
+    {
+      "id": "circular_motion_example5",
+      "file": "circular_motion_example5.json"
+    },
+    {
+      "id": "circular_motion_problem_06",
+      "file": "circular_motion_problem_06.json"
+    },
+    {
+      "id": "circular_motion_example6",
+      "file": "circular_motion_example6.json"
+    },
+    {
+      "id": "circular_motion_example7",
+      "file": "circular_motion_example7.json"
     }
   ]
 }

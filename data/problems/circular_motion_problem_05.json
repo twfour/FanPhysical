@@ -1,0 +1,86 @@
+{
+  "slug": "problem_6",
+  "originalNumber": "6",
+  "skip": false,
+  "skipReason": "",
+  "model": "皮带传动模型",
+  "id": "circular_motion_problem_05",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 第6题",
+  "question": "如图所示，一个大轮通过皮带拉着小轮转动，皮带和两轮之间无滑动，大轮的半径是小轮的2倍，大轮上的一点s离转动轴的距离是半径的一半，当大轮边缘上P点的向心加速度是10m/s²时，大轮上的S点和小轮上的Q点的向心加速度为aₛ=______ m/s²，a_Q=______m/s²。【待校对】皮带传动示意图，包含大轮（标注S点）、小轮（标注Q点）",
+  "options": [],
+  "answer": "",
+  "analysis": {
+    "title": "总览",
+    "content": "利用皮带传动线速度相等，同轴转动角速度相等的关系，以及向心加速度公式a=ω²r=v²/r计算。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "皮带传动",
+    "向心加速度",
+    "圆周运动"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "第6题",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "求大轮角速度",
+      "content": "设大轮半径为R，则小轮半径为R/2。P点向心加速度a_P=10m/s²，且a_P=ω²R，故大轮角速度ω=√(a_P/R)=√(10/R)。",
+      "knowledge": [
+        "向心加速度",
+        "角速度"
+      ],
+      "commonMistakes": [
+        "混淆半径与向心加速度关系"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "求S点向心加速度",
+      "content": "S点离转轴距离r_S=R/2，与大轮同轴，角速度相同，故a_S=ω²r_S=(10/R)×(R/2)=5 m/s²。",
+      "knowledge": [
+        "同轴转动",
+        "向心加速度"
+      ],
+      "commonMistakes": [
+        "误用线速度关系"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "求Q点向心加速度",
+      "content": "小轮与大轮皮带传动，线速度相等，即v_P=v_Q。v_P=ωR=√(10R)，故v_Q=√(10R)。小轮半径r_Q=R/2，故a_Q=v_Q²/r_Q=(10R)/(R/2)=20 m/s²。",
+      "knowledge": [
+        "皮带传动线速度相等",
+        "向心加速度"
+      ],
+      "commonMistakes": [
+        "忘记小轮半径是大轮的一半"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "皮带传动线速度相同，同轴角速度相同，向心加速度与半径满足不同关系。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7022/例6_q6_img1.jpg",
+      "alt": "大小两轮通过皮带传动的示意图，大轮上标有P、S、O，小轮上标有Q、O'",
+      "caption": "大小两轮通过皮带传动的示意图，大轮上标有P、S、O，小轮上标有Q、O'",
+      "source": "IMG_7022_part02_clean.jpg",
+      "questionNo": "例6"
+    }
+  ]
+}

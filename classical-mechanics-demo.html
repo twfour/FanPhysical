@@ -25,66 +25,69 @@
       <aside class="sidebar">
         <p class="tree-title">目录</p>
         <button id="treeHome" class="tree-item" onclick="switchScene('home')">首页</button>
-        <details class="tree-node" open>
-          <summary class="tree-folder">2026春季班</summary>
+        <details class="tree-node">
+          <summary class="tree-folder">有动画</summary>
           <div class="tree-children">
-            <details class="tree-node" open>
-              <summary class="tree-subfolder">竖直上抛运动</summary>
+            <details class="tree-node">
+              <summary class="tree-subfolder">2026春季班</summary>
               <div class="tree-children">
-                <button id="treeDoubleThrow" class="tree-item indent" onclick="switchScene('doubleThrow')">双球上抛相遇</button>
-                <button id="treePipeDrop" class="tree-item indent" onclick="switchScene('pipeDrop')">金属管穿球</button>
-                <button id="treeThreeCar" class="tree-item indent" onclick="switchScene('threeCar')">三车防追尾</button>
+                <details class="tree-node">
+                  <summary class="tree-subfolder">竖直上抛运动</summary>
+                  <div class="tree-children">
+                    <button id="treeDoubleThrow" class="tree-item indent" onclick="switchScene('doubleThrow')">双球上抛相遇</button>
+                    <button id="treePipeDrop" class="tree-item indent" onclick="switchScene('pipeDrop')">金属管穿球</button>
+                    <button id="treeThreeCar" class="tree-item indent" onclick="switchScene('threeCar')">三车防追尾</button>
+                  </div>
+                </details>
+                <details class="tree-node">
+                  <summary class="tree-subfolder">必修一结业测试</summary>
+                  <div class="tree-children">
+                    <button id="treeInclineSlot" class="tree-item indent" onclick="switchScene('inclineSlot')">光滑斜槽下滑</button>
+                  </div>
+                </details>
               </div>
             </details>
-            <details class="tree-node" open>
-              <summary class="tree-subfolder">必修一结业测试</summary>
+            <details class="tree-node">
+              <summary class="tree-subfolder">2026暑假班</summary>
               <div class="tree-children">
-                <button id="treeInclineSlot" class="tree-item indent" onclick="switchScene('inclineSlot')">光滑斜槽下滑</button>
+                <details class="tree-node">
+                  <summary class="tree-subfolder">曲线运动</summary>
+                  <div class="tree-children">
+                    <button id="treeCurveForce" class="tree-item indent" onclick="switchScene('curveForce')">曲线受力方向</button>
+                    <button id="treeMotionCompose" class="tree-item indent" onclick="switchScene('motionCompose')">二维运动合成</button>
+                    <button id="treeRiverCrossing" class="tree-item indent" onclick="switchScene('riverCrossing')">小船渡河</button>
+                    <button id="treeRiverAdvanced" class="tree-item indent" onclick="switchScene('riverAdvanced')">渡河进阶</button>
+                    <button id="treeRainWindow" class="tree-item indent" onclick="switchScene('rainWindow')">车窗雨滴</button>
+                    <button id="treeRodConstraint" class="tree-item indent" onclick="switchScene('rodConstraint')">杆约束速度</button>
+                  </div>
+                </details>
+                <details class="tree-node">
+                  <summary class="tree-subfolder">平抛运动</summary>
+                  <div class="tree-children">
+                    <button id="treeProjectileBasic" class="tree-item indent" onclick="switchScene('projectileBasic')">平抛运动基础</button>
+                    <button id="treeProjectileSlope" class="tree-item indent" onclick="switchScene('projectileSlope')">平抛落斜面</button>
+                    <button id="treeProjectileWindow" class="tree-item indent" onclick="switchScene('projectileWindow')">平抛穿窗</button>
+                    <button id="treeVolleyballServe" class="tree-item indent" onclick="switchScene('volleyballServe')">排球过网落点</button>
+                    <button id="treeDartTarget" class="tree-item indent" onclick="switchScene('dartTarget')">飞镖垂直命中</button>
+                    <button id="treeProjectileNormal" class="tree-item indent" onclick="switchScene('projectileNormal')">垂直打斜面</button>
+                    <button id="treeProjectileBounce" class="tree-item indent" onclick="switchScene('projectileBounce')">反弹过挡板</button>
+                    <button id="treeSemiCircleThrow" class="tree-item indent" onclick="switchScene('semiCircleThrow')">平抛落圆弧</button>
+                  </div>
+                </details>
+                <details class="tree-node">
+                  <summary class="tree-subfolder">圆周运动</summary>
+                  <div class="tree-children">
+                    <button id="treeBulletCylinder" class="tree-item indent" onclick="switchScene('bulletCylinder')">子弹穿旋转圆筒</button>
+                    <button id="treeBikeGear" class="tree-item indent" onclick="switchScene('bikeGear')">变速自行车传动</button>
+                  </div>
+                </details>
               </div>
             </details>
           </div>
         </details>
-        <details class="tree-node" open>
-          <summary class="tree-folder">2026暑假班</summary>
-          <div class="tree-children">
-            <details class="tree-node" open>
-              <summary class="tree-subfolder">曲线运动</summary>
-              <div class="tree-children">
-                <button id="treeCurveForce" class="tree-item indent" onclick="switchScene('curveForce')">曲线受力方向</button>
-                <button id="treeMotionCompose" class="tree-item indent" onclick="switchScene('motionCompose')">二维运动合成</button>
-                <button id="treeRiverCrossing" class="tree-item indent" onclick="switchScene('riverCrossing')">小船渡河</button>
-                <button id="treeRiverAdvanced" class="tree-item indent" onclick="switchScene('riverAdvanced')">渡河进阶</button>
-                <button id="treeRainWindow" class="tree-item indent" onclick="switchScene('rainWindow')">车窗雨滴</button>
-                <button id="treeRodConstraint" class="tree-item indent" onclick="switchScene('rodConstraint')">杆约束速度</button>
-              </div>
-            </details>
-            <details class="tree-node" open>
-              <summary class="tree-subfolder">平抛运动</summary>
-              <div class="tree-children">
-                <button id="treeProjectileBasic" class="tree-item indent" onclick="switchScene('projectileBasic')">平抛运动基础</button>
-                <button id="treeProjectileSlope" class="tree-item indent" onclick="switchScene('projectileSlope')">平抛落斜面</button>
-                <button id="treeProjectileWindow" class="tree-item indent" onclick="switchScene('projectileWindow')">平抛穿窗</button>
-                <button id="treeVolleyballServe" class="tree-item indent" onclick="switchScene('volleyballServe')">排球过网落点</button>
-                <button id="treeDartTarget" class="tree-item indent" onclick="switchScene('dartTarget')">飞镖垂直命中</button>
-                <button id="treeProjectileNormal" class="tree-item indent" onclick="switchScene('projectileNormal')">垂直打斜面</button>
-                <button id="treeProjectileBounce" class="tree-item indent" onclick="switchScene('projectileBounce')">反弹过挡板</button>
-                <button id="treeSemiCircleThrow" class="tree-item indent" onclick="switchScene('semiCircleThrow')">平抛落圆弧</button>
-              </div>
-            </details>
-            <details class="tree-node" open>
-              <summary class="tree-subfolder">圆周运动</summary>
-              <div class="tree-children">
-                <div class="tree-item indent tree-static">圆周运动基本量</div>
-                <button id="treeBulletCylinder" class="tree-item indent" onclick="switchScene('bulletCylinder')">子弹穿旋转圆筒</button>
-                <button id="treeBikeGear" class="tree-item indent" onclick="switchScene('bikeGear')">变速自行车传动</button>
-                <div class="tree-item indent tree-static">汽车过弯最大速度</div>
-                <div class="tree-item indent tree-static">圆锥摆与碗面约束</div>
-                <div class="tree-item indent tree-static">转台静摩擦临界</div>
-                <div class="tree-item indent tree-static">竖直平面圆周</div>
-                <div class="tree-item indent tree-static">旋转飞椅</div>
-              </div>
-            </details>
-          </div>
+        <details id="jsonProblemTree" class="tree-node" hidden>
+          <summary class="tree-folder">无动画</summary>
+          <div id="jsonProblemTreeChildren" class="tree-children"></div>
         </details>
       </aside>
 

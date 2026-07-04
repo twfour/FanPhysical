@@ -1,0 +1,73 @@
+{
+  "slug": "example6",
+  "originalNumber": "例6",
+  "skip": false,
+  "skipReason": "",
+  "model": "皮带传动向心加速度",
+  "id": "circular_motion_example6",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 皮带传动向心加速度",
+  "question": "如图所示，一个大轮通过皮带拉着小轮转动，皮带和两轮之间无滑动，大轮的半径是小轮的2倍，大轮上的一点s离转动轴的距离是半径的一半，当大轮边缘上P点的向心加速度是\\(10\\mathrm{m/s^2}\\)时，大轮上的S点和小轮上的Q点的向心加速度为\\(a_S=\\)____\\(\\mathrm{m/s^2}\\)，\\(a_Q=\\)____\\(\\mathrm{m/s^2}\\)。（附图：大小两轮通过皮带传动的示意图，大轮上标有P、S、O，小轮上标有Q、O'【待校对】）",
+  "options": [],
+  "answer": "\\(a_S=5\\mathrm{m/s^2},\\ a_Q=20\\mathrm{m/s^2}\\)",
+  "analysis": {
+    "title": "解题思路",
+    "content": "利用同轴转动角速度相等的性质计算大轮上S点的向心加速度；利用皮带传动线速度相等的性质计算小轮上Q点的向心加速度。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "向心加速度",
+    "同轴转动角速度相同",
+    "皮带传动线速度相同"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "例6",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分析大轮上P和S",
+      "content": "P和S在同一圆盘上，角速度相等\\(\\omega\\)。向心加速度\\(a = \\omega^2 r\\)。已知\\(a_P=10\\ \\mathrm{m/s^2}\\)，半径\\(r_P = R\\)（大轮半径）。S离轴距离\\(r_S = R/2\\)，所以\\(a_S = (r_S/r_P) \\cdot a_P = (R/2)/R \\times 10 = 5\\ \\mathrm{m/s^2}\\)。",
+      "knowledge": [
+        "向心加速度与半径的关系（角速度相同）"
+      ],
+      "commonMistakes": [
+        "误以为a与半径成正比，需注意是线速度还是角速度"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "分析P和Q（皮带传动）",
+      "content": "皮带无滑动，所以P和Q的线速度相等\\(v_P = v_Q\\)。对于P，\\(v_P = \\omega R\\)，向心加速度\\(a_P = v_P^2/R\\)；对于Q，\\(a_Q = v_Q^2/r\\)，\\(r = R/2\\)（小轮半径是大轮一半）。由v相等得\\(a_Q = (v^2/r) = (v^2/(R/2)) = 2(v^2/R) = 2a_P = 20\\ \\mathrm{m/s^2}\\)。",
+      "knowledge": [
+        "皮带传动线速度相等",
+        "向心加速度与线速度和半径的关系"
+      ],
+      "commonMistakes": [
+        "误以为向心加速度相等"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "本题考查了同轴转动和皮带传动中向心加速度的计算，需区分角速度相同和线速度相同两种情形。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7022/例6_q6_img1.jpg",
+      "alt": "大小两轮通过皮带传动的示意图，大轮上标有P、S、O，小轮上标有Q、O'",
+      "caption": "大小两轮通过皮带传动的示意图，大轮上标有P、S、O，小轮上标有Q、O'",
+      "source": "IMG_7022_part02_clean.jpg",
+      "questionNo": "例6"
+    }
+  ]
+}

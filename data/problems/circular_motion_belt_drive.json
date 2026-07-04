@@ -1,0 +1,69 @@
+{
+  "slug": "belt_drive",
+  "originalNumber": "例6",
+  "skip": false,
+  "skipReason": "",
+  "model": "皮带传动模型",
+  "id": "circular_motion_belt_drive",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 皮带传动向心加速度",
+  "question": "例6.如图所示,一个大轮通过皮带拉着小轮转动,皮带和两轮之间无滑动,大轮的半径是小轮的2倍,大轮上的一点s离转动轴的距离是半径的一半,当大轮边缘上P点的向心加速度是10m/s²时,大轮上的S点和小轮上的Q点的向心加速度为a_S=______m/s², a_Q=______m/s². （附图描述：【待校对】皮带传动装置示意图，左侧为大轮，圆心O，边缘点P，内部点S（S到O的距离为大轮半径的1/2）；右侧为小轮，圆心O'，边缘点Q，两轮通过皮带连接）",
+  "options": [],
+  "answer": "5 m/s², 20 m/s²",
+  "analysis": {
+    "title": "解析",
+    "content": "同轴转动角速度相等，\\(a_S = a_P \\times \\frac{r_S}{r_P} = 10 \\times \\frac{1}{2} = 5\\text{m/s}^2\\)。皮带传动线速度相等，\\(a_Q = a_P \\times \\frac{r_P}{r_Q} = 10 \\times \\frac{2}{1} = 20\\text{m/s}^2\\)。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "向心加速度",
+    "皮带传动",
+    "同轴转动"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "例6",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分析P和S",
+      "content": "P和S在同轴大轮上，角速度相同。设大轮半径为\\(R\\)，则\\(a_P=\\omega^2R=10\\,\\text{m/s}^2\\)，\\(r_S=R/2\\)，故\\(a_S=\\omega^2\\cdot(R/2)=a_P/2=5\\,\\text{m/s}^2\\)。",
+      "knowledge": [
+        "向心加速度",
+        "同轴转动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "分析P和Q",
+      "content": "皮带传动不打滑，P、Q线速度相等。小轮半径\\(r_Q=R/2\\)。\\(a_P=v^2/R\\)，\\(a_Q=v^2/r_Q=v^2/(R/2)=2v^2/R=2a_P=20\\,\\text{m/s}^2\\)。",
+      "knowledge": [
+        "皮带传动"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "本题关键是区分同轴转动（角速度相等）和皮带传动（线速度相等），灵活运用向心加速度公式。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7022/例6_q6_img1.jpg",
+      "alt": "大小两轮通过皮带传动的示意图，大轮上标有P、S、O，小轮上标有Q、O'",
+      "caption": "大小两轮通过皮带传动的示意图，大轮上标有P、S、O，小轮上标有Q、O'",
+      "source": "IMG_7022_part02_clean.jpg",
+      "questionNo": "例6"
+    }
+  ]
+}

@@ -311,6 +311,7 @@ function setup() {
   textFont('"Noto Sans SC", "Microsoft YaHei", sans-serif');
   loadProblemData().then(function () {
     renderProblemDataNotes();
+    renderProblemDataTree();
     renderProblemDataHome();
     enhanceProblemNotes();
     switchScene(currentScene);
@@ -506,6 +507,9 @@ function switchScene(sceneName) {
   document.getElementById("treeSemiCircleThrow").className = sceneName === "semiCircleThrow" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeBulletCylinder").className = sceneName === "bulletCylinder" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeBikeGear").className = sceneName === "bikeGear" ? "tree-item indent active" : "tree-item indent";
+  document.querySelectorAll(".tree-item[data-scene]").forEach(function (item) {
+    item.className = item.dataset.scene === sceneName ? "tree-item indent active" : "tree-item indent";
+  });
 
   document.getElementById("homePanel").style.display = sceneName === "home" ? "block" : "none";
   document.getElementById("canvas-holder").style.display = shouldShowCanvas(sceneName) ? "block" : "none";
@@ -631,7 +635,38 @@ function createProblemQuestionBlock(problem) {
       return "- " + option;
     }).join("\n"));
   }
-  return createProblemNoteBlock("题目", problem.title, parts.filter(Boolean).join("\n\n"));
+  var block = createProblemNoteBlock("题目", problem.title, parts.filter(Boolean).join("\n\n"));
+  appendProblemImages(block, problem.images);
+  return block;
+}
+
+function appendProblemImages(block, images) {
+  if (!block || !Array.isArray(images) || !images.length) {
+    return;
+  }
+  var gallery = document.createElement("div");
+  gallery.className = "problem-image-gallery";
+  images.forEach(function (image) {
+    if (!image || !image.src) {
+      return;
+    }
+    var figure = document.createElement("figure");
+    figure.className = "problem-image-figure";
+    var img = document.createElement("img");
+    img.src = "/" + String(image.src).replace(/^\/+/, "");
+    img.alt = image.alt || image.caption || "题图";
+    img.loading = "lazy";
+    figure.appendChild(img);
+    if (image.caption) {
+      var caption = document.createElement("figcaption");
+      caption.innerText = image.caption;
+      figure.appendChild(caption);
+    }
+    gallery.appendChild(figure);
+  });
+  if (gallery.children.length) {
+    block.appendChild(gallery);
+  }
 }
 
 function createProblemAnimationBlock(problem) {
@@ -739,6 +774,65 @@ function renderProblemDataHome() {
     grid.appendChild(button);
   });
   homePanel.appendChild(section);
+}
+
+function renderProblemDataTree() {
+  var tree = document.getElementById("jsonProblemTree");
+  var container = document.getElementById("jsonProblemTreeChildren");
+  if (!tree || !container) {
+    return;
+  }
+  container.innerHTML = "";
+  tree.hidden = !problemDataList.length;
+  if (!problemDataList.length) {
+    return;
+  }
+
+  var groups = {};
+  problemDataList.forEach(function (problem) {
+    var chapter = problem.chapter || "未分类";
+    if (!groups[chapter]) {
+      groups[chapter] = [];
+    }
+    groups[chapter].push(problem);
+  });
+
+  Object.keys(groups).sort(function (a, b) {
+    return a.localeCompare(b, "zh-CN");
+  }).forEach(function (chapter) {
+    var chapterNode = document.createElement("details");
+    chapterNode.className = "tree-node";
+    var summary = document.createElement("summary");
+    summary.className = "tree-subfolder";
+    summary.innerText = chapter;
+    var children = document.createElement("div");
+    children.className = "tree-children";
+    groups[chapter].forEach(function (problem) {
+      var button = document.createElement("button");
+      button.type = "button";
+      button.id = "treeJson" + toPascalId(problem.id);
+      button.className = "tree-item indent";
+      button.dataset.scene = problem.id;
+      button.innerText = problem.title || problem.id;
+      button.onclick = function () {
+        switchScene(problem.id);
+      };
+      children.appendChild(button);
+    });
+    chapterNode.appendChild(summary);
+    chapterNode.appendChild(children);
+    container.appendChild(chapterNode);
+  });
+}
+
+function toPascalId(value) {
+  return String(value || "")
+    .split(/[^a-zA-Z0-9]+/)
+    .filter(Boolean)
+    .map(function (part) {
+      return part.charAt(0).toUpperCase() + part.slice(1);
+    })
+    .join("");
 }
 
 function createProblemNoteBlock(kicker, title, content) {

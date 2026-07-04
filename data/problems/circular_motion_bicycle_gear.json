@@ -1,0 +1,87 @@
+{
+  "slug": "bicycle_gear",
+  "originalNumber": "例3",
+  "skip": false,
+  "skipReason": "",
+  "model": "自行车传动比模型",
+  "id": "circular_motion_bicycle_gear",
+  "chapter": "圆周运动",
+  "title": "Circular Motion - 变速自行车脚踏板角速度",
+  "question": "如图所示，某种变速自行车，有五个飞轮和三个链轮，链轮和飞轮的齿数如下所示（链轮齿数：48、38、28；飞轮齿数：15、18、21、24、28），后轮的直径为d=660mm。人骑该车行进的速度为v=4m/s时，脚踩踏板作匀速圆周运动的角速度最小是（） 【待校对：图示描述：变速自行车的脚踏板、链轮、链条、飞轮、后轮的传动结构示意图】",
+  "options": [
+    "A. 1.9rad/s",
+    "B. 3.8rad/s",
+    "C. 6.5rad/s",
+    "D. 7.1rad/s"
+  ],
+  "answer": "",
+  "analysis": {
+    "title": "分析",
+    "content": "自行车传动中，链条线速度相等，链轮与飞轮角速度与齿数成反比。后轮线速度等于自行车速度。要使脚踏板角速度最小，应选齿数比最大的组合（链轮齿数最大，飞轮齿数最小）。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "圆周运动",
+    "传动比",
+    "线速度与角速度"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "例3",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "确定传动关系",
+      "content": "链条线速度相等，链轮边缘线速度等于飞轮边缘线速度，即ω_链×R_链=ω_飞×R_飞，且齿数比等于半径比，故ω_链/ω_飞= N_飞/N_链。",
+      "knowledge": [
+        "线速度",
+        "角速度"
+      ],
+      "commonMistakes": [
+        "误认为角速度与齿数成正比"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "计算后轮角速度",
+      "content": "后轮与飞轮同轴，角速度相等，ω_后=ω_飞。后轮线速度v=ω_后×r，r=d/2=0.33m，所以ω_后=v/r≈4/0.33≈12.12 rad/s。",
+      "knowledge": [
+        "线速度与角速度关系"
+      ],
+      "commonMistakes": [
+        "单位换算错误"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "求最小踏板角速度",
+      "content": "ω_链 = ω_飞 × (N_飞/N_链)。要使ω_链最小，需N_飞最小，N_链最大。取N_链=48，N_飞=15，则ω_链=12.12×(15/48)=12.12×0.3125≈3.7875 rad/s，约为3.8 rad/s。对应选项B。",
+      "knowledge": [
+        "传动比应用"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "本题考察自行车传动系统中角速度与齿数的关系，通过计算链条线速度相等和同轴角速度相等来求解。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7022/例3_q3_img1.jpg",
+      "alt": "变速自行车的脚踏板、链轮、链条、飞轮、后轮的传动结构示意图",
+      "caption": "变速自行车的脚踏板、链轮、链条、飞轮、后轮的传动结构示意图",
+      "source": "IMG_7022_part01_clean.jpg",
+      "questionNo": "例3"
+    }
+  ]
+}
