@@ -23,21 +23,19 @@ function riverMinDisplacementAngle() {
 }
 
 function toggleRiverPlay() {
+  if (!riverPlaying && riverT >= riverArriveTime() - 0.02) {
+    riverT = 0;
+  }
   riverPlaying = !riverPlaying;
   updateLabels();
 }
 
-function resetRiverTime() {
-  riverT = 0;
-  riverPlaying = false;
-  updateLabels();
-}
 
 function updateRiver(dt) {
   if (riverPlaying) {
     riverT += dt * 4;
     if (riverT >= riverArriveTime()) {
-      riverT = riverArriveTime();
+      riverT = 0;
       riverPlaying = false;
     }
     updateLabels();
@@ -371,21 +369,19 @@ function composeY(t) {
 }
 
 function toggleComposePlay() {
+  if (!composePlaying && composeT >= composeMaxT - 0.02) {
+    composeT = 0;
+  }
   composePlaying = !composePlaying;
   updateLabels();
 }
 
-function resetComposeTime() {
-  composeT = 0;
-  composePlaying = false;
-  updateLabels();
-}
 
 function updateCompose(dt) {
   if (composePlaying) {
     composeT += dt;
     if (composeT >= composeMaxT) {
-      composeT = composeMaxT;
+      composeT = 0;
       composePlaying = false;
     }
     updateLabels();
@@ -508,21 +504,19 @@ function advRiverBestTheta() {
 }
 
 function toggleAdvRiverPlay() {
+  if (!advRiverPlaying && advRiverT >= advRiverArriveTime() - 0.02) {
+    advRiverT = 0;
+  }
   advRiverPlaying = !advRiverPlaying;
   updateLabels();
 }
 
-function resetAdvRiverTime() {
-  advRiverT = 0;
-  advRiverPlaying = false;
-  updateLabels();
-}
 
 function updateAdvRiver(dt) {
   if (advRiverPlaying) {
     advRiverT += dt * 4;
     if (advRiverT >= advRiverArriveTime()) {
-      advRiverT = advRiverArriveTime();
+      advRiverT = 0;
       advRiverPlaying = false;
     }
     updateLabels();
@@ -707,5 +701,3 @@ function drawRodConstraintGraph() {
   line(cx + 28, cy + 55, cx + 28 - rodUx * proj, cy + 55 - rodUy * proj);
   drawingContext.setLineDash([]);
 }
-
-

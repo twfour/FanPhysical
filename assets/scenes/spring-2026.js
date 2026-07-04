@@ -3,11 +3,6 @@ function togglePipeDropPlay() {
   updateLabels();
 }
 
-function resetPipeDropTime() {
-  pipeT = 0;
-  pipePlaying = false;
-  updateLabels();
-}
 
 function pipeLandTime() {
   return 2 * pipeV0 / pipeG;
@@ -54,7 +49,7 @@ function updatePipeDrop(dt) {
   if (pipePlaying) {
     pipeT += dt;
     if (pipeT >= pipeMaxT || pipeT >= pipeLandTime()) {
-      pipeT = Math.min(pipeMaxT, pipeLandTime());
+      pipeT = 0;
       pipePlaying = false;
     }
     updateLabels();
@@ -290,11 +285,6 @@ function toggleThreeCarPlay() {
   updateLabels();
 }
 
-function resetThreeCarTime() {
-  carT = 0;
-  carPlaying = false;
-  updateLabels();
-}
 
 function carStopTime(v0, a) {
   return v0 / a;
@@ -332,7 +322,7 @@ function updateThreeCar(dt) {
   if (carPlaying) {
     carT += dt;
     if (carT >= carMaxT) {
-      carT = carMaxT;
+      carT = 0;
       carPlaying = false;
     }
     updateLabels();
@@ -559,17 +549,12 @@ function toggleDoubleThrowPlay() {
   updateLabels();
 }
 
-function resetDoubleThrowTime() {
-  throwT = 0;
-  throwPlaying = false;
-  updateLabels();
-}
 
 function updateDoubleThrow(dt) {
   if (throwPlaying) {
     throwT += dt;
     if (throwT >= throwMaxT) {
-      throwT = throwMaxT;
+      throwT = 0;
       throwPlaying = false;
     }
     updateLabels();
@@ -803,17 +788,12 @@ function toggleInclineSlotPlay() {
   updateLabels();
 }
 
-function resetInclineSlotTime() {
-  slotT = 0;
-  slotPlaying = false;
-  updateLabels();
-}
 
 function updateInclineSlot(dt) {
   if (slotPlaying) {
     slotT += dt;
     if (slotT >= slotMaxT) {
-      slotT = slotMaxT;
+      slotT = 0;
       slotPlaying = false;
     }
     updateLabels();
@@ -1055,5 +1035,4 @@ function drawInclineSlotCurve(gx, gy, gw, gh, tMax, yMin, yMax, kind) {
   }
   endShape();
 }
-
 

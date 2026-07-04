@@ -19,17 +19,12 @@ function toggleBulletPlay() {
   updateLabels();
 }
 
-function resetBulletTime() {
-  bulletT = 0;
-  bulletPlaying = false;
-  updateLabels();
-}
 
 function updateBullet(dt) {
   if (bulletPlaying) {
     bulletT += dt;
     if (bulletT >= bulletTransitTime()) {
-      bulletT = bulletTransitTime();
+      bulletT = 0;
       bulletPlaying = false;
     }
     updateLabels();
@@ -175,17 +170,12 @@ function toggleBikeGearPlay() {
   updateLabels();
 }
 
-function resetBikeGearTime() {
-  bikeGearT = 0;
-  bikeGearPlaying = false;
-  updateLabels();
-}
 
 function updateBikeGear(dt) {
   if (bikeGearPlaying) {
     bikeGearT += dt;
     if (bikeGearT >= 6) {
-      bikeGearT = 6;
+      bikeGearT = 0;
       bikeGearPlaying = false;
     }
     updateLabels();
@@ -336,3 +326,180 @@ function drawBikeGearGraph() {
   text("原题最小值：48/15，ωmin = " + minVal.toFixed(2) + " rad/s ≈ 3.8 rad/s", gx + 10, gy + 34);
 }
 
+function pilePeriod() {
+  return 2 * Math.PI / Math.max(0.1, pileOmega);
+}
+
+function pileAngle() {
+  return pileOmega * pileT - Math.PI / 2;
+}
+
+function pileCriticalOmega() {
+  return Math.sqrt((pileM + pilem) * pileG / Math.max(0.01, pilem * pileL));
+}
+
+function pileSpeed() {
+  return pileOmega * pileL;
+}
+
+function pileCentripetalAcceleration() {
+  return pileOmega * pileOmega * pileL;
+}
+
+function pileGroundForceAtAngle(angle) {
+  return (pileM + pilem) * pileG + pilem * pileOmega * pileOmega * pileL * Math.sin(angle);
+}
+
+function pileCurrentGroundForce() {
+  return pileGroundForceAtAngle(pileAngle());
+}
+
+function togglePilePlay() {
+  pilePlaying = !pilePlaying;
+  updateLabels();
+}
+
+
+function updatePile(dt) {
+  if (pilePlaying) {
+    pileT += dt;
+    if (pileT >= pilePeriod()) {
+      pileT = 0;
+      pilePlaying = false;
+    }
+    updateLabels();
+  }
+}
+
+function drawPileScene() {
+  var pivotX = 292;
+  var pivotY = 205;
+  var r = pileL * 78;
+  var angle = pileAngle();
+  var ballX = pivotX + r * Math.cos(angle);
+  var ballY = pivotY + r * Math.sin(angle);
+  var groundY = 410;
+  var bodyTop = pivotY + 6;
+  var bodyLeft = pivotX - 92;
+  var bodyRight = pivotX + 92;
+  var nNow = pileCurrentGroundForce();
+  var nMin = (pileM + pilem) * pileG - pilem * pileOmega * pileOmega * pileL;
+  var nMax = (pileM + pilem) * pileG + pilem * pileOmega * pileOmega * pileL;
+  var i;
+
+  stroke("#111827");
+  strokeWeight(3);
+  line(60, groundY, 520, groundY);
+  line(bodyLeft, groundY, pivotX - 48, bodyTop);
+  line(bodyRight, groundY, pivotX + 48, bodyTop);
+  line(pivotX - 48, bodyTop, pivotX + 48, bodyTop);
+  noStroke();
+  fill("#f1f5f9");
+  rect(bodyLeft + 18, bodyTop + 30, bodyRight - bodyLeft - 36, groundY - bodyTop - 30, 8);
+
+  stroke("#cbd5e1");
+  strokeWeight(1.5);
+  noFill();
+  circle(pivotX, pivotY, 2 * r);
+
+  stroke("#2563eb");
+  strokeWeight(5);
+  line(pivotX, pivotY, ballX, ballY);
+
+  noStroke();
+  fill("#111827");
+  circle(pivotX, pivotY, 18);
+  fill("#f97316");
+  circle(ballX, ballY, 30);
+  fill("#ffedd5");
+  circle(ballX - 6, ballY - 7, 8);
+
+  drawVectorArrow(ballX, ballY, (pivotX - ballX) * 0.34, (pivotY - ballY) * 0.34, "#dc2626", "a向");
+  drawVectorArrow(bodyRight + 30, groundY, 0, -Math.min(95, Math.max(12, nNow * 0.8)), nNow >= 0 ? "#16a34a" : "#dc2626", "N");
+
+  stroke("#94a3b8");
+  strokeWeight(1);
+  drawingContext.setLineDash([4, 4]);
+  line(pivotX - r - 24, pivotY + r, pivotX + r + 24, pivotY + r);
+  line(pivotX - r - 24, pivotY - r, pivotX + r + 24, pivotY - r);
+  drawingContext.setLineDash([]);
+
+  noStroke();
+  fill("#5b6472");
+  textAlign(LEFT, TOP);
+  textSize(12);
+  text("最低点：N最大", pivotX + r + 10, pivotY + r - 10);
+  text("最高点：N最小", pivotX + r + 10, pivotY - r - 10);
+  text("v=ωl=" + pileSpeed().toFixed(1), 42, 46);
+  text("a=ω²l=" + pileCentripetalAcceleration().toFixed(1), 42, 70);
+  text("N当前=" + nNow.toFixed(1), 42, 94);
+  text("Nmin=" + nMin.toFixed(1) + "，Nmax=" + nMax.toFixed(1), 42, 118);
+
+  noFill();
+  stroke("#e2e8f0");
+  strokeWeight(1);
+  for (i = 0; i < 3; i++) {
+    line(60 + i * 150, groundY + 6, 105 + i * 150, groundY + 6);
+  }
+}
+
+function drawPileGraph() {
+  var gx = graphLeft + 50;
+  var gy = 64;
+  var gw = graphRight - graphLeft - 84;
+  var gh = 334;
+  var base = (pileM + pilem) * pileG;
+  var amp = pilem * pileOmega * pileOmega * pileL;
+  var yMin = Math.min(0, base - amp) - 8;
+  var yMax = base + amp + 12;
+  var angle = pileAngle();
+  var xNow = ((angle + Math.PI / 2) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
+  var i;
+
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(18);
+  text("地面支持力-转角图像", graphLeft + 24, 20);
+  fill("#5b6472");
+  textSize(12);
+  text("N = (M+m)g + mω²l sinθ；最低点最大，最高点最小", graphLeft + 24, 44);
+
+  drawBasicGrid(gx, gy, gw, gh);
+  drawGraphTicks(gx, gy, gw, gh, 2 * Math.PI, yMax - yMin, "rad");
+
+  var zeroY = map(0, yMin, yMax, gy + gh, gy);
+  stroke("#dc2626");
+  strokeWeight(1.3);
+  drawingContext.setLineDash([4, 4]);
+  line(gx, zeroY, gx + gw, zeroY);
+  drawingContext.setLineDash([]);
+
+  stroke("#2563eb");
+  strokeWeight(2.5);
+  noFill();
+  beginShape();
+  for (i = 0; i <= 180; i++) {
+    var x = i * 2 * Math.PI / 180;
+    var a = x - Math.PI / 2;
+    var n = pileGroundForceAtAngle(a);
+    vertex(map(x, 0, 2 * Math.PI, gx, gx + gw), map(n, yMin, yMax, gy + gh, gy));
+  }
+  endShape();
+
+  var markerX = map(xNow, 0, 2 * Math.PI, gx, gx + gw);
+  var markerY = map(pileCurrentGroundForce(), yMin, yMax, gy + gh, gy);
+  stroke("#f97316");
+  strokeWeight(1.8);
+  line(markerX, gy, markerX, gy + gh);
+  noStroke();
+  fill("#f97316");
+  circle(markerX, markerY, 9);
+
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(12);
+  text("ω临界 = " + pileCriticalOmega().toFixed(2), gx + 12, gy + 12);
+  text("当前 ω = " + pileOmega.toFixed(1), gx + 12, gy + 34);
+  text(pileOmega >= pileCriticalOmega() ? "最高点可能离地：Nmin≤0" : "最高点仍压地：Nmin>0", gx + 12, gy + 56);
+}

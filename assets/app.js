@@ -79,6 +79,10 @@ var modelSourceMap = {
   bikeGear: {
     title: "2026暑假班 / 圆周运动",
     text: "课上第3题"
+  },
+  pileDriver: {
+    title: "2026暑假班 / 圆周运动",
+    text: "第9题"
   }
 };
 
@@ -102,7 +106,8 @@ var knowledgePointMap = {
   projectileBounce: ["平抛运动", "碰撞反弹", "分段运动"],
   semiCircleThrow: ["平抛运动", "圆弧坐标", "速度比"],
   bulletCylinder: ["圆周运动", "角速度", "穿筒时间"],
-  bikeGear: ["圆周运动", "链传动", "角速度"]
+  bikeGear: ["圆周运动", "链传动", "角速度"],
+  pileDriver: ["圆周运动", "向心力", "超重与失重"]
 };
 
 var problemDataMap = {};
@@ -130,7 +135,8 @@ var legacySceneMap = {
   rodConstraint: true,
   semiCircleThrow: true,
   bulletCylinder: true,
-  bikeGear: true
+  bikeGear: true,
+  pileDriver: true
 };
 var jsonAnimationState = {};
 
@@ -300,6 +306,14 @@ var bikeFlyTeeth = 15;
 var bikeGearT = 0;
 var bikeGearPlaying = false;
 
+var pileM = 6;
+var pilem = 2;
+var pileL = 1.2;
+var pileOmega = 4;
+var pileG = 10;
+var pileT = 0;
+var pilePlaying = false;
+
 var simTime = 0;
 var lastMillis = 0;
 var graphWindow = 14;
@@ -466,6 +480,12 @@ function draw() {
     drawBikeGearGraph();
   }
 
+  if (currentScene === "pileDriver") {
+    updatePile(dt);
+    drawAnimScene(drawPileScene);
+    drawPileGraph();
+  }
+
   if (isJsonProblemScene(currentScene)) {
     updateJsonAnimation(dt);
     drawJsonAnimationScene();
@@ -507,6 +527,7 @@ function switchScene(sceneName) {
   document.getElementById("treeSemiCircleThrow").className = sceneName === "semiCircleThrow" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeBulletCylinder").className = sceneName === "bulletCylinder" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeBikeGear").className = sceneName === "bikeGear" ? "tree-item indent active" : "tree-item indent";
+  document.getElementById("treePileDriver").className = sceneName === "pileDriver" ? "tree-item indent active" : "tree-item indent";
   document.querySelectorAll(".tree-item[data-scene]").forEach(function (item) {
     item.className = item.dataset.scene === sceneName ? "tree-item indent active" : "tree-item indent";
   });
@@ -536,6 +557,7 @@ function switchScene(sceneName) {
   document.getElementById("semiCircleThrowControls").style.display = sceneName === "semiCircleThrow" ? "grid" : "none";
   document.getElementById("bulletCylinderControls").style.display = sceneName === "bulletCylinder" ? "grid" : "none";
   document.getElementById("bikeGearControls").style.display = sceneName === "bikeGear" ? "grid" : "none";
+  document.getElementById("pileDriverControls").style.display = sceneName === "pileDriver" ? "grid" : "none";
   renderJsonAnimationControls(sceneName);
   document.getElementById("doubleThrowNotes").style.display = sceneName === "doubleThrow" ? "block" : "none";
   document.getElementById("pipeDropNotes").style.display = sceneName === "pipeDrop" ? "block" : "none";
@@ -557,6 +579,7 @@ function switchScene(sceneName) {
   document.getElementById("semiCircleThrowNotes").style.display = sceneName === "semiCircleThrow" ? "block" : "none";
   document.getElementById("bulletCylinderNotes").style.display = sceneName === "bulletCylinder" ? "block" : "none";
   document.getElementById("bikeGearNotes").style.display = sceneName === "bikeGear" ? "block" : "none";
+  document.getElementById("pileDriverNotes").style.display = sceneName === "pileDriver" ? "block" : "none";
   document.querySelectorAll(".problem-notes").forEach(function (note) {
     note.style.display = note.id === sceneName + "Notes" ? "block" : "none";
   });
@@ -1257,17 +1280,6 @@ function renderJsonAnimationControls(sceneName) {
       syncJsonTimeControl(sceneName);
     };
     container.appendChild(play);
-
-    var reset = document.createElement("button");
-    reset.type = "button";
-    reset.className = "action";
-    reset.innerText = "回到 0 秒";
-    reset.onclick = function () {
-      state.time = 0;
-      state.playing = false;
-      syncJsonTimeControl(sceneName);
-    };
-    container.appendChild(reset);
   }
   if (animation.notes) {
     var meta = document.createElement("div");
@@ -1349,7 +1361,7 @@ function updateJsonAnimation(dt) {
     if ((animation.timeline || {}).loop) {
       state.time = 0;
     } else {
-      state.time = duration;
+      state.time = 0;
       state.playing = false;
     }
   }
@@ -2283,6 +2295,16 @@ function updateLabels() {
   document.getElementById("bikeChainTeeth").value = bikeChainTeeth.toFixed(0);
   document.getElementById("bikeFlyTeeth").value = bikeFlyTeeth.toFixed(0);
   document.getElementById("bikeGearPlayBtn").innerText = bikeGearPlaying ? "暂停" : "播放";
+  pileT = Math.min(pileT, pilePeriod());
+  document.getElementById("pileMVal").innerText = pileM.toFixed(1);
+  document.getElementById("pilemVal").innerText = pilem.toFixed(1);
+  document.getElementById("pileLVal").innerText = pileL.toFixed(1);
+  document.getElementById("pileOmegaVal").innerText = pileOmega.toFixed(1);
+  document.getElementById("pileGVal").innerText = pileG.toFixed(1);
+  document.getElementById("pileTVal").innerText = pileT.toFixed(2) + "s";
+  document.getElementById("pileT").max = Math.max(1, pilePeriod()).toFixed(2);
+  document.getElementById("pileT").value = pileT.toFixed(2);
+  document.getElementById("pilePlayBtn").innerText = pilePlaying ? "暂停" : "播放";
 }
 
 function drawLayout() {

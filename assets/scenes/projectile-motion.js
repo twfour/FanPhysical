@@ -15,21 +15,19 @@ function projectileVY(t) {
 }
 
 function toggleProjectilePlay() {
+  if (!projPlaying && projT >= projectileFlightTime() - 0.02) {
+    projT = 0;
+  }
   projPlaying = !projPlaying;
   updateLabels();
 }
 
-function resetProjectileTime() {
-  projT = 0;
-  projPlaying = false;
-  updateLabels();
-}
 
 function updateProjectile(dt) {
   if (projPlaying) {
     projT += dt;
     if (projT >= projectileFlightTime()) {
-      projT = projectileFlightTime();
+      projT = 0;
       projPlaying = false;
     }
     updateLabels();
@@ -213,21 +211,19 @@ function slopeMaxTime() {
 }
 
 function toggleSlopePlay() {
+  if (!slopePlaying && slopeT >= slopeMaxTime() - 0.02) {
+    slopeT = 0;
+  }
   slopePlaying = !slopePlaying;
   updateLabels();
 }
 
-function resetSlopeTime() {
-  slopeT = 0;
-  slopePlaying = false;
-  updateLabels();
-}
 
 function updateSlope(dt) {
   if (slopePlaying) {
     slopeT += dt;
     if (slopeT >= slopeMaxTime()) {
-      slopeT = slopeMaxTime();
+      slopeT = 0;
       slopePlaying = false;
     }
     updateLabels();
@@ -401,21 +397,19 @@ function windowCanPass() {
 }
 
 function toggleWindowPlay() {
+  if (!winPlaying && winT >= windowEndTime() - 0.02) {
+    winT = 0;
+  }
   winPlaying = !winPlaying;
   updateLabels();
 }
 
-function resetWindowTime() {
-  winT = 0;
-  winPlaying = false;
-  updateLabels();
-}
 
 function updateWindow(dt) {
   if (winPlaying) {
     winT += dt;
     if (winT >= windowEndTime()) {
-      winT = windowEndTime();
+      winT = 0;
       winPlaying = false;
     }
     updateLabels();
@@ -540,21 +534,19 @@ function volleyCanClearAndLand() {
 }
 
 function toggleVolleyPlay() {
+  if (!volleyPlaying && volleyT >= volleyFlightTime() - 0.02) {
+    volleyT = 0;
+  }
   volleyPlaying = !volleyPlaying;
   updateLabels();
 }
 
-function resetVolleyTime() {
-  volleyT = 0;
-  volleyPlaying = false;
-  updateLabels();
-}
 
 function updateVolley(dt) {
   if (volleyPlaying) {
     volleyT += dt;
     if (volleyT >= volleyFlightTime()) {
-      volleyT = volleyFlightTime();
+      volleyT = 0;
       volleyPlaying = false;
     }
     updateLabels();
@@ -737,21 +729,19 @@ function dartYAtTime(t) {
 }
 
 function toggleDartPlay() {
+  if (!dartPlaying && dartT >= dartFlightTime() - 0.02) {
+    dartT = 0;
+  }
   dartPlaying = !dartPlaying;
   updateLabels();
 }
 
-function resetDartTime() {
-  dartT = 0;
-  dartPlaying = false;
-  updateLabels();
-}
 
 function updateDart(dt) {
   if (dartPlaying) {
     dartT += dt;
     if (dartT >= dartFlightTime()) {
-      dartT = dartFlightTime();
+      dartT = 0;
       dartPlaying = false;
     }
     updateLabels();
@@ -929,21 +919,19 @@ function normalHeightMN() {
 }
 
 function toggleNormalPlay() {
+  if (!normalPlaying && normalT >= normalSceneMaxTime() - 0.02) {
+    normalT = 0;
+  }
   normalPlaying = !normalPlaying;
   updateLabels();
 }
 
-function resetNormalTime() {
-  normalT = 0;
-  normalPlaying = false;
-  updateLabels();
-}
 
 function updateNormal(dt) {
   if (normalPlaying) {
     normalT += dt;
     if (normalT >= normalSceneMaxTime()) {
-      normalT = normalSceneMaxTime();
+      normalT = 0;
       normalPlaying = false;
     }
     updateLabels();
@@ -1161,21 +1149,19 @@ function bounceYDirectAtX(x) {
 }
 
 function toggleBouncePlay() {
+  if (!bouncePlaying && bounceT >= bounceTotalTime() - 0.02) {
+    bounceT = 0;
+  }
   bouncePlaying = !bouncePlaying;
   updateLabels();
 }
 
-function resetBounceTime() {
-  bounceT = 0;
-  bouncePlaying = false;
-  updateLabels();
-}
 
 function updateBounce(dt) {
   if (bouncePlaying) {
     bounceT += dt;
     if (bounceT >= bounceTotalTime()) {
-      bounceT = bounceTotalTime();
+      bounceT = 0;
       bouncePlaying = false;
     }
     updateLabels();

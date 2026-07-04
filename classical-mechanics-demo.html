@@ -79,6 +79,7 @@
                   <div class="tree-children">
                     <button id="treeBulletCylinder" class="tree-item indent" onclick="switchScene('bulletCylinder')">子弹穿旋转圆筒</button>
                     <button id="treeBikeGear" class="tree-item indent" onclick="switchScene('bikeGear')">变速自行车传动</button>
+                    <button id="treePileDriver" class="tree-item indent" onclick="switchScene('pileDriver')">打夯机</button>
                   </div>
                 </details>
               </div>
@@ -288,6 +289,10 @@
             <strong>变速自行车传动</strong>
             <span>暑假课时3 / 第3题</span>
           </button>
+          <button class="home-card" onclick="switchScene('pileDriver')">
+            <strong>打夯机</strong>
+            <span>课后 B组 / 第9题</span>
+          </button>
           <div class="home-card home-static">
             <strong>汽车过弯最大速度</strong>
             <span>暑假课时3 / 第7题；课后 A组第6题</span>
@@ -390,7 +395,6 @@
         <span id="pipeTVal" class="value">3.0s</span>
       </div>
       <button id="pipePlayBtn" class="action" onclick="togglePipeDropPlay()">播放</button>
-      <button class="action" onclick="resetPipeDropTime()">回到 0 秒</button>
     </div>
 
     <div id="doubleThrowControls" class="controls" style="display:none;">
@@ -415,7 +419,6 @@
         <span id="throwTVal" class="value">0.0s</span>
       </div>
       <button id="throwPlayBtn" class="action" onclick="toggleDoubleThrowPlay()">播放</button>
-      <button class="action" onclick="resetDoubleThrowTime()">回到 0 秒</button>
     </div>
 
     <div id="threeCarControls" class="controls" style="display:none;">
@@ -425,7 +428,6 @@
         <span id="carTVal" class="value">0.0s</span>
       </div>
       <button id="carPlayBtn" class="action" onclick="toggleThreeCarPlay()">播放</button>
-      <button class="action" onclick="resetThreeCarTime()">回到 0 秒</button>
     </div>
 
     <div id="inclineSlotControls" class="controls" style="display:none;">
@@ -455,7 +457,6 @@
         <span id="slotTVal" class="value">0.0s</span>
       </div>
       <button id="slotPlayBtn" class="action" onclick="toggleInclineSlotPlay()">播放</button>
-      <button class="action" onclick="resetInclineSlotTime()">回到 0 秒</button>
     </div>
 
     <div id="riverCrossingControls" class="controls" style="display:none;">
@@ -485,7 +486,6 @@
         <span id="riverTVal" class="value">0.0s</span>
       </div>
       <button id="riverPlayBtn" class="action" onclick="toggleRiverPlay()">播放</button>
-      <button class="action" onclick="resetRiverTime()">回到 0 秒</button>
     </div>
 
     <div id="projectileBasicControls" class="controls" style="display:none;">
@@ -510,7 +510,6 @@
         <span id="projTVal" class="value">0.00s</span>
       </div>
       <button id="projPlayBtn" class="action" onclick="toggleProjectilePlay()">播放</button>
-      <button class="action" onclick="resetProjectileTime()">回到 0 秒</button>
     </div>
 
     <div id="projectileSlopeControls" class="controls" style="display:none;">
@@ -535,7 +534,6 @@
         <span id="slopeTVal" class="value">0.00s</span>
       </div>
       <button id="slopePlayBtn" class="action" onclick="toggleSlopePlay()">播放</button>
-      <button class="action" onclick="resetSlopeTime()">回到 0 秒</button>
     </div>
 
     <div id="projectileWindowControls" class="controls" style="display:none;">
@@ -570,7 +568,6 @@
         <span id="winTVal" class="value">0.00s</span>
       </div>
       <button id="winPlayBtn" class="action" onclick="toggleWindowPlay()">播放</button>
-      <button class="action" onclick="resetWindowTime()">回到 0 秒</button>
     </div>
 
     <div id="volleyballServeControls" class="controls" style="display:none;">
@@ -600,7 +597,6 @@
         <span id="volleyTVal" class="value">0.00s</span>
       </div>
       <button id="volleyPlayBtn" class="action" onclick="toggleVolleyPlay()">播放</button>
-      <button class="action" onclick="resetVolleyTime()">回到 0 秒</button>
     </div>
 
     <div id="dartTargetControls" class="controls" style="display:none;">
@@ -630,7 +626,6 @@
         <span id="dartTVal" class="value">0.00s</span>
       </div>
       <button id="dartPlayBtn" class="action" onclick="toggleDartPlay()">播放</button>
-      <button class="action" onclick="resetDartTime()">回到 0 秒</button>
     </div>
 
     <div id="rainWindowControls" class="controls" style="display:none;">
@@ -673,7 +668,6 @@
         <span id="normalTVal" class="value">0.00s</span>
       </div>
       <button id="normalPlayBtn" class="action" onclick="toggleNormalPlay()">播放</button>
-      <button class="action" onclick="resetNormalTime()">回到 0 秒</button>
     </div>
 
     <div id="projectileBounceControls" class="controls" style="display:none;">
@@ -698,7 +692,6 @@
         <span id="bounceTVal" class="value">0.00s</span>
       </div>
       <button id="bouncePlayBtn" class="action" onclick="toggleBouncePlay()">播放</button>
-      <button class="action" onclick="resetBounceTime()">回到 0 秒</button>
     </div>
 
     <div id="curveForceControls" class="controls" style="display:none;">
@@ -746,7 +739,6 @@
         <span id="composeTVal" class="value">0.00s</span>
       </div>
       <button id="composePlayBtn" class="action" onclick="toggleComposePlay()">播放</button>
-      <button class="action" onclick="resetComposeTime()">回到 0 秒</button>
     </div>
 
     <div id="riverAdvancedControls" class="controls" style="display:none;">
@@ -776,7 +768,6 @@
         <span id="advRiverTVal" class="value">0.0s</span>
       </div>
       <button id="advRiverPlayBtn" class="action" onclick="toggleAdvRiverPlay()">播放</button>
-      <button class="action" onclick="resetAdvRiverTime()">回到 0 秒</button>
     </div>
 
     <div id="rodConstraintControls" class="controls" style="display:none;">
@@ -832,7 +823,6 @@
         <span id="bulletTVal" class="value">0.00s</span>
       </div>
       <button id="bulletPlayBtn" class="action" onclick="toggleBulletPlay()">播放</button>
-      <button class="action" onclick="resetBulletTime()">回到 0 秒</button>
     </div>
 
     <div id="bikeGearControls" class="controls" style="display:none;">
@@ -872,7 +862,40 @@
         <span id="bikeGearTVal" class="value">0.00s</span>
       </div>
       <button id="bikeGearPlayBtn" class="action" onclick="toggleBikeGearPlay()">播放</button>
-      <button class="action" onclick="resetBikeGearTime()">回到 0 秒</button>
+    </div>
+
+    <div id="pileDriverControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>支架质量 M</label>
+        <input id="pileM" type="range" min="2" max="12" step="0.5" value="6" oninput="pileM=this.valueAsNumber; pilePlaying=false; updateLabels();" />
+        <span id="pileMVal" class="value">6.0</span>
+      </div>
+      <div class="control">
+        <label>铁球质量 m</label>
+        <input id="pilem" type="range" min="0.5" max="6" step="0.1" value="2" oninput="pilem=this.valueAsNumber; pilePlaying=false; updateLabels();" />
+        <span id="pilemVal" class="value">2.0</span>
+      </div>
+      <div class="control">
+        <label>杆长 l</label>
+        <input id="pileL" type="range" min="0.5" max="2.5" step="0.1" value="1.2" oninput="pileL=this.valueAsNumber; pilePlaying=false; updateLabels();" />
+        <span id="pileLVal" class="value">1.2</span>
+      </div>
+      <div class="control">
+        <label>角速度 ω</label>
+        <input id="pileOmega" type="range" min="0.5" max="10" step="0.1" value="4" oninput="pileOmega=this.valueAsNumber; pilePlaying=false; updateLabels();" />
+        <span id="pileOmegaVal" class="value">4.0</span>
+      </div>
+      <div class="control">
+        <label>重力 g</label>
+        <input id="pileG" type="range" min="1" max="20" step="0.1" value="10" oninput="pileG=this.valueAsNumber; pilePlaying=false; updateLabels();" />
+        <span id="pileGVal" class="value">10.0</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="pileT" type="range" min="0" max="8" step="0.02" value="0" oninput="pileT=this.valueAsNumber; pilePlaying=false; updateLabels();" />
+        <span id="pileTVal" class="value">0.00s</span>
+      </div>
+      <button id="pilePlayBtn" class="action" onclick="togglePilePlay()">播放</button>
     </div>
 
     <div id="jsonAnimationControls" class="controls json-animation-controls" style="display:none;"></div>
@@ -1388,6 +1411,35 @@
       </div>
     </div>
 
+    <div id="pileDriverNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>打夯机</h2>
+          <p>如图甲所示为建筑行业使用的一种小型打夯机，其原理可简化为一个质量为 \(M\) 的支架（含电动机）上由一根长为 \(l\) 的轻杆带动一个质量为 \(m\) 的铁球（铁球可视为质点），如图乙所示，重力加速度为 \(g\)。若在某次打夯过程中，铁球以角速度 \(\omega\) 匀速转动，则（  ）</p>
+          <p><strong>选项：</strong></p>
+          <p>A. 铁球转动过程线速度不变</p>
+          <p>B. 铁球做圆周运动的向心加速度大小是 <span class="formula-line">\(\omega^2l+g\)</span></p>
+          <p>C. 铁球转动到最低点时，打夯机整体对地面压力最大</p>
+          <p>D. 若铁球转动到最高点时，支架对地面的压力刚好为零，则 <span class="formula-line">\(\omega=\sqrt{\frac{(M+m)g}{ml}}\)</span></p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>取无动画圆周运动第9题：看速度方向、向心加速度和地面压力</h2>
+          <p><strong>1. 线速度是矢量。</strong> 铁球匀速转动时速率大小为 <span class="formula-line">\(v=\omega l\)</span>，但方向不断改变，所以线速度不变是错的，A 错。</p>
+          <p><strong>2. 向心加速度只指向圆心。</strong> 铁球做半径为 \(l\) 的匀速圆周运动，向心加速度大小为 <span class="formula-line">\(a_c=\omega^2l\)</span>，不能再把 \(g\) 加进去，B 错。</p>
+          <p><strong>3. 地面压力随铁球位置变化。</strong> 对“支架 + 铁球”整体看，最低点铁球竖直加速度向上，地面对打夯机的支持力 <span class="formula-line">\(N_{\text{低}}=(M+m)g+m\omega^2l\)</span>；最高点铁球竖直加速度向下，支持力 <span class="formula-line">\(N_{\text{高}}=(M+m)g-m\omega^2l\)</span>。所以最低点压力最大，C 对。</p>
+          <p><strong>4. 最高点临界。</strong> 最高点 \(\sin\theta=1\)，若支架对地面压力刚好为零，则 <span class="formula-line">\(0=(M+m)g-m\omega^2l\)</span>，解得 <span class="formula-line">\(\omega=\sqrt{\frac{(M+m)g}{ml}}\)</span>，D 对。</p>
+          <p><strong>答案：</strong>C、D。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">一句话总结</p>
+          <h2>打夯机题看整体支持力随铁球竖直加速度变化</h2>
+          <p>最低点铁球向上加速，整体更压地；最高点铁球向下加速，整体对地压力减小，临界时压力为零。</p>
+        </section>
+      </div>
+    </div>
+
     <div id="modelSource" class="model-source">
       <p class="problem-note-kicker">题目来源</p>
       <h2 id="modelSourceTitle">题目来源</h2>
@@ -1399,12 +1451,12 @@
 
   </main>
 
-  <script src="assets/app.js?v=20260703-codex-scene"></script>
-  <script src="assets/scenes/common.js"></script>
-  <script src="assets/scenes/sample.js"></script>
-  <script src="assets/scenes/spring-2026.js"></script>
-  <script src="assets/scenes/curve-motion.js"></script>
-  <script src="assets/scenes/projectile-motion.js"></script>
-  <script src="assets/scenes/circular-motion.js?v=20260703-codex-scene"></script>
+  <script src="assets/app.js?v=20260704-reset-start"></script>
+  <script src="assets/scenes/common.js?v=20260704-reset-start"></script>
+  <script src="assets/scenes/sample.js?v=20260704-reset-start"></script>
+  <script src="assets/scenes/spring-2026.js?v=20260704-reset-start"></script>
+  <script src="assets/scenes/curve-motion.js?v=20260704-reset-start"></script>
+  <script src="assets/scenes/projectile-motion.js?v=20260704-reset-start"></script>
+  <script src="assets/scenes/circular-motion.js?v=20260704-reset-start"></script>
 </body>
 </html>
