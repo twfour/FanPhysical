@@ -85,6 +85,16 @@ body {
   font-weight: 800;
 }
 
+.brand-version {
+  display: block;
+  margin-top: 3px;
+  color: #e11d48;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 900;
+  text-align: left;
+}
+
 .hero-actions {
   display: flex;
   align-items: center;
