@@ -201,6 +201,225 @@ function drawRiverGraph() {
   text("下游偏移", gx + 10, gy + 28);
 }
 
+function waterfallThetaRad() {
+  return waterfallTheta * Math.PI / 180;
+}
+
+function waterfallBoatVX() {
+  return waterfallBoatSpeed * Math.cos(waterfallThetaRad());
+}
+
+function waterfallBoatVY() {
+  return waterfallBoatSpeed * Math.sin(waterfallThetaRad());
+}
+
+function waterfallVX() {
+  return waterfallWaterSpeed + waterfallBoatVX();
+}
+
+function waterfallVY() {
+  return waterfallBoatVY();
+}
+
+function waterfallArriveTime() {
+  return waterfallWidth / Math.max(0.25, waterfallVY());
+}
+
+function waterfallDrift() {
+  return waterfallVX() * waterfallArriveTime();
+}
+
+function waterfallSafe() {
+  return waterfallDrift() <= waterfallDownstream + 0.05;
+}
+
+function waterfallBoundaryAngle() {
+  return Math.atan2(waterfallWidth, waterfallDownstream);
+}
+
+function waterfallMinBoatSpeed() {
+  return waterfallWaterSpeed * Math.sin(waterfallBoundaryAngle());
+}
+
+function waterfallBestTheta() {
+  return (waterfallBoundaryAngle() + Math.PI / 2) * 180 / Math.PI;
+}
+
+function toggleWaterfallPlay() {
+  if (!waterfallPlaying && waterfallT >= waterfallArriveTime() - 0.02) {
+    waterfallT = 0;
+  }
+  waterfallPlaying = !waterfallPlaying;
+  updateLabels();
+}
+
+function updateWaterfall(dt) {
+  if (waterfallPlaying) {
+    waterfallT += dt * 1.8;
+    if (waterfallT >= waterfallArriveTime()) {
+      waterfallT = 0;
+      waterfallPlaying = false;
+    }
+    updateLabels();
+  }
+}
+
+function drawWaterfallScene() {
+  var bankLeft = 76;
+  var bankRight = 535;
+  var nearY = 390;
+  var farY = 92;
+  var startX = 150;
+  var maxDownstream = Math.max(waterfallDownstream, Math.abs(waterfallDrift()), 45);
+  var scale = Math.min((nearY - farY) / waterfallWidth, (bankRight - startX - 35) / maxDownstream);
+  var tNow = Math.min(waterfallT, waterfallArriveTime());
+  var vx = waterfallVX();
+  var vy = waterfallVY();
+  var boatX = startX + vx * tNow * scale;
+  var boatY = nearY - vy * tNow * scale;
+  var fallX = startX + waterfallDownstream * scale;
+  var endX = startX + waterfallDrift() * scale;
+  var boundaryX = fallX;
+  var boundaryY = farY;
+  var statusColor = waterfallSafe() ? "#0f766e" : "#dc2626";
+  var i;
+
+  noStroke();
+  fill("#e0f2fe");
+  rect(bankLeft, farY, bankRight - bankLeft, nearY - farY, 10);
+  fill("#fee2e2");
+  rect(Math.min(fallX, bankRight - 28), farY, Math.max(18, bankRight - fallX), nearY - farY, 0, 10, 10, 0);
+
+  stroke("#111827");
+  strokeWeight(3);
+  line(bankLeft, nearY, bankRight, nearY);
+  line(bankLeft, farY, bankRight, farY);
+
+  stroke("#bae6fd");
+  strokeWeight(1);
+  for (i = 0; i < 7; i++) {
+    var streamY = farY + 34 + i * 36;
+    line(bankLeft + 22, streamY, bankRight - 30, streamY);
+    drawArrow(bankRight - 48, streamY, bankRight - 26, streamY, "#38bdf8");
+  }
+
+  stroke("#dc2626");
+  strokeWeight(3);
+  line(fallX, farY - 8, fallX, nearY + 8);
+  noStroke();
+  fill("#dc2626");
+  textAlign(CENTER, BOTTOM);
+  textSize(12);
+  text("瀑布线 L=" + waterfallDownstream.toFixed(0) + "m", fallX, farY - 12);
+
+  stroke("#94a3b8");
+  strokeWeight(2);
+  drawingContext.setLineDash([5, 5]);
+  line(startX, nearY, boundaryX, boundaryY);
+  line(endX, farY, endX, nearY);
+  drawingContext.setLineDash([]);
+
+  stroke(statusColor);
+  strokeWeight(3);
+  noFill();
+  beginShape();
+  for (i = 0; i <= 90; i++) {
+    var t = i * waterfallArriveTime() / 90;
+    var px = startX + vx * t * scale;
+    var py = nearY - vy * t * scale;
+    vertex(px, py);
+  }
+  endShape();
+
+  noStroke();
+  fill("#111827");
+  circle(startX, nearY, 9);
+  fill("#ffffff");
+  textAlign(CENTER, CENTER);
+  textSize(11);
+  text("A", startX, nearY - 16);
+
+  fill(statusColor);
+  circle(endX, farY, 10);
+  textAlign(CENTER, TOP);
+  text(waterfallSafe() ? "安全靠岸" : "冲入瀑布", endX, farY + 12);
+
+  push();
+  translate(boatX, boatY);
+  rotate(Math.atan2(-vy, vx));
+  noStroke();
+  fill("#0f766e");
+  triangle(18, 0, -16, -10, -16, 10);
+  fill("#ccfbf1");
+  ellipse(-4, 0, 16, 10);
+  pop();
+
+  drawVectorArrow(boatX, boatY, waterfallBoatVX() * 11, -waterfallBoatVY() * 11, "#0f766e", "v船");
+  drawVectorArrow(boatX, boatY, waterfallWaterSpeed * 11, 0, "#0284c7", "v水");
+  drawVectorArrow(boatX, boatY, vx * 11, -vy * 11, "#f97316", "v合");
+
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(13);
+  text("漂移=" + waterfallDrift().toFixed(1) + "m，临界=" + waterfallDownstream.toFixed(0) + "m", 88, 28);
+  fill(statusColor);
+  text("当前：" + (waterfallSafe() ? "能靠岸且不进瀑布" : "会被冲进瀑布"), 88, 48);
+}
+
+function drawWaterfallGraph() {
+  var cx = graphLeft + 205;
+  var cy = 258;
+  var scale = 22;
+  var boundaryAngle = waterfallBoundaryAngle();
+  var bestTheta = waterfallBestTheta();
+  var minSpeed = waterfallMinBoatSpeed();
+  var lineLen = 160;
+  var bx = Math.cos(boundaryAngle);
+  var by = Math.sin(boundaryAngle);
+  var currentVX = waterfallVX();
+  var currentVY = waterfallVY();
+  var maxV = Math.max(waterfallWaterSpeed, waterfallBoatSpeed, Math.sqrt(currentVX * currentVX + currentVY * currentVY), minSpeed);
+
+  if (maxV * scale > 150) {
+    scale = 150 / maxV;
+  }
+
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(18);
+  text("速度合成与最小船速", graphLeft + 24, 20);
+  fill("#5b6472");
+  textSize(12);
+  text("临界：合速度方向刚好指向对岸瀑布前边界", graphLeft + 24, 44);
+
+  stroke("#cbd5e1");
+  strokeWeight(1);
+  line(cx - 170, cy, cx + 170, cy);
+  line(cx, cy - 170, cx, cy + 170);
+
+  stroke("#94a3b8");
+  strokeWeight(2);
+  drawingContext.setLineDash([5, 5]);
+  line(cx - bx * 35, cy + by * 35, cx + bx * lineLen, cy - by * lineLen);
+  drawingContext.setLineDash([]);
+
+  drawVectorArrow(cx, cy, waterfallWaterSpeed * scale, 0, "#0284c7", "v水");
+  drawVectorArrow(cx, cy, waterfallBoatVX() * scale, -waterfallBoatVY() * scale, "#0f766e", "v船");
+  drawVectorArrow(cx, cy, currentVX * scale, -currentVY * scale, "#f97316", "v合");
+  drawVectorArrow(cx + waterfallWaterSpeed * scale, cy, minSpeed * Math.cos(bestTheta * Math.PI / 180) * scale, -minSpeed * Math.sin(bestTheta * Math.PI / 180) * scale, "#7c3aed", "vmin");
+
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(13);
+  text("vmin = v水 · d / √(d²+L²)", graphLeft + 32, 390);
+  text("= " + waterfallWaterSpeed.toFixed(1) + " × " + waterfallWidth.toFixed(0) + " / " + Math.sqrt(waterfallWidth * waterfallWidth + waterfallDownstream * waterfallDownstream).toFixed(1) + " = " + minSpeed.toFixed(1) + " m/s", graphLeft + 32, 412);
+  fill(waterfallBoatSpeed + 0.001 >= minSpeed ? "#0f766e" : "#dc2626");
+  text("当前船速 " + waterfallBoatSpeed.toFixed(1) + " m/s，最佳船头角≈" + bestTheta.toFixed(1) + "°", graphLeft + 32, 434);
+}
+
 
 function rainAngle() {
   return Math.atan2(rainTrainV, rainDropV) * 180 / Math.PI;

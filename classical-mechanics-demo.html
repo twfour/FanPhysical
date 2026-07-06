@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FanPhysics动态模型库</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script src="assets/vendor/p5.min.js?v=1.9.0"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
@@ -56,6 +56,7 @@
                     <button id="treeCurveForce" class="tree-item indent" onclick="switchScene('curveForce')">曲线受力方向</button>
                     <button id="treeMotionCompose" class="tree-item indent" onclick="switchScene('motionCompose')">二维运动合成</button>
                     <button id="treeRiverCrossing" class="tree-item indent" onclick="switchScene('riverCrossing')">小船渡河</button>
+                    <button id="treeWaterfallCrossing" class="tree-item indent" onclick="switchScene('waterfallCrossing')">瀑布临界渡河</button>
                     <button id="treeRiverAdvanced" class="tree-item indent" onclick="switchScene('riverAdvanced')">渡河进阶</button>
                     <button id="treeRainWindow" class="tree-item indent" onclick="switchScene('rainWindow')">车窗雨滴</button>
                     <button id="treeRodConstraint" class="tree-item indent" onclick="switchScene('rodConstraint')">杆约束速度</button>
@@ -221,6 +222,10 @@
           <button class="home-card" onclick="switchScene('riverCrossing')">
             <strong>小船渡河</strong>
             <span>渡河时间、横向位移、最小位移</span>
+          </button>
+          <button class="home-card" onclick="switchScene('waterfallCrossing')">
+            <strong>瀑布临界渡河</strong>
+            <span>课上第10题 / 最小船速</span>
           </button>
           <button class="home-card" onclick="switchScene('riverAdvanced')">
             <strong>渡河进阶</strong>
@@ -487,6 +492,40 @@
         <span id="riverTVal" class="value">0.0s</span>
       </div>
       <button id="riverPlayBtn" class="action" onclick="toggleRiverPlay()">播放</button>
+    </div>
+
+    <div id="waterfallCrossingControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>河宽 d</label>
+        <input id="waterfallWidth" type="range" min="10" max="80" step="1" value="30" oninput="waterfallWidth=this.valueAsNumber; waterfallPlaying=false; updateLabels();" />
+        <span id="waterfallWidthVal" class="value">30</span>
+      </div>
+      <div class="control">
+        <label>瀑布距离 L</label>
+        <input id="waterfallDownstream" type="range" min="10" max="100" step="1" value="40" oninput="waterfallDownstream=this.valueAsNumber; waterfallPlaying=false; updateLabels();" />
+        <span id="waterfallDownstreamVal" class="value">40</span>
+      </div>
+      <div class="control">
+        <label>水速 v水</label>
+        <input id="waterfallWaterSpeed" type="range" min="1" max="20" step="0.5" value="10" oninput="waterfallWaterSpeed=this.valueAsNumber; waterfallPlaying=false; updateLabels();" />
+        <span id="waterfallWaterSpeedVal" class="value">10.0</span>
+      </div>
+      <div class="control">
+        <label>船速 v船</label>
+        <input id="waterfallBoatSpeed" type="range" min="1" max="15" step="0.1" value="6" oninput="waterfallBoatSpeed=this.valueAsNumber; waterfallPlaying=false; updateLabels();" />
+        <span id="waterfallBoatSpeedVal" class="value">6.0</span>
+      </div>
+      <div class="control">
+        <label>船头角 θ</label>
+        <input id="waterfallTheta" type="range" min="90" max="180" step="0.1" value="126.9" oninput="waterfallTheta=this.valueAsNumber; waterfallPlaying=false; updateLabels();" />
+        <span id="waterfallThetaVal" class="value">126.9°</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="waterfallT" type="range" min="0" max="12" step="0.02" value="0" oninput="waterfallT=this.valueAsNumber; waterfallPlaying=false; updateLabels();" />
+        <span id="waterfallTVal" class="value">0.00s</span>
+      </div>
+      <button id="waterfallPlayBtn" class="action" onclick="toggleWaterfallPlay()">播放</button>
     </div>
 
     <div id="projectileBasicControls" class="controls" style="display:none;">
@@ -936,7 +975,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>双球上抛相遇</h2>
+          <h2>第7题：双球上抛相遇</h2>
           <p>\(A\) 球先从地面以初速度 \(2v_0\) 竖直上抛；经过时间 \(\Delta t\) 后，\(B\) 球再从地面以初速度 \(v_0\) 竖直上抛。判断两球能否在空中相遇，并用高度-时间图像理解相遇条件。</p>
         </section>
         <section class="problem-note-block">
@@ -945,9 +984,17 @@
           <p>设 \(A\) 抛出后经过 \(\Delta t\) 再抛 \(B\)。\(B\) 抛出时，\(A\) 还在空中的条件是 \(0&lt;\Delta t&lt;\frac{4v_0}{g}\)。从 \(B\) 抛出后计时 \(\tau\)，两球加速度相同，相对加速度为 \(0\)，相对速度 \(v_{BA}=v_0-(2v_0-g\Delta t)=g\Delta t-v_0\)。要追上 \(A\)，需 \(v_{BA}&gt;0\)，且追上时 \(A\) 未落地，整理得 <span class="formula-line">\(\frac{2v_0}{g}&lt;\Delta t&lt;\frac{4v_0}{g}\)</span>。答案：时间间隔必须在这个开区间内。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>晚抛的球要“追得上”，早抛的球也要“还没落地”</h2>
-          <p>下界来自 B 抛出后必须比 A 更快接近，上界来自 A 落地前必须完成相遇。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：改变延迟时间</h2>
+          <p>甲球以速度 \(3v_0\) 从地面竖直上抛，乙球在 \(\Delta t\) 后以速度 \(v_0\) 从同一点竖直上抛。若两球在空中相遇，写出相遇时间表达式，并判断 \(\Delta t\) 应满足的基本条件。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>相对运动中，两球加速度相同，甲相对乙做匀速运动。设乙抛出后经过 \(\tau\) 相遇，则甲已运动 \(\Delta t+\tau\)，由 \(3v_0(\Delta t+\tau)-\frac12g(\Delta t+\tau)^2=v_0\tau-\frac12g\tau^2\) 求 \(\tau\)，并要求相遇高度大于 \(0\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>先分别写出两球高度函数，再令高度相等。由于两球加速度同为 \(g\)，二次项只剩与 \(\Delta t\) 有关的项，本质仍是相对运动追及。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -956,7 +1003,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>金属管穿球</h2>
+          <h2>第10题：金属管穿球</h2>
           <p>金属管从地面以初速度 \(v\) 竖直上抛，管长为 \(L\)；小球从管口上方高度 \(h\) 处由静止释放。判断小球是否会穿过金属管，并分析穿过发生在金属管上升还是下降阶段。</p>
         </section>
         <section class="problem-note-block">
@@ -965,9 +1012,17 @@
           <p>管底 \(y_{\text{底}}=vt-\frac{1}{2}gt^2\)，管顶 \(y_{\text{顶}}=vt-\frac{1}{2}gt^2+L\)，小球 \(y_{\text{球}}=h-\frac{1}{2}gt^2\)。小球进入管口：\(y_{\text{球}}=y_{\text{顶}}\)，得 \(t_1=\frac{h-L}{v}\)；小球离开管底：\(y_{\text{球}}=y_{\text{底}}\)，得 \(t_2=\frac{h}{v}\)。穿管时间 <span class="formula-line">\(\Delta t=t_2-t_1=\frac{L}{v}\)</span>。若全过程在上升阶段，需 \(t_2&lt;\frac{v}{g}\)，即 \(v&gt;\sqrt{gh}\)；若全过程在下降阶段，需 \(t_1&gt;\frac{v}{g}\)，即 \(v&lt;\sqrt{g(h-L)}\)。答案：穿管用时为 \(\frac{L}{v}\)，阶段由 \(v\) 与 \(\sqrt{g(h-L)},\sqrt{gh}\) 比较判断。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>两者都受 \(g\)，关键只剩 \(h-vt\)</h2>
-          <p>把小球和金属管放到相对运动里看，重力加速度相同会抵消，判断就变成小球是否落在管底和管顶之间。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：改变管长与高度</h2>
+          <p>金属管长 \(L=0.6\,\mathrm{m}\)，从地面以速度 \(v=8\,\mathrm{m/s}\) 竖直上抛；小球从管口上方 \(h=3.0\,\mathrm{m}\) 处自由下落。求小球穿过金属管所用时间。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>两物体加速度同为 \(g\)，相对加速度为 \(0\)。穿管时间只由管长和相对速度决定：\(\Delta t=\frac{L}{v}=\frac{0.6}{8}=0.075\,\mathrm{s}\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>把小球和金属管放到相对运动里看，重力项同时抵消；小球相对管顶向下运动，走过一个管长所需时间就是 \(L/v\)。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -976,7 +1031,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>三车防追尾</h2>
+          <h2>第11题：三车防追尾</h2>
           <p>甲、乙、丙三车同向行驶，初速度分别为 \(6\,\text{m/s}\)、\(8\,\text{m/s}\)、\(9\,\text{m/s}\)，相邻车距均为 \(5\,\text{m}\)。甲车以 \(1\,\text{m/s}^2\) 减速，乙、丙立即匀减速，求乙、丙为避免追尾所需的最小减速度。</p>
         </section>
         <section class="problem-note-block">
@@ -985,9 +1040,17 @@
           <p>甲、乙间距 \(s_{AB}=5+(6t-\frac{1}{2}t^2)-(8t-\frac{1}{2}a_{\text{乙}}t^2)=5-2t+\frac{1}{2}(a_{\text{乙}}-1)t^2\)。临界不追尾时最小值为 \(0\)，得 <span class="formula-line">\(a_{\text{乙},\min}=\frac{7}{5}\,\text{m/s}^2\)</span>。乙以此减速时停车距离 \(x_{\text{乙}}=\frac{8^2}{2a_{\text{乙}}}=\frac{160}{7}\,\text{m}\)。丙的临界情况是停车点刚好到乙停车点，\(5+\frac{160}{7}-\frac{9^2}{2a_{\text{丙}}}=0\)，解得 <span class="formula-line">\(a_{\text{丙},\min}=\frac{189}{130}\,\text{m/s}^2\)</span>。答案：丙至少以 \(\frac{189}{130}\,\text{m/s}^2\) 减速。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>“最小减速度”就是刚好擦着安全边界</h2>
-          <p>防追尾题不要只看速度大小，要看车间距曲线的最低点；最低点碰到 \(0\,\text{m}\)，就是临界答案。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：两车防追尾</h2>
+          <p>甲、乙两车同向行驶，初速度分别为 \(5\,\mathrm{m/s}\)、\(7\,\mathrm{m/s}\)，初始间距 \(4\,\mathrm{m}\)。甲以 \(1\,\mathrm{m/s^2}\) 减速，求乙不追尾所需的最小减速度。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>令间距 \(s=4+(5t-\frac12t^2)-(7t-\frac12at^2)=4-2t+\frac12(a-1)t^2\)。临界时最小值为 \(0\)，得 \(a-1=\frac{2^2}{2\times4}=\frac12\)，所以 \(a_{\min}=1.5\,\mathrm{m/s^2}\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>防追尾的临界条件不是“速度相等”本身，而是间距函数的最低点刚好等于 \(0\)。先写间距，再令二次函数最小值为零。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -996,7 +1059,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>光滑斜槽下滑</h2>
+          <h2>第3题：光滑斜槽下滑</h2>
           <p>\(AB\)、\(CD\) 是光滑斜槽，端点分别在半径为 \(R\) 和 \(r\) 的两个圆周上，延长线交于共同切点 \(P\)，\(P\) 为最低点。两个质量均为 \(m\) 的重物分别沿 \(AB\)、\(CD\) 由静止下滑；\(AP\)、\(CP\) 与竖直方向夹角分别为 \(30^\circ\)、\(45^\circ\)，比较加速度、下滑时间、粗糙影响和质量影响。</p>
         </section>
         <section class="problem-note-block">
@@ -1005,9 +1068,17 @@
           <p>题目问的是 \(A\to B\)、\(C\to D\)，不是滑到 \(P\)。若槽与竖直方向夹角为 \(\theta\)，沿槽加速度 \(a=g\cos\theta\)，所以 \(a_{AB}=g\cos30^\circ\)、\(a_{CD}=g\cos45^\circ\)，得 \(a_{AB}&gt;a_{CD}\)。由圆几何，外圆到内圆的槽长 \(s=2(R-r)\cos\theta\)，于是 \(t=\sqrt{\frac{2s}{a}}=2\sqrt{\frac{R-r}{g}}\)，两槽时间相同。粗糙时摩擦做负功，时间变长；质量 \(m\) 不影响。答案：\(a_{AB}&gt;a_{CD}\)，两段下滑时间相同，粗糙时耗时变长，质量不影响。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>看半径差，不看角度</h2>
-          <p>本题的关键是 \(AB\)、\(CD\) 都只走“外圆到内圆”这一段，因此下滑时间由 <strong>\(R-r\)</strong> 决定；角度会同时改变加速度和槽长，最后被抵消。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：换角度的光滑斜槽</h2>
+          <p>两条光滑斜槽分别与竖直方向成 \(20^\circ\)、\(60^\circ\)，端点仍位于同心外圆和内圆之间。比较两物体从外圆滑到内圆的时间和加速度大小。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>加速度分别为 \(g\cos20^\circ\)、\(g\cos60^\circ\)，所以前者更大。槽长正比于 \(\cos\theta\)，代入 \(t=\sqrt{2s/a}\) 后角度抵消，同一组内外圆半径下时间相同。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>先用沿槽方向分解重力求加速度，再用圆几何求槽长。这里角度同时影响 \(s\) 和 \(a\)，最后在时间公式中抵消。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1016,15 +1087,9 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>曲线运动：小船渡河</h2>
-          <p>河宽为 \(d\)，船在静水中的速度为 \(v_{\text{船}}\)，水流速度为 \(v_{\text{水}}\)。船速方向与河岸的夹角为 \(\theta\)，已知 \(v_{\text{船}}>v_{\text{水}}\)。</p>
-          <p><strong>问题 1：</strong>求渡河所用时间及横向位移，并讨论 \(\theta\) 等于多少时，渡河时间最短。</p>
-          <p><strong>问题 2：</strong>怎样渡河，船的合位移最小？此时对船速有何要求？</p>
-          <p><strong>要求：</strong></p>
-          <p>1. 写出渡河时间 \(t\)</p>
-          <p>2. 写出横向位移 \(s\)</p>
-          <p>3. 找出渡河时间最短时的 \(\theta\)</p>
-          <p>4. 说明合位移最小时的渡河方式和船速条件</p>
+          <h2>课上第8题：小船渡河</h2>
+          <p>河宽为 \(d\)，船在静水中的速度为 \(v_{\text{船}}\)，水流速度为 \(v_{\text{水}}\)。船速方向与河岸的夹角为 \(\theta\)，且 \(v_{\text{船}}>v_{\text{水}}\)。</p>
+          <p>求船渡河所用时间、沿河岸方向的横向位移，并判断船头怎样指向时时间最短；若要使船的合位移最小，应怎样渡河，对船速大小有什么要求？</p>
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
@@ -1036,9 +1101,48 @@
           <p><strong>5. 判断合位移最小。</strong> 合位移最小时，希望船实际到达正对岸，即沿河岸合速度为 \(0\)。这要求船头偏向上游，使船速沿岸分量抵消水流：<span class="formula-line">\(v_{\text{船}}\cos\alpha=v_{\text{水}}\)</span>。能做到这一点的条件是 <span class="formula-line">\(v_{\text{船}}>v_{\text{水}}\)</span>。答案：船头偏向上游并刚好抵消水流时，合位移最小，最小合位移为河宽 \(d\)。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>过河看垂直分量，漂移看沿岸分量</h2>
-          <p>船头正对对岸通常是最短时间；若 \(v_{\text{船}}>v_{\text{水}}\)，可以让船头偏向上游来抵消水流，得到最小位移。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：给定数值的小船渡河</h2>
+          <p>河宽 \(d=120\,\mathrm{m}\)，船在静水中的速度 \(v_{\text{船}}=5\,\mathrm{m/s}\)，水流速度 \(v_{\text{水}}=3\,\mathrm{m/s}\)。若船头与河岸夹角为 \(60^\circ\)，求渡河时间和沿河岸方向的横向位移；若要合位移最小，应如何调整船头方向？</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>当 \(\theta=60^\circ\) 时，垂直河岸分速度为 \(5\sin60^\circ=\frac{5\sqrt3}{2}\,\mathrm{m/s}\)，所以 \(t=\frac{120}{5\sin60^\circ}\approx27.7\,\mathrm{s}\)。沿河岸合速度为 \(5\cos60^\circ+3=5.5\,\mathrm{m/s}\)，横向位移 \(s\approx5.5\times27.7=152.4\,\mathrm{m}\)。若合位移最小，应使 \(5\cos\alpha=3\)，故 \(\alpha=\arccos\frac35\approx53.1^\circ\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>渡河时间只看垂直河岸分量，沿河岸偏移看“船速沿岸分量 + 水速”。合位移最小时，目标是让沿岸合速度为 \(0\)，前提是 \(v_{\text{船}}>v_{\text{水}}\)。</p>
+          </details>
+        </section>
+      </div>
+    </div>
+
+    <div id="waterfallCrossingNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>课上第10题：瀑布临界渡河</h2>
+          <p>一只船从河岸 \(A\) 处渡河，河宽 \(d=30\,\mathrm{m}\)，水速 \(v_{\text{水}}=10\,\mathrm{m/s}\)，距 \(A\) 下游 \(L=40\,\mathrm{m}\) 处有瀑布。为使小船靠岸时不至于被冲进瀑布，求船相对静水的最小速度。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>让合速度方向刚好指向安全边界</h2>
+          <p><strong>1. 找临界轨迹。</strong> 小船刚好安全时，应从 \(A\) 点到达对岸瀑布前的边界点，位移方向对应 \((L,d)=(40,30)\)。因此临界方向的斜边长度为 <span class="formula-line">\(\sqrt{L^2+d^2}=\sqrt{40^2+30^2}=50\,\mathrm{m}\)</span>。</p>
+          <p><strong>2. 把水速投到临界方向的垂直方向。</strong> 船对地的合速度必须沿临界方向或更偏上游。要让船速最小，船速矢量应恰好垂直于临界合速度方向。</p>
+          <p><strong>3. 代入最小值公式。</strong> 临界方向与水流方向夹角为 \(\alpha\)，有 <span class="formula-line">\(\sin\alpha=\frac{d}{\sqrt{L^2+d^2}}=\frac{30}{50}=\frac35\)</span>。所以 <span class="formula-line">\(v_{\min}=v_{\text{水}}\sin\alpha=10\times\frac35=6\,\mathrm{m/s}\)</span>。</p>
+          <p><strong>答案：</strong>\(6\,\mathrm{m/s}\)。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：改变河宽和危险距离</h2>
+          <p>一只船从河岸 \(A\) 处渡河，河宽 \(d=24\,\mathrm{m}\)，水速 \(v_{\text{水}}=8\,\mathrm{m/s}\)，距 \(A\) 下游 \(L=32\,\mathrm{m}\) 处有危险区。为使小船靠岸时不被冲入危险区，船相对静水的最小速度是多少？</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>\(\sqrt{L^2+d^2}=\sqrt{32^2+24^2}=40\,\mathrm{m}\)，所以 \(v_{\min}=8\times\frac{24}{40}=4.8\,\mathrm{m/s}\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>仍然取“刚好不进入危险区”的临界轨迹，把船对地合速度方向设为从出发点指向对岸危险区前边界点。最小船速等于水速在临界方向垂直方向上的分量。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1047,7 +1151,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>平抛运动基础</h2>
+          <h2>课上第1题：平抛运动基础</h2>
           <p>物体从高度 \(h\) 处以水平初速度 \(v_0\) 抛出，不计空气阻力。观察轨迹、落地时间、水平射程、竖直分速度和落地速度方向。</p>
         </section>
         <section class="problem-note-block">
@@ -1056,9 +1160,17 @@
           <p>两球平抛后，水平方向 \(x=vt\)，竖直方向 \(y=\frac{1}{2}gt^2\)。乙球要击中甲球，必须在同一时刻到达同一水平位置，所以水平速度和抛出先后要配合；同时甲比乙高 \(h\)，乙要追上甲的竖直位置，甲不能同时先抛，否则二者竖直下落量相同，高差不变。若甲迟抛，乙先下落一段时间后才可能补上高度差；同一相遇点还要求水平位移相等。答案：相遇条件由“同一时刻同一水平位置”和“竖直高度差被补上”共同决定。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>先竖直定时间，再水平定距离</h2>
-          <p>平抛题不要先猜轨迹，先拆轴：竖直方向决定“飞多久”，水平方向决定“飞多远”。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：平抛落地</h2>
+          <p>物体从高 \(h=45\,\mathrm{m}\) 处以水平速度 \(v_0=12\,\mathrm{m/s}\) 抛出，取 \(g=10\,\mathrm{m/s^2}\)。求落地时间和水平射程。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>竖直方向 \(h=\frac12gt^2\)，所以 \(t=\sqrt{\frac{2h}{g}}=3\,\mathrm{s}\)。水平射程 \(x=v_0t=36\,\mathrm{m}\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>平抛运动分轴处理：竖直自由落体先定时间，水平匀速直线运动再定距离。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1067,7 +1179,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>平抛落斜面</h2>
+          <h2>课上第2题：平抛落斜面</h2>
           <p>两个相同直角三角形斜面固定在水平面上，三个小球从左边斜面顶点以不同初速度水平抛出，分别落在同一斜面的 \(a\)、\(b\)、\(c\) 三点。</p>
           <p>比较三个小球的飞行时间、水平初速度、速度变化量以及落到斜面时的末速度方向。</p>
         </section>
@@ -1081,9 +1193,17 @@
           <p><strong>答案：</strong>时间、水平初速度、速度变化量均按 \(a,b,c\) 依次增大；末速度方向相同。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>同一斜面落点越远，时间越长，速度也越大</h2>
-          <p>把斜面条件 \(y=x\tan\theta\) 和平抛方程联立，就能同时比较时间、初速度和末速度方向。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：同一斜面比较</h2>
+          <p>三个小球从同一高度水平抛出，分别落在同一斜面的近、中、远三点。比较飞行时间、水平初速度和落到斜面时速度方向。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>落点越远，下落高度越大，飞行时间越长；同一斜面满足 \(y=x\tan\theta\)，可得 \(v_0=\frac{gt}{2\tan\theta}\)，所以初速度也越大。末速度方向由 \(\frac{v_y}{v_x}=2\tan\theta\) 决定，相同。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>把斜面方程和平抛方程联立，能同时得到时间、初速度和末速度方向的关系。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1092,7 +1212,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>平抛穿窗</h2>
+          <h2>课上第6题：平抛穿窗</h2>
           <p>如图所示，窗子上下沿间的高度 \(H=1.6\,\mathrm{m}\)，墙的厚度 \(d=0.4\,\mathrm{m}\)。某人与离墙壁距离 \(L=1.4\,\mathrm{m}\)，在距窗子上沿 \(h=0.2\,\mathrm{m}\) 处的 \(P\) 点，将可视为质点的小物件以速度 \(v\) 水平抛出。</p>
           <p>要求小物件能直接穿过窗口并落在水平地面上，不计空气阻力，问可以实现上述要求的速度大小是哪一个？</p>
           <p><strong>选项：</strong>A. \(2\,\mathrm{m/s}\)　B. \(4\,\mathrm{m/s}\)　C. \(8\,\mathrm{m/s}\)　D. \(10\,\mathrm{m/s}\)</p>
@@ -1108,9 +1228,17 @@
           <p><strong>答案：</strong>B. \(4\,\mathrm{m/s}\)。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>穿窗题查两个截面，不只查墙面一个点</h2>
-          <p>速度太小会下落过多，速度太大会下落不足；有墙厚时，前表面和后表面都必须在窗口高度范围内。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：厚墙穿孔</h2>
+          <p>小球从距墙 \(L=2.0\,\mathrm{m}\) 处水平抛出，墙厚 \(d=0.5\,\mathrm{m}\)，窗口允许下落高度为 \(0.3\sim1.5\,\mathrm{m}\)。判断速度 \(v=5\,\mathrm{m/s}\) 能否穿过窗口，取 \(g=10\,\mathrm{m/s^2}\)。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>前表面下落 \(y_1=\frac12g\left(\frac{2.0}{5}\right)^2=0.8\,\mathrm{m}\)，后表面下落 \(y_2=\frac12g\left(\frac{2.5}{5}\right)^2=1.25\,\mathrm{m}\)，都在允许区间内，所以能穿过。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>厚墙问题要检查两个截面：入口和出口。只检查墙前表面，会漏掉出口处是否碰下沿。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1119,7 +1247,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>排球过网落点</h2>
+          <h2>课上第7题：排球过网落点</h2>
           <p>如图所示，一排球运动员将球在边界处正上方水平向右击出，球刚好过网并落在图中位置，不计空气阻力。</p>
           <p>已知击球点高度为 \(h_1\)，网高为 \(h_2\)，击球点到网的水平距离为 \(s\)，过网后到落点的水平距离为 \(\frac{s}{2}\)。判断下列说法中正确的是哪些。</p>
           <p><strong>选项：</strong></p>
@@ -1145,9 +1273,17 @@
           <p><strong>答案：</strong>A、D。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>过网和落点是同一条抛物线上的两个约束点</h2>
-          <p>先用落地和过网两个位置分别列 \(y=\frac{1}{2}gt^2\)，再消去 \(v_0\)，高度关系就自己出来了。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：擦网落点</h2>
+          <p>排球从高度 \(h_1\) 处水平击出，经过水平距离 \(s\) 时刚好擦网，落地点在网后 \(s\) 处。求网高 \(h_2\) 与 \(h_1\) 的关系。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>落地总水平距离为 \(2s\)，擦网时距离为 \(s\)。竖直下落量与水平距离平方成正比，所以 \(h_1-h_2=\frac14h_1\)，得 \(h_2=\frac34h_1\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>同一条平抛轨迹上，竖直下落量 \(y\propto t^2\propto x^2\)。比较两个位置的水平距离平方即可。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1156,7 +1292,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>飞镖垂直命中</h2>
+          <h2>课上第8题：飞镖垂直命中</h2>
           <p>某次投镖，飞镖垂直射中竖直摆放的靶面中心。飞镖出手点在靶心下方，与靶心的水平距离为 \(L\)，竖直距离为 \(H\)，可将飞镖看成质点。</p>
           <p>试问飞镖出手时的速度大小为多少？若出手速度与水平面的夹角变大，其他条件不变，要使飞镖仍能垂直射中靶子，人应该前移还是后移？</p>
         </section>
@@ -1172,9 +1308,17 @@
           <p><strong>答案：</strong>\(\displaystyle v_0=\sqrt{\frac{gL^2}{2H}+2gH}\)，夹角变大时应前移。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>垂直打竖直靶，命中点就是竖直速度为零的位置</h2>
-          <p>先由最高点条件求 \(v_{0y}\)，再由水平距离求 \(v_{0x}\)；角度变大时水平分速度变小，所以人要往前走。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：最高点命中</h2>
+          <p>飞镖从靶心下方水平距离 \(L\)、竖直距离 \(H\) 处斜向上射出，恰好垂直击中竖直靶面。求初速度方向需满足的关系。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>垂直击中竖直靶面表示命中瞬间速度水平，即竖直分速度为 \(0\)，靶心在轨迹最高点。竖直方向有 \(v_{0y}^2=2gH\)，水平方向到最高点时间 \(t=v_{0y}/g\)，再由 \(L=v_{0x}t\) 求方向。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>“垂直击中竖直面”先翻译成速度方向水平，再把命中点识别为最高点。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1183,7 +1327,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>车窗雨滴相对速度</h2>
+          <h2>课后作业B组第10题：车窗雨滴相对速度</h2>
           <p>如图所示，某人在沿直线匀速行驶的火车车厢中面对车窗观察到雨滴下落时与竖直方向的夹角为 \(\theta\)。已知车窗外无风，火车速度为 \(v_1\)，雨滴对地速度为 \(v_2\)。</p>
           <p>判断火车速度方向、雨滴对地速度方向，以及 \(v_1\)、\(v_2\)、\(\theta\) 之间的关系。</p>
           <p>A. \(v_1\) 水平向他的右手方向，\(v_2\) 竖直向下，且 \(v_1=v_2\tan\theta\)</p>
@@ -1200,9 +1344,17 @@
           <p><strong>答案：</strong>B。雨滴对地竖直向下，车速方向与车窗中雨线的水平偏向相反，且 <span class="formula-line">\(v_1=v_2\tan\theta\)</span>。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>换参考系，雨线就倾斜</h2>
-          <p>雨本来竖直落下，但车向前跑，乘客看到的雨滴相对速度就多了一个向后的水平分量。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：车窗雨线</h2>
+          <p>雨滴相对地面竖直下落速度为 \(20\,\mathrm{m/s}\)，汽车水平向右速度为 \(15\,\mathrm{m/s}\)。车内人看到雨线与竖直方向夹角多大？</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>车内看雨滴的相对速度为水平向左 \(15\,\mathrm{m/s}\)、竖直向下 \(20\,\mathrm{m/s}\)。所以 \(\tan\theta=\frac{15}{20}=\frac34\)，\(\theta\approx36.9^\circ\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>相对速度等于雨滴速度减去汽车速度。车越快，看到的雨线越向后倾。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1211,7 +1363,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>垂直打到斜面</h2>
+          <h2>课上第3题：垂直打到斜面</h2>
           <p>固定斜面 \(PO\)、\(QO\) 与水平面 \(MN\) 的夹角均为 \(45^\circ\)。由 \(A\) 点分别以 \(v_1\)、\(v_2\) 先后沿水平方向抛出两个小球，不计空气阻力。</p>
           <p>以 \(v_1\) 抛出的小球恰能垂直于 \(QO\) 落于 \(C\) 点，飞行时间为 \(t\)；以 \(v_2\) 抛出的小球落在 \(PO\) 斜面上的 \(B\) 点，且 \(B\)、\(C\) 在同一水平面上。</p>
           <p><strong>判断：</strong></p>
@@ -1230,9 +1382,17 @@
           <p><strong>答案：</strong>A、C、D。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>落斜面看位置，垂直打斜面还要看速度方向</h2>
-          <p>同样是平抛，位置方程决定“打到哪里”，速度分解决定“怎么打上去”。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：垂直落到斜面</h2>
+          <p>小球水平抛出后落到倾角为 \(30^\circ\) 的斜面上，落点速度方向与斜面垂直。求落点时 \(v_y/v_x\)。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>斜面方向与水平夹角为 \(30^\circ\)，垂直斜面的速度方向与水平夹角为 \(60^\circ\)，所以 \(\frac{v_y}{v_x}=\tan60^\circ=\sqrt3\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>垂直打斜面不是只看落点在斜面上，还要让速度方向与斜面法线一致。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1241,7 +1401,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>反弹过挡板</h2>
+          <h2>课后作业第12题：反弹过挡板</h2>
           <p>从高 \(H=4\,\text{m}\) 处的 \(A\) 先后水平抛出两个小球 1 和 2。</p>
           <p>球 1 与地面碰撞一次后，恰好越过位于水平地面上高为 \(h\) 的竖直挡板，然后落在水平地面上的 \(D\) 点。碰撞碰后速度水平方向不变，竖直方向等大反向。</p>
           <p>球 2 恰好越过挡板，也落在 \(D\) 点。忽略空气阻力，求挡板高度 \(h\)。</p>
@@ -1258,9 +1418,17 @@
           <p><strong>答案：</strong>B. \(3\,\text{m}\)。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>反弹题的关键是分段，不是换公式</h2>
-          <p>碰撞前后水平运动连续，竖直运动在碰撞点把速度翻上去，轨迹就能拼起来。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：反弹后同落点</h2>
+          <p>两个小球从同一高度水平抛出，一个先撞到竖直挡板反弹后落地，另一个直接越过挡板落地。若两球落到不同点，比较挡板处高度对反弹球轨迹的影响。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>反弹球在挡板处水平速度反向、竖直速度不突变。反弹后的轨迹可看作从挡板处继续做平抛，水平位移方向改变，竖直运动仍由同一个 \(g\) 决定。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>反弹题要分段处理，碰撞只改变水平速度方向；竖直方向的下落时间和速度连续。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1269,7 +1437,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>曲线运动受力方向判断</h2>
+          <h2>课上第5题：曲线运动受力方向判断</h2>
           <p>质点沿如图所示的轨迹从 \(A\) 点运动到 \(B\) 点，已知其速度逐渐减小。判断图中能正确表示质点在 \(C\) 点所受合力方向的是哪一个。</p>
           <p>题图给出四个候选方向，关键是同时满足“使速度减小”和“使轨迹弯曲”两个条件。</p>
         </section>
@@ -1282,9 +1450,17 @@
           <p><strong>4. 合成判断。</strong> 合力方向应同时“指向凹侧”并“带有沿切线反向的分量”。原题四图中符合这一点的是 <strong>C</strong>。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>看曲线题，先找切线，再找凹侧</h2>
-          <p>切线告诉你速度方向，凹侧告诉你法向加速度方向，切向分力决定快慢变化。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：曲线受力判断</h2>
+          <p>物体沿一条向右上方弯曲的轨迹运动，速度大小逐渐减小。判断合力 \(\vec F\) 的大致方向，并说明切向分力 \(F_t\) 与法向分力 \(F_n\) 分别起什么作用。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>速度方向沿轨迹切线；速度减小说明 \(F_t\) 与速度方向相反；轨迹弯曲说明 \(F_n\) 指向轨迹凹侧。合力 \(\vec F\) 应在“反切向”和“凹侧法向”的合成方向上。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>曲线运动中，\(F_t\) 改变速率，\(F_n\) 改变速度方向。先看快慢判断切向分量，再看弯向判断法向分量。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1293,7 +1469,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>二维运动合成</h2>
+          <h2>课上第4题：二维运动合成</h2>
           <p>一个质量为 \(4\,\mathrm{kg}\) 的质点在 \(xOy\) 平面内运动。题图分别给出 \(x\) 方向的速度图像和 \(y\) 方向的位移图像。</p>
           <p>图像信息为：\(v_x\) 在 \(0\sim2\,\mathrm{s}\) 内由 \(3\,\mathrm{m/s}\) 匀增至 \(6\,\mathrm{m/s}\)；\(y\) 在 \(0\sim2\,\mathrm{s}\) 内由 \(8\,\mathrm{m}\) 匀减至 \(0\)。判断下列说法正确的是哪一个。</p>
           <p>A. 质点做匀变速直线运动　B. 质点所受合外力为 \(22\,\mathrm{N}\)　C. \(2\,\mathrm{s}\) 时质点速度为 \(6\,\mathrm{m/s}\)　D. 零时刻质点速度为 \(5\,\mathrm{m/s}\)</p>
@@ -1308,9 +1484,17 @@
           <p><strong>答案：</strong>D。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>先分轴算，再合成判形状</h2>
-          <p>合运动是否弯曲，不看有没有加速度，而看加速度方向是否和速度方向共线。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：分轴判断曲线</h2>
+          <p>质点初速度 \((4,3)\,\mathrm{m/s}\)，加速度 \((0,-2)\,\mathrm{m/s^2}\)。判断运动类型，并写出 \(x(t)\)、\(y(t)\)。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>水平方向匀速：\(x=4t\)；竖直方向匀变速：\(y=3t-t^2\)。初速度和加速度不共线，所以质点做匀变速曲线运动。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>二维运动先分轴写方程，再看 \(\vec v_0\) 与 \(\vec a\) 是否共线判断直线还是曲线。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1319,7 +1503,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>小船渡河进阶：船速小于水速</h2>
+          <h2>课上第9题：小船渡河进阶</h2>
           <p>小船在宽 \(d=200\,\mathrm{m}\) 的河水中行驶，船在静水中的速度 \(v_{\text{船}}=2\,\mathrm{m/s}\)，水流速度 \(v_{\text{水}}=4\,\mathrm{m/s}\)。</p>
           <p>若要使船能在最短距离内渡河，船应向什么方向划船？</p>
         </section>
@@ -1332,9 +1516,17 @@
           <p><strong>答案：</strong>船头应偏向上游，取速度圆切线对应方向，即与上游河岸方向约成 \(60^\circ\)。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>船太慢时，最短不是正对岸，而是擦着可达边界</h2>
-          <p>这类题不要硬套“垂直到岸”，先判断船速和水速大小，再决定能否抵消水流。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：船速小于水速</h2>
+          <p>河宽一定，船速 \(3\,\mathrm{m/s}\)，水速 \(6\,\mathrm{m/s}\)。求最短位移渡河时的速度圆临界角。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>船速小于水速，不能抵消水流。速度圆切线给出最短位移方向，若 \(\cos\alpha=\frac{v_{\text{船}}}{v_{\text{水}}}=\frac12\)，则 \(\alpha=60^\circ\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>先判断 \(v_{\text{船}}\lt v_{\text{水}}\)，再用速度圆切线，而不是硬套正对岸到达。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1343,7 +1535,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>杆约束速度</h2>
+          <h2>课上第13题：杆约束速度</h2>
           <p>如图所示，均匀直杆上连着两个小球 \(A\)、\(B\)，不计一切摩擦。当杆滑到图示位置时，\(B\) 球的水平速度为 \(v_B\)，杆与竖直方向夹角为 \(\alpha\)。</p>
           <p>求此时 \(A\) 球的速度大小。</p>
         </section>
@@ -1356,9 +1548,17 @@
           <p><strong>答案：</strong>\(v_A=v_B\tan\alpha\)。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>杆约束题先投影到杆上</h2>
-          <p>杆不会变长，沿杆方向不能拉开也不能挤近；速度分量相等就是破题口。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：滑杆端点速度</h2>
+          <p>杆两端分别沿竖直墙和水平地面滑动，杆与竖直方向夹角为 \(45^\circ\)，水平端速度为 \(10\,\mathrm{m/s}\)。求竖直端速度大小。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>刚性杆两端沿杆方向的速度分量相等，可得 \(v_A\cos45^\circ=v_B\sin45^\circ\)，所以 \(v_A=v_B=10\,\mathrm{m/s}\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>杆长不变意味着沿杆方向不能相互靠近或远离，因此两端速度先投影到杆上再相等。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1367,7 +1567,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>平抛落圆弧</h2>
+          <h2>课上第5题：平抛落圆弧</h2>
           <p>如图所示，在竖直放置的半圆形容器的中心 \(O\) 点，分别以水平速度 \(v_1\)、\(v_2\) 抛出两个小球。小球可视为质点，最终它们分别落在圆弧上的 \(A\) 点和 \(B\) 点。</p>
           <p>已知 \(OA\perp OB\)，且 \(OA\) 与竖直方向成 \(\alpha\) 角，求两小球初速度之比 \(\frac{v_1}{v_2}\)。</p>
           <p><strong>选项：</strong>A. \(\tan\alpha\)　B. \(\cos\alpha\)　C. \(\tan\alpha\sqrt{\tan\alpha}\)　D. \(\cos\alpha\sqrt{\cos\alpha}\)</p>
@@ -1383,9 +1583,17 @@
           <p><strong>答案：</strong>C. \(\tan\alpha\sqrt{\tan\alpha}\)。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>圆上的点先变成坐标，再套平抛</h2>
-          <p>圆弧题不要被图吓住，核心只是把落点的 \(x\)、\(y\) 坐标翻译出来。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：圆弧上的平抛点</h2>
+          <p>小球从半圆容器边缘水平抛出，落到圆弧上一点。已知该点相对抛出点的水平位移和竖直下落量，求初速度。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>由圆几何先读出落点坐标 \((x,y)\)，平抛满足 \(y=\frac12gt^2\)、\(x=v_0t\)，所以 \(t=\sqrt{2y/g}\)，\(v_0=x/t\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>圆弧题先把几何点转成坐标，再套平抛分轴方程。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1394,7 +1602,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>子弹穿旋转圆筒</h2>
+          <h2>课上第2题：子弹穿旋转圆筒</h2>
           <p>如图所示，直径为 \(d\) 的纸筒以角速度 \(\omega\) 绕轴 \(O\) 匀速转动。从枪口发射的子弹沿直径穿过圆筒。</p>
           <p>若子弹在圆筒旋转不到半周时在圆筒上留下 \(a\)、\(b\) 两个弹孔，已知 \(aO\) 和 \(bO\) 的夹角为 \(\varphi\)，求子弹的速度大小。</p>
         </section>
@@ -1408,9 +1616,17 @@
           <p><strong>答案：</strong>\(\displaystyle v=\frac{\omega d}{\pi-\varphi}\)。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>穿筒题先算时间，时间藏在圆筒转角里</h2>
-          <p>子弹走的是直径，圆筒转的是角度；把 \(t=\frac{d}{v}\) 和 \(t=\frac{\pi-\varphi}{\omega}\) 接起来就能求速度。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：旋转圆筒弹孔</h2>
+          <p>子弹沿直径穿过旋转圆筒，穿筒时间为 \(0.02\,\mathrm{s}\)，圆筒角速度为 \(50\,\mathrm{rad/s}\)。求子弹出入孔对应半径的夹角。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>圆筒转角 \(\Delta\theta=\omega t=50\times0.02=1\,\mathrm{rad}\)。若题目要求锐角，可再换算为约 \(57.3^\circ\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>子弹穿筒期间近似直线匀速，圆筒转过的角度就是出入孔半径夹角的来源。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1419,7 +1635,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>变速自行车传动</h2>
+          <h2>课上第3题：变速自行车传动</h2>
           <p>如图所示，某种变速自行车有五个飞轮和三个链轮。链轮和飞轮的齿数如下表所示，后轮直径为 \(d=660\mathrm{mm}\)。</p>
           <p>链轮齿数为 \(48,38,28\)，飞轮齿数为 \(15,18,21,24,28\)。人骑该车行进的速度为 \(v=4\mathrm{m/s}\) 时，求脚蹬踏板作匀速圆周运动的角速度最小值。</p>
           <p><strong>选项：</strong>A. \(1.9\mathrm{rad/s}\)　B. \(3.8\mathrm{rad/s}\)　C. \(6.5\mathrm{rad/s}\)　D. \(7.1\mathrm{rad/s}\)</p>
@@ -1434,9 +1650,17 @@
           <p><strong>答案：</strong>B. \(3.8\mathrm{rad/s}\)。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>链条题先分清“同轴”和“相切”</h2>
-          <p>后轮和飞轮同轴所以角速度相等；链条两端线速度相等，所以踏板角速度由飞轮齿数除以链轮齿数决定。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：链轮传动</h2>
+          <p>自行车前齿轮 \(40\) 齿，后齿轮 \(20\) 齿。若前齿轮角速度为 \(2\,\mathrm{rad/s}\)，求后齿轮角速度。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>链条线速度相等，半径与齿数成正比，所以 \(\omega_1r_1=\omega_2r_2\)，\(\omega_2=\omega_1\frac{40}{20}=4\,\mathrm{rad/s}\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>链传动看接触处线速度相等；同轴才是角速度相等。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1445,7 +1669,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>打夯机</h2>
+          <h2>第9题：打夯机</h2>
           <p>如图甲所示为建筑行业使用的一种小型打夯机，其原理可简化为一个质量为 \(M\) 的支架（含电动机）上由一根长为 \(l\) 的轻杆带动一个质量为 \(m\) 的铁球（铁球可视为质点），如图乙所示，重力加速度为 \(g\)。若在某次打夯过程中，铁球以角速度 \(\omega\) 匀速转动，则（  ）</p>
           <p><strong>选项：</strong></p>
           <p>A. 铁球转动过程线速度不变</p>
@@ -1463,9 +1687,17 @@
           <p><strong>答案：</strong>C、D。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>打夯机题看整体支持力随铁球竖直加速度变化</h2>
-          <p>最低点铁球向上加速，整体更压地；最高点铁球向下加速，整体对地压力减小，临界时压力为零。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：转动铁球的支持力</h2>
+          <p>打夯机内铁球做竖直平面圆周运动。若铁球在最高点向心加速度大小为 \(a_c\)，判断机器对地面的压力相对静止时如何变化。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>最高点铁球加速度向下，对铁球有 \(mg+N=ma_c\)。铁球对机器的作用力方向向上，机器对地面压力会小于总重；若在最低点，则作用力向下，地面压力增大。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>把铁球和机器分开受力，再用牛顿第三定律把铁球对机器的作用转回地面压力。</p>
+          </details>
         </section>
       </div>
     </div>
@@ -1493,16 +1725,14 @@
         <section class="problem-note-block">
           <p class="problem-note-kicker">近似题</p>
           <h2>同模型变式：换角度比较</h2>
-          <p>两个质量均为 \(m\) 的小球 \(A,B\) 在同一光滑半球形碗内做水平圆周运动，碗半径为 \(R=0.20\mathrm{m}\)，\(OA,OB\) 与竖直方向夹角分别为 \(60^\circ,30^\circ\)，取 \(g=10\mathrm{m/s^2}\)。求两球的角速度之比 \(\omega_A:\omega_B\) 和线速度之比 \(v_A:v_B\)。</p>
+          <p>两个质量均为 \(m\) 的小球 \(A,B\) 在同一光滑半球形碗内做水平圆周运动，碗半径为 \(R=0.20\,\mathrm{m}\)，\(OA,OB\) 与竖直方向夹角分别为 \(60^\circ,30^\circ\)，取 \(g=10\,\mathrm{m/s^2}\)。求两球的角速度之比 \(\omega_A:\omega_B\) 和线速度之比 \(v_A:v_B\)。</p>
           <details>
             <summary>近似题答案</summary>
-            <p><span class="formula-line">\(\omega_A:\omega_B=\sqrt{\frac{\cos30^\circ}{\cos60^\circ}}=\sqrt[4]{3}:1\)</span></p>
-            <p><span class="formula-line">\(v_A:v_B=\omega_A R\sin60^\circ:\omega_B R\sin30^\circ=\sqrt[4]{3}\cdot\sqrt3:1=3^{3/4}:1\)</span></p>
+            <p>\(\omega_A:\omega_B=\sqrt{\frac{\cos30^\circ}{\cos60^\circ}}=\sqrt[4]{3}:1\)。线速度比为 \(v_A:v_B=\omega_A R\sin60^\circ:\omega_B R\sin30^\circ=3^{3/4}:1\)。</p>
           </details>
           <details>
             <summary>近似题解题思路</summary>
-            <p>先把半球碗约束看成圆锥摆：支持力竖直分量平衡重力，水平分量提供向心力。</p>
-            <p>列式 <span class="formula-line">\(N\cos\theta=mg,\quad N\sin\theta=m\omega^2R\sin\theta\)</span>，得到 <span class="formula-line">\(\omega^2=\frac{g}{R\cos\theta}\)</span>。角速度比只比较 \(\cos\theta\)，线速度还要乘轨道半径 <span class="formula-line">\(r=R\sin\theta\)</span>。</p>
+            <p>先把半球碗约束看成圆锥摆：\(N\cos\theta=mg\)，\(N\sin\theta=m\omega^2R\sin\theta\)，得到 \(\omega^2=\frac{g}{R\cos\theta}\)。角速度比只比较 \(\cos\theta\)，线速度还要乘轨道半径 \(r=R\sin\theta\)。</p>
           </details>
         </section>
       </div>
@@ -1519,12 +1749,12 @@
 
   </main>
 
-  <script src="assets/app.js?v=20260706-bowl-double-ball"></script>
-  <script src="assets/scenes/common.js?v=20260706-bowl-double-ball"></script>
-  <script src="assets/scenes/sample.js?v=20260706-bowl-double-ball"></script>
-  <script src="assets/scenes/spring-2026.js?v=20260706-bowl-double-ball"></script>
-  <script src="assets/scenes/curve-motion.js?v=20260706-bowl-double-ball"></script>
-  <script src="assets/scenes/projectile-motion.js?v=20260706-bowl-double-ball"></script>
-  <script src="assets/scenes/circular-motion.js?v=20260706-bowl-double-ball"></script>
+  <script src="assets/app.js?v=20260706-local-p5"></script>
+  <script src="assets/scenes/common.js?v=20260706-local-p5"></script>
+  <script src="assets/scenes/sample.js?v=20260706-local-p5"></script>
+  <script src="assets/scenes/spring-2026.js?v=20260706-local-p5"></script>
+  <script src="assets/scenes/curve-motion.js?v=20260706-local-p5"></script>
+  <script src="assets/scenes/projectile-motion.js?v=20260706-local-p5"></script>
+  <script src="assets/scenes/circular-motion.js?v=20260706-local-p5"></script>
 </body>
 </html>

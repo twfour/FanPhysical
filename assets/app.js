@@ -94,6 +94,7 @@ var knowledgePointMap = {
   curveForce: ["曲线运动", "受力分析", "切向与法向"],
   motionCompose: ["运动合成", "图像读取", "牛顿第二定律"],
   riverCrossing: ["速度合成", "渡河模型", "分运动"],
+  waterfallCrossing: ["速度合成", "临界轨迹", "最小船速"],
   riverAdvanced: ["速度圆", "最短位移", "矢量合成"],
   rainWindow: ["相对速度", "参考系", "速度分解"],
   rodConstraint: ["杆约束", "速度投影", "关联速度"],
@@ -122,6 +123,7 @@ var legacySceneMap = {
   threeCar: true,
   inclineSlot: true,
   riverCrossing: true,
+  waterfallCrossing: true,
   projectileBasic: true,
   projectileSlope: true,
   projectileWindow: true,
@@ -216,6 +218,14 @@ var riverWaterSpeed = 3;
 var riverTheta = 90;
 var riverT = 0;
 var riverPlaying = false;
+
+var waterfallWidth = 30;
+var waterfallDownstream = 40;
+var waterfallWaterSpeed = 10;
+var waterfallBoatSpeed = 6;
+var waterfallTheta = 126.9;
+var waterfallT = 0;
+var waterfallPlaying = false;
 
 var projHeight = 160;
 var projV0 = 28;
@@ -403,6 +413,12 @@ function draw() {
     drawRiverGraph();
   }
 
+  if (currentScene === "waterfallCrossing") {
+    updateWaterfall(dt);
+    drawAnimScene(drawWaterfallScene);
+    drawWaterfallGraph();
+  }
+
   if (currentScene === "projectileBasic") {
     updateProjectile(dt);
     drawAnimScene(drawProjectileScene);
@@ -527,6 +543,7 @@ function switchScene(sceneName) {
   document.getElementById("treeThreeCar").className = sceneName === "threeCar" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeInclineSlot").className = sceneName === "inclineSlot" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeRiverCrossing").className = sceneName === "riverCrossing" ? "tree-item indent active" : "tree-item indent";
+  document.getElementById("treeWaterfallCrossing").className = sceneName === "waterfallCrossing" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeProjectileBasic").className = sceneName === "projectileBasic" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeProjectileSlope").className = sceneName === "projectileSlope" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeProjectileWindow").className = sceneName === "projectileWindow" ? "tree-item indent active" : "tree-item indent";
@@ -558,6 +575,7 @@ function switchScene(sceneName) {
   document.getElementById("threeCarControls").style.display = sceneName === "threeCar" ? "grid" : "none";
   document.getElementById("inclineSlotControls").style.display = sceneName === "inclineSlot" ? "grid" : "none";
   document.getElementById("riverCrossingControls").style.display = sceneName === "riverCrossing" ? "grid" : "none";
+  document.getElementById("waterfallCrossingControls").style.display = sceneName === "waterfallCrossing" ? "grid" : "none";
   document.getElementById("projectileBasicControls").style.display = sceneName === "projectileBasic" ? "grid" : "none";
   document.getElementById("projectileSlopeControls").style.display = sceneName === "projectileSlope" ? "grid" : "none";
   document.getElementById("projectileWindowControls").style.display = sceneName === "projectileWindow" ? "grid" : "none";
@@ -581,6 +599,7 @@ function switchScene(sceneName) {
   document.getElementById("threeCarNotes").style.display = sceneName === "threeCar" ? "block" : "none";
   document.getElementById("inclineSlotNotes").style.display = sceneName === "inclineSlot" ? "block" : "none";
   document.getElementById("riverCrossingNotes").style.display = sceneName === "riverCrossing" ? "block" : "none";
+  document.getElementById("waterfallCrossingNotes").style.display = sceneName === "waterfallCrossing" ? "block" : "none";
   document.getElementById("projectileBasicNotes").style.display = sceneName === "projectileBasic" ? "block" : "none";
   document.getElementById("projectileSlopeNotes").style.display = sceneName === "projectileSlope" ? "block" : "none";
   document.getElementById("projectileWindowNotes").style.display = sceneName === "projectileWindow" ? "block" : "none";
@@ -908,6 +927,8 @@ function enhanceProblemNotes() {
       if (block.querySelector(".note-body")) {
         return;
       }
+      var kicker = block.querySelector(".problem-note-kicker");
+      var kickerText = kicker ? kicker.innerText.trim() : "";
       var body = document.createElement("div");
       body.className = "note-body";
       var children = Array.prototype.slice.call(block.children);
@@ -917,7 +938,7 @@ function enhanceProblemNotes() {
         }
         body.appendChild(child);
       });
-      if (index > 0) {
+      if (index > 0 && kickerText !== "近似题") {
         block.classList.add("is-collapsed");
         var toggle = document.createElement("button");
         toggle.type = "button";
@@ -2124,6 +2145,10 @@ function updateModelSource(sceneName) {
   if (!sourceBox) {
     return;
   }
+  if (legacySceneMap[sceneName]) {
+    sourceBox.style.display = "none";
+    return;
+  }
   if (!source) {
     sourceBox.style.display = "none";
     return;
@@ -2197,6 +2222,20 @@ function updateLabels() {
   document.getElementById("riverT").max = Math.max(10, riverArriveTime()).toFixed(1);
   document.getElementById("riverT").value = riverT.toFixed(1);
   document.getElementById("riverPlayBtn").innerText = riverPlaying ? "暂停" : "播放";
+  if (waterfallBoatSpeed * Math.sin(waterfallTheta * Math.PI / 180) < 0.25) {
+    waterfallT = 0;
+    waterfallPlaying = false;
+  }
+  waterfallT = Math.min(waterfallT, waterfallArriveTime());
+  document.getElementById("waterfallWidthVal").innerText = waterfallWidth.toFixed(0);
+  document.getElementById("waterfallDownstreamVal").innerText = waterfallDownstream.toFixed(0);
+  document.getElementById("waterfallWaterSpeedVal").innerText = waterfallWaterSpeed.toFixed(1);
+  document.getElementById("waterfallBoatSpeedVal").innerText = waterfallBoatSpeed.toFixed(1);
+  document.getElementById("waterfallThetaVal").innerText = waterfallTheta.toFixed(1) + "°";
+  document.getElementById("waterfallTVal").innerText = waterfallT.toFixed(2) + "s";
+  document.getElementById("waterfallT").max = Math.max(2, waterfallArriveTime()).toFixed(2);
+  document.getElementById("waterfallT").value = waterfallT.toFixed(2);
+  document.getElementById("waterfallPlayBtn").innerText = waterfallPlaying ? "暂停" : "播放";
   projT = Math.min(projT, projectileFlightTime());
   document.getElementById("projHeightVal").innerText = projHeight.toFixed(0);
   document.getElementById("projV0Val").innerText = projV0.toFixed(0);
