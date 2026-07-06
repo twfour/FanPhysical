@@ -6,13 +6,13 @@
   "model": "子弹穿圆筒模型",
   "id": "circular_motion_bullet_through_cylinder",
   "chapter": "圆周运动",
-  "title": "子弹穿过旋转圆筒",
-  "question": "如图所示，直径为d的纸筒以角速度ω绕轴O匀速转动，从枪口发射的子弹沿直径穿过圆筒.若子弹在圆筒旋转不到半周时在圆筒上留下a、b两个弹孔，已知aO和bO夹角为φ，则子弹的速度大小为________ 【待校对：图示描述：子弹沿水平方向射击绕中心轴旋转的圆筒的示意图，标注有子弹、圆筒旋转方向ω、弹孔a和b】",
+  "title": "例2：子弹穿过旋转纸筒",
+  "question": "直径为 \\(d\\) 的纸筒以角速度 \\(\\omega\\) 绕轴 \\(O\\) 匀速转动，子弹沿直径穿过纸筒。子弹在纸筒旋转不到半周时留下 \\(a,b\\) 两个弹孔，已知 \\(aO\\) 与 \\(bO\\) 的夹角为 \\(\\varphi\\)，求子弹速度大小。",
   "options": [],
-  "answer": "",
+  "answer": "\\(v=\\frac{\\omega d}{\\pi-\\varphi}\\)",
   "analysis": {
-    "title": "分析",
-    "content": "子弹穿圆筒过程中，圆筒转动角度为π-φ，根据时间相等，可求解子弹速度。"
+    "title": "解析",
+    "content": "两孔原本位于同一直径两端，几何角差为 \\(\\pi\\)。纸筒在子弹穿过的时间内转过不到半周，所以实际转角为 \\(\\pi-\\varphi\\)。由 \\(t=\\frac{\\pi-\\varphi}{\\omega}\\)，子弹速度为 \\(v=\\frac{d}{t}=\\frac{\\omega d}{\\pi-\\varphi}\\)。"
   },
   "animation": {
     "enabled": false,
@@ -29,27 +29,37 @@
   "source": {
     "title": "圆周运动",
     "text": "例2",
-    "page": ""
+    "page": "",
+    "hidden": true
   },
   "steps": [
     {
       "stepId": 1,
-      "title": "确定圆筒转过的角度",
-      "content": "由于子弹从a进入，从b射出，且aO和bO夹角为φ，圆筒转过的角度θ满足θ+φ=π，所以θ=π-φ。",
+      "title": "确定共同时间",
+      "content": "子弹穿过纸筒的时间，等于纸筒从入孔位置转到出孔对应位置的时间。两孔原本在同一直径两端，几何角差为 \\(\\pi\\)。",
       "knowledge": [
-        "圆心角"
+        "圆周运动",
+        "直线运动与圆周运动结合"
       ],
-      "commonMistakes": [
-        "误以为转过的角度为φ"
-      ]
+      "commonMistakes": []
     },
     {
       "stepId": 2,
-      "title": "计算子弹速度",
-      "content": "子弹飞行时间t=θ/ω=(π-φ)/ω，子弹位移为直径d，所以速度v=d/t=dω/(π-φ)。",
+      "title": "写出转角关系",
+      "content": "题目说纸筒转过不到半周，且两孔半径夹角为 \\(\\varphi\\)，所以实际转角为 \\(\\pi-\\varphi\\)，有 \\(t=\\frac{\\pi-\\varphi}{\\omega}\\)。",
       "knowledge": [
-        "线速度",
-        "角速度与时间关系"
+        "圆周运动",
+        "直线运动与圆周运动结合"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求子弹速度",
+      "content": "子弹在筒内走过直径 \\(d\\)，因此 \\(v=\\frac{d}{t}=\\frac{\\omega d}{\\pi-\\varphi}\\)。",
+      "knowledge": [
+        "圆周运动",
+        "直线运动与圆周运动结合"
       ],
       "commonMistakes": []
     }
@@ -58,13 +68,12 @@
     "title": "总结",
     "content": "本题通过圆周运动与直线运动的等时性，求解子弹速度。"
   },
-  "images": [
-    {
-      "src": "data/problem-images/IMG_7022/例2_q2_img1.jpg",
-      "alt": "子弹沿水平方向射击绕中心轴旋转的圆筒的示意图，标注有子弹、圆筒旋转方向ω、弹孔a和b",
-      "caption": "子弹沿水平方向射击绕中心轴旋转的圆筒的示意图，标注有子弹、圆筒旋转方向ω、弹孔a和b",
-      "source": "IMG_7022_part01_clean.jpg",
-      "questionNo": "例2"
-    }
-  ]
+  "images": [],
+  "practice": {
+    "title": "近似题：子弹穿旋转纸筒",
+    "question": "纸筒直径 \\(d=0.30\\,\\mathrm{m}\\)，角速度 \\(\\omega=6\\,\\mathrm{rad/s}\\)。两个弹孔对应半径夹角为 \\(60^\\circ\\)，且纸筒转过不到半周，求子弹速度。",
+    "answer": "穿筒时间对应转角 \\(\\pi-\\varphi\\)，其中 \\(\\varphi=\\frac{\\pi}{3}\\)。所以 \\(t=\\frac{\\pi-\\varphi}{\\omega}=\\frac{2\\pi/3}{6}=\\frac{\\pi}{9}\\,\\mathrm{s}\\)，\\(v=\\frac{d}{t}=\\frac{0.30}{\\pi/9}\\approx0.86\\,\\mathrm{m/s}\\)。",
+    "thinking": "先把孔位夹角转成纸筒实际转角，再用穿筒直径除以时间。"
+  },
+  "analysisText": "两孔原本位于同一直径两端，几何角差为 \\(\\pi\\)。纸筒在子弹穿过的时间内转过不到半周，所以实际转角为 \\(\\pi-\\varphi\\)。由 \\(t=\\frac{\\pi-\\varphi}{\\omega}\\)，子弹速度为 \\(v=\\frac{d}{t}=\\frac{\\omega d}{\\pi-\\varphi}\\)。"
 }

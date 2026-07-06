@@ -6,18 +6,18 @@
   "model": "圆锥摆模型",
   "id": "circular_motion_string",
   "chapter": "圆周运动",
-  "title": "第12题",
-  "question": "图甲是游乐场中的“旋转飞椅”项目。“旋转飞椅”简化结构装置如图乙，转动轴带动顶部圆盘转动，长为L的轻质悬绳一端系在圆盘上，另一端系着椅子。悬点分别为A、B的两绳与竖直方向夹角分别为θ₁=37°、θ₂=53°，椅子与游客总质量分别为m_A、m_B，绳子拉力分别为F_A、F_B，向心加速度分别为a_A、a_B。忽略空气阻力，则椅子和游客随圆盘匀速转动的过程中（ ）",
+  "title": "C12：旋转飞椅",
+  "question": "旋转飞椅可简化为转盘带动顶部圆盘转动，长为 \\(L\\) 的轻质悬绳一端系在圆盘上，另一端系椅子。两绳与竖直方向夹角分别为 \\(\\theta_1=37^\\circ\\)、\\(\\theta_2=53^\\circ\\)，椅子与游客总质量分别为 \\(m_A,m_B\\)。判断向心力来源、拉力比、向心加速度比和夹角是否与质量有关。",
   "options": [
     "A. 由重力与绳子拉力的合力提供向心力",
-    "B. F_A:F_B = 4m_A:3m_B",
-    "C. a_A:a_B = 16:9",
+    "B. \\(F_A:F_B=4m_A:3m_B\\)",
+    "C. \\(a_A:a_B=16:9\\)",
     "D. 悬绳与竖直方向的夹角与游客质量无关"
   ],
-  "answer": "AD",
+  "answer": "\\(a_c=g\\tan\\theta\\)，\\(T=\\frac{mg}{\\cos\\theta}\\)。",
   "analysis": {
-    "title": "总览",
-    "content": "本题为圆锥摆模型，分析向心力来源及物理量关系。由受力分析可知向心力由重力与拉力的合力提供；根据竖直方向平衡可求拉力表达式；根据几何关系可求向心加速度之比；由圆锥摆动力学方程可知角度与质量无关。"
+    "title": "解析",
+    "content": "飞椅是圆锥摆模型。绳拉力竖直分量平衡重力：\\(T\\cos\\theta=mg\\)；水平分量提供向心力：\\(T\\sin\\theta=ma_c\\)。两式相除得 \\(a_c=g\\tan\\theta\\)，所以向心加速度由夹角决定，与质量无关。拉力 \\(T=\\frac{mg}{\\cos\\theta}\\)，与质量和夹角都有关。"
   },
   "animation": {
     "enabled": false,
@@ -35,70 +35,54 @@
   "source": {
     "title": "圆周运动",
     "text": "第12题",
-    "page": ""
+    "page": "",
+    "hidden": true
   },
   "steps": [
     {
       "stepId": 1,
-      "title": "受力分析及向心力来源",
-      "content": "对任一椅子受力分析，受重力mg和绳子拉力F，合力水平指向圆心，提供向心力。故A选项正确。",
+      "title": "圆锥摆模型",
+      "content": "旋转飞椅可看作圆锥摆，向心力由重力和绳拉力的合力提供。",
       "knowledge": [
-        "圆周运动向心力来源"
+        "圆锥摆模型",
+        "向心力来源",
+        "力的合成与分解"
       ],
-      "commonMistakes": [
-        "误认为拉力的水平分力提供向心力"
-      ]
+      "commonMistakes": []
     },
     {
       "stepId": 2,
-      "title": "计算拉力及向心加速度之比",
-      "content": "由竖直方向平衡：Fcosθ=mg，得F=mg/cosθ。则F_A:F_B = (m_A/cos37°) : (m_B/cos53°) = (m_A/0.8) : (m_B/0.6) = 3m_A:4m_B，故B错误。由圆锥摆公式：a=gtanθ，或由a=ω²r=ω²Lsinθ，且ω相同，得a_A:a_B = sin37°:sin53° = 3:4，故C错误。",
+      "title": "受力方程",
+      "content": "竖直方向平衡：\\(T\\cos\\theta=mg\\)；水平方向提供向心力：\\(T\\sin\\theta=ma_c\\)。",
       "knowledge": [
-        "圆锥摆动力学方程",
-        "比值计算"
+        "圆锥摆模型",
+        "向心力来源",
+        "力的合成与分解"
       ],
-      "commonMistakes": [
-        "误用tanθ直接比",
-        "角度三角函数值混淆"
-      ]
+      "commonMistakes": []
     },
     {
       "stepId": 3,
-      "title": "判断夹角与质量关系",
-      "content": "由圆锥摆方程：mgtanθ=mω²Lsinθ，得cosθ=g/(ω²L)，与质量m无关，故D正确。",
+      "title": "结论比较",
+      "content": "两式相除得 \\(a_c=g\\tan\\theta\\)，所以向心加速度由夹角决定，与质量无关；拉力 \\(T=\\frac{mg}{\\cos\\theta}\\)，与质量和夹角都有关。",
       "knowledge": [
-        "圆锥摆角度与质量无关"
+        "圆锥摆模型",
+        "向心力来源",
+        "力的合成与分解"
       ],
-      "commonMistakes": [
-        "认为质量越大夹角越大"
-      ]
+      "commonMistakes": []
     }
   ],
   "summary": {
     "title": "方法总结",
     "content": "处理旋转飞椅问题，应抽象为圆锥摆模型，利用受力分析和圆周运动方程求解。关键在于建立正确的动力学方程，注意角度与质量无关的特点。"
   },
-  "images": [
-    {
-      "src": "data/problem-images/IMG_7023/例12_q12_img1.jpg",
-      "alt": "包含图(a)小球C绕A、B铁钉运动的示意图，图(b)细绳拉力F随时间t变化的F-t图像",
-      "caption": "包含图(a)小球C绕A、B铁钉运动的示意图，图(b)细绳拉力F随时间t变化的F-t图像",
-      "source": "IMG_7023_part02_clean.jpg",
-      "questionNo": "例12"
-    },
-    {
-      "src": "data/problem-images/IMG_7027/12_q12_img1.jpg",
-      "alt": "旋转飞椅实物图，标注为甲",
-      "caption": "旋转飞椅实物图，标注为甲",
-      "source": "IMG_7027_part02_clean.jpg",
-      "questionNo": "12"
-    },
-    {
-      "src": "data/problem-images/IMG_7027/12_q12_img2.jpg",
-      "alt": "旋转飞椅简化结构示意图，标注为乙，包含转动轴O，悬点A、B，两根长度为L的悬绳分别悬挂质量为m_A、m_B的物体，与竖直方向夹角分别为θ₁、θ₂",
-      "caption": "旋转飞椅简化结构示意图，标注为乙，包含转动轴O，悬点A、B，两根长度为L的悬绳分别悬挂质量为m_A、m_B的物体，与竖直方向夹角分别为θ₁、θ₂",
-      "source": "IMG_7027_part02_clean.jpg",
-      "questionNo": "12"
-    }
-  ]
+  "images": [],
+  "practice": {
+    "title": "近似题：旋转飞椅夹角",
+    "question": "旋转飞椅的绳与竖直方向夹角为 \\(37^\\circ\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求椅子的向心加速度。",
+    "answer": "圆锥摆满足 \\(\\tan\\theta=\\frac{a_c}{g}\\)，所以 \\(a_c=g\\tan37^\\circ\\approx10\\times0.75=7.5\\,\\mathrm{m/s^2}\\)。",
+    "thinking": "拉力竖直分量平衡重力，水平分量提供向心力；两式相除得到 \\(a_c=g\\tan\\theta\\)。"
+  },
+  "analysisText": "飞椅是圆锥摆模型。绳拉力竖直分量平衡重力：\\(T\\cos\\theta=mg\\)；水平分量提供向心力：\\(T\\sin\\theta=ma_c\\)。两式相除得 \\(a_c=g\\tan\\theta\\)，所以向心加速度由夹角决定，与质量无关。拉力 \\(T=\\frac{mg}{\\cos\\theta}\\)，与质量和夹角都有关。"
 }

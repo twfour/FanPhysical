@@ -26,23 +26,20 @@
         <p class="tree-title">目录</p>
         <button id="treeHome" class="tree-item" onclick="switchScene('home')">首页</button>
         <details class="tree-node">
-          <summary class="tree-folder">有动画</summary>
-          <div class="tree-children">
-            <details class="tree-node">
               <summary class="tree-subfolder">2026春季班</summary>
               <div class="tree-children">
                 <details class="tree-node">
                   <summary class="tree-subfolder">竖直上抛运动</summary>
                   <div class="tree-children">
-                    <button id="treeDoubleThrow" class="tree-item indent" onclick="switchScene('doubleThrow')">双球上抛相遇</button>
-                    <button id="treePipeDrop" class="tree-item indent" onclick="switchScene('pipeDrop')">金属管穿球</button>
-                    <button id="treeThreeCar" class="tree-item indent" onclick="switchScene('threeCar')">三车防追尾</button>
+                    <button id="treeDoubleThrow" class="tree-item indent" onclick="switchScene('doubleThrow')">B7-双球上抛相遇</button>
+                    <button id="treePipeDrop" class="tree-item indent" onclick="switchScene('pipeDrop')">B10-金属管穿球</button>
+                    <button id="treeThreeCar" class="tree-item indent" onclick="switchScene('threeCar')">B11-三车防追尾</button>
                   </div>
                 </details>
                 <details class="tree-node">
                   <summary class="tree-subfolder">必修一结业测试</summary>
                   <div class="tree-children">
-                    <button id="treeInclineSlot" class="tree-item indent" onclick="switchScene('inclineSlot')">光滑斜槽下滑</button>
+                    <button id="treeInclineSlot" class="tree-item indent" onclick="switchScene('inclineSlot')">单3-光滑斜槽下滑</button>
                   </div>
                 </details>
               </div>
@@ -53,273 +50,73 @@
                 <details class="tree-node">
                   <summary class="tree-subfolder">曲线运动</summary>
                   <div class="tree-children">
-                    <button id="treeCurveForce" class="tree-item indent" onclick="switchScene('curveForce')">曲线受力方向</button>
-                    <button id="treeMotionCompose" class="tree-item indent" onclick="switchScene('motionCompose')">二维运动合成</button>
-                    <button id="treeRiverCrossing" class="tree-item indent" onclick="switchScene('riverCrossing')">小船渡河</button>
-                    <button id="treeWaterfallCrossing" class="tree-item indent" onclick="switchScene('waterfallCrossing')">瀑布临界渡河</button>
-                    <button id="treeRiverAdvanced" class="tree-item indent" onclick="switchScene('riverAdvanced')">渡河进阶</button>
-                    <button id="treeRainWindow" class="tree-item indent" onclick="switchScene('rainWindow')">车窗雨滴</button>
-                    <button id="treeRodConstraint" class="tree-item indent" onclick="switchScene('rodConstraint')">杆约束速度</button>
+                    <button id="treeMotionCompose" class="tree-item indent" onclick="switchScene('motionCompose')">课4-二维运动合成</button>
+                    <button id="treeCurveForce" class="tree-item indent" onclick="switchScene('curveForce')">课5-曲线受力方向</button>
+                    <button id="treeRiverCrossing" class="tree-item indent" onclick="switchScene('riverCrossing')">课8-小船渡河</button>
+                    <button id="treeRiverAdvanced" class="tree-item indent" onclick="switchScene('riverAdvanced')">课9-渡河进阶</button>
+                    <button id="treeWaterfallCrossing" class="tree-item indent" onclick="switchScene('waterfallCrossing')">课10-瀑布临界渡河</button>
+                    <button id="treeRodConstraint" class="tree-item indent" onclick="switchScene('rodConstraint')">课13-杆约束速度</button>
+                    <button id="treeRainWindow" class="tree-item indent" onclick="switchScene('rainWindow')">B10-车窗雨滴</button>
                   </div>
                 </details>
                 <details class="tree-node">
                   <summary class="tree-subfolder">平抛运动</summary>
                   <div class="tree-children">
-                    <button id="treeProjectileBasic" class="tree-item indent" onclick="switchScene('projectileBasic')">平抛运动基础</button>
-                    <button id="treeProjectileSlope" class="tree-item indent" onclick="switchScene('projectileSlope')">平抛落斜面</button>
-                    <button id="treeProjectileWindow" class="tree-item indent" onclick="switchScene('projectileWindow')">平抛穿窗</button>
-                    <button id="treeVolleyballServe" class="tree-item indent" onclick="switchScene('volleyballServe')">排球过网落点</button>
-                    <button id="treeDartTarget" class="tree-item indent" onclick="switchScene('dartTarget')">飞镖垂直命中</button>
-                    <button id="treeProjectileNormal" class="tree-item indent" onclick="switchScene('projectileNormal')">垂直打斜面</button>
-                    <button id="treeProjectileBounce" class="tree-item indent" onclick="switchScene('projectileBounce')">反弹过挡板</button>
-                    <button id="treeSemiCircleThrow" class="tree-item indent" onclick="switchScene('semiCircleThrow')">平抛落圆弧</button>
+                    <button id="treeProjectileBasic" class="tree-item indent" onclick="switchScene('projectileBasic')">课1-平抛运动基础</button>
+                    <button id="treeProjectileSlope" class="tree-item indent" onclick="switchScene('projectileSlope')">课2-平抛落斜面</button>
+                    <button id="treeProjectileNormal" class="tree-item indent" onclick="switchScene('projectileNormal')">课3-垂直打斜面</button>
+                    <button id="treeSemiCircleThrow" class="tree-item indent" onclick="switchScene('semiCircleThrow')">课5-平抛落圆弧</button>
+                    <button id="treeProjectileWindow" class="tree-item indent" onclick="switchScene('projectileWindow')">课6-平抛穿窗</button>
+                    <button id="treeVolleyballServe" class="tree-item indent" onclick="switchScene('volleyballServe')">课7-排球过网落点</button>
+                    <button id="treeDartTarget" class="tree-item indent" onclick="switchScene('dartTarget')">课8-飞镖垂直命中</button>
+                    <button id="treeProjectileBounce" class="tree-item indent" onclick="switchScene('projectileBounce')">B12-反弹过挡板</button>
                   </div>
                 </details>
                 <details class="tree-node">
                   <summary class="tree-subfolder">圆周运动</summary>
                   <div class="tree-children">
-                    <button id="treeBulletCylinder" class="tree-item indent" onclick="switchScene('bulletCylinder')">子弹穿旋转圆筒</button>
-                    <button id="treeBikeGear" class="tree-item indent" onclick="switchScene('bikeGear')">变速自行车传动</button>
-                    <button id="treePileDriver" class="tree-item indent" onclick="switchScene('pileDriver')">打夯机</button>
-                    <button id="treeBowlDoubleBall" class="tree-item indent" onclick="switchScene('bowlDoubleBall')">半球碗双球圆周运动</button>
+                    <button id="treeBulletCylinder" class="tree-item indent" onclick="switchScene('bulletCylinder')">课2-子弹穿旋转圆筒</button>
+                    <button id="treeBikeGear" class="tree-item indent" onclick="switchScene('bikeGear')">课3-变速自行车传动</button>
+                    <button class="tree-item indent" data-scene="circular_motion_cake_decoration_rotation" onclick="switchScene('circular_motion_cake_decoration_rotation')">课4-蛋糕裱花圆盘转动</button>
+                    <button class="tree-item indent" data-scene="circular_motion_example5" onclick="switchScene('circular_motion_example5')">课5-飞镖与转盘游戏</button>
+                    <button class="tree-item indent" data-scene="circular_motion_example6" onclick="switchScene('circular_motion_example6')">课6-皮带传动向心加速度</button>
+                    <button class="tree-item indent" data-scene="circular_motion_friction" onclick="switchScene('circular_motion_friction')">课7-汽车过弯最大速度</button>
+                    <button class="tree-item indent" data-scene="circular_motion_example8" onclick="switchScene('circular_motion_example8')">课8-转盘连接小球</button>
+                    <button class="tree-item indent" data-scene="circular_motion_example9" onclick="switchScene('circular_motion_example9')">课9-双人圆周运动</button>
+                    <button class="tree-item indent" data-scene="circular_motion_example10" onclick="switchScene('circular_motion_example10')">课10-转台临界滑动</button>
+                    <button class="tree-item indent" data-scene="circular_motion_ex11" onclick="switchScene('circular_motion_ex11')">课11-突然停止悬绳张力</button>
+                    <button class="tree-item indent" data-scene="circular_motion_ex12" onclick="switchScene('circular_motion_ex12')">课12-细绳绕钉拉力图像</button>
+                    <button class="tree-item indent" data-scene="circular_motion_example13" onclick="switchScene('circular_motion_example13')">课13-同高圆锥摆</button>
+                    <button class="tree-item indent" data-scene="circular_motion_example14" onclick="switchScene('circular_motion_example14')">课14-双绳水平圆周</button>
+                    <button class="tree-item indent" data-scene="circular_motion_example15" onclick="switchScene('circular_motion_example15')">课15-圆锥面圆周运动</button>
+                    <button class="tree-item indent" data-scene="circular_motion_belt_pulley_1" onclick="switchScene('circular_motion_belt_pulley_1')">A1-皮带轮运动分析</button>
+                    <button class="tree-item indent" data-scene="circular_motion_pour_water_ice_2" onclick="switchScene('circular_motion_pour_water_ice_2')">A2-泼水成冰运动分析</button>
+                    <button class="tree-item indent" data-scene="circular_motion_gear_ratio" onclick="switchScene('circular_motion_gear_ratio')">A3-牛力齿轮水车</button>
+                    <button class="tree-item indent" data-scene="circular_motion_bullet_cylinder" onclick="switchScene('circular_motion_bullet_cylinder')">A4-子弹射穿圆筒</button>
+                    <button class="tree-item indent" data-scene="circular_motion_pendulum_hitting_nail" onclick="switchScene('circular_motion_pendulum_hitting_nail')">A5-悬线碰钉子</button>
+                    <button class="tree-item indent" data-scene="circular_motion_elastic_force_friction_static_friction_string" onclick="switchScene('circular_motion_elastic_force_friction_static_friction_string')">B8-转盘绳连木块</button>
+                    <button id="treePileDriver" class="tree-item indent" onclick="switchScene('pileDriver')">B9-打夯机</button>
+                    <button class="tree-item indent" data-scene="circular_motion_problem_02" onclick="switchScene('circular_motion_problem_02')">B10-双漏斗小球</button>
+                    <button class="tree-item indent" data-scene="circular_motion_friction_static_friction" onclick="switchScene('circular_motion_friction_static_friction')">B11-竖直圆周运动物块</button>
+                    <button class="tree-item indent" data-scene="circular_motion_string" onclick="switchScene('circular_motion_string')">C12-旋转飞椅</button>
+                    <button id="treeBowlDoubleBall" class="tree-item indent" onclick="switchScene('bowlDoubleBall')">C13-半球碗双球圆周运动</button>
                   </div>
                 </details>
               </div>
             </details>
-          </div>
-        </details>
-        <details id="jsonProblemTree" class="tree-node" hidden>
-          <summary class="tree-folder">无动画</summary>
-          <div id="jsonProblemTreeChildren" class="tree-children"></div>
-        </details>
       </aside>
 
       <section class="workspace">
 
     <div id="homePanel" class="home-panel">
-      <section class="home-hero">
-        <div class="hero-copy">
-          <p class="eyebrow">初中物理互动学习平台</p>
-          <h1>用动画真正理解物理</h1>
-          <p>把题目、模型、参数实验和分步解析放在同一个学习流里，让抽象公式变成可观察、可调节、可解释的物理过程。</p>
-          <div class="hero-actions">
-            <button class="primary-action" type="button" onclick="switchScene('projectileBasic')">开始学习</button>
-            <button class="ghost-action" type="button" onclick="switchScene('riverCrossing')">体验动画实验室</button>
-          </div>
-        </div>
-        <div class="hero-lab" aria-label="动画实验室预览">
-          <div class="lab-orbit">
-            <span></span>
-            <span></span>
-          </div>
-          <div class="lab-panel">
-            <strong>平抛运动</strong>
-            <span>速度 v0 = 28</span>
-            <span>高度 h = 160</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="home-section compact">
+      <section id="favoriteHomeSection" class="home-section favorite-home-section">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">按章节学习</p>
-            <h3>从模型出发，而不是从题堆出发</h3>
+            <p class="eyebrow">我的收藏</p>
+            <h3>收藏的模型题</h3>
           </div>
         </div>
-        <div class="chapter-grid">
-          <button class="chapter-card tone-blue" type="button" onclick="switchScene('motionCompose')"><strong>运动</strong><span>二维运动合成</span></button>
-          <button class="chapter-card tone-teal" type="button" onclick="switchScene('curveForce')"><strong>力学</strong><span>曲线受力方向</span></button>
-          <button class="chapter-card tone-amber" type="button" onclick="switchScene('riverCrossing')"><strong>浮力与流体</strong><span>小船渡河</span></button>
-          <button class="chapter-card tone-purple" type="button" onclick="switchScene('projectileBasic')"><strong>抛体运动</strong><span>平抛基础</span></button>
-          <button class="chapter-card tone-green" type="button" onclick="switchScene('bulletCylinder')"><strong>圆周运动</strong><span>旋转圆筒</span></button>
-          <div class="chapter-card is-muted"><strong>电学 / 光学</strong><span>预留知识图谱入口</span></div>
-        </div>
-      </section>
-
-      <section class="home-section split">
-        <div class="feature-card lab-card">
-          <p class="eyebrow">动画实验室</p>
-          <h3>先动手调参数，再回到题目</h3>
-          <p>每个模型都保留播放、重置、时间轴和参数滑杆。动画区是主舞台，曲线和解析服务于理解。</p>
-          <button class="primary-action" type="button" onclick="switchScene('projectileSlope')">进入实验室</button>
-        </div>
-        <div class="feature-card progress-card">
-          <p class="eyebrow">最近学习</p>
-          <div class="stats-grid">
-            <span><strong>6</strong>今日完成</span>
-            <span><strong>18</strong>AI 提问</span>
-            <span><strong>受力分析</strong>最易错</span>
-            <span><strong>平抛</strong>推荐继续</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="home-section">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">今日推荐</p>
-            <h3>高频模型先练起来</h3>
-          </div>
-        </div>
-        <div class="recommend-grid">
-          <button class="home-card is-featured" onclick="switchScene('projectileBasic')">
-            <span class="card-icon">01</span>
-            <strong>平抛运动基础</strong>
-            <span>10 分钟 / 拆轴建模</span>
-          </button>
-          <button class="home-card is-featured" onclick="switchScene('rodConstraint')">
-            <span class="card-icon">02</span>
-            <strong>杆约束速度</strong>
-            <span>8 分钟 / 投影约束</span>
-          </button>
-          <button class="home-card is-featured" onclick="switchScene('bikeGear')">
-            <span class="card-icon">03</span>
-            <strong>变速自行车传动</strong>
-            <span>12 分钟 / 同轴与链速</span>
-          </button>
-        </div>
-      </section>
-
-      <section class="home-section">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">课程模型库</p>
-            <h3>2026春季班</h3>
-          </div>
-        </div>
-        <div class="home-grid">
-          <button class="home-card" onclick="switchScene('doubleThrow')">
-            <strong>双球上抛相遇</strong>
-            <span>竖直上抛运动 / 第7题</span>
-          </button>
-          <button class="home-card" onclick="switchScene('pipeDrop')">
-            <strong>金属管穿球</strong>
-            <span>竖直上抛运动 / 第10题</span>
-          </button>
-          <button class="home-card" onclick="switchScene('threeCar')">
-            <strong>三车防追尾</strong>
-            <span>竖直上抛运动 / 第11题</span>
-          </button>
-          <button class="home-card" onclick="switchScene('inclineSlot')">
-            <strong>光滑斜槽下滑</strong>
-            <span>必修一结业测试 / 第3题</span>
-          </button>
-        </div>
-      </section>
-
-      <section class="home-section">
-        <h3>2026暑假班 · 曲线运动</h3>
-        <div class="home-grid">
-          <button class="home-card" onclick="switchScene('curveForce')">
-            <strong>曲线受力方向</strong>
-            <span>合力方向、切向分力、法向分力</span>
-          </button>
-          <button class="home-card" onclick="switchScene('motionCompose')">
-            <strong>二维运动合成</strong>
-            <span>分运动图像、速度合成、合力判断</span>
-          </button>
-          <button class="home-card" onclick="switchScene('riverCrossing')">
-            <strong>小船渡河</strong>
-            <span>渡河时间、横向位移、最小位移</span>
-          </button>
-          <button class="home-card" onclick="switchScene('waterfallCrossing')">
-            <strong>瀑布临界渡河</strong>
-            <span>课上第10题 / 最小船速</span>
-          </button>
-          <button class="home-card" onclick="switchScene('riverAdvanced')">
-            <strong>渡河进阶</strong>
-            <span>船速小于水速、速度圆切线</span>
-          </button>
-          <button class="home-card" onclick="switchScene('rainWindow')">
-            <strong>车窗雨滴</strong>
-            <span>相对速度与参考系转换</span>
-          </button>
-          <button class="home-card" onclick="switchScene('rodConstraint')">
-            <strong>杆约束速度</strong>
-            <span>刚性杆投影约束</span>
-          </button>
-        </div>
-      </section>
-
-      <section class="home-section">
-        <h3>2026暑假班 · 平抛运动</h3>
-        <div class="home-grid">
-          <button class="home-card" onclick="switchScene('projectileBasic')">
-            <strong>平抛运动基础</strong>
-            <span>水平匀速、竖直自由落体</span>
-          </button>
-          <button class="home-card" onclick="switchScene('projectileSlope')">
-            <strong>平抛落斜面</strong>
-            <span>平抛轨迹与斜面几何</span>
-          </button>
-          <button class="home-card" onclick="switchScene('projectileWindow')">
-            <strong>平抛穿窗</strong>
-            <span>厚墙窗口的双截面判断</span>
-          </button>
-          <button class="home-card" onclick="switchScene('volleyballServe')">
-            <strong>排球过网落点</strong>
-            <span>网高、落点与速度范围</span>
-          </button>
-          <button class="home-card" onclick="switchScene('dartTarget')">
-            <strong>飞镖垂直命中</strong>
-            <span>斜抛命中角与前后移动</span>
-          </button>
-          <button class="home-card" onclick="switchScene('projectileNormal')">
-            <strong>垂直打斜面</strong>
-            <span>速度方向与落点几何</span>
-          </button>
-          <button class="home-card" onclick="switchScene('projectileBounce')">
-            <strong>反弹过挡板</strong>
-            <span>反弹分段与同一落点</span>
-          </button>
-          <button class="home-card" onclick="switchScene('semiCircleThrow')">
-            <strong>平抛落圆弧</strong>
-            <span>圆弧坐标与初速度比</span>
-          </button>
-        </div>
-      </section>
-
-      <section class="home-section">
-        <h3>2026暑假班 · 圆周运动</h3>
-        <div class="home-grid">
-          <div class="home-card home-static">
-            <strong>圆周运动基本量</strong>
-            <span>暑假课时3 / 第1题、第4题</span>
-          </div>
-          <button class="home-card" onclick="switchScene('bulletCylinder')">
-            <strong>子弹穿旋转圆筒</strong>
-            <span>暑假课时3 / 第2题</span>
-          </button>
-          <button class="home-card" onclick="switchScene('bikeGear')">
-            <strong>变速自行车传动</strong>
-            <span>暑假课时3 / 第3题</span>
-          </button>
-          <button class="home-card" onclick="switchScene('pileDriver')">
-            <strong>打夯机</strong>
-            <span>课后 B组 / 第9题</span>
-          </button>
-          <div class="home-card home-static">
-            <strong>汽车过弯最大速度</strong>
-            <span>暑假课时3 / 第7题；课后 A组第6题</span>
-          </div>
-          <button class="home-card" onclick="switchScene('bowlDoubleBall')">
-            <strong>圆锥摆与碗面约束</strong>
-            <span>暑假课时3 / 第8题、第13题；补充第13题</span>
-          </button>
-          <div class="home-card home-static">
-            <strong>转台静摩擦临界</strong>
-            <span>暑假课时3 / 第10题；课后 B组第8题</span>
-          </div>
-          <div class="home-card home-static">
-            <strong>竖直平面圆周</strong>
-            <span>课后 A组第5题；课后 B组第9题、第11题</span>
-          </div>
-          <div class="home-card home-static">
-            <strong>旋转飞椅</strong>
-            <span>课后 C组第12题</span>
-          </div>
-        </div>
+        <div id="favoriteHomeGrid" class="home-grid"></div>
       </section>
     </div>
 
@@ -1679,7 +1476,7 @@
         </section>
         <section class="problem-note-block">
           <p class="problem-note-kicker">解析</p>
-          <h2>取无动画圆周运动第9题：看速度方向、向心加速度和地面压力</h2>
+          <h2>B9：打夯机：看速度方向、向心加速度和地面压力</h2>
           <p><strong>1. 线速度是矢量。</strong> 铁球匀速转动时速率大小为 <span class="formula-line">\(v=\omega l\)</span>，但方向不断改变，所以线速度不变是错的，A 错。</p>
           <p><strong>2. 向心加速度只指向圆心。</strong> 铁球做半径为 \(l\) 的匀速圆周运动，向心加速度大小为 <span class="formula-line">\(a_c=\omega^2l\)</span>，不能再把 \(g\) 加进去，B 错。</p>
           <p><strong>3. 地面压力随铁球位置变化。</strong> 对“支架 + 铁球”整体看，最低点铁球竖直加速度向上，地面对打夯机的支持力 <span class="formula-line">\(N_{\text{低}}=(M+m)g+m\omega^2l\)</span>；最高点铁球竖直加速度向下，支持力 <span class="formula-line">\(N_{\text{高}}=(M+m)g-m\omega^2l\)</span>。所以最低点压力最大，C 对。</p>

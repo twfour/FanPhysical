@@ -1,4 +1,7 @@
 var currentScene = "home";
+var mathRenderedSceneMap = {};
+var mathRenderingSceneMap = {};
+var favoriteProblemStorageKey = "fanphysics:favoritedProblems";
 var modelSourceMap = {
   doubleThrow: {
     title: "2026春季班 / 竖直上抛运动",
@@ -114,6 +117,9 @@ var knowledgePointMap = {
 
 var problemDataMap = {};
 var problemDataList = [];
+var promotedProblemChapterMap = {
+  "圆周运动": true
+};
 var legacySceneMap = {
   spring: true,
   pendulum: true,
@@ -344,12 +350,12 @@ function setup() {
   textFont('"Noto Sans SC", "Microsoft YaHei", sans-serif');
   loadProblemData().then(function () {
     renderProblemDataNotes();
-    renderProblemDataTree();
-    renderProblemDataHome();
     enhanceProblemNotes();
+    renderFavoriteHome();
     switchScene(currentScene);
   });
   enhanceProblemNotes();
+  renderFavoriteHome();
   resetBrownian();
   updateLabels();
   switchScene(currentScene);
@@ -566,6 +572,9 @@ function switchScene(sceneName) {
   });
 
   document.getElementById("homePanel").style.display = sceneName === "home" ? "block" : "none";
+  if (sceneName === "home") {
+    renderFavoriteHome();
+  }
   document.getElementById("canvas-holder").style.display = shouldShowCanvas(sceneName) ? "block" : "none";
   document.getElementById("springControls").style.display = sceneName === "spring" ? "grid" : "none";
   document.getElementById("pendulumControls").style.display = sceneName === "pendulum" ? "grid" : "none";
@@ -621,7 +630,7 @@ function switchScene(sceneName) {
     note.style.display = note.id === sceneName + "Notes" ? "block" : "none";
   });
   updateModelSource(sceneName);
-  renderMath();
+  renderSceneMath(sceneName);
 }
 
 async function loadProblemData() {
@@ -646,7 +655,9 @@ async function loadProblemData() {
       if (problem.knowledge) {
         knowledgePointMap[problem.id] = problem.knowledge;
       }
-      modelSourceMap[problem.id] = normalizeProblemSource(problem);
+      if (!isPromotedProblem(problem)) {
+        modelSourceMap[problem.id] = normalizeProblemSource(problem);
+      }
     });
   } catch (error) {
     console.warn("Problem JSON load failed", error);
@@ -681,6 +692,10 @@ function renderProblemDataNotes() {
     var analysisBlock = createProblemAnalysisBlock(problem);
     analysisBlock.dataset.analysisBlock = "1";
     grid.appendChild(analysisBlock);
+    var practiceBlock = createProblemPracticeBlock(problem);
+    if (practiceBlock) {
+      grid.appendChild(practiceBlock);
+    }
     if (problem.summary && !problem.analysis) {
       grid.appendChild(createProblemNoteBlock("一句话总结", problem.summary.title || "总结", problem.summary.content || ""));
     }
@@ -692,12 +707,24 @@ function createProblemQuestionBlock(problem) {
   var options = Array.isArray(problem.options) ? problem.options : [];
   if (options.length) {
     parts.push(options.map(function (option) {
-      return "- " + option;
+      return formatProblemOption(option);
     }).join("\n"));
   }
   var block = createProblemNoteBlock("题目", problem.title, parts.filter(Boolean).join("\n\n"));
   appendProblemImages(block, problem.images);
   return block;
+}
+
+function formatProblemOption(option) {
+  if (typeof option === "string") {
+    return option.replace(/^\s*([A-D])[．、]\s*/, "$1. ");
+  }
+  if (option && typeof option === "object") {
+    var label = option.label ? String(option.label).replace(/[．、.：:]+$/, "") : "";
+    var text = option.text || option.content || "";
+    return (label ? label + ". " : "") + text;
+  }
+  return String(option || "");
 }
 
 function appendProblemImages(block, images) {
@@ -768,6 +795,31 @@ function createProblemAnalysisBlock(problem) {
   return block;
 }
 
+function createProblemPracticeBlock(problem) {
+  var practice = problem.practice || problem.similarProblem || null;
+  if (!practice) {
+    return null;
+  }
+  var block = createProblemNoteBlock("近似题", practice.title || "同模型练习", practice.question || "");
+  if (practice.answer) {
+    var answerDetails = document.createElement("details");
+    var answerSummary = document.createElement("summary");
+    answerSummary.innerText = "近似题答案";
+    answerDetails.appendChild(answerSummary);
+    appendMarkdownChildren(answerDetails, practice.answer);
+    block.appendChild(answerDetails);
+  }
+  if (practice.thinking || practice.solutionIdea) {
+    var thinkingDetails = document.createElement("details");
+    var thinkingSummary = document.createElement("summary");
+    thinkingSummary.innerText = "近似题解题思路";
+    thinkingDetails.appendChild(thinkingSummary);
+    appendMarkdownChildren(thinkingDetails, practice.thinking || practice.solutionIdea);
+    block.appendChild(thinkingDetails);
+  }
+  return block;
+}
+
 function appendMarkdownChildren(parent, content) {
   var contentWrap = document.createElement("div");
   contentWrap.innerHTML = markdownLiteToHtml(content || "");
@@ -790,99 +842,8 @@ function normalizeProblemSource(problem) {
   return { title: title, text: text };
 }
 
-function renderProblemDataHome() {
-  var homePanel = document.getElementById("homePanel");
-  if (!homePanel || !problemDataList.length) {
-    return;
-  }
-  var oldSection = document.getElementById("jsonProblemSection");
-  if (oldSection) {
-    oldSection.remove();
-  }
-  var section = document.createElement("section");
-  section.id = "jsonProblemSection";
-  section.className = "home-section";
-  section.innerHTML = [
-    "<div class=\"section-heading\">",
-    "<div>",
-    "<p class=\"eyebrow\">JSON 题库</p>",
-    "<h3>自动读取 /data/problems</h3>",
-    "</div>",
-    "</div>",
-    "<div class=\"home-grid\"></div>"
-  ].join("");
-  var grid = section.querySelector(".home-grid");
-  problemDataList.forEach(function (problem) {
-    var button = document.createElement("button");
-    button.type = "button";
-    button.className = "home-card";
-    button.onclick = function () {
-      switchScene(problem.id);
-    };
-    var title = document.createElement("strong");
-    title.innerText = problem.title;
-    var meta = document.createElement("span");
-    meta.innerText = [problem.chapter, (problem.knowledge || []).slice(0, 3).join(" / ")].filter(Boolean).join(" · ");
-    button.appendChild(title);
-    button.appendChild(meta);
-    if (isProblemAnimationEnabled(problem)) {
-      var badge = document.createElement("span");
-      badge.className = "home-card-badge";
-      badge.innerText = "Codex 动画：" + problem.animation.key;
-      button.appendChild(badge);
-    }
-    grid.appendChild(button);
-  });
-  homePanel.appendChild(section);
-}
-
-function renderProblemDataTree() {
-  var tree = document.getElementById("jsonProblemTree");
-  var container = document.getElementById("jsonProblemTreeChildren");
-  if (!tree || !container) {
-    return;
-  }
-  container.innerHTML = "";
-  tree.hidden = !problemDataList.length;
-  if (!problemDataList.length) {
-    return;
-  }
-
-  var groups = {};
-  problemDataList.forEach(function (problem) {
-    var chapter = problem.chapter || "未分类";
-    if (!groups[chapter]) {
-      groups[chapter] = [];
-    }
-    groups[chapter].push(problem);
-  });
-
-  Object.keys(groups).sort(function (a, b) {
-    return a.localeCompare(b, "zh-CN");
-  }).forEach(function (chapter) {
-    var chapterNode = document.createElement("details");
-    chapterNode.className = "tree-node";
-    var summary = document.createElement("summary");
-    summary.className = "tree-subfolder";
-    summary.innerText = chapter;
-    var children = document.createElement("div");
-    children.className = "tree-children";
-    groups[chapter].forEach(function (problem) {
-      var button = document.createElement("button");
-      button.type = "button";
-      button.id = "treeJson" + toPascalId(problem.id);
-      button.className = "tree-item indent";
-      button.dataset.scene = problem.id;
-      button.innerText = problem.title || problem.id;
-      button.onclick = function () {
-        switchScene(problem.id);
-      };
-      children.appendChild(button);
-    });
-    chapterNode.appendChild(summary);
-    chapterNode.appendChild(children);
-    container.appendChild(chapterNode);
-  });
+function isPromotedProblem(problem) {
+  return Boolean(problem && promotedProblemChapterMap[problem.chapter || ""]);
 }
 
 function toPascalId(value) {
@@ -913,6 +874,156 @@ function createProblemNoteBlock(kicker, title, content) {
   return section;
 }
 
+function readFavoriteProblems() {
+  try {
+    return JSON.parse(localStorage.getItem(favoriteProblemStorageKey) || "{}") || {};
+  } catch (error) {
+    return {};
+  }
+}
+
+function writeFavoriteProblems(favorites) {
+  try {
+    localStorage.setItem(favoriteProblemStorageKey, JSON.stringify(favorites || {}));
+  } catch (error) {
+    // localStorage can fail in private or file contexts; the button still works for the current render.
+  }
+}
+
+function getFavoriteProblemKey(sceneName) {
+  return "scene:" + String(sceneName || "unknown");
+}
+
+function isFavoriteProblem(sceneName) {
+  var favorites = readFavoriteProblems();
+  return Boolean(favorites[getFavoriteProblemKey(sceneName)]);
+}
+
+function setFavoriteProblem(sceneName, title, active) {
+  var favorites = readFavoriteProblems();
+  var key = getFavoriteProblemKey(sceneName);
+  if (active) {
+    favorites[key] = {
+      scene: sceneName,
+      title: title || sceneName,
+      savedAt: new Date().toISOString()
+    };
+  } else {
+    delete favorites[key];
+  }
+  writeFavoriteProblems(favorites);
+  renderFavoriteHome();
+}
+
+function updateFavoriteButton(button, active) {
+  button.classList.toggle("is-favorite", active);
+  button.setAttribute("aria-pressed", active ? "true" : "false");
+  button.innerText = active ? "♥" : "♡";
+  button.title = active ? "取消收藏这道题" : "收藏这道题";
+}
+
+function ensureFavoriteButton(block, sceneName) {
+  if (!block || block.querySelector(".favorite-toggle")) {
+    return;
+  }
+  var kicker = block.querySelector(".problem-note-kicker");
+  if (!kicker) {
+    return;
+  }
+  var titleEl = block.querySelector("h2");
+  var title = titleEl ? titleEl.innerText.trim() : sceneName;
+  var button = document.createElement("button");
+  button.type = "button";
+  button.className = "favorite-toggle";
+  button.setAttribute("aria-label", "收藏题目");
+  updateFavoriteButton(button, isFavoriteProblem(sceneName));
+  button.onclick = function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var active = !button.classList.contains("is-favorite");
+    setFavoriteProblem(sceneName, title, active);
+    updateFavoriteButton(button, active);
+  };
+  block.classList.add("has-favorite");
+  kicker.appendChild(button);
+}
+
+function getSceneFromElement(element) {
+  if (!element) {
+    return "";
+  }
+  if (element.dataset && element.dataset.scene) {
+    return element.dataset.scene;
+  }
+  var onclick = element.getAttribute("onclick") || "";
+  var match = onclick.match(/switchScene\('([^']+)'\)/);
+  return match ? match[1] : "";
+}
+
+function getScenePathFromElement(element) {
+  var parts = [];
+  var parent = element ? element.parentElement : null;
+  while (parent) {
+    if (parent.tagName === "DETAILS") {
+      var summary = parent.querySelector(":scope > summary");
+      if (summary) {
+        parts.unshift(summary.innerText.trim());
+      }
+    }
+    parent = parent.parentElement;
+  }
+  return parts.join(" / ");
+}
+
+function getSceneCatalog() {
+  var catalog = [];
+  var seen = {};
+  document.querySelectorAll(".sidebar .tree-item").forEach(function (item) {
+    var sceneName = getSceneFromElement(item);
+    if (!sceneName || sceneName === "home" || seen[sceneName]) {
+      return;
+    }
+    seen[sceneName] = true;
+    catalog.push({
+      scene: sceneName,
+      title: item.innerText.trim(),
+      path: getScenePathFromElement(item)
+    });
+  });
+  return catalog;
+}
+
+function renderFavoriteHome() {
+  var grid = document.getElementById("favoriteHomeGrid");
+  if (!grid) {
+    return;
+  }
+  grid.innerHTML = "";
+  var favorites = readFavoriteProblems();
+  getSceneCatalog().forEach(function (item) {
+    if (!favorites[getFavoriteProblemKey(item.scene)]) {
+      return;
+    }
+    var card = document.createElement("button");
+    card.type = "button";
+    card.className = "home-card favorite-home-card";
+    card.onclick = function () {
+      switchScene(item.scene);
+    };
+    var mark = document.createElement("span");
+    mark.className = "favorite-home-mark";
+    mark.innerText = "♥";
+    var title = document.createElement("strong");
+    title.innerText = item.title;
+    var meta = document.createElement("span");
+    meta.innerText = item.path || "收藏模型题";
+    card.appendChild(mark);
+    card.appendChild(title);
+    card.appendChild(meta);
+    grid.appendChild(card);
+  });
+}
+
 function enhanceProblemNotes() {
   var notes = document.querySelectorAll(".problem-notes");
   notes.forEach(function (note) {
@@ -924,16 +1035,22 @@ function enhanceProblemNotes() {
 
     var blocks = grid.querySelectorAll(".problem-note-block");
     blocks.forEach(function (block, index) {
+      var kicker = block.querySelector(".problem-note-kicker");
+      var kickerText = kicker ? kicker.innerText.trim() : "";
+      if (kickerText === "题目") {
+        ensureFavoriteButton(block, sceneName);
+      }
       if (block.querySelector(".note-body")) {
         return;
       }
-      var kicker = block.querySelector(".problem-note-kicker");
-      var kickerText = kicker ? kicker.innerText.trim() : "";
       var body = document.createElement("div");
       body.className = "note-body";
       var children = Array.prototype.slice.call(block.children);
       children.forEach(function (child) {
         if (child.classList && child.classList.contains("problem-note-kicker")) {
+          return;
+        }
+        if (child.classList && child.classList.contains("favorite-toggle")) {
           return;
         }
         body.appendChild(child);
@@ -947,7 +1064,7 @@ function enhanceProblemNotes() {
         toggle.onclick = function () {
           var collapsed = block.classList.toggle("is-collapsed");
           toggle.innerText = collapsed ? "展开" : "收起";
-          renderMath();
+          renderMath(block);
         };
         block.appendChild(toggle);
         if (isAnalysisNoteBlock(block)) {
@@ -2132,11 +2249,33 @@ async function askStepAi(paragraph, prompt, intent, fallbackStepIndex) {
 function renderMath(root) {
   if (window.MathJax && window.MathJax.typesetPromise) {
     if (root) {
-      window.MathJax.typesetPromise([root]);
+      return window.MathJax.typesetPromise([root]);
     } else {
-      window.MathJax.typesetPromise();
+      return window.MathJax.typesetPromise();
     }
   }
+  return Promise.resolve();
+}
+
+function renderSceneMath(sceneName) {
+  if (sceneName === "home") {
+    return;
+  }
+  if (mathRenderedSceneMap[sceneName] || mathRenderingSceneMap[sceneName]) {
+    return;
+  }
+  var root = document.getElementById(sceneName + "Notes");
+  if (!root) {
+    return;
+  }
+  mathRenderingSceneMap[sceneName] = true;
+  renderMath(root).then(function () {
+    mathRenderedSceneMap[sceneName] = true;
+  }).catch(function (error) {
+    console.warn("MathJax render failed", error);
+  }).finally(function () {
+    mathRenderingSceneMap[sceneName] = false;
+  });
 }
 
 function updateModelSource(sceneName) {
