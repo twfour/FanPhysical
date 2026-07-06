@@ -60,9 +60,9 @@ function drawProjectileScene() {
   drawArrow(startX, groundY, startX, 62, "#64748b");
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("y/m", startX + 10, 60);
   text("地面 y = 0", 60, groundY + 10);
 
@@ -107,10 +107,10 @@ function drawProjectileGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("分运动图像", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("蓝线：x(t)；红线：下落高度 y落(t)", graphLeft + 24, 44);
 
   stroke("#cbd5e1");
@@ -124,7 +124,7 @@ function drawProjectileGraph() {
   }
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textSize(11);
   textAlign(RIGHT, CENTER);
   for (i = 0; i <= 4; i++) {
@@ -149,7 +149,7 @@ function drawProjectileGraph() {
   noStroke();
   fill("#2563eb");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("水平位移", gx + 10, gy + 10);
   fill("#dc2626");
   text("下落高度", gx + 10, gy + 28);
@@ -280,7 +280,7 @@ function drawSlopeScene() {
     circle(ballX, ballY, 22);
     fill("#ffffff");
     textAlign(CENTER, CENTER);
-    textSize(12);
+    textSize(14);
     text(labels[i], hitX, hitY);
   }
 
@@ -292,9 +292,9 @@ function drawSlopeScene() {
   drawVectorArrow(midX, midY, 0, slopeG * midT * 1.3, "#dc2626", "vy");
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("斜面", slopeEndX - 38, slopeEndY - 20);
   text("同一斜面：a、b、c 由近到远", startX + 10, startY + 22);
 }
@@ -317,10 +317,10 @@ function drawSlopeGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("三球比较图像", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("时间 t、初速度 v₀、速度变化量 Δv 均由 a 到 c 增大", graphLeft + 24, 44);
 
   drawBasicGrid(gx, gy, gw, gh);
@@ -344,13 +344,13 @@ function drawSlopeGraph() {
 
     fill("#111827");
     textAlign(CENTER, TOP);
-    textSize(13);
+    textSize(15);
     text(labels[i], centerX, baseY + 12);
   }
 
   fill("#2563eb");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("蓝：t", gx + 10, gy + 10);
   fill("#f97316");
   text("橙：v₀", gx + 10, gy + 28);
@@ -365,9 +365,9 @@ function drawSlopeGraph() {
   drawingContext.setLineDash([]);
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("末速度方向：tanφ = vy/vx = 2tanθ，三球相同", gx + 72, gy + 12);
 }
 
@@ -464,9 +464,9 @@ function drawWindowScene() {
   circle(ballX, ballY, 22);
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("P", startX - 16, startY - 8);
   text("窗口", wallX + wallW + 8, slotTop + 8);
 }
@@ -483,10 +483,10 @@ function drawWindowGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("下落量-水平位置图像", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("绿色区间：窗口允许范围", graphLeft + 24, 44);
 
   drawBasicGrid(gx, gy, gw, gh);
@@ -617,9 +617,9 @@ function drawVolleyScene() {
   fill(volleyCanClearAndLand() ? "#16a34a" : "#dc2626");
   circle(rangeX, groundY, 10);
 
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("h1", startX + 8, (startY + groundY) / 2 - 8);
   text("h2", netX + 12, (netTopY + groundY) / 2 - 8);
   text("s", (startX + netX) / 2 - 6, groundY + 14);
@@ -643,10 +643,10 @@ function drawVolleyGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("高度-水平位置图像", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("蓝线为球的抛物线；绿线为网高，虚线为底线", graphLeft + 24, 44);
 
   drawBasicGrid(gx, gy, gw, gh);
@@ -684,7 +684,7 @@ function drawVolleyGraph() {
   circle(rangeGraphX, gy + gh, 8);
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("h1/h2 = " + (volleyH1 / Math.max(0.1, volleyH2)).toFixed(2) + "，原题应为 1.80", gx + 12, gy + 12);
   text("刚落底线所需 v0 = " + volleyExactV0().toFixed(1), gx + 12, gy + 34);
   text("当前落点 R = " + volleyRange().toFixed(1), gx + 12, gy + 56);
@@ -802,9 +802,9 @@ function drawDartScene() {
   circle(dartX, dartY, 14);
   triangle(dartX + 17, dartY, dartX - 8, dartY - 6, dartX - 8, dartY + 6);
 
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("L", (startX + targetX) / 2, groundY + 14);
   text("H", startX + 10, (groundY + targetY) / 2 - 8);
   text("角度增大后目标水平距离 L'=" + dartNewL().toFixed(0), 42, 42);
@@ -823,10 +823,10 @@ function drawDartGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("飞镖轨迹与速度分解", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("命中竖直靶面时，竖直分速度为 0", graphLeft + 24, 44);
 
   drawBasicGrid(gx, gy, gw, gh);
@@ -860,7 +860,7 @@ function drawDartGraph() {
   circle(targetGX, targetGY, 9);
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("v0 = " + dartV0().toFixed(1), gx + 12, gy + 12);
   text("θ = " + dartThetaDeg().toFixed(1) + "°", gx + 12, gy + 34);
   text("vx = " + dartVX0().toFixed(1) + "，vy = " + dartVY0().toFixed(1), gx + 12, gy + 56);
@@ -1018,9 +1018,9 @@ function drawNormalScene() {
   drawVectorArrow(ball2X, ball2Y, 0, normalG * tNow * 1.25, "#dc2626", "v2y");
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("A/P", startX - 20, startY - 18);
   text("O", ox + 6, oy - 4);
   text("MN", startX - 18, oy + 8);
@@ -1029,7 +1029,7 @@ function drawNormalScene() {
   text("C：v1 垂直 QO", cx + 10, cy - 30);
   fill("#dc2626");
   text("B：v2 落 PO", bx - 88, by - 20);
-  fill("#5b6472");
+  fill("#334155");
   text("B、C 同一水平面", bx + 20, by + 8);
 }
 
@@ -1045,10 +1045,10 @@ function drawNormalGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("两球水平位移-时间图像", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("蓝线：v1 到 C；红线：v2 到 B；两球飞行时间相同", graphLeft + 24, 44);
 
   drawBasicGrid(gx, gy, gw, gh);
@@ -1086,9 +1086,9 @@ function drawNormalGraph() {
   circle(gx + gw, map(normalXC(), 0, xMax, gy + gh, gy), 8);
   fill("#dc2626");
   circle(gx + gw, map(normalXB(), 0, xMax, gy + gh, gy), 8);
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("C: x=gt²", gx + gw - 78, map(normalXC(), 0, xMax, gy + gh, gy) - 28);
   text("B: x=1/2gt²", gx + gw - 98, map(normalXB(), 0, xMax, gy + gh, gy) + 8);
 
@@ -1232,9 +1232,9 @@ function drawBounceScene() {
   circle(ball2X - 5, ball2Y - 5, 6);
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("A", startX - 18, groundY - bounceH * scaleY - 8);
   text("C：球1反弹点", bounceX - 32, groundY + 8);
   text("D：共同落点", startX + bounceD * scaleX - 28, groundY + 8);
@@ -1257,10 +1257,10 @@ function drawBounceGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("两球高度-时间图像", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("绿线：挡板顶端 h=3/4H；蓝点/红点：两球恰好越过同一高度", graphLeft + 24, 44);
 
   drawBasicGrid(gx, gy, gw, gh);
@@ -1305,7 +1305,7 @@ function drawBounceGraph() {
   circle(map(tWall2, 0, tMax, gx, gx + gw), map(yWall2, 0, yMax, gy + gh, gy), 7);
   fill("#16a34a");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("挡板高 h=" + boardH.toFixed(2) + "m", gx + 14, map(boardH, 0, yMax, gy + gh, gy) - 22);
 
   drawTimeMarker(gx, gy, gw, gh, Math.min(bounceT, tMax), tMax);
@@ -1414,9 +1414,9 @@ function drawSemiCircleScene() {
   circle(bx, by, 12);
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("O", cx + 10, cy - 8);
   text("A", ax + 10, ay - 14);
   text("B", bx + 10, by - 14);
@@ -1442,10 +1442,10 @@ function drawSemiCircleGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("两次初速度比较", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("蓝：落 A；红：落 B", graphLeft + 24, 44);
 
   drawBasicGrid(gx, gy, gw, gh);
@@ -1462,7 +1462,7 @@ function drawSemiCircleGraph() {
 
   fill("#111827");
   textAlign(CENTER, TOP);
-  textSize(12);
+  textSize(14);
   text("vA", gx + 115, gy + gh + 12);
   text("vB", gx + 255, gy + gh + 12);
   textAlign(LEFT, TOP);

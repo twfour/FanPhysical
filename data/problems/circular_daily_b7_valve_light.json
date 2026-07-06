@@ -20,12 +20,42 @@
     "content": "气嘴灯发光需要重物在转动中使弹簧达到足够形变或触点闭合，只有转速达到临界值才会发光，A 错。所需向心效果随 \\(m\\omega^2r\\) 增大，增大重物质量可在较低转速下达到触发条件，B 对。为了让转动时重物趋向远离圆心并压向触点，安装时固定端 \\(A\\) 应比 \\(B\\) 更远离圆心，C 对。最低点时重力沿远离圆心方向，有利于触发；最高点时重力指向圆心，反而不利于触发，所以最低点能发光不代表最高点一定能发光，D 错。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_valve_light",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "omega": {
+        "label": "车轮角速度",
+        "value": 3,
+        "min": 0.5,
+        "max": 7,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "radius": {
+        "label": "气嘴半径",
+        "value": 1,
+        "min": 0.4,
+        "max": 1.6,
+        "step": 0.05,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "竖直圆周运动",

@@ -85,9 +85,9 @@ function drawBulletScene() {
   circle(bulletX - 5, bulletY - 5, 6);
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("O", cx + 10, cy - 8);
   text("a", aX + 10, aY - 14);
   text("b", bX + 10, bY - 14);
@@ -113,10 +113,10 @@ function drawBulletGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("转角-时间图像", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("圆筒转到 π-φ 时，子弹刚穿过直径 d", graphLeft + 24, 44);
 
   drawBasicGrid(gx, gy, gw, gh);
@@ -144,7 +144,7 @@ function drawBulletGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("t = (π-φ)/ω = " + tMax.toFixed(2) + "s", gx + 14, gy + 12);
   text("v = ωd/(π-φ) = " + bulletSpeed().toFixed(1), gx + 14, gy + 34);
 }
@@ -199,7 +199,7 @@ function drawBikeGearWheel(cx, cy, r, angle, labelText, colorHex) {
   circle(cx, cy, 8);
   fill("#111827");
   textAlign(CENTER, TOP);
-  textSize(12);
+  textSize(14);
   text(labelText, cx, cy + r + 10);
 }
 
@@ -260,13 +260,13 @@ function drawBikeGearScene() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(13);
+  textSize(15);
   text("链轮 " + bikeChainTeeth + " 齿", frontX - 62, wheelY + chainR + 16);
   text("飞轮 " + bikeFlyTeeth + " 齿", rearX - 44, wheelY + flyR + 16);
   text("ω轮 = v/(d/2) = " + bikeWheelOmega().toFixed(2) + " rad/s", 36, 52);
   text("ω踏 = ω轮 × N飞/N链 = " + bikePedalOmega().toFixed(2) + " rad/s", 36, 78);
 
-  fill("#5b6472");
+  fill("#334155");
   text("要最小：选 48 齿链轮、15 齿飞轮", 36, 104);
 }
 
@@ -288,10 +288,10 @@ function drawBikeGearGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("踏板角速度-齿数组合", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("柱越低，脚蹬越慢；原题求最小值", graphLeft + 24, 44);
 
   drawBasicGrid(gx, gy, gw, gh);
@@ -321,7 +321,7 @@ function drawBikeGearGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("当前：" + bikeChainTeeth + "/" + bikeFlyTeeth + "，ω踏 = " + bikePedalOmega().toFixed(2) + " rad/s", gx + 10, gy + 12);
   text("原题最小值：48/15，ωmin = " + minVal.toFixed(2) + " rad/s ≈ 3.8 rad/s", gx + 10, gy + 34);
 }
@@ -425,9 +425,9 @@ function drawPileScene() {
   drawingContext.setLineDash([]);
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("最低点：N最大", pivotX + r + 10, pivotY + r - 10);
   text("最高点：N最小", pivotX + r + 10, pivotY - r - 10);
   text("v=ωl=" + pileSpeed().toFixed(1), 42, 46);
@@ -459,10 +459,10 @@ function drawPileGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("地面支持力-转角图像", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("N = (M+m)g + mω²l sinθ；最低点最大，最高点最小", graphLeft + 24, 44);
 
   drawBasicGrid(gx, gy, gw, gh);
@@ -498,7 +498,7 @@ function drawPileGraph() {
 
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("ω临界 = " + pileCriticalOmega().toFixed(2), gx + 12, gy + 12);
   text("当前 ω = " + pileOmega.toFixed(1), gx + 12, gy + 34);
   text(pileOmega >= pileCriticalOmega() ? "最高点可能离地：Nmin≤0" : "最高点仍压地：Nmin>0", gx + 12, gy + 56);
@@ -553,7 +553,7 @@ function drawBowlBall(cx, cy, colorHex, labelText) {
   circle(cx, cy, 22);
   fill("#ffffff");
   textAlign(CENTER, CENTER);
-  textSize(12);
+  textSize(14);
   text(labelText, cx, cy);
 }
 
@@ -609,7 +609,7 @@ function drawBowlScene() {
   fill("#111827");
   circle(cx, cy, 7);
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("O", cx + 8, cy - 12);
 
   noFill();
@@ -626,14 +626,14 @@ function drawBowlScene() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(13);
+  textSize(15);
   text("半径 R=" + bowlR.toFixed(2) + "m", 40, 292);
   text("ωa=" + omegaA.toFixed(2) + " rad/s，ωb=" + omegaB.toFixed(2) + " rad/s", 40, 318);
   text("va=" + bowlSpeed(bowlThetaA).toFixed(2) + " m/s，vb=" + bowlSpeed(bowlThetaB).toFixed(2) + " m/s", 40, 344);
   text("相邻最近间隔≈" + bowlCycleTime().toFixed(2) + "s", 40, 370);
 
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("左：俯视圆轨迹；中：半球碗截面。水平作用力不等，碗需受地面静摩擦。", 40, 402);
 }
 
@@ -652,10 +652,10 @@ function drawBowlGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("双球物理量对比", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("ω²=g/(Rcosθ)，v=ωRsinθ，水平作用力/mg=tanθ", graphLeft + 24, 44);
 
   drawBasicGrid(gx, gy, gw, gh);
@@ -682,7 +682,7 @@ function drawBowlGraph() {
   rect(gx + 12, gy + 12, 14, 10);
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("a 球 θ=" + bowlThetaA.toFixed(0) + "°", gx + 32, gy + 8);
   fill("#f97316");
   rect(gx + 12, gy + 34, 14, 10);

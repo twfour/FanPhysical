@@ -20,12 +20,58 @@
     "content": "细沙均匀分布，若有 \\(\\frac89\\) 被甩掉，则剩余面积为原来的 \\(\\frac19\\)，剩余圆形区域半径为 \\(r=\\frac R3\\)。最容易脱落的位置在圆盘下坡方向，沿盘面向外的惯性趋势与重力沿盘面分量同向，临界时有 \\(m\\omega^2r+mg\\sin\\theta=\\mu mg\\cos\\theta\\)。代入 \\(r=\\frac R3\\)，得 \\(\\omega^2=\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}\\)，所以 \\(\\omega=\\sqrt{\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}}\\)，选 D。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_inclined_sand",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "omega": {
+        "label": "角速度",
+        "value": 2.2,
+        "min": 0.5,
+        "max": 6,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "theta": {
+        "label": "盘面倾角",
+        "value": 20,
+        "min": 0,
+        "max": 45,
+        "step": 1,
+        "unit": "deg"
+      },
+      "mu": {
+        "label": "摩擦因数",
+        "value": 0.65,
+        "min": 0.1,
+        "max": 1.2,
+        "step": 0.01,
+        "unit": ""
+      },
+      "radius": {
+        "label": "圆盘半径",
+        "value": 1,
+        "min": 0.4,
+        "max": 2,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "倾斜圆盘",

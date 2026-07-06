@@ -128,7 +128,7 @@ function drawVectorArrow(x, y, dx, dy, colorHex, labelText) {
   noStroke();
   fill(colorHex);
   textAlign(LEFT, CENTER);
-  textSize(12);
+  textSize(14);
   text(labelText, x + dx + 6, y + dy);
 }
 
@@ -146,10 +146,10 @@ function drawRiverGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("下游偏移-时间图像 x(t)", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("横轴：时间 t / s；纵轴：下游偏移 x / m", graphLeft + 24, 44);
 
   stroke("#cbd5e1");
@@ -163,7 +163,7 @@ function drawRiverGraph() {
   }
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textSize(11);
   textAlign(RIGHT, CENTER);
   for (i = 0; i <= 4; i++) {
@@ -196,7 +196,7 @@ function drawRiverGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("过河进度", gx + 10, gy + 10);
   text("下游偏移", gx + 10, gy + 28);
 }
@@ -309,7 +309,7 @@ function drawWaterfallScene() {
   noStroke();
   fill("#dc2626");
   textAlign(CENTER, BOTTOM);
-  textSize(12);
+  textSize(14);
   text("瀑布线 L=" + waterfallDownstream.toFixed(0) + "m", fallX, farY - 12);
 
   stroke("#94a3b8");
@@ -361,7 +361,7 @@ function drawWaterfallScene() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(13);
+  textSize(15);
   text("漂移=" + waterfallDrift().toFixed(1) + "m，临界=" + waterfallDownstream.toFixed(0) + "m", 88, 28);
   fill(statusColor);
   text("当前：" + (waterfallSafe() ? "能靠岸且不进瀑布" : "会被冲进瀑布"), 88, 48);
@@ -388,10 +388,10 @@ function drawWaterfallGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("速度合成与最小船速", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("临界：合速度方向刚好指向对岸瀑布前边界", graphLeft + 24, 44);
 
   stroke("#cbd5e1");
@@ -413,7 +413,7 @@ function drawWaterfallGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(13);
+  textSize(15);
   text("vmin = v水 · d / √(d²+L²)", graphLeft + 32, 390);
   text("= " + waterfallWaterSpeed.toFixed(1) + " × " + waterfallWidth.toFixed(0) + " / " + Math.sqrt(waterfallWidth * waterfallWidth + waterfallDownstream * waterfallDownstream).toFixed(1) + " = " + minSpeed.toFixed(1) + " m/s", graphLeft + 32, 412);
   fill(waterfallBoatSpeed + 0.001 >= minSpeed ? "#0f766e" : "#dc2626");
@@ -462,9 +462,9 @@ function drawRainScene() {
   drawVectorArrow(305, 420, -rainTrainV * 3, rainDropV * 3, "#f97316", "v相");
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("车窗视角", winX + 16, winY + 14);
   text("θ=" + rainAngle().toFixed(1) + "°", 342, 394);
 }
@@ -481,10 +481,10 @@ function drawRainGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("相对速度矢量图", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("橙色：乘客看到的雨滴速度", graphLeft + 24, 44);
 
   stroke("#cbd5e1");
@@ -499,7 +499,7 @@ function drawRainGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("夹角 θ=" + rainAngle().toFixed(1) + "°", graphLeft + 30, 420);
 }
 
@@ -548,9 +548,9 @@ function drawCurveForceScene() {
   drawVectorArrow(p.x, p.y, p.nx * forceNormal + p.tx * forceTangential, p.ny * forceNormal + p.ty * forceTangential, "#111827", "F");
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text(forceTangential >= 0 ? "加速" : "减速", p.x + 36, p.y + 28);
 }
 
@@ -563,10 +563,10 @@ function drawCurveForceGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("力的分解示意", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("红：法向；绿：切向；黑：合力", graphLeft + 24, 44);
 
   stroke("#cbd5e1");
@@ -669,10 +669,10 @@ function drawComposeGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("分运动位移图像", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("蓝线：x 分运动；红线：y 分运动", graphLeft + 24, 44);
 
   drawBasicGrid(gx, gy, gw, gh);
@@ -809,10 +809,10 @@ function drawAdvRiverGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("速度圆与临界方向", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text(advBoatSpeed < advWaterSpeed ? "船速小于水速：切线方向最短" : "船速足够：可抵消水流", graphLeft + 24, 44);
 
   stroke("#cbd5e1");
@@ -867,7 +867,7 @@ function drawRodConstraintScene() {
   circle(bx, by, 24);
   fill("#ffffff");
   textAlign(CENTER, CENTER);
-  textSize(13);
+  textSize(15);
   text("A", ax, ay);
   text("B", bx, by);
 
@@ -882,9 +882,9 @@ function drawRodConstraintScene() {
   drawingContext.setLineDash([]);
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("沿杆投影相等", 250, 84);
   text("α", wallX + 18, ay + 18);
 }
@@ -900,10 +900,10 @@ function drawRodConstraintGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("速度投影图", graphLeft + 24, 20);
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("虚线投影到杆方向后等长", graphLeft + 24, 44);
 
   stroke("#0f766e");

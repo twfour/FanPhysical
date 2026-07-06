@@ -15,12 +15,50 @@
     "content": "圆锥母线与竖直方向夹角记为 \\(\\theta\\)，由 \\(\\tan\\theta=\\frac{R}{H}=\\frac{4}{3}\\)，得 \\(\\sin\\theta=\\frac45\\)，\\(\\cos\\theta=\\frac35\\)。筒不转动时，重力沿筒壁方向的分量由静摩擦平衡，故 \\(f=mg\\cos\\theta=\\frac35mg\\)，支持力 \\(N=mg\\sin\\theta=\\frac45mg\\)。摩擦力为零且半径 \\(r=\\frac R2\\) 时，支持力的竖直分量平衡重力，水平分量提供向心力，得 \\(\\omega^2=\\frac{g\\cot\\theta}{r}=\\frac{3g}{2R}\\)。最大角速度时静摩擦取最大值，按径向和竖直方向列平衡与向心方程即可求临界。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_conical_cylinder",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "theta": {
+        "label": "锥面角",
+        "value": 53,
+        "min": 20,
+        "max": 70,
+        "step": 1,
+        "unit": "deg"
+      },
+      "radius": {
+        "label": "转动半径",
+        "value": 0.5,
+        "min": 0.2,
+        "max": 1.5,
+        "step": 0.05,
+        "unit": "m"
+      },
+      "omega": {
+        "label": "角速度",
+        "value": 2.2,
+        "min": 0.5,
+        "max": 6,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "圆锥面",

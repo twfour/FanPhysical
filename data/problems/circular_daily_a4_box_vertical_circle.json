@@ -20,12 +20,42 @@
     "content": "最高点恰好无作用力，说明重力单独提供向心力：\\(mg=m\\frac{v^2}{R}\\)，得 \\(v=\\sqrt{gR}\\)，B 对。周期 \\(T=\\frac{2\\pi R}{v}=2\\pi\\sqrt{\\frac{R}{g}}\\)，A 错。最低点向心方向向上，盒底对小球作用力 \\(N\\) 满足 \\(N-mg=m\\frac{v^2}{R}=mg\\)，故 \\(N=2mg\\)，C 对。与圆心等高处向心方向水平，侧壁压力提供向心力，大小为 \\(m\\frac{v^2}{R}=mg\\)，不是 \\(1.5mg\\)，D 错。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_box_vertical_circle",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "omega": {
+        "label": "角速度",
+        "value": 3.2,
+        "min": 0.5,
+        "max": 7,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "radius": {
+        "label": "圆周半径",
+        "value": 1,
+        "min": 0.4,
+        "max": 1.8,
+        "step": 0.05,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "竖直圆周运动",

@@ -20,12 +20,42 @@
     "content": "最高点沿指向圆心的向下方向列式。若单杠弹力向下，则 \\(mg+F=m\\frac{v^2}{r}\\)；若速度较小时，单杠弹力向上，则弹力大小图像可看作 \\(F=\\left|m\\frac{v^2}{r}-mg\\right|\\)。由图像纵截距 \\(650\\mathrm{N}\\) 得 \\(mg=650\\mathrm{N}\\)，所以 \\(m=65\\mathrm{kg}\\)，A 对。图像在 \\(v^2=9\\) 处弹力为零，对应 \\(mg=m\\frac{v^2}{r}\\)，得 \\(r=\\frac{9}{10}=0.9\\mathrm{m}\\)，B 对。当 \\(v=4\\mathrm{m/s}\\) 时，\\(v^2=16>gr=9\\)，需要额外向下的弹力提供向心力，故弹力方向向下，D 对、C 错。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_horizontal_bar",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "omega": {
+        "label": "角速度",
+        "value": 4.4,
+        "min": 1,
+        "max": 7,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "radius": {
+        "label": "重心半径",
+        "value": 0.9,
+        "min": 0.4,
+        "max": 1.6,
+        "step": 0.05,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "竖直圆周运动",

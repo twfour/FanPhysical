@@ -20,12 +20,42 @@
     "content": "泥巴随车轮做竖直平面圆周运动，需要指向圆心的向心力。在最高点，重力方向指向圆心，可帮助提供向心力，附着力只需满足 \\(F+mg=m\\omega^2R\\)，即 \\(F=m\\omega^2R-mg\\)，所需附着力最小，因此最容易脱落。图中最高点为 \\(c\\)，选 C。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_bicycle_mud",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "omega": {
+        "label": "车轮角速度",
+        "value": 3.2,
+        "min": 0.5,
+        "max": 7,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "radius": {
+        "label": "车轮半径",
+        "value": 1,
+        "min": 0.4,
+        "max": 1.6,
+        "step": 0.05,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "竖直圆周运动",

@@ -20,12 +20,42 @@
     "content": "小球离开 \\(B\\) 点后做平抛运动，碰斜面时速度与 \\(45^\\circ\\) 斜面垂直，因此速度方向与水平夹角为 \\(45^\\circ\\)，有 \\(v_y=v_x\\)。又 \\(v_y=gt=10\\times0.3=3\\mathrm{m/s}\\)，故 \\(v_x=3\\mathrm{m/s}\\)，水平距离 \\(x=v_xt=0.9\\mathrm{m}\\)，A 对、B 错。在 \\(B\\) 点由竖直圆周最高点关系 \\(mg+N=m\\frac{v^2}{R}\\)，代入 \\(m=1\\mathrm{kg}\\)、\\(v=3\\mathrm{m/s}\\)、\\(R=1\\mathrm{m}\\)，得 \\(10+N=9\\)，管道实际对球作用方向与假设相反，大小为 \\(1\\mathrm{N}\\)，C 对、D 错。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_tube_projectile",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "vx": {
+        "label": "水平速度",
+        "value": 3,
+        "min": 1,
+        "max": 8,
+        "step": 0.1,
+        "unit": "m/s"
+      },
+      "omega": {
+        "label": "演示角速度",
+        "value": 2,
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 0.3,
+      "loop": false
+    }
   },
   "knowledge": [
     "竖直圆周运动",

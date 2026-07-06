@@ -20,12 +20,42 @@
     "content": "球 \\(B\\) 到转轴距离为 \\(2L\\)。在最高点杆对 \\(B\\) 无作用力，重力单独提供向心力：\\(mg=m\\frac{v_B^2}{2L}\\)，所以 \\(v_B=\\sqrt{2gL}\\)，A 错。两球同角速度，球 \\(A\\) 到转轴距离为 \\(L\\)，故 \\(v_A=\\frac{L}{2L}v_B=\\frac12\\sqrt{2gL}\\)，B 错。球 \\(A\\) 位于最低点时，向心方向向上，杆对 \\(A\\) 的力满足 \\(F_A-mg=m\\frac{v_A^2}{L}=\\frac12mg\\)，所以 \\(F_A=1.5mg\\)。杆受 \\(A\\) 向下的反作用力，转轴需向上提供 \\(1.5mg\\)，C 对、D 错。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_rod_two_balls",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "omega": {
+        "label": "角速度",
+        "value": 2.2,
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "radius": {
+        "label": "单位长度",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "轻杆圆周运动",

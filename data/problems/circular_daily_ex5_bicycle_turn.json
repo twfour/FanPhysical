@@ -20,12 +20,50 @@
     "content": "水平路面上竖直方向由支持力平衡重力，水平方向由静摩擦力提供向心力：\\(f=M\\frac{v^2}{R}\\)。不侧滑要求 \\(f\\leq \\mu Mg\\)，所以 \\(v\\leq\\sqrt{\\mu gR}\\)，B 对。静摩擦力按需要取值，未必等于最大静摩擦力，C 错。速度越大，所需水平合力越大，地面对车的合力越向内倾斜，车身要更向内侧倾，车所在平面与地面夹角变小，D 对。支持力竖直向上，不与倾斜车身平面平行，A 错。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_bicycle_turn",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "speed": {
+        "label": "转弯速度",
+        "value": 9,
+        "min": 2,
+        "max": 20,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "radius": {
+        "label": "转弯半径",
+        "value": 30,
+        "min": 8,
+        "max": 80,
+        "step": 1,
+        "unit": "m"
+      },
+      "mu": {
+        "label": "摩擦因数",
+        "value": 0.6,
+        "min": 0.1,
+        "max": 1,
+        "step": 0.01,
+        "unit": ""
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "水平圆周运动",

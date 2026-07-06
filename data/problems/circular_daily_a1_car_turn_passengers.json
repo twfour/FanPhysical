@@ -20,12 +20,34 @@
     "content": "司机和乘客随同一辆车转弯，绕同一圆心转动时角速度相同，A 错。若乘客 \\(B\\) 离转弯圆心更远，则 \\(r_B>r_A\\)。线速度 \\(v=\\omega r\\)，向心加速度 \\(a=\\omega^2r\\)，所以 \\(v_B>v_A\\)，\\(a_B>a_A\\)，B 错、C 对。向心力还与质量有关，题中没有给出两人的质量关系，D 不能确定。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_car_passengers",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "omega": {
+        "label": "角速度",
+        "value": 1.2,
+        "min": 0.2,
+        "max": 3,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "radius": {
+        "label": "外侧半径",
+        "value": 1.4,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "m"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "同轴转动",

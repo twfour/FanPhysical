@@ -20,12 +20,58 @@
     "content": "若在某一速度下支持力和重力的合力恰好指向圆心并提供向心力，物块可以不受摩擦力，因此 A 对。一般有摩擦时，支持力还要与摩擦力共同满足竖直平衡和水平向心条件，不能简单写成 \\(F_N=mg\\cos\\theta\\)，B 错。随着航速增大，所需向心力增大，摩擦力可能先减小到零再反向增大，因此 C 错。最大速度对应静摩擦达到最大且方向沿甲板向内侧，联立径向和竖直方向方程可得 \\(v_{\\max}=\\sqrt{\\frac{\\mu-\\tan\\theta}{1+\\mu\\tan\\theta}gR}\\)，D 对。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_carrier_turn",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "speed": {
+        "label": "航速",
+        "value": 14,
+        "min": 3,
+        "max": 36,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "radius": {
+        "label": "转弯半径",
+        "value": 120,
+        "min": 40,
+        "max": 240,
+        "step": 5,
+        "unit": "m"
+      },
+      "theta": {
+        "label": "甲板外倾角",
+        "value": 12,
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "unit": "deg"
+      },
+      "mu": {
+        "label": "摩擦因数",
+        "value": 0.45,
+        "min": 0.05,
+        "max": 1,
+        "step": 0.01,
+        "unit": ""
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "倾斜甲板",

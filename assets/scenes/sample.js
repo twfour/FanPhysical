@@ -76,8 +76,8 @@ function drawSpringScene() {
   text("竖直弹簧振子", 285, 430);
 
   noStroke();
-  fill("#5b6472");
-  textSize(13);
+  fill("#334155");
+  textSize(15);
   text("红球相对平衡点的位移 y = " + springY.toFixed(1), 285, 454);
 }
 
@@ -152,8 +152,8 @@ function drawPendulumScene() {
   text("单摆", 285, 430);
 
   noStroke();
-  fill("#5b6472");
-  textSize(13);
+  fill("#334155");
+  textSize(15);
   text("当前角度 θ = " + (pendulumTheta * 180 / Math.PI).toFixed(1) + "°", 285, 454);
 }
 
@@ -259,8 +259,8 @@ function drawBrownianScene() {
   text("布朗运动", 285, 430);
 
   noStroke();
-  fill("#5b6472");
-  textSize(13);
+  fill("#334155");
+  textSize(15);
   text("橙色粒子被追踪，轨迹实时保留", 285, 454);
 }
 

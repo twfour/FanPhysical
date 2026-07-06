@@ -20,12 +20,50 @@
     "content": "设甲质量为 \\(m\\)，乙质量为 \\(2m\\)。两者角速度和半径相同，所需向心力与质量成正比，乙所需向心力是甲的 \\(2\\) 倍，A 错。甲的向心力由乙对甲的摩擦提供，大小为 \\(m\\omega^2r\\)。甲对乙的摩擦向外，盘对乙的摩擦需同时提供甲、乙整体的向心效果，大小为 \\(3m\\omega^2r\\)，不是 \\(2\\) 倍，B 错。甲不滑动要求 \\(m\\omega^2r\\leq\\mu_1mg\\)，整体相对圆盘不滑动要求 \\(3m\\omega^2r\\leq\\mu_2(3m)g\\)。因 \\(\\mu_1>\\mu_2\\)，限制条件为 \\(\\omega\\leq\\sqrt{\\frac{\\mu_2g}{r}}\\)，D 对。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_stacked_turntable",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "omega": {
+        "label": "角速度",
+        "value": 2.4,
+        "min": 0.5,
+        "max": 6,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "radius": {
+        "label": "半径",
+        "value": 1,
+        "min": 0.3,
+        "max": 2,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "mu": {
+        "label": "盘面摩擦因数",
+        "value": 0.25,
+        "min": 0.05,
+        "max": 0.8,
+        "step": 0.01,
+        "unit": ""
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "叠放物块",

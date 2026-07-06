@@ -20,12 +20,50 @@
     "content": "两球周期相同，角速度相同。圆锥摆满足 \\(T\\cos\\theta=mg\\)，\\(T\\sin\\theta=m\\omega^2(l\\sin\\theta)\\)，化简得 \\(l\\cos\\theta=\\frac{g}{\\omega^2}\\)。因为 \\(l_A>l_B\\)，所以 \\(\\cos\\theta_A<\\cos\\theta_B\\)，即 \\(\\theta_A>\\theta_B\\)，A 对。两球相对悬点的竖直下落量 \\(l\\cos\\theta\\) 相同，所以高度相同，B 错。半径 \\(r=l\\sin\\theta\\)，长绳对应半径更大，故 \\(v_A=\\omega r_A>v_B\\)，C 错。\\(T=\\frac{mg}{\\cos\\theta}\\)，\\(A\\) 球夹角更大，拉力更大，D 错。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_rattle_drum",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "theta": {
+        "label": "长绳夹角",
+        "value": 42,
+        "min": 12,
+        "max": 65,
+        "step": 1,
+        "unit": "deg"
+      },
+      "radius": {
+        "label": "转动半径",
+        "value": 1.2,
+        "min": 0.3,
+        "max": 2,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "omega": {
+        "label": "角速度",
+        "value": 2.4,
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "圆锥摆",

@@ -20,12 +20,58 @@
     "content": "飞机水平盘旋时，升力 \\(F\\) 的竖直分量平衡重力，水平分量提供向心力。故 \\(F_y=mg\\)，\\(F_x=m\\frac{v^2}{r}=m\\frac{gr/2}{r}=\\frac12mg\\)。升力大小为 \\(F=\\sqrt{F_x^2+F_y^2}=mg\\sqrt{1+\\frac14}=\\frac{\\sqrt5}{2}mg\\)，所以升力为自身重力的 \\(\\frac{\\sqrt5}{2}\\) 倍。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_airplane_turn",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "speed": {
+        "label": "飞行速度",
+        "value": 20,
+        "min": 5,
+        "max": 45,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "radius": {
+        "label": "盘旋半径",
+        "value": 80,
+        "min": 30,
+        "max": 180,
+        "step": 5,
+        "unit": "m"
+      },
+      "theta": {
+        "label": "升力倾角",
+        "value": 26,
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "deg"
+      },
+      "mu": {
+        "label": "安全余量",
+        "value": 0.4,
+        "min": 0.05,
+        "max": 0.8,
+        "step": 0.01,
+        "unit": ""
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "水平圆周运动",

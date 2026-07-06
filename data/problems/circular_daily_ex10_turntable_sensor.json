@@ -15,12 +15,42 @@
     "content": "两物块不相对滑动时可视为整体，半径 \\(r=0.25\\mathrm{m}\\)，总质量 \\(2\\mathrm{kg}\\)。转盘对 \\(B\\) 的最大静摩擦力为 \\(\\mu_1(2mg)=2\\mathrm{N}\\)，若 \\(2\\omega^2r\\leq2\\)，即 \\(\\omega^2\\leq4\\)，细线无拉力。继续增大角速度，\\(F+2=2\\omega^2r=0.5\\omega^2\\)，得 \\(F=0.5\\omega^2-2\\)。\\(A\\) 不滑动要求 \\(m\\omega^2r\\leq\\mu_2mg=4\\)，即 \\(\\omega^2\\leq16\\)。超过后 \\(A\\) 相对 \\(B\\) 滑动，\\(A\\) 对 \\(B\\) 的摩擦向外为 \\(4\\mathrm{N}\\)，转盘对 \\(B\\) 的摩擦向内为 \\(2\\mathrm{N}\\)，对 \\(B\\) 列式 \\(F+2-4=m\\omega^2r=0.25\\omega^2\\)，得 \\(F=0.25\\omega^2+2\\)。令 \\(F=8\\) 得 \\(\\omega^2=24\\)。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_turntable_sensor",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "omega": {
+        "label": "角速度",
+        "value": 4,
+        "min": 0.5,
+        "max": 5.2,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "radius": {
+        "label": "半径",
+        "value": 0.25,
+        "min": 0.1,
+        "max": 0.6,
+        "step": 0.01,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "转盘",

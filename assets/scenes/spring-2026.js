@@ -106,9 +106,9 @@ function drawPipeDropScene() {
   drawArrow(axisX, groundY, axisX, 62, "#64748b");
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("y/m", axisX + 10, 60);
   text("地面 y = 0", 60, groundY + 10);
 
@@ -141,7 +141,7 @@ function drawPipeDropScene() {
     noStroke();
     fill("#c2410c");
     textAlign(CENTER, CENTER);
-    textSize(16);
+    textSize(20);
     text("正在穿过金属管", 331, 275);
   }
 
@@ -171,12 +171,12 @@ function drawPipeDropGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("高度-时间图像 y(t)", graphLeft + 24, 20);
 
   noStroke();
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("横轴：绝对时间 t / s；纵轴：高度 y / m", graphLeft + 24, 44);
 
   stroke("#cbd5e1");
@@ -204,7 +204,7 @@ function drawPipeDropGraph() {
   }
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textSize(11);
   textAlign(RIGHT, CENTER);
   for (i = 0; i <= 4; i++) {
@@ -235,7 +235,7 @@ function drawPipeDropGraph() {
   noStroke();
   fill("#0891b2");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("管顶", gx + 10, gy + 10);
   fill("#2563eb");
   text("管底", gx + 10, gy + 28);
@@ -346,7 +346,7 @@ function drawCarShape(x, y, colorHex, name, speedText) {
   noStroke();
   fill("#111827");
   textAlign(CENTER, TOP);
-  textSize(12);
+  textSize(14);
   text(speedText, x, y + 16);
 }
 
@@ -395,7 +395,7 @@ function drawThreeCarScene() {
   drawingContext.setLineDash([]);
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(CENTER, TOP);
   textSize(11);
   text("甲停车点", stopScreenA, axisY + 28);
@@ -408,13 +408,13 @@ function drawThreeCarScene() {
   line(screenC, axisY - 50, screenB, axisY - 50);
 
   noStroke();
-  fill(criticalAB ? "#c2410c" : "#5b6472");
+  fill(criticalAB ? "#c2410c" : "#334155");
   textAlign(CENTER, BOTTOM);
-  textSize(12);
+  textSize(14);
   text("s_AB = " + Math.max(0, gapsNow.ab).toFixed(2) + "m", (screenA + screenB) / 2, axisY - 28);
 
   noStroke();
-  fill(criticalBC ? "#c2410c" : "#5b6472");
+  fill(criticalBC ? "#c2410c" : "#334155");
   text("s_BC = " + Math.max(0, gapsNow.bc).toFixed(2) + "m", (screenB + screenC) / 2, axisY - 54);
 
   drawCarShape(screenA, laneA, "#dc2626", "甲", carVelocity(carVa0, carAa, carT).toFixed(1) + "m/s");
@@ -428,7 +428,7 @@ function drawThreeCarScene() {
     noStroke();
     fill("#c2410c");
     textAlign(CENTER, CENTER);
-    textSize(16);
+    textSize(20);
     text("刚好不追尾", 321, 257);
   }
 
@@ -453,12 +453,12 @@ function drawThreeCarGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("间距-时间图像 s(t)", graphLeft + 24, 20);
 
   noStroke();
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("横轴：绝对时间 t / s；纵轴：车距 s / m", graphLeft + 24, 44);
 
   stroke("#cbd5e1");
@@ -485,7 +485,7 @@ function drawThreeCarGraph() {
   drawingContext.setLineDash([]);
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textSize(11);
   textAlign(RIGHT, CENTER);
   for (i = 0; i <= 4; i++) {
@@ -515,7 +515,7 @@ function drawThreeCarGraph() {
   noStroke();
   fill("#2563eb");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("甲乙间距 s_AB", gx + 10, gy + 10);
   fill("#0f766e");
   text("乙丙间距 s_BC", gx + 10, gy + 28);
@@ -614,9 +614,9 @@ function drawDoubleThrowScene() {
   drawArrow(axisX, groundY, axisX, 62, "#64748b");
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("y/m", axisX + 10, 60);
   text("地面 y = 0", 60, groundY + 10);
 
@@ -645,7 +645,7 @@ function drawDoubleThrowScene() {
   noStroke();
   fill("#111827");
   textAlign(CENTER, TOP);
-  textSize(13);
+  textSize(15);
   text("A：2v₀", ballAX, groundY + 28);
   text(throwT < throwDelay ? "B：待抛" : "B：v₀", ballBX, groundY + 28);
 
@@ -656,7 +656,7 @@ function drawDoubleThrowScene() {
     noStroke();
     fill("#c2410c");
     textAlign(CENTER, BOTTOM);
-    textSize(12);
+    textSize(14);
     text("相遇点 " + meet.y.toFixed(1) + "m，t=" + meet.t.toFixed(2) + "s", (ballAX + ballBX) / 2, meetScreen - 8);
   }
 
@@ -667,7 +667,7 @@ function drawDoubleThrowScene() {
     noStroke();
     fill("#c2410c");
     textAlign(CENTER, CENTER);
-    textSize(16);
+    textSize(20);
     text("此刻两球在空中相遇", 315, 275);
   }
 
@@ -693,12 +693,12 @@ function drawDoubleThrowGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("高度-时间图像 y(t)", graphLeft + 24, 20);
 
   noStroke();
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("横轴：绝对时间 t / s；纵轴：高度 y / m", graphLeft + 24, 44);
 
   stroke("#cbd5e1");
@@ -718,7 +718,7 @@ function drawDoubleThrowGraph() {
   }
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textSize(11);
   textAlign(RIGHT, CENTER);
   for (i = 0; i <= 4; i++) {
@@ -755,7 +755,7 @@ function drawDoubleThrowGraph() {
   noStroke();
   fill("#2563eb");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("A：初速度 2v₀", gx + 10, gy + 10);
   fill("#dc2626");
   text("B：延迟 Δt 后初速度 v₀", gx + 10, gy + 28);
@@ -871,9 +871,9 @@ function drawInclineSlotScene() {
   drawArrow(axisX, pY, axisX, 62, "#64748b");
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("高度示意", axisX + 10, 60);
   text("P 为最低点", pX + 10, pY + 10);
 
@@ -918,9 +918,9 @@ function drawInclineSlotScene() {
   circle(endpoints2.endX, endpoints2.endY, 8);
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textAlign(CENTER, TOP);
-  textSize(12);
+  textSize(14);
   text("A→B 槽 θ₁=" + slotTheta1.toFixed(0) + "°", endpoints1.startX, endpoints1.startY - 28);
   text("C→D 槽 θ₂=" + slotTheta2.toFixed(0) + "°", endpoints2.startX, endpoints2.startY - 28);
   text("R=" + slotR.toFixed(0), pX - drawR - 22, pY - drawR - 8);
@@ -946,12 +946,12 @@ function drawInclineSlotGraph() {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text("沿槽位移-时间图像 s(t)", graphLeft + 24, 20);
 
   noStroke();
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("横轴：绝对时间 t / s；纵轴：沿槽位移 s / m", graphLeft + 24, 44);
 
   stroke("#cbd5e1");
@@ -971,7 +971,7 @@ function drawInclineSlotGraph() {
   }
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textSize(11);
   textAlign(RIGHT, CENTER);
   for (i = 0; i <= 4; i++) {
@@ -1011,7 +1011,7 @@ function drawInclineSlotGraph() {
   noStroke();
   fill("#2563eb");
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(14);
   text("A 槽：s₁(t)，t₁=" + t1.toFixed(2) + "s", gx + 10, gy + 10);
   fill("#dc2626");
   text("C 槽：s₂(t)，t₂=" + t2.toFixed(2) + "s", gx + 10, gy + 28);

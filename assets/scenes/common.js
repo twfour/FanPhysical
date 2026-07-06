@@ -29,7 +29,7 @@ function drawBasicGrid(gx, gy, gw, gh) {
 
 function drawGraphTicks(gx, gy, gw, gh, xMax, yMax, xUnit) {
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textSize(11);
   textAlign(RIGHT, CENTER);
   for (var i = 0; i <= 4; i++) {
@@ -43,7 +43,7 @@ function drawGraphTicks(gx, gy, gw, gh, xMax, yMax, xUnit) {
 }
 
 function drawTimeMarker(gx, gy, gw, gh, tNow, tMax) {
-  var currentX = map(tNow, 0, tMax, gx, gx + gw);
+  var currentX = constrain(map(tNow, 0, Math.max(0.0001, tMax), gx, gx + gw), gx, gx + gw);
   stroke("#111827");
   strokeWeight(1);
   drawingContext.setLineDash([4, 4]);
@@ -72,12 +72,12 @@ function drawGraph(data, title, yLabel, colorHex, frozen) {
   noStroke();
   fill("#111827");
   textAlign(LEFT, TOP);
-  textSize(18);
+  textSize(20);
   text(title, graphLeft + 24, 20);
 
   noStroke();
-  fill("#5b6472");
-  textSize(12);
+  fill("#334155");
+  textSize(14);
   text("横轴：绝对时间 t / s；纵轴：" + yLabel, graphLeft + 24, 44);
 
   if (data.length > 0) {
@@ -125,7 +125,7 @@ function drawGraph(data, title, yLabel, colorHex, frozen) {
   }
 
   noStroke();
-  fill("#5b6472");
+  fill("#334155");
   textSize(11);
   textAlign(RIGHT, CENTER);
   for (i = 0; i <= 4; i++) {
@@ -158,8 +158,7 @@ function drawGraph(data, title, yLabel, colorHex, frozen) {
     noStroke();
     fill("#111827");
     textAlign(RIGHT, TOP);
-    textSize(12);
+    textSize(14);
     text("图表已冻结", gx + gw, gy - 22);
   }
 }
-

@@ -20,12 +20,58 @@
     "content": "汽车在弯道上无侧滑趋势时，重力和支持力的合力恰好提供向心力，因此路面应外侧高、内侧低，A 对。设路面倾角为 \\(\\theta\\)，无摩擦临界速度满足 \\(\\tan\\theta=\\frac{v_0^2}{rg}\\)。当速度略低或略高于 \\(v_0\\) 时，只要静摩擦力未超过最大静摩擦力，汽车仍可不滑动，B 错、C 对。\\(v_0\\) 是由道路半径和倾角决定的理想无摩擦速度，路面结冰只会减小可允许速度范围，不改变 \\(v_0\\)，D 错。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_banked_curve",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "speed": {
+        "label": "车速",
+        "value": 18,
+        "min": 5,
+        "max": 35,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "radius": {
+        "label": "弯道半径",
+        "value": 60,
+        "min": 20,
+        "max": 160,
+        "step": 5,
+        "unit": "m"
+      },
+      "theta": {
+        "label": "路面倾角",
+        "value": 18,
+        "min": 0,
+        "max": 35,
+        "step": 1,
+        "unit": "deg"
+      },
+      "mu": {
+        "label": "摩擦因数",
+        "value": 0.35,
+        "min": 0.05,
+        "max": 0.8,
+        "step": 0.01,
+        "unit": ""
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "圆周运动",

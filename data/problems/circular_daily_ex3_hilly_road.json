@@ -20,12 +20,50 @@
     "content": "轮胎最容易爆胎的位置通常对应路面对车的支持力最大。汽车通过凹形谷底时，向心加速度指向上方，满足 \\(N-mg=m\\frac{v^2}{r}\\)，所以 \\(N=mg+m\\frac{v^2}{r}\\)，大于重力；通过凸形顶部时 \\(mg-N=m\\frac{v^2}{r}\\)，支持力反而变小。因此谷底处轮胎受压最大，最可能爆胎，选 B。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_hilly_road",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "speed": {
+        "label": "车速",
+        "value": 20,
+        "min": 5,
+        "max": 40,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "radius": {
+        "label": "曲率半径",
+        "value": 80,
+        "min": 30,
+        "max": 180,
+        "step": 5,
+        "unit": "m"
+      },
+      "omega": {
+        "label": "演示角速度",
+        "value": 1,
+        "min": 0.2,
+        "max": 3,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "竖直面圆周运动",

@@ -20,12 +20,42 @@
     "content": "最高点沿向心方向列式：\\(T+mg=m\\frac{v^2}{L}\\)，即 \\(T=\\frac{m}{L}v^2-mg\\)。图像纵截距为 \\(-a\\)，所以 \\(mg=a\\)，得 \\(g=\\frac{a}{m}\\)，B 正确。图像在 \\(v^2=b\\) 处 \\(T=0\\)，故 \\(mg=m\\frac{b}{L}\\)，得 \\(L=\\frac{b}{g}=\\frac{mb}{a}\\)，A 正确。当 \\(v^2=c\\) 时，\\(T=\\frac{m}{L}c-mg=\\frac{ac}{b}-a\\)，C 正确。若最低点 \\(v_1^2=b\\)，则 \\(T_{低}-mg=m\\frac{b}{L}=mg\\)，所以 \\(T_{低}=2mg\\)，D 错。本题问“不正确”，选 D。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_string_tension_graph",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "omega": {
+        "label": "最高点角速度",
+        "value": 3.5,
+        "min": 0.5,
+        "max": 7,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "radius": {
+        "label": "绳长",
+        "value": 1,
+        "min": 0.4,
+        "max": 1.8,
+        "step": 0.05,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "绳球圆周运动",

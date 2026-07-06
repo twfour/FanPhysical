@@ -20,12 +20,42 @@
     "content": "离心环境中等效加速度大小为 \\(a=\\omega^2r\\)，方向沿半径向外，且随 \\(r\\) 增大而增大，C 对、D 错。密度小于血浆的细胞 \\(a\\) 类似浮在血浆中，在等效重力场中相对向“上”运动，即向内侧运动；密度大于血浆的细胞 \\(b\\) 相对向“下”运动，即向外侧运动，A 对、B 错。"
   },
   "animation": {
-    "enabled": false,
-    "level": "none",
-    "type": "none",
-    "playable": false,
-    "interactive": false,
-    "params": {}
+    "enabled": true,
+    "level": "animated",
+    "type": "circular_concept",
+    "variant": "daily_centrifuge",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "omega": {
+        "label": "转动角速度",
+        "value": 3,
+        "min": 0.5,
+        "max": 8,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "radius": {
+        "label": "观察半径",
+        "value": 1,
+        "min": 0.3,
+        "max": 2,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
   "knowledge": [
     "离心现象",
