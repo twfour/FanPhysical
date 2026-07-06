@@ -182,9 +182,7 @@ body {
 .tree-subfolder {
   margin: 8px 0 5px 14px;
   color: var(--muted);
-  font-size: 12px;
-  line-height: 1.35;
-  font-weight: 800;
+  font: 800 12px/1.35 "Noto Sans SC", "Microsoft YaHei", sans-serif;
 }
 
 .tree-node {
@@ -240,19 +238,21 @@ body {
   -webkit-appearance: none;
   width: 100%;
   border: none;
+  outline: none;
   border-radius: 7px;
   background: transparent;
   color: var(--muted);
   padding: 7px 8px;
   text-align: left;
-  font-family: inherit;
-  font-size: 12px;
-  line-height: 1.35;
-  font-weight: 800;
+  font: 800 12px/1.35 "Noto Sans SC", "Microsoft YaHei", sans-serif;
   cursor: pointer;
   white-space: normal;
   word-break: keep-all;
   overflow-wrap: anywhere;
+  box-shadow: none;
+  text-shadow: none;
+  -webkit-font-smoothing: auto;
+  font-synthesis: none;
 }
 
 .tree-item.indent {

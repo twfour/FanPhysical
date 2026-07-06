@@ -979,7 +979,7 @@ function getScenePathFromElement(element) {
     if (parent.tagName === "DETAILS") {
       var summary = getDirectSummary(parent);
       if (summary) {
-        parts.unshift(summary.innerText.trim());
+        parts.unshift(summary.textContent.trim());
       }
     }
     parent = parent.parentElement;
@@ -1010,7 +1010,7 @@ function getSceneCatalog() {
     seen[sceneName] = true;
     catalog.push({
       scene: sceneName,
-      title: item.innerText.trim(),
+      title: item.textContent.trim(),
       path: getScenePathFromElement(item)
     });
   });
@@ -1025,6 +1025,46 @@ function findSceneCatalogItem(sceneName) {
     }
   }
   return null;
+}
+
+function stripProblemTitlePrefix(title) {
+  return String(title || "").replace(/^(例|课上|第|补充|A|B|C|单)?\d+[：:-]\s*/, "").trim();
+}
+
+function getFavoriteSceneTitle(sceneName, catalogItem, favorite) {
+  if (catalogItem && catalogItem.title) {
+    return catalogItem.title;
+  }
+  var problem = problemDataMap[sceneName] || {};
+  if (problem.title) {
+    return stripProblemTitlePrefix(problem.title) || problem.title;
+  }
+  var note = document.getElementById(sceneName + "Notes");
+  var heading = note ? note.querySelector(".problem-note-block h2") : null;
+  if (heading && heading.innerText.trim()) {
+    return stripProblemTitlePrefix(heading.innerText.trim()) || heading.innerText.trim();
+  }
+  if (favorite && favorite.title && !/^([a-z]+_|\w*[A-Z]\w*)/.test(favorite.title)) {
+    return favorite.title;
+  }
+  return "收藏模型题";
+}
+
+function getFavoriteScenePath(sceneName, catalogItem, favorite) {
+  if (catalogItem && catalogItem.path) {
+    return catalogItem.path;
+  }
+  var problem = problemDataMap[sceneName] || {};
+  if (problem.chapter === "圆周运动") {
+    return "2026暑假班 / 圆周运动";
+  }
+  if (problem.chapter) {
+    return problem.chapter;
+  }
+  if (modelSourceMap[sceneName] && modelSourceMap[sceneName].title) {
+    return modelSourceMap[sceneName].title;
+  }
+  return (favorite && favorite.path) || "收藏模型题";
 }
 
 function renderFavoriteHome() {
@@ -1054,8 +1094,8 @@ function renderFavoriteHome() {
     var favorite = favorites[key] || {};
     var sceneName = favorite.scene || String(key).replace(/^scene:/, "");
     var item = catalogMap[sceneName] || {};
-    var titleText = item.title || favorite.title || sceneName;
-    var pathText = item.path || favorite.path || "收藏模型题";
+    var titleText = getFavoriteSceneTitle(sceneName, item, favorite);
+    var pathText = getFavoriteScenePath(sceneName, item, favorite);
     if (!sceneName) {
       return;
     }
@@ -1280,15 +1320,7 @@ function getCommonMistakes(sceneName) {
 function normalizeProblemAnimation(problem) {
   var animation = problem.animation || {};
   if (!animation || animation.type === "none") {
-    return {
-      enabled: false,
-      level: "none",
-      type: "none",
-      playable: false,
-      interactive: false,
-      params: {},
-      timeline: { duration: 0, loop: false }
-    };
+    return inferProblemAnimation(problem);
   }
   animation.enabled = animation.enabled === true;
   animation.params = animation.params || {};
@@ -1323,6 +1355,10 @@ function inferProblemAnimation(problem) {
   var text = [problem.id, problem.model, problem.title, problem.question, (problem.knowledge || []).join(" ")]
     .filter(Boolean)
     .join(" ");
+  var circularAnimation = inferCircularProblemAnimation(problem, text);
+  if (circularAnimation) {
+    return circularAnimation;
+  }
   if (/子弹.*(圆筒|纸筒)|弹孔|穿.*(圆筒|纸筒)|bullet.*cylinder/i.test(text)) {
     return {
       level: "animated",
@@ -1391,6 +1427,99 @@ function inferProblemAnimation(problem) {
     };
   }
   return { level: "none", type: "none", playable: false, interactive: false, params: {} };
+}
+
+function makeCircularAnimation(variant, notes, params) {
+  return {
+    enabled: true,
+    level: "animated",
+    type: "circular_concept",
+    variant: variant,
+    playable: true,
+    interactive: true,
+    confidence: 0.8,
+    notes: notes || "圆周运动动态图：按题意展示运动、受力和图像关系",
+    params: params || {
+      omega: { label: "角速度", value: 2.4, min: 0.5, max: 6, step: 0.1, unit: "rad/s" },
+      radius: { label: "半径", value: 1.0, min: 0.3, max: 2.0, step: 0.1, unit: "m" }
+    },
+    timeline: { duration: 6, loop: false }
+  };
+}
+
+function inferCircularProblemAnimation(problem, text) {
+  if (!problem || problem.chapter !== "圆周运动") {
+    return null;
+  }
+  var id = problem.id || "";
+  if (/bullet|子弹|纸筒|圆筒|弹孔/i.test(text)) {
+    return {
+      enabled: true,
+      level: "animated",
+      type: "bullet_cylinder",
+      playable: true,
+      interactive: true,
+      confidence: 0.86,
+      notes: "子弹穿旋转筒：用同一段时间连接子弹直线运动和圆筒转角",
+      params: {
+        d: { label: "圆筒直径", value: 0.30, min: 0.10, max: 1.00, step: 0.01, unit: "m" },
+        omega: { label: "角速度", value: 6.0, min: 1.0, max: 12.0, step: 0.1, unit: "rad/s" },
+        phi: { label: "弹孔夹角", value: 60, min: 10, max: 160, step: 1, unit: "deg" }
+      },
+      timeline: { duration: 1, loop: false }
+    };
+  }
+  if (/飞镖|击中|转盘游戏/i.test(text)) {
+    return makeCircularAnimation("dart_disk", "飞镖与转盘：飞镖飞行时间与圆盘转角条件同时满足", {
+      omega: { label: "圆盘角速度", value: 3.14, min: 0.5, max: 8, step: 0.01, unit: "rad/s" },
+      radius: { label: "圆盘半径", value: 1.0, min: 0.4, max: 2.0, step: 0.1, unit: "m" },
+      flight: { label: "飞行时间", value: 1.0, min: 0.4, max: 2.5, step: 0.05, unit: "s" }
+    });
+  }
+  if (/gear|belt|pulley|皮带|齿轮|传动|链轮|飞轮|自行车/i.test(text)) {
+    return makeCircularAnimation("transmission", "传动模型：同轴角速度相等，接触/皮带/啮合处线速度相等", {
+      omega: { label: "主动角速度", value: 2.4, min: 0.5, max: 6, step: 0.1, unit: "rad/s" },
+      ratio: { label: "半径比", value: 2.0, min: 1.0, max: 5.0, step: 0.1, unit: "" }
+    });
+  }
+  if (/cake|奶油|泼水|水珠|圆盘点|圆盘绕中心/i.test(text)) {
+    return makeCircularAnimation("rotating_disk", "圆盘匀速转动：速度沿切线，向心加速度指向圆心", {
+      omega: { label: "角速度", value: 1.57, min: 0.3, max: 5, step: 0.01, unit: "rad/s" },
+      radius: { label: "半径", value: 1.0, min: 0.3, max: 2.0, step: 0.1, unit: "m" }
+    });
+  }
+  if (/圆锥摆|飞椅|漏斗|圆锥面|同高|双绳|转盘连接小球|水平圆周运动/i.test(text)) {
+    var variant = /双绳|圆锥面/.test(text) ? "rope_cone_limit" : "conical_pendulum";
+    if (/漏斗/.test(text)) {
+      variant = "funnel_balls";
+    }
+    return makeCircularAnimation(variant, "圆锥摆/漏斗模型：重力与约束力合成提供水平向心力", {
+      theta: { label: "夹角", value: 37, min: 10, max: 65, step: 1, unit: "deg" },
+      radius: { label: "半径", value: 1.0, min: 0.3, max: 2.0, step: 0.1, unit: "m" },
+      g: { label: "重力加速度", value: 10, min: 5, max: 15, step: 0.1, unit: "m/s²" }
+    });
+  }
+  if (/碰钉|突然停止|绕钉|拉力图像|竖直平面|竖直圆周|打夯机/i.test(text)) {
+    return makeCircularAnimation("vertical_circle", "竖直圆模型：速度方向瞬时不变，半径改变会改变角速度、向心加速度和拉力", {
+      omega: { label: "角速度", value: 2.8, min: 0.5, max: 7, step: 0.1, unit: "rad/s" },
+      radius: { label: "半径", value: 1.0, min: 0.3, max: 2.0, step: 0.1, unit: "m" },
+      g: { label: "重力加速度", value: 10, min: 5, max: 15, step: 0.1, unit: "m/s²" }
+    });
+  }
+  if (/摩擦|临界|侧滑|转台|木块|滑动/i.test(text)) {
+    return makeCircularAnimation("friction_limit", "摩擦临界模型：所需向心力随 \\(\\omega^2r\\) 增大，先到临界者先滑", {
+      omega: { label: "角速度", value: 2.0, min: 0.5, max: 6.0, step: 0.1, unit: "rad/s" },
+      mu: { label: "摩擦因数", value: 0.40, min: 0.10, max: 1.00, step: 0.01, unit: "" },
+      radius: { label: "半径", value: 1.0, min: 0.3, max: 2.0, step: 0.1, unit: "m" }
+    });
+  }
+  if (/双人|溜冰|弹簧秤|面对面/i.test(text)) {
+    return makeCircularAnimation("two_body_orbit", "双人圆周运动：内力相等、角速度相同，半径按质量反比分配", {
+      omega: { label: "角速度", value: 0.62, min: 0.2, max: 2.0, step: 0.01, unit: "rad/s" },
+      massRatio: { label: "质量比", value: 2.0, min: 0.5, max: 4.0, step: 0.1, unit: "" }
+    });
+  }
+  return makeCircularAnimation("uniform_circle", "匀速圆周运动：速度沿切线，向心加速度指向圆心");
 }
 
 function isJsonAnimationScene(sceneName) {
@@ -1548,6 +1677,9 @@ function getJsonDuration(sceneName) {
     var codexPhi = getJsonBulletPhi(sceneName);
     return Math.max(0.2, (Math.PI - codexPhi) / codexOmega);
   }
+  if (animation.type === "circular_concept" && animation.variant === "dart_disk") {
+    return Math.max(0.2, getJsonParam(sceneName, "flight", 1.0));
+  }
   return Math.max(0.5, Number((animation.timeline || {}).duration || 4));
 }
 
@@ -1612,6 +1744,9 @@ function drawJsonAnimationScene() {
   } else if (animation.type === "bullet_cylinder") {
     drawAnimScene(drawJsonBulletCylinderScene);
     drawJsonBulletCylinderGraph();
+  } else if (animation.type === "circular_concept") {
+    drawAnimScene(drawJsonCircularConceptScene);
+    drawJsonCircularConceptGraph();
   } else {
     drawAnimScene(drawJsonPlaceholderScene);
     drawJsonPlaceholderGraph();
@@ -2033,6 +2168,473 @@ function drawJsonBulletCylinderGraph() {
   textSize(12);
   text("t = (π-φ)/ω = " + values.time.toFixed(2) + "s", gx + 14, gy + 12);
   text("v = ωd/(π-φ) = " + values.speed.toFixed(2) + "m/s", gx + 14, gy + 34);
+}
+
+function getJsonCircularVariant() {
+  return ((problemDataMap[currentScene] || {}).animation || {}).variant || "uniform_circle";
+}
+
+function getJsonCircularValues() {
+  var omega = Math.max(0.05, getJsonParam(currentScene, "omega", 2.4));
+  var radius = Math.max(0.1, getJsonParam(currentScene, "radius", 1.0));
+  var theta = getJsonParam(currentScene, "theta", 37) * Math.PI / 180;
+  var mu = Math.max(0.01, getJsonParam(currentScene, "mu", 0.4));
+  var g = Math.max(0.1, getJsonParam(currentScene, "g", 10));
+  var ratio = Math.max(0.2, getJsonParam(currentScene, "ratio", 2.0));
+  var massRatio = Math.max(0.2, getJsonParam(currentScene, "massRatio", 2.0));
+  var time = getJsonAnimationState(currentScene).time;
+  return {
+    omega: omega,
+    radius: radius,
+    theta: theta,
+    mu: mu,
+    g: g,
+    ratio: ratio,
+    massRatio: massRatio,
+    time: time,
+    speed: omega * radius,
+    acc: omega * omega * radius
+  };
+}
+
+function drawJsonCircularConceptScene() {
+  var variant = getJsonCircularVariant();
+  if (variant === "transmission") {
+    drawJsonCircularTransmissionScene();
+  } else if (variant === "dart_disk") {
+    drawJsonCircularDartDiskScene();
+  } else if (variant === "rotating_disk") {
+    drawJsonCircularDiskScene();
+  } else if (variant === "conical_pendulum" || variant === "funnel_balls" || variant === "rope_cone_limit") {
+    drawJsonCircularConicalScene(variant);
+  } else if (variant === "friction_limit") {
+    drawJsonCircularFrictionScene();
+  } else if (variant === "vertical_circle") {
+    drawJsonCircularVerticalScene();
+  } else if (variant === "two_body_orbit") {
+    drawJsonCircularTwoBodyScene();
+  } else {
+    drawJsonCircularDiskScene();
+  }
+}
+
+function drawJsonCircularConceptGraph() {
+  var variant = getJsonCircularVariant();
+  if (variant === "transmission") {
+    drawJsonCircularTransmissionGraph();
+  } else if (variant === "dart_disk") {
+    drawJsonCircularDartDiskGraph();
+  } else if (variant === "friction_limit") {
+    drawJsonCircularFrictionGraph();
+  } else if (variant === "conical_pendulum" || variant === "funnel_balls" || variant === "rope_cone_limit") {
+    drawJsonCircularConicalGraph(variant);
+  } else if (variant === "vertical_circle") {
+    drawJsonCircularVerticalGraph();
+  } else if (variant === "two_body_orbit") {
+    drawJsonCircularTwoBodyGraph();
+  } else {
+    drawJsonCircularDiskGraph();
+  }
+}
+
+function drawJsonCircleBody(cx, cy, r, angle, colorHex, labelText) {
+  var x = cx + r * Math.cos(angle);
+  var y = cy + r * Math.sin(angle);
+  noStroke();
+  fill(colorHex);
+  circle(x, y, 22);
+  fill("#ffffff");
+  textAlign(CENTER, CENTER);
+  textSize(12);
+  text(labelText || "", x, y);
+  return { x: x, y: y };
+}
+
+function drawJsonCircularDiskScene() {
+  var values = getJsonCircularValues();
+  var cx = 285;
+  var cy = 245;
+  var r = 132;
+  var angle = values.omega * values.time - Math.PI / 3;
+  stroke("#111827");
+  strokeWeight(3);
+  noFill();
+  circle(cx, cy, 2 * r);
+  stroke("#cbd5e1");
+  strokeWeight(1);
+  for (var i = 0; i < 12; i++) {
+    var a = angle + i * Math.PI / 6;
+    line(cx, cy, cx + r * Math.cos(a), cy + r * Math.sin(a));
+  }
+  var p = drawJsonCircleBody(cx, cy, r, angle, "#f97316", "P");
+  drawVectorArrow(p.x, p.y, -Math.sin(angle) * 62, Math.cos(angle) * 62, "#2563eb", "v");
+  drawVectorArrow(p.x, p.y, (cx - p.x) * 0.42, (cy - p.y) * 0.42, "#dc2626", "a");
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(16);
+  text("匀速圆周运动", 26, 28);
+  fill("#5b6472");
+  textSize(12);
+  text("速度沿切线，向心加速度始终指向圆心", 26, 54);
+  text("v=ωr=" + values.speed.toFixed(2) + "，a=ω²r=" + values.acc.toFixed(2), 26, 78);
+}
+
+function drawJsonCircularDiskGraph() {
+  var values = getJsonCircularValues();
+  drawGraphFrame("线速度/向心加速度", "随角速度变化：v=ωr，a=ω²r");
+  var gx = graphLeft + 50;
+  var gy = 82;
+  var gw = graphRight - graphLeft - 90;
+  var gh = 330;
+  var maxOmega = 6;
+  var maxValue = Math.max(maxOmega * values.radius, maxOmega * maxOmega * values.radius);
+  drawSimpleCurve(gx, gy, gw, gh, maxOmega, maxValue, "#2563eb", function (w) { return w * values.radius; });
+  drawSimpleCurve(gx, gy, gw, gh, maxOmega, maxValue, "#dc2626", function (w) { return w * w * values.radius; });
+  drawTimeMarker(gx, gy, gw, gh, Math.min(values.omega, maxOmega), maxOmega);
+}
+
+function drawJsonCircularDartDiskScene() {
+  var values = getJsonCircularValues();
+  var flight = Math.max(0.2, getJsonParam(currentScene, "flight", 1.0));
+  var state = getJsonAnimationState(currentScene);
+  var tNow = Math.min(state.time, flight);
+  var progress = tNow / flight;
+  var diskX = 410;
+  var diskY = 245;
+  var diskR = 96;
+  var startX = 70;
+  var startY = diskY - diskR;
+  var dartX = startX + (diskX - startX) * progress;
+  var dartY = startY + 78 * progress * progress;
+  var angle = values.omega * tNow - Math.PI / 2;
+
+  stroke("#111827");
+  strokeWeight(3);
+  noFill();
+  circle(diskX, diskY, 2 * diskR);
+  stroke("#cbd5e1");
+  strokeWeight(1);
+  for (var i = 0; i < 8; i++) {
+    var a = angle + i * Math.PI / 4;
+    line(diskX, diskY, diskX + diskR * Math.cos(a), diskY + diskR * Math.sin(a));
+  }
+  var targetX = diskX + diskR * Math.cos(angle);
+  var targetY = diskY + diskR * Math.sin(angle);
+  noStroke();
+  fill("#dc2626");
+  circle(targetX, targetY, 18);
+  fill("#111827");
+  circle(diskX, diskY, 7);
+
+  stroke("#2563eb");
+  strokeWeight(2.5);
+  noFill();
+  beginShape();
+  for (i = 0; i <= 80; i++) {
+    var p = i / 80;
+    vertex(startX + (diskX - startX) * p, startY + 78 * p * p);
+  }
+  endShape();
+  drawArrow(dartX - 38, dartY, dartX + 20, dartY, "#2563eb");
+  noStroke();
+  fill("#f97316");
+  triangle(dartX + 20, dartY, dartX - 12, dartY - 8, dartX - 12, dartY + 8);
+
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(16);
+  text("飞镖与转盘同步", 28, 28);
+  fill("#5b6472");
+  textSize(12);
+  text("飞镖飞行时间 t=L/v₀；圆盘需转到目标点", 28, 54);
+  text("当前转角 ωt=" + (values.omega * tNow).toFixed(2) + " rad", 28, 78);
+}
+
+function drawJsonCircularDartDiskGraph() {
+  var values = getJsonCircularValues();
+  var flight = Math.max(0.2, getJsonParam(currentScene, "flight", 1.0));
+  var state = getJsonAnimationState(currentScene);
+  drawGraphFrame("飞行时间与转角条件", "命中要求：ωt=(2n+1)π 或题设对应目标角");
+  var gx = graphLeft + 50;
+  var gy = 82;
+  var gw = graphRight - graphLeft - 90;
+  var gh = 330;
+  var angleMax = Math.max(Math.PI * 2, values.omega * flight * 1.2);
+  drawSimpleCurve(gx, gy, gw, gh, flight, angleMax, "#2563eb", function (t) { return values.omega * t; });
+  stroke("#dc2626");
+  strokeWeight(1.5);
+  drawingContext.setLineDash([4, 4]);
+  var targetY = map(Math.PI, 0, angleMax, gy + gh, gy);
+  line(gx, targetY, gx + gw, targetY);
+  drawingContext.setLineDash([]);
+  drawTimeMarker(gx, gy, gw, gh, Math.min(state.time, flight), flight);
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(12);
+  text("t=" + flight.toFixed(2) + "s，ωt=" + (values.omega * flight).toFixed(2) + "rad", gx + 12, gy + 12);
+}
+
+function drawJsonCircularTransmissionScene() {
+  var values = getJsonCircularValues();
+  var leftX = 190;
+  var rightX = 398;
+  var cy = 250;
+  var r1 = 96;
+  var r2 = Math.max(36, r1 / values.ratio);
+  var a1 = values.omega * values.time;
+  var a2 = values.omega * values.ratio * values.time;
+  stroke("#64748b");
+  strokeWeight(7);
+  line(leftX, cy - r1, rightX, cy - r2);
+  line(leftX, cy + r1, rightX, cy + r2);
+  drawJsonGear(leftX, cy, r1, a1, "#2563eb", "主动轮");
+  drawJsonGear(rightX, cy, r2, -a2, "#f97316", "从动轮");
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(16);
+  text("传动关系", 28, 28);
+  fill("#5b6472");
+  textSize(12);
+  text("皮带/啮合处线速度相等：ω₁r₁=ω₂r₂", 28, 54);
+  text("半径比 r₁:r₂=" + values.ratio.toFixed(1) + ":1，角速度反比", 28, 78);
+}
+
+function drawJsonGear(cx, cy, r, angle, colorHex, labelText) {
+  stroke(colorHex);
+  strokeWeight(3);
+  noFill();
+  circle(cx, cy, 2 * r);
+  stroke("#cbd5e1");
+  strokeWeight(1);
+  for (var i = 0; i < 10; i++) {
+    var a = angle + i * Math.PI / 5;
+    line(cx, cy, cx + r * Math.cos(a), cy + r * Math.sin(a));
+  }
+  noStroke();
+  fill(colorHex);
+  circle(cx, cy, 10);
+  fill("#111827");
+  textAlign(CENTER, TOP);
+  textSize(12);
+  text(labelText, cx, cy + r + 12);
+}
+
+function drawJsonCircularTransmissionGraph() {
+  var values = getJsonCircularValues();
+  drawGraphFrame("传动量比较", "同轴看角速度；接触/皮带/啮合看线速度");
+  var gx = graphLeft + 66;
+  var base = 390;
+  var scale = 54;
+  var v1 = values.omega * values.ratio;
+  var v2 = values.omega * values.ratio;
+  var w1 = values.omega;
+  var w2 = values.omega * values.ratio;
+  drawBar(gx, base, 44, w1 * scale / 3, "#2563eb", "ω₁");
+  drawBar(gx + 70, base, 44, w2 * scale / 3, "#f97316", "ω₂");
+  drawBar(gx + 170, base, 44, v1 * scale / 3, "#16a34a", "v₁");
+  drawBar(gx + 240, base, 44, v2 * scale / 3, "#16a34a", "v₂");
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(12);
+  text("线速度相等，角速度与半径成反比", gx, 92);
+}
+
+function drawJsonCircularConicalScene(variant) {
+  var values = getJsonCircularValues();
+  var cx = 285;
+  var topY = 78;
+  var centerY = 310;
+  var orbitR = 120 * Math.sin(values.theta);
+  var angle = values.omega * values.time;
+  var ballX = cx + orbitR * Math.cos(angle);
+  var ballY = centerY + 20 * Math.sin(angle);
+  if (variant === "funnel_balls") {
+    stroke("#94a3b8");
+    strokeWeight(3);
+    line(cx - 150, centerY + 80, cx, topY);
+    line(cx + 150, centerY + 80, cx, topY);
+  }
+  stroke("#2563eb");
+  strokeWeight(3);
+  line(cx, topY, ballX, ballY);
+  stroke("#cbd5e1");
+  strokeWeight(1.5);
+  noFill();
+  ellipse(cx, centerY, 2 * orbitR, 42);
+  var p = drawJsonCircleBody(cx, centerY, orbitR, angle, "#f97316", "m");
+  p.y = ballY;
+  drawVectorArrow(ballX, ballY, (cx - ballX) * 0.45, (centerY - ballY) * 0.45, "#dc2626", "a");
+  drawVectorArrow(ballX, ballY, 0, 64, "#64748b", "G");
+  drawVectorArrow(ballX, ballY, (cx - ballX) * 0.34, (topY - ballY) * 0.34, "#2563eb", "T/N");
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(16);
+  text(variant === "rope_cone_limit" ? "双绳/圆锥面临界" : "圆锥摆模型", 28, 28);
+  fill("#5b6472");
+  textSize(12);
+  text("水平合力提供向心力，竖直方向平衡", 28, 54);
+  text("tanθ = a/g，a=" + values.acc.toFixed(2), 28, 78);
+}
+
+function drawJsonCircularConicalGraph(variant) {
+  var values = getJsonCircularValues();
+  drawGraphFrame("角速度-夹角关系", "θ 越大，需要的水平向心加速度越大");
+  var gx = graphLeft + 50;
+  var gy = 82;
+  var gw = graphRight - graphLeft - 90;
+  var gh = 330;
+  var g = values.g;
+  drawSimpleCurve(gx, gy, gw, gh, 70, 20, "#2563eb", function (deg) {
+    return g * Math.tan(deg * Math.PI / 180);
+  });
+  var thetaDeg = values.theta * 180 / Math.PI;
+  drawTimeMarker(gx, gy, gw, gh, thetaDeg, 70);
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(12);
+  text((variant === "rope_cone_limit" ? "临界看某根绳/支持力是否为 0" : "同高圆锥摆满足 ω²=g/h"), gx + 12, gy + 14);
+}
+
+function drawJsonCircularFrictionScene() {
+  var values = getJsonCircularValues();
+  var cx = 285;
+  var cy = 248;
+  var rInner = 86;
+  var rOuter = 150;
+  var angle = values.omega * values.time;
+  stroke("#111827");
+  strokeWeight(3);
+  noFill();
+  ellipse(cx, cy, 2 * rOuter, 2 * rOuter);
+  ellipse(cx, cy, 2 * rInner, 2 * rInner);
+  var p1 = drawJsonCircleBody(cx, cy, rInner, angle, "#2563eb", "A");
+  var p2 = drawJsonCircleBody(cx, cy, rOuter, angle + 0.5, "#f97316", "C");
+  drawVectorArrow(p1.x, p1.y, (cx - p1.x) * 0.42, (cy - p1.y) * 0.42, "#16a34a", "f");
+  drawVectorArrow(p2.x, p2.y, (cx - p2.x) * 0.42, (cy - p2.y) * 0.42, "#dc2626", "f");
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(16);
+  text("摩擦提供向心力", 28, 28);
+  fill("#5b6472");
+  textSize(12);
+  text("所需 f=mω²r；r 越大越先达到最大静摩擦", 28, 54);
+  text(values.omega * values.omega * values.radius > values.mu * values.g ? "当前：已超过临界" : "当前：未到临界", 28, 78);
+}
+
+function drawJsonCircularFrictionGraph() {
+  var values = getJsonCircularValues();
+  drawGraphFrame("所需摩擦-半径", "蓝线：mω²r；红线：最大静摩擦 μmg");
+  var gx = graphLeft + 50;
+  var gy = 82;
+  var gw = graphRight - graphLeft - 90;
+  var gh = 330;
+  var rMax = 2;
+  var yMax = Math.max(values.omega * values.omega * rMax, values.mu * values.g) * 1.2;
+  drawSimpleCurve(gx, gy, gw, gh, rMax, yMax, "#2563eb", function (r) { return values.omega * values.omega * r; });
+  stroke("#dc2626");
+  strokeWeight(2);
+  var y = map(values.mu * values.g, 0, yMax, gy + gh, gy);
+  line(gx, y, gx + gw, y);
+  drawTimeMarker(gx, gy, gw, gh, Math.min(values.radius, rMax), rMax);
+}
+
+function drawJsonCircularVerticalScene() {
+  var values = getJsonCircularValues();
+  var cx = 285;
+  var cy = 245;
+  var r = 130;
+  var angle = values.omega * values.time - Math.PI / 2;
+  stroke("#111827");
+  strokeWeight(3);
+  noFill();
+  circle(cx, cy, 2 * r);
+  stroke("#2563eb");
+  strokeWeight(3);
+  line(cx, cy, cx + r * Math.cos(angle), cy + r * Math.sin(angle));
+  var p = drawJsonCircleBody(cx, cy, r, angle, "#f97316", "m");
+  drawVectorArrow(p.x, p.y, (cx - p.x) * 0.45, (cy - p.y) * 0.45, "#dc2626", "a");
+  drawVectorArrow(p.x, p.y, 0, 62, "#64748b", "G");
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(16);
+  text("竖直圆周运动", 28, 28);
+  fill("#5b6472");
+  textSize(12);
+  text("碰钉/骤停：速度瞬时不变，半径变小则 ω、a、T 变大", 28, 54);
+  text("a=ω²r=" + values.acc.toFixed(2), 28, 78);
+}
+
+function drawJsonCircularVerticalGraph() {
+  var values = getJsonCircularValues();
+  drawGraphFrame("拉力/支持力随位置变化", "最低点最大，最高点最小；半径改变会使向心项改变");
+  var gx = graphLeft + 50;
+  var gy = 82;
+  var gw = graphRight - graphLeft - 90;
+  var gh = 330;
+  var yMax = values.g + values.omega * values.omega * values.radius * 1.5;
+  drawSimpleCurve(gx, gy, gw, gh, 2 * Math.PI, yMax, "#2563eb", function (a) {
+    return values.g + values.omega * values.omega * values.radius * (1 + Math.sin(a)) / 2;
+  });
+  drawTimeMarker(gx, gy, gw, gh, (values.omega * values.time) % (2 * Math.PI), 2 * Math.PI);
+}
+
+function drawJsonCircularTwoBodyScene() {
+  var values = getJsonCircularValues();
+  var cx = 285;
+  var cy = 250;
+  var total = 210;
+  var rHeavy = total / (1 + values.massRatio);
+  var rLight = total - rHeavy;
+  var angle = values.omega * values.time;
+  var heavy = drawJsonCircleBody(cx, cy, rHeavy, angle + Math.PI, "#2563eb", "男");
+  var light = drawJsonCircleBody(cx, cy, rLight, angle, "#f97316", "女");
+  stroke("#111827");
+  strokeWeight(2.5);
+  line(heavy.x, heavy.y, light.x, light.y);
+  noStroke();
+  fill("#111827");
+  circle(cx, cy, 8);
+  textAlign(LEFT, TOP);
+  textSize(16);
+  text("双人牵连圆周运动", 28, 28);
+  fill("#5b6472");
+  textSize(12);
+  text("拉力相等、角速度相同；m₁r₁=m₂r₂", 28, 54);
+  text("半径比约 r重:r轻=1:" + values.massRatio.toFixed(1), 28, 78);
+}
+
+function drawJsonCircularTwoBodyGraph() {
+  var values = getJsonCircularValues();
+  drawGraphFrame("半径与速度比较", "同一角速度下，v=ωr；质量大者半径小、速度小");
+  var gx = graphLeft + 80;
+  var base = 390;
+  var total = 1;
+  var rHeavy = total / (1 + values.massRatio);
+  var rLight = total - rHeavy;
+  drawBar(gx, base, 58, rHeavy * 220, "#2563eb", "r重");
+  drawBar(gx + 100, base, 58, rLight * 220, "#f97316", "r轻");
+  drawBar(gx + 230, base, 58, rHeavy * values.omega * 220, "#93c5fd", "v重");
+  drawBar(gx + 330, base, 58, rLight * values.omega * 220, "#fdba74", "v轻");
+}
+
+function drawBar(x, baseY, w, h, colorHex, labelText) {
+  var bh = Math.max(6, Math.min(280, h));
+  noStroke();
+  fill(colorHex);
+  rect(x, baseY - bh, w, bh, 5);
+  fill("#111827");
+  textAlign(CENTER, TOP);
+  textSize(12);
+  text(labelText, x + w / 2, baseY + 8);
 }
 
 function drawGraphFrame(title, subtitle) {
