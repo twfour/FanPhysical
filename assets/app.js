@@ -630,7 +630,7 @@ function switchScene(sceneName) {
     note.style.display = note.id === sceneName + "Notes" ? "block" : "none";
   });
   updateModelSource(sceneName);
-  renderSceneMath(sceneName);
+  scheduleSceneMath(sceneName);
 }
 
 async function loadProblemData() {
@@ -703,21 +703,16 @@ function renderProblemDataNotes() {
 }
 
 function createProblemQuestionBlock(problem) {
-  var parts = [problem.question || ""];
   var options = Array.isArray(problem.options) ? problem.options : [];
-  if (options.length) {
-    parts.push(options.map(function (option) {
-      return formatProblemOption(option);
-    }).join("\n"));
-  }
-  var block = createProblemNoteBlock("题目", problem.title, parts.filter(Boolean).join("\n\n"));
+  var block = createProblemNoteBlock("题目", problem.title, problem.question || "");
+  appendProblemOptions(block, options);
   appendProblemImages(block, problem.images);
   return block;
 }
 
 function formatProblemOption(option) {
   if (typeof option === "string") {
-    return option.replace(/^\s*([A-D])[．、]\s*/, "$1. ");
+    return option.replace(/^\s*[-*]\s*/, "").replace(/^\s*([A-D])[．、]\s*/, "$1. ");
   }
   if (option && typeof option === "object") {
     var label = option.label ? String(option.label).replace(/[．、.：:]+$/, "") : "";
@@ -725,6 +720,21 @@ function formatProblemOption(option) {
     return (label ? label + ". " : "") + text;
   }
   return String(option || "");
+}
+
+function appendProblemOptions(block, options) {
+  if (!block || !Array.isArray(options) || !options.length) {
+    return;
+  }
+  var optionWrap = document.createElement("div");
+  optionWrap.className = "problem-options";
+  options.forEach(function (option) {
+    var optionLine = document.createElement("p");
+    optionLine.className = "problem-option";
+    optionLine.innerHTML = markdownLiteInlineToHtml(formatProblemOption(option));
+    optionWrap.appendChild(optionLine);
+  });
+  block.appendChild(optionWrap);
 }
 
 function appendProblemImages(block, images) {
@@ -2156,6 +2166,28 @@ function renderStepAiAnswer(target, text) {
   renderMath(target);
 }
 
+function markdownLiteInlineToHtml(text) {
+  var placeholders = [];
+  var protectedText = String(text || "").replace(/\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\)/g, function (match) {
+    var token = "@@MATH" + placeholders.length + "@@";
+    placeholders.push(match);
+    return token;
+  });
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  return escapeHtml(protectedText)
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/@@MATH(\d+)@@/g, function (_, index) {
+      return placeholders[Number(index)] || "";
+    });
+}
+
 function markdownLiteToHtml(text) {
   var placeholders = [];
   var protectedText = String(text || "").replace(/\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\)/g, function (match) {
@@ -2255,6 +2287,18 @@ function renderMath(root) {
     }
   }
   return Promise.resolve();
+}
+
+function scheduleSceneMath(sceneName) {
+  if (window.requestAnimationFrame) {
+    window.requestAnimationFrame(function () {
+      renderSceneMath(sceneName);
+    });
+  } else {
+    setTimeout(function () {
+      renderSceneMath(sceneName);
+    }, 0);
+  }
 }
 
 function renderSceneMath(sceneName) {

@@ -838,6 +838,19 @@ button.action:hover {
   line-height: 1.85;
 }
 
+.problem-options {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.problem-note-block .problem-option {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
 .problem-note-block strong {
   color: var(--ink);
   font-weight: 900;
