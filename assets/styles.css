@@ -236,6 +236,8 @@ body {
 }
 
 .tree-item {
+  appearance: none;
+  -webkit-appearance: none;
   width: 100%;
   border: none;
   border-radius: 7px;
@@ -243,6 +245,7 @@ body {
   color: var(--muted);
   padding: 7px 8px;
   text-align: left;
+  font-family: inherit;
   font-size: 12px;
   line-height: 1.35;
   font-weight: 800;
