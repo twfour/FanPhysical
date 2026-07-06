@@ -977,7 +977,7 @@ function getScenePathFromElement(element) {
   var parent = element ? element.parentElement : null;
   while (parent) {
     if (parent.tagName === "DETAILS") {
-      var summary = parent.querySelector(":scope > summary");
+      var summary = getDirectSummary(parent);
       if (summary) {
         parts.unshift(summary.innerText.trim());
       }
@@ -985,6 +985,18 @@ function getScenePathFromElement(element) {
     parent = parent.parentElement;
   }
   return parts.join(" / ");
+}
+
+function getDirectSummary(detailsElement) {
+  if (!detailsElement || !detailsElement.children) {
+    return null;
+  }
+  for (var i = 0; i < detailsElement.children.length; i += 1) {
+    if (detailsElement.children[i].tagName === "SUMMARY") {
+      return detailsElement.children[i];
+    }
+  }
+  return null;
 }
 
 function getSceneCatalog() {
@@ -1024,9 +1036,20 @@ function renderFavoriteHome() {
   var favorites = readFavoriteProblems();
   var catalog = getSceneCatalog();
   var catalogMap = {};
+  var didUpgradeFavorites = false;
   catalog.forEach(function (item) {
     catalogMap[item.scene] = item;
+    var key = getFavoriteProblemKey(item.scene);
+    if (favorites[key] && (favorites[key].title !== item.title || favorites[key].path !== item.path)) {
+      favorites[key].scene = item.scene;
+      favorites[key].title = item.title;
+      favorites[key].path = item.path;
+      didUpgradeFavorites = true;
+    }
   });
+  if (didUpgradeFavorites) {
+    writeFavoriteProblems(favorites);
+  }
   function appendFavoriteCard(key) {
     var favorite = favorites[key] || {};
     var sceneName = favorite.scene || String(key).replace(/^scene:/, "");
