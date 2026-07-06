@@ -240,18 +240,16 @@ body {
   border: none;
   border-radius: 7px;
   background: transparent;
-  color: var(--ink);
+  color: var(--muted);
   padding: 7px 8px;
   text-align: left;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.35;
-  font-weight: 600;
+  font-weight: 800;
   cursor: pointer;
   white-space: normal;
   word-break: keep-all;
   overflow-wrap: anywhere;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 .tree-item.indent {
