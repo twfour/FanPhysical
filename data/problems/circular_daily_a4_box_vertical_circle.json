@@ -1,0 +1,88 @@
+{
+  "slug": "daily-a4-box-vertical-circle",
+  "originalNumber": "A4",
+  "skip": false,
+  "skipReason": "",
+  "model": "盒内小球竖直圆模型",
+  "id": "circular_daily_a4_box_vertical_circle",
+  "chapter": "圆周运动日常",
+  "title": "A4：盒内小球竖直圆",
+  "question": "质量为 \\(m\\) 的小球置于内表面光滑的正方体盒子中，盒子的棱长略大于小球直径。某同学拿着盒子在竖直面内做半径为 \\(R\\) 的匀速圆周运动，盒子在运动过程中不发生转动。已知重力加速度为 \\(g\\)，盒子经过最高点 \\(A\\) 时与小球间恰好无作用力。以下说法正确的是（  ）",
+  "options": [
+    "A. 盒子做匀速圆周运动的周期为 \\(\\pi\\sqrt{\\frac{R}{g}}\\)",
+    "B. 盒子做匀速圆周运动的线速度为 \\(\\sqrt{gR}\\)",
+    "C. 盒子经过最低点 \\(C\\) 时与小球之间的作用力大小为 \\(2mg\\)",
+    "D. 盒子经过与圆心 \\(O\\) 等高处的 \\(B\\) 点时，小球对盒子左壁的压力大小为 \\(1.5mg\\)"
+  ],
+  "answer": "\\(BC\\)",
+  "analysis": {
+    "title": "解析",
+    "content": "最高点恰好无作用力，说明重力单独提供向心力：\\(mg=m\\frac{v^2}{R}\\)，得 \\(v=\\sqrt{gR}\\)，B 对。周期 \\(T=\\frac{2\\pi R}{v}=2\\pi\\sqrt{\\frac{R}{g}}\\)，A 错。最低点向心方向向上，盒底对小球作用力 \\(N\\) 满足 \\(N-mg=m\\frac{v^2}{R}=mg\\)，故 \\(N=2mg\\)，C 对。与圆心等高处向心方向水平，侧壁压力提供向心力，大小为 \\(m\\frac{v^2}{R}=mg\\)，不是 \\(1.5mg\\)，D 错。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "竖直圆周运动",
+    "最高点临界",
+    "最低点压力",
+    "周期"
+  ],
+  "source": {
+    "title": "圆周运动日常",
+    "text": "A4",
+    "page": "",
+    "hidden": true
+  },
+  "images": [],
+  "practice": {
+    "title": "近似题：最高点无压力",
+    "question": "小球随盒子在竖直面内做半径 \\(R\\) 的匀速圆周运动，最高点小球对盒子无压力。求最低点盒子对小球的作用力。",
+    "answer": "最高点无压力得 \\(v^2=gR\\)。最低点 \\(N-mg=m\\frac{v^2}{R}=mg\\)，所以 \\(N=2mg\\)。",
+    "thinking": "先由最高点临界求速度，再代入最低点径向方程。"
+  },
+  "analysisText": "最高点恰好无作用力，说明重力单独提供向心力：\\(mg=m\\frac{v^2}{R}\\)，得 \\(v=\\sqrt{gR}\\)，B 对。周期 \\(T=\\frac{2\\pi R}{v}=2\\pi\\sqrt{\\frac{R}{g}}\\)，A 错。最低点向心方向向上，盒底对小球作用力 \\(N\\) 满足 \\(N-mg=m\\frac{v^2}{R}=mg\\)，故 \\(N=2mg\\)，C 对。与圆心等高处向心方向水平，侧壁压力提供向心力，大小为 \\(m\\frac{v^2}{R}=mg\\)，不是 \\(1.5mg\\)，D 错。",
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "最高点恰好无作用力，说明重力单独提供向心力：\\(mg=m\\frac{v^2}{R}\\)，得 \\(v=\\sqrt{gR}\\)，B 对。",
+      "knowledge": [
+        "竖直圆周运动",
+        "最高点临界",
+        "最低点压力",
+        "周期"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "周期 \\(T=\\frac{2\\pi R}{v}=2\\pi\\sqrt{\\frac{R}{g}}\\)，A 错。最低点向心方向向上，盒底对小球作用力 \\(N\\) 满足 \\(N-mg=m\\frac{v^2}{R}=mg\\)，故 \\(N=2mg\\)，C 对。",
+      "knowledge": [
+        "竖直圆周运动",
+        "最高点临界",
+        "最低点压力",
+        "周期"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "与圆心等高处向心方向水平，侧壁压力提供向心力，大小为 \\(m\\frac{v^2}{R}=mg\\)，不是 \\(1.5mg\\)，D 错。",
+      "knowledge": [
+        "竖直圆周运动",
+        "最高点临界",
+        "最低点压力",
+        "周期"
+      ],
+      "commonMistakes": []
+    }
+  ]
+}

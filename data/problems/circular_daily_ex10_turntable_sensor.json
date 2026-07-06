@@ -1,0 +1,95 @@
+{
+  "slug": "daily-ex10-turntable-sensor",
+  "originalNumber": "例10",
+  "skip": false,
+  "skipReason": "",
+  "model": "转盘叠块传感器图像模型",
+  "id": "circular_daily_ex10_turntable_sensor",
+  "chapter": "圆周运动日常",
+  "title": "例10：转盘叠块传感器图像",
+  "question": "水平转盘可绕竖直中心轴转动，盘上叠放着质量均为 \\(1\\mathrm{kg}\\) 的 \\(A,B\\) 两个物块，\\(B\\) 用长为 \\(0.25\\mathrm{m}\\) 的细线与固定在转盘中心处的力传感器相连。细线最大拉力为 \\(8\\mathrm{N}\\)。\\(A,B\\) 间动摩擦因数 \\(\\mu_2=0.4\\)，\\(B\\) 与转盘间动摩擦因数 \\(\\mu_1=0.1\\)，最大静摩擦力等于滑动摩擦力。转盘静止时细线刚好伸直，传感器读数为零。求传感器读数 \\(F\\) 与 \\(\\omega^2\\) 的关系并作图，取 \\(g=10\\mathrm{m/s^2}\\)。",
+  "options": [],
+  "answer": "\\(0\\leq\\omega^2\\leq4\\) 时 \\(F=0\\)；\\(4<\\omega^2\\leq16\\) 时 \\(F=0.5\\omega^2-2\\)；\\(16<\\omega^2\\leq24\\) 时 \\(F=0.25\\omega^2+2\\)，\\(\\omega^2=24\\) 时绳将断。",
+  "analysis": {
+    "title": "解析",
+    "content": "两物块不相对滑动时可视为整体，半径 \\(r=0.25\\mathrm{m}\\)，总质量 \\(2\\mathrm{kg}\\)。转盘对 \\(B\\) 的最大静摩擦力为 \\(\\mu_1(2mg)=2\\mathrm{N}\\)，若 \\(2\\omega^2r\\leq2\\)，即 \\(\\omega^2\\leq4\\)，细线无拉力。继续增大角速度，\\(F+2=2\\omega^2r=0.5\\omega^2\\)，得 \\(F=0.5\\omega^2-2\\)。\\(A\\) 不滑动要求 \\(m\\omega^2r\\leq\\mu_2mg=4\\)，即 \\(\\omega^2\\leq16\\)。超过后 \\(A\\) 相对 \\(B\\) 滑动，\\(A\\) 对 \\(B\\) 的摩擦向外为 \\(4\\mathrm{N}\\)，转盘对 \\(B\\) 的摩擦向内为 \\(2\\mathrm{N}\\)，对 \\(B\\) 列式 \\(F+2-4=m\\omega^2r=0.25\\omega^2\\)，得 \\(F=0.25\\omega^2+2\\)。令 \\(F=8\\) 得 \\(\\omega^2=24\\)。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "转盘",
+    "叠放物块",
+    "分段函数",
+    "传感器图像"
+  ],
+  "source": {
+    "title": "圆周运动日常",
+    "text": "例10",
+    "page": "",
+    "hidden": true
+  },
+  "images": [],
+  "practice": {
+    "title": "近似题：细线开始有拉力",
+    "question": "两个质量均为 \\(m\\) 的物块叠放在转盘上，下方物块与转盘间最大静摩擦为 \\(2\\mathrm{N}\\)，整体半径为 \\(0.5\\mathrm{m}\\)，总质量 \\(2\\mathrm{kg}\\)。细线连向圆心，求细线刚开始有拉力时的 \\(\\omega^2\\)。",
+    "answer": "细线刚有拉力前，摩擦提供整体向心力：\\(2\\omega^2r=2\\)。代入 \\(r=0.5\\mathrm{m}\\)，得 \\(\\omega^2=2\\mathrm{s^{-2}}\\)。",
+    "thinking": "先把未相对滑动的叠块看成整体，比较所需向心力和最大静摩擦。"
+  },
+  "analysisText": "两物块不相对滑动时可视为整体，半径 \\(r=0.25\\mathrm{m}\\)，总质量 \\(2\\mathrm{kg}\\)。转盘对 \\(B\\) 的最大静摩擦力为 \\(\\mu_1(2mg)=2\\mathrm{N}\\)，若 \\(2\\omega^2r\\leq2\\)，即 \\(\\omega^2\\leq4\\)，细线无拉力。继续增大角速度，\\(F+2=2\\omega^2r=0.5\\omega^2\\)，得 \\(F=0.5\\omega^2-2\\)。\\(A\\) 不滑动要求 \\(m\\omega^2r\\leq\\mu_2mg=4\\)，即 \\(\\omega^2\\leq16\\)。超过后 \\(A\\) 相对 \\(B\\) 滑动，\\(A\\) 对 \\(B\\) 的摩擦向外为 \\(4\\mathrm{N}\\)，转盘对 \\(B\\) 的摩擦向内为 \\(2\\mathrm{N}\\)，对 \\(B\\) 列式 \\(F+2-4=m\\omega^2r=0.25\\omega^2\\)，得 \\(F=0.25\\omega^2+2\\)。令 \\(F=8\\) 得 \\(\\omega^2=24\\)。",
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "两物块不相对滑动时可视为整体，半径 \\(r=0.25\\mathrm{m}\\)，总质量 \\(2\\mathrm{kg}\\)。",
+      "knowledge": [
+        "转盘",
+        "叠放物块",
+        "分段函数",
+        "传感器图像"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "转盘对 \\(B\\) 的最大静摩擦力为 \\(\\mu_1(2mg)=2\\mathrm{N}\\)，若 \\(2\\omega^2r\\leq2\\)，即 \\(\\omega^2\\leq4\\)，细线无拉力。继续增大角速度，\\(F+2=2\\omega^2r=0.5\\omega^2\\)，得 \\(F=0.5\\omega^2-2\\)。\\(A\\) 不滑动要求 \\(m\\omega^2r\\leq\\mu_2mg=4\\)，即 \\(\\omega^2\\leq16\\)。",
+      "knowledge": [
+        "转盘",
+        "叠放物块",
+        "分段函数",
+        "传感器图像"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "计算",
+      "content": "超过后 \\(A\\) 相对 \\(B\\) 滑动，\\(A\\) 对 \\(B\\) 的摩擦向外为 \\(4\\mathrm{N}\\)，转盘对 \\(B\\) 的摩擦向内为 \\(2\\mathrm{N}\\)，对 \\(B\\) 列式 \\(F+2-4=m\\omega^2r=0.25\\omega^2\\)，得 \\(F=0.25\\omega^2+2\\)。",
+      "knowledge": [
+        "转盘",
+        "叠放物块",
+        "分段函数",
+        "传感器图像"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "令 \\(F=8\\) 得 \\(\\omega^2=24\\)。",
+      "knowledge": [
+        "转盘",
+        "叠放物块",
+        "分段函数",
+        "传感器图像"
+      ],
+      "commonMistakes": []
+    }
+  ]
+}

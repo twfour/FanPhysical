@@ -1,0 +1,100 @@
+{
+  "slug": "daily-ex7-horizontal-bar",
+  "originalNumber": "例7",
+  "skip": false,
+  "skipReason": "",
+  "model": "单杠最高点弹力图像模型",
+  "id": "circular_daily_ex7_horizontal_bar",
+  "chapter": "圆周运动日常",
+  "title": "例7：单杠最高点弹力图像",
+  "question": "运动员用一只手抓住单杠，伸展身体，以单杠为轴做圆周运动。运动到最高点时，用力传感器测得运动员与单杠间弹力大小为 \\(F\\)，用速度传感器记录最高点速度大小为 \\(v\\)，得到 \\(F-v^2\\) 图像。取 \\(g=10\\mathrm{m/s^2}\\)，下列说法正确的是（  ）",
+  "options": [
+    "A. 运动员的质量为 \\(65\\mathrm{kg}\\)",
+    "B. 运动员的重心到单杠的距离为 \\(0.9\\mathrm{m}\\)",
+    "C. 当最高点速度为 \\(4\\mathrm{m/s}\\) 时，单杠弹力方向向上",
+    "D. 当最高点速度为 \\(4\\mathrm{m/s}\\) 时，单杠弹力方向向下"
+  ],
+  "answer": "\\(ABD\\)",
+  "analysis": {
+    "title": "解析",
+    "content": "最高点沿指向圆心的向下方向列式。若单杠弹力向下，则 \\(mg+F=m\\frac{v^2}{r}\\)；若速度较小时，单杠弹力向上，则弹力大小图像可看作 \\(F=\\left|m\\frac{v^2}{r}-mg\\right|\\)。由图像纵截距 \\(650\\mathrm{N}\\) 得 \\(mg=650\\mathrm{N}\\)，所以 \\(m=65\\mathrm{kg}\\)，A 对。图像在 \\(v^2=9\\) 处弹力为零，对应 \\(mg=m\\frac{v^2}{r}\\)，得 \\(r=\\frac{9}{10}=0.9\\mathrm{m}\\)，B 对。当 \\(v=4\\mathrm{m/s}\\) 时，\\(v^2=16>gr=9\\)，需要额外向下的弹力提供向心力，故弹力方向向下，D 对、C 错。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "竖直圆周运动",
+    "最高点",
+    "弹力图像",
+    "临界速度"
+  ],
+  "source": {
+    "title": "圆周运动日常",
+    "text": "例7",
+    "page": "",
+    "hidden": true
+  },
+  "images": [],
+  "practice": {
+    "title": "近似题：最高点弹力零点",
+    "question": "某人在最高点绕单杠运动，\\(F-v^2\\) 图像在 \\(v^2=12\\) 处弹力为零，取 \\(g=10\\mathrm{m/s^2}\\)。求重心到单杠距离。",
+    "answer": "弹力为零时 \\(mg=m\\frac{v^2}{r}\\)，所以 \\(r=\\frac{v^2}{g}=\\frac{12}{10}=1.2\\mathrm{m}\\)。",
+    "thinking": "最高点零弹力就是重力单独提供向心力。"
+  },
+  "analysisText": "最高点沿指向圆心的向下方向列式。若单杠弹力向下，则 \\(mg+F=m\\frac{v^2}{r}\\)；若速度较小时，单杠弹力向上，则弹力大小图像可看作 \\(F=\\left|m\\frac{v^2}{r}-mg\\right|\\)。由图像纵截距 \\(650\\mathrm{N}\\) 得 \\(mg=650\\mathrm{N}\\)，所以 \\(m=65\\mathrm{kg}\\)，A 对。图像在 \\(v^2=9\\) 处弹力为零，对应 \\(mg=m\\frac{v^2}{r}\\)，得 \\(r=\\frac{9}{10}=0.9\\mathrm{m}\\)，B 对。当 \\(v=4\\mathrm{m/s}\\) 时，\\(v^2=16>gr=9\\)，需要额外向下的弹力提供向心力，故弹力方向向下，D 对、C 错。",
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "最高点沿指向圆心的向下方向列式。",
+      "knowledge": [
+        "竖直圆周运动",
+        "最高点",
+        "弹力图像",
+        "临界速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "若单杠弹力向下，则 \\(mg+F=m\\frac{v^2}{r}\\)；若速度较小时，单杠弹力向上，则弹力大小图像可看作 \\(F=\\left|m\\frac{v^2}{r}-mg\\right|\\)。由图像纵截距 \\(650\\mathrm{N}\\) 得 \\(mg=650\\mathrm{N}\\)，所以 \\(m=65\\mathrm{kg}\\)，A 对。",
+      "knowledge": [
+        "竖直圆周运动",
+        "最高点",
+        "弹力图像",
+        "临界速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "计算",
+      "content": "图像在 \\(v^2=9\\) 处弹力为零，对应 \\(mg=m\\frac{v^2}{r}\\)，得 \\(r=\\frac{9}{10}=0.9\\mathrm{m}\\)，B 对。",
+      "knowledge": [
+        "竖直圆周运动",
+        "最高点",
+        "弹力图像",
+        "临界速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "当 \\(v=4\\mathrm{m/s}\\) 时，\\(v^2=16>gr=9\\)，需要额外向下的弹力提供向心力，故弹力方向向下，D 对、C 错。",
+      "knowledge": [
+        "竖直圆周运动",
+        "最高点",
+        "弹力图像",
+        "临界速度"
+      ],
+      "commonMistakes": []
+    }
+  ]
+}

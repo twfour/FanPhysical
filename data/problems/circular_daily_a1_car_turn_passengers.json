@@ -1,0 +1,88 @@
+{
+  "slug": "daily-a1-car-turn-passengers",
+  "originalNumber": "A1",
+  "skip": false,
+  "skipReason": "",
+  "model": "汽车转弯乘员比较模型",
+  "id": "circular_daily_a1_car_turn_passengers",
+  "chapter": "圆周运动日常",
+  "title": "A1：汽车转弯乘员比较",
+  "question": "如图所示，汽车在拐弯时做匀速圆周运动，则司机 \\(A\\) 与乘客 \\(B\\) 相比一定正确的是（  ）",
+  "options": [
+    "A. 角速度 \\(\\omega_A>\\omega_B\\)",
+    "B. 线速度 \\(v_A=v_B\\)",
+    "C. 向心加速度 \\(a_A<a_B\\)",
+    "D. 向心力 \\(F_A<F_B\\)"
+  ],
+  "answer": "\\(C\\)",
+  "analysis": {
+    "title": "解析",
+    "content": "司机和乘客随同一辆车转弯，绕同一圆心转动时角速度相同，A 错。若乘客 \\(B\\) 离转弯圆心更远，则 \\(r_B>r_A\\)。线速度 \\(v=\\omega r\\)，向心加速度 \\(a=\\omega^2r\\)，所以 \\(v_B>v_A\\)，\\(a_B>a_A\\)，B 错、C 对。向心力还与质量有关，题中没有给出两人的质量关系，D 不能确定。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "同轴转动",
+    "角速度",
+    "线速度",
+    "向心加速度"
+  ],
+  "source": {
+    "title": "圆周运动日常",
+    "text": "A1",
+    "page": "",
+    "hidden": true
+  },
+  "images": [],
+  "practice": {
+    "title": "近似题：车内两点转弯比较",
+    "question": "汽车转弯时，车内两点到转弯圆心的距离分别为 \\(r\\) 和 \\(2r\\)。比较两点的角速度和向心加速度。",
+    "answer": "同车转弯角速度相同。由 \\(a=\\omega^2r\\)，外侧点半径为 \\(2r\\)，向心加速度是内侧点的 \\(2\\) 倍。",
+    "thinking": "刚体式随车转动先判同角速度，再用 \\(v=\\omega r\\)、\\(a=\\omega^2r\\)。"
+  },
+  "analysisText": "司机和乘客随同一辆车转弯，绕同一圆心转动时角速度相同，A 错。若乘客 \\(B\\) 离转弯圆心更远，则 \\(r_B>r_A\\)。线速度 \\(v=\\omega r\\)，向心加速度 \\(a=\\omega^2r\\)，所以 \\(v_B>v_A\\)，\\(a_B>a_A\\)，B 错、C 对。向心力还与质量有关，题中没有给出两人的质量关系，D 不能确定。",
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "司机和乘客随同一辆车转弯，绕同一圆心转动时角速度相同，A 错。",
+      "knowledge": [
+        "同轴转动",
+        "角速度",
+        "线速度",
+        "向心加速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "若乘客 \\(B\\) 离转弯圆心更远，则 \\(r_B>r_A\\)。线速度 \\(v=\\omega r\\)，向心加速度 \\(a=\\omega^2r\\)，所以 \\(v_B>v_A\\)，\\(a_B>a_A\\)，B 错、C 对。",
+      "knowledge": [
+        "同轴转动",
+        "角速度",
+        "线速度",
+        "向心加速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "向心力还与质量有关，题中没有给出两人的质量关系，D 不能确定。",
+      "knowledge": [
+        "同轴转动",
+        "角速度",
+        "线速度",
+        "向心加速度"
+      ],
+      "commonMistakes": []
+    }
+  ]
+}

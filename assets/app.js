@@ -118,7 +118,8 @@ var knowledgePointMap = {
 var problemDataMap = {};
 var problemDataList = [];
 var promotedProblemChapterMap = {
-  "圆周运动": true
+  "圆周运动": true,
+  "圆周运动日常": true
 };
 var legacySceneMap = {
   spring: true,
@@ -686,9 +687,6 @@ function renderProblemDataNotes() {
     note.appendChild(grid);
 
     grid.appendChild(createProblemQuestionBlock(problem));
-    if (isProblemAnimationEnabled(problem)) {
-      grid.appendChild(createProblemAnimationBlock(problem));
-    }
     var analysisBlock = createProblemAnalysisBlock(problem);
     analysisBlock.dataset.analysisBlock = "1";
     grid.appendChild(analysisBlock);
@@ -764,20 +762,6 @@ function appendProblemImages(block, images) {
   if (gallery.children.length) {
     block.appendChild(gallery);
   }
-}
-
-function createProblemAnimationBlock(problem) {
-  var animation = problem.animation || {};
-  var params = Object.keys(animation.params || {}).map(function (key) {
-    var param = animation.params[key] || {};
-    return (param.label || key) + " " + formatParamValue(Number(param.value || 0), param.unit);
-  }).join("，");
-  var content = [
-    "这道题的题干、解析、步骤来自 JSON。",
-    "画图和图表不由 OCR 自动生成，而是绑定 Codex 旧方法的 `" + animation.key + "` 动画模型。",
-    params ? "默认参数：" + params + "。" : ""
-  ].filter(Boolean).join("\n\n");
-  return createProblemNoteBlock("动画模型", "Codex 手写动画：" + animation.key, content);
 }
 
 function createProblemAnalysisBlock(problem) {

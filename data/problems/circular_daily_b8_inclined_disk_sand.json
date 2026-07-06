@@ -1,0 +1,88 @@
+{
+  "slug": "daily-b8-inclined-disk-sand",
+  "originalNumber": "B8",
+  "skip": false,
+  "skipReason": "",
+  "model": "倾斜圆盘细沙脱落模型",
+  "id": "circular_daily_b8_inclined_disk_sand",
+  "chapter": "圆周运动日常",
+  "title": "B8：倾斜圆盘细沙脱落",
+  "question": "半径为 \\(R\\) 的匀质实心圆盘，盘面与水平面的夹角为 \\(\\theta\\)，开始时圆盘静止。其上表面均匀覆盖一层细沙且没有掉落，细沙与盘面间动摩擦因数为 \\(\\mu\\)，最大静摩擦力等于滑动摩擦力。现让圆盘绕垂直于盘面的固定对称轴旋转，角速度从 \\(0\\) 缓慢增加到 \\(\\omega\\)。此时圆盘表面上的细沙有 \\(\\frac89\\) 被甩掉，重力加速度为 \\(g\\)。则 \\(\\omega\\) 的值为（  ）",
+  "options": [
+    "A. \\(\\sqrt{\\frac{g(\\mu\\cos\\theta+\\sin\\theta)}{R}}\\)",
+    "B. \\(\\sqrt{\\frac{g(\\mu\\cos\\theta-\\sin\\theta)}{R}}\\)",
+    "C. \\(\\sqrt{\\frac{3g(\\mu\\cos\\theta+\\sin\\theta)}{R}}\\)",
+    "D. \\(\\sqrt{\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}}\\)"
+  ],
+  "answer": "\\(D\\)",
+  "analysis": {
+    "title": "解析",
+    "content": "细沙均匀分布，若有 \\(\\frac89\\) 被甩掉，则剩余面积为原来的 \\(\\frac19\\)，剩余圆形区域半径为 \\(r=\\frac R3\\)。最容易脱落的位置在圆盘下坡方向，沿盘面向外的惯性趋势与重力沿盘面分量同向，临界时有 \\(m\\omega^2r+mg\\sin\\theta=\\mu mg\\cos\\theta\\)。代入 \\(r=\\frac R3\\)，得 \\(\\omega^2=\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}\\)，所以 \\(\\omega=\\sqrt{\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}}\\)，选 D。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "倾斜圆盘",
+    "静摩擦临界",
+    "面积比例",
+    "圆周运动"
+  ],
+  "source": {
+    "title": "圆周运动日常",
+    "text": "B8",
+    "page": "",
+    "hidden": true
+  },
+  "images": [],
+  "practice": {
+    "title": "近似题：由剩余面积求半径",
+    "question": "半径为 \\(R\\) 的圆盘上细沙均匀分布，旋转后只剩原来面积的 \\(\\frac14\\)。剩余区域半径是多少？",
+    "answer": "面积比等于半径平方比，\\(\\frac{r^2}{R^2}=\\frac14\\)，所以 \\(r=\\frac R2\\)。",
+    "thinking": "面积比例题先把面积转成半径，再代入摩擦临界方程。"
+  },
+  "analysisText": "细沙均匀分布，若有 \\(\\frac89\\) 被甩掉，则剩余面积为原来的 \\(\\frac19\\)，剩余圆形区域半径为 \\(r=\\frac R3\\)。最容易脱落的位置在圆盘下坡方向，沿盘面向外的惯性趋势与重力沿盘面分量同向，临界时有 \\(m\\omega^2r+mg\\sin\\theta=\\mu mg\\cos\\theta\\)。代入 \\(r=\\frac R3\\)，得 \\(\\omega^2=\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}\\)，所以 \\(\\omega=\\sqrt{\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}}\\)，选 D。",
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "细沙均匀分布，若有 \\(\\frac89\\) 被甩掉，则剩余面积为原来的 \\(\\frac19\\)，剩余圆形区域半径为 \\(r=\\frac R3\\)。",
+      "knowledge": [
+        "倾斜圆盘",
+        "静摩擦临界",
+        "面积比例",
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "最容易脱落的位置在圆盘下坡方向，沿盘面向外的惯性趋势与重力沿盘面分量同向，临界时有 \\(m\\omega^2r+mg\\sin\\theta=\\mu mg\\cos\\theta\\)。",
+      "knowledge": [
+        "倾斜圆盘",
+        "静摩擦临界",
+        "面积比例",
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "代入 \\(r=\\frac R3\\)，得 \\(\\omega^2=\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}\\)，所以 \\(\\omega=\\sqrt{\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}}\\)，选 D。",
+      "knowledge": [
+        "倾斜圆盘",
+        "静摩擦临界",
+        "面积比例",
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    }
+  ]
+}

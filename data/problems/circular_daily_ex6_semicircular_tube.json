@@ -1,0 +1,88 @@
+{
+  "slug": "daily-ex6-semicircular-tube",
+  "originalNumber": "例6",
+  "skip": false,
+  "skipReason": "",
+  "model": "半圆管道脱离平抛模型",
+  "id": "circular_daily_ex6_semicircular_tube",
+  "chapter": "圆周运动日常",
+  "title": "例6：半圆管道脱离平抛",
+  "question": "固定在竖直平面上的光滑半圆形管道内有一个直径略小于管道内径的小球。小球在管道内做圆周运动，从 \\(B\\) 点脱离后做平抛运动，经过 \\(0.3\\mathrm{s}\\) 后恰好垂直与倾角为 \\(45^\\circ\\) 的斜面相碰。已知管道半径 \\(R=1\\mathrm{m}\\)，小球质量 \\(m=1\\mathrm{kg}\\)，取 \\(g=10\\mathrm{m/s^2}\\)。则（  ）",
+  "options": [
+    "A. 相碰点 \\(C\\) 与 \\(B\\) 点的水平距离是 \\(0.9\\mathrm{m}\\)",
+    "B. 相碰点 \\(C\\) 与 \\(B\\) 点的水平距离是 \\(1.9\\mathrm{m}\\)",
+    "C. 小球经过 \\(B\\) 点时，受到管道的作用力大小是 \\(1\\mathrm{N}\\)",
+    "D. 小球经过 \\(B\\) 点时，受到管道的作用力大小是 \\(2\\mathrm{N}\\)"
+  ],
+  "answer": "\\(AC\\)",
+  "analysis": {
+    "title": "解析",
+    "content": "小球离开 \\(B\\) 点后做平抛运动，碰斜面时速度与 \\(45^\\circ\\) 斜面垂直，因此速度方向与水平夹角为 \\(45^\\circ\\)，有 \\(v_y=v_x\\)。又 \\(v_y=gt=10\\times0.3=3\\mathrm{m/s}\\)，故 \\(v_x=3\\mathrm{m/s}\\)，水平距离 \\(x=v_xt=0.9\\mathrm{m}\\)，A 对、B 错。在 \\(B\\) 点由竖直圆周最高点关系 \\(mg+N=m\\frac{v^2}{R}\\)，代入 \\(m=1\\mathrm{kg}\\)、\\(v=3\\mathrm{m/s}\\)、\\(R=1\\mathrm{m}\\)，得 \\(10+N=9\\)，管道实际对球作用方向与假设相反，大小为 \\(1\\mathrm{N}\\)，C 对、D 错。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "竖直圆周运动",
+    "平抛运动",
+    "速度方向",
+    "管道约束"
+  ],
+  "source": {
+    "title": "圆周运动日常",
+    "text": "例6",
+    "page": "",
+    "hidden": true
+  },
+  "images": [],
+  "practice": {
+    "title": "近似题：平抛垂直撞斜面",
+    "question": "小球水平抛出，\\(0.4\\mathrm{s}\\) 后垂直撞上倾角为 \\(45^\\circ\\) 的斜面，取 \\(g=10\\mathrm{m/s^2}\\)。求水平初速度。",
+    "answer": "垂直撞上 \\(45^\\circ\\) 斜面时速度方向与水平夹角为 \\(45^\\circ\\)，故 \\(v_x=v_y=gt=4\\mathrm{m/s}\\)。",
+    "thinking": "用速度方向条件先求水平速度，再处理位移或圆周部分。"
+  },
+  "analysisText": "小球离开 \\(B\\) 点后做平抛运动，碰斜面时速度与 \\(45^\\circ\\) 斜面垂直，因此速度方向与水平夹角为 \\(45^\\circ\\)，有 \\(v_y=v_x\\)。又 \\(v_y=gt=10\\times0.3=3\\mathrm{m/s}\\)，故 \\(v_x=3\\mathrm{m/s}\\)，水平距离 \\(x=v_xt=0.9\\mathrm{m}\\)，A 对、B 错。在 \\(B\\) 点由竖直圆周最高点关系 \\(mg+N=m\\frac{v^2}{R}\\)，代入 \\(m=1\\mathrm{kg}\\)、\\(v=3\\mathrm{m/s}\\)、\\(R=1\\mathrm{m}\\)，得 \\(10+N=9\\)，管道实际对球作用方向与假设相反，大小为 \\(1\\mathrm{N}\\)，C 对、D 错。",
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "小球离开 \\(B\\) 点后做平抛运动，碰斜面时速度与 \\(45^\\circ\\) 斜面垂直，因此速度方向与水平夹角为 \\(45^\\circ\\)，有 \\(v_y=v_x\\)。",
+      "knowledge": [
+        "竖直圆周运动",
+        "平抛运动",
+        "速度方向",
+        "管道约束"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "又 \\(v_y=gt=10\\times0.3=3\\mathrm{m/s}\\)，故 \\(v_x=3\\mathrm{m/s}\\)，水平距离 \\(x=v_xt=0.9\\mathrm{m}\\)，A 对、B 错。",
+      "knowledge": [
+        "竖直圆周运动",
+        "平抛运动",
+        "速度方向",
+        "管道约束"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "在 \\(B\\) 点由竖直圆周最高点关系 \\(mg+N=m\\frac{v^2}{R}\\)，代入 \\(m=1\\mathrm{kg}\\)、\\(v=3\\mathrm{m/s}\\)、\\(R=1\\mathrm{m}\\)，得 \\(10+N=9\\)，管道实际对球作用方向与假设相反，大小为 \\(1\\mathrm{N}\\)，C 对、D 错。",
+      "knowledge": [
+        "竖直圆周运动",
+        "平抛运动",
+        "速度方向",
+        "管道约束"
+      ],
+      "commonMistakes": []
+    }
+  ]
+}

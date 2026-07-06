@@ -1,0 +1,100 @@
+{
+  "slug": "daily-ex9-rattle-drum",
+  "originalNumber": "例9",
+  "skip": false,
+  "skipReason": "",
+  "model": "拨浪鼓双球圆周模型",
+  "id": "circular_daily_ex9_rattle_drum",
+  "chapter": "圆周运动日常",
+  "title": "例9：拨浪鼓双球圆周",
+  "question": "拨浪鼓可简化为两根长度不等的细绳分别系着相同小球，另一端固定在关于手柄对称的鼓沿上。连接 \\(A\\) 球的绳子更长一些。现使竖直放置的手柄匀速转动，两小球在水平面内做周期相同的匀速圆周运动，不计空气阻力，下列说法正确的是（  ）",
+  "options": [
+    "A. 两球做圆周运动时绳子与竖直方向夹角满足 \\(\\theta>\\beta\\)",
+    "B. \\(A\\) 球位置低于 \\(B\\) 球",
+    "C. \\(A\\) 球的线速度小于 \\(B\\) 球的线速度",
+    "D. \\(A\\) 球所受绳子拉力小于 \\(B\\) 球所受绳子拉力"
+  ],
+  "answer": "\\(A\\)",
+  "analysis": {
+    "title": "解析",
+    "content": "两球周期相同，角速度相同。圆锥摆满足 \\(T\\cos\\theta=mg\\)，\\(T\\sin\\theta=m\\omega^2(l\\sin\\theta)\\)，化简得 \\(l\\cos\\theta=\\frac{g}{\\omega^2}\\)。因为 \\(l_A>l_B\\)，所以 \\(\\cos\\theta_A<\\cos\\theta_B\\)，即 \\(\\theta_A>\\theta_B\\)，A 对。两球相对悬点的竖直下落量 \\(l\\cos\\theta\\) 相同，所以高度相同，B 错。半径 \\(r=l\\sin\\theta\\)，长绳对应半径更大，故 \\(v_A=\\omega r_A>v_B\\)，C 错。\\(T=\\frac{mg}{\\cos\\theta}\\)，\\(A\\) 球夹角更大，拉力更大，D 错。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "圆锥摆",
+    "同周期",
+    "线速度",
+    "绳张力"
+  ],
+  "source": {
+    "title": "圆周运动日常",
+    "text": "例9",
+    "page": "",
+    "hidden": true
+  },
+  "images": [],
+  "practice": {
+    "title": "近似题：同角速度圆锥摆",
+    "question": "两个圆锥摆角速度相同，绳长分别为 \\(l_1\\) 和 \\(l_2\\)。证明它们的 \\(l\\cos\\theta\\) 相等。",
+    "answer": "由 \\(T\\cos\\theta=mg\\)，\\(T\\sin\\theta=m\\omega^2l\\sin\\theta\\)，两式相除得 \\(\\omega^2l\\cos\\theta=g\\)，故 \\(l\\cos\\theta=\\frac{g}{\\omega^2}\\)，相同角速度下相等。",
+    "thinking": "圆锥摆的核心式是 \\(\\omega^2l\\cos\\theta=g\\)。"
+  },
+  "analysisText": "两球周期相同，角速度相同。圆锥摆满足 \\(T\\cos\\theta=mg\\)，\\(T\\sin\\theta=m\\omega^2(l\\sin\\theta)\\)，化简得 \\(l\\cos\\theta=\\frac{g}{\\omega^2}\\)。因为 \\(l_A>l_B\\)，所以 \\(\\cos\\theta_A<\\cos\\theta_B\\)，即 \\(\\theta_A>\\theta_B\\)，A 对。两球相对悬点的竖直下落量 \\(l\\cos\\theta\\) 相同，所以高度相同，B 错。半径 \\(r=l\\sin\\theta\\)，长绳对应半径更大，故 \\(v_A=\\omega r_A>v_B\\)，C 错。\\(T=\\frac{mg}{\\cos\\theta}\\)，\\(A\\) 球夹角更大，拉力更大，D 错。",
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "两球周期相同，角速度相同。",
+      "knowledge": [
+        "圆锥摆",
+        "同周期",
+        "线速度",
+        "绳张力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "圆锥摆满足 \\(T\\cos\\theta=mg\\)，\\(T\\sin\\theta=m\\omega^2(l\\sin\\theta)\\)，化简得 \\(l\\cos\\theta=\\frac{g}{\\omega^2}\\)。因为 \\(l_A>l_B\\)，所以 \\(\\cos\\theta_A<\\cos\\theta_B\\)，即 \\(\\theta_A>\\theta_B\\)，A 对。两球相对悬点的竖直下落量 \\(l\\cos\\theta\\) 相同，所以高度相同，B 错。",
+      "knowledge": [
+        "圆锥摆",
+        "同周期",
+        "线速度",
+        "绳张力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "计算",
+      "content": "半径 \\(r=l\\sin\\theta\\)，长绳对应半径更大，故 \\(v_A=\\omega r_A>v_B\\)，C 错。",
+      "knowledge": [
+        "圆锥摆",
+        "同周期",
+        "线速度",
+        "绳张力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "\\(T=\\frac{mg}{\\cos\\theta}\\)，\\(A\\) 球夹角更大，拉力更大，D 错。",
+      "knowledge": [
+        "圆锥摆",
+        "同周期",
+        "线速度",
+        "绳张力"
+      ],
+      "commonMistakes": []
+    }
+  ]
+}

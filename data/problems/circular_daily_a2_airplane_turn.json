@@ -1,0 +1,88 @@
+{
+  "slug": "daily-a2-airplane-turn",
+  "originalNumber": "A2",
+  "skip": false,
+  "skipReason": "",
+  "model": "飞机水平盘旋升力模型",
+  "id": "circular_daily_a2_airplane_turn",
+  "chapter": "圆周运动日常",
+  "title": "A2：飞机水平盘旋升力",
+  "question": "C919 正在空中沿半径为 \\(r\\) 的水平圆周做匀速盘旋，飞行速率为 \\(v=\\sqrt{\\frac{gr}{2}}\\)，重力加速度大小为 \\(g\\)，则飞机受到的升力为自身重力的（  ）",
+  "options": [
+    "A. \\(\\frac{3}{2}\\) 倍",
+    "B. \\(\\frac{5}{4}\\) 倍",
+    "C. \\(\\frac{\\sqrt5}{2}\\) 倍",
+    "D. \\(\\sqrt5\\) 倍"
+  ],
+  "answer": "\\(C\\)",
+  "analysis": {
+    "title": "解析",
+    "content": "飞机水平盘旋时，升力 \\(F\\) 的竖直分量平衡重力，水平分量提供向心力。故 \\(F_y=mg\\)，\\(F_x=m\\frac{v^2}{r}=m\\frac{gr/2}{r}=\\frac12mg\\)。升力大小为 \\(F=\\sqrt{F_x^2+F_y^2}=mg\\sqrt{1+\\frac14}=\\frac{\\sqrt5}{2}mg\\)，所以升力为自身重力的 \\(\\frac{\\sqrt5}{2}\\) 倍。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "水平圆周运动",
+    "飞机盘旋",
+    "力的分解",
+    "向心力"
+  ],
+  "source": {
+    "title": "圆周运动日常",
+    "text": "A2",
+    "page": "",
+    "hidden": true
+  },
+  "images": [],
+  "practice": {
+    "title": "近似题：盘旋升力倍数",
+    "question": "飞机水平盘旋时，若所需向心力为 \\(\\frac34mg\\)，求升力是重力的多少倍。",
+    "answer": "升力竖直分量为 \\(mg\\)，水平分量为 \\(\\frac34mg\\)，所以 \\(F=mg\\sqrt{1+(\\frac34)^2}=\\frac54mg\\)。",
+    "thinking": "升力不是只等于重力，它的水平分量还要提供向心力。"
+  },
+  "analysisText": "飞机水平盘旋时，升力 \\(F\\) 的竖直分量平衡重力，水平分量提供向心力。故 \\(F_y=mg\\)，\\(F_x=m\\frac{v^2}{r}=m\\frac{gr/2}{r}=\\frac12mg\\)。升力大小为 \\(F=\\sqrt{F_x^2+F_y^2}=mg\\sqrt{1+\\frac14}=\\frac{\\sqrt5}{2}mg\\)，所以升力为自身重力的 \\(\\frac{\\sqrt5}{2}\\) 倍。",
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "飞机水平盘旋时，升力 \\(F\\) 的竖直分量平衡重力，水平分量提供向心力。",
+      "knowledge": [
+        "水平圆周运动",
+        "飞机盘旋",
+        "力的分解",
+        "向心力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "故 \\(F_y=mg\\)，\\(F_x=m\\frac{v^2}{r}=m\\frac{gr/2}{r}=\\frac12mg\\)。",
+      "knowledge": [
+        "水平圆周运动",
+        "飞机盘旋",
+        "力的分解",
+        "向心力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "升力大小为 \\(F=\\sqrt{F_x^2+F_y^2}=mg\\sqrt{1+\\frac14}=\\frac{\\sqrt5}{2}mg\\)，所以升力为自身重力的 \\(\\frac{\\sqrt5}{2}\\) 倍。",
+      "knowledge": [
+        "水平圆周运动",
+        "飞机盘旋",
+        "力的分解",
+        "向心力"
+      ],
+      "commonMistakes": []
+    }
+  ]
+}

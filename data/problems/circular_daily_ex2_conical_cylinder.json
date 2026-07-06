@@ -1,0 +1,83 @@
+{
+  "slug": "daily-ex2-conical-cylinder",
+  "originalNumber": "例2",
+  "skip": false,
+  "skipReason": "",
+  "model": "粗糙圆锥筒中物块模型",
+  "id": "circular_daily_ex2_conical_cylinder",
+  "chapter": "圆周运动日常",
+  "title": "例2：粗糙圆锥筒中物块",
+  "question": "一个竖直放置的圆锥筒可以绕中轴 \\(OO'\\) 转动，筒内壁粗糙，筒口半径为 \\(R\\)，筒高为 \\(H\\)，且 \\(H=\\frac{3R}{4}\\)。筒内壁 \\(A\\) 点处有一质量为 \\(m\\) 的小物块，\\(A\\) 点到 \\(OO'\\) 轴的距离为 \\(\\frac{R}{2}\\)。求：（1）筒不转动时物块在 \\(A\\) 点受到的摩擦力和支持力；（2）物块在 \\(A\\) 点随筒匀速转动且摩擦力为零时，筒的角速度；（3）若最大静摩擦因数 \\(\\mu_0=0.5\\)，物块相对锥筒保持静止时筒的最大角速度。",
+  "options": [],
+  "answer": "（1）\\(f=\\frac{3}{5}mg\\)，\\(N=\\frac{4}{5}mg\\)；（2）\\(\\omega=\\sqrt{\\frac{3g}{2R}}\\)；（3）由临界方程求最大角速度。",
+  "analysis": {
+    "title": "解析",
+    "content": "圆锥母线与竖直方向夹角记为 \\(\\theta\\)，由 \\(\\tan\\theta=\\frac{R}{H}=\\frac{4}{3}\\)，得 \\(\\sin\\theta=\\frac45\\)，\\(\\cos\\theta=\\frac35\\)。筒不转动时，重力沿筒壁方向的分量由静摩擦平衡，故 \\(f=mg\\cos\\theta=\\frac35mg\\)，支持力 \\(N=mg\\sin\\theta=\\frac45mg\\)。摩擦力为零且半径 \\(r=\\frac R2\\) 时，支持力的竖直分量平衡重力，水平分量提供向心力，得 \\(\\omega^2=\\frac{g\\cot\\theta}{r}=\\frac{3g}{2R}\\)。最大角速度时静摩擦取最大值，按径向和竖直方向列平衡与向心方程即可求临界。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "圆锥面",
+    "向心力",
+    "静摩擦",
+    "临界角速度"
+  ],
+  "source": {
+    "title": "圆周运动日常",
+    "text": "例2",
+    "page": "",
+    "hidden": true
+  },
+  "images": [],
+  "practice": {
+    "title": "近似题：圆锥面上无摩擦转动",
+    "question": "物块在半径为 \\(r\\) 的圆锥面上随筒转动，圆锥母线与竖直方向夹角为 \\(\\theta\\)，若摩擦力为零，求角速度 \\(\\omega\\)。",
+    "answer": "由支持力分解得 \\(N\\sin\\theta=mg\\)，\\(N\\cos\\theta=m\\omega^2r\\)，所以 \\(\\omega=\\sqrt{\\frac{g\\cot\\theta}{r}}\\)。",
+    "thinking": "无摩擦时只有重力和支持力，支持力一个分量平衡重力，另一个分量提供向心力。"
+  },
+  "analysisText": "圆锥母线与竖直方向夹角记为 \\(\\theta\\)，由 \\(\\tan\\theta=\\frac{R}{H}=\\frac{4}{3}\\)，得 \\(\\sin\\theta=\\frac45\\)，\\(\\cos\\theta=\\frac35\\)。筒不转动时，重力沿筒壁方向的分量由静摩擦平衡，故 \\(f=mg\\cos\\theta=\\frac35mg\\)，支持力 \\(N=mg\\sin\\theta=\\frac45mg\\)。摩擦力为零且半径 \\(r=\\frac R2\\) 时，支持力的竖直分量平衡重力，水平分量提供向心力，得 \\(\\omega^2=\\frac{g\\cot\\theta}{r}=\\frac{3g}{2R}\\)。最大角速度时静摩擦取最大值，按径向和竖直方向列平衡与向心方程即可求临界。",
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "圆锥母线与竖直方向夹角记为 \\(\\theta\\)，由 \\(\\tan\\theta=\\frac{R}{H}=\\frac{4}{3}\\)，得 \\(\\sin\\theta=\\frac45\\)，\\(\\cos\\theta=\\frac35\\)。",
+      "knowledge": [
+        "圆锥面",
+        "向心力",
+        "静摩擦",
+        "临界角速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "筒不转动时，重力沿筒壁方向的分量由静摩擦平衡，故 \\(f=mg\\cos\\theta=\\frac35mg\\)，支持力 \\(N=mg\\sin\\theta=\\frac45mg\\)。摩擦力为零且半径 \\(r=\\frac R2\\) 时，支持力的竖直分量平衡重力，水平分量提供向心力，得 \\(\\omega^2=\\frac{g\\cot\\theta}{r}=\\frac{3g}{2R}\\)。",
+      "knowledge": [
+        "圆锥面",
+        "向心力",
+        "静摩擦",
+        "临界角速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "最大角速度时静摩擦取最大值，按径向和竖直方向列平衡与向心方程即可求临界。",
+      "knowledge": [
+        "圆锥面",
+        "向心力",
+        "静摩擦",
+        "临界角速度"
+      ],
+      "commonMistakes": []
+    }
+  ]
+}

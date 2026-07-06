@@ -160,6 +160,82 @@
     {
       "id": "circular_motion_string",
       "file": "circular_motion_string.json"
+    },
+    {
+      "id": "circular_daily_ex1_banked_curve",
+      "file": "circular_daily_ex1_banked_curve.json"
+    },
+    {
+      "id": "circular_daily_ex2_conical_cylinder",
+      "file": "circular_daily_ex2_conical_cylinder.json"
+    },
+    {
+      "id": "circular_daily_ex3_hilly_road",
+      "file": "circular_daily_ex3_hilly_road.json"
+    },
+    {
+      "id": "circular_daily_ex4_centrifuge",
+      "file": "circular_daily_ex4_centrifuge.json"
+    },
+    {
+      "id": "circular_daily_ex5_bicycle_turn",
+      "file": "circular_daily_ex5_bicycle_turn.json"
+    },
+    {
+      "id": "circular_daily_ex6_semicircular_tube",
+      "file": "circular_daily_ex6_semicircular_tube.json"
+    },
+    {
+      "id": "circular_daily_ex7_horizontal_bar",
+      "file": "circular_daily_ex7_horizontal_bar.json"
+    },
+    {
+      "id": "circular_daily_ex8_rod_two_balls",
+      "file": "circular_daily_ex8_rod_two_balls.json"
+    },
+    {
+      "id": "circular_daily_ex9_rattle_drum",
+      "file": "circular_daily_ex9_rattle_drum.json"
+    },
+    {
+      "id": "circular_daily_ex10_turntable_sensor",
+      "file": "circular_daily_ex10_turntable_sensor.json"
+    },
+    {
+      "id": "circular_daily_a1_car_turn_passengers",
+      "file": "circular_daily_a1_car_turn_passengers.json"
+    },
+    {
+      "id": "circular_daily_a2_airplane_turn",
+      "file": "circular_daily_a2_airplane_turn.json"
+    },
+    {
+      "id": "circular_daily_a3_bicycle_mud",
+      "file": "circular_daily_a3_bicycle_mud.json"
+    },
+    {
+      "id": "circular_daily_a4_box_vertical_circle",
+      "file": "circular_daily_a4_box_vertical_circle.json"
+    },
+    {
+      "id": "circular_daily_a5_string_tension_graph",
+      "file": "circular_daily_a5_string_tension_graph.json"
+    },
+    {
+      "id": "circular_daily_b6_stacked_turntable",
+      "file": "circular_daily_b6_stacked_turntable.json"
+    },
+    {
+      "id": "circular_daily_b7_valve_light",
+      "file": "circular_daily_b7_valve_light.json"
+    },
+    {
+      "id": "circular_daily_b8_inclined_disk_sand",
+      "file": "circular_daily_b8_inclined_disk_sand.json"
+    },
+    {
+      "id": "circular_daily_b9_carrier_turn",
+      "file": "circular_daily_b9_carrier_turn.json"
     }
   ]
 }

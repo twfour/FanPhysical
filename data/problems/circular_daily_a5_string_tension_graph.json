@@ -1,0 +1,100 @@
+{
+  "slug": "daily-a5-string-tension-graph",
+  "originalNumber": "A5",
+  "skip": false,
+  "skipReason": "",
+  "model": "最高点绳拉力图像模型",
+  "id": "circular_daily_a5_string_tension_graph",
+  "chapter": "圆周运动日常",
+  "title": "A5：最高点绳拉力图像",
+  "question": "用轻质绳拴着质量为 \\(m\\) 的小球，在竖直平面内做圆周运动，不计一切阻力。小球运动到最高点时绳对小球的拉力为 \\(T\\)，最高点速度大小为 \\(v\\)，其 \\(T-v^2\\) 图像如图所示，则下列说法不正确的是（  ）",
+  "options": [
+    "A. 轻质绳长为 \\(\\frac{mb}{a}\\)",
+    "B. 当地的重力加速度为 \\(\\frac{a}{m}\\)",
+    "C. 当 \\(v^2=c\\) 时，最高点拉力大小为 \\(\\frac{ac}{b}-a\\)",
+    "D. 若小球在最低点时的速率 \\(v_1^2=b\\)，小球运动到最低点时绳的拉力为 \\(mg\\)"
+  ],
+  "answer": "\\(D\\)",
+  "analysis": {
+    "title": "解析",
+    "content": "最高点沿向心方向列式：\\(T+mg=m\\frac{v^2}{L}\\)，即 \\(T=\\frac{m}{L}v^2-mg\\)。图像纵截距为 \\(-a\\)，所以 \\(mg=a\\)，得 \\(g=\\frac{a}{m}\\)，B 正确。图像在 \\(v^2=b\\) 处 \\(T=0\\)，故 \\(mg=m\\frac{b}{L}\\)，得 \\(L=\\frac{b}{g}=\\frac{mb}{a}\\)，A 正确。当 \\(v^2=c\\) 时，\\(T=\\frac{m}{L}c-mg=\\frac{ac}{b}-a\\)，C 正确。若最低点 \\(v_1^2=b\\)，则 \\(T_{低}-mg=m\\frac{b}{L}=mg\\)，所以 \\(T_{低}=2mg\\)，D 错。本题问“不正确”，选 D。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "绳球圆周运动",
+    "最高点",
+    "图像斜率",
+    "最低点拉力"
+  ],
+  "source": {
+    "title": "圆周运动日常",
+    "text": "A5",
+    "page": "",
+    "hidden": true
+  },
+  "images": [],
+  "practice": {
+    "title": "近似题：由 \\(T-v^2\\) 图像求绳长",
+    "question": "最高点 \\(T-v^2\\) 图像在 \\(v^2=20\\) 处与横轴相交，取 \\(g=10\\mathrm{m/s^2}\\)。求绳长。",
+    "answer": "横轴交点表示 \\(T=0\\)，由 \\(mg=m\\frac{v^2}{L}\\)，得 \\(L=\\frac{v^2}{g}=2\\mathrm{m}\\)。",
+    "thinking": "最高点横轴交点就是临界速度平方 \\(v^2=gL\\)。"
+  },
+  "analysisText": "最高点沿向心方向列式：\\(T+mg=m\\frac{v^2}{L}\\)，即 \\(T=\\frac{m}{L}v^2-mg\\)。图像纵截距为 \\(-a\\)，所以 \\(mg=a\\)，得 \\(g=\\frac{a}{m}\\)，B 正确。图像在 \\(v^2=b\\) 处 \\(T=0\\)，故 \\(mg=m\\frac{b}{L}\\)，得 \\(L=\\frac{b}{g}=\\frac{mb}{a}\\)，A 正确。当 \\(v^2=c\\) 时，\\(T=\\frac{m}{L}c-mg=\\frac{ac}{b}-a\\)，C 正确。若最低点 \\(v_1^2=b\\)，则 \\(T_{低}-mg=m\\frac{b}{L}=mg\\)，所以 \\(T_{低}=2mg\\)，D 错。本题问“不正确”，选 D。",
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "最高点沿向心方向列式：\\(T+mg=m\\frac{v^2}{L}\\)，即 \\(T=\\frac{m}{L}v^2-mg\\)。",
+      "knowledge": [
+        "绳球圆周运动",
+        "最高点",
+        "图像斜率",
+        "最低点拉力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "图像纵截距为 \\(-a\\)，所以 \\(mg=a\\)，得 \\(g=\\frac{a}{m}\\)，B 正确。图像在 \\(v^2=b\\) 处 \\(T=0\\)，故 \\(mg=m\\frac{b}{L}\\)，得 \\(L=\\frac{b}{g}=\\frac{mb}{a}\\)，A 正确。当 \\(v^2=c\\) 时，\\(T=\\frac{m}{L}c-mg=\\frac{ac}{b}-a\\)，C 正确。",
+      "knowledge": [
+        "绳球圆周运动",
+        "最高点",
+        "图像斜率",
+        "最低点拉力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "计算",
+      "content": "若最低点 \\(v_1^2=b\\)，则 \\(T_{低}-mg=m\\frac{b}{L}=mg\\)，所以 \\(T_{低}=2mg\\)，D 错。",
+      "knowledge": [
+        "绳球圆周运动",
+        "最高点",
+        "图像斜率",
+        "最低点拉力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "本题问“不正确”，选 D。",
+      "knowledge": [
+        "绳球圆周运动",
+        "最高点",
+        "图像斜率",
+        "最低点拉力"
+      ],
+      "commonMistakes": []
+    }
+  ]
+}

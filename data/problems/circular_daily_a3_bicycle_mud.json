@@ -1,0 +1,88 @@
+{
+  "slug": "daily-a3-bicycle-mud",
+  "originalNumber": "A3",
+  "skip": false,
+  "skipReason": "",
+  "model": "车轮泥巴脱落模型",
+  "id": "circular_daily_a3_bicycle_mud",
+  "chapter": "圆周运动日常",
+  "title": "A3：车轮泥巴脱落",
+  "question": "雨天在野外骑车时，自行车后轮轮胎上常会粘附一些泥巴。若将后轮撑起，使后轮悬空，然后用手匀速摇脚踏板，使后轮飞速转动。图中 \\(a,b,c,d\\) 为后轮轮胎边缘上的四个特殊位置，泥巴在（  ）位置时最容易被甩下来。",
+  "options": [
+    "A. \\(a\\)",
+    "B. \\(b\\)",
+    "C. \\(c\\)",
+    "D. \\(d\\)"
+  ],
+  "answer": "\\(C\\)",
+  "analysis": {
+    "title": "解析",
+    "content": "泥巴随车轮做竖直平面圆周运动，需要指向圆心的向心力。在最高点，重力方向指向圆心，可帮助提供向心力，附着力只需满足 \\(F+mg=m\\omega^2R\\)，即 \\(F=m\\omega^2R-mg\\)，所需附着力最小，因此最容易脱落。图中最高点为 \\(c\\)，选 C。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "竖直圆周运动",
+    "最高点",
+    "附着力",
+    "向心力"
+  ],
+  "source": {
+    "title": "圆周运动日常",
+    "text": "A3",
+    "page": "",
+    "hidden": true
+  },
+  "images": [],
+  "practice": {
+    "title": "近似题：最高点最易脱离",
+    "question": "物体粘在竖直转盘边缘随盘转动，为什么在最高点更容易脱离？",
+    "answer": "最高点重力指向圆心，能参与提供向心力，所以粘附力需求为 \\(m\\omega^2R-mg\\)，比其他位置小，更容易脱离。",
+    "thinking": "比较脱离难易时，比较维持圆周运动所需的附着力大小。"
+  },
+  "analysisText": "泥巴随车轮做竖直平面圆周运动，需要指向圆心的向心力。在最高点，重力方向指向圆心，可帮助提供向心力，附着力只需满足 \\(F+mg=m\\omega^2R\\)，即 \\(F=m\\omega^2R-mg\\)，所需附着力最小，因此最容易脱落。图中最高点为 \\(c\\)，选 C。",
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "泥巴随车轮做竖直平面圆周运动，需要指向圆心的向心力。",
+      "knowledge": [
+        "竖直圆周运动",
+        "最高点",
+        "附着力",
+        "向心力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "在最高点，重力方向指向圆心，可帮助提供向心力，附着力只需满足 \\(F+mg=m\\omega^2R\\)，即 \\(F=m\\omega^2R-mg\\)，所需附着力最小，因此最容易脱落。",
+      "knowledge": [
+        "竖直圆周运动",
+        "最高点",
+        "附着力",
+        "向心力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "图中最高点为 \\(c\\)，选 C。",
+      "knowledge": [
+        "竖直圆周运动",
+        "最高点",
+        "附着力",
+        "向心力"
+      ],
+      "commonMistakes": []
+    }
+  ]
+}
