@@ -1,0 +1,88 @@
+{
+  "slug": "pour_water_ice_2",
+  "originalNumber": "2",
+  "skip": false,
+  "skipReason": "",
+  "model": "圆周运动匀速圆周",
+  "id": "circular_motion_pour_water_ice_2",
+  "chapter": "圆周运动",
+  "title": "泼水成冰运动分析",
+  "question": "在东北严寒的冬天，有一项“泼水成冰”的游戏，具体操作是把一杯滚烫的开水按一定的弧线均匀快速地泼向空中，泼出的小水珠和热气被瞬间凝结成冰而形成壮观的场景。如图甲所示，是某人玩泼水成冰游戏的精彩瞬间，图乙为其简化示意图。假设泼水过程中杯子做匀速圆周运动，半径约为1m，在0.4s内杯子旋转了$\\frac{6}{5}\\pi$。下列说法正确的是（ ）",
+  "options": [
+    "A．P位置的小水珠速度方向沿b方向",
+    "B．P、Q两位置，杯子的向心加速度相同",
+    "C．杯子在旋转时的线速度大小约为$6\\pi(m/s)$",
+    "D．杯子在旋转时的向心加速度大小约为$9\\pi^2(m/s^2)$"
+  ],
+  "answer": "【待校对】",
+  "analysis": {
+    "title": "总览",
+    "content": "本题考查匀速圆周运动的角速度、线速度、向心加速度的计算，以及速度方向的判断。根据转过的角度和时间可求角速度，进而得到线速度和向心加速度。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "圆周运动",
+    "匀速圆周运动",
+    "角速度",
+    "线速度",
+    "向心加速度"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "第2题",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "计算角速度",
+      "content": "由 $\\omega = \\frac{\\Delta\\theta}{\\Delta t}$，$\\Delta\\theta = \\frac{6}{5}\\pi$，$\\Delta t = 0.4\\,\\text{s}$，得 $\\omega = \\frac{6\\pi/5}{0.4} = \\frac{6\\pi}{5} \\times 2.5 = 3\\pi\\,\\text{rad/s}$。",
+      "knowledge": [
+        "角速度定义"
+      ],
+      "commonMistakes": [
+        "时间单位未换算",
+        "角度单位混淆"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "计算线速度和向心加速度",
+      "content": "线速度 $v = \\omega r = 3\\pi \\times 1 = 3\\pi\\,\\text{m/s}$，故C错误。向心加速度 $a = \\omega^2 r = (3\\pi)^2 \\times 1 = 9\\pi^2\\,\\text{m/s}^2$，故D正确。关于A选项：P点速度方向沿切线方向，需根据图乙中a、b方向判断，无法从文字确定，故A可能正确或错误，需结合图示。B选项：向心加速度大小相等但方向始终指向圆心，方向不同，故B错误。",
+      "knowledge": [
+        "线速度公式",
+        "向心加速度公式"
+      ],
+      "commonMistakes": [
+        "误用向心加速度公式 $a = v^2/r$ 但未代入正确数值"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "匀速圆周运动中，角速度由转过的角度和时间决定，线速度、向心加速度由角速度和半径计算。注意向心加速度方向始终变化。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7025/2_q2_img1.jpg",
+      "alt": "图甲：泼水成冰游戏实景照片，人物将水泼出形成扇形冰雾",
+      "caption": "图甲：泼水成冰游戏实景照片，人物将水泼出形成扇形冰雾",
+      "source": "IMG_7025_part01_clean.jpg",
+      "questionNo": "2"
+    },
+    {
+      "src": "data/problem-images/IMG_7025/2_q2_img2.jpg",
+      "alt": "图乙：泼水成冰运动简化示意图，圆周上标注P、Q两点，O为圆心，P点标注a、b两个方向",
+      "caption": "图乙：泼水成冰运动简化示意图，圆周上标注P、Q两点，O为圆心，P点标注a、b两个方向",
+      "source": "IMG_7025_part01_clean.jpg",
+      "questionNo": "2"
+    }
+  ]
+}

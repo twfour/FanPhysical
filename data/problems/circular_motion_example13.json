@@ -1,0 +1,83 @@
+{
+  "slug": "example13",
+  "originalNumber": "例13",
+  "skip": false,
+  "skipReason": "",
+  "model": "圆锥摆模型",
+  "id": "circular_motion_example13",
+  "chapter": "圆周运动",
+  "title": "例13：两个小球在同一水平面做圆周运动",
+  "question": "(多选)A、B两个质量相等的小球用长度不等的细线栓在同一点，小球在同一水平面内做匀速圆周运动，如图所示（图中标注了悬挂点到水平面的高度为h），则它们的（ ）",
+  "options": [
+    "A. 运动周期相等",
+    "B. 运动线速度相等",
+    "C. 向心加速度相等",
+    "D. 受到绳的拉力与绳长成正比"
+  ],
+  "answer": "A、D",
+  "analysis": {
+    "title": "解析",
+    "content": "考查圆锥摆模型。同一水平面做圆周运动，悬挂点到水平面高度h相同，故周期相同。拉力竖直分量平衡重力，水平分量提供向心力，推导可得周期和拉力与绳长关系。正确选项为A、D。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "圆锥摆模型",
+    "向心力分析"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "例13",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "建立模型",
+      "content": "两小球均做圆锥摆运动，悬点相同，旋转平面在同一水平面，因此悬挂点到水平面的竖直高度h相等。重力与绳子拉力的合力提供向心力。",
+      "knowledge": [
+        "圆锥摆模型"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "推导物理量关系",
+      "content": "设绳子与竖直方向夹角为θ，则半径r = h tanθ，向心力F = mg tanθ = mω²r。可得角速度ω = √(g/h)，周期T = 2π/ω = 2π√(h/g)，与绳长无关，故周期相等。拉力T拉 = mg / cosθ = mg·L/h（L为绳长），与绳长成正比。线速度v = ωr = ωh tanθ，与夹角有关，故不等。向心加速度a = ω²r = g tanθ，与夹角有关，不等。",
+      "knowledge": [
+        "圆周运动公式推导"
+      ],
+      "commonMistakes": [
+        "误认为线速度与绳长成正比"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "判断选项",
+      "content": "由上述分析可知，A（周期相等）、D（拉力与绳长成正比）正确；B、C错误。",
+      "knowledge": [
+        "分析判断"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "圆锥摆中，若悬点固定、旋转平面水平且高度相同，则周期相同，拉力与绳长成正比。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7024/例13_q13_img1.jpg",
+      "alt": "两个小球用细线悬挂于同一点，在同一水平面做圆周运动的示意图，标注了h为悬挂点到水平面的高度",
+      "caption": "两个小球用细线悬挂于同一点，在同一水平面做圆周运动的示意图，标注了h为悬挂点到水平面的高度",
+      "source": "IMG_7024_part01_clean.jpg",
+      "questionNo": "例13"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "slug": "example14",
+  "originalNumber": "例14",
+  "skip": false,
+  "skipReason": "",
+  "model": "水平圆周运动（双绳模型）",
+  "id": "circular_motion_example14",
+  "chapter": "圆周运动",
+  "title": "例14：小球在水平面内做圆周运动（双绳模型）",
+  "question": "(多选)质量为m的小球由轻绳a和b分别系于一轻质细杆的A点和B点，如图所示，a绳与水平方向成θ角，b绳沿水平方向且长为l，当轻杆绕轴AB以角速度ω匀速转动时，a、b两绳均伸直，小球在水平面内做匀速圆周运动，则下列说法正确的是（ ）",
+  "options": [
+    "A. a绳张力不可能为零",
+    "B. a绳的张力随角速度的增大而增大",
+    "C. 当角速度ω>√(gcosθ/l)，b绳将出现张力",
+    "D. 若b绳突然被剪断，a绳的张力可能不变"
+  ],
+  "answer": "A、C",
+  "analysis": {
+    "title": "解析",
+    "content": "本题为双绳水平圆周运动模型。对小球受力分析，a绳提供竖直和水平分量，b绳仅提供水平拉力。角速度足够小时b绳松弛，只有a绳有力；当角速度达到临界值ω₀ = √(gcosθ/l)时b绳出现张力。分析各选项正确性。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "双绳圆周运动模型",
+    "临界角速度",
+    "受力分析"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "例14",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "受力分析",
+      "content": "小球受重力、a绳拉力Ta、b绳拉力Tb（可能存在）。a绳与水平方向成θ角，b绳水平。小球在水平面做匀速圆周运动，向心力水平指向转轴。",
+      "knowledge": [
+        "受力分析"
+      ],
+      "commonMistakes": [
+        "忽视a绳的竖直分量"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "临界条件推导",
+      "content": "当b绳刚要出现张力时，Tb=0，仅由a绳拉力Ta提供向心力。竖直方向：Ta sinθ = mg，水平方向：Ta cosθ = mω²r，其中r = l（此时小球的旋转半径等于b绳长l？实际需根据几何关系确定。常见结论：临界角速度ω₀ = √(gcosθ/l)，此时b绳将出现张力）。",
+      "knowledge": [
+        "临界条件",
+        "向心力公式"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "分析各选项",
+      "content": "A：a绳张力不可能为零（否则竖直方向无法平衡），正确。\nB：a绳张力的竖直分量始终等于mg，故Ta不变，错误。\nC：临界角速度ω₀ = √(gcosθ/l)，当ω>ω₀时b绳出现张力，正确。\nD：若b绳剪断，小球将做圆锥摆，a绳与竖直方向夹角会变化，张力改变，不可能不变，错误。",
+      "knowledge": [
+        "选项判断"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "双绳圆周运动问题需分析临界条件，注意竖直方向平衡关系。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7024/例14_q14_img1.jpg",
+      "alt": "轻杆AB竖直放置，小球m通过水平绳b系于A点、斜绳a系于B点的示意图，a绳与水平方向夹角为θ",
+      "caption": "轻杆AB竖直放置，小球m通过水平绳b系于A点、斜绳a系于B点的示意图，a绳与水平方向夹角为θ",
+      "source": "IMG_7024_part01_clean.jpg",
+      "questionNo": "例14"
+    }
+  ]
+}

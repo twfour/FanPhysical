@@ -1,0 +1,103 @@
+{
+  "slug": "example9",
+  "originalNumber": "例9",
+  "skip": false,
+  "skipReason": "",
+  "model": "双人圆周运动模型",
+  "id": "circular_motion_example9",
+  "chapter": "圆周运动",
+  "title": "溜冰运动员拉弹簧秤圆周运动",
+  "question": "(多选)一对男女溜冰运动员质量分别为m男=80kg 和 m女=40kg，面对面拉着一弹簧秤做圆周运动的溜冰表演，如图所示（男女两位溜冰运动员站在水平面上，面对面拉着弹簧秤的示意图），两人相距0.9m，弹簧秤的示数为9.2N，则两人",
+  "options": [
+    "A. 速度大小相同约为40 m/s",
+    "B. 运动半径分别为r男=0.3 m 和 r女=0.6 m",
+    "C. 角速度相同为6 rad/s",
+    "D. 运动速率之比为v男:v女=1:2"
+  ],
+  "answer": "BD",
+  "analysis": {
+    "title": "双人圆周运动分析",
+    "content": "两人表演时，以两人连线上的某点为圆心做圆周运动。由于面对面拉弹簧秤，向心力由弹簧秤拉力提供，且两人角速度相同。设圆心距男运动员 r男，距女运动员 r女，则 r男 + r女 = 0.9 m。对男：F = m男 ω² r男；对女：F = m女 ω² r女。两式相除得 r男 / r女 = m女 / m男 = 1/2，故 r男 = 0.3 m，r女 = 0.6 m，B正确。代入数据求角速度：ω = √(F / (m男 r男)) = √(9.2 / (80×0.3)) ≈ √0.3833 ≈ 0.619 rad/s，C错误。速率比 v男 : v女 = ω r男 : ω r女 = 0.3 : 0.6 = 1:2，D正确。若按选项A计算 v男 = ω r男 ≈ 0.186 m/s，远小于40 m/s，A错误。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "向心力",
+    "圆周运动中的角速度相同",
+    "牛顿第二定律"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "例9",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "确定角速度相等",
+      "content": "两人面对面拉弹簧秤做圆周运动，以他们之间的某点为圆心，因此角速度 ω 相同。弹簧秤的示数即为两人所受向心力大小，均为 F = 9.2 N。",
+      "knowledge": [
+        "圆周运动角速度相等"
+      ],
+      "commonMistakes": [
+        "误认为两人线速度相等"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "列方程求半径",
+      "content": "对男运动员：F = m_男 ω² r_男；对女运动员：F = m_女 ω² r_女。两式相除得 \\frac{r_男}{r_女} = \\frac{m_女}{m_男} = \\frac{40}{80} = \\frac{1}{2}。又 r_男 + r_女 = 0.9 m，解得 r_男 = 0.3 m，r_女 = 0.6 m。选项B正确。",
+      "knowledge": [
+        "牛顿第二定律",
+        "比例法"
+      ],
+      "commonMistakes": [
+        "直接认为半径与质量成正比"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "求角速度与速率比",
+      "content": "由男运动员的向心力公式得角速度 \\omega = \\sqrt{\\frac{F}{m_男 r_男}} = \\sqrt{\\frac{9.2}{80 \\times 0.3}} = \\sqrt{\\frac{9.2}{24}} \\approx \\sqrt{0.3833} \\approx 0.619 \\text{ rad/s}，选项C错误。速率比 \\frac{v_男}{v_女} = \\frac{\\omega r_男}{\\omega r_女} = \\frac{r_男}{r_女} = \\frac{1}{2}，选项D正确。",
+      "knowledge": [
+        "线速度与角速度关系"
+      ],
+      "commonMistakes": [
+        "计算角速度时遗漏半径"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "解题要点",
+    "content": "关键点：两人角速度相同，向心力相等。利用半径之和与质量比求半径，再验证其他选项。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7023/例9_q9_img1.jpg",
+      "alt": "男女两位溜冰运动员站在水平面上，面对面拉着弹簧秤的示意图",
+      "caption": "男女两位溜冰运动员站在水平面上，面对面拉着弹簧秤的示意图",
+      "source": "IMG_7023_part01_clean.jpg",
+      "questionNo": "例9"
+    },
+    {
+      "src": "data/problem-images/IMG_7027/9_q9_img1.jpg",
+      "alt": "打夯机实物图，标注为甲",
+      "caption": "打夯机实物图，标注为甲",
+      "source": "IMG_7027_part01_clean.jpg",
+      "questionNo": "9"
+    },
+    {
+      "src": "data/problem-images/IMG_7027/9_q9_img2.jpg",
+      "alt": "打夯机简化示意图，支架质量为M，轻杆连接质量为m的铁球，标注为乙",
+      "caption": "打夯机简化示意图，支架质量为M，轻杆连接质量为m的铁球，标注为乙",
+      "source": "IMG_7027_part01_clean.jpg",
+      "questionNo": "9"
+    }
+  ]
+}

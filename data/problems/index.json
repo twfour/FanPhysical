@@ -62,144 +62,8 @@
       "file": "mechanics_series_spring_equivalent_k.json"
     },
     {
-      "id": "circular_motion_motorboat_circular_motion_ratio",
-      "file": "circular_motion_motorboat_circular_motion_ratio.json"
-    },
-    {
-      "id": "circular_motion_bullet_paper_cylinder_speed",
-      "file": "circular_motion_bullet_paper_cylinder_speed.json"
-    },
-    {
-      "id": "circular_motion_bicycle_pedal_angular_speed",
-      "file": "circular_motion_bicycle_pedal_angular_speed.json"
-    },
-    {
-      "id": "circular_motion_cake_disc_rotation_angular_speed",
-      "file": "circular_motion_cake_disc_rotation_angular_speed.json"
-    },
-    {
-      "id": "circular_motion_dart_projectile_disc_rotation",
-      "file": "circular_motion_dart_projectile_disc_rotation.json"
-    },
-    {
-      "id": "circular_motion_belt_drive_centripetal_acceleration",
-      "file": "circular_motion_belt_drive_centripetal_acceleration.json"
-    },
-    {
-      "id": "circular_motion_car_bend_max_speed",
-      "file": "circular_motion_car_bend_max_speed.json"
-    },
-    {
-      "id": "circular_motion_conical_pendulum_rotating_disk",
-      "file": "circular_motion_conical_pendulum_rotating_disk.json"
-    },
-    {
-      "id": "circular_motion_male_female_skaters_circular_motion",
-      "file": "circular_motion_male_female_skaters_circular_motion.json"
-    },
-    {
-      "id": "circular_motion_rotating_platform_objects_sliding",
-      "file": "circular_motion_rotating_platform_objects_sliding.json"
-    },
-    {
-      "id": "circular_motion_sudden_stop_car_pendulum_tension",
-      "file": "circular_motion_sudden_stop_car_pendulum_tension.json"
-    },
-    {
-      "id": "circular_motion_two_nail_circular_motion_multiple_choice",
-      "file": "circular_motion_two_nail_circular_motion_multiple_choice.json"
-    },
-    {
-      "id": "circular_motion_belt_pulley_speed_ratio",
-      "file": "circular_motion_belt_pulley_speed_ratio.json"
-    },
-    {
-      "id": "circular_motion_water_splashing_circular_motion",
-      "file": "circular_motion_water_splashing_circular_motion.json"
-    },
-    {
-      "id": "circular_motion_gear_transmission_circular_motion",
-      "file": "circular_motion_gear_transmission_circular_motion.json"
-    },
-    {
-      "id": "circular_motion_bullet_cylinder_circular_motion",
-      "file": "circular_motion_bullet_cylinder_circular_motion.json"
-    },
-    {
-      "id": "circular_motion_bullet_rotating_cylinder",
-      "file": "circular_motion_bullet_rotating_cylinder.json"
-    },
-    {
-      "id": "circular_motion_pendulum_pin_radius_change",
-      "file": "circular_motion_pendulum_pin_radius_change.json"
-    },
-    {
-      "id": "circular_motion_banked_track_circular_motion",
-      "file": "circular_motion_banked_track_circular_motion.json"
-    },
-    {
-      "id": "circular_motion_banked_curve_no_slip",
-      "file": "circular_motion_banked_curve_no_slip.json"
-    },
-    {
-      "id": "circular_motion_centripetal_force_experiment_belt",
-      "file": "circular_motion_centripetal_force_experiment_belt.json"
-    },
-    {
-      "id": "circular_motion_connected_blocks_rotating_disk",
-      "file": "circular_motion_connected_blocks_rotating_disk.json"
-    },
-    {
-      "id": "circular_motion_tamper_light_rod_circular_motion",
-      "file": "circular_motion_tamper_light_rod_circular_motion.json"
-    },
-    {
-      "id": "circular_motion_funnel_ball_circular_motion",
-      "file": "circular_motion_funnel_ball_circular_motion.json"
-    },
-    {
-      "id": "circular_motion_funnel_three_balls_circular_motion",
-      "file": "circular_motion_funnel_three_balls_circular_motion.json"
-    },
-    {
-      "id": "circular_motion_horizontal_plank_vertical_circular_motion",
-      "file": "circular_motion_horizontal_plank_vertical_circular_motion.json"
-    },
-    {
-      "id": "circular_motion_rotating_chair_circular_motion",
-      "file": "circular_motion_rotating_chair_circular_motion.json"
-    },
-    {
-      "id": "circular_motion_boat_circular_motion",
-      "file": "circular_motion_boat_circular_motion.json"
-    },
-    {
-      "id": "circular_motion_bullet_paper_tube",
-      "file": "circular_motion_bullet_paper_tube.json"
-    },
-    {
       "id": "circular_motion_bicycle_gear",
       "file": "circular_motion_bicycle_gear.json"
-    },
-    {
-      "id": "circular_motion_cake_decoration",
-      "file": "circular_motion_cake_decoration.json"
-    },
-    {
-      "id": "circular_motion_cake_cream",
-      "file": "circular_motion_cake_cream.json"
-    },
-    {
-      "id": "circular_motion_dart_disk",
-      "file": "circular_motion_dart_disk.json"
-    },
-    {
-      "id": "circular_motion_belt_drive",
-      "file": "circular_motion_belt_drive.json"
-    },
-    {
-      "id": "circular_motion_car_turn",
-      "file": "circular_motion_car_turn.json"
     },
     {
       "id": "circular_motion_problem_01",
@@ -210,24 +74,8 @@
       "file": "circular_motion_problem_02.json"
     },
     {
-      "id": "circular_motion_problem_03",
-      "file": "circular_motion_problem_03.json"
-    },
-    {
-      "id": "circular_motion_problem_04",
-      "file": "circular_motion_problem_04.json"
-    },
-    {
-      "id": "circular_motion_problem_05",
-      "file": "circular_motion_problem_05.json"
-    },
-    {
       "id": "circular_motion_friction",
       "file": "circular_motion_friction.json"
-    },
-    {
-      "id": "circular_motion_a_b_boats",
-      "file": "circular_motion_a_b_boats.json"
     },
     {
       "id": "circular_motion_bullet_through_cylinder",
@@ -250,8 +98,68 @@
       "file": "circular_motion_example6.json"
     },
     {
-      "id": "circular_motion_example7",
-      "file": "circular_motion_example7.json"
+      "id": "circular_motion_example8",
+      "file": "circular_motion_example8.json"
+    },
+    {
+      "id": "circular_motion_example9",
+      "file": "circular_motion_example9.json"
+    },
+    {
+      "id": "circular_motion_example10",
+      "file": "circular_motion_example10.json"
+    },
+    {
+      "id": "circular_motion_ex11",
+      "file": "circular_motion_ex11.json"
+    },
+    {
+      "id": "circular_motion_ex12",
+      "file": "circular_motion_ex12.json"
+    },
+    {
+      "id": "circular_motion_example13",
+      "file": "circular_motion_example13.json"
+    },
+    {
+      "id": "circular_motion_example14",
+      "file": "circular_motion_example14.json"
+    },
+    {
+      "id": "circular_motion_example15",
+      "file": "circular_motion_example15.json"
+    },
+    {
+      "id": "circular_motion_belt_pulley_1",
+      "file": "circular_motion_belt_pulley_1.json"
+    },
+    {
+      "id": "circular_motion_pour_water_ice_2",
+      "file": "circular_motion_pour_water_ice_2.json"
+    },
+    {
+      "id": "circular_motion_gear_ratio",
+      "file": "circular_motion_gear_ratio.json"
+    },
+    {
+      "id": "circular_motion_bullet_cylinder",
+      "file": "circular_motion_bullet_cylinder.json"
+    },
+    {
+      "id": "circular_motion_pendulum_hitting_nail",
+      "file": "circular_motion_pendulum_hitting_nail.json"
+    },
+    {
+      "id": "circular_motion_elastic_force_friction_static_friction_string",
+      "file": "circular_motion_elastic_force_friction_static_friction_string.json"
+    },
+    {
+      "id": "circular_motion_friction_static_friction",
+      "file": "circular_motion_friction_static_friction.json"
+    },
+    {
+      "id": "circular_motion_string",
+      "file": "circular_motion_string.json"
     }
   ]
 }

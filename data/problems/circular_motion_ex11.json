@@ -1,0 +1,124 @@
+{
+  "slug": "ex11",
+  "originalNumber": "例11",
+  "skip": false,
+  "skipReason": "",
+  "model": "圆周运动中的瞬时问题（突然停止）",
+  "id": "circular_motion_ex11",
+  "chapter": "圆周运动",
+  "title": "小车突然停止时悬绳张力比",
+  "question": "如图所示，将完全相同的两小球A、B，用长L=0.8 m的细绳悬于以v=4 m/s向左匀速运动的小车顶部，两球与小车前后壁接触。由于某种原因，小车突然停止，此时悬线中张力之比F_A:F_B为(g=10m/s²)(  )",
+  "options": [
+    "A. 1:1",
+    "B. 1:2",
+    "C. 1:3",
+    "D. 1:4"
+  ],
+  "answer": "",
+  "analysis": {
+    "title": "总体分析",
+    "content": "小车突然停止后，A、B两球由于与前后壁的接触情况不同，运动状态不同。需根据示意图判断哪个球仍可做圆周运动，哪个球被壁阻挡而静止。然后分别计算悬线张力。【待校对：具体哪个球做圆周运动取决于示意图，常见情况是B球被后壁阻挡，A球继续做圆周运动，此时F_A:F_B=3:1，但选项为1:3，需结合原图确认】",
+    "animation": {
+      "level": "none",
+      "type": "none",
+      "enabled": false,
+      "key": "",
+      "playable": true,
+      "interactive": true,
+      "confidence": 0.8,
+      "notes": "待确定动画模型",
+      "params": {},
+      "timeline": {
+        "duration": 0,
+        "loop": false
+      },
+      "forces": []
+    },
+    "knowledge": [
+      "向心力公式 \\(F = m\\frac{v^2}{r}\\)",
+      "小球在最低点受力分析：\\(T - mg = m\\frac{v^2}{L}\\)",
+      "惯性现象与瞬时运动状态"
+    ],
+    "source": {
+      "title": "圆周运动",
+      "text": "例11",
+      "page": ""
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "title": "分析小球A的受力与运动",
+        "content": "假设A球与前壁接触（需结合原图确认），小车停止后A球因惯性继续向左运动，绳子突然被拉紧，A球将绕悬点做圆周运动，此时最低点速度仍为v=4 m/s。由牛顿第二定律：\\(T_A - mg = m\\frac{v^2}{L}\\)，代入数据：\\(m\\cdot10 + m\\cdot\\frac{16}{0.8} = 10m + 20m = 30m\\)。",
+        "knowledge": [
+          "向心力公式"
+        ],
+        "commonMistakes": []
+      },
+      {
+        "stepId": 2,
+        "title": "分析小球B的受力与运动",
+        "content": "假设B球与后壁接触，小车停止时后壁立即挡住B球，B球无法继续向前，因此B球保持静止，绳子拉力等于重力：\\(T_B = mg = 10m\\)。",
+        "knowledge": [
+          "平衡条件"
+        ],
+        "commonMistakes": []
+      },
+      {
+        "stepId": 3,
+        "title": "计算张力比",
+        "content": "若上述假设成立，则 \\(F_A:F_B = 30m:10m = 3:1\\)，但选项为1:3、1:2等，表明可能A球被壁阻挡而B球做圆周运动，此时比值为1:3。需根据原图判断，故答案待定。【待校对】",
+        "knowledge": [
+          "比例计算"
+        ],
+        "commonMistakes": []
+      }
+    ],
+    "summary": {
+      "title": "解题总结",
+      "content": "本题关键在于判断小球与前后壁的接触位置以及小车停止后小球的运动状态。忽略图像将导致方向错误，正确解答需结合原图。"
+    }
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "待校对步骤",
+      "content": "请根据 OCR 文本校对并补充解析。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "summary": {
+    "title": "待总结",
+    "content": ""
+  },
+  "source": {
+    "title": "圆周运动",
+    "text": "来源待校对",
+    "page": "第 4 题"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7023/例11_q11_img1.jpg",
+      "alt": "小车顶部悬挂A、B两个小球的示意图",
+      "caption": "小车顶部悬挂A、B两个小球的示意图",
+      "source": "IMG_7023_part02_clean.jpg",
+      "questionNo": "例11"
+    },
+    {
+      "src": "data/problem-images/IMG_7027/11_q11_img1.jpg",
+      "alt": "竖直圆周运动示意图，O为圆心，木板上放有物块沿虚线圆周逆时针运动，标注了角速度ω",
+      "caption": "竖直圆周运动示意图，O为圆心，木板上放有物块沿虚线圆周逆时针运动，标注了角速度ω",
+      "source": "IMG_7027_part01_clean.jpg",
+      "questionNo": "11"
+    }
+  ]
+}

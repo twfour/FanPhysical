@@ -1,0 +1,104 @@
+{
+  "slug": "12",
+  "originalNumber": "12",
+  "skip": false,
+  "skipReason": "",
+  "model": "圆锥摆模型",
+  "id": "circular_motion_string",
+  "chapter": "圆周运动",
+  "title": "第12题",
+  "question": "图甲是游乐场中的“旋转飞椅”项目。“旋转飞椅”简化结构装置如图乙，转动轴带动顶部圆盘转动，长为L的轻质悬绳一端系在圆盘上，另一端系着椅子。悬点分别为A、B的两绳与竖直方向夹角分别为θ₁=37°、θ₂=53°，椅子与游客总质量分别为m_A、m_B，绳子拉力分别为F_A、F_B，向心加速度分别为a_A、a_B。忽略空气阻力，则椅子和游客随圆盘匀速转动的过程中（ ）",
+  "options": [
+    "A. 由重力与绳子拉力的合力提供向心力",
+    "B. F_A:F_B = 4m_A:3m_B",
+    "C. a_A:a_B = 16:9",
+    "D. 悬绳与竖直方向的夹角与游客质量无关"
+  ],
+  "answer": "AD",
+  "analysis": {
+    "title": "总览",
+    "content": "本题为圆锥摆模型，分析向心力来源及物理量关系。由受力分析可知向心力由重力与拉力的合力提供；根据竖直方向平衡可求拉力表达式；根据几何关系可求向心加速度之比；由圆锥摆动力学方程可知角度与质量无关。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "圆锥摆模型",
+    "向心力来源",
+    "力的合成与分解"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "第12题",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "受力分析及向心力来源",
+      "content": "对任一椅子受力分析，受重力mg和绳子拉力F，合力水平指向圆心，提供向心力。故A选项正确。",
+      "knowledge": [
+        "圆周运动向心力来源"
+      ],
+      "commonMistakes": [
+        "误认为拉力的水平分力提供向心力"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "计算拉力及向心加速度之比",
+      "content": "由竖直方向平衡：Fcosθ=mg，得F=mg/cosθ。则F_A:F_B = (m_A/cos37°) : (m_B/cos53°) = (m_A/0.8) : (m_B/0.6) = 3m_A:4m_B，故B错误。由圆锥摆公式：a=gtanθ，或由a=ω²r=ω²Lsinθ，且ω相同，得a_A:a_B = sin37°:sin53° = 3:4，故C错误。",
+      "knowledge": [
+        "圆锥摆动力学方程",
+        "比值计算"
+      ],
+      "commonMistakes": [
+        "误用tanθ直接比",
+        "角度三角函数值混淆"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "判断夹角与质量关系",
+      "content": "由圆锥摆方程：mgtanθ=mω²Lsinθ，得cosθ=g/(ω²L)，与质量m无关，故D正确。",
+      "knowledge": [
+        "圆锥摆角度与质量无关"
+      ],
+      "commonMistakes": [
+        "认为质量越大夹角越大"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "方法总结",
+    "content": "处理旋转飞椅问题，应抽象为圆锥摆模型，利用受力分析和圆周运动方程求解。关键在于建立正确的动力学方程，注意角度与质量无关的特点。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7023/例12_q12_img1.jpg",
+      "alt": "包含图(a)小球C绕A、B铁钉运动的示意图，图(b)细绳拉力F随时间t变化的F-t图像",
+      "caption": "包含图(a)小球C绕A、B铁钉运动的示意图，图(b)细绳拉力F随时间t变化的F-t图像",
+      "source": "IMG_7023_part02_clean.jpg",
+      "questionNo": "例12"
+    },
+    {
+      "src": "data/problem-images/IMG_7027/12_q12_img1.jpg",
+      "alt": "旋转飞椅实物图，标注为甲",
+      "caption": "旋转飞椅实物图，标注为甲",
+      "source": "IMG_7027_part02_clean.jpg",
+      "questionNo": "12"
+    },
+    {
+      "src": "data/problem-images/IMG_7027/12_q12_img2.jpg",
+      "alt": "旋转飞椅简化结构示意图，标注为乙，包含转动轴O，悬点A、B，两根长度为L的悬绳分别悬挂质量为m_A、m_B的物体，与竖直方向夹角分别为θ₁、θ₂",
+      "caption": "旋转飞椅简化结构示意图，标注为乙，包含转动轴O，悬点A、B，两根长度为L的悬绳分别悬挂质量为m_A、m_B的物体，与竖直方向夹角分别为θ₁、θ₂",
+      "source": "IMG_7027_part02_clean.jpg",
+      "questionNo": "12"
+    }
+  ]
+}

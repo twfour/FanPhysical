@@ -1,0 +1,106 @@
+{
+  "slug": "question_8",
+  "originalNumber": "8",
+  "skip": false,
+  "skipReason": "",
+  "model": "水平转盘连接体模型",
+  "id": "circular_motion_elastic_force_friction_static_friction_string",
+  "chapter": "圆周运动",
+  "title": "第8题",
+  "question": "如图，水平转盘绕竖直转轴$O_1O_2$转动，转盘上靠近转轴放置木块A（距离转轴L），远离转轴放置木块B（距离转轴2L），A、B之间用长为L的细绳连接。两个木块相同，与转盘的最大静摩擦力均为各自重力的k倍。开始时绳恰好伸直但无弹力。现使角速度从零缓慢增大，以下说法正确的是（  ）",
+  "options": [
+    "A. $\\omega>\\sqrt{\\frac{2kg}{3L}}$时，A、B相对于转盘会滑动",
+    "B. $\\omega>\\sqrt{\\frac{kg}{2L}}$时，绳子一定有弹力",
+    "C. $0<\\omega<\\sqrt{\\frac{2kg}{3L}}$范围内增大时，A所受摩擦力一直变大",
+    "D. $\\sqrt{\\frac{kg}{2L}}<\\omega<\\sqrt{\\frac{2kg}{3L}}$范围内增大时，B所受摩擦力变大"
+  ],
+  "answer": "",
+  "analysis": {
+    "title": "总览",
+    "content": "本题考查水平转盘上连接体问题，涉及静摩擦力、绳张力和临界角速度的分析。需要利用向心力公式和最大静摩擦力条件逐一讨论。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "静摩擦力提供向心力",
+    "最大静摩擦力公式 $f_{\\max}=kmg$",
+    "临界角速度分析"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "第8题",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分析A、B的受力及初始状态",
+      "content": "当角速度ω较小时，A、B均由静摩擦力提供向心力，绳无弹力。A的半径为L，B的半径为2L。所需向心力分别为$f_A=m\\omega^2L$，$f_B=m\\omega^2\\cdot 2L$。由于B所需向心力更大，B先达到最大静摩擦力$f_{\\max}=kmg$。",
+      "knowledge": [
+        "向心力公式$F=m\\omega^2r$"
+      ],
+      "commonMistakes": [
+        "误认为A先滑动"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "求绳子有弹力的临界角速度",
+      "content": "当B达到最大静摩擦力时，绳开始有弹力。此时对B有$kmg=m\\omega_1^2\\cdot 2L$，解得$\\omega_1=\\sqrt{\\frac{kg}{2L}}$。因此$\\omega>\\sqrt{\\frac{kg}{2L}}$时绳子一定有弹力，选项B正确。",
+      "knowledge": [
+        "最大静摩擦力与向心力平衡"
+      ],
+      "commonMistakes": [
+        "混淆A、B的临界条件"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "求A、B相对滑动时的临界角速度",
+      "content": "当绳有弹力后，两木块一起转动，A和B的角速度相同。设绳张力为T。对A：$T+f_A=m\\omega^2L$；对B：$kmg+T=m\\omega^2 \\cdot 2L$。当A也达到最大静摩擦力时（$f_A=kmg$），系统即将滑动。联立解得$\\omega_2=\\sqrt{\\frac{2kg}{3L}}$。因此$\\omega>\\sqrt{\\frac{2kg}{3L}}$时A、B会相对转盘滑动，选项A正确。",
+      "knowledge": [
+        "连接体问题的动力学分析"
+      ],
+      "commonMistakes": [
+        "未考虑绳子张力"
+      ]
+    },
+    {
+      "stepId": 4,
+      "title": "分析摩擦力变化情况",
+      "content": "在$0<\\omega<\\sqrt{\\frac{kg}{2L}}$范围内，绳无弹力，A的摩擦力$f_A=m\\omega^2L$随ω增大而增大，选项C正确（该范围包括$\\omega<\\sqrt{\\frac{kg}{2L}}$部分）。在$\\sqrt{\\frac{kg}{2L}}<\\omega<\\sqrt{\\frac{2kg}{3L}}$范围内，绳有弹力，此时对B：$kmg+T=m\\omega^2\\cdot 2L$，解得$T=2m\\omega^2L-kmg$；B的摩擦力始终等于kmg（最大静摩擦力），因此B所受摩擦力不变，选项D错误。综合，正确选项为A、B、C。",
+      "knowledge": [
+        "摩擦力随角速度变化的阶段性"
+      ],
+      "commonMistakes": [
+        "认为B的摩擦力继续增大"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "解题总结",
+    "content": "本题关键在于分阶段分析：绳无弹力时，B先达最大静摩擦力；然后绳有张力，两木块整体分析，直到A也达最大静摩擦力。注意各阶段摩擦力的变化。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7023/例8_q8_img1.jpg",
+      "alt": "转盘边缘连接长为L的轻绳，绳下端悬挂小球，轻绳与竖直虚线夹角为θ，转盘半径标注为R的示意图",
+      "caption": "转盘边缘连接长为L的轻绳，绳下端悬挂小球，轻绳与竖直虚线夹角为θ，转盘半径标注为R的示意图",
+      "source": "IMG_7023_part01_clean.jpg",
+      "questionNo": "例8"
+    },
+    {
+      "src": "data/problem-images/IMG_7026/8_q8_img1.jpg",
+      "alt": "水平转盘绕竖直转轴$O_1O_2$转动，转盘上从靠近转轴到远离转轴依次放置木块A、B，A距离转轴为L，A、B间距为L",
+      "caption": "水平转盘绕竖直转轴$O_1O_2$转动，转盘上从靠近转轴到远离转轴依次放置木块A、B，A距离转轴为L，A、B间距为L",
+      "source": "IMG_7026_part02_clean.jpg",
+      "questionNo": "8"
+    }
+  ]
+}

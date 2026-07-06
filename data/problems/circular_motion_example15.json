@@ -1,0 +1,95 @@
+{
+  "slug": "example15",
+  "originalNumber": "例15",
+  "skip": false,
+  "skipReason": "",
+  "model": "圆锥面圆周运动",
+  "id": "circular_motion_example15",
+  "chapter": "圆周运动",
+  "title": "例15：小球在圆锥面上的圆周运动",
+  "question": "如图所示，在光滑的圆锥顶用长为L的细线悬挂一质量为m的小球，圆锥顶角为2θ，当圆锥和球一起以角速度ω匀速转动时，球压紧锥面。(1)此时绳的张力是多少？(2)若要小球离开锥面，则小球的角速度至少为多少？(3)画出拉力T-ω²关系图像。",
+  "options": [],
+  "answer": "(1)T = mg cosθ + mω²L sin²θ；(2)ω₀ = √[g/(L cosθ)]；(3)见分析中的图像描述。",
+  "analysis": {
+    "title": "解析",
+    "content": "本题考查圆锥面约束下的圆周运动。小球紧贴锥面时，受重力、绳子拉力和锥面支持力。当角速度增大到一定程度，支持力为零，小球离开锥面。通过牛顿第二定律列式求解。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "圆锥面圆周运动",
+    "临界条件",
+    "牛顿第二定律"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "例15",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "受力分析与几何关系",
+      "content": "小球紧贴锥面时，绳长L，圆锥半顶角为θ，故绳与竖直方向夹角为θ。小球做圆周运动的半径r = L sinθ。受力分析：重力mg、拉力T、锥面支持力N（垂直于锥面背离轴线）。",
+      "knowledge": [
+        "受力分析",
+        "几何关系"
+      ],
+      "commonMistakes": [
+        "搞错半径"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "列牛顿第二定律方程",
+      "content": "竖直方向：T cosθ + N sinθ = mg\n水平方向：T sinθ - N cosθ = mω²r = mω²L sinθ\n解得：\nT = mg cosθ + mω²L sin²θ\nN = mg sinθ - mω²L sinθ cosθ",
+      "knowledge": [
+        "牛顿第二定律",
+        "圆周运动向心力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求小球离开锥面的临界角速度",
+      "content": "小球离开锥面时，N=0。代入水平方程得：T sinθ = mω²L sinθ ⇒ T = mω²L。代入竖直方程：T cosθ = mg ⇒ mω²L cosθ = mg ⇒ ω = √(g/(L cosθ))。故最小角速度ω₀ = √(g/(L cosθ))。",
+      "knowledge": [
+        "临界条件"
+      ],
+      "commonMistakes": [
+        "忘记N=0"
+      ]
+    },
+    {
+      "stepId": 4,
+      "title": "绘制T-ω²图像",
+      "content": "当ω ≤ ω₀时，小球紧贴锥面，T = mg cosθ + mω²L sin²θ，为线性递增（截距mg cosθ，斜率mL sin²θ）。当ω > ω₀时，小球离开锥面，绳子与竖直方向夹角增大，由T cosα = mg，T sinα = mω²L sinα（实际半径变化），可得T = mω²L，为过原点的直线。图像为两段直线，在ω₀处衔接。",
+      "knowledge": [
+        "图像绘制",
+        "分段函数"
+      ],
+      "commonMistakes": [
+        "忽视两段函数变化"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "圆锥面圆周运动问题关键是受力分析，明确临界条件，注意图像的分段特征。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7024/例15_q15_img1.jpg",
+      "alt": "圆锥顶角为2θ，小球用细线悬挂于圆锥顶点，靠在圆锥侧面的示意图",
+      "caption": "圆锥顶角为2θ，小球用细线悬挂于圆锥顶点，靠在圆锥侧面的示意图",
+      "source": "IMG_7024_part01_clean.jpg",
+      "questionNo": "例15"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "slug": "belt_pulley_1",
+  "originalNumber": "1",
+  "skip": false,
+  "skipReason": "",
+  "model": "圆周运动皮带传动模型",
+  "id": "circular_motion_belt_pulley_1",
+  "chapter": "圆周运动",
+  "title": "皮带轮运动分析",
+  "question": "两个大轮半径相等的皮带轮的结构如图所示，A、B两点的半径之比为2：1，C、D两点的半径之比也为2：1，下列说法正确的是（ ）",
+  "options": [
+    "A．A、B两点的线速度之比为$v_A:v_B = 1:2$",
+    "B．A、C两点的角速度之比为$\\omega_A:\\omega_C = 1:2$",
+    "C．A、C两点的线速度之比为$v_A:v_C = 1:2$",
+    "D．A、D两点的线速度之比为$v_A:v_D = 1:2$"
+  ],
+  "answer": "【待校对】",
+  "analysis": {
+    "title": "总览",
+    "content": "本题考查皮带传动和同轴传动中线速度、角速度的关系。根据皮带传动，两轮边缘线速度相等；同轴传动，轮上各点角速度相等。结合半径关系分析各点比例。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "圆周运动",
+    "皮带传动",
+    "同轴传动",
+    "线速度",
+    "角速度"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "第1题",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分析传动关系",
+      "content": "左大轮与右大轮通过皮带连接，两轮边缘线速度相等，即 $v_A = v_C$。左大轮与左侧小轮同轴，因此角速度相等，有 $\\omega_A = \\omega_B$；同理，右大轮与右侧小轮同轴，$\\omega_C = \\omega_D$。",
+      "knowledge": [
+        "皮带传动",
+        "同轴传动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "推导比例关系",
+      "content": "已知 $R_A:R_B = 2:1$，$R_C:R_D = 2:1$，且 $R_A = R_C$。由 $v_B = \\omega_B R_B = \\omega_A \\cdot \\frac{R_A}{2} = \\frac{v_A}{2}$，得 $v_A:v_B = 2:1$，故A错误。由 $\\omega_C = \\frac{v_C}{R_C} = \\frac{v_A}{R_A} = \\omega_A$，得 $\\omega_A:\\omega_C = 1:1$，故B错误。$v_A:v_C = 1:1$，故C错误。$v_D = \\omega_D R_D = \\omega_C \\cdot \\frac{R_C}{2} = \\frac{v_A}{2}$，得 $v_A:v_D = 2:1$，故D错误。全部选项错误，但题目为单选题，可能有图形标注不同，请对照原图确认。",
+      "knowledge": [
+        "线速度公式",
+        "角速度公式"
+      ],
+      "commonMistakes": [
+        "误认为皮带传动角速度相等"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "总结",
+    "content": "皮带传动边缘线速度相等，同轴传动角速度相等。通过半径比例即可推导各点速度、角速度之比。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7025/1_q1_img1.jpg",
+      "alt": "皮带轮结构示意图，左右两个大轮通过皮带连接，左侧大轮内有小轮，右侧大轮内有小轮，标注有A、B、C、D四点",
+      "caption": "皮带轮结构示意图，左右两个大轮通过皮带连接，左侧大轮内有小轮，右侧大轮内有小轮，标注有A、B、C、D四点",
+      "source": "IMG_7025_part01_clean.jpg",
+      "questionNo": "1"
+    }
+  ]
+}

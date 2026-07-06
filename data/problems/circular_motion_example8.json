@@ -1,0 +1,91 @@
+{
+  "slug": "example8",
+  "originalNumber": "例8",
+  "skip": false,
+  "skipReason": "",
+  "model": "圆锥摆模型",
+  "id": "circular_motion_example8",
+  "chapter": "圆周运动",
+  "title": "转盘连接小球求加速度和速度",
+  "question": "已知小球跟着转盘一起做匀速圆周运动。不计小球尺寸。根据图中信息求小球的加速度和速度。如图所示，转盘边缘连接长为L的轻绳，绳下端悬挂小球，轻绳与竖直虚线夹角为θ，转盘半径标注为R。【待校对：图中具体数值待识别】",
+  "options": [],
+  "answer": "加速度 a = g tanθ；速度 v = \\sqrt{g(R + L \\sin\\theta) \\tan\\theta}",
+  "analysis": {
+    "title": "受力分析与圆周运动",
+    "content": "小球做匀速圆周运动，圆心在转盘中心正下方。小球受重力和绳拉力，合力提供向心力。由几何关系得圆周半径 r = R + L sinθ，向心力 F = mg tanθ，根据牛顿第二定律 F = mω²r，可求得角速度 ω = √(g tanθ / r)，进而得到线速度 v = ωr = √(g r tanθ)。加速度 a = ω²r = g tanθ。由于图中未给出具体数值，答案以符号表示。"
+  },
+  "animation": {
+    "enabled": false,
+    "level": "none",
+    "type": "none",
+    "playable": false,
+    "interactive": false,
+    "params": {}
+  },
+  "knowledge": [
+    "向心力",
+    "匀速圆周运动",
+    "牛顿第二定律"
+  ],
+  "source": {
+    "title": "圆周运动",
+    "text": "例8",
+    "page": ""
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "确定圆周半径",
+      "content": "小球随转盘转动，圆心在转盘中心正下方。绳长 L，与竖直方向夹角 θ，转盘半径 R，因此小球到转轴的水平距离（即圆周半径）为 r = R + L \\sin\\theta。",
+      "knowledge": [
+        "几何关系"
+      ],
+      "commonMistakes": [
+        "忽略转盘半径 R，误认为半径仅为 L sinθ"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "受力分析与向心力",
+      "content": "小球受重力 mg 和绳拉力 T。拉力竖直分力平衡重力：T\\cos\\theta = mg；水平分力提供向心力：T\\sin\\theta = m\\omega^2 r。两式相除得 \\tan\\theta = \\frac{\\omega^2 r}{g}，所以加速度 a = \\omega^2 r = g\\tan\\theta。",
+      "knowledge": [
+        "力的合成与分解",
+        "向心力公式"
+      ],
+      "commonMistakes": [
+        "混淆向心加速度和角速度"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "求解速度",
+      "content": "由 a = v^2 / r 得 v = \\sqrt{a r} = \\sqrt{g \\tan\\theta \\cdot (R + L \\sin\\theta)}。或者由角速度 \\omega = \\sqrt{g \\tan\\theta / r} 得 v = \\omega r = \\sqrt{g r \\tan\\theta}。",
+      "knowledge": [
+        "线速度与角速度关系"
+      ],
+      "commonMistakes": [
+        "忘记对半径开方"
+      ]
+    }
+  ],
+  "summary": {
+    "title": "解题要点",
+    "content": "关键是确定小球的圆周半径和向心力来源。通过受力分析得到向心加速度表达式，再结合几何关系求线速度。"
+  },
+  "images": [
+    {
+      "src": "data/problem-images/IMG_7023/例8_q8_img1.jpg",
+      "alt": "转盘边缘连接长为L的轻绳，绳下端悬挂小球，轻绳与竖直虚线夹角为θ，转盘半径标注为R的示意图",
+      "caption": "转盘边缘连接长为L的轻绳，绳下端悬挂小球，轻绳与竖直虚线夹角为θ，转盘半径标注为R的示意图",
+      "source": "IMG_7023_part01_clean.jpg",
+      "questionNo": "例8"
+    },
+    {
+      "src": "data/problem-images/IMG_7026/8_q8_img1.jpg",
+      "alt": "水平转盘绕竖直转轴$O_1O_2$转动，转盘上从靠近转轴到远离转轴依次放置木块A、B，A距离转轴为L，A、B间距为L",
+      "caption": "水平转盘绕竖直转轴$O_1O_2$转动，转盘上从靠近转轴到远离转轴依次放置木块A、B，A距离转轴为L，A、B间距为L",
+      "source": "IMG_7026_part02_clean.jpg",
+      "questionNo": "8"
+    }
+  ]
+}
