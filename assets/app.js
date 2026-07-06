@@ -83,10 +83,6 @@ var modelSourceMap = {
   pileDriver: {
     title: "2026暑假班 / 圆周运动",
     text: "第9题"
-  },
-  bowlDoubleBall: {
-    title: "2026暑假班 / 圆周运动",
-    text: "补充第13题"
   }
 };
 

@@ -1474,7 +1474,7 @@
       <div class="problem-notes-grid">
         <section class="problem-note-block">
           <p class="problem-note-kicker">题目</p>
-          <h2>半球碗双球圆周运动</h2>
+          <h2>补充第13题：半球碗双球圆周运动</h2>
           <p>如图所示，质量均为 \(m\) 的 \(a,b\) 两个小球在光滑半球形碗内做圆周运动，碗的球心为 \(O\)，半径为 \(0.1\mathrm{m}\)，\(Oa,Ob\) 与竖直方向的夹角分别为 \(53^\circ,37^\circ\)。两球运动过程中，碗始终静止在水平地面上。已知 \(\sin37^\circ=0.6\)，\(g=10\mathrm{m/s^2}\)，则下列说法正确的是（  ）</p>
           <p>A. \(a,b\) 两球做圆周运动的线速度之比为 \(8\sqrt3:3\)</p>
           <p>B. \(a,b\) 两球做圆周运动的角速度之比为 \(2:\sqrt3\)</p>
@@ -1491,9 +1491,19 @@
           <p><strong>答案：</strong>B、D。</p>
         </section>
         <section class="problem-note-block">
-          <p class="problem-note-kicker">一句话总结</p>
-          <h2>半球碗题本质还是圆锥摆</h2>
-          <p>支持力分解后，竖直分量平衡重力，水平分量提供向心力；角速度只看 \(R\cos\theta\)，线速度还要再乘圆周半径 \(R\sin\theta\)。</p>
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同模型变式：换角度比较</h2>
+          <p>两个质量均为 \(m\) 的小球 \(A,B\) 在同一光滑半球形碗内做水平圆周运动，碗半径为 \(R=0.20\mathrm{m}\)，\(OA,OB\) 与竖直方向夹角分别为 \(60^\circ,30^\circ\)，取 \(g=10\mathrm{m/s^2}\)。求两球的角速度之比 \(\omega_A:\omega_B\) 和线速度之比 \(v_A:v_B\)。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p><span class="formula-line">\(\omega_A:\omega_B=\sqrt{\frac{\cos30^\circ}{\cos60^\circ}}=\sqrt[4]{3}:1\)</span></p>
+            <p><span class="formula-line">\(v_A:v_B=\omega_A R\sin60^\circ:\omega_B R\sin30^\circ=\sqrt[4]{3}\cdot\sqrt3:1=3^{3/4}:1\)</span></p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>先把半球碗约束看成圆锥摆：支持力竖直分量平衡重力，水平分量提供向心力。</p>
+            <p>列式 <span class="formula-line">\(N\cos\theta=mg,\quad N\sin\theta=m\omega^2R\sin\theta\)</span>，得到 <span class="formula-line">\(\omega^2=\frac{g}{R\cos\theta}\)</span>。角速度比只比较 \(\cos\theta\)，线速度还要乘轨道半径 <span class="formula-line">\(r=R\sin\theta\)</span>。</p>
+          </details>
         </section>
       </div>
     </div>
