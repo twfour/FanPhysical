@@ -913,9 +913,11 @@ function setFavoriteProblem(sceneName, title, active) {
   var favorites = readFavoriteProblems();
   var key = getFavoriteProblemKey(sceneName);
   if (active) {
+    var catalogItem = findSceneCatalogItem(sceneName);
     favorites[key] = {
       scene: sceneName,
-      title: title || sceneName,
+      title: (catalogItem && catalogItem.title) || title || sceneName,
+      path: (catalogItem && catalogItem.path) || "",
       savedAt: new Date().toISOString()
     };
   } else {
@@ -1003,6 +1005,16 @@ function getSceneCatalog() {
   return catalog;
 }
 
+function findSceneCatalogItem(sceneName) {
+  var catalog = getSceneCatalog();
+  for (var i = 0; i < catalog.length; i += 1) {
+    if (catalog[i].scene === sceneName) {
+      return catalog[i];
+    }
+  }
+  return null;
+}
+
 function renderFavoriteHome() {
   var grid = document.getElementById("favoriteHomeGrid");
   if (!grid) {
@@ -1010,27 +1022,50 @@ function renderFavoriteHome() {
   }
   grid.innerHTML = "";
   var favorites = readFavoriteProblems();
-  getSceneCatalog().forEach(function (item) {
-    if (!favorites[getFavoriteProblemKey(item.scene)]) {
+  var catalog = getSceneCatalog();
+  var catalogMap = {};
+  catalog.forEach(function (item) {
+    catalogMap[item.scene] = item;
+  });
+  function appendFavoriteCard(key) {
+    var favorite = favorites[key] || {};
+    var sceneName = favorite.scene || String(key).replace(/^scene:/, "");
+    var item = catalogMap[sceneName] || {};
+    var titleText = item.title || favorite.title || sceneName;
+    var pathText = item.path || favorite.path || "收藏模型题";
+    if (!sceneName) {
       return;
     }
     var card = document.createElement("button");
     card.type = "button";
     card.className = "home-card favorite-home-card";
     card.onclick = function () {
-      switchScene(item.scene);
+      switchScene(sceneName);
     };
     var mark = document.createElement("span");
     mark.className = "favorite-home-mark";
     mark.innerText = "♥";
     var title = document.createElement("strong");
-    title.innerText = item.title;
+    title.innerText = titleText;
     var meta = document.createElement("span");
-    meta.innerText = item.path || "收藏模型题";
+    meta.innerText = pathText;
     card.appendChild(mark);
     card.appendChild(title);
     card.appendChild(meta);
     grid.appendChild(card);
+  }
+  catalog.forEach(function (item) {
+    var key = getFavoriteProblemKey(item.scene);
+    if (favorites[key]) {
+      appendFavoriteCard(key);
+    }
+  });
+  Object.keys(favorites).forEach(function (key) {
+    var favorite = favorites[key] || {};
+    var sceneName = favorite.scene || String(key).replace(/^scene:/, "");
+    if (!catalogMap[sceneName]) {
+      appendFavoriteCard(key);
+    }
   });
 }
 
