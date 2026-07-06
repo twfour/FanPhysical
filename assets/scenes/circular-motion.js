@@ -503,3 +503,190 @@ function drawPileGraph() {
   text("当前 ω = " + pileOmega.toFixed(1), gx + 12, gy + 34);
   text(pileOmega >= pileCriticalOmega() ? "最高点可能离地：Nmin≤0" : "最高点仍压地：Nmin>0", gx + 12, gy + 56);
 }
+
+function bowlRad(thetaDeg) {
+  return thetaDeg * Math.PI / 180;
+}
+
+function bowlOrbitRadius(thetaDeg) {
+  return bowlR * Math.sin(bowlRad(thetaDeg));
+}
+
+function bowlOmega(thetaDeg) {
+  return Math.sqrt(bowlG / Math.max(0.001, bowlR * Math.cos(bowlRad(thetaDeg))));
+}
+
+function bowlSpeed(thetaDeg) {
+  return bowlOmega(thetaDeg) * bowlOrbitRadius(thetaDeg);
+}
+
+function bowlHorizontalForce(thetaDeg) {
+  return Math.tan(bowlRad(thetaDeg));
+}
+
+function bowlCycleTime() {
+  return 2 * Math.PI / Math.max(0.1, Math.abs(bowlOmega(bowlThetaA) - bowlOmega(bowlThetaB)));
+}
+
+function toggleBowlPlay() {
+  if (!bowlPlaying && bowlT >= bowlCycleTime() - 0.02) {
+    bowlT = 0;
+  }
+  bowlPlaying = !bowlPlaying;
+  updateLabels();
+}
+
+function updateBowl(dt) {
+  if (bowlPlaying) {
+    bowlT += dt;
+    if (bowlT >= bowlCycleTime()) {
+      bowlT = 0;
+      bowlPlaying = false;
+    }
+    updateLabels();
+  }
+}
+
+function drawBowlBall(cx, cy, colorHex, labelText) {
+  noStroke();
+  fill(colorHex);
+  circle(cx, cy, 22);
+  fill("#ffffff");
+  textAlign(CENTER, CENTER);
+  textSize(12);
+  text(labelText, cx, cy);
+}
+
+function drawBowlScene() {
+  var cx = 286;
+  var cy = 170;
+  var bowlScale = 138 / bowlR;
+  var visualR = bowlR * bowlScale;
+  var thetaA = bowlRad(bowlThetaA);
+  var thetaB = bowlRad(bowlThetaB);
+  var omegaA = bowlOmega(bowlThetaA);
+  var omegaB = bowlOmega(bowlThetaB);
+  var phiA = omegaA * bowlT + Math.PI;
+  var phiB = omegaB * bowlT + Math.PI;
+  var orbitA = bowlOrbitRadius(bowlThetaA) * bowlScale;
+  var orbitB = bowlOrbitRadius(bowlThetaB) * bowlScale;
+  var yA = cy + visualR * Math.cos(thetaA);
+  var yB = cy + visualR * Math.cos(thetaB);
+  var xA = cx + orbitA * Math.cos(phiA);
+  var xB = cx + orbitB * Math.cos(phiB);
+  var topCx = 122;
+  var topCy = 145;
+  var topScale = 98 / Math.max(bowlOrbitRadius(bowlThetaA), bowlOrbitRadius(bowlThetaB), 0.01);
+
+  noStroke();
+  fill("#eef6ff");
+  ellipse(cx, cy, 2 * visualR, 38);
+  fill("#f8fbff");
+  arc(cx, cy, 2 * visualR, 2 * visualR, 0, Math.PI);
+  stroke("#1f2937");
+  strokeWeight(2.5);
+  noFill();
+  arc(cx, cy, 2 * visualR, 2 * visualR, 0, Math.PI);
+  ellipse(cx, cy, 2 * visualR, 38);
+
+  stroke("#94a3b8");
+  strokeWeight(1.4);
+  drawingContext.setLineDash([4, 4]);
+  line(cx, cy - 20, cx, cy + visualR + 20);
+  ellipse(cx, yA, 2 * orbitA, 22);
+  ellipse(cx, yB, 2 * orbitB, 18);
+  drawingContext.setLineDash([]);
+
+  stroke("#2563eb");
+  strokeWeight(2);
+  line(cx, cy, xA, yA);
+  stroke("#f97316");
+  line(cx, cy, xB, yB);
+  drawBowlBall(xA, yA, "#2563eb", "a");
+  drawBowlBall(xB, yB, "#f97316", "b");
+
+  noStroke();
+  fill("#111827");
+  circle(cx, cy, 7);
+  textAlign(LEFT, TOP);
+  textSize(12);
+  text("O", cx + 8, cy - 12);
+
+  noFill();
+  stroke("#cbd5e1");
+  strokeWeight(1.5);
+  circle(topCx, topCy, 2 * orbitA * topScale / bowlScale);
+  circle(topCx, topCy, 2 * orbitB * topScale / bowlScale);
+  stroke("#94a3b8");
+  line(topCx - 64, topCy, topCx + 64, topCy);
+  line(topCx, topCy - 64, topCx, topCy + 64);
+  drawBowlBall(topCx + orbitA * topScale / bowlScale * Math.cos(phiA), topCy + orbitA * topScale / bowlScale * Math.sin(phiA), "#2563eb", "a");
+  drawBowlBall(topCx + orbitB * topScale / bowlScale * Math.cos(phiB), topCy + orbitB * topScale / bowlScale * Math.sin(phiB), "#f97316", "b");
+
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(13);
+  text("半径 R=" + bowlR.toFixed(2) + "m", 40, 292);
+  text("ωa=" + omegaA.toFixed(2) + " rad/s，ωb=" + omegaB.toFixed(2) + " rad/s", 40, 318);
+  text("va=" + bowlSpeed(bowlThetaA).toFixed(2) + " m/s，vb=" + bowlSpeed(bowlThetaB).toFixed(2) + " m/s", 40, 344);
+  text("相邻最近间隔≈" + bowlCycleTime().toFixed(2) + "s", 40, 370);
+
+  fill("#5b6472");
+  textSize(12);
+  text("左：俯视圆轨迹；中：半球碗截面。水平作用力不等，碗需受地面静摩擦。", 40, 402);
+}
+
+function drawBowlGraph() {
+  var gx = graphLeft + 58;
+  var gy = 78;
+  var gw = graphRight - graphLeft - 96;
+  var gh = 305;
+  var labels = ["ω", "v", "F水平/mg"];
+  var valuesA = [bowlOmega(bowlThetaA), bowlSpeed(bowlThetaA), bowlHorizontalForce(bowlThetaA)];
+  var valuesB = [bowlOmega(bowlThetaB), bowlSpeed(bowlThetaB), bowlHorizontalForce(bowlThetaB)];
+  var yMax = Math.max(valuesA[0], valuesB[0], valuesA[1], valuesB[1], valuesA[2], valuesB[2]) * 1.2;
+  var groupW = gw / labels.length;
+  var i;
+
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(18);
+  text("双球物理量对比", graphLeft + 24, 20);
+  fill("#5b6472");
+  textSize(12);
+  text("ω²=g/(Rcosθ)，v=ωRsinθ，水平作用力/mg=tanθ", graphLeft + 24, 44);
+
+  drawBasicGrid(gx, gy, gw, gh);
+  drawGraphTicks(gx, gy, gw, gh, labels.length, yMax, "组");
+
+  for (i = 0; i < labels.length; i++) {
+    var x0 = gx + i * groupW + 22;
+    var hA = map(valuesA[i], 0, yMax, 0, gh);
+    var hB = map(valuesB[i], 0, yMax, 0, gh);
+    fill("#2563eb");
+    rect(x0, gy + gh - hA, 34, hA);
+    fill("#f97316");
+    rect(x0 + 42, gy + gh - hB, 34, hB);
+    fill("#111827");
+    textAlign(CENTER, TOP);
+    textSize(11);
+    text(labels[i], x0 + 38, gy + gh + 10);
+    text(valuesA[i].toFixed(2), x0 + 17, gy + gh - hA - 18);
+    text(valuesB[i].toFixed(2), x0 + 59, gy + gh - hB - 18);
+  }
+
+  noStroke();
+  fill("#2563eb");
+  rect(gx + 12, gy + 12, 14, 10);
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(12);
+  text("a 球 θ=" + bowlThetaA.toFixed(0) + "°", gx + 32, gy + 8);
+  fill("#f97316");
+  rect(gx + 12, gy + 34, 14, 10);
+  fill("#111827");
+  text("b 球 θ=" + bowlThetaB.toFixed(0) + "°", gx + 32, gy + 30);
+  text("原题结论：ωa:ωb = 2:√3，答案 B、D", gx + 12, gy + 56);
+}

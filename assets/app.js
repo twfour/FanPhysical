@@ -83,6 +83,10 @@ var modelSourceMap = {
   pileDriver: {
     title: "2026暑假班 / 圆周运动",
     text: "第9题"
+  },
+  bowlDoubleBall: {
+    title: "2026暑假班 / 圆周运动",
+    text: "补充第13题"
   }
 };
 
@@ -107,7 +111,8 @@ var knowledgePointMap = {
   semiCircleThrow: ["平抛运动", "圆弧坐标", "速度比"],
   bulletCylinder: ["圆周运动", "角速度", "穿筒时间"],
   bikeGear: ["圆周运动", "链传动", "角速度"],
-  pileDriver: ["圆周运动", "向心力", "超重与失重"]
+  pileDriver: ["圆周运动", "向心力", "超重与失重"],
+  bowlDoubleBall: ["圆周运动", "圆锥摆", "半球碗约束"]
 };
 
 var problemDataMap = {};
@@ -136,7 +141,8 @@ var legacySceneMap = {
   semiCircleThrow: true,
   bulletCylinder: true,
   bikeGear: true,
-  pileDriver: true
+  pileDriver: true,
+  bowlDoubleBall: true
 };
 var jsonAnimationState = {};
 
@@ -314,6 +320,13 @@ var pileG = 10;
 var pileT = 0;
 var pilePlaying = false;
 
+var bowlR = 0.10;
+var bowlThetaA = 53;
+var bowlThetaB = 37;
+var bowlG = 10;
+var bowlT = 0;
+var bowlPlaying = false;
+
 var simTime = 0;
 var lastMillis = 0;
 var graphWindow = 14;
@@ -486,6 +499,12 @@ function draw() {
     drawPileGraph();
   }
 
+  if (currentScene === "bowlDoubleBall") {
+    updateBowl(dt);
+    drawAnimScene(drawBowlScene);
+    drawBowlGraph();
+  }
+
   if (isJsonProblemScene(currentScene)) {
     updateJsonAnimation(dt);
     drawJsonAnimationScene();
@@ -528,6 +547,7 @@ function switchScene(sceneName) {
   document.getElementById("treeBulletCylinder").className = sceneName === "bulletCylinder" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeBikeGear").className = sceneName === "bikeGear" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treePileDriver").className = sceneName === "pileDriver" ? "tree-item indent active" : "tree-item indent";
+  document.getElementById("treeBowlDoubleBall").className = sceneName === "bowlDoubleBall" ? "tree-item indent active" : "tree-item indent";
   document.querySelectorAll(".tree-item[data-scene]").forEach(function (item) {
     item.className = item.dataset.scene === sceneName ? "tree-item indent active" : "tree-item indent";
   });
@@ -558,6 +578,7 @@ function switchScene(sceneName) {
   document.getElementById("bulletCylinderControls").style.display = sceneName === "bulletCylinder" ? "grid" : "none";
   document.getElementById("bikeGearControls").style.display = sceneName === "bikeGear" ? "grid" : "none";
   document.getElementById("pileDriverControls").style.display = sceneName === "pileDriver" ? "grid" : "none";
+  document.getElementById("bowlDoubleBallControls").style.display = sceneName === "bowlDoubleBall" ? "grid" : "none";
   renderJsonAnimationControls(sceneName);
   document.getElementById("doubleThrowNotes").style.display = sceneName === "doubleThrow" ? "block" : "none";
   document.getElementById("pipeDropNotes").style.display = sceneName === "pipeDrop" ? "block" : "none";
@@ -580,6 +601,7 @@ function switchScene(sceneName) {
   document.getElementById("bulletCylinderNotes").style.display = sceneName === "bulletCylinder" ? "block" : "none";
   document.getElementById("bikeGearNotes").style.display = sceneName === "bikeGear" ? "block" : "none";
   document.getElementById("pileDriverNotes").style.display = sceneName === "pileDriver" ? "block" : "none";
+  document.getElementById("bowlDoubleBallNotes").style.display = sceneName === "bowlDoubleBall" ? "block" : "none";
   document.querySelectorAll(".problem-notes").forEach(function (note) {
     note.style.display = note.id === sceneName + "Notes" ? "block" : "none";
   });
@@ -2305,6 +2327,15 @@ function updateLabels() {
   document.getElementById("pileT").max = Math.max(1, pilePeriod()).toFixed(2);
   document.getElementById("pileT").value = pileT.toFixed(2);
   document.getElementById("pilePlayBtn").innerText = pilePlaying ? "暂停" : "播放";
+  bowlT = Math.min(bowlT, bowlCycleTime());
+  document.getElementById("bowlRVal").innerText = bowlR.toFixed(2) + "m";
+  document.getElementById("bowlThetaAVal").innerText = bowlThetaA.toFixed(0) + "°";
+  document.getElementById("bowlThetaBVal").innerText = bowlThetaB.toFixed(0) + "°";
+  document.getElementById("bowlGVal").innerText = bowlG.toFixed(1);
+  document.getElementById("bowlTVal").innerText = bowlT.toFixed(2) + "s";
+  document.getElementById("bowlT").max = Math.max(1, bowlCycleTime()).toFixed(2);
+  document.getElementById("bowlT").value = bowlT.toFixed(2);
+  document.getElementById("bowlPlayBtn").innerText = bowlPlaying ? "暂停" : "播放";
 }
 
 function drawLayout() {
