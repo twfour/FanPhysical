@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>FanMath JSXGraph：弦长与数量积</title>
+  <link rel="stylesheet" href="../assets/styles.css?v=20260707-jsxgraph-dotproduct" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+  <script>
+    window.MathJax = { startup: { typeset: false } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    .math-wrap {
+      width: min(1260px, calc(100vw - 28px));
+    }
+
+    .math-layout {
+      grid-template-columns: 230px minmax(0, 1000px);
+    }
+
+    .jsx-workspace {
+      display: grid;
+      gap: 16px;
+    }
+
+    .jsx-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 570px) minmax(0, 410px);
+      gap: 18px;
+      align-items: stretch;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px;
+    }
+
+    .jxgbox {
+      width: 100%;
+      height: 500px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .relation-panel {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      min-height: 500px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f8fafc;
+      padding: 16px;
+    }
+
+    .relation-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+    }
+
+    .relation-card h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .relation-card p {
+      margin: 6px 0;
+      color: #111827;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    #dotGraphBoard {
+      width: 100%;
+      height: 210px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid #e5edf7;
+      color: #111827;
+      font-size: 15px;
+    }
+
+    .metric:last-child {
+      border-bottom: 0;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .step-list li {
+      border-left: 3px solid #2563eb;
+      padding: 8px 0 8px 12px;
+      color: #111827;
+      line-height: 1.8;
+    }
+
+    .math-note h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 0 0 14px;
+      font-size: 22px;
+    }
+
+    .math-favorite {
+      border: 0;
+      background: transparent;
+      color: #dc2626;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    @media (max-width: 1040px) {
+      .jsx-stage {
+        grid-template-columns: 1fr;
+      }
+
+      .relation-panel,
+      .jxgbox {
+        min-height: 420px;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap math-wrap">
+    <header class="brand-bar">
+      <a class="brand-lockup" href="./index.html" aria-label="返回 FanMath">
+        <span class="brand-mark">M</span>
+        <span>
+          <span class="brand-name">FanMath</span>
+          <span class="brand-tagline">JSXGraph Geometry Board</span>
+        </span>
+      </a>
+      <div class="hero-actions">
+        <a class="ghost-action" href="./index.html">返回 p5 版</a>
+      </div>
+    </header>
+
+    <div class="app-layout math-layout">
+      <aside class="sidebar">
+        <p class="tree-title">数学目录</p>
+        <details class="tree-node" open>
+          <summary class="tree-subfolder">平面向量</summary>
+          <div class="tree-children">
+            <a class="tree-item indent" href="./jsxgraph-projection.html">21-投影向量</a>
+            <button class="tree-item indent active" type="button">24-弦长与数量积</button>
+          </div>
+        </details>
+        <details class="tree-node" open>
+          <summary class="tree-subfolder">三角函数</summary>
+          <div class="tree-children">
+            <a class="tree-item indent" href="./index.html">2026-06-29 复盘</a>
+          </div>
+        </details>
+      </aside>
+
+      <section class="workspace jsx-workspace">
+        <div class="controls">
+          <div class="control">
+            <label>半径 R</label>
+            <input id="radiusInput" type="range" min="2" max="5" step="0.1" value="3" oninput="radiusValue=this.valueAsNumber; if(chordValue > radiusValue * 1.9){chordValue = radiusValue * 1.9;} updateDotBoard();" />
+            <span id="radiusVal" class="value">3.0</span>
+          </div>
+          <div class="control">
+            <label>弦长 d</label>
+            <input id="chordInput" type="range" min="0.8" max="5.7" step="0.1" value="4" oninput="chordValue=this.valueAsNumber; updateDotBoard();" />
+            <span id="chordVal" class="value">4.0</span>
+          </div>
+        </div>
+
+        <section class="jsx-stage">
+          <div id="dotCircleBoard" class="jxgbox"></div>
+          <aside class="relation-panel">
+            <div class="relation-card">
+              <h4>实时量</h4>
+              <div class="metric"><span>\(R\)</span><strong id="radiusMetric">3.0</strong></div>
+              <div class="metric"><span>\(d=|AB|\)</span><strong id="chordMetric">4.0</strong></div>
+              <div class="metric"><span>\(\overrightarrow{AB}\cdot\overrightarrow{AC}\)</span><strong id="dotMetric">8.00</strong></div>
+            </div>
+            <div id="dotGraphBoard"></div>
+            <div class="relation-card">
+              <h4>关键关系</h4>
+              <p>\[
+                \cos\angle BAC
+                =
+                \frac{d^2+R^2-R^2}{2dR}
+                =
+                \frac{d}{2R}
+              \]</p>
+              <p>\[
+                \overrightarrow{AB}\cdot\overrightarrow{AC}
+                =
+                dR\cdot\frac{d}{2R}
+                =
+                \frac12d^2
+              \]</p>
+            </div>
+          </aside>
+        </section>
+
+        <section class="problem-notes math-note">
+          <h3>
+            <span>习题 6.2 第24题：圆中弦长与数量积</span>
+            <button class="math-favorite" type="button" aria-label="收藏">♥</button>
+          </h3>
+
+          <div class="note-block">
+            <h4>题目</h4>
+            <p>如图，在 \(\odot C\) 中，是不是只需知道 \(\odot C\) 的半径或弦 \(AB\) 的长度，就可以求出 \(\overrightarrow{AB}\cdot\overrightarrow{AC}\) 的值？</p>
+          </div>
+
+          <div class="note-block">
+            <h4>解析</h4>
+            <ul class="step-list">
+              <li><strong>条件提取：</strong>\(C\) 是圆心，\(A,B\) 在圆上，所以 \(CA=CB=R\)。设弦长 \(AB=d\)。</li>
+              <li><strong>建模：</strong>\(\overrightarrow{AB}\cdot\overrightarrow{AC}=|AB||AC|\cos\angle BAC=dR\cos\angle BAC\)。</li>
+              <li><strong>计算：</strong>由余弦定理，\(\cos\angle BAC=\frac{AB^2+AC^2-BC^2}{2AB\cdot AC}=\frac{d^2+R^2-R^2}{2dR}=\frac{d}{2R}\)。</li>
+              <li><strong>结论：</strong>\(\overrightarrow{AB}\cdot\overrightarrow{AC}=dR\cdot\frac{d}{2R}=\frac12d^2=\frac12|AB|^2\)。因此只知道弦 \(AB\) 的长度可以求出；只知道半径不可以。</li>
+            </ul>
+          </div>
+
+          <div class="note-block">
+            <h4>近似题</h4>
+            <p>在以 \(C\) 为圆心的圆中，\(A,B\) 是圆上两点。若 \(|AB|=8\)，求 \(\overrightarrow{AB}\cdot\overrightarrow{AC}\)。</p>
+          </div>
+
+          <details class="note-block">
+            <summary>近似题答案</summary>
+            <p>\(\boxed{32}\)</p>
+          </details>
+
+          <details class="note-block">
+            <summary>近似题解题思路</summary>
+            <p>由原模型可知 \(\overrightarrow{AB}\cdot\overrightarrow{AC}=\frac12|AB|^2\)。代入 \(|AB|=8\)，得 \(\frac12\cdot 8^2=32\)。</p>
+          </details>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    var radiusValue = 3;
+    var chordValue = 4;
+    var circleBoard = null;
+    var graphBoard = null;
+    var pointC = null;
+    var pointA = null;
+    var pointB = null;
+    var circleObj = null;
+    var chordObj = null;
+    var radiusAObj = null;
+    var radiusBObj = null;
+    var arrowAB = null;
+    var arrowAC = null;
+    var graphCurve = null;
+    var graphPoint = null;
+
+    function initDotBoards() {
+      if (!window.JXG) {
+        document.getElementById("dotCircleBoard").innerHTML = "JSXGraph 未加载，请检查网络。";
+        return;
+      }
+      circleBoard = JXG.JSXGraph.initBoard("dotCircleBoard", {
+        boundingbox: [-5.8, 4.3, 5.8, -3.7],
+        axis: false,
+        showCopyright: false,
+        showNavigation: false,
+        pan: { enabled: false },
+        zoom: { enabled: false },
+        keepaspectratio: true
+      });
+      graphBoard = JXG.JSXGraph.initBoard("dotGraphBoard", {
+        boundingbox: [0, 15, 10, -2],
+        axis: true,
+        showCopyright: false,
+        showNavigation: false,
+        pan: { enabled: false },
+        zoom: { enabled: false }
+      });
+
+      pointC = circleBoard.create("point", [0, 0], pointStyle("C", "#2563eb", false));
+      pointA = circleBoard.create("point", [
+        function() { return -chordValue / 2; },
+        function() { return Math.sqrt(Math.max(0, radiusValue * radiusValue - chordValue * chordValue / 4)); }
+      ], pointStyle("A", "#dc2626", false));
+      pointB = circleBoard.create("point", [
+        function() { return chordValue / 2; },
+        function() { return Math.sqrt(Math.max(0, radiusValue * radiusValue - chordValue * chordValue / 4)); }
+      ], pointStyle("B", "#111827", false));
+      circleObj = circleBoard.create("circle", [pointC, radiusValue], {
+        strokeColor: "#cbd5e1",
+        strokeWidth: 2,
+        highlight: false
+      });
+      chordObj = circleBoard.create("segment", [pointA, pointB], segmentStyle("#2563eb", 3));
+      radiusAObj = circleBoard.create("segment", [pointC, pointA], segmentStyle("#111827", 2));
+      radiusBObj = circleBoard.create("segment", [pointC, pointB], segmentStyle("#111827", 2));
+      arrowAB = circleBoard.create("arrow", [pointA, pointB], segmentStyle("#2563eb", 4));
+      arrowAC = circleBoard.create("arrow", [pointA, pointC], segmentStyle("#dc2626", 4));
+      circleBoard.create("text", [function() { return -chordValue * 0.1; }, function() { return Math.sqrt(Math.max(0, radiusValue * radiusValue - chordValue * chordValue / 4)) + 0.25; }, "\\(\\overrightarrow{AB}\\)"], textStyle("#2563eb"));
+      circleBoard.create("text", [function() { return -chordValue * 0.35; }, function() { return Math.sqrt(Math.max(0, radiusValue * radiusValue - chordValue * chordValue / 4)) / 2; }, "\\(\\overrightarrow{AC}\\)"], textStyle("#dc2626"));
+
+      graphCurve = graphBoard.create("functiongraph", [function(x) { return 0.5 * x * x; }, 0, 10], {
+        strokeColor: "#2563eb",
+        strokeWidth: 3,
+        highlight: false
+      });
+      graphPoint = graphBoard.create("point", [
+        function() { return chordValue; },
+        function() { return 0.5 * chordValue * chordValue; }
+      ], pointStyle("当前", "#dc2626", false));
+      graphBoard.create("text", [
+        function() { return radiusValue * 0.3; },
+        function() { return 0.5 * Math.pow(radiusValue * 2, 2) * 0.78; },
+        "\\(y=\\frac12d^2\\)"
+      ], textStyle("#111827"));
+      updateDotBoard();
+    }
+
+    function pointStyle(name, color, fixed) {
+      return {
+        name: name,
+        fixed: fixed,
+        size: 4,
+        strokeColor: color,
+        fillColor: color,
+        label: {
+          strokeColor: "#111827",
+          fontSize: 15,
+          offset: [8, 8]
+        },
+        highlight: false
+      };
+    }
+
+    function segmentStyle(color, width) {
+      return {
+        strokeColor: color,
+        strokeWidth: width,
+        highlight: false
+      };
+    }
+
+    function textStyle(color) {
+      return {
+        fixed: true,
+        fontSize: 16,
+        strokeColor: color,
+        useMathJax: true,
+        highlight: false
+      };
+    }
+
+    function updateDotBoard() {
+      var maxChord = radiusValue * 1.9;
+      if (chordValue > maxChord) {
+        chordValue = maxChord;
+      }
+      document.getElementById("radiusInput").value = radiusValue;
+      document.getElementById("chordInput").max = maxChord.toFixed(1);
+      document.getElementById("chordInput").value = chordValue;
+      document.getElementById("radiusVal").textContent = radiusValue.toFixed(1);
+      document.getElementById("chordVal").textContent = chordValue.toFixed(1);
+      document.getElementById("radiusMetric").textContent = radiusValue.toFixed(1);
+      document.getElementById("chordMetric").textContent = chordValue.toFixed(1);
+      document.getElementById("dotMetric").textContent = (0.5 * chordValue * chordValue).toFixed(2);
+      if (circleObj) {
+        circleObj.setRadius(radiusValue);
+      }
+      if (graphBoard) {
+        graphBoard.setBoundingBox([0, 0.5 * Math.pow(radiusValue * 2, 2) * 1.08, radiusValue * 2.05, -2], false);
+        graphBoard.update();
+      }
+      if (circleBoard) {
+        circleBoard.update();
+      }
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise();
+      }
+    }
+
+    window.addEventListener("load", function() {
+      initDotBoards();
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise();
+      }
+    });
+  </script>
+</body>
+</html>

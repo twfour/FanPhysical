@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>FanMath JSXGraph：投影向量</title>
+  <link rel="stylesheet" href="../assets/styles.css?v=20260707-jsxgraph-math" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+  <script>
+    window.MathJax = { startup: { typeset: false } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    .math-wrap {
+      width: min(1260px, calc(100vw - 28px));
+    }
+
+    .math-layout {
+      grid-template-columns: 230px minmax(0, 1000px);
+    }
+
+    .jsx-workspace {
+      display: grid;
+      gap: 16px;
+    }
+
+    .jsx-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 570px) minmax(0, 410px);
+      gap: 18px;
+      align-items: stretch;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px;
+    }
+
+    .jxgbox {
+      width: 100%;
+      height: 500px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .relation-panel {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      min-height: 500px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f8fafc;
+      padding: 16px;
+    }
+
+    .relation-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+    }
+
+    .relation-card h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .relation-card p {
+      margin: 6px 0;
+      color: #111827;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid #e5edf7;
+      color: #111827;
+      font-size: 15px;
+    }
+
+    .metric:last-child {
+      border-bottom: 0;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .step-list li {
+      border-left: 3px solid #2563eb;
+      padding: 8px 0 8px 12px;
+      color: #111827;
+      line-height: 1.8;
+    }
+
+    .option-list {
+      display: grid;
+      gap: 6px;
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .option-list li {
+      margin: 0;
+      line-height: 1.75;
+    }
+
+    .math-note h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 0 0 14px;
+      font-size: 22px;
+    }
+
+    .math-favorite {
+      border: 0;
+      background: transparent;
+      color: #dc2626;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    @media (max-width: 1040px) {
+      .jsx-stage {
+        grid-template-columns: 1fr;
+      }
+
+      .relation-panel,
+      .jxgbox {
+        min-height: 420px;
+        height: 420px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap math-wrap">
+    <header class="brand-bar">
+      <a class="brand-lockup" href="./index.html" aria-label="返回 FanMath">
+        <span class="brand-mark">M</span>
+        <span>
+          <span class="brand-name">FanMath</span>
+          <span class="brand-tagline">JSXGraph Geometry Board</span>
+        </span>
+      </a>
+      <div class="hero-actions">
+        <a class="ghost-action" href="./index.html">返回 p5 版</a>
+      </div>
+    </header>
+
+    <div class="app-layout math-layout">
+      <aside class="sidebar">
+        <p class="tree-title">数学目录</p>
+        <details class="tree-node" open>
+          <summary class="tree-subfolder">平面向量</summary>
+          <div class="tree-children">
+            <button class="tree-item indent active" type="button">21-投影向量</button>
+            <a class="tree-item indent" href="./jsxgraph-dotproduct.html">24-弦长与数量积</a>
+          </div>
+        </details>
+        <details class="tree-node" open>
+          <summary class="tree-subfolder">三角函数</summary>
+          <div class="tree-children">
+            <a class="tree-item indent" href="./index.html">2026-06-29 复盘</a>
+          </div>
+        </details>
+      </aside>
+
+      <section class="workspace jsx-workspace">
+        <div class="controls">
+          <div class="control">
+            <label>半径 R</label>
+            <input id="radiusInput" type="range" min="2" max="5" step="0.1" value="3" oninput="radiusValue=this.valueAsNumber; updateProjectionBoard();" />
+            <span id="radiusVal" class="value">3.0</span>
+          </div>
+          <div class="control">
+            <label>显示步骤</label>
+            <input id="stepInput" type="range" min="1" max="4" step="1" value="4" oninput="stepValue=this.valueAsNumber; updateProjectionBoard();" />
+            <span id="stepVal" class="value">4</span>
+          </div>
+        </div>
+
+        <section class="jsx-stage">
+          <div id="projectionBoard" class="jxgbox"></div>
+          <aside class="relation-panel">
+            <div class="relation-card">
+              <h4>实时量</h4>
+              <div class="metric"><span>\(|AB|/|BC|\)</span><strong id="ratioMetric">0.500</strong></div>
+              <div class="metric"><span>\(\cos B\)</span><strong id="cosMetric">0.500</strong></div>
+              <div class="metric"><span>投影系数</span><strong id="projectionMetric">0.250</strong></div>
+            </div>
+            <div class="relation-card">
+              <h4>几何结构</h4>
+              <p id="stepText1">① \(O\) 是 \(BC\) 的中点。</p>
+              <p id="stepText2">② \(BC\) 是外接圆直径，所以 \(\angle A=90^\circ\)。</p>
+              <p id="stepText3">③ \(AB=\frac12BC\)，因此 \(\cos B=\frac12\)。</p>
+              <p id="stepText4">④ 投影向量为 \(\frac14\overrightarrow{BC}\)。</p>
+            </div>
+            <div class="relation-card">
+              <h4>公式链</h4>
+              <p>\[
+                \operatorname{proj}_{\overrightarrow{BC}}\overrightarrow{BA}
+                =
+                \frac{\overrightarrow{BA}\cdot\overrightarrow{BC}}{|\overrightarrow{BC}|^2}
+                \overrightarrow{BC}
+              \]</p>
+              <p>\[
+                \frac{|BA|}{|BC|}\cos B
+                =
+                \frac12\cdot\frac12
+                =
+                \frac14
+              \]</p>
+            </div>
+          </aside>
+        </section>
+
+        <section class="problem-notes math-note">
+          <h3>
+            <span>习题 6.2 第21题：外接圆圆心与投影向量</span>
+            <button class="math-favorite" type="button" aria-label="收藏">♥</button>
+          </h3>
+
+          <div class="note-block">
+            <h4>题目</h4>
+            <p>已知 \(\triangle ABC\) 的外接圆圆心为 \(O\)，且</p>
+            <p>\(2\overrightarrow{AO}=\overrightarrow{AB}+\overrightarrow{AC},\quad |OA|=|AB|\)。</p>
+            <p>则向量 \(\overrightarrow{BA}\) 在向量 \(\overrightarrow{BC}\) 上的投影向量为（　）。</p>
+            <ul class="option-list">
+              <li>A. \(\dfrac14\overrightarrow{BC}\)</li>
+              <li>B. \(\dfrac{\sqrt3}{4}\overrightarrow{BC}\)</li>
+              <li>C. \(-\dfrac14\overrightarrow{BC}\)</li>
+              <li>D. \(-\dfrac{\sqrt3}{4}\overrightarrow{BC}\)</li>
+            </ul>
+          </div>
+
+          <div class="note-block">
+            <h4>解析</h4>
+            <ul class="step-list">
+              <li><strong>条件提取：</strong>由 \(2\overrightarrow{AO}=\overrightarrow{AB}+\overrightarrow{AC}\)，得 \(\overrightarrow{AO}=\frac12(\overrightarrow{AB}+\overrightarrow{AC})\)，所以 \(O\) 是 \(BC\) 的中点。</li>
+              <li><strong>几何建模：</strong>\(O\) 又是外接圆圆心，因此 \(OA=OB=OC\)。若 \(O\) 是 \(BC\) 中点，则 \(BC\) 是外接圆直径，\(\angle A=90^\circ\)。</li>
+              <li><strong>计算：</strong>由 \(|OA|=|AB|\)，且 \(OA=\frac12BC\)，得 \(AB=\frac12BC\)，所以 \(\cos B=\frac{AB}{BC}=\frac12\)。投影系数为 \(\frac{|BA|}{|BC|}\cos B=\frac12\cdot\frac12=\frac14\)。</li>
+              <li><strong>结论：</strong>\(\operatorname{proj}_{\overrightarrow{BC}}\overrightarrow{BA}=\dfrac14\overrightarrow{BC}\)，选 A。</li>
+            </ul>
+          </div>
+
+          <div class="note-block">
+            <h4>近似题</h4>
+            <p>已知 \(\triangle ABC\) 的外接圆圆心为 \(O\)，且 \(O\) 是 \(BC\) 的中点，\(|AB|=\frac12|BC|\)。求 \(\overrightarrow{BA}\) 在 \(\overrightarrow{BC}\) 上的投影向量。</p>
+          </div>
+
+          <details class="note-block">
+            <summary>近似题答案</summary>
+            <p>\(\boxed{\dfrac14\overrightarrow{BC}}\)</p>
+          </details>
+
+          <details class="note-block">
+            <summary>近似题解题思路</summary>
+            <p>\(O\) 是外接圆圆心且为 \(BC\) 中点，所以 \(BC\) 是直径，\(\angle A=90^\circ\)。再由 \(|AB|=\frac12|BC|\)，得 \(\cos B=\frac12\)，投影系数为 \(\frac{|BA|}{|BC|}\cos B=\frac14\)。</p>
+          </details>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    var radiusValue = 3;
+    var stepValue = 4;
+    var board = null;
+    var pointA = null;
+    var pointB = null;
+    var pointC = null;
+    var pointO = null;
+    var pointP = null;
+    var circleABC = null;
+    var triAB = null;
+    var triAC = null;
+    var baseBC = null;
+    var arrowBA = null;
+    var arrowBC = null;
+    var projectionArrow = null;
+    var rightAngle1 = null;
+    var rightAngle2 = null;
+    var rightAngle3 = null;
+
+    function initProjectionBoard() {
+      if (!window.JXG) {
+        document.getElementById("projectionBoard").innerHTML = "JSXGraph 未加载，请检查网络。";
+        return;
+      }
+      board = JXG.JSXGraph.initBoard("projectionBoard", {
+        boundingbox: [-5.8, 4.3, 5.8, -3.7],
+        axis: false,
+        showCopyright: false,
+        showNavigation: false,
+        pan: { enabled: false },
+        zoom: { enabled: false },
+        keepaspectratio: true
+      });
+
+      pointO = board.create("point", [0, 0], pointStyle("O", "#2563eb", false));
+      pointB = board.create("point", [function() { return -radiusValue; }, 0], pointStyle("B", "#111827", false));
+      pointC = board.create("point", [function() { return radiusValue; }, 0], pointStyle("C", "#111827", false));
+      pointA = board.create("point", [
+        function() { return -radiusValue / 2; },
+        function() { return Math.sqrt(3) * radiusValue / 2; }
+      ], pointStyle("A", "#dc2626", false));
+      pointP = board.create("point", [function() { return -radiusValue / 2; }, 0], pointStyle("投影终点", "#f59e0b", false));
+
+      circleABC = board.create("circle", [pointO, pointB], {
+        strokeColor: "#cbd5e1",
+        strokeWidth: 2,
+        highlight: false
+      });
+      triAB = board.create("segment", [pointA, pointB], segmentStyle("#111827", 2));
+      triAC = board.create("segment", [pointA, pointC], segmentStyle("#111827", 2));
+      baseBC = board.create("segment", [pointB, pointC], segmentStyle("#111827", 2));
+      arrowBA = board.create("arrow", [pointB, pointA], segmentStyle("#dc2626", 3));
+      arrowBC = board.create("arrow", [
+        [function() { return -radiusValue; }, -0.42],
+        [function() { return radiusValue; }, -0.42]
+      ], segmentStyle("#2563eb", 3));
+      projectionArrow = board.create("arrow", [
+        [function() { return -radiusValue; }, -0.82],
+        [function() { return -radiusValue / 2; }, -0.82]
+      ], segmentStyle("#f59e0b", 4));
+
+      rightAngle1 = board.create("segment", [
+        [function() { return -radiusValue / 2 + 0.22; }, function() { return Math.sqrt(3) * radiusValue / 2 - 0.38; }],
+        [function() { return -radiusValue / 2 + 0.58; }, function() { return Math.sqrt(3) * radiusValue / 2 - 0.18; }]
+      ], segmentStyle("#14b8a6", 2));
+      rightAngle2 = board.create("segment", [
+        [function() { return -radiusValue / 2 + 0.58; }, function() { return Math.sqrt(3) * radiusValue / 2 - 0.18; }],
+        [function() { return -radiusValue / 2 + 0.78; }, function() { return Math.sqrt(3) * radiusValue / 2 - 0.54; }]
+      ], segmentStyle("#14b8a6", 2));
+      rightAngle3 = board.create("segment", [
+        [function() { return -radiusValue / 2 + 0.78; }, function() { return Math.sqrt(3) * radiusValue / 2 - 0.54; }],
+        [function() { return -radiusValue / 2 + 0.42; }, function() { return Math.sqrt(3) * radiusValue / 2 - 0.74; }]
+      ], segmentStyle("#14b8a6", 2));
+
+      board.create("text", [function() { return -radiusValue * 0.88; }, -1.15, "\\(\\overrightarrow{BC}\\)"], textStyle("#2563eb"));
+      board.create("text", [function() { return -radiusValue * 0.75; }, -1.55, "\\(\\frac14\\overrightarrow{BC}\\)"], textStyle("#f59e0b"));
+      board.create("text", [function() { return -radiusValue * 0.9; }, function() { return Math.sqrt(3) * radiusValue / 3; }, "\\(\\overrightarrow{BA}\\)"], textStyle("#dc2626"));
+
+      updateProjectionBoard();
+    }
+
+    function pointStyle(name, color, fixed) {
+      return {
+        name: name,
+        fixed: fixed,
+        size: 4,
+        strokeColor: color,
+        fillColor: color,
+        label: {
+          strokeColor: "#111827",
+          fontSize: 15,
+          offset: [8, 8]
+        },
+        highlight: false
+      };
+    }
+
+    function segmentStyle(color, width) {
+      return {
+        strokeColor: color,
+        strokeWidth: width,
+        highlight: false
+      };
+    }
+
+    function textStyle(color) {
+      return {
+        fixed: true,
+        fontSize: 16,
+        strokeColor: color,
+        useMathJax: true,
+        highlight: false
+      };
+    }
+
+    function updateProjectionBoard() {
+      document.getElementById("radiusVal").textContent = radiusValue.toFixed(1);
+      document.getElementById("stepVal").textContent = stepValue.toFixed(0);
+      document.getElementById("ratioMetric").textContent = "0.500";
+      document.getElementById("cosMetric").textContent = "0.500";
+      document.getElementById("projectionMetric").textContent = "0.250";
+      setObjectVisible(circleABC, stepValue >= 1);
+      setObjectVisible(baseBC, stepValue >= 1);
+      setObjectVisible(triAB, stepValue >= 2);
+      setObjectVisible(triAC, stepValue >= 2);
+      setObjectVisible(rightAngle1, stepValue >= 2);
+      setObjectVisible(rightAngle2, stepValue >= 2);
+      setObjectVisible(rightAngle3, stepValue >= 2);
+      setObjectVisible(arrowBA, stepValue >= 3);
+      setObjectVisible(arrowBC, stepValue >= 3);
+      setObjectVisible(projectionArrow, stepValue >= 4);
+      setStepText("stepText1", stepValue >= 1);
+      setStepText("stepText2", stepValue >= 2);
+      setStepText("stepText3", stepValue >= 3);
+      setStepText("stepText4", stepValue >= 4);
+      if (board) {
+        board.update();
+      }
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise();
+      }
+    }
+
+    function setObjectVisible(obj, visible) {
+      if (!obj) {
+        return;
+      }
+      obj.setAttribute({ visible: visible });
+    }
+
+    function setStepText(id, visible) {
+      var el = document.getElementById(id);
+      el.style.opacity = visible ? "1" : "0.25";
+    }
+
+    window.addEventListener("load", function() {
+      initProjectionBoard();
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise();
+      }
+    });
+  </script>
+</body>
+</html>

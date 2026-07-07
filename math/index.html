@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>FanMath 动态模型库</title>
+  <link rel="stylesheet" href="../assets/styles.css?v=20260707-fanmath-integrated" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+  <script>
+    window.MathJax = { startup: { typeset: false } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    .math-wrap {
+      width: min(1260px, calc(100vw - 28px));
+    }
+
+    .math-layout {
+      grid-template-columns: 230px minmax(0, 1000px);
+    }
+
+    .math-workspace {
+      display: grid;
+      gap: 16px;
+      width: min(100%, 1000px);
+      min-width: 0;
+    }
+
+    .math-controls,
+    .math-view,
+    .math-notes {
+      display: none;
+    }
+
+    .math-controls.active {
+      display: grid;
+    }
+
+    .math-view.active {
+      display: grid;
+    }
+
+    .math-notes.active {
+      display: block;
+    }
+
+    .math-notes {
+      width: 100%;
+    }
+
+    .math-controls {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .math-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 620px) minmax(0, 360px);
+      gap: 18px;
+      align-items: stretch;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.07);
+    }
+
+    .math-board {
+      width: 100%;
+      height: 500px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .math-side {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      min-height: 500px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f8fafc;
+      padding: 14px;
+      overflow: hidden;
+    }
+
+    .math-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+      overflow: hidden;
+    }
+
+    .math-card h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .math-card p {
+      margin: 6px 0;
+      color: #111827;
+      font-size: 15px;
+      line-height: 1.72;
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid #e5edf7;
+      color: #111827;
+      font-size: 15px;
+    }
+
+    .metric:last-child {
+      border-bottom: 0;
+    }
+
+    .metric strong {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .step-list li {
+      border-left: 3px solid var(--brand);
+      padding: 8px 0 8px 12px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.85;
+    }
+
+    .problem-options {
+      margin-top: 12px;
+    }
+
+    .problem-note-block details,
+    details.problem-note-block {
+      display: block;
+    }
+
+    details.problem-note-block summary {
+      cursor: pointer;
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.45;
+      font-weight: 900;
+    }
+
+    details.problem-note-block p {
+      margin-top: 10px;
+    }
+
+    .favorite-toggle {
+      font-size: 22px;
+    }
+
+    @media (max-width: 1040px) {
+      .math-wrap {
+        width: calc(100vw - 28px);
+        max-width: calc(100vw - 28px);
+        overflow-x: clip;
+      }
+
+      .math-layout {
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
+
+      .math-layout > *,
+      .math-controls,
+      .math-controls .control,
+      .math-stage,
+      .math-board,
+      .math-side,
+      .sidebar {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .math-stage {
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: calc(100vw - 28px);
+      }
+
+      .math-workspace,
+      .math-notes {
+        width: 100%;
+        max-width: calc(100vw - 28px);
+      }
+
+      .math-board,
+      .math-side {
+        min-height: 420px;
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .math-board svg {
+        max-width: 100%;
+      }
+
+      .math-controls {
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: calc(100vw - 28px);
+      }
+
+      .math-controls .control {
+        width: 100%;
+      }
+
+      .math-controls .control label {
+        width: 76px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap math-wrap">
+    <header class="brand-bar">
+      <button class="brand-lockup" type="button" onclick="switchModel('projection')" aria-label="返回 FanMath">
+        <span class="brand-mark">M</span>
+        <span>
+          <span class="brand-name">FanMath</span>
+          <span class="brand-tagline">Math Through Visualization</span>
+        </span>
+      </button>
+      <div class="hero-actions">
+        <a class="ghost-action" href="../classical-mechanics-demo.html">FanPhysics</a>
+      </div>
+    </header>
+
+    <div class="app-layout math-layout">
+      <aside class="sidebar">
+        <p class="tree-title">数学目录</p>
+        <details class="tree-node" open>
+          <summary class="tree-subfolder">平面向量</summary>
+          <div class="tree-children">
+            <button class="tree-item indent active" type="button" data-model-nav="projection">21-投影向量</button>
+            <button class="tree-item indent" type="button" data-model-nav="dotProduct">24-弦长与数量积</button>
+          </div>
+        </details>
+        <details class="tree-node" open>
+          <summary class="tree-subfolder">三角函数</summary>
+          <div class="tree-children">
+            <button class="tree-item indent" type="button" data-model-nav="trigSolve">6-解的个数</button>
+            <button class="tree-item indent" type="button" data-model-nav="tanProperty">7-正切性质</button>
+            <button class="tree-item indent" type="button" data-model-nav="trigParam">8-反推参数</button>
+          </div>
+        </details>
+      </aside>
+
+      <section class="workspace math-workspace">
+        <div id="projectionControls" class="controls math-controls active" data-model="projection">
+          <div class="control">
+            <label>半径 R</label>
+            <input id="projectionRadius" type="range" min="2" max="5" step="0.1" value="3" />
+            <span id="projectionRadiusVal" class="value">3.0</span>
+          </div>
+          <div class="control">
+            <label>显示步骤</label>
+            <input id="projectionStep" type="range" min="1" max="4" step="1" value="4" />
+            <span id="projectionStepVal" class="value">4</span>
+          </div>
+        </div>
+
+        <div id="dotProductControls" class="controls math-controls" data-model="dotProduct">
+          <div class="control">
+            <label>半径 R</label>
+            <input id="dotRadius" type="range" min="2" max="5" step="0.1" value="3" />
+            <span id="dotRadiusVal" class="value">3.0</span>
+          </div>
+          <div class="control">
+            <label>弦长 d</label>
+            <input id="dotChord" type="range" min="0.8" max="5.7" step="0.1" value="4" />
+            <span id="dotChordVal" class="value">4.0</span>
+          </div>
+        </div>
+
+        <div id="trigSolveControls" class="controls math-controls" data-model="trigSolve">
+          <div class="control">
+            <label>参数 a</label>
+            <input id="solveA" type="range" min="-3.2" max="0.08" step="0.01" value="-1.2" />
+            <span id="solveAVal" class="value">-1.20</span>
+          </div>
+          <div class="control">
+            <label>显示步骤</label>
+            <input id="solveStep" type="range" min="1" max="4" step="1" value="4" />
+            <span id="solveStepVal" class="value">4</span>
+          </div>
+        </div>
+
+        <div id="tanPropertyControls" class="controls math-controls" data-model="tanProperty">
+          <div class="control">
+            <label>周期编号 k</label>
+            <input id="tanK" type="range" min="-1" max="1" step="1" value="0" />
+            <span id="tanKVal" class="value">0</span>
+          </div>
+          <div class="control">
+            <label>观察宽度</label>
+            <input id="tanWidth" type="range" min="1" max="3" step="1" value="2" />
+            <span id="tanWidthVal" class="value">2</span>
+          </div>
+        </div>
+
+        <div id="trigParamControls" class="controls math-controls" data-model="trigParam">
+          <div class="control">
+            <label>\(\omega\)</label>
+            <input id="paramOmega" type="range" min="0.8" max="2.6" step="0.1" value="1.5" />
+            <span id="paramOmegaVal" class="value">1.5</span>
+          </div>
+          <div class="control">
+            <label>\(\varphi\)</label>
+            <input id="paramPhi" type="range" min="-1.4" max="1.4" step="0.05" value="0.785398" />
+            <span id="paramPhiVal" class="value">0.25π</span>
+          </div>
+        </div>
+
+        <section id="projectionView" class="math-view active" data-model="projection">
+          <div class="math-stage">
+            <div id="projectionBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>\(|AB|/|BC|\)</span><strong>0.500</strong></div>
+                <div class="metric"><span>\(\cos B\)</span><strong>0.500</strong></div>
+                <div class="metric"><span>投影系数</span><strong>0.250</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>公式链</h3>
+                <p>\[
+                  \operatorname{proj}_{\overrightarrow{BC}}\overrightarrow{BA}
+                  =
+                  \frac{\overrightarrow{BA}\cdot\overrightarrow{BC}}{|\overrightarrow{BC}|^2}
+                  \overrightarrow{BC}
+                \]</p>
+                <p>\[
+                  \frac{|BA|}{|BC|}\cos B=\frac12\cdot\frac12=\frac14
+                \]</p>
+              </div>
+              <div class="math-card">
+                <h3>构图步骤</h3>
+                <p id="projectionStepText1">① \(O\) 是 \(BC\) 的中点。</p>
+                <p id="projectionStepText2">② \(BC\) 是外接圆直径。</p>
+                <p id="projectionStepText3">③ \(AB=\frac12BC\)，所以 \(\cos B=\frac12\)。</p>
+                <p id="projectionStepText4">④ 投影向量为 \(\frac14\overrightarrow{BC}\)。</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="dotProductView" class="math-view" data-model="dotProduct">
+          <div class="math-stage">
+            <div id="dotBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>\(R\)</span><strong id="dotRadiusMetric">3.0</strong></div>
+                <div class="metric"><span>\(d=|AB|\)</span><strong id="dotChordMetric">4.0</strong></div>
+                <div class="metric"><span>\(\overrightarrow{AB}\cdot\overrightarrow{AC}\)</span><strong id="dotValueMetric">8.00</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>关键关系</h3>
+                <p>\[
+                  \cos\angle BAC
+                  =
+                  \frac{d^2+R^2-R^2}{2dR}
+                  =
+                  \frac{d}{2R}
+                \]</p>
+                <p>\[
+                  \overrightarrow{AB}\cdot\overrightarrow{AC}
+                  =
+                  dR\cdot\frac{d}{2R}
+                  =
+                  \frac12d^2
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="trigSolveView" class="math-view" data-model="trigSolve">
+          <div class="math-stage">
+            <div id="solveBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>\(a\)</span><strong id="solveAMetric">-1.20</strong></div>
+                <div class="metric"><span>\(t\) 根数</span><strong id="solveTRootMetric">1</strong></div>
+                <div class="metric"><span>\(x\) 解数</span><strong id="solveXRootMetric">2</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>双解判定</h3>
+                <p id="solveStepText1">① \(t=\sin x\)，\(x\in(\frac\pi6,\pi)\)，所以 \(t\in(0,1]\)。</p>
+                <p id="solveStepText2">② \(t\in(\frac12,1)\) 时，一个 \(t\) 对应两个 \(x\)。</p>
+                <p id="solveStepText3">③ \(g(t)\) 在 \((\frac12,1]\) 给出 \([-3,-\frac12)\)。</p>
+                <p id="solveStepText4">④ \(0\lt a\lt\frac1{16}\) 时两个 \(t\) 根各给一个 \(x\)。</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="tanPropertyView" class="math-view" data-model="tanProperty">
+          <div class="math-stage">
+            <div id="tanBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>无定义点</span><strong id="tanAsymMetric">\(-\frac\pi6\)</strong></div>
+                <div class="metric"><span>对称中心</span><strong id="tanCenterMetric">\(\frac\pi3\)</strong></div>
+                <div class="metric"><span>周期</span><strong>\(\pi\)</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>性质链</h3>
+                <p>\[
+                  f(x)=\tan\left(\frac\pi3-x\right)
+                \]</p>
+                <p>\[
+                  \frac\pi3-x=\frac\pi2+k\pi
+                  \Rightarrow x=k\pi-\frac\pi6
+                \]</p>
+                <p>\[
+                  \frac\pi3-x=k\pi
+                  \Rightarrow x=k\pi+\frac\pi3
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="trigParamView" class="math-view" data-model="trigParam">
+          <div class="math-stage">
+            <div id="paramBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>相邻交点距</span><strong id="paramGapMetric">1.047</strong></div>
+                <div class="metric"><span>目标距离</span><strong>\(\pi/3\)</strong></div>
+                <div class="metric"><span>奇函数相位</span><strong id="paramOddMetric">满足</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>参数链</h3>
+                <p>\[
+                  \omega |x_1-x_2|=\frac\pi2
+                \]</p>
+                <p>\[
+                  |x_1-x_2|=\frac\pi3
+                  \Rightarrow \omega=\frac32
+                \]</p>
+                <p>\[
+                  f\left(x-\frac\pi6\right)=
+                  \sin\left(\frac32x-\frac\pi4+\varphi\right)
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="projectionNotes" class="problem-notes math-notes active" data-model="projection">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 6.2 第21题：外接圆圆心与投影向量</h2>
+              <p>已知 \(\triangle ABC\) 的外接圆圆心为 \(O\)，且 \(2\overrightarrow{AO}=\overrightarrow{AB}+\overrightarrow{AC},\ |OA|=|AB|\)。则向量 \(\overrightarrow{BA}\) 在向量 \(\overrightarrow{BC}\) 上的投影向量为（　）。</p>
+              <div class="problem-options">
+                <p class="problem-option">A. \(\dfrac14\overrightarrow{BC}\)</p>
+                <p class="problem-option">B. \(\dfrac{\sqrt3}{4}\overrightarrow{BC}\)</p>
+                <p class="problem-option">C. \(-\dfrac14\overrightarrow{BC}\)</p>
+                <p class="problem-option">D. \(-\dfrac{\sqrt3}{4}\overrightarrow{BC}\)</p>
+              </div>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>条件提取：</strong>由 \(2\overrightarrow{AO}=\overrightarrow{AB}+\overrightarrow{AC}\)，得 \(O\) 是 \(BC\) 的中点。</li>
+                <li><strong>建模：</strong>\(O\) 又是外接圆圆心，所以 \(BC\) 是外接圆直径，\(\angle A=90^\circ\)。</li>
+                <li><strong>计算：</strong>\(|OA|=|AB|\)，且 \(OA=\frac12BC\)，故 \(AB=\frac12BC\)，\(\cos B=\frac12\)。</li>
+                <li><strong>结论：</strong>投影系数为 \(\frac{|BA|}{|BC|}\cos B=\frac14\)，选 A。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>已知 \(\triangle ABC\) 的外接圆圆心为 \(O\)，且 \(O\) 是 \(BC\) 的中点，\(|AB|=\frac12|BC|\)。求 \(\overrightarrow{BA}\) 在 \(\overrightarrow{BC}\) 上的投影向量。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{\dfrac14\overrightarrow{BC}}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>\(O\) 是外接圆圆心且为 \(BC\) 中点，所以 \(BC\) 是直径，\(\angle A=90^\circ\)。再由 \(|AB|=\frac12|BC|\)，得 \(\cos B=\frac12\)，投影系数为 \(\frac14\)。</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="dotProductNotes" class="problem-notes math-notes" data-model="dotProduct">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 6.2 第24题：圆中弦长与数量积</h2>
+              <p>如图，在 \(\odot C\) 中，是不是只需知道 \(\odot C\) 的半径或弦 \(AB\) 的长度，就可以求出 \(\overrightarrow{AB}\cdot\overrightarrow{AC}\) 的值？</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>条件提取：</strong>\(C\) 是圆心，\(A,B\) 在圆上，所以 \(CA=CB=R\)。设弦长 \(AB=d\)。</li>
+                <li><strong>建模：</strong>\(\overrightarrow{AB}\cdot\overrightarrow{AC}=|AB||AC|\cos\angle BAC=dR\cos\angle BAC\)。</li>
+                <li><strong>计算：</strong>由余弦定理，\(\cos\angle BAC=\frac{d}{2R}\)。</li>
+                <li><strong>结论：</strong>\(\overrightarrow{AB}\cdot\overrightarrow{AC}=\frac12d^2\)。只知道弦 \(AB\) 的长度可以求出；只知道半径不可以。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>在以 \(C\) 为圆心的圆中，\(A,B\) 是圆上两点。若 \(|AB|=8\)，求 \(\overrightarrow{AB}\cdot\overrightarrow{AC}\)。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{32}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>由模型 \(\overrightarrow{AB}\cdot\overrightarrow{AC}=\frac12|AB|^2\)。代入 \(|AB|=8\)，得 \(32\)。</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="trigSolveNotes" class="problem-notes math-notes" data-model="trigSolve">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>2026-06-29 第6题：参数范围与方程解的个数</h2>
+              <p>函数 \(f(x)=\sin x\)。若方程 \(f(x)-4[f(x)]^2=a\) 在区间 \((\frac\pi6,\pi)\) 内有两个不同的解，则实数 \(a\) 的取值范围为（　）。</p>
+              <div class="problem-options">
+                <p class="problem-option">A. \(\left(-1,0\right)\cup\left(0,\dfrac1{16}\right)\)</p>
+                <p class="problem-option">B. \(\left(-1,-\dfrac12\right)\cup\left(\dfrac1{16},\dfrac12\right)\)</p>
+                <p class="problem-option">C. \(\left(-3,-1\right)\cup\left(0,\dfrac14\right)\)</p>
+                <p class="problem-option">D. \(\left(-3,-\dfrac12\right)\cup\left(0,\dfrac1{16}\right)\)</p>
+              </div>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>条件提取：</strong>设 \(t=\sin x\)。当 \(x\in(\frac\pi6,\pi)\) 时，\(t\in(0,1]\)，且 \(t\in(\frac12,1)\) 会对应两个不同的 \(x\)。</li>
+                <li><strong>建模：</strong>方程化为 \(g(t)=t-4t^2=a\)。</li>
+                <li><strong>计算：</strong>\(g(1)=-3,\ g(\frac12)=-\frac12,\ g(0)=0,\ g(\frac18)=\frac1{16}\)。</li>
+                <li><strong>结论：</strong>\(a\in(-3,-\frac12)\cup(0,\frac1{16})\)，选 D。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>若方程 \(\sin x-3\sin^2x=a\) 在区间 \((\frac\pi6,\pi)\) 内有两个不同的解，求 \(a\) 的取值范围。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{\left(-2,-\frac14\right)\cup\left(0,\frac1{12}\right)}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>设 \(t=\sin x\)，则 \(h(t)=t-3t^2\)。在 \(t\in(\frac12,1)\) 上得到 \((-2,-\frac14)\)；在 \(0\lt a\lt\frac1{12}\) 时两个 \(t\) 根各对应一个 \(x\)。</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="tanPropertyNotes" class="problem-notes math-notes" data-model="tanProperty">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>2026-06-29 第7题：正切函数性质判断</h2>
+              <p>已知函数 \(f(x)=\tan(-x+\frac\pi3)\)，则下列说法正确的是（多选）。</p>
+              <div class="problem-options">
+                <p class="problem-option">A. \(f(x)\) 的定义域是 \(\{x\mid x\ne k\pi-\dfrac\pi6,\ k\in\mathbb Z\}\)</p>
+                <p class="problem-option">B. \(f(x)\) 的最小正周期为 \(2\pi\)</p>
+                <p class="problem-option">C. \(f(x)\) 在区间 \((k\pi-\dfrac\pi6,\ k\pi+\dfrac{5\pi}6)\) 上单调递减</p>
+                <p class="problem-option">D. \(f(x)\) 图像的对称中心为 \((k\pi+\dfrac\pi3,0)\)</p>
+              </div>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>定义域：</strong>令 \(\frac\pi3-x=\frac\pi2+k\pi\)，得 \(x=k\pi-\frac\pi6\)，A 正确。</li>
+                <li><strong>周期：</strong>\(\tan u\) 的最小正周期为 \(\pi\)，B 错误。</li>
+                <li><strong>单调性：</strong>\(\tan u\) 对 \(u\) 递增，但 \(u=\frac\pi3-x\) 随 \(x\) 递减，C 正确。</li>
+                <li><strong>对称中心：</strong>令 \(\frac\pi3-x=k\pi\)，得 \(x=k\pi+\frac\pi3\)，D 正确。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>已知 \(g(x)=\tan(2x-\frac\pi4)\)，写出定义域、最小正周期、单调区间和对称中心。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>定义域：\(x\ne\frac{3\pi}8+\frac{k\pi}2\)；周期：\(\frac\pi2\)；递增区间：\((-\frac\pi8+\frac{k\pi}2,\frac{3\pi}8+\frac{k\pi}2)\)；对称中心：\((\frac\pi8+\frac{k\pi}2,0)\)。</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>把 \(2x-\frac\pi4\) 分别代入正切函数的无定义点 \(\frac\pi2+k\pi\)、中心 \(k\pi\) 和单调区间 \((-\frac\pi2+k\pi,\frac\pi2+k\pi)\)。</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="trigParamNotes" class="problem-notes math-notes" data-model="trigParam">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>2026-06-29 第8题：由图像信息反推三角函数参数</h2>
+              <p>已知函数 \(f(x)=\sin(\omega x+\varphi)\)，\(0\lt\omega\lt3,\ |\varphi|\lt\frac\pi2\)。图像和直线 \(y=\frac{\sqrt2}{2}\) 相邻两交点横坐标距离为 \(\frac\pi3\)，且 \(y=f(x-\frac\pi6)\) 为奇函数，判断选项。</p>
+              <div class="problem-options">
+                <p class="problem-option">A. \(\omega=2\)</p>
+                <p class="problem-option">B. \(\varphi=\dfrac\pi4\)</p>
+                <p class="problem-option">C. 函数 \(f(x+\dfrac\pi6)\) 为偶函数</p>
+                <p class="problem-option">D. 函数 \(f(x)\) 在区间 \((0,\dfrac\pi3)\) 上单调递增</p>
+              </div>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>角差：</strong>\(\sin\theta=\frac{\sqrt2}{2}\) 的相邻两解角差为 \(\frac\pi2\)，故 \(\omega|x_1-x_2|=\frac\pi2\)。</li>
+                <li><strong>求 \(\omega\)：</strong>代入 \(|x_1-x_2|=\frac\pi3\)，得 \(\omega=\frac32\)，A 错。</li>
+                <li><strong>求 \(\varphi\)：</strong>\(f(x-\frac\pi6)=\sin(\frac32x-\frac\pi4+\varphi)\) 为奇函数，得 \(\varphi=\frac\pi4\)，B 对。</li>
+                <li><strong>判断：</strong>\(f(x+\frac\pi6)=\cos\frac32x\)，C 对；\(f(x)\) 在 \((0,\frac\pi3)\) 上不全递增，D 错。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>已知 \(f(x)=\sin(\omega x+\varphi)\)，\(0\lt\omega\lt4\)，与直线 \(y=\frac{\sqrt2}{2}\) 的相邻交点横坐标距离为 \(\frac\pi4\)，且 \(f(x-\frac\pi{12})\) 为奇函数，求 \(\omega,\varphi\)。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{\omega=2,\ \varphi=\frac\pi6}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>\(\sin\theta=\frac{\sqrt2}{2}\) 的相邻两解角差为 \(\frac\pi2\)，所以 \(\omega\cdot\frac\pi4=\frac\pi2\)，得 \(\omega=2\)。奇函数条件给出 \(\varphi-\omega\frac\pi{12}=k\pi\)，结合范围得 \(\varphi=\frac\pi6\)。</p>
+            </details>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    var activeModel = "projection";
+    var boards = {};
+    var state = {
+      projectionRadius: 3,
+      projectionStep: 4,
+      dotRadius: 3,
+      dotChord: 4,
+      solveA: -1.2,
+      solveStep: 4,
+      tanK: 0,
+      tanWidth: 2,
+      paramOmega: 1.5,
+      paramPhi: Math.PI / 4
+    };
+
+    function switchModel(model) {
+      activeModel = model;
+      document.querySelectorAll("[data-model-nav]").forEach(function(button) {
+        button.classList.toggle("active", button.dataset.modelNav === model);
+      });
+      document.querySelectorAll("[data-model]").forEach(function(section) {
+        section.classList.toggle("active", section.dataset.model === model);
+      });
+      ensureBoard(model);
+      typesetMath();
+    }
+
+    function ensureBoard(model) {
+      if (boards[model] || !window.JXG) {
+        return;
+      }
+      if (model === "projection") initProjection();
+      if (model === "dotProduct") initDotProduct();
+      if (model === "trigSolve") initTrigSolve();
+      if (model === "tanProperty") initTanProperty();
+      if (model === "trigParam") initTrigParam();
+    }
+
+    function initProjection() {
+      var board = JXG.JSXGraph.initBoard("projectionBoard", boardOptions([-5.8, 4.3, 5.8, -3.7], false));
+      boards.projection = { board: board };
+      var O = board.create("point", [0, 0], pointStyle("O", "#2563eb"));
+      var B = board.create("point", [function() { return -state.projectionRadius; }, 0], pointStyle("B", "#111827"));
+      var C = board.create("point", [function() { return state.projectionRadius; }, 0], pointStyle("C", "#111827"));
+      var A = board.create("point", [
+        function() { return -state.projectionRadius / 2; },
+        function() { return Math.sqrt(3) * state.projectionRadius / 2; }
+      ], pointStyle("A", "#dc2626"));
+      var circle = board.create("circle", [O, B], lineStyle("#cbd5e1", 2));
+      var AB = board.create("segment", [A, B], lineStyle("#111827", 2));
+      var AC = board.create("segment", [A, C], lineStyle("#111827", 2));
+      var BC = board.create("segment", [B, C], lineStyle("#111827", 2));
+      var arrowBA = board.create("arrow", [B, A], lineStyle("#dc2626", 3));
+      var arrowBC = board.create("arrow", [[function() { return -state.projectionRadius; }, -0.48], [function() { return state.projectionRadius; }, -0.48]], lineStyle("#2563eb", 3));
+      var proj = board.create("arrow", [[function() { return -state.projectionRadius; }, -0.92], [function() { return -state.projectionRadius / 2; }, -0.92]], lineStyle("#f59e0b", 4));
+      board.create("text", [function() { return -state.projectionRadius * 0.86; }, -1.18, "\\(\\overrightarrow{BC}\\)"], textStyle("#2563eb"));
+      board.create("text", [function() { return -state.projectionRadius * 0.82; }, -1.58, "\\(\\frac14\\overrightarrow{BC}\\)"], textStyle("#f59e0b"));
+      board.create("text", [function() { return -state.projectionRadius * 0.9; }, function() { return Math.sqrt(3) * state.projectionRadius / 3; }, "\\(\\overrightarrow{BA}\\)"], textStyle("#dc2626"));
+      boards.projection.objects = { circle: circle, AB: AB, AC: AC, BC: BC, arrowBA: arrowBA, arrowBC: arrowBC, proj: proj };
+      updateProjection();
+    }
+
+    function updateProjection() {
+      readRange("projectionRadius", "projectionRadiusVal", 1);
+      readRange("projectionStep", "projectionStepVal", 0);
+      var step = state.projectionStep;
+      var objects = boards.projection && boards.projection.objects;
+      if (objects) {
+        setVisible(objects.circle, step >= 1);
+        setVisible(objects.BC, step >= 1);
+        setVisible(objects.AB, step >= 2);
+        setVisible(objects.AC, step >= 2);
+        setVisible(objects.arrowBA, step >= 3);
+        setVisible(objects.arrowBC, step >= 3);
+        setVisible(objects.proj, step >= 4);
+        boards.projection.board.update();
+      }
+      setOpacity("projectionStepText1", step >= 1);
+      setOpacity("projectionStepText2", step >= 2);
+      setOpacity("projectionStepText3", step >= 3);
+      setOpacity("projectionStepText4", step >= 4);
+      typesetMath();
+    }
+
+    function initDotProduct() {
+      var board = JXG.JSXGraph.initBoard("dotBoard", boardOptions([-5.8, 4.3, 5.8, -3.7], false));
+      boards.dotProduct = { board: board };
+      var C = board.create("point", [0, 0], pointStyle("C", "#2563eb"));
+      var A = board.create("point", [
+        function() { return -state.dotChord / 2; },
+        function() { return chordHeight(); }
+      ], pointStyle("A", "#dc2626"));
+      var B = board.create("point", [
+        function() { return state.dotChord / 2; },
+        function() { return chordHeight(); }
+      ], pointStyle("B", "#111827"));
+      var circle = board.create("circle", [C, state.dotRadius], lineStyle("#cbd5e1", 2));
+      board.create("segment", [A, B], lineStyle("#2563eb", 3));
+      board.create("segment", [C, A], lineStyle("#111827", 2));
+      board.create("segment", [C, B], lineStyle("#111827", 2));
+      board.create("arrow", [A, B], lineStyle("#2563eb", 4));
+      board.create("arrow", [A, C], lineStyle("#dc2626", 4));
+      board.create("text", [function() { return -state.dotChord * 0.12; }, function() { return chordHeight() + 0.28; }, "\\(\\overrightarrow{AB}\\)"], textStyle("#2563eb"));
+      board.create("text", [function() { return -state.dotChord * 0.34; }, function() { return chordHeight() / 2; }, "\\(\\overrightarrow{AC}\\)"], textStyle("#dc2626"));
+      boards.dotProduct.objects = { circle: circle };
+      updateDotProduct();
+    }
+
+    function updateDotProduct() {
+      readRange("dotRadius", "dotRadiusVal", 1);
+      var maxChord = state.dotRadius * 1.9;
+      var chordInput = document.getElementById("dotChord");
+      chordInput.max = maxChord.toFixed(1);
+      if (chordInput.valueAsNumber > maxChord) {
+        chordInput.value = maxChord.toFixed(1);
+      }
+      readRange("dotChord", "dotChordVal", 1);
+      document.getElementById("dotRadiusMetric").textContent = state.dotRadius.toFixed(1);
+      document.getElementById("dotChordMetric").textContent = state.dotChord.toFixed(1);
+      document.getElementById("dotValueMetric").textContent = (0.5 * state.dotChord * state.dotChord).toFixed(2);
+      if (boards.dotProduct) {
+        boards.dotProduct.objects.circle.setRadius(state.dotRadius);
+        boards.dotProduct.board.update();
+      }
+      typesetMath();
+    }
+
+    function initTrigSolve() {
+      var board = JXG.JSXGraph.initBoard("solveBoard", boardOptions([-0.08, 0.25, 1.08, -3.35], true));
+      boards.trigSolve = { board: board };
+      board.create("functiongraph", [function(t) { return t - 4 * t * t; }, 0, 1], lineStyle("#2563eb", 3));
+      board.create("line", [[0, function() { return state.solveA; }], [1, function() { return state.solveA; }]], lineStyle("#dc2626", 2));
+      board.create("line", [[0.5, -3.35], [0.5, 0.25]], lineStyle("#94a3b8", 1));
+      board.create("point", [0.125, 0.0625], pointStyle("顶点", "#f59e0b"));
+      var p1 = board.create("point", [function() { return rootsForA(state.solveA)[0]; }, function() { return state.solveA; }], pointStyle("根1", "#dc2626"));
+      var p2 = board.create("point", [function() { return rootsForA(state.solveA)[1]; }, function() { return state.solveA; }], pointStyle("根2", "#dc2626"));
+      board.create("text", [0.58, -0.18, "\\(t\\in(\\frac12,1)\\Rightarrow 两个\\ x\\)"], textStyle("#111827"));
+      board.create("text", [0.16, 0.16, "\\(g(t)=t-4t^2\\)"], textStyle("#2563eb"));
+      boards.trigSolve.objects = { p1: p1, p2: p2 };
+      updateTrigSolve();
+    }
+
+    function updateTrigSolve() {
+      readRange("solveA", "solveAVal", 2);
+      readRange("solveStep", "solveStepVal", 0);
+      document.getElementById("solveAMetric").textContent = state.solveA.toFixed(2);
+      var roots = rootsForA(state.solveA);
+      var tCount = roots.filter(function(t) { return t >= 0 && t <= 1; }).length;
+      var xCount = roots.reduce(function(sum, t) {
+        if (t > 0.5 && t < 1) return sum + 2;
+        if ((t > 0 && t <= 0.5) || Math.abs(t - 1) < 0.0001) return sum + 1;
+        return sum;
+      }, 0);
+      document.getElementById("solveTRootMetric").textContent = String(tCount);
+      document.getElementById("solveXRootMetric").textContent = String(xCount);
+      setOpacity("solveStepText1", state.solveStep >= 1);
+      setOpacity("solveStepText2", state.solveStep >= 2);
+      setOpacity("solveStepText3", state.solveStep >= 3);
+      setOpacity("solveStepText4", state.solveStep >= 4);
+      if (boards.trigSolve) {
+        boards.trigSolve.objects.p1.setAttribute({ visible: roots[0] >= 0 && roots[0] <= 1 });
+        boards.trigSolve.objects.p2.setAttribute({ visible: roots[1] >= 0 && roots[1] <= 1 });
+        boards.trigSolve.board.update();
+      }
+      typesetMath();
+    }
+
+    function initTanProperty() {
+      var board = JXG.JSXGraph.initBoard("tanBoard", boardOptions([-4.4, 4.2, 4.4, -4.2], true));
+      boards.tanProperty = { board: board };
+      board.create("functiongraph", [function(x) { return Math.tan(Math.PI / 3 - x); }, -10, 10], lineStyle("#2563eb", 3));
+      board.create("line", [[function() { return state.tanK * Math.PI - Math.PI / 6; }, -4], [function() { return state.tanK * Math.PI - Math.PI / 6; }, 4]], lineStyle("#dc2626", 2));
+      board.create("line", [[function() { return state.tanK * Math.PI + 5 * Math.PI / 6; }, -4], [function() { return state.tanK * Math.PI + 5 * Math.PI / 6; }, 4]], lineStyle("#dc2626", 2));
+      board.create("point", [function() { return state.tanK * Math.PI + Math.PI / 3; }, 0], pointStyle("中心", "#f59e0b"));
+      updateTanProperty();
+    }
+
+    function updateTanProperty() {
+      readRange("tanK", "tanKVal", 0);
+      readRange("tanWidth", "tanWidthVal", 0);
+      document.getElementById("tanAsymMetric").innerHTML = "\\(" + piLabel(state.tanK, -1 / 6) + "\\)";
+      document.getElementById("tanCenterMetric").innerHTML = "\\(" + piLabel(state.tanK, 1 / 3) + "\\)";
+      if (boards.tanProperty) {
+        var left = state.tanK * Math.PI - state.tanWidth * Math.PI;
+        var right = state.tanK * Math.PI + state.tanWidth * Math.PI;
+        boards.tanProperty.board.setBoundingBox([left, 4.2, right, -4.2], false);
+        boards.tanProperty.board.update();
+      }
+      typesetMath();
+    }
+
+    function initTrigParam() {
+      var board = JXG.JSXGraph.initBoard("paramBoard", boardOptions([-0.8, 1.35, 4.6, -1.35], true));
+      boards.trigParam = { board: board };
+      board.create("functiongraph", [function(x) { return Math.sin(state.paramOmega * x + state.paramPhi); }, -1, 5], lineStyle("#2563eb", 3));
+      board.create("line", [[-1, Math.SQRT1_2], [5, Math.SQRT1_2]], lineStyle("#dc2626", 2));
+      board.create("point", [function() { return paramX1(); }, Math.SQRT1_2], pointStyle("A", "#dc2626"));
+      board.create("point", [function() { return paramX2(); }, Math.SQRT1_2], pointStyle("B", "#dc2626"));
+      board.create("text", [0.38, 1.12, "\\(y=\\frac{\\sqrt2}{2}\\)"], textStyle("#dc2626"));
+      updateTrigParam();
+    }
+
+    function updateTrigParam() {
+      readRange("paramOmega", "paramOmegaVal", 1);
+      readRange("paramPhi", null, 2);
+      document.getElementById("paramPhiVal").textContent = (state.paramPhi / Math.PI).toFixed(2) + "π";
+      document.getElementById("paramGapMetric").textContent = Math.abs(paramX2() - paramX1()).toFixed(3);
+      var oddRemainder = Math.abs(normalizeAngle(state.paramPhi - state.paramOmega * Math.PI / 6));
+      document.getElementById("paramOddMetric").textContent = oddRemainder < 0.04 ? "满足" : "未满足";
+      if (boards.trigParam) {
+        boards.trigParam.board.update();
+      }
+      typesetMath();
+    }
+
+    function boardOptions(box, axis) {
+      return {
+        boundingbox: box,
+        axis: axis,
+        showCopyright: false,
+        showNavigation: false,
+        pan: { enabled: false },
+        zoom: { enabled: false },
+        keepaspectratio: !axis
+      };
+    }
+
+    function pointStyle(name, color) {
+      return {
+        name: name,
+        fixed: true,
+        size: 4,
+        strokeColor: color,
+        fillColor: color,
+        label: { strokeColor: "#111827", fontSize: 15, offset: [8, 8] },
+        highlight: false
+      };
+    }
+
+    function lineStyle(color, width) {
+      return { strokeColor: color, strokeWidth: width, highlight: false };
+    }
+
+    function textStyle(color) {
+      return { fixed: true, fontSize: 15, strokeColor: color, useMathJax: true, highlight: false };
+    }
+
+    function readRange(id, valueId, digits) {
+      state[id] = document.getElementById(id).valueAsNumber;
+      if (valueId) {
+        document.getElementById(valueId).textContent = state[id].toFixed(digits);
+      }
+    }
+
+    function setVisible(object, visible) {
+      object.setAttribute({ visible: visible });
+    }
+
+    function setOpacity(id, visible) {
+      document.getElementById(id).style.opacity = visible ? "1" : "0.25";
+    }
+
+    function chordHeight() {
+      return Math.sqrt(Math.max(0, state.dotRadius * state.dotRadius - state.dotChord * state.dotChord / 4));
+    }
+
+    function rootsForA(a) {
+      var d = 1 - 16 * a;
+      if (d < 0) return [-1, -1];
+      var root = Math.sqrt(d);
+      return [(1 - root) / 8, (1 + root) / 8];
+    }
+
+    function paramX1() {
+      return (Math.PI / 4 - state.paramPhi) / state.paramOmega;
+    }
+
+    function paramX2() {
+      return (3 * Math.PI / 4 - state.paramPhi) / state.paramOmega;
+    }
+
+    function normalizeAngle(angle) {
+      var twoPi = 2 * Math.PI;
+      var normalized = ((angle + Math.PI) % twoPi + twoPi) % twoPi - Math.PI;
+      if (Math.abs(Math.abs(normalized) - Math.PI) < 0.0001) return 0;
+      return normalized;
+    }
+
+    function piLabel(k, offset) {
+      var tail = fractionPi(offset);
+      if (k === 0) return tail;
+      if (offset > 0) return k + "\\pi+" + tail;
+      return k + "\\pi" + tail;
+    }
+
+    function fractionPi(value) {
+      if (Math.abs(value - 1 / 3) < 0.001) return "\\frac\\pi3";
+      if (Math.abs(value + 1 / 6) < 0.001) return "-\\frac\\pi6";
+      return value.toFixed(2) + "\\pi";
+    }
+
+    function typesetMath() {
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise();
+      }
+    }
+
+    function bindControls() {
+      document.querySelectorAll("[data-model-nav]").forEach(function(button) {
+        button.addEventListener("click", function() {
+          switchModel(button.dataset.modelNav);
+        });
+      });
+      document.getElementById("projectionRadius").addEventListener("input", updateProjection);
+      document.getElementById("projectionStep").addEventListener("input", updateProjection);
+      document.getElementById("dotRadius").addEventListener("input", updateDotProduct);
+      document.getElementById("dotChord").addEventListener("input", updateDotProduct);
+      document.getElementById("solveA").addEventListener("input", updateTrigSolve);
+      document.getElementById("solveStep").addEventListener("input", updateTrigSolve);
+      document.getElementById("tanK").addEventListener("input", updateTanProperty);
+      document.getElementById("tanWidth").addEventListener("input", updateTanProperty);
+      document.getElementById("paramOmega").addEventListener("input", updateTrigParam);
+      document.getElementById("paramPhi").addEventListener("input", updateTrigParam);
+    }
+
+    window.addEventListener("load", function() {
+      bindControls();
+      ensureBoard("projection");
+      typesetMath();
+    });
+  </script>
+</body>
+</html>

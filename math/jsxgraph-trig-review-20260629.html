@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>FanMath JSXGraph：2026-06-29 三角函数复盘</title>
+  <link rel="stylesheet" href="../assets/styles.css?v=20260707-jsxgraph-trig-review" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+  <script>
+    window.MathJax = { startup: { typeset: false } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    .math-wrap {
+      width: min(1260px, calc(100vw - 28px));
+    }
+
+    .math-layout {
+      grid-template-columns: 230px minmax(0, 1000px);
+    }
+
+    .jsx-workspace {
+      display: grid;
+      gap: 16px;
+    }
+
+    .model-view {
+      display: none;
+      gap: 16px;
+    }
+
+    .model-view.active {
+      display: grid;
+    }
+
+    .model-controls {
+      display: none;
+    }
+
+    .model-controls.active {
+      display: grid;
+    }
+
+    .jsx-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 620px) minmax(0, 360px);
+      gap: 18px;
+      align-items: stretch;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px;
+    }
+
+    .jxgbox {
+      width: 100%;
+      height: 500px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .relation-panel {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      min-height: 500px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f8fafc;
+      padding: 16px;
+    }
+
+    .relation-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+    }
+
+    .relation-card h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .relation-card p {
+      margin: 6px 0;
+      color: #111827;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid #e5edf7;
+      color: #111827;
+      font-size: 15px;
+    }
+
+    .metric:last-child {
+      border-bottom: 0;
+    }
+
+    .metric strong {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .step-list li {
+      border-left: 3px solid #2563eb;
+      padding: 8px 0 8px 12px;
+      color: #111827;
+      line-height: 1.8;
+    }
+
+    .option-list {
+      display: grid;
+      gap: 6px;
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .option-list li {
+      margin: 0;
+      line-height: 1.75;
+    }
+
+    .math-note {
+      display: none;
+    }
+
+    .math-note.active {
+      display: block;
+    }
+
+    .math-note h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 0 0 14px;
+      font-size: 22px;
+    }
+
+    .math-favorite {
+      border: 0;
+      background: transparent;
+      color: #dc2626;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    @media (max-width: 1040px) {
+      .jsx-stage {
+        grid-template-columns: 1fr;
+      }
+
+      .relation-panel,
+      .jxgbox {
+        min-height: 420px;
+        height: 420px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap math-wrap">
+    <header class="brand-bar">
+      <a class="brand-lockup" href="./index.html" aria-label="返回 FanMath">
+        <span class="brand-mark">M</span>
+        <span>
+          <span class="brand-name">FanMath</span>
+          <span class="brand-tagline">JSXGraph Function Board</span>
+        </span>
+      </a>
+      <div class="hero-actions">
+        <a class="ghost-action" href="./jsxgraph-projection.html">平面向量</a>
+      </div>
+    </header>
+
+    <div class="app-layout math-layout">
+      <aside class="sidebar">
+        <p class="tree-title">数学目录</p>
+        <details class="tree-node" open>
+          <summary class="tree-subfolder">平面向量</summary>
+          <div class="tree-children">
+            <a class="tree-item indent" href="./index.html">21-投影向量</a>
+            <a class="tree-item indent" href="./index.html">24-弦长与数量积</a>
+          </div>
+        </details>
+        <details class="tree-node" open>
+          <summary class="tree-subfolder">三角函数</summary>
+          <div class="tree-children">
+            <button id="navSolve" class="tree-item indent active" type="button" onclick="switchTrigModel('solve')">6-解的个数</button>
+            <button id="navTan" class="tree-item indent" type="button" onclick="switchTrigModel('tan')">7-正切性质</button>
+            <button id="navParam" class="tree-item indent" type="button" onclick="switchTrigModel('param')">8-反推参数</button>
+          </div>
+        </details>
+      </aside>
+
+      <section class="workspace jsx-workspace">
+        <div id="solveControls" class="controls model-controls active">
+          <div class="control">
+            <label>参数 a</label>
+            <input id="aInput" type="range" min="-3.2" max="0.08" step="0.01" value="-1.2" oninput="aValue=this.valueAsNumber; updateSolveModel();" />
+            <span id="aVal" class="value">-1.20</span>
+          </div>
+          <div class="control">
+            <label>显示阈值</label>
+            <input id="solveStepInput" type="range" min="1" max="4" step="1" value="4" oninput="solveStep=this.valueAsNumber; updateSolveModel();" />
+            <span id="solveStepVal" class="value">4</span>
+          </div>
+        </div>
+
+        <div id="tanControls" class="controls model-controls">
+          <div class="control">
+            <label>周期编号 k</label>
+            <input id="tanKInput" type="range" min="-1" max="1" step="1" value="0" oninput="tanK=this.valueAsNumber; updateTanModel();" />
+            <span id="tanKVal" class="value">0</span>
+          </div>
+          <div class="control">
+            <label>观察宽度</label>
+            <input id="tanZoomInput" type="range" min="1" max="3" step="1" value="2" oninput="tanZoom=this.valueAsNumber; updateTanModel();" />
+            <span id="tanZoomVal" class="value">2</span>
+          </div>
+        </div>
+
+        <div id="paramControls" class="controls model-controls">
+          <div class="control">
+            <label>\(\omega\)</label>
+            <input id="omegaInput" type="range" min="0.8" max="2.6" step="0.1" value="1.5" oninput="omegaValue=this.valueAsNumber; updateParamModel();" />
+            <span id="omegaVal" class="value">1.5</span>
+          </div>
+          <div class="control">
+            <label>\(\varphi\)</label>
+            <input id="phiInput" type="range" min="-1.4" max="1.4" step="0.05" value="0.785398" oninput="phiValue=this.valueAsNumber; updateParamModel();" />
+            <span id="phiVal" class="value">0.25π</span>
+          </div>
+        </div>
+
+        <section id="solveView" class="model-view active">
+          <section class="jsx-stage">
+            <div id="solveBoard" class="jxgbox"></div>
+            <aside class="relation-panel">
+              <div class="relation-card">
+                <h4>实时量</h4>
+                <div class="metric"><span>\(a\)</span><strong id="aMetric">-1.20</strong></div>
+                <div class="metric"><span>\(t\) 根数</span><strong id="tRootMetric">1</strong></div>
+                <div class="metric"><span>\(x\) 解数</span><strong id="xRootMetric">2</strong></div>
+              </div>
+              <div class="relation-card">
+                <h4>双解判定</h4>
+                <p id="solveText1">① \(t=\sin x\)，且 \(x\in(\frac\pi6,\pi)\)，所以 \(t\in(0,1]\)。</p>
+                <p id="solveText2">② 当 \(t\in(\frac12,1)\) 时，同一个 \(t\) 对应两个 \(x\)。</p>
+                <p id="solveText3">③ \(g(t)=t-4t^2\) 在 \((\frac12,1]\) 上取 \([-3,-\frac12)\)。</p>
+                <p id="solveText4">④ 另有 \(t\in(0,\frac18)\) 只对应一个 \(x\)，与右侧另一个根合成双解，给出 \((0,\frac1{16})\)。</p>
+              </div>
+              <div class="relation-card">
+                <h4>结论</h4>
+                <p>\[
+                  a\in\left(-3,-\frac12\right)\cup\left(0,\frac1{16}\right)
+                \]</p>
+              </div>
+            </aside>
+          </section>
+        </section>
+
+        <section id="tanView" class="model-view">
+          <section class="jsx-stage">
+            <div id="tanBoard" class="jxgbox"></div>
+            <aside class="relation-panel">
+              <div class="relation-card">
+                <h4>实时量</h4>
+                <div class="metric"><span>无定义点</span><strong id="asymMetric">-\(\frac\pi6\)</strong></div>
+                <div class="metric"><span>对称中心</span><strong id="centerMetric">\(\frac\pi3\)</strong></div>
+                <div class="metric"><span>周期</span><strong>\(\pi\)</strong></div>
+              </div>
+              <div class="relation-card">
+                <h4>性质链</h4>
+                <p>\[
+                  f(x)=\tan\left(\frac\pi3-x\right)
+                \]</p>
+                <p>\[
+                  \frac\pi3-x=\frac\pi2+k\pi
+                  \Rightarrow x=k\pi-\frac\pi6
+                \]</p>
+                <p>\[
+                  \frac\pi3-x=k\pi
+                  \Rightarrow x=k\pi+\frac\pi3
+                \]</p>
+              </div>
+            </aside>
+          </section>
+        </section>
+
+        <section id="paramView" class="model-view">
+          <section class="jsx-stage">
+            <div id="paramBoard" class="jxgbox"></div>
+            <aside class="relation-panel">
+              <div class="relation-card">
+                <h4>实时量</h4>
+                <div class="metric"><span>相邻交点距</span><strong id="gapMetric">1.047</strong></div>
+                <div class="metric"><span>目标距离</span><strong>\(\pi/3\)</strong></div>
+                <div class="metric"><span>奇函数相位</span><strong id="oddMetric">满足</strong></div>
+              </div>
+              <div class="relation-card">
+                <h4>参数链</h4>
+                <p>\[
+                  \omega |x_1-x_2|=\frac\pi2
+                \]</p>
+                <p>\[
+                  |x_1-x_2|=\frac\pi3
+                  \Rightarrow \omega=\frac32
+                \]</p>
+                <p>\[
+                  f\left(x-\frac\pi6\right)=
+                  \sin\left(\frac32x-\frac\pi4+\varphi\right)
+                \]</p>
+              </div>
+            </aside>
+          </section>
+        </section>
+
+        <section id="solveNotes" class="problem-notes math-note active">
+          <h3>
+            <span>2026-06-29 第6题：参数范围与方程解的个数</span>
+            <button class="math-favorite" type="button" aria-label="收藏">♥</button>
+          </h3>
+          <div class="note-block">
+            <h4>题目</h4>
+            <p>函数 \(f(x)=\sin x\)。若方程 \(f(x)-4[f(x)]^2=a\) 在区间 \((\frac\pi6,\pi)\) 内有两个不同的解，则实数 \(a\) 的取值范围为（　）。</p>
+            <ul class="option-list">
+              <li>A. \(\left(-1,0\right)\cup\left(0,\dfrac1{16}\right)\)</li>
+              <li>B. \(\left(-1,-\dfrac12\right)\cup\left(\dfrac1{16},\dfrac12\right)\)</li>
+              <li>C. \(\left(-3,-1\right)\cup\left(0,\dfrac14\right)\)</li>
+              <li>D. \(\left(-3,-\dfrac12\right)\cup\left(0,\dfrac1{16}\right)\)</li>
+            </ul>
+          </div>
+          <div class="note-block">
+            <h4>解析</h4>
+            <ul class="step-list">
+              <li><strong>条件提取：</strong>设 \(t=\sin x\)。当 \(x\in(\frac\pi6,\pi)\) 时，\(t\in(0,1]\)，其中 \(t\in(\frac12,1)\) 会对应两个不同的 \(x\)。</li>
+              <li><strong>建模：</strong>方程化为 \(g(t)=t-4t^2=a\)，问题变成水平线 \(y=a\) 与抛物线 \(g(t)\) 的交点，再判断每个 \(t\) 对应几个 \(x\)。</li>
+              <li><strong>计算：</strong>\(g(1)=-3,\ g(\frac12)=-\frac12,\ g(0)=0,\ g(\frac18)=\frac1{16}\)。因此 \(t\in(\frac12,1)\) 给出 \((-3,-\frac12)\)，而 \(0\lt a\lt\frac1{16}\) 时两个 \(t\) 根分别产生一个 \(x\)，也恰好两个解。</li>
+              <li><strong>结论：</strong>\(a\in(-3,-\frac12)\cup(0,\frac1{16})\)，选 D。</li>
+            </ul>
+          </div>
+          <div class="note-block">
+            <h4>近似题</h4>
+            <p>若方程 \(\sin x-3\sin^2x=a\) 在区间 \((\frac\pi6,\pi)\) 内有两个不同的解，求 \(a\) 的取值范围。</p>
+          </div>
+          <details class="note-block">
+            <summary>近似题答案</summary>
+            <p>\(\boxed{\left(-2,-\frac14\right)\cup\left(0,\frac1{12}\right)}\)</p>
+          </details>
+          <details class="note-block">
+            <summary>近似题解题思路</summary>
+            <p>设 \(t=\sin x\)，则 \(h(t)=t-3t^2\)。在 \(t\in(\frac12,1)\) 上，\(h(t)\in(-2,-\frac14)\) 且一个 \(t\) 对应两个 \(x\)；在 \(t\in(0,\frac16)\) 与 \(t\in(\frac16,\frac12)\) 两侧各有一个 \(t\) 根时，对应两个 \(x\)，得 \(0\lt a\lt\frac1{12}\)。</p>
+          </details>
+        </section>
+
+        <section id="tanNotes" class="problem-notes math-note">
+          <h3>
+            <span>2026-06-29 第7题：正切函数性质判断</span>
+            <button class="math-favorite" type="button" aria-label="收藏">♥</button>
+          </h3>
+          <div class="note-block">
+            <h4>题目</h4>
+            <p>已知函数 \(f(x)=\tan(-x+\frac\pi3)\)，则下列说法正确的是（多选）。</p>
+            <ul class="option-list">
+              <li>A. \(f(x)\) 的定义域是 \(\{x\mid x\ne k\pi-\dfrac\pi6,\ k\in\mathbb Z\}\)</li>
+              <li>B. \(f(x)\) 的最小正周期为 \(2\pi\)</li>
+              <li>C. \(f(x)\) 在区间 \((k\pi-\dfrac\pi6,\ k\pi+\dfrac{5\pi}6)\ (k\in\mathbb Z)\) 上单调递减</li>
+              <li>D. \(f(x)\) 图像的对称中心为 \((k\pi+\dfrac\pi3,0)\ (k\in\mathbb Z)\)</li>
+            </ul>
+          </div>
+          <div class="note-block">
+            <h4>解析</h4>
+            <ul class="step-list">
+              <li><strong>定义域：</strong>令 \(\frac\pi3-x=\frac\pi2+k\pi\)，得 \(x=k\pi-\frac\pi6\)，所以 A 正确。</li>
+              <li><strong>周期：</strong>\(\tan u\) 的最小正周期为 \(\pi\)，内层系数绝对值为 \(1\)，所以周期仍为 \(\pi\)，B 错误。</li>
+              <li><strong>单调性：</strong>\(\tan u\) 对 \(u\) 递增，但 \(u=\frac\pi3-x\) 随 \(x\) 递减，所以每个定义区间内函数递减，C 正确。</li>
+              <li><strong>对称中心：</strong>令 \(\frac\pi3-x=k\pi\)，得 \(x=k\pi+\frac\pi3\)，D 正确。</li>
+            </ul>
+          </div>
+          <div class="note-block">
+            <h4>近似题</h4>
+            <p>已知 \(g(x)=\tan(2x-\frac\pi4)\)，写出定义域、最小正周期、单调区间和对称中心。</p>
+          </div>
+          <details class="note-block">
+            <summary>近似题答案</summary>
+            <p>定义域：\(x\ne\frac{3\pi}8+\frac{k\pi}2\)；周期：\(\frac\pi2\)；在 \((-\frac\pi8+\frac{k\pi}2,\frac{3\pi}8+\frac{k\pi}2)\) 上递增；对称中心：\((\frac\pi8+\frac{k\pi}2,0)\)。</p>
+          </details>
+          <details class="note-block">
+            <summary>近似题解题思路</summary>
+            <p>把 \(2x-\frac\pi4\) 分别代入正切函数的无定义点 \(\frac\pi2+k\pi\)、中心 \(k\pi\) 和单调区间 \((-\frac\pi2+k\pi,\frac\pi2+k\pi)\)，再除以内层系数 \(2\)。</p>
+          </details>
+        </section>
+
+        <section id="paramNotes" class="problem-notes math-note">
+          <h3>
+            <span>2026-06-29 第8题：由图像信息反推三角函数参数</span>
+            <button class="math-favorite" type="button" aria-label="收藏">♥</button>
+          </h3>
+          <div class="note-block">
+            <h4>题目</h4>
+            <p>已知函数 \(f(x)=\sin(\omega x+\varphi)\)，\(0\lt\omega\lt3,\ |\varphi|\lt\frac\pi2\)。图像和直线 \(y=\frac{\sqrt2}{2}\) 相邻两交点为 \(A(x_1,\frac{\sqrt2}{2})\)、\(B(x_2,\frac{\sqrt2}{2})\)，若 \(|x_1-x_2|=\frac\pi3\)，且 \(y=f(x-\frac\pi6)\) 为奇函数，则下列说法正确的是（多选）。</p>
+            <ul class="option-list">
+              <li>A. \(\omega=2\)</li>
+              <li>B. \(\varphi=\dfrac\pi4\)</li>
+              <li>C. 函数 \(f(x+\dfrac\pi6)\) 为偶函数</li>
+              <li>D. 函数 \(f(x)\) 在区间 \((0,\dfrac\pi3)\) 上单调递增</li>
+            </ul>
+          </div>
+          <div class="note-block">
+            <h4>解析</h4>
+            <ul class="step-list">
+              <li><strong>角差：</strong>\(\sin\theta=\frac{\sqrt2}{2}\) 的相邻两解角差为 \(\frac\pi2\)。由 \(\theta=\omega x+\varphi\)，得 \(\omega|x_1-x_2|=\frac\pi2\)。</li>
+              <li><strong>求 \(\omega\)：</strong>代入 \(|x_1-x_2|=\frac\pi3\)，得 \(\omega=\frac32\)，所以 A 错。</li>
+              <li><strong>求 \(\varphi\)：</strong>\(f(x-\frac\pi6)=\sin(\frac32x-\frac\pi4+\varphi)\) 为奇函数，结合 \(|\varphi|\lt\frac\pi2\)，得 \(\varphi=\frac\pi4\)，所以 B 对。</li>
+              <li><strong>判断选项：</strong>\(f(x+\frac\pi6)=\sin(\frac32x+\frac\pi2)=\cos\frac32x\)，为偶函数，C 对；\(f(x)\) 在 \((0,\frac\pi3)\) 上角变量跨过 \(\frac\pi2\)，不全递增，D 错。</li>
+            </ul>
+          </div>
+          <div class="note-block">
+            <h4>近似题</h4>
+            <p>已知 \(f(x)=\sin(\omega x+\varphi)\)，\(0\lt\omega\lt4\)，与直线 \(y=\frac{\sqrt2}{2}\) 的相邻交点横坐标距离为 \(\frac\pi4\)，且 \(f(x-\frac\pi{12})\) 为奇函数，求 \(\omega,\varphi\)。</p>
+          </div>
+          <details class="note-block">
+            <summary>近似题答案</summary>
+            <p>\(\boxed{\omega=2,\ \varphi=\frac\pi6}\)</p>
+          </details>
+          <details class="note-block">
+            <summary>近似题解题思路</summary>
+            <p>\(\sin\theta=\frac{\sqrt2}{2}\) 的相邻两解角差为 \(\frac\pi2\)，所以 \(\omega\cdot\frac\pi4=\frac\pi2\)，得 \(\omega=2\)。奇函数条件给出 \(\varphi-\omega\frac\pi{12}=k\pi\)，结合 \(|\varphi|\lt\frac\pi2\)，得 \(\varphi=\frac\pi6\)。</p>
+          </details>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    var currentTrigModel = "solve";
+    var aValue = -1.2;
+    var solveStep = 4;
+    var tanK = 0;
+    var tanZoom = 2;
+    var omegaValue = 1.5;
+    var phiValue = Math.PI / 4;
+    var solveBoard = null;
+    var tanBoard = null;
+    var paramBoard = null;
+    var solveObjects = {};
+    var tanObjects = {};
+    var paramObjects = {};
+
+    function switchTrigModel(name) {
+      currentTrigModel = name;
+      ["solve", "tan", "param"].forEach(function(item) {
+        document.getElementById(item + "View").classList.toggle("active", item === name);
+        document.getElementById(item + "Notes").classList.toggle("active", item === name);
+        document.getElementById(item + "Controls").classList.toggle("active", item === name);
+      });
+      document.getElementById("navSolve").classList.toggle("active", name === "solve");
+      document.getElementById("navTan").classList.toggle("active", name === "tan");
+      document.getElementById("navParam").classList.toggle("active", name === "param");
+      if (name === "solve" && !solveBoard) {
+        initSolveModel();
+      }
+      if (name === "tan" && !tanBoard) {
+        initTanModel();
+      }
+      if (name === "param" && !paramBoard) {
+        initParamModel();
+      }
+      typesetMath();
+    }
+
+    function initSolveModel() {
+      if (!window.JXG) {
+        document.getElementById("solveBoard").innerHTML = "JSXGraph 未加载，请检查网络。";
+        return;
+      }
+      solveBoard = JXG.JSXGraph.initBoard("solveBoard", {
+        boundingbox: [-0.08, 0.25, 1.08, -3.35],
+        axis: true,
+        showCopyright: false,
+        showNavigation: false,
+        pan: { enabled: false },
+        zoom: { enabled: false }
+      });
+      solveObjects.curve = solveBoard.create("functiongraph", [function(t) { return t - 4 * t * t; }, 0, 1], graphStyle("#2563eb", 3));
+      solveObjects.line = solveBoard.create("line", [[0, function() { return aValue; }], [1, function() { return aValue; }]], graphStyle("#dc2626", 2));
+      solveObjects.tHalf = solveBoard.create("line", [[0.5, -3.35], [0.5, 0.25]], graphStyle("#94a3b8", 1));
+      solveObjects.vertex = solveBoard.create("point", [0.125, 0.0625], pointStyle("顶点", "#f59e0b", false));
+      solveObjects.p1 = solveBoard.create("point", [
+        function() { return rootsForA(aValue)[0]; },
+        function() { return aValue; }
+      ], pointStyle("根1", "#dc2626", false));
+      solveObjects.p2 = solveBoard.create("point", [
+        function() { return rootsForA(aValue)[1]; },
+        function() { return aValue; }
+      ], pointStyle("根2", "#dc2626", false));
+      solveBoard.create("text", [0.58, -0.2, "\\(t\\in(\\frac12,1)\\Rightarrow 两个\\ x\\)"], textStyle("#111827"));
+      solveBoard.create("text", [0.16, 0.16, "\\(g(t)=t-4t^2\\)"], textStyle("#2563eb"));
+      updateSolveModel();
+    }
+
+    function initTanModel() {
+      if (!window.JXG) {
+        document.getElementById("tanBoard").innerHTML = "JSXGraph 未加载，请检查网络。";
+        return;
+      }
+      tanBoard = JXG.JSXGraph.initBoard("tanBoard", {
+        boundingbox: [-4.4, 4.2, 4.4, -4.2],
+        axis: true,
+        showCopyright: false,
+        showNavigation: false,
+        pan: { enabled: false },
+        zoom: { enabled: false }
+      });
+      tanObjects.curve = tanBoard.create("functiongraph", [function(x) { return Math.tan(Math.PI / 3 - x); }, -10, 10], graphStyle("#2563eb", 3));
+      tanObjects.asym1 = tanBoard.create("line", [[function() { return tanK * Math.PI - Math.PI / 6; }, -4], [function() { return tanK * Math.PI - Math.PI / 6; }, 4]], graphStyle("#dc2626", 2));
+      tanObjects.asym2 = tanBoard.create("line", [[function() { return tanK * Math.PI + 5 * Math.PI / 6; }, -4], [function() { return tanK * Math.PI + 5 * Math.PI / 6; }, 4]], graphStyle("#dc2626", 2));
+      tanObjects.center = tanBoard.create("point", [function() { return tanK * Math.PI + Math.PI / 3; }, 0], pointStyle("中心", "#f59e0b", false));
+      tanBoard.create("text", [function() { return tanK * Math.PI - 0.05; }, 3.4, "\\(递减\\)"], textStyle("#111827"));
+      updateTanModel();
+    }
+
+    function initParamModel() {
+      if (!window.JXG) {
+        document.getElementById("paramBoard").innerHTML = "JSXGraph 未加载，请检查网络。";
+        return;
+      }
+      paramBoard = JXG.JSXGraph.initBoard("paramBoard", {
+        boundingbox: [-0.8, 1.35, 4.6, -1.35],
+        axis: true,
+        showCopyright: false,
+        showNavigation: false,
+        pan: { enabled: false },
+        zoom: { enabled: false }
+      });
+      paramObjects.curve = paramBoard.create("functiongraph", [function(x) { return Math.sin(omegaValue * x + phiValue); }, -1, 5], graphStyle("#2563eb", 3));
+      paramObjects.level = paramBoard.create("line", [[-1, Math.SQRT1_2], [5, Math.SQRT1_2]], graphStyle("#dc2626", 2));
+      paramObjects.p1 = paramBoard.create("point", [function() { return paramX1(); }, Math.SQRT1_2], pointStyle("A", "#dc2626", false));
+      paramObjects.p2 = paramBoard.create("point", [function() { return paramX2(); }, Math.SQRT1_2], pointStyle("B", "#dc2626", false));
+      paramObjects.shiftCenter = paramBoard.create("point", [Math.PI / 6, 0], pointStyle("移位", "#f59e0b", false));
+      paramBoard.create("text", [0.4, 1.12, "\\(y=\\frac{\\sqrt2}{2}\\)"], textStyle("#dc2626"));
+      paramBoard.create("text", [1.65, -1.1, "\\(|x_1-x_2|=\\frac{\\pi}{3}\\)"], textStyle("#111827"));
+      updateParamModel();
+    }
+
+    function updateSolveModel() {
+      document.getElementById("aVal").textContent = aValue.toFixed(2);
+      document.getElementById("aMetric").textContent = aValue.toFixed(2);
+      document.getElementById("solveStepVal").textContent = solveStep.toFixed(0);
+      var roots = rootsForA(aValue);
+      var tCount = roots.filter(function(t) { return t >= 0 && t <= 1; }).length;
+      var xCount = roots.reduce(function(sum, t) {
+        if (t > 0.5 && t < 1) {
+          return sum + 2;
+        }
+        if (t > 0 && t <= 0.5 || Math.abs(t - 1) < 0.0001) {
+          return sum + 1;
+        }
+        return sum;
+      }, 0);
+      document.getElementById("tRootMetric").textContent = String(tCount);
+      document.getElementById("xRootMetric").textContent = String(xCount);
+      setOpacity("solveText1", solveStep >= 1);
+      setOpacity("solveText2", solveStep >= 2);
+      setOpacity("solveText3", solveStep >= 3);
+      setOpacity("solveText4", solveStep >= 4);
+      if (solveObjects.p1) {
+        solveObjects.p1.setAttribute({ visible: roots[0] >= 0 && roots[0] <= 1 });
+        solveObjects.p2.setAttribute({ visible: roots[1] >= 0 && roots[1] <= 1 });
+      }
+      if (solveBoard) {
+        solveBoard.update();
+      }
+      typesetMath();
+    }
+
+    function updateTanModel() {
+      var left = tanK * Math.PI - tanZoom * Math.PI;
+      var right = tanK * Math.PI + tanZoom * Math.PI;
+      document.getElementById("tanKVal").textContent = tanK.toFixed(0);
+      document.getElementById("tanZoomVal").textContent = tanZoom.toFixed(0);
+      document.getElementById("asymMetric").innerHTML = "\\(" + piLabel(tanK, -1 / 6) + "\\)";
+      document.getElementById("centerMetric").innerHTML = "\\(" + piLabel(tanK, 1 / 3) + "\\)";
+      if (tanBoard) {
+        tanBoard.setBoundingBox([left, 4.2, right, -4.2], false);
+        tanBoard.update();
+      }
+      typesetMath();
+    }
+
+    function updateParamModel() {
+      document.getElementById("omegaVal").textContent = omegaValue.toFixed(1);
+      document.getElementById("phiVal").textContent = (phiValue / Math.PI).toFixed(2) + "π";
+      document.getElementById("gapMetric").textContent = Math.abs(paramX2() - paramX1()).toFixed(3);
+      var oddRemainder = Math.abs(normalizeAngle(phiValue - omegaValue * Math.PI / 6));
+      document.getElementById("oddMetric").textContent = oddRemainder < 0.04 ? "满足" : "未满足";
+      if (paramBoard) {
+        paramBoard.update();
+      }
+      typesetMath();
+    }
+
+    function rootsForA(a) {
+      var discriminant = 1 - 16 * a;
+      if (discriminant < 0) {
+        return [-1, -1];
+      }
+      var root = Math.sqrt(discriminant);
+      return [(1 - root) / 8, (1 + root) / 8];
+    }
+
+    function paramX1() {
+      return (Math.PI / 4 - phiValue) / omegaValue;
+    }
+
+    function paramX2() {
+      return (3 * Math.PI / 4 - phiValue) / omegaValue;
+    }
+
+    function normalizeAngle(angle) {
+      var twoPi = 2 * Math.PI;
+      var normalized = ((angle + Math.PI) % twoPi + twoPi) % twoPi - Math.PI;
+      if (Math.abs(Math.abs(normalized) - Math.PI) < 0.0001) {
+        return 0;
+      }
+      return normalized;
+    }
+
+    function piLabel(k, offset) {
+      if (k === 0) {
+        return fractionPi(offset);
+      }
+      if (offset > 0) {
+        return k + "\\pi+" + fractionPi(offset);
+      }
+      return k + "\\pi" + fractionPi(offset);
+    }
+
+    function fractionPi(value) {
+      if (Math.abs(value - 1 / 3) < 0.001) {
+        return "\\frac\\pi3";
+      }
+      if (Math.abs(value + 1 / 6) < 0.001) {
+        return "-\\frac\\pi6";
+      }
+      return value.toFixed(2) + "\\pi";
+    }
+
+    function pointStyle(name, color, fixed) {
+      return {
+        name: name,
+        fixed: fixed,
+        size: 4,
+        strokeColor: color,
+        fillColor: color,
+        label: {
+          strokeColor: "#111827",
+          fontSize: 15,
+          offset: [8, 8]
+        },
+        highlight: false
+      };
+    }
+
+    function graphStyle(color, width) {
+      return {
+        strokeColor: color,
+        strokeWidth: width,
+        highlight: false
+      };
+    }
+
+    function textStyle(color) {
+      return {
+        fixed: true,
+        fontSize: 16,
+        strokeColor: color,
+        useMathJax: true,
+        highlight: false
+      };
+    }
+
+    function setOpacity(id, visible) {
+      document.getElementById(id).style.opacity = visible ? "1" : "0.25";
+    }
+
+    function typesetMath() {
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise();
+      }
+    }
+
+    window.addEventListener("load", function() {
+      initSolveModel();
+      typesetMath();
+    });
+  </script>
+</body>
+</html>
