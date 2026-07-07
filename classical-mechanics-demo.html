@@ -66,6 +66,8 @@
                     <button id="treeRiverAdvanced" class="tree-item indent" onclick="switchScene('riverAdvanced')">课9-渡河进阶</button>
                     <button id="treeWaterfallCrossing" class="tree-item indent" onclick="switchScene('waterfallCrossing')">课10-瀑布临界渡河</button>
                     <button id="treeRodConstraint" class="tree-item indent" onclick="switchScene('rodConstraint')">课13-杆约束速度</button>
+                    <button id="treeDualConstraintCircle" class="tree-item indent" onclick="switchScene('dualConstraintCircle')">题17-双约束圆周</button>
+                    <button id="treeHandRopeBreak" class="tree-item indent" onclick="switchScene('handRopeBreak')">题18-手绳断裂抛体</button>
                     <button id="treeRainWindow" class="tree-item indent" onclick="switchScene('rainWindow')">B10-车窗雨滴</button>
                   </div>
                 </details>
@@ -357,6 +359,39 @@
         <span id="waterfallTVal" class="value">0.00s</span>
       </div>
       <button id="waterfallPlayBtn" class="action" onclick="toggleWaterfallPlay()">播放</button>
+    </div>
+
+    <div id="dualConstraintCircleControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>角速度 ω</label>
+        <input id="dualOmega" type="range" min="0" max="1.8" step="0.01" value="1" oninput="dualOmega=this.valueAsNumber; dualPlaying=false; updateLabels();" />
+        <span id="dualOmegaVal" class="value">1.00√(g/l)</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="dualT" type="range" min="0" max="6.28" step="0.02" value="0" oninput="dualT=this.valueAsNumber; dualPlaying=false; updateLabels();" />
+        <span id="dualTVal" class="value">0.00s</span>
+      </div>
+      <button id="dualPlayBtn" class="action" onclick="toggleDualConstraintPlay()">播放</button>
+    </div>
+
+    <div id="handRopeBreakControls" class="controls" style="display:none;">
+      <div class="control">
+        <label>夹角 α</label>
+        <input id="handAlpha" type="range" min="15" max="60" step="1" value="45" oninput="handAlpha=this.valueAsNumber; handPlaying=false; updateLabels();" />
+        <span id="handAlphaVal" class="value">45°</span>
+      </div>
+      <div class="control">
+        <label>绳长 L/l</label>
+        <input id="handLengthRatio" type="range" min="0.5" max="5.5" step="0.1" value="3" oninput="handLengthRatio=this.valueAsNumber; handPlaying=false; updateLabels();" />
+        <span id="handLengthRatioVal" class="value">3.0</span>
+      </div>
+      <div class="control">
+        <label>观察时间 t</label>
+        <input id="handT" type="range" min="0" max="7" step="0.02" value="0" oninput="handT=this.valueAsNumber; handPlaying=false; updateLabels();" />
+        <span id="handTVal" class="value">0.00s</span>
+      </div>
+      <button id="handPlayBtn" class="action" onclick="toggleHandRopePlay()">播放</button>
     </div>
 
     <div id="projectileBasicControls" class="controls" style="display:none;">
@@ -1389,6 +1424,79 @@
           <details>
             <summary>近似题解题思路</summary>
             <p>杆长不变意味着沿杆方向不能相互靠近或远离，因此两端速度先投影到杆上再相等。</p>
+          </details>
+        </section>
+      </div>
+    </div>
+
+    <div id="dualConstraintCircleNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>第17题：轻绳轻杆双约束圆周</h2>
+          <p>如图所示的玩具转盘半径为 \(l\)，角速度 \(\omega\) 可以调节，转盘中心 \(O\) 点固定了一竖直杆。质量为 \(m\) 的小球用轻绳 \(AC\) 和轻杆 \(BC\) 一起连接在竖直杆上，轻绳 \(AC\) 长为 \(l\)，与竖直杆上 \(A\) 点相连；轻杆 \(BC\) 用铰链连接在竖直杆上的 \(B\) 点且可绕 \(B\) 点自由转动，\(OB=\frac32l\)。</p>
+          <p>圆盘静止时，轻绳 \(AC\) 与竖直方向夹角 \(\theta_1=30^\circ\)，轻杆 \(BC\) 与竖直方向夹角 \(\theta_2=45^\circ\)。不计摩擦阻力，重力加速度为 \(g\)。</p>
+          <p>（1）要保持轻绳拉直，求 \(\omega\) 的取值范围。</p>
+          <p>（2）当 \(\omega=\sqrt{\frac{g}{l}}\) 时，求轻绳 \(AC\)、轻杆 \(BC\) 所受的力的大小。</p>
+          <p>（3）在转动过程中小球忽然脱离，要求小球不能碰到圆盘，求 \(\omega\) 的取值范围。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>第17题：先由几何定半径，再列水平向心和竖直平衡</h2>
+          <p><strong>1. 几何定半径和高度。</strong> 因为 \(AC=l\)，且 \(AC\) 与竖直方向夹角为 \(30^\circ\)，小球到竖直杆的水平距离为 <span class="formula-line">\(r=l\sin30^\circ=\frac12l\)</span>。由题图 \(OB=\frac32l\)、\(\theta_2=45^\circ\)，小球 \(C\) 离圆盘面的高度为 <span class="formula-line">\(h=OB-r\cot45^\circ=l\)</span>。</p>
+          <p><strong>2. 建立受力方程。</strong> 设轻绳拉力为 \(T\)，轻杆对小球沿 \(CB\) 方向的作用力为 \(F\)，取水平方向指向杆为正、竖直向上为正。小球做水平圆周运动，满足
+            <span class="formula-line">\(T\sin30^\circ+F\sin45^\circ=m\omega^2r\)</span>，
+            <span class="formula-line">\(T\cos30^\circ+F\cos45^\circ=mg\)</span>。</p>
+          <p><strong>3. 保持轻绳拉直。</strong> 解方程得到 \(T\ge0\) 的条件。代入 \(r=\frac12l\)、\(\theta_1=30^\circ\)、\(\theta_2=45^\circ\)，可得 <span class="formula-line">\(\omega^2\le \frac{2g}{l}\)</span>，所以 <span class="formula-line">\(0\le\omega\le\sqrt{\frac{2g}{l}}\)</span>。</p>
+          <p><strong>4. 代入 \(\omega=\sqrt{\frac{g}{l}}\)。</strong> 此时 \(m\omega^2r=\frac12mg\)。联立两式得 <span class="formula-line">\(T=\frac{1+\sqrt3}{2}mg\)</span>，而 <span class="formula-line">\(F=\frac{1-\sqrt3}{2}mg\)</span>。负号表示轻杆对小球的作用方向与假设的 \(CB\) 方向相反，因此轻杆所受力的大小为 <span class="formula-line">\(\frac{\sqrt3-1}{2}mg\)</span>。</p>
+          <p><strong>5. 脱离后不碰圆盘。</strong> 小球脱离瞬间沿切线水平飞出，高度为 \(h=l\)，到圆盘面的下落时间 <span class="formula-line">\(t=\sqrt{\frac{2l}{g}}\)</span>。小球从半径 \(r=\frac12l\) 处切向飞出，到圆盘边缘还需水平位移 <span class="formula-line">\(s=\sqrt{l^2-r^2}=\frac{\sqrt3}{2}l\)</span>。要求 \(\omega r t\ge s\)，得 <span class="formula-line">\(\omega\ge\sqrt{\frac{3g}{2l}}\)</span>。结合轻绳拉直范围，得到 <span class="formula-line">\(\sqrt{\frac{3g}{2l}}\le\omega\le\sqrt{\frac{2g}{l}}\)</span>。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：斜绳约束水平圆周</h2>
+          <p>小球用长为 \(l\) 的轻绳连接在竖直轴上，轻绳与竖直方向成 \(60^\circ\)，小球做水平圆周运动。求角速度 \(\omega\)。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>由 \(T\cos60^\circ=mg\)、\(T\sin60^\circ=m\omega^2l\sin60^\circ\)，得 \(\omega^2=\frac{g}{l\cos60^\circ}=\frac{2g}{l}\)，所以 \(\omega=\sqrt{\frac{2g}{l}}\)。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>水平圆周题先用竖直方向平衡求约束力，再用水平方向合力提供向心力。</p>
+          </details>
+        </section>
+      </div>
+    </div>
+
+    <div id="handRopeBreakNotes" class="problem-notes">
+      <div class="problem-notes-grid">
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">题目</p>
+          <h2>第18题：手绳圆周断裂抛体</h2>
+          <p>如图 1，某人站在水平地面上，手握不可伸长的轻绳一端，绳的另一端系有质量为 \(m\) 的小球，甩动手腕，使球运动起来，最终在水平面内做匀速圆周运动。已知轻绳能承受的最大拉力为 \(2mg\)，握绳的手离地面高度为 \(6l\)，手与球之间的绳长为 \(l\)，重力加速度为 \(g\)，忽略空气阻力。</p>
+          <p>（1）当绳与竖直方向的夹角为 \(\alpha\)，且绳子的拉力小于最大值，求小球运动的周期。</p>
+          <p>（2）当小球的速度大小为 \(v_1\) 时，轻绳刚好断掉，求此时小球速度大小 \(v_1\) 和这种情况下小球落地前瞬间的速度大小 \(v_2\)。</p>
+          <p>（3）如图 2，保持手的高度不变，改变绳长，使小球在竖直平面内做圆周运动，小球运动到最低点时绳子刚好拉断。要使小球抛出的水平距离最大，最大水平距离为多少？</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">解析</p>
+          <h2>第18题：圆锥摆求断绳速度，断后按平抛处理</h2>
+          <p><strong>1. 圆锥摆周期。</strong> 小球做水平圆周运动时，半径 \(r=l\sin\alpha\)。竖直方向平衡：<span class="formula-line">\(T\cos\alpha=mg\)</span>；水平方向向心：<span class="formula-line">\(T\sin\alpha=m\omega^2l\sin\alpha\)</span>。消去 \(T\) 得 <span class="formula-line">\(\omega^2=\frac{g}{l\cos\alpha}\)</span>，所以周期 <span class="formula-line">\(T_0=2\pi\sqrt{\frac{l\cos\alpha}{g}}\)</span>。</p>
+          <p><strong>2. 刚断时的夹角。</strong> 轻绳最大拉力为 \(2mg\)。由 \(T=\frac{mg}{\cos\alpha}\)，刚断时 <span class="formula-line">\(\frac{mg}{\cos\alpha}=2mg\)</span>，故 <span class="formula-line">\(\cos\alpha=\frac12\)</span>，即 \(\alpha=60^\circ\)。</p>
+          <p><strong>3. 刚断速度 \(v_1\)。</strong> 圆锥摆中 \(v^2=rg\tan\alpha=l\sin\alpha\cdot g\tan\alpha\)。代入 \(\alpha=60^\circ\)，得 <span class="formula-line">\(v_1^2=\frac32gl\)</span>，所以 <span class="formula-line">\(v_1=\sqrt{\frac32gl}\)</span>。</p>
+          <p><strong>4. 落地前速度 \(v_2\)。</strong> 刚断时小球高度为 <span class="formula-line">\(h=6l-l\cos60^\circ=\frac{11}{2}l\)</span>。断后做平抛，机械能或速度合成给出 <span class="formula-line">\(v_2^2=v_1^2+2gh=\frac32gl+11gl=\frac{25}{2}gl\)</span>，所以 <span class="formula-line">\(v_2=5\sqrt{\frac{gl}{2}}\)</span>。</p>
+          <p><strong>5. 最低点断绳的最大水平距离。</strong> 若改用绳长 \(L\)，最低点刚断时满足 <span class="formula-line">\(T-mg=m\frac{v^2}{L}\)</span>，且 \(T=2mg\)，所以 <span class="formula-line">\(v^2=gL\)</span>。最低点高度为 \(6l-L\)，平抛射程 <span class="formula-line">\(x=\sqrt{gL}\sqrt{\frac{2(6l-L)}{g}}=\sqrt{2L(6l-L)}\)</span>。当 \(L=3l\) 时最大，最大水平距离 <span class="formula-line">\(x_{\max}=3\sqrt2\,l\)</span>。</p>
+        </section>
+        <section class="problem-note-block">
+          <p class="problem-note-kicker">近似题</p>
+          <h2>同类练习：圆锥摆断绳</h2>
+          <p>长为 \(l\) 的轻绳系小球做圆锥摆，绳最大拉力为 \(3mg\)。若刚断后小球水平飞出，求刚断时 \(\cos\alpha\) 与速度表达式。</p>
+          <details>
+            <summary>近似题答案</summary>
+            <p>由 \(T\cos\alpha=mg\)、\(T=3mg\)，得 \(\cos\alpha=\frac13\)。再由 \(v^2=l\sin\alpha\cdot g\tan\alpha\)，可求刚断速度。</p>
+          </details>
+          <details>
+            <summary>近似题解题思路</summary>
+            <p>圆锥摆断绳题先用最大拉力确定夹角，再用水平向心方程求速度，断后才进入平抛。</p>
           </details>
         </section>
       </div>

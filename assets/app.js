@@ -43,6 +43,14 @@ var modelSourceMap = {
     title: "暑期课时1曲线运动课上内容",
     text: "第13题"
   },
+  dualConstraintCircle: {
+    title: "暑假课时5 曲线运动习题训练",
+    text: "第17题"
+  },
+  handRopeBreak: {
+    title: "暑假课时5 曲线运动习题训练",
+    text: "第18题"
+  },
   projectileBasic: {
     title: "平抛运动课上内容",
     text: "第1题、第2题基础模型"
@@ -101,6 +109,8 @@ var knowledgePointMap = {
   riverAdvanced: ["速度圆", "最短位移", "矢量合成"],
   rainWindow: ["相对速度", "参考系", "速度分解"],
   rodConstraint: ["杆约束", "速度投影", "关联速度"],
+  dualConstraintCircle: ["圆周运动", "双约束", "向心力"],
+  handRopeBreak: ["圆锥摆", "断绳抛体", "最值"],
   projectileBasic: ["平抛运动", "分解运动", "运动学公式"],
   projectileSlope: ["平抛运动", "斜面几何", "末速度方向"],
   projectileWindow: ["平抛运动", "区间判断", "厚墙模型"],
@@ -143,6 +153,8 @@ var legacySceneMap = {
   motionCompose: true,
   riverAdvanced: true,
   rodConstraint: true,
+  dualConstraintCircle: true,
+  handRopeBreak: true,
   semiCircleThrow: true,
   bulletCylinder: true,
   bikeGear: true,
@@ -307,6 +319,15 @@ var advRiverPlaying = false;
 
 var rodAlpha = 38;
 var rodVB = 24;
+
+var dualOmega = 1;
+var dualT = 0;
+var dualPlaying = false;
+
+var handAlpha = 45;
+var handLengthRatio = 3;
+var handT = 0;
+var handPlaying = false;
 
 var semiR = 135;
 var semiAlpha = 38;
@@ -499,6 +520,18 @@ function draw() {
     drawRodConstraintGraph();
   }
 
+  if (currentScene === "dualConstraintCircle") {
+    updateDualConstraint(dt);
+    drawAnimScene(drawDualConstraintScene);
+    drawDualConstraintGraph();
+  }
+
+  if (currentScene === "handRopeBreak") {
+    updateHandRope(dt);
+    drawAnimScene(drawHandRopeScene);
+    drawHandRopeGraph();
+  }
+
   if (currentScene === "semiCircleThrow") {
     drawAnimScene(drawSemiCircleScene);
     drawSemiCircleGraph();
@@ -567,6 +600,8 @@ function switchScene(sceneName) {
   document.getElementById("treeMotionCompose").className = sceneName === "motionCompose" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeRiverAdvanced").className = sceneName === "riverAdvanced" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeRodConstraint").className = sceneName === "rodConstraint" ? "tree-item indent active" : "tree-item indent";
+  document.getElementById("treeDualConstraintCircle").className = sceneName === "dualConstraintCircle" ? "tree-item indent active" : "tree-item indent";
+  document.getElementById("treeHandRopeBreak").className = sceneName === "handRopeBreak" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeSemiCircleThrow").className = sceneName === "semiCircleThrow" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeBulletCylinder").className = sceneName === "bulletCylinder" ? "tree-item indent active" : "tree-item indent";
   document.getElementById("treeBikeGear").className = sceneName === "bikeGear" ? "tree-item indent active" : "tree-item indent";
@@ -602,6 +637,8 @@ function switchScene(sceneName) {
   document.getElementById("motionComposeControls").style.display = sceneName === "motionCompose" ? "grid" : "none";
   document.getElementById("riverAdvancedControls").style.display = sceneName === "riverAdvanced" ? "grid" : "none";
   document.getElementById("rodConstraintControls").style.display = sceneName === "rodConstraint" ? "grid" : "none";
+  document.getElementById("dualConstraintCircleControls").style.display = sceneName === "dualConstraintCircle" ? "grid" : "none";
+  document.getElementById("handRopeBreakControls").style.display = sceneName === "handRopeBreak" ? "grid" : "none";
   document.getElementById("semiCircleThrowControls").style.display = sceneName === "semiCircleThrow" ? "grid" : "none";
   document.getElementById("bulletCylinderControls").style.display = sceneName === "bulletCylinder" ? "grid" : "none";
   document.getElementById("bikeGearControls").style.display = sceneName === "bikeGear" ? "grid" : "none";
@@ -626,6 +663,8 @@ function switchScene(sceneName) {
   document.getElementById("motionComposeNotes").style.display = sceneName === "motionCompose" ? "block" : "none";
   document.getElementById("riverAdvancedNotes").style.display = sceneName === "riverAdvanced" ? "block" : "none";
   document.getElementById("rodConstraintNotes").style.display = sceneName === "rodConstraint" ? "block" : "none";
+  document.getElementById("dualConstraintCircleNotes").style.display = sceneName === "dualConstraintCircle" ? "block" : "none";
+  document.getElementById("handRopeBreakNotes").style.display = sceneName === "handRopeBreak" ? "block" : "none";
   document.getElementById("semiCircleThrowNotes").style.display = sceneName === "semiCircleThrow" ? "block" : "none";
   document.getElementById("bulletCylinderNotes").style.display = sceneName === "bulletCylinder" ? "block" : "none";
   document.getElementById("bikeGearNotes").style.display = sceneName === "bikeGear" ? "block" : "none";
@@ -3951,6 +3990,17 @@ function getAnimationState(sceneName) {
     state.vB = rodVB;
     return state;
   }
+  if (sceneName === "dualConstraintCircle") {
+    state.omega = dualOmega;
+    state.time = dualT;
+    return state;
+  }
+  if (sceneName === "handRopeBreak") {
+    state.alpha = handAlpha;
+    state.lengthRatio = handLengthRatio;
+    state.time = handT;
+    return state;
+  }
   state.time = typeof simTime === "number" ? Number(simTime.toFixed(2)) : null;
   return state;
 }
@@ -4319,6 +4369,19 @@ function updateLabels() {
   document.getElementById("advRiverPlayBtn").innerText = advRiverPlaying ? "暂停" : "播放";
   document.getElementById("rodAlphaVal").innerText = rodAlpha.toFixed(0) + "°";
   document.getElementById("rodVBVal").innerText = rodVB.toFixed(0);
+  dualT = Math.min(dualT, dualCycleTime());
+  document.getElementById("dualOmegaVal").innerText = dualOmega.toFixed(2) + "√(g/l)";
+  document.getElementById("dualTVal").innerText = dualT.toFixed(2) + "s";
+  document.getElementById("dualT").max = Math.max(1, dualCycleTime()).toFixed(2);
+  document.getElementById("dualT").value = dualT.toFixed(2);
+  document.getElementById("dualPlayBtn").innerText = dualPlaying ? "暂停" : "播放";
+  handT = Math.min(handT, handSceneDuration());
+  document.getElementById("handAlphaVal").innerText = handAlpha.toFixed(0) + "°";
+  document.getElementById("handLengthRatioVal").innerText = handLengthRatio.toFixed(1);
+  document.getElementById("handTVal").innerText = handT.toFixed(2) + "s";
+  document.getElementById("handT").max = Math.max(1, handSceneDuration()).toFixed(2);
+  document.getElementById("handT").value = handT.toFixed(2);
+  document.getElementById("handPlayBtn").innerText = handPlaying ? "暂停" : "播放";
   document.getElementById("semiRVal").innerText = semiR.toFixed(0);
   document.getElementById("semiAlphaVal").innerText = semiAlpha.toFixed(0) + "°";
   document.getElementById("semiGVal").innerText = semiG.toFixed(1);

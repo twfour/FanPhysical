@@ -920,3 +920,331 @@ function drawRodConstraintGraph() {
   line(cx + 28, cy + 55, cx + 28 - rodUx * proj, cy + 55 - rodUy * proj);
   drawingContext.setLineDash([]);
 }
+
+function dualCycleTime() {
+  return 2 * Math.PI / Math.max(0.18, dualOmega);
+}
+
+function toggleDualConstraintPlay() {
+  if (!dualPlaying && dualT >= dualCycleTime() - 0.02) {
+    dualT = 0;
+  }
+  dualPlaying = !dualPlaying;
+  updateLabels();
+}
+
+function updateDualConstraint(dt) {
+  if (dualPlaying) {
+    dualT += dt * 1.2;
+    if (dualT >= dualCycleTime()) {
+      dualT = 0;
+      dualPlaying = false;
+    }
+    updateLabels();
+  }
+}
+
+function dualConstraintForces(omegaRatio) {
+  var s1 = Math.sin(Math.PI / 6);
+  var c1 = Math.cos(Math.PI / 6);
+  var s2 = Math.sin(Math.PI / 4);
+  var c2 = Math.cos(Math.PI / 4);
+  var radial = 0.5 * omegaRatio * omegaRatio;
+  var det = s1 * c2 - s2 * c1;
+  var tension = (radial * c2 - s2) / det;
+  var rodForce = (s1 - c1 * radial) / det;
+  return { tension: tension, rodForce: rodForce, radial: radial };
+}
+
+function drawDualConstraintScene() {
+  var cx = 285;
+  var rodX = 292;
+  var baseY = 390;
+  var scale = 170;
+  var r = 0.5 * scale;
+  var topY = baseY - 1.95 * scale;
+  var pointAY = baseY - 1.85 * scale;
+  var pointBY = baseY - 1.5 * scale;
+  var theta = dualOmega * dualT;
+  var sideOffset = r * Math.cos(theta);
+  var cX = rodX - sideOffset;
+  var cY = baseY - scale;
+  var topCx = 140;
+  var topCy = 130;
+  var topR = 64;
+  var topBallX = topCx + topR * Math.cos(theta);
+  var topBallY = topCy + topR * Math.sin(theta);
+  var forces = dualConstraintForces(dualOmega);
+
+  stroke("#111827");
+  strokeWeight(4);
+  line(rodX, topY, rodX, baseY + 16);
+  noFill();
+  stroke("#cbd5e1");
+  strokeWeight(2);
+  ellipse(rodX, baseY, 230, 54);
+  fill("#f8fafc");
+  ellipse(rodX, baseY, 190, 38);
+
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(15);
+  text("侧视：轻绳 AC 与轻杆 BC 共同约束小球", 30, 26);
+
+  drawPointLabel(rodX, pointAY, "A", "#2563eb");
+  drawPointLabel(rodX, pointBY, "B", "#0f766e");
+  drawPointLabel(cX, cY, "C", "#f97316");
+
+  stroke("#2563eb");
+  strokeWeight(3);
+  line(rodX, pointAY, cX, cY);
+  stroke("#0f766e");
+  strokeWeight(5);
+  line(rodX, pointBY, cX, cY);
+  drawVectorArrow(cX, cY, (rodX - cX) * 0.32, (pointAY - cY) * 0.32, "#2563eb", "T");
+  drawVectorArrow(cX, cY, (rodX - cX) * 0.30 * Math.sign(forces.rodForce || 1), (pointBY - cY) * 0.30 * Math.sign(forces.rodForce || 1), "#0f766e", "F杆");
+  drawVectorArrow(cX, cY, 0, 58, "#dc2626", "mg");
+  drawVectorArrow(cX, cY, rodX > cX ? 68 : -68, 0, "#f59e0b", "mω²r");
+
+  stroke("#e5e7eb");
+  strokeWeight(2);
+  line(topCx - 92, topCy, topCx + 92, topCy);
+  line(topCx, topCy - 92, topCx, topCy + 92);
+  noFill();
+  stroke("#94a3b8");
+  circle(topCx, topCy, topR * 2);
+  stroke("#f97316");
+  strokeWeight(3);
+  line(topCx, topCy, topBallX, topBallY);
+  noStroke();
+  fill("#f97316");
+  circle(topBallX, topBallY, 16);
+  fill("#111827");
+  textAlign(CENTER, TOP);
+  textSize(14);
+  text("俯视：r = l/2", topCx, topCy + topR + 16);
+
+  noStroke();
+  fill("#334155");
+  textAlign(LEFT, TOP);
+  textSize(14);
+  text("ω = " + dualOmega.toFixed(2) + "√(g/l)", 30, 56);
+  text("T/mg = " + forces.tension.toFixed(2) + "，杆力方向" + (forces.rodForce >= 0 ? "沿 CB" : "反向"), 30, 78);
+}
+
+function drawDualConstraintGraph() {
+  var gx = graphLeft + 48;
+  var gy = 78;
+  var gw = graphRight - graphLeft - 86;
+  var gh = 318;
+  var xMax = Math.sqrt(2.05);
+  var yMax = 2.2;
+  var current = dualConstraintForces(dualOmega);
+
+  drawGraphFrame("约束力-角速度图像", "蓝线：T/mg；绿线：|F杆|/mg；红线：轻绳临界");
+  drawSimpleCurve(gx, gy, gw, gh, xMax, yMax, "#2563eb", function (w) {
+    return Math.max(0, Math.min(yMax, dualConstraintForces(w).tension));
+  });
+  drawSimpleCurve(gx, gy, gw, gh, xMax, yMax, "#0f766e", function (w) {
+    return Math.max(0, Math.min(yMax, Math.abs(dualConstraintForces(w).rodForce)));
+  });
+
+  var tautX = map(Math.sqrt(2), 0, xMax, gx, gx + gw);
+  stroke("#dc2626");
+  strokeWeight(1.5);
+  drawingContext.setLineDash([4, 4]);
+  line(tautX, gy, tautX, gy + gh);
+  drawingContext.setLineDash([]);
+
+  drawTimeMarker(gx, gy, gw, gh, dualOmega, xMax);
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(14);
+  text("当前 T/mg=" + current.tension.toFixed(2), gx + 12, gy + 14);
+  text("轻绳拉直：ω ≤ √(2g/l)", gx + 12, gy + 36);
+  text("不碰盘：ω ≥ √(3g/2l)", gx + 12, gy + 58);
+}
+
+function handConeCycleTime() {
+  return 2 * Math.PI * Math.sqrt(Math.cos(handAlpha * Math.PI / 180));
+}
+
+function handBreakFallTime() {
+  return Math.sqrt(11);
+}
+
+function handSceneDuration() {
+  return handConeCycleTime() + handBreakFallTime();
+}
+
+function toggleHandRopePlay() {
+  if (!handPlaying && handT >= handSceneDuration() - 0.02) {
+    handT = 0;
+  }
+  handPlaying = !handPlaying;
+  updateLabels();
+}
+
+function updateHandRope(dt) {
+  if (handPlaying) {
+    handT += dt * 1.2;
+    if (handT >= handSceneDuration()) {
+      handT = 0;
+      handPlaying = false;
+    }
+    updateLabels();
+  }
+}
+
+function drawHandRopeScene() {
+  var handX = 170;
+  var handY = 82;
+  var groundY = 430;
+  var lPx = 58;
+  var alpha = handAlpha * Math.PI / 180;
+  var cycle = handConeCycleTime();
+  var isProjectile = handT > cycle;
+  var theta = 2 * Math.PI * Math.min(handT, cycle) / Math.max(0.1, cycle);
+  var r = lPx * Math.sin(alpha);
+  var drop = lPx * Math.cos(alpha);
+  var ballX = handX + r * Math.cos(theta);
+  var ballY = handY + drop + 18 * Math.sin(theta);
+  var breakV = Math.sqrt(1.5);
+  var fallTime = handBreakFallTime();
+  var after = Math.max(0, handT - cycle);
+  var pxScale = 52;
+
+  if (isProjectile) {
+    ballX = handX + lPx * Math.sin(Math.PI / 3) + breakV * after * pxScale;
+    ballY = handY + lPx * 0.5 + 0.5 * after * after * pxScale;
+    ballY = Math.min(ballY, groundY);
+  }
+
+  stroke("#111827");
+  strokeWeight(3);
+  line(50, groundY, 545, groundY);
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(15);
+  text("图1：水平圆锥摆，断绳后平抛", 28, 24);
+
+  fill("#334155");
+  rect(handX - 18, handY - 12, 36, 18, 8);
+  fill("#111827");
+  circle(handX, handY, 8);
+
+  stroke("#2563eb");
+  strokeWeight(3);
+  line(handX, handY, ballX, isProjectile ? handY + lPx * 0.5 : ballY);
+  if (isProjectile) {
+    stroke("#94a3b8");
+    strokeWeight(2);
+    drawingContext.setLineDash([4, 4]);
+    var bx = handX + lPx * Math.sin(Math.PI / 3);
+    var by = handY + lPx * 0.5;
+    line(bx, by, ballX, ballY);
+    drawingContext.setLineDash([]);
+  }
+
+  noStroke();
+  fill(isProjectile ? "#dc2626" : "#f97316");
+  circle(ballX, ballY, 22);
+  fill("#ffedd5");
+  circle(ballX - 5, ballY - 5, 7);
+
+  if (!isProjectile) {
+    drawVectorArrow(ballX, ballY, 0, 58, "#dc2626", "mg");
+    drawVectorArrow(ballX, ballY, (handX - ballX) * 0.38, (handY - ballY) * 0.38, "#2563eb", "T");
+  } else {
+    drawVectorArrow(ballX, ballY, 58, 0, "#2563eb", "vx");
+    drawVectorArrow(ballX, ballY, 0, after * 44, "#dc2626", "vy");
+  }
+
+  stroke("#cbd5e1");
+  strokeWeight(1.5);
+  noFill();
+  ellipse(handX, handY + drop, r * 2, 36);
+
+  noStroke();
+  fill("#334155");
+  textAlign(LEFT, TOP);
+  textSize(14);
+  text("T = mg/cosα，α=" + handAlpha.toFixed(0) + "°", 28, 52);
+  text(isProjectile ? "断绳后按平抛：v₂² = v₁² + 2gh" : "周期 T₀ = 2π√(l cosα/g)", 28, 74);
+
+  var rightX = 418;
+  var rightHandY = 110;
+  var lengthPx = handLengthRatio * 42;
+  var lowY = Math.min(groundY - 12, rightHandY + lengthPx);
+  stroke("#0f766e");
+  strokeWeight(3);
+  line(rightX, rightHandY, rightX, lowY);
+  noStroke();
+  fill("#0f766e");
+  circle(rightX, lowY, 18);
+  fill("#334155");
+  textAlign(CENTER, TOP);
+  textSize(14);
+  text("图2：最低点断绳", rightX, lowY + 18);
+}
+
+function drawHandRopeGraph() {
+  var gx = graphLeft + 48;
+  var gy = 72;
+  var gw = graphRight - graphLeft - 86;
+  var gh = 160;
+  var gx2 = gx;
+  var gy2 = 298;
+  var gh2 = 130;
+  var alphaRad = handAlpha * Math.PI / 180;
+  var tensionRatio = 1 / Math.cos(alphaRad);
+  var rangeNow = Math.sqrt(Math.max(0, 2 * handLengthRatio * (6 - handLengthRatio)));
+
+  drawGraphFrame("断绳条件与射程最值", "上图：T/mg；下图：x/l");
+  drawSimpleCurve(gx, gy, gw, gh, 60, 2.2, "#2563eb", function (a) {
+    return 1 / Math.cos(a * Math.PI / 180);
+  });
+  drawTimeMarker(gx, gy, gw, gh, handAlpha, 60);
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(14);
+  text("当前 T/mg=" + tensionRatio.toFixed(2) + "，断绳临界在 α=60°", gx + 10, gy + 12);
+
+  stroke("#cbd5e1");
+  strokeWeight(1);
+  noFill();
+  rect(gx2, gy2, gw, gh2);
+  stroke("#0f766e");
+  strokeWeight(2.5);
+  noFill();
+  beginShape();
+  for (var i = 0; i <= 120; i++) {
+    var L = 0.05 + i * 5.9 / 120;
+    var y = Math.sqrt(Math.max(0, 2 * L * (6 - L)));
+    vertex(map(L, 0, 6, gx2, gx2 + gw), map(y, 0, 4.5, gy2 + gh2, gy2));
+  }
+  endShape();
+  var px = map(handLengthRatio, 0, 6, gx2, gx2 + gw);
+  var py = map(rangeNow, 0, 4.5, gy2 + gh2, gy2);
+  noStroke();
+  fill("#f97316");
+  circle(px, py, 12);
+  fill("#111827");
+  textSize(14);
+  textAlign(LEFT, TOP);
+  text("x/l=" + rangeNow.toFixed(2) + "，最大 3√2 出现在 L=3l", gx2 + 10, gy2 + 10);
+}
+
+function drawPointLabel(x, y, label, colorHex) {
+  noStroke();
+  fill(colorHex);
+  circle(x, y, 12);
+  fill("#ffffff");
+  textAlign(CENTER, CENTER);
+  textSize(14);
+  text(label, x, y);
+}
