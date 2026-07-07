@@ -275,6 +275,8 @@
             <button class="tree-item indent" type="button" data-model-nav="ex63Triangle">8-三角形形状</button>
             <button class="tree-item indent" type="button" data-model-nav="ex63PerpUnit">10-垂直单位向量</button>
             <button class="tree-item indent" type="button" data-model-nav="ex63Rectangle">14-矩形证明</button>
+            <button class="tree-item indent" type="button" data-model-nav="ex63ObliqueCoord">15-斜坐标与基底</button>
+            <button class="tree-item indent" type="button" data-model-nav="ex63Cauchy">16-向量不等式</button>
           </div>
         </details>
       </aside>
@@ -374,6 +376,37 @@
             <label>显示步骤</label>
             <input id="rectangleStep" type="range" min="1" max="3" step="1" value="3" />
             <span id="rectangleStepVal" class="value">矩形</span>
+          </div>
+        </div>
+
+        <div id="ex63ObliqueCoordControls" class="controls math-controls" data-model="ex63ObliqueCoord">
+          <div class="control">
+            <label>坐标 x</label>
+            <input id="obliqueX" type="range" min="0" max="5" step="0.1" value="3" />
+            <span id="obliqueXVal" class="value">3.0</span>
+          </div>
+          <div class="control">
+            <label>坐标 y</label>
+            <input id="obliqueY" type="range" min="0" max="4" step="0.1" value="2" />
+            <span id="obliqueYVal" class="value">2.0</span>
+          </div>
+        </div>
+
+        <div id="ex63CauchyControls" class="controls math-controls" data-model="ex63Cauchy">
+          <div class="control">
+            <label>\(|\vec u|\)</label>
+            <input id="cauchyU" type="range" min="0.5" max="4" step="0.1" value="3" />
+            <span id="cauchyUVal" class="value">3.0</span>
+          </div>
+          <div class="control">
+            <label>\(|\vec v|\)</label>
+            <input id="cauchyV" type="range" min="0.5" max="4" step="0.1" value="2.5" />
+            <span id="cauchyVVal" class="value">2.5</span>
+          </div>
+          <div class="control">
+            <label>夹角 θ</label>
+            <input id="cauchyTheta" type="range" min="0" max="180" step="1" value="55" />
+            <span id="cauchyThetaVal" class="value">55°</span>
           </div>
         </div>
 
@@ -601,6 +634,56 @@
                 <p id="rectangleStepText1">① \(\overrightarrow{AB}=-\overrightarrow{CD}\)，\(\overrightarrow{BC}=-\overrightarrow{DA}\)。</p>
                 <p id="rectangleStepText2">② 所以四边形 \(ABCD\) 是平行四边形。</p>
                 <p id="rectangleStepText3">③ 又 \(\overrightarrow{AB}\cdot\overrightarrow{BC}=0\)，所以有一个直角，是矩形。</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="ex63ObliqueCoordView" class="math-view" data-model="ex63ObliqueCoord">
+          <div class="math-stage">
+            <div id="obliqueBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>\(\angle xOy\)</span><strong>\(60^\circ\)</strong></div>
+                <div class="metric"><span>\(\overrightarrow{OP}\)</span><strong id="obliqueVectorMetric">\(3\vec e_1+2\vec e_2\)</strong></div>
+                <div class="metric"><span>\(|\overrightarrow{OP}|^2\)</span><strong id="obliqueSquareMetric">19</strong></div>
+                <div class="metric"><span>\(|\overrightarrow{OP}|\)</span><strong id="obliqueLengthMetric">\(\sqrt{19}\)</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>斜基底长度</h3>
+                <p>\[
+                  |x\vec e_1+y\vec e_2|^2=x^2+y^2+2xy\cos60^\circ
+                \]</p>
+                <p>\[
+                  \vec e_1,\vec e_2\text{ 不共线 }\Rightarrow\text{ 可作为平面基底}
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="ex63CauchyView" class="math-view" data-model="ex63Cauchy">
+          <div class="math-stage">
+            <div id="cauchyBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>\(\vec u\cdot\vec v\)</span><strong id="cauchyDotMetric">4.30</strong></div>
+                <div class="metric"><span>左边</span><strong id="cauchyLeftMetric">18.49</strong></div>
+                <div class="metric"><span>右边</span><strong id="cauchyRightMetric">56.25</strong></div>
+                <div class="metric"><span>等号条件</span><strong id="cauchyEqualityMetric">未取等</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>投影模型</h3>
+                <p>\[
+                  \vec u\cdot\vec v=|\vec u||\vec v|\cos\theta
+                \]</p>
+                <p>\[
+                  \cos^2\theta\le1
+                  \Rightarrow
+                  (\vec u\cdot\vec v)^2\le|\vec u|^2|\vec v|^2
+                \]</p>
               </div>
             </aside>
           </div>
@@ -918,6 +1001,73 @@
             </details>
           </div>
         </section>
+
+        <section id="ex63ObliqueCoordNotes" class="problem-notes math-notes" data-model="ex63ObliqueCoord">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 6.3 第15题：斜坐标系中的向量长度</h2>
+              <p>如图，设 \(Ox,Oy\) 是平面内相交成 \(60^\circ\) 角的两条数轴，\(\vec e_1,\vec e_2\) 分别是与 \(x\) 轴、\(y\) 轴正方向同向的单位向量。若向量 \(\overrightarrow{OP}=x\vec e_1+y\vec e_2\)，则把有序数对 \((x,y)\) 叫做向量 \(\overrightarrow{OP}\) 在坐标系 \(Oxy\) 中的坐标。设 \(\overrightarrow{OP}=3\vec e_1+2\vec e_2\)。</p>
+              <p>（1）计算 \(|\overrightarrow{OP}|\) 的大小。</p>
+              <p>（2）根据平面向量基本定理判断，本题中对向量坐标的规定是否合理。</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>条件提取：</strong>\(\vec e_1,\vec e_2\) 都是单位向量，夹角为 \(60^\circ\)，且 \(\overrightarrow{OP}=3\vec e_1+2\vec e_2\)。</li>
+                <li><strong>长度计算：</strong>\(|\overrightarrow{OP}|^2=(3\vec e_1+2\vec e_2)^2=9+12\cos60^\circ+4=19\)。</li>
+                <li><strong>长度结论：</strong>\(|\overrightarrow{OP}|=\sqrt{19}\)。注意这里不是直角坐标系，不能直接算成 \(\sqrt{3^2+2^2}\)。</li>
+                <li><strong>合理性：</strong>\(\vec e_1,\vec e_2\) 不共线。由平面向量基本定理，平面内任一向量都能唯一表示为 \(x\vec e_1+y\vec e_2\)，因此这种坐标规定合理。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>两单位向量 \(\vec p,\vec q\) 的夹角为 \(60^\circ\)，若 \(\vec m=2\vec p+4\vec q\)，求 \(|\vec m|\)。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{2\sqrt7}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>\(|\vec m|^2=2^2+4^2+2\cdot2\cdot4\cos60^\circ=28\)，所以 \(|\vec m|=2\sqrt7\)。</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="ex63CauchyNotes" class="problem-notes math-notes" data-model="ex63Cauchy">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 6.3 第16题：用向量证明不等式</h2>
+              <p>用向量方法证明：对于任意的 \(a,b,c,d\in\mathbb R\)，恒有不等式</p>
+              <p>\[
+                (ac+bd)^2\le(a^2+b^2)(c^2+d^2).
+              \]</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>条件提取：</strong>四个实数可以看成两个平面向量的坐标。</li>
+                <li><strong>建模：</strong>令 \(\vec u=(a,b)\)，\(\vec v=(c,d)\)，则 \(\vec u\cdot\vec v=ac+bd\)。</li>
+                <li><strong>使用数量积：</strong>\(\vec u\cdot\vec v=|\vec u||\vec v|\cos\theta\)，所以 \((\vec u\cdot\vec v)^2=|\vec u|^2|\vec v|^2\cos^2\theta\)。</li>
+                <li><strong>推出结论：</strong>因为 \(\cos^2\theta\le1\)，所以 \((ac+bd)^2\le(a^2+b^2)(c^2+d^2)\)。当 \(\vec u,\vec v\) 共线时可取等号。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>用向量方法证明：对任意实数 \(x,y\)，有 \((x+y)^2\le2(x^2+y^2)\)。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{(x+y)^2\le2(x^2+y^2)}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>令 \(\vec u=(x,y)\)，\(\vec v=(1,1)\)，由 \((\vec u\cdot\vec v)^2\le|\vec u|^2|\vec v|^2\)，得 \((x+y)^2\le(x^2+y^2)\cdot2\)。</p>
+            </details>
+          </div>
+        </section>
       </section>
     </div>
   </main>
@@ -939,7 +1089,12 @@
       linearityCase: 0,
       triangleCase: 0,
       perpSign: 1,
-      rectangleStep: 3
+      rectangleStep: 3,
+      obliqueX: 3,
+      obliqueY: 2,
+      cauchyU: 3,
+      cauchyV: 2.5,
+      cauchyTheta: 55
     };
 
     var linearityCases = [
@@ -979,6 +1134,8 @@
       if (model === "ex63Triangle") initEx63Triangle();
       if (model === "ex63PerpUnit") initEx63PerpUnit();
       if (model === "ex63Rectangle") initEx63Rectangle();
+      if (model === "ex63ObliqueCoord") initEx63ObliqueCoord();
+      if (model === "ex63Cauchy") initEx63Cauchy();
     }
 
     function initProjection() {
@@ -1309,6 +1466,107 @@
       typesetMath();
     }
 
+    function initEx63ObliqueCoord() {
+      var board = JXG.JSXGraph.initBoard("obliqueBoard", boardOptions([-0.8, 5.5, 6.2, -0.8], false));
+      boards.ex63ObliqueCoord = { board: board };
+      var O = board.create("point", [0, 0], pointStyle("O", "#111827"));
+      var xEnd = board.create("point", [5.5, 0], pointStyle("x", "#111827"));
+      var yEnd = board.create("point", [2.75, 4.76], pointStyle("y", "#111827"));
+      var xPoint = board.create("point", [
+        function() { return state.obliqueX; },
+        0
+      ], pointStyle("", "#2563eb"));
+      var yPoint = board.create("point", [
+        function() { return state.obliqueY * 0.5; },
+        function() { return state.obliqueY * Math.sqrt(3) / 2; }
+      ], pointStyle("", "#f59e0b"));
+      var P = board.create("point", [
+        function() { return obliquePoint()[0]; },
+        function() { return obliquePoint()[1]; }
+      ], pointStyle("P", "#dc2626"));
+      board.create("arrow", [O, xEnd], lineStyle("#64748b", 2));
+      board.create("arrow", [O, yEnd], lineStyle("#64748b", 2));
+      board.create("polygon", [O, xPoint, P, yPoint], {
+        borders: { strokeColor: "#94a3b8", strokeWidth: 2, dash: 2, highlight: false },
+        fillColor: "#dbeafe",
+        fillOpacity: 0.18,
+        highlight: false
+      });
+      board.create("arrow", [O, xPoint], lineStyle("#2563eb", 4));
+      board.create("arrow", [xPoint, P], lineStyle("#f59e0b", 4));
+      board.create("arrow", [O, P], lineStyle("#dc2626", 4));
+      board.create("arrow", [O, [1, 0]], lineStyle("#2563eb", 3));
+      board.create("arrow", [O, [0.5, Math.sqrt(3) / 2]], lineStyle("#f59e0b", 3));
+      board.create("text", [1.05, -0.28, "\\(\\vec e_1\\)"], textStyle("#2563eb"));
+      board.create("text", [0.62, 1.02, "\\(\\vec e_2\\)"], textStyle("#f59e0b"));
+      board.create("text", [function() { return obliquePoint()[0] - 0.2; }, function() { return obliquePoint()[1] + 0.32; }, "\\(\\overrightarrow{OP}=x\\vec e_1+y\\vec e_2\\)"], textStyle("#dc2626"));
+      boards.ex63ObliqueCoord.objects = { O: O, P: P, xPoint: xPoint, yPoint: yPoint };
+      updateEx63ObliqueCoord();
+    }
+
+    function updateEx63ObliqueCoord() {
+      readRange("obliqueX", "obliqueXVal", 1);
+      readRange("obliqueY", "obliqueYVal", 1);
+      var x = state.obliqueX;
+      var y = state.obliqueY;
+      var square = x * x + y * y + x * y;
+      document.getElementById("obliqueVectorMetric").innerHTML = "\\(" + cleanNumber(x) + "\\vec e_1+" + cleanNumber(y) + "\\vec e_2\\)";
+      document.getElementById("obliqueSquareMetric").textContent = String(cleanNumber(square));
+      document.getElementById("obliqueLengthMetric").innerHTML = Math.abs(x - 3) < 0.0001 && Math.abs(y - 2) < 0.0001
+        ? "\\(\\sqrt{19}\\)"
+        : "\\(" + Math.sqrt(square).toFixed(3) + "\\)";
+      if (boards.ex63ObliqueCoord) {
+        boards.ex63ObliqueCoord.board.update();
+      }
+      typesetMath();
+    }
+
+    function initEx63Cauchy() {
+      var board = JXG.JSXGraph.initBoard("cauchyBoard", boardOptions([-4.5, 4.5, 4.8, -1.6], true));
+      boards.ex63Cauchy = { board: board };
+      var O = board.create("point", [0, 0], pointStyle("O", "#111827"));
+      var U = board.create("point", [
+        function() { return state.cauchyU; },
+        0
+      ], pointStyle("U", "#2563eb"));
+      var V = board.create("point", [
+        function() { return cauchyVPoint()[0]; },
+        function() { return cauchyVPoint()[1]; }
+      ], pointStyle("V", "#dc2626"));
+      var H = board.create("point", [
+        function() { return cauchyProjectionPoint()[0]; },
+        0
+      ], pointStyle("H", "#f59e0b"));
+      board.create("arrow", [O, U], lineStyle("#2563eb", 4));
+      board.create("arrow", [O, V], lineStyle("#dc2626", 4));
+      board.create("segment", [V, H], { strokeColor: "#f59e0b", strokeWidth: 2, dash: 2, highlight: false });
+      board.create("arrow", [O, H], lineStyle("#f59e0b", 3));
+      board.create("text", [function() { return state.cauchyU * 0.45; }, -0.35, "\\(\\vec u\\)"], textStyle("#2563eb"));
+      board.create("text", [function() { return cauchyVPoint()[0] * 0.52; }, function() { return cauchyVPoint()[1] * 0.52 + 0.28; }, "\\(\\vec v\\)"], textStyle("#dc2626"));
+      board.create("text", [function() { return cauchyProjectionPoint()[0] * 0.5; }, -0.72, "\\(|\\vec v|\\cos\\theta\\)"], textStyle("#f59e0b"));
+      boards.ex63Cauchy.objects = { O: O, U: U, V: V, H: H };
+      updateEx63Cauchy();
+    }
+
+    function updateEx63Cauchy() {
+      readRange("cauchyU", "cauchyUVal", 1);
+      readRange("cauchyV", "cauchyVVal", 1);
+      readRange("cauchyTheta", null, 0);
+      document.getElementById("cauchyThetaVal").textContent = state.cauchyTheta.toFixed(0) + "°";
+      var theta = state.cauchyTheta * Math.PI / 180;
+      var dot = state.cauchyU * state.cauchyV * Math.cos(theta);
+      var left = dot * dot;
+      var right = state.cauchyU * state.cauchyU * state.cauchyV * state.cauchyV;
+      document.getElementById("cauchyDotMetric").textContent = dot.toFixed(2);
+      document.getElementById("cauchyLeftMetric").textContent = left.toFixed(2);
+      document.getElementById("cauchyRightMetric").textContent = right.toFixed(2);
+      document.getElementById("cauchyEqualityMetric").textContent = Math.abs(Math.sin(theta)) < 0.0001 ? "取等" : "未取等";
+      if (boards.ex63Cauchy) {
+        boards.ex63Cauchy.board.update();
+      }
+      typesetMath();
+    }
+
     function linearityPoint(index) {
       return linearityCases[state.linearityCase].points[index];
     }
@@ -1367,6 +1625,26 @@
     function cleanNumber(value) {
       if (Math.abs(value) < 0.000001) return 0;
       return Number(value.toFixed(4));
+    }
+
+    function obliquePoint() {
+      return [
+        state.obliqueX + state.obliqueY * 0.5,
+        state.obliqueY * Math.sqrt(3) / 2
+      ];
+    }
+
+    function cauchyVPoint() {
+      var theta = state.cauchyTheta * Math.PI / 180;
+      return [
+        state.cauchyV * Math.cos(theta),
+        state.cauchyV * Math.sin(theta)
+      ];
+    }
+
+    function cauchyProjectionPoint() {
+      var theta = state.cauchyTheta * Math.PI / 180;
+      return [state.cauchyV * Math.cos(theta), 0];
     }
 
     function boardOptions(box, axis) {
@@ -1481,6 +1759,11 @@
       document.getElementById("triangleCase").addEventListener("input", updateEx63Triangle);
       document.getElementById("perpSign").addEventListener("input", updateEx63PerpUnit);
       document.getElementById("rectangleStep").addEventListener("input", updateEx63Rectangle);
+      document.getElementById("obliqueX").addEventListener("input", updateEx63ObliqueCoord);
+      document.getElementById("obliqueY").addEventListener("input", updateEx63ObliqueCoord);
+      document.getElementById("cauchyU").addEventListener("input", updateEx63Cauchy);
+      document.getElementById("cauchyV").addEventListener("input", updateEx63Cauchy);
+      document.getElementById("cauchyTheta").addEventListener("input", updateEx63Cauchy);
     }
 
     window.addEventListener("load", function() {
