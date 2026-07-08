@@ -279,6 +279,16 @@
             <button class="tree-item indent" type="button" data-model-nav="ex63Cauchy">16-向量不等式</button>
           </div>
         </details>
+        <details class="tree-node" open>
+          <summary class="tree-subfolder">习题 6.4</summary>
+          <div class="tree-children">
+            <button class="tree-item indent" type="button" data-model-nav="ex64Parallelogram">19-对角线三等分</button>
+            <button class="tree-item indent" type="button" data-model-nav="ex64Heron">20-海伦公式</button>
+            <button class="tree-item indent" type="button" data-model-nav="ex64Mountain">21-两山顶测距</button>
+            <button class="tree-item indent" type="button" data-model-nav="ex64TriangleSolve">22-条件求三角形</button>
+            <button class="tree-item indent" type="button" data-model-nav="ex64SurveyReport">23-测量实习</button>
+          </div>
+        </details>
       </aside>
 
       <section class="workspace math-workspace">
@@ -407,6 +417,101 @@
             <label>夹角 θ</label>
             <input id="cauchyTheta" type="range" min="0" max="180" step="1" value="55" />
             <span id="cauchyThetaVal" class="value">55°</span>
+          </div>
+        </div>
+
+        <div id="ex64ParallelogramControls" class="controls math-controls" data-model="ex64Parallelogram">
+          <div class="control">
+            <label>边长 \(AB\)</label>
+            <input id="paraB" type="range" min="3" max="7" step="0.1" value="5" />
+            <span id="paraBVal" class="value">5.0</span>
+          </div>
+          <div class="control">
+            <label>边向量角</label>
+            <input id="paraAngle" type="range" min="35" max="75" step="1" value="55" />
+            <span id="paraAngleVal" class="value">55°</span>
+          </div>
+        </div>
+
+        <div id="ex64HeronControls" class="controls math-controls" data-model="ex64Heron">
+          <div class="control">
+            <label>边 \(a\)</label>
+            <input id="heronA" type="range" min="4" max="8" step="0.1" value="5" />
+            <span id="heronAVal" class="value">5.0</span>
+          </div>
+          <div class="control">
+            <label>边 \(b\)</label>
+            <input id="heronB" type="range" min="5" max="8" step="0.1" value="6" />
+            <span id="heronBVal" class="value">6.0</span>
+          </div>
+          <div class="control">
+            <label>边 \(c\)</label>
+            <input id="heronC" type="range" min="5" max="8" step="0.1" value="7" />
+            <span id="heronCVal" class="value">7.0</span>
+          </div>
+        </div>
+
+        <div id="ex64MountainControls" class="controls math-controls" data-model="ex64Mountain">
+          <div class="control">
+            <label>基线 \(AB\)</label>
+            <input id="mountainBase" type="range" min="4" max="12" step="0.1" value="8" />
+            <span id="mountainBaseVal" class="value">8.0</span>
+          </div>
+          <div class="control">
+            <label>点 \(M\) 角</label>
+            <input id="mountainAlphaM" type="range" min="20" max="55" step="1" value="38" />
+            <span id="mountainAlphaMVal" class="value">38°</span>
+          </div>
+          <div class="control">
+            <label>\(M\) 对岸角</label>
+            <input id="mountainBetaM" type="range" min="28" max="70" step="1" value="52" />
+            <span id="mountainBetaMVal" class="value">52°</span>
+          </div>
+          <div class="control">
+            <label>点 \(N\) 角</label>
+            <input id="mountainAlphaN" type="range" min="8" max="35" step="1" value="20" />
+            <span id="mountainAlphaNVal" class="value">20°</span>
+          </div>
+          <div class="control">
+            <label>\(N\) 对岸角</label>
+            <input id="mountainBetaN" type="range" min="18" max="55" step="1" value="34" />
+            <span id="mountainBetaNVal" class="value">34°</span>
+          </div>
+        </div>
+
+        <div id="ex64TriangleSolveControls" class="controls math-controls" data-model="ex64TriangleSolve">
+          <div class="control">
+            <label>观察角 \(A\)</label>
+            <input id="solveAngleA" type="range" min="25" max="120" step="1" value="60" />
+            <span id="solveAngleAVal" class="value">60°</span>
+          </div>
+          <div class="control">
+            <label>边 \(b\)</label>
+            <input id="solveSideB" type="range" min="1" max="4" step="0.1" value="2" />
+            <span id="solveSideBVal" class="value">2.0</span>
+          </div>
+          <div class="control">
+            <label>边 \(c\)</label>
+            <input id="solveSideC" type="range" min="1" max="4" step="0.1" value="2" />
+            <span id="solveSideCVal" class="value">2.0</span>
+          </div>
+        </div>
+
+        <div id="ex64SurveyReportControls" class="controls math-controls" data-model="ex64SurveyReport">
+          <div class="control">
+            <label>基线 \(s\)</label>
+            <input id="surveyBase" type="range" min="8" max="40" step="0.5" value="20" />
+            <span id="surveyBaseVal" class="value">20.0</span>
+          </div>
+          <div class="control">
+            <label>近点仰角</label>
+            <input id="surveyNear" type="range" min="30" max="70" step="1" value="52" />
+            <span id="surveyNearVal" class="value">52°</span>
+          </div>
+          <div class="control">
+            <label>远点仰角</label>
+            <input id="surveyFar" type="range" min="12" max="45" step="1" value="34" />
+            <span id="surveyFarVal" class="value">34°</span>
           </div>
         </div>
 
@@ -683,6 +788,127 @@
                   \cos^2\theta\le1
                   \Rightarrow
                   (\vec u\cdot\vec v)^2\le|\vec u|^2|\vec v|^2
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="ex64ParallelogramView" class="math-view" data-model="ex64Parallelogram">
+          <div class="math-stage">
+            <div id="paraBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>\(R\) 的参数</span><strong id="paraRMetric">\(\frac13\)</strong></div>
+                <div class="metric"><span>\(T\) 的参数</span><strong id="paraTMetric">\(\frac23\)</strong></div>
+                <div class="metric"><span>结论</span><strong>\(AR=RT=TC\)</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>向量模型</h3>
+                <p>\[
+                  \overrightarrow{AR}=\frac13\overrightarrow{AC},\quad
+                  \overrightarrow{AT}=\frac23\overrightarrow{AC}
+                \]</p>
+                <p>\[
+                  AR:RT:TC=1:1:1
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="ex64HeronView" class="math-view" data-model="ex64Heron">
+          <div class="math-stage">
+            <div id="heronBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>半周长 \(p\)</span><strong id="heronPMetric">9.00</strong></div>
+                <div class="metric"><span>面积 \(S\)</span><strong id="heronSMetric">14.70</strong></div>
+                <div class="metric"><span>内切圆半径 \(r\)</span><strong id="heronRMetric">1.63</strong></div>
+                <div class="metric"><span>高 \(h_a\)</span><strong id="heronHaMetric">5.88</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>海伦模型</h3>
+                <p>\[
+                  S=\sqrt{p(p-a)(p-b)(p-c)}
+                \]</p>
+                <p>\[
+                  r=\frac Sp,\quad h_a=\frac{2S}{a}
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="ex64MountainView" class="math-view" data-model="ex64Mountain">
+          <div class="math-stage">
+            <div id="mountainBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>\(AM\)</span><strong id="mountainAMMetric">0.00</strong></div>
+                <div class="metric"><span>\(AN\)</span><strong id="mountainANMetric">0.00</strong></div>
+                <div class="metric"><span>\(\angle MAN\)</span><strong id="mountainMANMetric">18°</strong></div>
+                <div class="metric"><span>\(MN\)</span><strong id="mountainMNMetric">0.00</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>测距方案</h3>
+                <p>\[
+                  AM=\frac{AB\sin\beta_M}{\sin(\alpha_M+\beta_M)}
+                \]</p>
+                <p>\[
+                  MN^2=AM^2+AN^2-2AM\cdot AN\cos\angle MAN
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="ex64TriangleSolveView" class="math-view" data-model="ex64TriangleSolve">
+          <div class="math-stage">
+            <div id="triangleSolveBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>方程差值</span><strong id="solveEquationMetric">0.000</strong></div>
+                <div class="metric"><span>\(a^2\)</span><strong id="solveASquareMetric">4.00</strong></div>
+                <div class="metric"><span>面积</span><strong id="solveAreaMetric">\(\sqrt3\)</strong></div>
+                <div class="metric"><span>结论</span><strong id="solveConclusionMetric">\(A=60^\circ,b=c=2\)</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>角度锁定</h3>
+                <p>\[
+                  \sqrt3\sin A=1+\cos A
+                  \Rightarrow A=60^\circ
+                \]</p>
+                <p>\[
+                  S=\frac12bc\sin A,\quad a^2=b^2+c^2-2bc\cos A
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="ex64SurveyReportView" class="math-view" data-model="ex64SurveyReport">
+          <div class="math-stage">
+            <div id="surveyBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>仪器高</span><strong>1.60 m</strong></div>
+                <div class="metric"><span>水平距离 \(x\)</span><strong id="surveyDistanceMetric">0.00 m</strong></div>
+                <div class="metric"><span>目标高度</span><strong id="surveyHeightMetric">0.00 m</strong></div>
+                <div class="metric"><span>报告状态</span><strong>示例可提交</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>测高公式</h3>
+                <p>\[
+                  x=\frac{s\tan\beta}{\tan\alpha-\tan\beta}
+                \]</p>
+                <p>\[
+                  H=x\tan\alpha+h
                 \]</p>
               </div>
             </aside>
@@ -1068,6 +1294,168 @@
             </details>
           </div>
         </section>
+
+        <section id="ex64ParallelogramNotes" class="problem-notes math-notes" data-model="ex64Parallelogram">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 6.4 第19题：平行四边形中对角线三等分</h2>
+              <p>如图，在平行四边形 \(ABCD\) 中，点 \(E,F\) 分别是 \(AD,DC\) 边的中点，\(BE,BF\) 分别与 \(AC\) 交于 \(R,T\) 两点。你能发现 \(AR,RT,TC\) 之间的关系吗？用向量方法证明你的结论。</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>条件提取：</strong>设 \(\overrightarrow{AB}=\vec b\)，\(\overrightarrow{AD}=\vec d\)，则 \(\overrightarrow{AC}=\vec b+\vec d\)。</li>
+                <li><strong>点 \(R\)：</strong>由 \(E\) 是 \(AD\) 中点，\(\overrightarrow{AE}=\frac12\vec d\)。设 \(\overrightarrow{AR}=s(\vec b+\vec d)\)，又 \(R\) 在 \(BE\) 上，比较基底系数得 \(s=\frac13\)。</li>
+                <li><strong>点 \(T\)：</strong>由 \(F\) 是 \(DC\) 中点，\(\overrightarrow{AF}=\frac12\vec b+\vec d\)。设 \(\overrightarrow{AT}=t(\vec b+\vec d)\)，比较系数得 \(t=\frac23\)。</li>
+                <li><strong>结论：</strong>\(AR=\frac13AC\)，\(AT=\frac23AC\)，所以 \(AR=RT=TC\)。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>在平行四边形 \(ABCD\) 中，若 \(E\) 是 \(AD\) 中点，直线 \(BE\) 交 \(AC\) 于 \(R\)，求 \(AR:RC\)。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{AR:RC=1:2}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>沿用 \(\overrightarrow{AB},\overrightarrow{AD}\) 为基底。令 \(\overrightarrow{AR}=s\overrightarrow{AC}\)，再把 \(R\) 写成 \(BE\) 上的点，比较两个基底的系数即可得到 \(s=\frac13\)。</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="ex64HeronNotes" class="problem-notes math-notes" data-model="ex64Heron">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 6.4 第20题：海伦公式、内切圆半径与三边上的高</h2>
+              <p>已知 \(\triangle ABC\) 的三个角 \(A,B,C\) 的对边分别为 \(a,b,c\)，设 \(p=\frac12(a+b+c)\)，求证：</p>
+              <p>（1）三角形的面积 \(S=\sqrt{p(p-a)(p-b)(p-c)}\)。</p>
+              <p>（2）若 \(r\) 为三角形的内切圆半径，则 \(r=\frac{\sqrt{(p-a)(p-b)(p-c)}}{\sqrt p}\)。</p>
+              <p>（3）把边 \(BC,AC,AB\) 上的高分别记为 \(h_a,h_b,h_c\)，则 \(h_a=\frac{2}{a}\sqrt{p(p-a)(p-b)(p-c)}\)，其余两式类似。</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>条件提取：</strong>三边已知时，面积可由余弦定理和 \(S=\frac12bc\sin A\) 推出。</li>
+                <li><strong>面积：</strong>由余弦定理求 \(\cos A=\frac{b^2+c^2-a^2}{2bc}\)，再用 \(\sin^2A=1-\cos^2A\)，整理得到海伦公式。</li>
+                <li><strong>内切圆：</strong>面积也等于三个小三角形面积之和，即 \(S=\frac12ar+\frac12br+\frac12cr=pr\)，所以 \(r=\frac Sp\)。</li>
+                <li><strong>三边上的高：</strong>因为 \(S=\frac12ah_a=\frac12bh_b=\frac12ch_c\)，所以 \(h_a=\frac{2S}{a}\)，\(h_b=\frac{2S}{b}\)，\(h_c=\frac{2S}{c}\)。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>三角形三边为 \(5,6,7\)，求面积和内切圆半径。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{S=6\sqrt6,\ r=\frac{2\sqrt6}{3}}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>\(p=9\)，所以 \(S=\sqrt{9\cdot4\cdot3\cdot2}=6\sqrt6\)，再由 \(r=\frac Sp\) 得 \(r=\frac{2\sqrt6}{3}\)。</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="ex64MountainNotes" class="problem-notes math-notes" data-model="ex64Mountain">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 6.4 第21题：设计测量两山顶距离的方案</h2>
+              <p>如图，为了测量两山顶 \(M,N\) 间的距离，飞机沿水平方向在 \(A,B\) 两点进行测量，\(A,B,M,N\) 在同一个铅垂平面内。请设计一个测量方案，包括指出要测量的数据，并用文字和公式写出计算 \(M,N\) 间距离的步骤。</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>测量数据：</strong>测出水平基线 \(AB=d\)，并分别测出从 \(A,B\) 观测 \(M\) 的俯角 \(\alpha_M,\beta_M\)，从 \(A,B\) 观测 \(N\) 的俯角 \(\alpha_N,\beta_N\)。</li>
+                <li><strong>求视线长度：</strong>在 \(\triangle ABM\) 中，由正弦定理得 \(AM=\frac{d\sin\beta_M}{\sin(\alpha_M+\beta_M)}\)。同理得 \(AN=\frac{d\sin\beta_N}{\sin(\alpha_N+\beta_N)}\)。</li>
+                <li><strong>求夹角：</strong>在点 \(A\) 处，两条视线 \(AM,AN\) 的夹角为 \(|\alpha_M-\alpha_N|\)。</li>
+                <li><strong>求距离：</strong>在 \(\triangle AMN\) 中，用余弦定理求 \(MN\)。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>飞机在 \(A,B\) 两点测山顶 \(P\)，已知 \(AB=10\)，从 \(A,B\) 观察 \(P\) 的俯角分别为 \(30^\circ,45^\circ\)，求 \(AP\)。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{AP=\frac{10\sin45^\circ}{\sin75^\circ}}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>在 \(\triangle ABP\) 中，两个底角分别由俯角确定，第三角为 \(180^\circ-30^\circ-45^\circ=105^\circ\)，直接套正弦定理。</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="ex64TriangleSolveNotes" class="problem-notes math-notes" data-model="ex64TriangleSolve">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 6.4 第22题：由边角条件确定三角形</h2>
+              <p>已知 \(a,b,c\) 分别为 \(\triangle ABC\) 三个内角 \(A,B,C\) 的对边，且</p>
+              <p>\[
+                a\cos C+\sqrt3a\sin C-b-c=0.
+              \]</p>
+              <p>（1）求 \(A\)；（2）若 \(a=2\)，则 \(\triangle ABC\) 的面积为 \(\sqrt3\)，求 \(b,c\)。</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>条件转化：</strong>由正弦定理，把 \(a,b,c\) 分别换成同一比例下的 \(\sin A,\sin B,\sin C\)。</li>
+                <li><strong>角度方程：</strong>利用 \(B=\pi-A-C\)，整理可得 \(\sqrt3\sin A=1+\cos A\)。</li>
+                <li><strong>求角：</strong>\(\sqrt3\cdot2\sin\frac A2\cos\frac A2=2\cos^2\frac A2\)，所以 \(\tan\frac A2=\frac1{\sqrt3}\)，得 \(A=60^\circ\)。</li>
+                <li><strong>求边：</strong>若 \(a=2\)，\(S=\frac12bc\sin60^\circ=\sqrt3\)，得 \(bc=4\)。余弦定理给出 \(4=b^2+c^2-bc\)，所以 \(b=c=2\)。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>若 \(\triangle ABC\) 中 \(A=60^\circ\)，\(b=c=3\)，求 \(a\) 与面积。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{a=3,\ S=\frac{9\sqrt3}{4}}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>由余弦定理 \(a^2=3^2+3^2-2\cdot3\cdot3\cos60^\circ=9\)，面积 \(S=\frac12\cdot3\cdot3\sin60^\circ\)。</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="ex64SurveyReportNotes" class="problem-notes math-notes" data-model="ex64SurveyReport">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 6.4 第23题：测量实习报告</h2>
+              <p>根据实际需要，利用本节所学的知识完成一次有关测量的实习作业，并写出实习报告，包括测量问题、测量工具、测得数据和计算过程及结论。</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>示例问题：</strong>测量一座不可直接到达底部的建筑物高度。</li>
+                <li><strong>测量工具：</strong>卷尺、测角仪或手机测角工具、记录表。</li>
+                <li><strong>测得数据：</strong>在同一直线上选近点 \(C\)、远点 \(D\)，量出 \(CD=s\)，测得近点仰角 \(\alpha\)、远点仰角 \(\beta\)，记录仪器高 \(h\)。</li>
+                <li><strong>计算过程：</strong>设近点到建筑物底部水平距离为 \(x\)，由 \(x\tan\alpha=(x+s)\tan\beta\)，得 \(x=\frac{s\tan\beta}{\tan\alpha-\tan\beta}\)，高度 \(H=x\tan\alpha+h\)。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>若 \(s=12\text{ m}\)，\(\alpha=50^\circ\)，\(\beta=35^\circ\)，仪器高 \(h=1.5\text{ m}\)，求建筑物高度。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{H=\frac{12\tan35^\circ\tan50^\circ}{\tan50^\circ-\tan35^\circ}+1.5\text{ m}}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>先由两次仰角列出水平距离 \(x\)，再用近点仰角计算目标高差，最后加上仪器高度。</p>
+            </details>
+          </div>
+        </section>
       </section>
     </div>
   </main>
@@ -1094,7 +1482,23 @@
       obliqueY: 2,
       cauchyU: 3,
       cauchyV: 2.5,
-      cauchyTheta: 55
+      cauchyTheta: 55,
+      paraB: 5,
+      paraAngle: 55,
+      heronA: 5,
+      heronB: 6,
+      heronC: 7,
+      mountainBase: 8,
+      mountainAlphaM: 38,
+      mountainBetaM: 52,
+      mountainAlphaN: 20,
+      mountainBetaN: 34,
+      solveAngleA: 60,
+      solveSideB: 2,
+      solveSideC: 2,
+      surveyBase: 20,
+      surveyNear: 52,
+      surveyFar: 34
     };
 
     var linearityCases = [
@@ -1136,6 +1540,11 @@
       if (model === "ex63Rectangle") initEx63Rectangle();
       if (model === "ex63ObliqueCoord") initEx63ObliqueCoord();
       if (model === "ex63Cauchy") initEx63Cauchy();
+      if (model === "ex64Parallelogram") initEx64Parallelogram();
+      if (model === "ex64Heron") initEx64Heron();
+      if (model === "ex64Mountain") initEx64Mountain();
+      if (model === "ex64TriangleSolve") initEx64TriangleSolve();
+      if (model === "ex64SurveyReport") initEx64SurveyReport();
     }
 
     function initProjection() {
@@ -1567,6 +1976,190 @@
       typesetMath();
     }
 
+    function initEx64Parallelogram() {
+      var board = JXG.JSXGraph.initBoard("paraBoard", boardOptions([-0.8, 5.8, 9.2, -0.8], false));
+      boards.ex64Parallelogram = { board: board };
+      var A = board.create("point", [0, 0], pointStyle("A", "#dc2626"));
+      var B = board.create("point", [function() { return paraBPoint()[0]; }, function() { return paraBPoint()[1]; }], pointStyle("B", "#2563eb"));
+      var D = board.create("point", [function() { return paraDPoint()[0]; }, function() { return paraDPoint()[1]; }], pointStyle("D", "#2563eb"));
+      var C = board.create("point", [function() { return paraCPoint()[0]; }, function() { return paraCPoint()[1]; }], pointStyle("C", "#2563eb"));
+      var E = board.create("point", [function() { return paraEPoint()[0]; }, function() { return paraEPoint()[1]; }], pointStyle("E", "#f59e0b"));
+      var F = board.create("point", [function() { return paraFPoint()[0]; }, function() { return paraFPoint()[1]; }], pointStyle("F", "#f59e0b"));
+      var R = board.create("point", [function() { return paraRPoint()[0]; }, function() { return paraRPoint()[1]; }], pointStyle("R", "#dc2626"));
+      var T = board.create("point", [function() { return paraTPoint()[0]; }, function() { return paraTPoint()[1]; }], pointStyle("T", "#dc2626"));
+      board.create("polygon", [A, B, C, D], {
+        borders: { strokeColor: "#111827", strokeWidth: 2, highlight: false },
+        fillColor: "#dbeafe",
+        fillOpacity: 0.18,
+        highlight: false
+      });
+      board.create("segment", [A, C], lineStyle("#2563eb", 3));
+      board.create("segment", [B, E], lineStyle("#f59e0b", 2));
+      board.create("segment", [B, F], lineStyle("#f59e0b", 2));
+      board.create("text", [function() { return paraRPoint()[0] - 0.35; }, function() { return paraRPoint()[1] - 0.35; }, "\\(\\frac13AC\\)"], textStyle("#dc2626"));
+      board.create("text", [function() { return paraTPoint()[0] + 0.15; }, function() { return paraTPoint()[1] + 0.15; }, "\\(\\frac23AC\\)"], textStyle("#dc2626"));
+      updateEx64Parallelogram();
+    }
+
+    function updateEx64Parallelogram() {
+      readRange("paraB", "paraBVal", 1);
+      readRange("paraAngle", null, 0);
+      document.getElementById("paraAngleVal").textContent = state.paraAngle.toFixed(0) + "°";
+      if (boards.ex64Parallelogram) {
+        boards.ex64Parallelogram.board.update();
+      }
+      typesetMath();
+    }
+
+    function initEx64Heron() {
+      var board = JXG.JSXGraph.initBoard("heronBoard", boardOptions([-1, 6.2, 9, -1.2], true));
+      boards.ex64Heron = { board: board };
+      var A = board.create("point", [function() { return heronAPoint()[0]; }, function() { return heronAPoint()[1]; }], pointStyle("A", "#dc2626"));
+      var B = board.create("point", [0, 0], pointStyle("B", "#2563eb"));
+      var C = board.create("point", [function() { return state.heronA; }, 0], pointStyle("C", "#2563eb"));
+      var I = board.create("point", [function() { return heronIncenter()[0]; }, function() { return heronIncenter()[1]; }], pointStyle("I", "#f59e0b"));
+      board.create("polygon", [A, B, C], {
+        borders: { strokeColor: "#111827", strokeWidth: 2, highlight: false },
+        fillColor: "#dcfce7",
+        fillOpacity: 0.2,
+        highlight: false
+      });
+      board.create("circle", [I, function() { return heronData().r; }], lineStyle("#f59e0b", 2));
+      board.create("segment", [A, [function() { return heronAPoint()[0]; }, 0]], { strokeColor: "#14b8a6", strokeWidth: 2, dash: 2, highlight: false });
+      board.create("text", [function() { return state.heronA / 2 - 0.3; }, -0.45, "\\(a\\)"], textStyle("#2563eb"));
+      board.create("text", [function() { return heronIncenter()[0] + 0.15; }, function() { return heronIncenter()[1] + 0.15; }, "\\(r\\)"], textStyle("#f59e0b"));
+      updateEx64Heron();
+    }
+
+    function updateEx64Heron() {
+      readRange("heronA", "heronAVal", 1);
+      readRange("heronB", "heronBVal", 1);
+      readRange("heronC", "heronCVal", 1);
+      var data = heronData();
+      document.getElementById("heronPMetric").textContent = data.p.toFixed(2);
+      document.getElementById("heronSMetric").textContent = data.S.toFixed(2);
+      document.getElementById("heronRMetric").textContent = data.r.toFixed(2);
+      document.getElementById("heronHaMetric").textContent = data.ha.toFixed(2);
+      if (boards.ex64Heron) {
+        boards.ex64Heron.board.update();
+      }
+      typesetMath();
+    }
+
+    function initEx64Mountain() {
+      var board = JXG.JSXGraph.initBoard("mountainBoard", boardOptions([-1, 5.2, 12, -4.5], true));
+      boards.ex64Mountain = { board: board };
+      var A = board.create("point", [0, 4], pointStyle("A", "#2563eb"));
+      var B = board.create("point", [function() { return state.mountainBase; }, 4], pointStyle("B", "#2563eb"));
+      var M = board.create("point", [function() { return mountainPoint("M")[0]; }, function() { return mountainPoint("M")[1]; }], pointStyle("M", "#dc2626"));
+      var N = board.create("point", [function() { return mountainPoint("N")[0]; }, function() { return mountainPoint("N")[1]; }], pointStyle("N", "#f59e0b"));
+      board.create("segment", [A, B], lineStyle("#111827", 2));
+      board.create("segment", [A, M], lineStyle("#dc2626", 2));
+      board.create("segment", [B, M], { strokeColor: "#dc2626", strokeWidth: 2, dash: 2, highlight: false });
+      board.create("segment", [A, N], lineStyle("#f59e0b", 2));
+      board.create("segment", [B, N], { strokeColor: "#f59e0b", strokeWidth: 2, dash: 2, highlight: false });
+      board.create("segment", [M, N], lineStyle("#14b8a6", 4));
+      board.create("text", [function() { return state.mountainBase / 2 - 0.45; }, 4.25, "\\(AB=d\\)"], textStyle("#111827"));
+      updateEx64Mountain();
+    }
+
+    function updateEx64Mountain() {
+      readRange("mountainBase", "mountainBaseVal", 1);
+      readRange("mountainAlphaM", null, 0);
+      readRange("mountainBetaM", null, 0);
+      readRange("mountainAlphaN", null, 0);
+      readRange("mountainBetaN", null, 0);
+      document.getElementById("mountainAlphaMVal").textContent = state.mountainAlphaM.toFixed(0) + "°";
+      document.getElementById("mountainBetaMVal").textContent = state.mountainBetaM.toFixed(0) + "°";
+      document.getElementById("mountainAlphaNVal").textContent = state.mountainAlphaN.toFixed(0) + "°";
+      document.getElementById("mountainBetaNVal").textContent = state.mountainBetaN.toFixed(0) + "°";
+      var m = mountainData("M");
+      var n = mountainData("N");
+      var angle = Math.abs(state.mountainAlphaM - state.mountainAlphaN);
+      var mn = distance(m.point, n.point);
+      document.getElementById("mountainAMMetric").textContent = m.length.toFixed(2);
+      document.getElementById("mountainANMetric").textContent = n.length.toFixed(2);
+      document.getElementById("mountainMANMetric").textContent = angle.toFixed(0) + "°";
+      document.getElementById("mountainMNMetric").textContent = mn.toFixed(2);
+      if (boards.ex64Mountain) {
+        boards.ex64Mountain.board.update();
+      }
+      typesetMath();
+    }
+
+    function initEx64TriangleSolve() {
+      var board = JXG.JSXGraph.initBoard("triangleSolveBoard", boardOptions([-0.8, 4.2, 4.5, -0.8], true));
+      boards.ex64TriangleSolve = { board: board };
+      var A = board.create("point", [0, 0], pointStyle("A", "#dc2626"));
+      var B = board.create("point", [function() { return state.solveSideC; }, 0], pointStyle("B", "#2563eb"));
+      var C = board.create("point", [function() { return triangleSolveCPoint()[0]; }, function() { return triangleSolveCPoint()[1]; }], pointStyle("C", "#2563eb"));
+      board.create("polygon", [A, B, C], {
+        borders: { strokeColor: "#111827", strokeWidth: 2, highlight: false },
+        fillColor: "#dbeafe",
+        fillOpacity: 0.2,
+        highlight: false
+      });
+      board.create("text", [0.18, 0.28, "\\(A\\)"], textStyle("#dc2626"));
+      board.create("text", [function() { return triangleSolveCPoint()[0] * 0.52; }, function() { return triangleSolveCPoint()[1] * 0.52 + 0.18; }, "\\(b\\)"], textStyle("#f59e0b"));
+      updateEx64TriangleSolve();
+    }
+
+    function updateEx64TriangleSolve() {
+      readRange("solveAngleA", null, 0);
+      readRange("solveSideB", "solveSideBVal", 1);
+      readRange("solveSideC", "solveSideCVal", 1);
+      document.getElementById("solveAngleAVal").textContent = state.solveAngleA.toFixed(0) + "°";
+      var angle = degToRad(state.solveAngleA);
+      var diff = Math.sqrt(3) * Math.sin(angle) - (1 + Math.cos(angle));
+      var a2 = state.solveSideB * state.solveSideB + state.solveSideC * state.solveSideC - 2 * state.solveSideB * state.solveSideC * Math.cos(angle);
+      var area = 0.5 * state.solveSideB * state.solveSideC * Math.sin(angle);
+      document.getElementById("solveEquationMetric").textContent = diff.toFixed(3);
+      document.getElementById("solveASquareMetric").textContent = a2.toFixed(2);
+      document.getElementById("solveAreaMetric").textContent = Math.abs(area - Math.sqrt(3)) < 0.01 ? "\\(\\sqrt3\\)" : area.toFixed(2);
+      document.getElementById("solveConclusionMetric").innerHTML = Math.abs(diff) < 0.02 && Math.abs(state.solveSideB - 2) < 0.02 && Math.abs(state.solveSideC - 2) < 0.02
+        ? "\\(A=60^\\circ,b=c=2\\)"
+        : "观察条件偏离";
+      if (boards.ex64TriangleSolve) {
+        boards.ex64TriangleSolve.board.update();
+      }
+      typesetMath();
+    }
+
+    function initEx64SurveyReport() {
+      var board = JXG.JSXGraph.initBoard("surveyBoard", boardOptions([-26, 34, 34, -3], true));
+      boards.ex64SurveyReport = { board: board };
+      var C = board.create("point", [0, 1.6], pointStyle("C", "#2563eb"));
+      var D = board.create("point", [function() { return -state.surveyBase; }, 1.6], pointStyle("D", "#2563eb"));
+      var B = board.create("point", [function() { return surveyDistance(); }, 0], pointStyle("B", "#111827"));
+      var A = board.create("point", [function() { return surveyDistance(); }, function() { return surveyHeight(); }], pointStyle("A", "#dc2626"));
+      board.create("segment", [[-28, 0], [34, 0]], lineStyle("#64748b", 2));
+      board.create("segment", [B, A], lineStyle("#111827", 4));
+      board.create("segment", [C, A], lineStyle("#dc2626", 3));
+      board.create("segment", [D, A], { strokeColor: "#f59e0b", strokeWidth: 3, dash: 2, highlight: false });
+      board.create("segment", [D, C], lineStyle("#2563eb", 3));
+      board.create("text", [function() { return -state.surveyBase / 2 - 1.4; }, 2.4, "\\(s\\)"], textStyle("#2563eb"));
+      board.create("text", [function() { return surveyDistance() + 0.8; }, function() { return surveyHeight() / 2; }, "\\(H\\)"], textStyle("#dc2626"));
+      updateEx64SurveyReport();
+    }
+
+    function updateEx64SurveyReport() {
+      readRange("surveyBase", "surveyBaseVal", 1);
+      readRange("surveyNear", null, 0);
+      readRange("surveyFar", null, 0);
+      if (state.surveyFar >= state.surveyNear) {
+        state.surveyFar = state.surveyNear - 1;
+        document.getElementById("surveyFar").value = state.surveyFar;
+      }
+      document.getElementById("surveyNearVal").textContent = state.surveyNear.toFixed(0) + "°";
+      document.getElementById("surveyFarVal").textContent = state.surveyFar.toFixed(0) + "°";
+      document.getElementById("surveyDistanceMetric").textContent = surveyDistance().toFixed(2) + " m";
+      document.getElementById("surveyHeightMetric").textContent = surveyHeight().toFixed(2) + " m";
+      if (boards.ex64SurveyReport) {
+        boards.ex64SurveyReport.board.update();
+      }
+      typesetMath();
+    }
+
     function linearityPoint(index) {
       return linearityCases[state.linearityCase].points[index];
     }
@@ -1645,6 +2238,117 @@
     function cauchyProjectionPoint() {
       var theta = state.cauchyTheta * Math.PI / 180;
       return [state.cauchyV * Math.cos(theta), 0];
+    }
+
+    function degToRad(deg) {
+      return deg * Math.PI / 180;
+    }
+
+    function paraBPoint() {
+      return [state.paraB, 0];
+    }
+
+    function paraDPoint() {
+      var length = 3.8;
+      var angle = degToRad(state.paraAngle);
+      return [length * Math.cos(angle), length * Math.sin(angle)];
+    }
+
+    function paraCPoint() {
+      var b = paraBPoint();
+      var d = paraDPoint();
+      return [b[0] + d[0], b[1] + d[1]];
+    }
+
+    function paraEPoint() {
+      var d = paraDPoint();
+      return [d[0] / 2, d[1] / 2];
+    }
+
+    function paraFPoint() {
+      var b = paraBPoint();
+      var d = paraDPoint();
+      return [d[0] + b[0] / 2, d[1] + b[1] / 2];
+    }
+
+    function paraRPoint() {
+      var c = paraCPoint();
+      return [c[0] / 3, c[1] / 3];
+    }
+
+    function paraTPoint() {
+      var c = paraCPoint();
+      return [2 * c[0] / 3, 2 * c[1] / 3];
+    }
+
+    function heronData() {
+      var a = state.heronA;
+      var b = state.heronB;
+      var c = state.heronC;
+      var p = (a + b + c) / 2;
+      var areaSquare = Math.max(0, p * (p - a) * (p - b) * (p - c));
+      var S = Math.sqrt(areaSquare);
+      return { p: p, S: S, r: S / p, ha: 2 * S / a };
+    }
+
+    function heronAPoint() {
+      var a = state.heronA;
+      var b = state.heronB;
+      var c = state.heronC;
+      var x = (c * c + a * a - b * b) / (2 * a);
+      var y = Math.sqrt(Math.max(0, c * c - x * x));
+      return [x, y];
+    }
+
+    function heronIncenter() {
+      var a = state.heronA;
+      var b = state.heronB;
+      var c = state.heronC;
+      var A = heronAPoint();
+      var denominator = a + b + c;
+      return [
+        (a * A[0] + b * 0 + c * a) / denominator,
+        (a * A[1] + b * 0 + c * 0) / denominator
+      ];
+    }
+
+    function mountainData(which) {
+      var alpha = degToRad(which === "M" ? state.mountainAlphaM : state.mountainAlphaN);
+      var beta = degToRad(which === "M" ? state.mountainBetaM : state.mountainBetaN);
+      var length = state.mountainBase * Math.sin(beta) / Math.sin(alpha + beta);
+      var point = [
+        length * Math.cos(alpha),
+        4 - length * Math.sin(alpha)
+      ];
+      return { length: length, point: point };
+    }
+
+    function mountainPoint(which) {
+      return mountainData(which).point;
+    }
+
+    function distance(p, q) {
+      var dx = p[0] - q[0];
+      var dy = p[1] - q[1];
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    function triangleSolveCPoint() {
+      var angle = degToRad(state.solveAngleA);
+      return [
+        state.solveSideB * Math.cos(angle),
+        state.solveSideB * Math.sin(angle)
+      ];
+    }
+
+    function surveyDistance() {
+      var nearTan = Math.tan(degToRad(state.surveyNear));
+      var farTan = Math.tan(degToRad(state.surveyFar));
+      return state.surveyBase * farTan / Math.max(0.08, nearTan - farTan);
+    }
+
+    function surveyHeight() {
+      return surveyDistance() * Math.tan(degToRad(state.surveyNear)) + 1.6;
     }
 
     function boardOptions(box, axis) {
@@ -1764,6 +2468,22 @@
       document.getElementById("cauchyU").addEventListener("input", updateEx63Cauchy);
       document.getElementById("cauchyV").addEventListener("input", updateEx63Cauchy);
       document.getElementById("cauchyTheta").addEventListener("input", updateEx63Cauchy);
+      document.getElementById("paraB").addEventListener("input", updateEx64Parallelogram);
+      document.getElementById("paraAngle").addEventListener("input", updateEx64Parallelogram);
+      document.getElementById("heronA").addEventListener("input", updateEx64Heron);
+      document.getElementById("heronB").addEventListener("input", updateEx64Heron);
+      document.getElementById("heronC").addEventListener("input", updateEx64Heron);
+      document.getElementById("mountainBase").addEventListener("input", updateEx64Mountain);
+      document.getElementById("mountainAlphaM").addEventListener("input", updateEx64Mountain);
+      document.getElementById("mountainBetaM").addEventListener("input", updateEx64Mountain);
+      document.getElementById("mountainAlphaN").addEventListener("input", updateEx64Mountain);
+      document.getElementById("mountainBetaN").addEventListener("input", updateEx64Mountain);
+      document.getElementById("solveAngleA").addEventListener("input", updateEx64TriangleSolve);
+      document.getElementById("solveSideB").addEventListener("input", updateEx64TriangleSolve);
+      document.getElementById("solveSideC").addEventListener("input", updateEx64TriangleSolve);
+      document.getElementById("surveyBase").addEventListener("input", updateEx64SurveyReport);
+      document.getElementById("surveyNear").addEventListener("input", updateEx64SurveyReport);
+      document.getElementById("surveyFar").addEventListener("input", updateEx64SurveyReport);
     }
 
     window.addEventListener("load", function() {
