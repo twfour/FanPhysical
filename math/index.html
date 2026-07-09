@@ -289,6 +289,13 @@
             <button class="tree-item indent" type="button" data-model-nav="ex64SurveyReport">23-测量实习</button>
           </div>
         </details>
+        <details class="tree-node" open>
+          <summary class="tree-subfolder">习题 7.1</summary>
+          <div class="tree-children">
+            <button class="tree-item indent" type="button" data-model-nav="ex71HalfLine">9-复平面射线</button>
+            <button class="tree-item indent" type="button" data-model-nav="ex71Concyclic">11-四点共圆</button>
+          </div>
+        </details>
       </aside>
 
       <section class="workspace math-workspace">
@@ -512,6 +519,22 @@
             <label>远点仰角</label>
             <input id="surveyFar" type="range" min="12" max="45" step="1" value="34" />
             <span id="surveyFarVal" class="value">34°</span>
+          </div>
+        </div>
+
+        <div id="ex71HalfLineControls" class="controls math-controls" data-model="ex71HalfLine">
+          <div class="control">
+            <label>实部 \(a\)</label>
+            <input id="halfLineReal" type="range" min="0.2" max="6" step="0.1" value="2" />
+            <span id="halfLineRealVal" class="value">2.0</span>
+          </div>
+        </div>
+
+        <div id="ex71ConcyclicControls" class="controls math-controls" data-model="ex71Concyclic">
+          <div class="control">
+            <label>显示步骤</label>
+            <input id="concyclicStep" type="range" min="1" max="3" step="1" value="3" />
+            <span id="concyclicStepVal" class="value">共圆</span>
           </div>
         </div>
 
@@ -910,6 +933,52 @@
                 <p>\[
                   H=x\tan\alpha+h
                 \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="ex71HalfLineView" class="math-view" data-model="ex71HalfLine">
+          <div class="math-stage">
+            <div id="halfLineBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>当前复数</span><strong id="halfLineZMetric">\(2+3i\)</strong></div>
+                <div class="metric"><span>实部</span><strong id="halfLineRealMetric">2.0</strong></div>
+                <div class="metric"><span>虚部</span><strong>3</strong></div>
+                <div class="metric"><span>点集</span><strong>\(y=3,\ x\gt0\)</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>复平面模型</h3>
+                <p>\[
+                  z=a+bi\longleftrightarrow Z(a,b)
+                \]</p>
+                <p>\[
+                  a\gt0,\ b=3\Rightarrow Z\text{ 在直线 }y=3\text{ 的右半射线上}
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="ex71ConcyclicView" class="math-view" data-model="ex71Concyclic">
+          <div class="math-stage">
+            <div id="concyclicBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>\(|z_1|^2\)</span><strong>5</strong></div>
+                <div class="metric"><span>\(|z_2|^2\)</span><strong>5</strong></div>
+                <div class="metric"><span>\(|z_3|^2\)</span><strong>5</strong></div>
+                <div class="metric"><span>\(|z_4|^2\)</span><strong>5</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>共圆模型</h3>
+                <p>\[
+                  |z|=\sqrt5
+                \]</p>
+                <p id="concyclicStepText">四个点都在以原点为圆心、\(\sqrt5\) 为半径的圆上。</p>
               </div>
             </aside>
           </div>
@@ -1456,6 +1525,68 @@
             </details>
           </div>
         </section>
+
+        <section id="ex71HalfLineNotes" class="problem-notes math-notes" data-model="ex71HalfLine">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 7.1 第9题：实部为正、虚部固定的点集</h2>
+              <p>如果复数 \(z\) 的实部为正数，虚部为 \(3\)，那么在复平面内，复数 \(z\) 对应的点应位于怎样的图形上？</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>条件提取：</strong>设 \(z=a+bi\)，复平面中的对应点为 \(Z(a,b)\)。</li>
+                <li><strong>转化条件：</strong>实部为正数表示 \(a\gt0\)，虚部为 \(3\) 表示 \(b=3\)。</li>
+                <li><strong>图形判断：</strong>所有满足 \(b=3\) 的点在直线 \(y=3\) 上；再加 \(a\gt0\)，只取实轴右侧的部分。</li>
+                <li><strong>结论：</strong>点 \(Z\) 位于直线 \(y=3\) 上且横坐标为正的半射线上，不包含点 \((0,3)\)。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>如果复数 \(w\) 的实部小于 \(0\)，虚部为 \(-2\)，那么 \(w\) 对应的点位于怎样的图形上？</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{\text{直线 }y=-2\text{ 上横坐标为负的半射线，不含 }(0,-2)}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>令 \(w=a+bi\)，实部小于 \(0\) 即 \(a\lt0\)，虚部为 \(-2\) 即 \(b=-2\)。在复平面中就是点 \((a,-2)\) 且 \(a\lt0\)。</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="ex71ConcyclicNotes" class="problem-notes math-notes" data-model="ex71Concyclic">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 7.1 第11题：复平面中的四点共圆</h2>
+              <p>在复平面内指出与复数 \(z_1=1+2i\)，\(z_2=\sqrt2+\sqrt3i\)，\(z_3=\sqrt3-\sqrt2i\)，\(z_4=-2+i\) 对应的点 \(Z_1,Z_2,Z_3,Z_4\)。判断这 \(4\) 个点是否在同一个圆上，并证明你的结论。</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>点的坐标：</strong>\(Z_1(1,2)\)，\(Z_2(\sqrt2,\sqrt3)\)，\(Z_3(\sqrt3,-\sqrt2)\)，\(Z_4(-2,1)\)。</li>
+                <li><strong>计算模：</strong>\(|z_1|^2=1^2+2^2=5\)，\(|z_2|^2=(\sqrt2)^2+(\sqrt3)^2=5\)。</li>
+                <li><strong>继续验证：</strong>\(|z_3|^2=(\sqrt3)^2+(-\sqrt2)^2=5\)，\(|z_4|^2=(-2)^2+1^2=5\)。</li>
+                <li><strong>结论：</strong>四个点到原点的距离都为 \(\sqrt5\)，所以它们都在以原点为圆心、\(\sqrt5\) 为半径的圆上。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>判断复数 \(1+i,\ -1+i,\ -1-i,\ 1-i\) 对应的四个点是否共圆。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{\text{共圆，圆心为原点，半径为 }\sqrt2}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>四个复数对应点分别为 \((1,1),(-1,1),(-1,-1),(1,-1)\)，到原点距离都为 \(\sqrt2\)，所以共圆。</p>
+            </details>
+          </div>
+        </section>
       </section>
     </div>
   </main>
@@ -1498,7 +1629,9 @@
       solveSideC: 2,
       surveyBase: 20,
       surveyNear: 52,
-      surveyFar: 34
+      surveyFar: 34,
+      halfLineReal: 2,
+      concyclicStep: 3
     };
 
     var linearityCases = [
@@ -1545,6 +1678,8 @@
       if (model === "ex64Mountain") initEx64Mountain();
       if (model === "ex64TriangleSolve") initEx64TriangleSolve();
       if (model === "ex64SurveyReport") initEx64SurveyReport();
+      if (model === "ex71HalfLine") initEx71HalfLine();
+      if (model === "ex71Concyclic") initEx71Concyclic();
     }
 
     function initProjection() {
@@ -2160,6 +2295,74 @@
       typesetMath();
     }
 
+    function initEx71HalfLine() {
+      var board = JXG.JSXGraph.initBoard("halfLineBoard", boardOptions([-1.2, 5.2, 7, -1], true));
+      boards.ex71HalfLine = { board: board };
+      var originBoundary = board.create("point", [0, 3], {
+        name: "",
+        fixed: true,
+        size: 4,
+        strokeColor: "#dc2626",
+        fillColor: "#fff",
+        highlight: false
+      });
+      var Z = board.create("point", [
+        function() { return state.halfLineReal; },
+        3
+      ], pointStyle("Z", "#dc2626"));
+      board.create("arrow", [[0, 3], [6.4, 3]], lineStyle("#dc2626", 4));
+      board.create("segment", [[0, -0.4], [0, 4.6]], lineStyle("#64748b", 2));
+      board.create("text", [0.15, 3.25, "\\((0,3)\\text{ 不取}\\)"], textStyle("#64748b"));
+      board.create("text", [function() { return state.halfLineReal + 0.2; }, 3.28, "\\(Z(a,3)\\)"], textStyle("#dc2626"));
+      boards.ex71HalfLine.objects = { originBoundary: originBoundary, Z: Z };
+      updateEx71HalfLine();
+    }
+
+    function updateEx71HalfLine() {
+      readRange("halfLineReal", "halfLineRealVal", 1);
+      document.getElementById("halfLineZMetric").innerHTML = "\\(" + state.halfLineReal.toFixed(1) + "+3i\\)";
+      document.getElementById("halfLineRealMetric").textContent = state.halfLineReal.toFixed(1);
+      if (boards.ex71HalfLine) {
+        boards.ex71HalfLine.board.update();
+      }
+      typesetMath();
+    }
+
+    function initEx71Concyclic() {
+      var board = JXG.JSXGraph.initBoard("concyclicBoard", boardOptions([-3.2, 3.2, 3.2, -3.2], true));
+      boards.ex71Concyclic = { board: board };
+      var O = board.create("point", [0, 0], pointStyle("O", "#111827"));
+      var circle = board.create("circle", [O, Math.sqrt(5)], lineStyle("#14b8a6", 3));
+      var points = complexCirclePoints().map(function(item, index) {
+        return board.create("point", [item[0], item[1]], pointStyle("Z" + (index + 1), index === 0 ? "#dc2626" : "#2563eb"));
+      });
+      var radii = points.map(function(point) {
+        return board.create("segment", [O, point], { strokeColor: "#94a3b8", strokeWidth: 2, dash: 2, highlight: false });
+      });
+      board.create("text", [0.4, -0.45, "\\(|z|=\\sqrt5\\)"], textStyle("#14b8a6"));
+      boards.ex71Concyclic.objects = { circle: circle, points: points, radii: radii };
+      updateEx71Concyclic();
+    }
+
+    function updateEx71Concyclic() {
+      readRange("concyclicStep", "concyclicStepVal", 0);
+      var step = state.concyclicStep;
+      document.getElementById("concyclicStepVal").textContent = step === 1 ? "描点" : step === 2 ? "等距" : "共圆";
+      document.getElementById("concyclicStepText").innerHTML = step === 1
+        ? "先把四个复数对应为复平面内的点。"
+        : step === 2
+          ? "四个点到原点的距离都等于 \\(\\sqrt5\\)。"
+          : "四个点都在以原点为圆心、\\(\\sqrt5\\) 为半径的圆上。";
+      if (boards.ex71Concyclic) {
+        setVisible(boards.ex71Concyclic.objects.circle, step >= 3);
+        boards.ex71Concyclic.objects.radii.forEach(function(radius) {
+          setVisible(radius, step >= 2);
+        });
+        boards.ex71Concyclic.board.update();
+      }
+      typesetMath();
+    }
+
     function linearityPoint(index) {
       return linearityCases[state.linearityCase].points[index];
     }
@@ -2351,6 +2554,15 @@
       return surveyDistance() * Math.tan(degToRad(state.surveyNear)) + 1.6;
     }
 
+    function complexCirclePoints() {
+      return [
+        [1, 2],
+        [Math.sqrt(2), Math.sqrt(3)],
+        [Math.sqrt(3), -Math.sqrt(2)],
+        [-2, 1]
+      ];
+    }
+
     function boardOptions(box, axis) {
       return {
         boundingbox: box,
@@ -2484,6 +2696,8 @@
       document.getElementById("surveyBase").addEventListener("input", updateEx64SurveyReport);
       document.getElementById("surveyNear").addEventListener("input", updateEx64SurveyReport);
       document.getElementById("surveyFar").addEventListener("input", updateEx64SurveyReport);
+      document.getElementById("halfLineReal").addEventListener("input", updateEx71HalfLine);
+      document.getElementById("concyclicStep").addEventListener("input", updateEx71Concyclic);
     }
 
     window.addEventListener("load", function() {
