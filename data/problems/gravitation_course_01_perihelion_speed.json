@@ -1,0 +1,27 @@
+{
+  "id": "gravitation_course_01_perihelion_speed",
+  "originalNumber": "课1",
+  "chapter": "万有引力与宇宙航行",
+  "title": "例1：近日点速度",
+  "question": "某行星沿椭圆轨道运行，远日点 \\(A\\) 离太阳距离为 \\(a\\)，近日点 \\(B\\) 离太阳距离为 \\(b\\)。过远日点时行星的速率为 \\(v_a\\)，则过近日点时行星的速率为（  ）",
+  "options": [
+    "A. \\(v_b=\\dfrac{b}{a}v_a\\)",
+    "B. \\(v_b=\\sqrt{\\dfrac{a}{b}}v_a\\)",
+    "C. \\(v_b=\\dfrac{a}{b}v_a\\)",
+    "D. \\(v_b=\\sqrt{\\dfrac{b}{a}}v_a\\)"
+  ],
+  "answer": "C",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["开普勒第二定律", "角动量守恒", "近日点与远日点"],
+  "steps": [
+    { "stepId": 1, "title": "条件提取", "content": "在远日点和近日点，速度都与太阳到行星的连线垂直。", "knowledge": ["椭圆轨道"], "commonMistakes": [] },
+    { "stepId": 2, "title": "建模", "content": "由开普勒第二定律，行星在相等时间内扫过的面积相等，因此有 \\(\\dfrac12 av_a\\Delta t=\\dfrac12 bv_b\\Delta t\\)。", "knowledge": ["面积速度"], "commonMistakes": [] },
+    { "stepId": 3, "title": "结论", "content": "解得 \\(v_b=\\dfrac{a}{b}v_a\\)，故选 C。", "knowledge": ["速率关系"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：近日点与远日点速率",
+    "question": "某彗星远日点、近日点到太阳的距离之比为 \\(5:2\\)，远日点速率为 \\(4\\,\\mathrm{km/s}\\)，求近日点速率。",
+    "answer": "\\(v_{近}=10\\,\\mathrm{km/s}\\)。",
+    "thinking": "在两个端点使用面积速度守恒：\\(r_{远}v_{远}=r_{近}v_{近}\\)。"
+  }
+}

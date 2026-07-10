@@ -236,6 +236,86 @@
     {
       "id": "circular_daily_b9_carrier_turn",
       "file": "circular_daily_b9_carrier_turn.json"
+    },
+    {
+      "id": "gravitation_course_01_perihelion_speed",
+      "file": "gravitation_course_01_perihelion_speed.json"
+    },
+    {
+      "id": "gravitation_course_02_ellipse_return",
+      "file": "gravitation_course_02_ellipse_return.json"
+    },
+    {
+      "id": "gravitation_course_03_spherical_cavity",
+      "file": "gravitation_course_03_spherical_cavity.json"
+    },
+    {
+      "id": "gravitation_course_04_hollow_shells",
+      "file": "gravitation_course_04_hollow_shells.json"
+    },
+    {
+      "id": "gravitation_course_05_earth_density_rotation",
+      "file": "gravitation_course_05_earth_density_rotation.json"
+    },
+    {
+      "id": "gravitation_course_06_orbit_known_quantities",
+      "file": "gravitation_course_06_orbit_known_quantities.json"
+    },
+    {
+      "id": "gravitation_course_07_planet_breakup",
+      "file": "gravitation_course_07_planet_breakup.json"
+    },
+    {
+      "id": "gravitation_course_08_lunar_throw",
+      "file": "gravitation_course_08_lunar_throw.json"
+    },
+    {
+      "id": "gravitation_course_09_earth_tunnel",
+      "file": "gravitation_course_09_earth_tunnel.json"
+    },
+    {
+      "id": "gravitation_course_extension_gravity",
+      "file": "gravitation_course_extension_gravity.json"
+    },
+    {
+      "id": "gravitation_a1_saturn_moons",
+      "file": "gravitation_a1_saturn_moons.json"
+    },
+    {
+      "id": "gravitation_a2_solar_terms",
+      "file": "gravitation_a2_solar_terms.json"
+    },
+    {
+      "id": "gravitation_a3_halley_comet",
+      "file": "gravitation_a3_halley_comet.json"
+    },
+    {
+      "id": "gravitation_a4_scale_weight",
+      "file": "gravitation_a4_scale_weight.json"
+    },
+    {
+      "id": "gravitation_a5_unknown_body_throw",
+      "file": "gravitation_a5_unknown_body_throw.json"
+    },
+    {
+      "id": "gravitation_b6_orbit_arc_angle",
+      "file": "gravitation_b6_orbit_arc_angle.json"
+    },
+    {
+      "id": "gravitation_b7_photogate_tension",
+      "file": "gravitation_b7_photogate_tension.json"
+    },
+    {
+      "id": "gravitation_b8_solar_eclipse",
+      "file": "gravitation_b8_solar_eclipse.json"
+    },
+    {
+      "id": "gravitation_b9_astronomy_photo",
+      "file": "gravitation_b9_astronomy_photo.json"
+    },
+    {
+      "id": "gravitation_b10_elliptic_force_graph",
+      "file": "gravitation_b10_elliptic_force_graph.json"
     }
   ]
 }

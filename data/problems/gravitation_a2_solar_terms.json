@@ -1,0 +1,27 @@
+{
+  "id": "gravitation_a2_solar_terms",
+  "originalNumber": "A2",
+  "chapter": "万有引力与宇宙航行",
+  "title": "A2：节气与公转快慢",
+  "question": "（多选）二十四节气按地球和太阳的连线每扫过 \\(15^\\circ\\) 划分。北半球冬至时地球在近日点附近。根据节气在地球公转轨道上的位置，下列说法正确的是（  ）",
+  "options": [
+    "A. 芒种时地球公转速度比小满时小",
+    "B. 芒种到小暑的时间间隔比大雪到小寒的长",
+    "C. 立春时地球公转的加速度与立秋时大小相等",
+    "D. 春分、夏至、秋分、冬至四个节气刚好将一年的时间分为四等份"
+  ],
+  "answer": "A、B",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["开普勒第二定律", "近日点", "节气"],
+  "steps": [
+    { "stepId": 1, "title": "速度判断", "content": "从冬至附近的近日点向夏至附近的远日点运动时，地球公转速度逐渐减小，因此芒种速度小于小满，A 正确。", "knowledge": ["近日点远日点"], "commonMistakes": [] },
+    { "stepId": 2, "title": "时间判断", "content": "两段对应的扫角相同，远日点附近速度较小，芒种到小暑用时更长，B 正确。", "knowledge": ["面积速度"], "commonMistakes": [] },
+    { "stepId": 3, "title": "排除", "content": "立春和立秋到太阳距离不相等，加速度不等；椭圆轨道速度变化，四季时长也不相等。故 C、D 错。", "knowledge": ["引力加速度", "季节长度"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：近日点附近节气间隔",
+    "question": "两个相邻节气对应相同的扫角。比较近日点附近与远日点附近两个相邻节气的时间间隔。",
+    "answer": "远日点附近的时间间隔更长。",
+    "thinking": "开普勒第二定律保证面积速度相同；远日点距离大、线速度小，扫过同样角度更慢。"
+  }
+}

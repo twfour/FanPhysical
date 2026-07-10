@@ -1,0 +1,21 @@
+{
+  "id": "gravitation_course_extension_gravity",
+  "originalNumber": "课拓",
+  "chapter": "万有引力与宇宙航行",
+  "title": "拓展例题：地表上下重力",
+  "question": "求距地表 \\(h\\) 高度处的重力加速度；再求地球上深度为 \\(h\\) 的矿井里的重力加速度。已知地球表面重力加速度为 \\(g\\)，并把地球视为质量分布均匀、半径为 \\(R\\) 的球体。",
+  "answer": "\\(g_{高}=gR^2/(R+h)^2\\)，\\(g_{深}=g(R-h)/R\\)",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["球外重力", "球内重力", "球壳定理"],
+  "steps": [
+    { "stepId": 1, "title": "地表上方", "content": "由 \\(g=GM/R^2\\)，高度 \\(h\\) 处到地心距离为 \\(R+h\\)，故 \\(g_{高}=GM/(R+h)^2=gR^2/(R+h)^2\\)。", "knowledge": ["平方反比"], "commonMistakes": [] },
+    { "stepId": 2, "title": "地表下方", "content": "矿井处到地心距离为 \\(r=R-h\\)。均匀球体内部 \\(g(r)=g\\,r/R\\)。", "knowledge": ["球内引力"], "commonMistakes": [] },
+    { "stepId": 3, "title": "结论", "content": "因此 \\(g_{深}=g(R-h)/R\\)。地表外按距离平方反比减小，地球内部按距地心距离线性减小。", "knowledge": ["分段规律"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：等高与等深比较",
+    "question": "取 \\(h=R/2\\)，分别求距地表 \\(R/2\\) 高处和地下 \\(R/2\\) 深处的重力加速度。",
+    "answer": "高处 \\(g_{高}=4g/9\\)，深处 \\(g_{深}=g/2\\)。",
+    "thinking": "高处使用平方反比公式，深处使用均匀球体内部的线性公式。"
+  }
+}

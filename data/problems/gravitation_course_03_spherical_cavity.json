@@ -1,0 +1,21 @@
+{
+  "id": "gravitation_course_03_spherical_cavity",
+  "originalNumber": "课3",
+  "chapter": "万有引力与宇宙航行",
+  "title": "例3：球体挖腔引力",
+  "question": "在距一个质量为 \\(M\\)、半径为 \\(R\\)、密度均匀的球体表面 \\(R\\) 处，有一个质量为 \\(m\\) 的质点，球体对质点的万有引力为 \\(F_1\\)。从球体右侧挖去一个与外球内切、半径为 \\(R/2\\) 的球体后，剩余部分对质点的万有引力为 \\(F_2\\)。求 \\(F_1:F_2\\)。",
+  "answer": "\\(F_1:F_2=9:7\\)",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["万有引力", "球壳定理", "等效叠加"],
+  "steps": [
+    { "stepId": 1, "title": "完整球体", "content": "质点到大球球心的距离为 \\(2R\\)，故 \\(F_1=\\dfrac{GMm}{(2R)^2}=\\dfrac{GMm}{4R^2}\\)。", "knowledge": ["球外引力"], "commonMistakes": [] },
+    { "stepId": 2, "title": "挖去部分", "content": "挖去小球质量为 \\(M/8\\)，其球心到质点距离为 \\(3R/2\\)，对应引力 \\(F_{挖}=\\dfrac{G(M/8)m}{(3R/2)^2}=\\dfrac{GMm}{18R^2}\\)。", "knowledge": ["质量体积比", "叠加法"], "commonMistakes": [] },
+    { "stepId": 3, "title": "结论", "content": "\\(F_2=F_1-F_{挖}=\\dfrac{7GMm}{36R^2}\\)，因此 \\(F_1:F_2=9:7\\)。", "knowledge": ["引力叠加"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：同心球腔的外部引力",
+    "question": "质量为 \\(M\\)、半径为 \\(R\\) 的均匀球体挖去一个同心、半径为 \\(R/2\\) 的球腔。求距球心 \\(2R\\) 处质量 \\(m\\) 所受引力。",
+    "answer": "\\(F=\\dfrac{7GMm}{32R^2}\\)。",
+    "thinking": "剩余质量为 \\(7M/8\\)，且球腔同心，球外可直接视为质量集中在球心。"
+  }
+}

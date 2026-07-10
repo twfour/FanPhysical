@@ -1,0 +1,27 @@
+{
+  "id": "gravitation_course_09_earth_tunnel",
+  "originalNumber": "课9",
+  "chapter": "万有引力与宇宙航行",
+  "title": "例9：穿地隧道加速度",
+  "question": "如图所示，有人设想从中国建立一条通过地心的光滑隧道直达巴西。若只考虑物体间的万有引力，从隧道口抛下一物体，物体加速度的大小（  ）",
+  "options": [
+    "A. 一直增大",
+    "B. 一直减小",
+    "C. 先增大后减小",
+    "D. 先减小后增大"
+  ],
+  "answer": "D",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["均匀球体内部引力", "穿地隧道", "简谐运动"],
+  "steps": [
+    { "stepId": 1, "title": "球内引力", "content": "设物体距地心为 \\(r\\)。均匀地球中只有半径 \\(r\\) 内的质量产生合引力，包围质量 \\(M_r=M(r/R)^3\\)。", "knowledge": ["球壳定理"], "commonMistakes": [] },
+    { "stepId": 2, "title": "加速度关系", "content": "\\(a=GM_r/r^2=GMr/R^3\\)，所以加速度大小与到地心距离 \\(r\\) 成正比。", "knowledge": ["线性回复力"], "commonMistakes": [] },
+    { "stepId": 3, "title": "结论", "content": "从入口到地心，\\(r\\) 减小，加速度减至零；越过地心后，\\(r\\) 增大，加速度增大。故选 D。", "knowledge": ["运动过程"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：地球内部重力",
+    "question": "把地球视为均匀球体，表面重力加速度为 \\(g\\)。求距地心 \\(R/3\\) 处的重力加速度大小。",
+    "answer": "\\(g'=g/3\\)。",
+    "thinking": "均匀球体内部有 \\(g(r)=g\\,r/R\\)。"
+  }
+}

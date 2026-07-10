@@ -1,0 +1,27 @@
+{
+  "id": "gravitation_a4_scale_weight",
+  "originalNumber": "A4",
+  "chapter": "万有引力与宇宙航行",
+  "title": "A4：不同位置测重",
+  "question": "（多选）用弹簧测力计称量一个相对地球静止、质量为 \\(m\\) 的小物体。已知地球质量为 \\(M\\)，引力常量为 \\(G\\)，将地球视为半径为 \\(R\\)、质量分布均匀的球体。下列说法正确的是（  ）",
+  "options": [
+    "A. 在北极地面称量时，读数 \\(F_0=GMm/R^2\\)",
+    "B. 在赤道地面称量时，读数 \\(F_1=GMm/R^2\\)",
+    "C. 在北极上空高出地面 \\(h\\) 处称量时，读数 \\(F_2=GMm/(R+h)^2\\)",
+    "D. 在赤道上空高出地面 \\(h\\) 处称量时，读数 \\(F_3=GMm/(R+h)^2\\)"
+  ],
+  "answer": "A、C",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["视重", "地球自转", "万有引力"],
+  "steps": [
+    { "stepId": 1, "title": "北极", "content": "北极处到自转轴距离为零，不需要自转向心力，测力计读数等于万有引力。A、C 正确。", "knowledge": ["极地视重"], "commonMistakes": [] },
+    { "stepId": 2, "title": "赤道", "content": "赤道处物体随地球自转，万有引力与弹簧测力计读数之差提供向心力。", "knowledge": ["向心力"], "commonMistakes": [] },
+    { "stepId": 3, "title": "结论", "content": "赤道地面和赤道上空的读数都小于对应位置的万有引力，故 B、D 错，选 A、C。", "knowledge": ["视重变化"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：赤道测力计读数",
+    "question": "地球自转角速度为 \\(\\omega\\)。求质量 \\(m\\) 的物体在赤道地面的弹簧测力计读数。",
+    "answer": "\\(F=GMm/R^2-m\\omega^2R\\)。",
+    "thinking": "沿指向地轴方向列式：万有引力减支持力等于向心力。"
+  }
+}

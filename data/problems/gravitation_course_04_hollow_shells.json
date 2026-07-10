@@ -1,0 +1,21 @@
+{
+  "id": "gravitation_course_04_hollow_shells",
+  "originalNumber": "课4",
+  "chapter": "万有引力与宇宙航行",
+  "title": "例4：空心球壳引力",
+  "question": "两个均质球壳的质量均为 \\(M\\)，外径为 \\(R_1\\)，内径为 \\(R_2\\)，两球壳中心距离为 \\(L\\)。求两球壳之间的万有引力。",
+  "answer": "\\(F=\\dfrac{GM^2}{L^2}\\)",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["球壳定理", "万有引力"],
+  "steps": [
+    { "stepId": 1, "title": "模型判断", "content": "均匀球壳对壳外任一点的引力，等效为全部质量集中在球心。", "knowledge": ["球壳定理"], "commonMistakes": [] },
+    { "stepId": 2, "title": "相互作用", "content": "对两个互不相交的球壳逐层使用球壳定理，可把两个球壳分别等效为位于各自球心的质点。", "knowledge": ["对称性"], "commonMistakes": [] },
+    { "stepId": 3, "title": "结论", "content": "两球壳之间的引力为 \\(F=\\dfrac{GM^2}{L^2}\\)，与内、外径无关。", "knowledge": ["万有引力定律"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：不同质量球壳",
+    "question": "两个均匀球壳质量分别为 \\(M\\) 和 \\(2M\\)，球心相距 \\(3R\\)，且互不相交。求两者间引力。",
+    "answer": "\\(F=\\dfrac{2GM^2}{9R^2}\\)。",
+    "thinking": "球外引力等效为质点引力，直接代入两个球心之间的距离。"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "gravitation_course_02_ellipse_return",
+  "originalNumber": "课2",
+  "chapter": "万有引力与宇宙航行",
+  "title": "例2：椭圆变轨返回",
+  "question": "神舟六号沿半径为 \\(r\\) 的圆周绕地球运动，周期为 \\(T\\)。飞船在轨道上的 \\(A\\) 点降低速率后，沿以地心为焦点的椭圆轨道运动，椭圆与地球表面在 \\(B\\) 点相切。若地球半径为 \\(R\\)，求飞船从 \\(A\\) 点到 \\(B\\) 点所需的时间。",
+  "answer": "\\(t_{AB}=\\dfrac{T}{2}\\left(\\dfrac{r+R}{2r}\\right)^{3/2}\\)",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["开普勒第三定律", "椭圆变轨", "半长轴"],
+  "steps": [
+    { "stepId": 1, "title": "条件提取", "content": "转移椭圆的远地点半径为 \\(r\\)，近地点半径为 \\(R\\)，故半长轴 \\(a=\\dfrac{r+R}{2}\\)。", "knowledge": ["椭圆半长轴"], "commonMistakes": [] },
+    { "stepId": 2, "title": "周期关系", "content": "同绕地球运动，由开普勒第三定律 \\(\\dfrac{T'^2}{T^2}=\\dfrac{a^3}{r^3}\\)，所以 \\(T'=T\\left(\\dfrac{r+R}{2r}\\right)^{3/2}\\)。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] },
+    { "stepId": 3, "title": "结论", "content": "从远地点 \\(A\\) 到近地点 \\(B\\) 走过半个椭圆，故 \\(t_{AB}=\\dfrac{T'}2=\\dfrac{T}{2}\\left(\\dfrac{r+R}{2r}\\right)^{3/2}\\)。", "knowledge": ["半周期"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：近地点为地表的转移轨道",
+    "question": "卫星原在半径 \\(4R\\) 的圆轨道上运行，周期为 \\(T\\)，变轨后椭圆近地点在地表。求从远地点到近地点的时间。",
+    "answer": "\\(t=\\dfrac{T}{2}\\left(\\dfrac{5}{8}\\right)^{3/2}\\)。",
+    "thinking": "先由远、近地点半径求半长轴 \\(a=5R/2\\)，再比较椭圆周期与原圆轨道周期。"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "gravitation_b7_photogate_tension",
+  "originalNumber": "B7",
+  "chapter": "万有引力与宇宙航行",
+  "title": "B7：光电门拉力图像",
+  "question": "（多选）长为 \\(L\\) 的轻绳上装有力传感器，一端连接质点小球。小球上有宽为 \\(d\\) 的遮光条，在竖直平面内做圆周运动。小球通过最高点时，光电门测出遮光时间 \\(t\\)，力传感器测出绳上拉力 \\(F\\)。在地球赤道和南极测得的 \\(F-t^{-2}\\) 图像为两条斜率均为 \\(k\\) 的直线，横轴截距分别为 \\(a\\)、\\(b\\)，且 \\(b>a\\)。已知引力常量为 \\(G\\)，地球半径为 \\(R\\)。则（  ）",
+  "options": [
+    "A. 小球的质量为 \\(kL/d^2\\)",
+    "B. 地球南极处的重力加速度为 \\(ad^2/L\\)",
+    "C. 地球的质量为 \\(bd^2R^2/(GL)\\)",
+    "D. 小球在圆周最高点时向心加速度的大小总等于当地重力加速度"
+  ],
+  "answer": "A、C",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["光电门测速", "竖直圆周运动", "图像斜率与截距"],
+  "steps": [
+    { "stepId": 1, "title": "建立图像方程", "content": "最高点速度 \\(v=d/t\\)，沿圆心方向有 \\(F+mg=mv^2/L\\)，即 \\(F=(md^2/L)t^{-2}-mg\\)。", "knowledge": ["牛顿第二定律"], "commonMistakes": [] },
+    { "stepId": 2, "title": "斜率与截距", "content": "斜率 \\(k=md^2/L\\)，故 \\(m=kL/d^2\\)。横轴截距为 \\(gL/d^2\\)；南极重力较大，对应较大的截距 \\(b\\)，所以 \\(g_{南}=bd^2/L\\)。", "knowledge": ["图像信息"], "commonMistakes": [] },
+    { "stepId": 3, "title": "结论", "content": "由 \\(g_{南}=GM/R^2\\)，得 \\(M=bd^2R^2/(GL)\\)。最高点通常有 \\(a_c=g+F/m\\)，不总等于 \\(g\\)。故选 A、C。", "knowledge": ["天体质量"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：拉力图像求质量",
+    "question": "某最高点实验得到 \\(F-x\\) 直线，其中 \\(x=t^{-2}\\)，斜率为 \\(K\\)。遮光条宽度为 \\(d\\)，绳长为 \\(L\\)。求小球质量。",
+    "answer": "\\(m=KL/d^2\\)。",
+    "thinking": "先写 \\(F=(md^2/L)x-mg\\)，再读取直线斜率。"
+  }
+}

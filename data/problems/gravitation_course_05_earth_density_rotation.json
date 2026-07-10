@@ -1,0 +1,27 @@
+{
+  "id": "gravitation_course_05_earth_density_rotation",
+  "originalNumber": "课5",
+  "chapter": "万有引力与宇宙航行",
+  "title": "例5：自转与地球密度",
+  "question": "假设地球可视为质量均匀分布的球体。已知地球表面重力加速度在两极的大小为 \\(g_0\\)，在赤道的大小为 \\(g\\)，地球自转周期为 \\(T\\)，引力常量为 \\(G\\)，则地球的密度为（  ）",
+  "options": [
+    "A. \\(\\dfrac{3\\pi(g_0-g)}{GT^2g_0}\\)",
+    "B. \\(\\dfrac{3\\pi g_0}{GT^2(g_0-g)}\\)",
+    "C. \\(\\dfrac{3\\pi g}{GT^2(g_0-g)}\\)",
+    "D. \\(\\dfrac{3\\pi}{GT^2}\\)"
+  ],
+  "answer": "B",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["地球自转", "视重", "平均密度"],
+  "steps": [
+    { "stepId": 1, "title": "两极与赤道", "content": "两极处 \\(g_0=GM/R^2\\)。赤道处万有引力的一部分提供向心力，故 \\(g_0-g=\\omega^2R\\)，其中 \\(\\omega=2\\pi/T\\)。", "knowledge": ["自转向心力"], "commonMistakes": [] },
+    { "stepId": 2, "title": "求地球半径", "content": "由上式得 \\(R=\\dfrac{(g_0-g)T^2}{4\\pi^2}\\)。", "knowledge": ["角速度"], "commonMistakes": [] },
+    { "stepId": 3, "title": "结论", "content": "由 \\(M=g_0R^2/G\\) 和 \\(\\rho=3M/(4\\pi R^3)\\)，得 \\(\\rho=\\dfrac{3\\pi g_0}{GT^2(g_0-g)}\\)，故选 B。", "knowledge": ["密度"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：赤道与两极重力差",
+    "question": "均匀星球半径为 \\(R\\)，自转周期为 \\(T\\)，两极重力加速度为 \\(g_p\\)。求赤道处的重力加速度读数。",
+    "answer": "\\(g_e=g_p-\\dfrac{4\\pi^2R}{T^2}\\)。",
+    "thinking": "赤道处满足 \\(mg_p-mg_e=m\\omega^2R\\)。"
+  }
+}

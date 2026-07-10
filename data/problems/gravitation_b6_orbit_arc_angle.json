@@ -1,0 +1,27 @@
+{
+  "id": "gravitation_b6_orbit_arc_angle",
+  "originalNumber": "B6",
+  "chapter": "万有引力与宇宙航行",
+  "title": "B6：弧长角度测天体",
+  "question": "（多选）人造航天器在月球表面上空绕月球做匀速圆周运动。经过时间 \\(t\\)（\\(t\\) 小于航天器的绕行周期），航天器运动的弧长为 \\(s\\)，航天器与月球的中心连线扫过的角度为 \\(\\theta\\)，引力常量为 \\(G\\)。则（  ）",
+  "options": [
+    "A. 航天器的轨道半径为 \\(\\theta/s\\)",
+    "B. 航天器的环绕周期为 \\(2\\pi t/\\theta\\)",
+    "C. 月球的质量为 \\(s^3/(Gt^2\\theta)\\)",
+    "D. 月球的密度为 \\(3\\pi/(Gt^2)\\)"
+  ],
+  "answer": "B、C",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["弧长公式", "轨道周期", "中心天体质量"],
+  "steps": [
+    { "stepId": 1, "title": "运动学量", "content": "弧长满足 \\(s=r\\theta\\)，故 \\(r=s/\\theta\\)；角速度 \\(\\omega=\\theta/t\\)，所以 \\(T=2\\pi/\\omega=2\\pi t/\\theta\\)。A 错、B 对。", "knowledge": ["圆周运动"], "commonMistakes": [] },
+    { "stepId": 2, "title": "月球质量", "content": "轨道速度 \\(v=s/t\\)。由 \\(GM/r^2=v^2/r\\)，得 \\(M=v^2r/G=s^3/(Gt^2\\theta)\\)，C 对。", "knowledge": ["万有引力"], "commonMistakes": [] },
+    { "stepId": 3, "title": "密度判断", "content": "题目没有给出月球半径，不能由轨道半径代替月球半径求密度，D 错。故选 B、C。", "knowledge": ["信息判断"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：弧长与角速度测轨道",
+    "question": "卫星在 \\(30\\,\\mathrm{s}\\) 内走过弧长 \\(600\\,\\mathrm{km}\\)，扫角为 \\(0.2\\,\\mathrm{rad}\\)。求轨道半径和周期。",
+    "answer": "\\(r=3000\\,\\mathrm{km}\\)，\\(T=300\\pi\\,\\mathrm{s}\\)。",
+    "thinking": "使用 \\(r=s/\\theta\\) 与 \\(T=2\\pi t/\\theta\\)。"
+  }
+}

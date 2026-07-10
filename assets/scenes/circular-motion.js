@@ -690,3 +690,164 @@ function drawBowlGraph() {
   text("b 球 θ=" + bowlThetaB.toFixed(0) + "°", gx + 32, gy + 30);
   text("原题结论：ωa:ωb = 2:√3，答案 B、D", gx + 12, gy + 56);
 }
+
+function getGravitationEclipseValues() {
+  var periodRatio = Math.max(0.1, getJsonParam(currentScene, "periodRatio", 13));
+  var sunEarthRadiusRatio = Math.max(0.1, getJsonParam(currentScene, "sunEarthRadiusRatio", 100));
+  var earthMoonRadiusRatio = Math.max(0.1, getJsonParam(currentScene, "earthMoonRadiusRatio", 4));
+  var distanceRatio = sunEarthRadiusRatio * earthMoonRadiusRatio;
+  var massRatio = Math.pow(distanceRatio, 3) / Math.pow(periodRatio, 2);
+  var forceRatio = Math.pow(distanceRatio, 2) / massRatio;
+  var densityRatio = Math.pow(sunEarthRadiusRatio, 3) / massRatio;
+  return {
+    periodRatio: periodRatio,
+    sunEarthRadiusRatio: sunEarthRadiusRatio,
+    earthMoonRadiusRatio: earthMoonRadiusRatio,
+    distanceRatio: distanceRatio,
+    massRatio: massRatio,
+    forceRatio: forceRatio,
+    densityRatio: densityRatio
+  };
+}
+
+function drawGravitationEclipseScene() {
+  var values = getGravitationEclipseValues();
+  var state = getJsonAnimationState(currentScene);
+  var duration = getJsonDuration(currentScene);
+  var progress = constrain(state.time / Math.max(0.01, duration), 0, 1);
+  var eased = 0.5 - 0.5 * Math.cos(Math.PI * progress);
+  var moonAngle = (1 - eased) * 0.52;
+  var earthX = 64;
+  var centerY = 250;
+  var sunX = 500;
+  var sunRadius = 50;
+  var moonOrbitDisplay = 158;
+  var moonRadius = sunRadius * moonOrbitDisplay / (sunX - earthX);
+  var moonX = earthX + moonOrbitDisplay * Math.cos(moonAngle);
+  var moonY = centerY - moonOrbitDisplay * Math.sin(moonAngle);
+  var coneSlope = sunRadius / (sunX - earthX);
+
+  noStroke();
+  fill("#f8fafc");
+  rect(0, 0, 570, 500);
+
+  stroke("#cbd5e1");
+  strokeWeight(1.5);
+  noFill();
+  drawingContext.setLineDash([4, 4]);
+  arc(earthX, centerY, moonOrbitDisplay * 2, moonOrbitDisplay * 2, -0.52, 0.03);
+  drawingContext.setLineDash([]);
+
+  noStroke();
+  fill("#fbbf24");
+  circle(sunX, centerY, sunRadius * 2);
+  fill("#fef3c7");
+  circle(sunX - 12, centerY - 14, 16);
+
+  stroke("#f59e0b");
+  strokeWeight(1.5);
+  drawingContext.setLineDash([4, 4]);
+  line(earthX, centerY, sunX, centerY - sunRadius);
+  line(earthX, centerY, sunX, centerY + sunRadius);
+  drawingContext.setLineDash([]);
+
+  noStroke();
+  fill("#475569");
+  circle(moonX, moonY, moonRadius * 2);
+  fill("#94a3b8");
+  circle(moonX - moonRadius * 0.25, moonY - moonRadius * 0.2, moonRadius * 0.35);
+
+  fill("#2563eb");
+  circle(earthX, centerY, 30);
+  fill("#86efac");
+  arc(earthX, centerY, 22, 22, -1.1, 1.0);
+
+  stroke("#2563eb");
+  strokeWeight(2);
+  line(earthX, centerY, sunX, centerY);
+  noStroke();
+  fill("#0f172a");
+  textAlign(CENTER, TOP);
+  textSize(14);
+  text("地球", earthX, centerY + 24);
+  text("月球", moonX, moonY + moonRadius + 9);
+  text("太阳", sunX, centerY + sunRadius + 9);
+
+  textAlign(LEFT, TOP);
+  textSize(16);
+  text("日全食视线对齐", 28, 24);
+  fill("#334155");
+  textSize(14);
+  text("角直径相等：R日 / D日 = R月 / D月", 28, 52);
+  text("距离比 = " + values.distanceRatio.toFixed(0) + " : 1", 28, 78);
+  text("对齐进度 " + (progress * 100).toFixed(0) + "%", 28, 104);
+
+  var lineAtMoon = coneSlope * (moonX - earthX);
+  fill(Math.abs(moonY - centerY) <= lineAtMoon - moonRadius * 0.2 ? "#15803d" : "#b45309");
+  textSize(15);
+  text(progress > 0.96 ? "月球遮住太阳：形成日全食" : "月球正向日地连线移动", 28, 430);
+}
+
+function drawGravitationEclipseGraph() {
+  var values = getGravitationEclipseValues();
+  var gx = graphLeft + 42;
+  var gy = 104;
+  var gw = graphRight - gx - 28;
+  var rowHeight = 74;
+  var names = ["A 距离比", "B 引力比", "C 质量比", "D 密度比"];
+  var actual = [values.distanceRatio, values.forceRatio, values.massRatio, values.densityRatio];
+  var optionValues = [400, 2, 3.8e5, 2];
+  var i;
+
+  noStroke();
+  fill("#111827");
+  textAlign(LEFT, TOP);
+  textSize(20);
+  text("四个选项的定量核验", graphLeft + 24, 22);
+  fill("#334155");
+  textSize(14);
+  text("横条 = 实际值 / 选项值；虚线 1.0 表示吻合", graphLeft + 24, 49);
+
+  stroke("#cbd5e1");
+  strokeWeight(1);
+  noFill();
+  rect(gx, gy - 18, gw, rowHeight * 4 + 18);
+  var referenceX = gx + gw * (1 / 1.5);
+  stroke("#64748b");
+  drawingContext.setLineDash([4, 4]);
+  line(referenceX, gy - 18, referenceX, gy + rowHeight * 4);
+  drawingContext.setLineDash([]);
+
+  for (i = 0; i < names.length; i++) {
+    var ratio = actual[i] / optionValues[i];
+    var y = gy + i * rowHeight;
+    var barWidth = constrain(ratio / 1.5, 0, 1) * gw;
+    var matches = Math.abs(ratio - 1) < 0.08;
+
+    noStroke();
+    fill(i % 2 === 0 ? "#f8fafc" : "#f1f5f9");
+    rect(gx, y - 2, gw, rowHeight - 4);
+    fill(matches ? "#16a34a" : "#dc2626");
+    rect(gx, y + 27, barWidth, 17, 4);
+    fill("#0f172a");
+    textAlign(LEFT, TOP);
+    textSize(14);
+    text(names[i], gx + 8, y + 5);
+    textAlign(RIGHT, TOP);
+    text("比值 " + ratio.toFixed(2) + (matches ? "  ✓" : "  ×"), gx + gw - 8, y + 5);
+    fill("#475569");
+    textAlign(LEFT, TOP);
+    textSize(12);
+    text("实际 " + formatGravitationEclipseNumber(actual[i]) + " / 选项 " + formatGravitationEclipseNumber(optionValues[i]), gx + 8, y + 48);
+  }
+}
+
+function formatGravitationEclipseNumber(value) {
+  if (Math.abs(value) >= 10000) {
+    return value.toExponential(2);
+  }
+  if (Math.abs(value) >= 100) {
+    return value.toFixed(0);
+  }
+  return value.toFixed(2);
+}

@@ -1,0 +1,27 @@
+{
+  "id": "gravitation_a3_halley_comet",
+  "originalNumber": "A3",
+  "chapter": "万有引力与宇宙航行",
+  "title": "A3：哈雷彗星近日远日",
+  "question": "（多选）哈雷彗星的公转轨道可看作较扁的椭圆。在近日点到太阳中心的距离为 \\(r_1\\)，线速度大小为 \\(v_1\\)，加速度大小为 \\(a_1\\)；在远日点相应物理量为 \\(r_2\\)、\\(v_2\\)、\\(a_2\\)。则（  ）",
+  "options": [
+    "A. \\(v_1>v_2\\)",
+    "B. \\(v_1\\lt v_2\\)",
+    "C. \\(a_1/a_2=r_1^2/r_2^2\\)",
+    "D. \\(a_1/a_2=r_2^2/r_1^2\\)"
+  ],
+  "answer": "A、D",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["椭圆轨道", "万有引力加速度", "面积速度"],
+  "steps": [
+    { "stepId": 1, "title": "速度比较", "content": "近日点距离较小，由面积速度守恒 \\(r_1v_1=r_2v_2\\)，且 \\(r_1\\lt r_2\\)，所以 \\(v_1>v_2\\)。", "knowledge": ["开普勒第二定律"], "commonMistakes": [] },
+    { "stepId": 2, "title": "加速度比较", "content": "彗星加速度由太阳引力产生，\\(a=GM_\\odot/r^2\\)。", "knowledge": ["万有引力"], "commonMistakes": [] },
+    { "stepId": 3, "title": "结论", "content": "\\(a_1/a_2=r_2^2/r_1^2\\)，故选 A、D。", "knowledge": ["平方反比"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：彗星两端点物理量",
+    "question": "彗星远日点距离是近日点距离的 \\(3\\) 倍，求两处速率比与加速度比。",
+    "answer": "\\(v_{近}:v_{远}=3:1\\)，\\(a_{近}:a_{远}=9:1\\)。",
+    "thinking": "速率比用面积速度守恒，加速度比用 \\(a\\propto1/r^2\\)。"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "gravitation_a1_saturn_moons",
+  "originalNumber": "A1",
+  "chapter": "万有引力与宇宙航行",
+  "title": "A1：土星双卫星位置",
+  "question": "（多选）土卫一 \\(M\\) 和土卫二 \\(E\\) 是土星 \\(S\\) 的两个卫星，土卫二的公转半径约为土卫一的 \\(2\\) 倍。某时刻两卫星均位于土星右侧同一直线上，且公转方向均为逆时针。在土卫一公转一周的时间内，两卫星的位置关系大致为（  ）",
+  "options": [
+    "A. \\(M\\) 位于内轨道左侧，\\(E\\) 位于外轨道右上方",
+    "B. \\(M\\) 与 \\(E\\) 均位于各自轨道左侧",
+    "C. \\(M\\) 位于内轨道左侧，\\(E\\) 位于外轨道左下方",
+    "D. \\(M\\) 回到内轨道右侧，\\(E\\) 位于外轨道左上方"
+  ],
+  "answer": "D",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["开普勒第三定律", "卫星相对位置"],
+  "steps": [
+    { "stepId": 1, "title": "周期比较", "content": "由 \\(T^2\\propto r^3\\)，得 \\(T_E/T_M=2^{3/2}=2\\sqrt2\\)。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] },
+    { "stepId": 2, "title": "转角计算", "content": "在时间 \\(T_M\\) 内，土卫一转一周回到右侧；土卫二转角为 \\(2\\pi/(2\\sqrt2)=\\pi/\\sqrt2\\)，约为 \\(127^\\circ\\)。", "knowledge": ["角位移"], "commonMistakes": [] },
+    { "stepId": 3, "title": "结论", "content": "土卫二从右侧逆时针转到左上方，故选 D。", "knowledge": ["位置判断"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：双卫星相对转角",
+    "question": "两卫星轨道半径之比为 \\(1:4\\)，初始位于同一射线上。当内卫星转一周时，外卫星转过多少角度？",
+    "answer": "外卫星周期是内卫星的 \\(8\\) 倍，转角为 \\(\\pi/4\\)。",
+    "thinking": "先由 \\(T\\propto r^{3/2}\\) 求周期比，再按相同时间求角位移。"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "gravitation_a5_unknown_body_throw",
+  "originalNumber": "A5",
+  "chapter": "万有引力与宇宙航行",
+  "title": "A5：未知天体竖直上抛",
+  "question": "（多选）航天员登上某半径为 \\(R\\) 的球形未知天体，在其表面将质量为 \\(m\\) 的小球以初速度 \\(v_0\\) 竖直上抛，上升的最大高度为 \\(h\\)，引力常量为 \\(G\\)。则（  ）",
+  "options": [
+    "A. 该天体表面的重力加速度大小为 \\(v_0^2/(2h)\\)",
+    "B. 该天体表面的重力加速度大小为 \\(v_0/(2h)\\)",
+    "C. 该未知天体质量为 \\(v_0^2R^2/(2Gh)\\)",
+    "D. 该未知天体质量为 \\(v_0^2R^2h^2/(2G)\\)"
+  ],
+  "answer": "A、C",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["竖直上抛", "天体质量", "量纲判断"],
+  "steps": [
+    { "stepId": 1, "title": "上抛运动", "content": "忽略高度变化引起的重力变化，由 \\(0=v_0^2-2gh\\)，得 \\(g=v_0^2/(2h)\\)，A 正确。", "knowledge": ["运动学"], "commonMistakes": [] },
+    { "stepId": 2, "title": "天体质量", "content": "天体表面有 \\(g=GM/R^2\\)，因此 \\(M=gR^2/G=v_0^2R^2/(2Gh)\\)，C 正确。", "knowledge": ["万有引力"], "commonMistakes": [] },
+    { "stepId": 3, "title": "结论", "content": "B、D 的量纲也不正确，故选 A、C。", "knowledge": ["量纲"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：抛体实验求天体质量",
+    "question": "在半径为 \\(R\\) 的天体表面，以 \\(u\\) 竖直上抛物体，经过 \\(t\\) 回到抛出点。求天体质量。",
+    "answer": "\\(M=\\dfrac{2uR^2}{Gt}\\)。",
+    "thinking": "由上抛总时间 \\(t=2u/g\\) 求 \\(g\\)，再用 \\(M=gR^2/G\\)。"
+  }
+}

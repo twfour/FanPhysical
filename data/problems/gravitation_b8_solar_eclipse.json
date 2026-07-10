@@ -1,0 +1,40 @@
+{
+  "id": "gravitation_b8_solar_eclipse",
+  "originalNumber": "B8",
+  "chapter": "万有引力与宇宙航行",
+  "title": "B8：日全食尺度估算",
+  "question": "（多选）2024 年 4 月 9 日在北美洲南部能观察到日全食，此时月球和太阳的视角相等。已知地球绕太阳的周期约为月球绕地球周期的 \\(13\\) 倍，太阳半径约为地球半径的 \\(100\\) 倍，地球半径约为月球半径的 \\(4\\) 倍，两个轨道均可视为圆周运动。根据以上数据可知（  ）",
+  "options": [
+    "A. 地球到太阳的距离与月球到地球的距离之比约为 \\(400:1\\)",
+    "B. 地球对月球的引力与太阳对月球的引力之比约为 \\(2:1\\)",
+    "C. 太阳的质量约为地球质量的 \\(3.8\\times10^5\\) 倍",
+    "D. 地球与太阳的平均密度之比约为 \\(2:1\\)"
+  ],
+  "answer": "A、C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_eclipse",
+    "playable": true,
+    "interactive": true,
+    "notes": "月球逐渐进入日地视线；重合时月球与太阳角直径相等。右图用实际值与选项值之比核验四个选项。",
+    "params": {
+      "periodRatio": { "label": "周期比", "value": 13, "min": 10, "max": 16, "step": 1, "unit": "" },
+      "sunEarthRadiusRatio": { "label": "日地半径比", "value": 100, "min": 80, "max": 120, "step": 1, "unit": "" },
+      "earthMoonRadiusRatio": { "label": "地月半径比", "value": 4, "min": 3, "max": 5, "step": 0.1, "unit": "" }
+    },
+    "timeline": { "duration": 6, "loop": false }
+  },
+  "knowledge": ["角直径", "开普勒第三定律", "平均密度"],
+  "steps": [
+    { "stepId": 1, "title": "角直径", "content": "视角相等给出 \\(R_\\odot/D_\\odot=R_m/D_m\\)。又 \\(R_\\odot=100R_E=400R_m\\)，故 \\(D_\\odot:D_m\\approx400:1\\)，A 对。", "knowledge": ["小角度"], "commonMistakes": [] },
+    { "stepId": 2, "title": "质量比", "content": "由开普勒第三定律，\\(M_\\odot/M_E=(D_\\odot/D_m)^3/(T_E/T_m)^2=400^3/13^2\\approx3.8\\times10^5\\)，C 对。", "knowledge": ["中心天体质量"], "commonMistakes": [] },
+    { "stepId": 3, "title": "排除", "content": "引力比约为 \\(0.42:1\\)，不是 \\(2:1\\)；密度比约为 \\(10^6/(3.8\\times10^5)\\approx2.6:1\\)，不是 \\(2:1\\)。故 B、D 错。", "knowledge": ["数量级估算"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：角直径与距离比",
+    "question": "两个天体从观察者看来角直径相同，半径之比为 \\(50:1\\)。求它们到观察者的距离之比。",
+    "answer": "距离之比约为 \\(50:1\\)。",
+    "thinking": "小角度下角直径与半径和距离之比 \\(R/D\\) 成正比。"
+  }
+}

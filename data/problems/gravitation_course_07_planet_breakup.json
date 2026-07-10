@@ -1,0 +1,21 @@
+{
+  "id": "gravitation_course_07_planet_breakup",
+  "originalNumber": "课7",
+  "chapter": "万有引力与宇宙航行",
+  "title": "例7：星球自转解体",
+  "question": "已知某星球不自转时，其表面重力加速度为 \\(g\\)，半径为 \\(R\\)。问该星球自转的角速度 \\(\\omega\\) 增大为多少时，星球开始解体？",
+  "answer": "\\(\\omega=\\sqrt{g/R}\\)",
+  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "knowledge": ["自转临界", "万有引力", "向心力"],
+  "steps": [
+    { "stepId": 1, "title": "临界位置", "content": "赤道处最先达到解体临界，因为该处距自转轴最远，需要的向心力最大。", "knowledge": ["临界条件"], "commonMistakes": [] },
+    { "stepId": 2, "title": "建立方程", "content": "临界时表面物体仅靠万有引力提供向心力：\\(mg=m\\omega^2R\\)。", "knowledge": ["向心力"], "commonMistakes": [] },
+    { "stepId": 3, "title": "结论", "content": "约去质量得 \\(\\omega=\\sqrt{g/R}\\)。", "knowledge": ["临界角速度"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：星球解体临界周期",
+    "question": "某星球表面重力加速度为 \\(g\\)，半径为 \\(R\\)，求不发生解体的最小自转周期。",
+    "answer": "\\(T_{\\min}=2\\pi\\sqrt{R/g}\\)。",
+    "thinking": "先求临界角速度 \\(\\omega_{\\max}=\\sqrt{g/R}\\)，再用 \\(T=2\\pi/\\omega\\)。"
+  }
+}

@@ -129,7 +129,8 @@ var problemDataMap = {};
 var problemDataList = [];
 var promotedProblemChapterMap = {
   "圆周运动": true,
-  "圆周运动日常": true
+  "圆周运动日常": true,
+  "万有引力与宇宙航行": true
 };
 var legacySceneMap = {
   spring: true,
@@ -1689,6 +1690,11 @@ function formatPhysicsUnit(unit) {
 
 function getJsonDuration(sceneName) {
   var animation = (problemDataMap[sceneName] || {}).animation || {};
+  if (animation.type === "gravitation_lunar_throw") {
+    var lunarV0 = Math.max(0.1, getJsonParam(sceneName, "v0", 8));
+    var lunarHeight = Math.max(0.1, getJsonParam(sceneName, "height", 20));
+    return 4 * lunarHeight / lunarV0;
+  }
   if (animation.type === "projectile") {
     var height = getJsonParam(sceneName, "height", 20);
     var g = Math.max(0.1, getJsonParam(sceneName, "g", 9.8));
@@ -1774,6 +1780,12 @@ function drawJsonAnimationScene() {
   } else if (animation.type === "circular_concept") {
     drawAnimScene(drawJsonCircularConceptScene);
     drawJsonCircularConceptGraph();
+  } else if (animation.type === "gravitation_eclipse") {
+    drawAnimScene(drawGravitationEclipseScene);
+    drawGravitationEclipseGraph();
+  } else if (animation.type === "gravitation_lunar_throw") {
+    drawAnimScene(drawGravitationLunarThrowScene);
+    drawGravitationLunarThrowGraph();
   } else {
     drawAnimScene(drawJsonPlaceholderScene);
     drawJsonPlaceholderGraph();
