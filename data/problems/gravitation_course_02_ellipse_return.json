@@ -5,7 +5,7 @@
   "title": "例2：椭圆变轨返回",
   "question": "神舟六号沿半径为 \\(r\\) 的圆周绕地球运动，周期为 \\(T\\)。飞船在轨道上的 \\(A\\) 点降低速率后，沿以地心为焦点的椭圆轨道运动，椭圆与地球表面在 \\(B\\) 点相切。若地球半径为 \\(R\\)，求飞船从 \\(A\\) 点到 \\(B\\) 点所需的时间。",
   "answer": "\\(t_{AB}=\\dfrac{T}{2}\\left(\\dfrac{r+R}{2r}\\right)^{3/2}\\)",
-  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "ellipse_return", "playable": true, "interactive": true, "notes": "飞船从圆轨道远地点 A 降速，沿转移椭圆运行半周并在地表 B 点相切。", "params": { "orbitRadius": { "label": "原轨道半径", "value": 4, "min": 2, "max": 7, "step": 0.2, "unit": "R" }, "earthRadius": { "label": "地球半径", "value": 1, "min": 0.8, "max": 1.5, "step": 0.1, "unit": "R" }, "period": { "label": "原轨道周期", "value": 16, "min": 8, "max": 30, "step": 1, "unit": "h" } }, "timeline": { "duration": 7, "loop": false } },
   "knowledge": ["开普勒第三定律", "椭圆变轨", "半长轴"],
   "steps": [
     { "stepId": 1, "title": "条件提取", "content": "转移椭圆的远地点半径为 \\(r\\)，近地点半径为 \\(R\\)，故半长轴 \\(a=\\dfrac{r+R}{2}\\)。", "knowledge": ["椭圆半长轴"], "commonMistakes": [] },

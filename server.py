@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import json
 import os
+import ssl
+import subprocess
 import urllib.error
 import urllib.request
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -104,9 +106,41 @@ def call_deepseek(payload):
         },
         method="POST",
     )
-    with urllib.request.urlopen(request, timeout=45) as response:
-        result = json.loads(response.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(request, timeout=45) as response:
+            result = json.loads(response.read().decode("utf-8"))
+    except urllib.error.URLError as error:
+        if not isinstance(error.reason, ssl.SSLCertVerificationError):
+            raise
+        result = call_deepseek_with_system_curl(data, api_key)
     return result["choices"][0]["message"]["content"]
+
+
+def call_deepseek_with_system_curl(data, api_key):
+    command = [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--fail-with-body",
+        "--max-time",
+        "45",
+        "--request",
+        "POST",
+        DEEPSEEK_API_URL,
+        "--header",
+        "Content-Type: application/json",
+        "--header",
+        f"Authorization: Bearer {api_key}",
+        "--data-binary",
+        "@-",
+    ]
+    completed = subprocess.run(command, input=data, capture_output=True, check=False)
+    if completed.returncode != 0:
+        detail = completed.stderr.decode("utf-8", errors="replace").strip()
+        if not detail:
+            detail = completed.stdout.decode("utf-8", errors="replace").strip()
+        raise urllib.error.URLError(detail or f"curl exited with code {completed.returncode}")
+    return json.loads(completed.stdout.decode("utf-8"))
 
 
 class Handler(SimpleHTTPRequestHandler):

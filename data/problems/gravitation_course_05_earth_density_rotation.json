@@ -11,7 +11,7 @@
     "D. \\(\\dfrac{3\\pi}{GT^2}\\)"
   ],
   "answer": "B",
-  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "earth_density_rotation", "playable": true, "interactive": true, "notes": "地球自转时赤道需要向心加速度，视重小于两极；右图给出视重随纬度变化。", "params": { "poleGravity": { "label": "两极重力", "value": 9.83, "min": 9.7, "max": 10, "step": 0.01, "unit": "m/s²" }, "equatorGravity": { "label": "赤道重力", "value": 9.78, "min": 9.6, "max": 9.9, "step": 0.01, "unit": "m/s²" }, "period": { "label": "自转周期", "value": 24, "min": 12, "max": 36, "step": 1, "unit": "h" } }, "timeline": { "duration": 6, "loop": false } },
   "knowledge": ["地球自转", "视重", "平均密度"],
   "steps": [
     { "stepId": 1, "title": "两极与赤道", "content": "两极处 \\(g_0=GM/R^2\\)。赤道处万有引力的一部分提供向心力，故 \\(g_0-g=\\omega^2R\\)，其中 \\(\\omega=2\\pi/T\\)。", "knowledge": ["自转向心力"], "commonMistakes": [] },

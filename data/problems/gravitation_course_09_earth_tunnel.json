@@ -11,7 +11,7 @@
     "D. 先减小后增大"
   ],
   "answer": "D",
-  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "earth_tunnel", "playable": true, "interactive": true, "notes": "物体穿过地心隧道，加速度大小随距地心距离先减小到零、再增大。", "params": { "radius": { "label": "地球半径", "value": 1, "min": 0.6, "max": 1.5, "step": 0.1, "unit": "R" }, "surfaceGravity": { "label": "表面重力", "value": 10, "min": 5, "max": 15, "step": 0.5, "unit": "m/s²" } }, "timeline": { "duration": 8, "loop": false } },
   "knowledge": ["均匀球体内部引力", "穿地隧道", "简谐运动"],
   "steps": [
     { "stepId": 1, "title": "球内引力", "content": "设物体距地心为 \\(r\\)。均匀地球中只有半径 \\(r\\) 内的质量产生合引力，包围质量 \\(M_r=M(r/R)^3\\)。", "knowledge": ["球壳定理"], "commonMistakes": [] },

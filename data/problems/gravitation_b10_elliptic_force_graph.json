@@ -11,7 +11,7 @@
     "D. \\(Q\\) 的轨道长轴与短轴之比为 \\(2:\\sqrt3\\)"
   ],
   "answer": "A、C、D",
-  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "elliptic_force_graph", "playable": true, "interactive": true, "notes": "卫星 P、Q 在不同椭圆轨道上运动，右图同步显示引力随时间的周期变化与极值。", "params": { "t1": { "label": "P周期 t₁", "value": 4, "min": 2, "max": 8, "step": 0.5, "unit": "h" }, "baseForce": { "label": "基准力 F", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "N" } }, "timeline": { "duration": 10, "loop": false } },
   "knowledge": ["椭圆轨道", "引力图像", "开普勒第三定律"],
   "steps": [
     { "stepId": 1, "title": "周期与半长轴", "content": "由图得 \\(T_P=t_1\\)、\\(T_Q=2t_2=2\\sqrt2t_1\\)，A 正确。由 \\(T^2\\propto a^3\\)，得半长轴 \\(a_P:a_Q=1:2\\)。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] },

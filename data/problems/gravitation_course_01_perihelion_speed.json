@@ -11,7 +11,7 @@
     "D. \\(v_b=\\sqrt{\\dfrac{b}{a}}v_a\\)"
   ],
   "answer": "C",
-  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "perihelion_speed", "playable": true, "interactive": true, "notes": "行星沿椭圆轨道由远日点运动到近日点，扫过面积相同时近日点速度更大。", "params": { "apoapsis": { "label": "远日距离", "value": 5, "min": 3, "max": 8, "step": 0.5, "unit": "a.u." }, "periapsis": { "label": "近日距离", "value": 2, "min": 1, "max": 3, "step": 0.2, "unit": "a.u." }, "farSpeed": { "label": "远日速度", "value": 4, "min": 1, "max": 10, "step": 0.5, "unit": "km/s" } }, "timeline": { "duration": 7, "loop": false } },
   "knowledge": ["开普勒第二定律", "角动量守恒", "近日点与远日点"],
   "steps": [
     { "stepId": 1, "title": "条件提取", "content": "在远日点和近日点，速度都与太阳到行星的连线垂直。", "knowledge": ["椭圆轨道"], "commonMistakes": [] },

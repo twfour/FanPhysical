@@ -11,7 +11,7 @@
     "D. 该行星到太阳的距离一定大于地球到太阳的距离"
   ],
   "answer": "B、C",
-  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "astronomy_photo", "playable": true, "interactive": true, "notes": "卫星做匀速圆周运动，照片只记录其水平投影；右图复现每隔 2h 测得的 L-t 正弦数据。", "params": { "period": { "label": "卫星周期", "value": 48, "min": 24, "max": 72, "step": 2, "unit": "h" }, "orbitRatio": { "label": "轨道半径比", "value": 10, "min": 5, "max": 15, "step": 0.5, "unit": "R" } }, "timeline": { "duration": 8, "loop": false } },
   "knowledge": ["正弦投影", "开普勒第三定律", "天体密度"],
   "steps": [
     { "stepId": 1, "title": "读取周期", "content": "表中数据对应 \\(L=10\\sin(7.5^\\circ t+15^\\circ)\\,\\mathrm{cm}\\)，角速度为 \\(7.5^\\circ/\\mathrm{h}\\)，故卫星周期为 \\(48\\,\\mathrm{h}\\)，A 错。", "knowledge": ["圆周投影"], "commonMistakes": [] },

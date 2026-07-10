@@ -11,7 +11,7 @@
     "D. 该未知天体质量为 \\(v_0^2R^2h^2/(2G)\\)"
   ],
   "answer": "A、C",
-  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "unknown_body_throw", "playable": true, "interactive": true, "notes": "在未知天体表面做竖直上抛实验，用最大高度反推表面重力与天体质量。", "params": { "v0": { "label": "初速度", "value": 8, "min": 2, "max": 20, "step": 0.5, "unit": "m/s" }, "height": { "label": "最大高度", "value": 20, "min": 2, "max": 80, "step": 1, "unit": "m" }, "radius": { "label": "天体半径", "value": 2, "min": 0.5, "max": 6, "step": 0.1, "unit": "×10⁶m" } }, "timeline": { "duration": 10, "loop": false } },
   "knowledge": ["竖直上抛", "天体质量", "量纲判断"],
   "steps": [
     { "stepId": 1, "title": "上抛运动", "content": "忽略高度变化引起的重力变化，由 \\(0=v_0^2-2gh\\)，得 \\(g=v_0^2/(2h)\\)，A 正确。", "knowledge": ["运动学"], "commonMistakes": [] },

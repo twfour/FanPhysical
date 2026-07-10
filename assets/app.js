@@ -1786,6 +1786,9 @@ function drawJsonAnimationScene() {
   } else if (animation.type === "gravitation_lunar_throw") {
     drawAnimScene(drawGravitationLunarThrowScene);
     drawGravitationLunarThrowGraph();
+  } else if (animation.type === "gravitation_model") {
+    drawAnimScene(drawGravitationModelScene);
+    drawGravitationModelGraph();
   } else {
     drawAnimScene(drawJsonPlaceholderScene);
     drawJsonPlaceholderGraph();

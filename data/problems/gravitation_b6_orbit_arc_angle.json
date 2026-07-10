@@ -11,7 +11,7 @@
     "D. 月球的密度为 \\(3\\pi/(Gt^2)\\)"
   ],
   "answer": "B、C",
-  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "arc_angle", "playable": true, "interactive": true, "notes": "航天器走过弧长 s，同时地月连线扫过角度 θ；动画把 s=rθ、周期和月球质量联系起来。", "params": { "arcLength": { "label": "运动弧长", "value": 3, "min": 1, "max": 8, "step": 0.2, "unit": "×10⁶m" }, "angle": { "label": "扫过角度", "value": 0.6, "min": 0.2, "max": 1.5, "step": 0.05, "unit": "rad" }, "time": { "label": "经过时间", "value": 2, "min": 0.5, "max": 6, "step": 0.1, "unit": "h" } }, "timeline": { "duration": 7, "loop": false } },
   "knowledge": ["弧长公式", "轨道周期", "中心天体质量"],
   "steps": [
     { "stepId": 1, "title": "运动学量", "content": "弧长满足 \\(s=r\\theta\\)，故 \\(r=s/\\theta\\)；角速度 \\(\\omega=\\theta/t\\)，所以 \\(T=2\\pi/\\omega=2\\pi t/\\theta\\)。A 错、B 对。", "knowledge": ["圆周运动"], "commonMistakes": [] },

@@ -11,7 +11,7 @@
     "D. 春分、夏至、秋分、冬至四个节气刚好将一年的时间分为四等份"
   ],
   "answer": "A、B",
-  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "solar_terms", "playable": true, "interactive": true, "notes": "地球沿椭圆轨道运行，近日点附近运动快、远日点附近运动慢；右图显示相邻节气时间变化。", "params": { "eccentricity": { "label": "轨道偏心率", "value": 0.12, "min": 0.02, "max": 0.3, "step": 0.01, "unit": "" } }, "timeline": { "duration": 8, "loop": false } },
   "knowledge": ["开普勒第二定律", "近日点", "节气"],
   "steps": [
     { "stepId": 1, "title": "速度判断", "content": "从冬至附近的近日点向夏至附近的远日点运动时，地球公转速度逐渐减小，因此芒种速度小于小满，A 正确。", "knowledge": ["近日点远日点"], "commonMistakes": [] },

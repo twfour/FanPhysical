@@ -11,7 +11,7 @@
     "D. \\(a_1/a_2=r_2^2/r_1^2\\)"
   ],
   "answer": "A、D",
-  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "halley_comet", "playable": true, "interactive": true, "notes": "哈雷彗星沿高偏心率椭圆运动，近日点速度和加速度均显著大于远日点。", "params": { "periapsis": { "label": "近日距离", "value": 1, "min": 0.5, "max": 2, "step": 0.1, "unit": "a.u." }, "apoapsis": { "label": "远日距离", "value": 6, "min": 3, "max": 10, "step": 0.5, "unit": "a.u." } }, "timeline": { "duration": 8, "loop": false } },
   "knowledge": ["椭圆轨道", "万有引力加速度", "面积速度"],
   "steps": [
     { "stepId": 1, "title": "速度比较", "content": "近日点距离较小，由面积速度守恒 \\(r_1v_1=r_2v_2\\)，且 \\(r_1\\lt r_2\\)，所以 \\(v_1>v_2\\)。", "knowledge": ["开普勒第二定律"], "commonMistakes": [] },

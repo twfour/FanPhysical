@@ -11,7 +11,7 @@
     "D. 在赤道上空高出地面 \\(h\\) 处称量时，读数 \\(F_3=GMm/(R+h)^2\\)"
   ],
   "answer": "A、C",
-  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "scale_weight", "playable": true, "interactive": true, "notes": "测力计依次移动到北极、赤道、北极上空和赤道上空，比较万有引力与视重。", "params": { "mass": { "label": "物体质量", "value": 1, "min": 0.2, "max": 5, "step": 0.1, "unit": "kg" }, "poleGravity": { "label": "两极重力", "value": 9.83, "min": 8, "max": 12, "step": 0.01, "unit": "m/s²" }, "heightRatio": { "label": "上空高度", "value": 0.3, "min": 0.1, "max": 1, "step": 0.1, "unit": "R" } }, "timeline": { "duration": 8, "loop": false } },
   "knowledge": ["视重", "地球自转", "万有引力"],
   "steps": [
     { "stepId": 1, "title": "北极", "content": "北极处到自转轴距离为零，不需要自转向心力，测力计读数等于万有引力。A、C 正确。", "knowledge": ["极地视重"], "commonMistakes": [] },

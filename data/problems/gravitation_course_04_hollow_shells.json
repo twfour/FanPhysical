@@ -5,7 +5,7 @@
   "title": "例4：空心球壳引力",
   "question": "两个均质球壳的质量均为 \\(M\\)，外径为 \\(R_1\\)，内径为 \\(R_2\\)，两球壳中心距离为 \\(L\\)。求两球壳之间的万有引力。",
   "answer": "\\(F=\\dfrac{GM^2}{L^2}\\)",
-  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "hollow_shells", "playable": true, "interactive": true, "notes": "两个均匀球壳在外部相互作用时都可等效为球心处质点，图表显示引力随中心距平方反比变化。", "params": { "separation": { "label": "中心距离", "value": 4, "min": 2.5, "max": 8, "step": 0.2, "unit": "m" }, "mass": { "label": "球壳质量", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "kg" } }, "timeline": { "duration": 6, "loop": false } },
   "knowledge": ["球壳定理", "万有引力"],
   "steps": [
     { "stepId": 1, "title": "模型判断", "content": "均匀球壳对壳外任一点的引力，等效为全部质量集中在球心。", "knowledge": ["球壳定理"], "commonMistakes": [] },

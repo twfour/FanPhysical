@@ -5,7 +5,7 @@
   "title": "拓展例题：地表上下重力",
   "question": "求距地表 \\(h\\) 高度处的重力加速度；再求地球上深度为 \\(h\\) 的矿井里的重力加速度。已知地球表面重力加速度为 \\(g\\)，并把地球视为质量分布均匀、半径为 \\(R\\) 的球体。",
   "answer": "\\(g_{高}=gR^2/(R+h)^2\\)，\\(g_{深}=g(R-h)/R\\)",
-  "animation": { "enabled": false, "level": "none", "type": "none", "playable": false, "interactive": false },
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "gravity_profile", "playable": true, "interactive": true, "notes": "观察点从矿井深处移动到地表上空，右图显示球内线性规律与球外平方反比规律。", "params": { "surfaceGravity": { "label": "表面重力", "value": 10, "min": 5, "max": 15, "step": 0.5, "unit": "m/s²" }, "heightRatio": { "label": "最大高度", "value": 0.6, "min": 0.2, "max": 1, "step": 0.1, "unit": "R" }, "depthRatio": { "label": "最大深度", "value": 0.6, "min": 0.2, "max": 0.9, "step": 0.1, "unit": "R" } }, "timeline": { "duration": 7, "loop": false } },
   "knowledge": ["球外重力", "球内重力", "球壳定理"],
   "steps": [
     { "stepId": 1, "title": "地表上方", "content": "由 \\(g=GM/R^2\\)，高度 \\(h\\) 处到地心距离为 \\(R+h\\)，故 \\(g_{高}=GM/(R+h)^2=gR^2/(R+h)^2\\)。", "knowledge": ["平方反比"], "commonMistakes": [] },
