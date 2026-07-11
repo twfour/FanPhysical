@@ -1,0 +1,27 @@
+{
+  "id": "lesson9_hw_07_black_hole_period",
+  "originalNumber": "单7",
+  "chapter": "行星运动与变轨等问题",
+  "title": "作业第7题：黑洞最小自转周期",
+  "question": "当天体逃逸速度超过光速 \\(c\\) 时，该天体可视为黑洞。已知第二宇宙速度为第一宇宙速度的 \\(\\sqrt2\\) 倍，引力常量为 \\(G\\)。质量为 \\(M\\)、半径取最大值的黑洞，其自转周期的最小值为（  ）。",
+  "options": [
+    "A. \\(\\dfrac{2\\sqrt2\\pi GM}{c^2}\\)",
+    "B. \\(\\dfrac{4\\sqrt2\\pi GM}{c^3}\\)",
+    "C. \\(\\dfrac{4\\sqrt2\\pi GM}{c^2}\\)",
+    "D. \\(\\dfrac{2\\sqrt2\\pi GM}{c^3}\\)"
+  ],
+  "answer": "B",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_black_hole_period", "playable": true, "interactive": true, "notes": "黑洞表面切向速度达到临界，事件视界随质量变化；右图展示最小周期与质量的线性关系。", "params": { "massScale": { "label": "黑洞质量", "value": 1, "min": 0.5, "max": 5.0, "step": 0.1, "unit": "M" } }, "timeline": { "duration": 8, "loop": false } },
+  "knowledge": ["逃逸速度", "临界自转", "黑洞半径"],
+  "steps": [
+    { "stepId": 1, "title": "求最大半径", "content": "临界黑洞满足逃逸速度 \\(v_e=\\sqrt{2GM/R}=c\\)，所以 \\(R=2GM/c^2\\)。", "knowledge": ["第二宇宙速度"], "commonMistakes": [] },
+    { "stepId": 2, "title": "确定最小周期条件", "content": "天体表面不被自转甩出的临界条件为 \\(GMm/R^2=m\\omega^2R\\)，因此最小周期 \\(T=2\\pi\\sqrt{R^3/(GM)}\\)。", "knowledge": ["临界自转"], "commonMistakes": [] },
+    { "stepId": 3, "title": "代入化简", "content": "代入 \\(R=2GM/c^2\\)，得 \\(T=2\\pi\\sqrt{8G^2M^2/c^6}=4\\sqrt2\\pi GM/c^3\\)，故选 B。", "knowledge": ["代数化简"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：逃逸速度临界半径",
+    "question": "若某天体质量为 \\(2M\\)，要求其逃逸速度等于 \\(c\\)，临界半径是多少？",
+    "answer": "\\(R=2G(2M)/c^2=4GM/c^2\\)。",
+    "thinking": "从 \\(\\sqrt{2GM/R}=c\\) 直接解半径。"
+  }
+}

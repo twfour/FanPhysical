@@ -1,0 +1,27 @@
+{
+  "id": "lesson9_hw_01_change4_speed",
+  "originalNumber": "单1",
+  "chapter": "行星运动与变轨等问题",
+  "title": "作业第1题：嫦娥四号绕月速度",
+  "question": "“嫦娥四号”着陆前曾绕月球做匀速圆周运动，轨道半径为月球半径的 \\(K\\) 倍。地球质量是月球质量的 \\(P\\) 倍，地球半径 \\(R\\) 是月球半径的 \\(Q\\) 倍，地表重力加速度为 \\(g\\)。则探测器绕月速率为（  ）。",
+  "options": [
+    "A. \\(\\sqrt{RQg/(KP)}\\)",
+    "B. \\(\\sqrt{RPKg/Q}\\)",
+    "C. \\(\\sqrt{RKg/(QP)}\\)",
+    "D. \\(\\sqrt{RPg/(QK)}\\)"
+  ],
+  "answer": "A",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_change4_speed", "playable": true, "interactive": true, "notes": "地球与月球参数并列换算，嫦娥四号绕月运行；右图显示速率随轨道倍数 K 的变化和原题值。", "params": { "K": { "label": "轨道半径倍数 K", "value": 2, "min": 1.1, "max": 5.0, "step": 0.1, "unit": "" }, "P": { "label": "地月质量比 P", "value": 81, "min": 60, "max": 100, "step": 1, "unit": "" }, "Q": { "label": "地月半径比 Q", "value": 4, "min": 3, "max": 5, "step": 0.1, "unit": "" } }, "timeline": { "duration": 8, "loop": false } },
+  "knowledge": ["环月速度", "比例换算", "地表重力"],
+  "steps": [
+    { "stepId": 1, "title": "换算月球参数", "content": "月球质量 \\(M_月=M_地/P\\)，月球半径 \\(R_月=R/Q\\)，探测器轨道半径 \\(r=KR/Q\\)。", "knowledge": ["比例关系"], "commonMistakes": [] },
+    { "stepId": 2, "title": "写圆轨道速度", "content": "由 \\(GM_月m/r^2=mv^2/r\\)，得 \\(v^2=GM_月/r\\)。", "knowledge": ["万有引力提供向心力"], "commonMistakes": [] },
+    { "stepId": 3, "title": "用地表重力消元", "content": "地球表面有 \\(GM_地=gR^2\\)。代入得 \\(v^2=gR^2Q/(PKR)=RQg/(KP)\\)，故 \\(v=\\sqrt{RQg/(KP)}\\)，选 A。", "knowledge": ["重力参数"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：绕小天体速度",
+    "question": "甲星球质量为地球的 \\(1/8\\)，半径为地球的 \\(1/2\\)。卫星贴近甲星球表面运行，求其速度与地球第一宇宙速度之比。",
+    "answer": "\\(v_甲/v_地=\\sqrt{(1/8)/(1/2)}=1/2\\)。",
+    "thinking": "近地圆轨道使用 \\(v=\\sqrt{GM/R}\\)，分别比较质量比和半径比。"
+  }
+}

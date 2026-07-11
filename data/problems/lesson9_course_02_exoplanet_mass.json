@@ -1,0 +1,22 @@
+{
+  "id": "lesson9_course_02_exoplanet_mass",
+  "originalNumber": "课2",
+  "chapter": "行星运动与变轨等问题",
+  "title": "例2：系外行星反推恒星质量",
+  "question": "行星“51 peg b”绕中心恒星做匀速圆周运动，周期约为 \\(4\\) 天，轨道半径约为地球绕太阳轨道半径的 \\(1/20\\)。该中心恒星与太阳的质量比约为（  ）。",
+  "options": ["A. \\(81:80\\)", "B. \\(9:5\\)", "C. \\(5:1\\)", "D. \\(10:1\\)"],
+  "answer": "A",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_exoplanet_mass", "playable": true, "interactive": true, "notes": "并列展示太阳系与 51 peg 系统；右图由轨道半径和周期反演中心恒星质量。", "params": { "periodDays": { "label": "行星周期", "value": 4, "min": 2, "max": 10, "step": 0.5, "unit": "d" }, "radiusRatio": { "label": "轨道半径比", "value": 0.05, "min": 0.03, "max": 0.10, "step": 0.005, "unit": "" } }, "timeline": { "duration": 8, "loop": false } },
+  "knowledge": ["开普勒第三定律", "中心天体质量"],
+  "steps": [
+    { "stepId": 1, "title": "建立质量关系", "content": "由 \\(GMm/r^2=m4\\pi^2r/T^2\\)，得中心天体质量 \\(M=4\\pi^2r^3/(GT^2)\\)。", "knowledge": ["万有引力提供向心力"], "commonMistakes": [] },
+    { "stepId": 2, "title": "代入比例", "content": "与地球绕太阳运动比较：\\(M_*/M_\\odot=(r_*/r_\\oplus)^3(T_\\oplus/T_*)^2=(1/20)^3(365/4)^2\\)。", "knowledge": ["比例法"], "commonMistakes": [] },
+    { "stepId": 3, "title": "计算结论", "content": "计算得 \\(M_*/M_\\odot\\approx1.041\\approx81/80\\)，故选 A。", "knowledge": ["近似计算"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：由轨道数据比较恒星质量",
+    "question": "甲行星轨道半径是地球轨道半径的 \\(1/4\\)，周期是地球公转周期的 \\(1/10\\)。求其中心恒星与太阳的质量比。",
+    "answer": "\\(M_甲/M_\\odot=(1/4)^3\\times10^2=25/16\\)。",
+    "thinking": "使用 \\(M\\propto r^3/T^2\\)，注意周期比要平方。"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "lesson9_course_09_change3_lunar_orbits",
+  "originalNumber": "课9",
+  "chapter": "行星运动与变轨等问题",
+  "title": "例9：嫦娥三号环月轨道",
+  "question": "“嫦娥三号”由地球发射，经地月转移进入环月轨道 1，再变轨到半径更小的环月轨道 2，随后动力下降。下列说法正确的是（  ）。",
+  "options": [
+    "A. “嫦娥三号”的发射速度应大于 \\(11.2\\,\\mathrm{km/s}\\)",
+    "B. 在环月轨道 1 的 P 点加速度大于在环月轨道 2 的 P 点加速度",
+    "C. 在环月轨道 2 上的运行周期小于在环月轨道 1 上的运行周期",
+    "D. 在动力下降段中一直处于完全失重状态"
+  ],
+  "answer": "C",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_change3_lunar_orbits", "playable": true, "interactive": true, "notes": "依次展示地月转移、外环月轨道、内环月轨道与动力下降；右图比较两轨道周期和同 P 点加速度。", "params": { "orbitRatio": { "label": "外内轨道半径比", "value": 1.8, "min": 1.3, "max": 2.5, "step": 0.1, "unit": "" } }, "timeline": { "duration": 10, "loop": false } },
+  "knowledge": ["第二宇宙速度", "环月轨道", "失重"],
+  "steps": [
+    { "stepId": 1, "title": "判断发射速度", "content": "\\(11.2\\,\\mathrm{km/s}\\) 是脱离地球引力束缚的第二宇宙速度。探测器只需进入地月转移轨道，并未逃离地球引力系统，发射速度不必大于该值，A 错误。", "knowledge": ["宇宙速度"], "commonMistakes": [] },
+    { "stepId": 2, "title": "比较轨道数据", "content": "同一 P 点到月心距离相同，\\(a=GM_月/r^2\\)，两条轨道上的加速度相同，B 错误。轨道 2 尺度更小，由 \\(T^2\\propto a^3\\) 可知其周期更短，C 正确。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] },
+    { "stepId": 3, "title": "判断动力下降", "content": "动力下降时发动机推力显著，探测器并非只受月球引力，因而不处于完全失重状态，D 错误。故选 C。", "knowledge": ["完全失重"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：两条环月圆轨道",
+    "question": "同一探测器在半径分别为 \\(r\\) 和 \\(4r\\) 的两条环月圆轨道运行，求周期之比。",
+    "answer": "\\(T_r:T_{4r}=r^{3/2}:(4r)^{3/2}=1:8\\)。",
+    "thinking": "绕同一中心天体时直接使用 \\(T\\propto r^{3/2}\\)。"
+  }
+}

@@ -316,6 +316,98 @@
     {
       "id": "gravitation_b10_elliptic_force_graph",
       "file": "gravitation_b10_elliptic_force_graph.json"
+    },
+    {
+      "id": "lesson9_course_01_satellite_comparison",
+      "file": "lesson9_course_01_satellite_comparison.json"
+    },
+    {
+      "id": "lesson9_course_02_exoplanet_mass",
+      "file": "lesson9_course_02_exoplanet_mass.json"
+    },
+    {
+      "id": "lesson9_course_03_three_orbit_comparison",
+      "file": "lesson9_course_03_three_orbit_comparison.json"
+    },
+    {
+      "id": "lesson9_course_04_saturn_ring_identity",
+      "file": "lesson9_course_04_saturn_ring_identity.json"
+    },
+    {
+      "id": "lesson9_course_05_sync_satellite_min_period",
+      "file": "lesson9_course_05_sync_satellite_min_period.json"
+    },
+    {
+      "id": "lesson9_course_06_eclipse_orbit_geometry",
+      "file": "lesson9_course_06_eclipse_orbit_geometry.json"
+    },
+    {
+      "id": "lesson9_course_07_horizon_flash_period",
+      "file": "lesson9_course_07_horizon_flash_period.json"
+    },
+    {
+      "id": "lesson9_course_08_sync_transfer",
+      "file": "lesson9_course_08_sync_transfer.json"
+    },
+    {
+      "id": "lesson9_course_09_change3_lunar_orbits",
+      "file": "lesson9_course_09_change3_lunar_orbits.json"
+    },
+    {
+      "id": "lesson9_course_10_earth_mars_transfer",
+      "file": "lesson9_course_10_earth_mars_transfer.json"
+    },
+    {
+      "id": "lesson9_course_11_binary_star",
+      "file": "lesson9_course_11_binary_star.json"
+    },
+    {
+      "id": "lesson9_course_12_binary_mass_transfer",
+      "file": "lesson9_course_12_binary_mass_transfer.json"
+    },
+    {
+      "id": "lesson9_course_13_triple_star",
+      "file": "lesson9_course_13_triple_star.json"
+    },
+    {
+      "id": "lesson9_hw_01_change4_speed",
+      "file": "lesson9_hw_01_change4_speed.json"
+    },
+    {
+      "id": "lesson9_hw_02_space_elevator",
+      "file": "lesson9_hw_02_space_elevator.json"
+    },
+    {
+      "id": "lesson9_hw_03_monitor_window",
+      "file": "lesson9_hw_03_monitor_window.json"
+    },
+    {
+      "id": "lesson9_hw_04_satellite_distance_graph",
+      "file": "lesson9_hw_04_satellite_distance_graph.json"
+    },
+    {
+      "id": "lesson9_hw_05_tianzhou_transfer",
+      "file": "lesson9_hw_05_tianzhou_transfer.json"
+    },
+    {
+      "id": "lesson9_hw_06_ground_track",
+      "file": "lesson9_hw_06_ground_track.json"
+    },
+    {
+      "id": "lesson9_hw_07_black_hole_period",
+      "file": "lesson9_hw_07_black_hole_period.json"
+    },
+    {
+      "id": "lesson9_hw_08_rod_graph_planet",
+      "file": "lesson9_hw_08_rod_graph_planet.json"
+    },
+    {
+      "id": "lesson9_hw_09_pulsar_binary_satellite",
+      "file": "lesson9_hw_09_pulsar_binary_satellite.json"
+    },
+    {
+      "id": "lesson9_hw_10_ellipse_energy",
+      "file": "lesson9_hw_10_ellipse_energy.json"
     }
   ]
 }

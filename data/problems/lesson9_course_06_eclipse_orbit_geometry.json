@@ -1,0 +1,27 @@
+{
+  "id": "lesson9_course_06_eclipse_orbit_geometry",
+  "originalNumber": "课6",
+  "chapter": "行星运动与变轨等问题",
+  "title": "例6：飞船日全食与轨道几何",
+  "question": "（多选）宇宙飞船以周期 \\(T\\) 绕地球做圆周运动。地球半径为 \\(R\\)、质量为 \\(M\\)，引力常量为 \\(G\\)，地球自转周期为 \\(T_0\\)。太阳光可视为平行光，宇航员在轨道上 A 点测得地球张角为 \\(\\alpha\\)。下列说法正确的是（  ）。",
+  "options": [
+    "A. \\(v=\\dfrac{2\\pi R}{T\\sin(\\alpha/2)}\\)",
+    "B. 一天内飞船经历日全食的次数为 \\(T/T_0\\)",
+    "C. 每次日全食持续时间为 \\(\\alpha T_0/(2\\pi)\\)",
+    "D. \\(T=\\dfrac{2\\pi R}{\\sin(\\alpha/2)}\\sqrt{\\dfrac{R}{GM\\sin(\\alpha/2)}}\\)"
+  ],
+  "answer": "AD",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_eclipse_geometry", "playable": true, "interactive": true, "notes": "飞船穿过地球阴影，张角 α 同时确定轨道半径、日全食时长和轨道周期；右图同步显示阴影区间。", "params": { "alpha": { "label": "地球张角", "value": 60, "min": 30, "max": 110, "step": 1, "unit": "deg" }, "earthRadius": { "label": "地球半径", "value": 6.4, "min": 5.0, "max": 8.0, "step": 0.1, "unit": "×10⁶m" } }, "timeline": { "duration": 8, "loop": false } },
+  "knowledge": ["张角几何", "圆轨道周期", "日全食"],
+  "steps": [
+    { "stepId": 1, "title": "由张角求轨道半径", "content": "视线与地球相切构成直角三角形，故 \\(\\sin(\\alpha/2)=R/r\\)，即 \\(r=R/\\sin(\\alpha/2)\\)。", "knowledge": ["相切几何"], "commonMistakes": [] },
+    { "stepId": 2, "title": "速度与周期", "content": "由 \\(v=2\\pi r/T\\) 得 A。再由 \\(T=2\\pi\\sqrt{r^3/(GM)}\\) 代入 \\(r\\)，得到 D。", "knowledge": ["圆周运动"], "commonMistakes": [] },
+    { "stepId": 3, "title": "日全食计数", "content": "一天内次数应约为 \\(T_0/T\\)，每次进入阴影所占圆心角为 \\(\\alpha\\)，持续时间为 \\(\\alpha T/(2\\pi)\\)。B、C 均把周期写反或混用了 \\(T_0\\)，故选 A、D。", "knowledge": ["周期占比"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：张角求轨道半径",
+    "question": "飞船观察地球的张角为 \\(60^\\circ\\)，地球半径为 \\(R\\)。求飞船圆轨道半径。",
+    "answer": "\\(r=R/\\sin30^\\circ=2R\\)。",
+    "thinking": "取半张角，在地心、飞船与切点组成的直角三角形中使用正弦。"
+  }
+}

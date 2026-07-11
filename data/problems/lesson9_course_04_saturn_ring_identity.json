@@ -1,0 +1,27 @@
+{
+  "id": "lesson9_course_04_saturn_ring_identity",
+  "originalNumber": "课4",
+  "chapter": "行星运动与变轨等问题",
+  "title": "例4：土星环身份判别",
+  "question": "（多选）为判断土星外层的环是土星的一部分还是土星的卫星群，可测量环中各层线速度 \\(v\\) 与该层到土星中心距离 \\(R\\) 的关系。下列说法正确的是（  ）。",
+  "options": [
+    "A. 若 \\(v\\propto R\\)，则该环是土星的一部分",
+    "B. 若 \\(v^2\\propto R\\)，则该环是土星的卫星群",
+    "C. 若 \\(v\\propto1/R\\)，则该环是土星的一部分",
+    "D. 若 \\(v^2\\propto1/R\\)，则该环是土星的卫星群"
+  ],
+  "answer": "AD",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_saturn_ring_identity", "playable": true, "interactive": true, "notes": "上方模拟刚体环同角速度，下方模拟卫星群按开普勒速度运行；右图比较两种 v-R 规律。", "params": { "radiusRatio": { "label": "外内半径比", "value": 2.2, "min": 1.4, "max": 3.0, "step": 0.1, "unit": "" } }, "timeline": { "duration": 8, "loop": false } },
+  "knowledge": ["刚体转动", "圆轨道速度", "模型判别"],
+  "steps": [
+    { "stepId": 1, "title": "整体转动模型", "content": "若环是土星的一部分，各层具有相同角速度，故 \\(v=\\omega R\\)，即 \\(v\\propto R\\)。", "knowledge": ["刚体转动"], "commonMistakes": [] },
+    { "stepId": 2, "title": "卫星群模型", "content": "若各层是独立卫星，万有引力提供向心力：\\(GMm/R^2=mv^2/R\\)，所以 \\(v^2=GM/R\\propto1/R\\)。", "knowledge": ["万有引力"], "commonMistakes": [] },
+    { "stepId": 3, "title": "结论", "content": "A、D 正确。两种模型的关键差异是“同角速度”与“各自按引力轨道运行”。", "knowledge": ["模型比较"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：星环速度规律",
+    "question": "观测发现某星环不同半径处满足 \\(v\\sqrt R\\) 为常量。该星环更可能是天体本体还是卫星群？",
+    "answer": "由 \\(v\\sqrt R=\\text{常量}\\) 得 \\(v^2\\propto1/R\\)，更可能是卫星群。",
+    "thinking": "先把实验关系改写成圆轨道公式可直接比较的形式。"
+  }
+}

@@ -130,7 +130,8 @@ var problemDataList = [];
 var promotedProblemChapterMap = {
   "圆周运动": true,
   "圆周运动日常": true,
-  "万有引力与宇宙航行": true
+  "万有引力与宇宙航行": true,
+  "行星运动与变轨等问题": true
 };
 var legacySceneMap = {
   spring: true,

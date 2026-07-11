@@ -1,0 +1,28 @@
+{
+  "id": "lesson9_hw_08_rod_graph_planet",
+  "originalNumber": "多8",
+  "chapter": "行星运动与变轨等问题",
+  "title": "作业第8题：轻杆弹力图像测星球",
+  "question": "（多选）在 X 星球表面，用长为 \\(R\\) 的轻杆连接小球，使小球在竖直平面内做圆周运动。小球到达最高点时，弹力为 \\(F\\)、速度为 \\(v\\)，测得 \\(F-v^2\\) 图像是一条直线，纵轴截距为 \\(a\\)，横轴截距为 \\(b\\)。已知 X 星球半径为 \\(R_0\\)，引力常量为 \\(G\\)，忽略自转。下列说法正确的是（  ）。",
+  "options": [
+    "A. X 星球第一宇宙速度 \\(v_1=\\sqrt b\\)",
+    "B. X 星球密度 \\(\\rho=\\dfrac{3b}{4\\pi GRR_0}\\)",
+    "C. X 星球质量 \\(M=\\dfrac{bR_0^2}{GR}\\)",
+    "D. 离星球表面高度为 \\(R_0\\) 的卫星周期 \\(T=4\\pi\\sqrt{\\dfrac{2RR_0}{b}}\\)"
+  ],
+  "answer": "BCD",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_rod_graph_planet", "playable": true, "interactive": true, "notes": "小球在竖直圆周最高点经过不同速度状态；右图实时落在原题 F-v² 直线上并标出横截距 b。", "params": { "rodRadius": { "label": "轻杆长度 R", "value": 1, "min": 0.5, "max": 2.0, "step": 0.1, "unit": "m" }, "gravity": { "label": "表面重力 g", "value": 10, "min": 5, "max": 15, "step": 0.5, "unit": "m/s²" }, "mass": { "label": "小球质量", "value": 1, "min": 0.5, "max": 2.0, "step": 0.1, "unit": "kg" } }, "timeline": { "duration": 8, "loop": false } },
+  "knowledge": ["竖直圆周运动", "图像截距", "星球参数"],
+  "steps": [
+    { "stepId": 1, "title": "解释横轴截距", "content": "最高点取竖直向上的弹力为正，径向方程可写为 \\(mg-F=mv^2/R\\)，即 \\(F=mg-mv^2/R\\)。当 \\(F=0\\) 时 \\(v^2=gR\\)，由横轴截距得 \\(b=gR\\)，所以 \\(g=b/R\\)。", "knowledge": ["最高点受力"], "commonMistakes": [] },
+    { "stepId": 2, "title": "求质量与密度", "content": "由 \\(g=GM/R_0^2\\)，得 \\(M=bR_0^2/(GR)\\)。再由 \\(\\rho=3M/(4\\pi R_0^3)\\)，得 \\(\\rho=3b/(4\\pi GRR_0)\\)。B、C 正确。", "knowledge": ["地表重力"], "commonMistakes": [] },
+    { "stepId": 3, "title": "检查第一宇宙速度", "content": "\\(v_1=\\sqrt{gR_0}=\\sqrt{bR_0/R}\\)，一般不等于 \\(\\sqrt b\\)，A 错误。", "knowledge": ["第一宇宙速度"], "commonMistakes": [] },
+    { "stepId": 4, "title": "求高空卫星周期", "content": "卫星轨道半径为 \\(2R_0\\)。由 \\(T=2\\pi\\sqrt{(2R_0)^3/(GM)}\\) 并代入 \\(GM=bR_0^2/R\\)，得 \\(T=4\\pi\\sqrt{2RR_0/b}\\)，D 正确。故选 B、C、D。", "knowledge": ["圆轨道周期"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：弹力零点求重力",
+    "question": "长为 \\(L\\) 的轻杆带小球在某星球表面做竖直圆周运动。最高点弹力恰为零时 \\(v^2=c\\)。求该星球表面重力加速度。",
+    "answer": "由 \\(mg=mv^2/L\\)，得 \\(g=c/L\\)。",
+    "thinking": "把图像横轴截距还原为最高点弹力为零的临界状态。"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "lesson9_hw_03_monitor_window",
+  "originalNumber": "单3",
+  "chapter": "行星运动与变轨等问题",
+  "title": "作业第3题：赤道卫星连续监测",
+  "question": "地球赤道上空有一颗与地球自转同向运行的卫星 A，对赤道覆盖的最大张角 \\(\\alpha=60^\\circ\\)。赤道上有卫星监测站 B，已知近地卫星周期约为 \\(1.4\\,\\mathrm h\\)。监测站 B 连续监测到卫星 A 的最长时间约为（  ）。",
+  "options": ["A. \\(0.7\\,\\mathrm h\\)", "B. \\(1.6\\,\\mathrm h\\)", "C. \\(4\\,\\mathrm h\\)", "D. \\(8\\,\\mathrm h\\)"],
+  "answer": "B",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_monitor_window", "playable": true, "interactive": true, "notes": "卫星相对赤道监测站穿过 ±60° 可见区；右图给出相对角与 1.6h 连续监测窗口。", "params": { "coverageAngle": { "label": "覆盖张角 α", "value": 60, "min": 40, "max": 100, "step": 1, "unit": "deg" }, "nearPeriod": { "label": "近地卫星周期", "value": 1.4, "min": 1.2, "max": 2.0, "step": 0.1, "unit": "h" } }, "timeline": { "duration": 8, "loop": false } },
+  "knowledge": ["卫星覆盖", "相对角速度", "开普勒第三定律"],
+  "steps": [
+    { "stepId": 1, "title": "由覆盖角求轨道半径", "content": "两条视线与地球相切，\\(\\sin(\\alpha/2)=R/r\\)。当 \\(\\alpha=60^\\circ\\) 时，\\(r=2R\\)。", "knowledge": ["相切几何"], "commonMistakes": [] },
+    { "stepId": 2, "title": "估算卫星周期", "content": "近地卫星半径约为 \\(R\\)，故 \\(T_A=1.4\\times2^{3/2}\\approx4.0\\,\\mathrm h\\)。", "knowledge": ["周期比例"], "commonMistakes": [] },
+    { "stepId": 3, "title": "求相对周期", "content": "卫星与监测站同向运动，\\(1/T_相=1/4-1/24\\)，得到 \\(T_相=4.8\\,\\mathrm h\\)。", "knowledge": ["相对角速度"], "commonMistakes": [] },
+    { "stepId": 4, "title": "计算可见时间", "content": "由 \\(r=2R\\) 得地心到切点的夹角为 \\(60^\\circ\\)，完整可见区间为 \\(120^\\circ\\)，占相对一周的 \\(1/3\\)。因此最长时间为 \\(4.8/3=1.6\\,\\mathrm h\\)，选 B。", "knowledge": ["时间占比"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：异向监测时间",
+    "question": "若同一卫星改为与地球自转反向运行，卫星周期仍为 \\(4\\,\\mathrm h\\)，求其相对监测站的会合周期。",
+    "answer": "\\(1/T_相=1/4+1/24=7/24\\)，故 \\(T_相=24/7\\,\\mathrm h\\)。",
+    "thinking": "同向角速度相减，反向角速度相加。"
+  }
+}

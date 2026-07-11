@@ -1,0 +1,27 @@
+{
+  "id": "lesson9_hw_05_tianzhou_transfer",
+  "originalNumber": "单5",
+  "chapter": "行星运动与变轨等问题",
+  "title": "作业第5题：天舟八号变轨对接",
+  "question": "“天舟八号”从近地圆轨道 1 的 P 点点火进入椭圆轨道 2，在远地点 Q 再次变轨到圆轨道 3，随后从目标飞行器后下方约 \\(52\\,\\mathrm{km}\\) 处交会对接。下列说法正确的是（  ）。",
+  "options": [
+    "A. 在圆轨道 1 的速度大于椭圆轨道 2 在 P 点的速度",
+    "B. 在椭圆轨道 2 上任一点速度一定小于 \\(7.9\\,\\mathrm{km/s}\\)",
+    "C. 需在轨道 3 再次加速，才能到达更高的目标轨道并与之对接",
+    "D. 在轨道 3 经过 Q 点的加速度小于轨道 2 经过 Q 点的加速度"
+  ],
+  "answer": "C",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_tianzhou_transfer", "playable": true, "interactive": true, "notes": "天舟八号依次经历轨道1、转移椭圆2、圆轨道3和再次升轨对接；右图标出三次速度变化。", "params": { "orbit3Ratio": { "label": "轨道3半径", "value": 1.5, "min": 1.3, "max": 2.0, "step": 0.1, "unit": "r₁" }, "targetRatio": { "label": "目标轨道半径", "value": 1.8, "min": 1.6, "max": 2.4, "step": 0.1, "unit": "r₁" } }, "timeline": { "duration": 10, "loop": false } },
+  "knowledge": ["卫星变轨", "交会对接", "引力加速度"],
+  "steps": [
+    { "stepId": 1, "title": "第一次点火", "content": "从圆轨道 1 进入远地点更高的椭圆轨道 2，必须在 P 点沿运动方向加速，因此 \\(v_{2P}>v_1\\)，A 错误。", "knowledge": ["升轨加速"], "commonMistakes": [] },
+    { "stepId": 2, "title": "判断椭圆轨道速度", "content": "\\(7.9\\,\\mathrm{km/s}\\) 是地表附近第一宇宙速度。椭圆轨道近地点速度可能大于同半径圆轨道速度，不能断言任一点都小于 \\(7.9\\,\\mathrm{km/s}\\)，B 错误。", "knowledge": ["椭圆速度"], "commonMistakes": [] },
+    { "stepId": 3, "title": "对接与加速度", "content": "目标位于更高轨道，飞船需再次加速升轨，C 正确。同一 Q 点的引力加速度都为 \\(GM/r_Q^2\\)，与轨道形状无关，D 错误。", "knowledge": ["同位置加速度"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：低轨追赶高轨目标",
+    "question": "追踪飞船在目标飞船后下方的较低圆轨道运行。要进入目标所在的更高轨道，第一次点火应加速还是减速？",
+    "answer": "应沿运动方向加速，使原位置成为转移椭圆的近地点并抬高远地点。",
+    "thinking": "升高轨道的第一步是在低轨切点增加机械能。"
+  }
+}

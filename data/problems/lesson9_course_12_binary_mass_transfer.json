@@ -1,0 +1,27 @@
+{
+  "id": "lesson9_course_12_binary_mass_transfer",
+  "originalNumber": "课12",
+  "chapter": "行星运动与变轨等问题",
+  "title": "例12：双星质量转移",
+  "question": "（多选）双星系统中质量较小的星体吸收质量较大星体的表面物质，双星总质量不变、星间距离缓慢增大，轨道近似为圆。下列说法正确的是（  ）。",
+  "options": [
+    "A. 双星做圆周运动的角速度不断减小",
+    "B. 双星做圆周运动的角速度不断增大",
+    "C. 质量较大的星体的轨道半径减小",
+    "D. 质量较大的星体的轨道半径增大"
+  ],
+  "answer": "AD",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_binary_mass_transfer", "playable": true, "interactive": true, "notes": "质量由大星流向小星且星距增大；右图显示角速度下降、大星轨道半径上升。", "params": { "initialMassRatio": { "label": "初始大小质量比", "value": 3, "min": 1.5, "max": 5.0, "step": 0.1, "unit": "" }, "separationGrowth": { "label": "星距增长", "value": 35, "min": 10, "max": 60, "step": 1, "unit": "%" } }, "timeline": { "duration": 9, "loop": false } },
+  "knowledge": ["双星模型", "质量转移", "角速度"],
+  "steps": [
+    { "stepId": 1, "title": "判断角速度", "content": "双星满足 \\(\\omega^2=G(m_1+m_2)/L^3\\)。总质量不变而距离 \\(L\\) 增大，所以 \\(\\omega\\) 不断减小，A 正确、B 错误。", "knowledge": ["双星角速度"], "commonMistakes": [] },
+    { "stepId": 2, "title": "写出大星轨道半径", "content": "设大星质量为 \\(m_大\\)、小星为 \\(m_小\\)，则大星到质心距离 \\(r_大=m_小L/(m_大+m_小)\\)。", "knowledge": ["质心关系"], "commonMistakes": [] },
+    { "stepId": 3, "title": "判断半径变化", "content": "质量转移使 \\(m_小\\) 增大，同时 \\(L\\) 增大，而总质量不变，因此 \\(r_大\\) 增大。D 正确、C 错误，故选 A、D。", "knowledge": ["变化判断"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：双星间距变化",
+    "question": "双星总质量保持不变，星间距变为原来的 \\(2\\) 倍。共同角速度变为原来的多少？",
+    "answer": "由 \\(\\omega\\propto L^{-3/2}\\)，得 \\(\\omega'=\\omega/(2\\sqrt2)\\)。",
+    "thinking": "总质量不变时只保留角速度对距离的幂律。"
+  }
+}

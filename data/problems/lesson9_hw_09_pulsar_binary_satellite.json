@@ -1,0 +1,28 @@
+{
+  "id": "lesson9_hw_09_pulsar_binary_satellite",
+  "originalNumber": "多9",
+  "chapter": "行星运动与变轨等问题",
+  "title": "作业第9题：脉冲双星与伴星卫星",
+  "question": "（多选）双星 a、b 绕共同质心 O 逆时针做匀速圆周运动，周期为 \\(T_0\\)，双星间距为 \\(L\\)。卫星 c 绕质量为 \\(m\\) 的脉冲星 b 逆时针做匀速圆周运动，周期为 \\(T<T_0\\)。忽略 a 对 c 的影响，引力常量为 \\(G\\)。下列说法正确的是（  ）。",
+  "options": [
+    "A. 双星 a、b 的质量和为 \\(\\dfrac{4\\pi^2L^3}{GT_0^2}\\)",
+    "B. 卫星 c 每秒转过的弧长为 \\(\\sqrt{\\dfrac{2\\pi Gm}{T}}\\)",
+    "C. 卫星 c 的向心加速度为 \\(\\dfrac{4\\pi^3}{T}\\sqrt[3]{\\dfrac{2\\pi Gm}{T}}\\)",
+    "D. a、b、c 三星相邻两次共线的时间间隔为 \\(\\dfrac{TT_0}{2(T_0-T)}\\)"
+  ],
+  "answer": "AD",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_pulsar_binary_satellite", "playable": true, "interactive": true, "notes": "双星 a、b 绕质心转动，卫星 c 同时绕 b 快速运行；右图显示相对相位和每隔半周出现的共线时刻。", "params": { "binaryPeriod": { "label": "双星周期 T₀", "value": 12, "min": 8, "max": 20, "step": 1, "unit": "h" }, "satellitePeriod": { "label": "卫星周期 T", "value": 3, "min": 1, "max": 6, "step": 0.5, "unit": "h" } }, "timeline": { "duration": 9, "loop": false } },
+  "knowledge": ["双星质量", "圆轨道速度", "相对角速度"],
+  "steps": [
+    { "stepId": 1, "title": "双星总质量", "content": "双星系统满足 \\(T_0^2=4\\pi^2L^3/[G(m_a+m_b)]\\)，故 \\(m_a+m_b=4\\pi^2L^3/(GT_0^2)\\)，A 正确。", "knowledge": ["双星周期"], "commonMistakes": [] },
+    { "stepId": 2, "title": "卫星 c 的实际速度", "content": "由 \\(T^2=4\\pi^2r_c^3/(Gm)\\)，得 \\(r_c=[GmT^2/(4\\pi^2)]^{1/3}\\)，进而 \\(v_c=2\\pi r_c/T=(2\\pi Gm/T)^{1/3}\\)。B 给的是平方根，错误。", "knowledge": ["圆轨道速度"], "commonMistakes": [] },
+    { "stepId": 3, "title": "检查向心加速度", "content": "正确关系为 \\(a_c=\\omega_cv_c=(2\\pi/T)(2\\pi Gm/T)^{1/3}\\)，与 C 的系数不符，C 错误。", "knowledge": ["向心加速度"], "commonMistakes": [] },
+    { "stepId": 4, "title": "求共线间隔", "content": "c 相对双星连线的角速度为 \\(2\\pi(1/T-1/T_0)\\)。每相对转过 \\(\\pi\\) 就再次共线，因此 \\(\\Delta t=\\pi/[2\\pi(1/T-1/T_0)]=TT_0/[2(T_0-T)]\\)，D 正确。故选 A、D。", "knowledge": ["相对运动"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：双周期共线",
+    "question": "两个同向转动的方向量周期分别为 \\(2\\,\\mathrm h\\) 与 \\(6\\,\\mathrm h\\)。若共线不区分同向和反向，求相邻两次共线间隔。",
+    "answer": "\\(\\Delta t=\\pi/[2\\pi(1/2-1/6)]=1.5\\,\\mathrm h\\)。",
+    "thinking": "不区分同向、反向时，相对角每变化 \\(\\pi\\) 就出现一次共线。"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "lesson9_hw_02_space_elevator",
+  "originalNumber": "单2",
+  "chapter": "行星运动与变轨等问题",
+  "title": "作业第2题：太空电梯与卫星比较",
+  "question": "地球同步轨道站向赤道基站垂下一条缆绳。物体 Q 随太空电梯到达低于同步轨道的 a 位置并停在那里；一颗自由运行的卫星 P 恰与 Q 同高度。下列说法正确的是（  ）。",
+  "options": [
+    "A. Q 与 P 的速度相同",
+    "B. Q 与 P 的周期相同",
+    "C. Q 处于完全失重状态",
+    "D. Q 的向心加速度小于 P 的向心加速度"
+  ],
+  "answer": "D",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_space_elevator", "playable": true, "interactive": true, "notes": "Q 随地球和缆绳转动，P 在同高度按自由圆轨道运行并逐渐超越；右图比较角位置与向心加速度。", "params": { "altitudeRatio": { "label": "位置 a 半径", "value": 3.0, "min": 1.5, "max": 5.5, "step": 0.1, "unit": "R" }, "syncRadiusRatio": { "label": "同步轨道半径", "value": 6.6, "min": 5.5, "max": 7.5, "step": 0.1, "unit": "R" } }, "timeline": { "duration": 8, "loop": false } },
+  "knowledge": ["太空电梯", "同步转动", "圆轨道"],
+  "steps": [
+    { "stepId": 1, "title": "识别两种运动", "content": "Q 被缆绳约束，与地球同角速度转动，周期为地球自转周期；P 是同高度自由圆轨道卫星，角速度由 \\(\\omega_P=\\sqrt{GM/r^3}\\) 决定。", "knowledge": ["约束运动"], "commonMistakes": [] },
+    { "stepId": 2, "title": "比较角速度", "content": "a 位置低于同步轨道，因此自由卫星 P 的角速度大于地球自转角速度，即 \\(\\omega_P>\\omega_Q\\)。同半径下 \\(v=\\omega r\\)，所以速度和周期均不相同。", "knowledge": ["同步半径"], "commonMistakes": [] },
+    { "stepId": 3, "title": "比较加速度与受力", "content": "同半径下 \\(a=\\omega^2r\\)，故 \\(a_Q<a_P\\)。Q 还受缆绳作用，并非完全失重。选 D。", "knowledge": ["向心加速度"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：同步缆绳上的物体",
+    "question": "缆绳上某物体位于同步轨道半径的一半处，并随地球转动。其向心加速度与同高度自由卫星相比谁更大？",
+    "answer": "自由卫星更大，因为该高度低于同步轨道，\\(\\omega_卫>\\omega_地\\)，同半径下 \\(a=\\omega^2r\\)。",
+    "thinking": "先区分“随地球转动”和“由万有引力独立运行”。"
+  }
+}

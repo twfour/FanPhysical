@@ -1,0 +1,27 @@
+{
+  "id": "lesson9_course_08_sync_transfer",
+  "originalNumber": "课8",
+  "chapter": "行星运动与变轨等问题",
+  "title": "例8：同步卫星椭圆变轨",
+  "question": "（多选）发射同步卫星时，先把卫星送入近地圆轨道 1，再于 P 点点火进入椭圆轨道 2，最后在 Q 点再次点火进入同步圆轨道 3。轨道 1、2 相切于 P 点，轨道 2、3 相切于 Q 点。下列说法正确的是（  ）。",
+  "options": [
+    "A. 在轨道 3 上的速率大于轨道 1 上的速率",
+    "B. 在轨道 3 上的角速度小于轨道 1 上的角速度",
+    "C. 在轨道 2 上经过 Q 点时的加速度小于在轨道 3 上经过 Q 点时的加速度",
+    "D. 在轨道 1 上经过 P 点时的加速度等于在轨道 2 上经过 P 点时的加速度"
+  ],
+  "answer": "BD",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_sync_transfer", "playable": true, "interactive": true, "notes": "卫星从近地圆轨道经椭圆转移到同步圆轨道；右图比较两圆轨道速度、角速度及同点加速度。", "params": { "outerRadiusRatio": { "label": "同步轨道半径", "value": 3.2, "min": 2.0, "max": 5.0, "step": 0.1, "unit": "r₁" } }, "timeline": { "duration": 9, "loop": false } },
+  "knowledge": ["卫星变轨", "圆轨道速度", "引力加速度"],
+  "steps": [
+    { "stepId": 1, "title": "比较两圆轨道", "content": "圆轨道满足 \\(v=\\sqrt{GM/r}\\)、\\(\\omega=\\sqrt{GM/r^3}\\)。轨道 3 半径更大，所以 \\(v_3<v_1\\)、\\(\\omega_3<\\omega_1\\)，B 正确、A 错误。", "knowledge": ["圆轨道规律"], "commonMistakes": [] },
+    { "stepId": 2, "title": "比较同一点加速度", "content": "卫星在任一轨道上的加速度都由万有引力决定，\\(a=GM/r^2\\)，只与当前位置到地心的距离有关。", "knowledge": ["引力加速度"], "commonMistakes": [] },
+    { "stepId": 3, "title": "判断 P、Q 两点", "content": "轨道 2 与轨道 3 在 Q 点的位置相同，故加速度相等，C 错误；轨道 1 与轨道 2 在 P 点的位置相同，加速度也相等，D 正确。故选 B、D。", "knowledge": ["同位置比较"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：同一点变轨比较",
+    "question": "卫星在半径为 \\(r\\) 的圆轨道上加速后进入远地点为 \\(2r\\) 的椭圆轨道。点火前后瞬间，其速度和加速度如何变化？",
+    "answer": "速度增大；位置未变，因此引力加速度大小仍为 \\(GM/r^2\\)，不发生突变。",
+    "thinking": "变轨点速度可突变，而引力加速度由位置决定。"
+  }
+}

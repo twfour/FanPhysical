@@ -1,0 +1,28 @@
+{
+  "id": "lesson9_course_13_triple_star",
+  "originalNumber": "课13",
+  "chapter": "行星运动与变轨等问题",
+  "title": "例13：直线与三角形三星系统",
+  "question": "（多选）三颗质量均为 \\(m\\) 的恒星组成稳定三星系统。甲图中三颗星共线，相邻距离均为 \\(L\\)，两颗外星绕中央星转动；乙图中三颗星位于边长为 \\(L\\) 的等边三角形顶点，并绕三角形中心运行。引力常量为 \\(G\\)。下列说法正确的是（  ）。",
+  "options": [
+    "A. 直线三星系统中外星线速度为 \\(\\sqrt{Gm/L}\\)",
+    "B. 直线三星系统中外星周期为 \\(4\\pi\\sqrt{L^3/(5Gm)}\\)",
+    "C. 三角形三星系统中每颗星角速度为 \\(2\\sqrt{L^3/(3Gm)}\\)",
+    "D. 三角形三星系统中每颗星加速度为 \\(\\sqrt3Gm/L^2\\)"
+  ],
+  "answer": "BD",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_triple_star", "playable": true, "interactive": true, "notes": "上方为直线三星、下方为等边三星，两套系统同步旋转；右图逐项核验速度、周期、角速度与加速度。", "params": { "massScale": { "label": "恒星质量", "value": 1, "min": 0.5, "max": 3.0, "step": 0.1, "unit": "m" } }, "timeline": { "duration": 8, "loop": false } },
+  "knowledge": ["三星模型", "引力合成", "匀速圆周运动"],
+  "steps": [
+    { "stepId": 1, "title": "直线三星受力", "content": "外星受中央星引力 \\(Gm^2/L^2\\) 和另一外星引力 \\(Gm^2/(2L)^2\\)，合力为 \\(5Gm^2/(4L^2)\\)。", "knowledge": ["万有引力叠加"], "commonMistakes": [] },
+    { "stepId": 2, "title": "直线系统速度与周期", "content": "由 \\(mv^2/L=5Gm^2/(4L^2)\\)，得 \\(v=\\tfrac12\\sqrt{5Gm/L}\\)，A 错误；\\(T=2\\pi L/v=4\\pi\\sqrt{L^3/(5Gm)}\\)，B 正确。", "knowledge": ["圆周运动"], "commonMistakes": [] },
+    { "stepId": 3, "title": "三角形系统合力", "content": "每颗星受两个大小为 \\(Gm^2/L^2\\)、夹角为 \\(60^\\circ\\) 的引力，合力为 \\(\\sqrt3Gm^2/L^2\\)，所以加速度为 \\(\\sqrt3Gm/L^2\\)，D 正确。", "knowledge": ["力的合成"], "commonMistakes": [] },
+    { "stepId": 4, "title": "检查角速度", "content": "轨道半径为 \\(L/\\sqrt3\\)，由 \\(\\omega^2L/\\sqrt3=\\sqrt3Gm/L^2\\) 得 \\(\\omega=\\sqrt{3Gm/L^3}\\)，与 C 不符。故选 B、D。", "knowledge": ["角速度"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：等边三星角速度",
+    "question": "三颗质量均为 \\(m\\) 的恒星位于边长为 \\(a\\) 的等边三角形顶点并稳定转动，求角速度。",
+    "answer": "\\(\\omega=\\sqrt{3Gm/a^3}\\)。",
+    "thinking": "先合成另外两颗星的引力，再用顶点到中心距离 \\(a/\\sqrt3\\) 列向心力方程。"
+  }
+}

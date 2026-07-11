@@ -1,0 +1,27 @@
+{
+  "id": "lesson9_hw_06_ground_track",
+  "originalNumber": "单6",
+  "chapter": "行星运动与变轨等问题",
+  "title": "作业第6题：卫星星下点轨迹",
+  "question": "卫星 FZ01 的“星下点”轨迹如图，在全球经度范围内形成三个相同波瓣，最高纬度为 \\(30^\\circ\\)。已知地球同步卫星轨道半径为 \\(r=6.6R\\)，FZ01 的绕行方向与地球自转方向一致。下列说法正确的是（  ）。",
+  "options": [
+    "A. FZ01 的轨道半径约为 \\(r/3\\)",
+    "B. FZ01 的轨道半径约为 \\(r/5\\)",
+    "C. FZ01 可以记录南极点的气候变化",
+    "D. FZ01 不可以记录北极点的气候变化"
+  ],
+  "answer": "D",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_ground_track", "playable": true, "interactive": true, "notes": "左侧显示倾斜轨道与移动星下点，右图绘制全球经度范围内的三波瓣纬度轨迹。", "params": { "inclination": { "label": "轨道倾角", "value": 30, "min": 10, "max": 70, "step": 1, "unit": "deg" }, "periodHours": { "label": "卫星周期", "value": 8, "min": 4, "max": 12, "step": 0.5, "unit": "h" } }, "timeline": { "duration": 8, "loop": false } },
+  "knowledge": ["星下点", "轨道倾角", "周期与半径"],
+  "steps": [
+    { "stepId": 1, "title": "读取轨道倾角", "content": "星下点能达到的最大纬度等于轨道倾角。图中最大纬度为 \\(30^\\circ\\)，故 FZ01 只能覆盖南北纬 \\(30^\\circ\\) 之间的区域，南北极均不能到达。", "knowledge": ["轨道倾角"], "commonMistakes": [] },
+    { "stepId": 2, "title": "读取周期关系", "content": "三个等间隔波瓣表明相邻同向过赤道点在经度上相差约 \\(120^\\circ\\)，对应地球在一个卫星周期内自转 \\(120^\\circ\\)，故 \\(T_F\\approx24/3=8\\,\\mathrm h\\)。", "knowledge": ["星下点重复周期"], "commonMistakes": [] },
+    { "stepId": 3, "title": "检查半径选项", "content": "由 \\(r_F/r=(T_F/24)^{2/3}=(1/3)^{2/3}=1/\\sqrt[3]{9}\\)，既不是 \\(1/3\\) 也不是 \\(1/5\\)。因此 A、B、C 错误，D 正确。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：轨迹纬度范围",
+    "question": "某卫星星下点轨迹的最高、最低纬度分别为 \\(45^\\circ\\mathrm N\\) 和 \\(45^\\circ\\mathrm S\\)。求轨道倾角，并判断能否经过北极点。",
+    "answer": "轨道倾角为 \\(45^\\circ\\)，不能经过北极点。",
+    "thinking": "星下点极限纬度直接给出轨道倾角；只有极轨卫星倾角为 \\(90^\\circ\\) 才能覆盖两极。"
+  }
+}

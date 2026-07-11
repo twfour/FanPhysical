@@ -1,0 +1,27 @@
+{
+  "id": "lesson9_hw_10_ellipse_energy",
+  "originalNumber": "多10",
+  "chapter": "行星运动与变轨等问题",
+  "title": "作业第10题：椭圆轨道速度与能量",
+  "question": "（多选）行星 P 绕位于椭圆焦点 F 的太阳运行。椭圆半长轴、半短轴和焦距分别为 \\(a、b、c\\)，太阳质量为 \\(M\\)，行星质量为 \\(m\\)。引力势能 \\(E_p=-GMm/r\\)。行星在近焦点一侧端点 A、远焦点一侧端点 B 的速度分别为 \\(v_A、v_B\\)。下列说法正确的是（  ）。",
+  "options": [
+    "A. \\(v_B=\\dfrac{a-c}{a+c}v_A\\)",
+    "B. 椭圆轨道机械能 \\(E=-\\dfrac{GMm}{2a}\\)",
+    "C. 椭圆轨道机械能 \\(E=-\\dfrac{GMm}{2b}\\)",
+    "D. 运行周期 \\(T=\\dfrac{2\\pi a\\sqrt b}{\\sqrt{GM}}\\)"
+  ],
+  "answer": "AB",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_ellipse_energy", "playable": true, "interactive": true, "notes": "行星沿椭圆轨道从近点到远点速度降低；右图同步显示动能、引力势能和恒定总机械能。", "params": { "semiMajor": { "label": "半长轴 a", "value": 5, "min": 3, "max": 8, "step": 0.5, "unit": "R" }, "eccentricity": { "label": "偏心率 e", "value": 0.5, "min": 0.2, "max": 0.75, "step": 0.05, "unit": "" } }, "timeline": { "duration": 9, "loop": false } },
+  "knowledge": ["椭圆轨道", "角动量守恒", "机械能"],
+  "steps": [
+    { "stepId": 1, "title": "近远点速度关系", "content": "A、B 两点速度均垂直于焦点连线。由角动量守恒 \\(m(a-c)v_A=m(a+c)v_B\\)，得 \\(v_B=(a-c)v_A/(a+c)\\)，A 正确。", "knowledge": ["角动量守恒"], "commonMistakes": [] },
+    { "stepId": 2, "title": "椭圆轨道机械能", "content": "万有引力场中的椭圆轨道总机械能只由半长轴决定：\\(E=-GMm/(2a)\\)。因此 B 正确、C 错误。", "knowledge": ["轨道能量"], "commonMistakes": [] },
+    { "stepId": 3, "title": "检查周期", "content": "开普勒第三定律给出 \\(T=2\\pi\\sqrt{a^3/(GM)}=2\\pi a\\sqrt a/\\sqrt{GM}\\)，并非使用半短轴 \\(b\\)，D 错误。故选 A、B。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：椭圆近远点速度比",
+    "question": "某椭圆轨道半长轴为 \\(5R\\)，焦距为 \\(3R\\)。求近地点速度与远地点速度之比。",
+    "answer": "近、远地点距离分别为 \\(2R\\)、\\(8R\\)。由角动量守恒，\\(v_近:v_远=8:2=4:1\\)。",
+    "thinking": "近远点速度都与半径垂直，可直接使用 \\(r_近v_近=r_远v_远\\)。"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "lesson9_course_11_binary_star",
+  "originalNumber": "课11",
+  "chapter": "行星运动与变轨等问题",
+  "title": "例11：双星系统基本关系",
+  "question": "两颗星球质量分别为 \\(m_1、m_2\\)，中心距离恒为 \\(L\\)，绕共同质心做匀速圆周运动，轨道半径分别为 \\(r_1、r_2\\)，线速度分别为 \\(v_1、v_2\\)。已知引力常量为 \\(G\\)。求 \\(r_1:r_2\\)、\\(v_1:v_2\\) 和双星系统周期 \\(T\\)。",
+  "answer": "\\(r_1:r_2=m_2:m_1\\)，\\(v_1:v_2=m_2:m_1\\)，\\(T=2\\pi\\sqrt{L^3/[G(m_1+m_2)]}\\)。",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_binary_star", "playable": true, "interactive": true, "notes": "两星绕共同质心保持同角速度运行；右图同步比较轨道半径与线速度的反质量分配。", "params": { "mass1": { "label": "星1质量", "value": 2, "min": 0.5, "max": 4.0, "step": 0.1, "unit": "m" }, "mass2": { "label": "星2质量", "value": 1, "min": 0.5, "max": 4.0, "step": 0.1, "unit": "m" } }, "timeline": { "duration": 8, "loop": false } },
+  "knowledge": ["双星模型", "质心", "万有引力"],
+  "steps": [
+    { "stepId": 1, "title": "质心与半径", "content": "共同质心条件为 \\(m_1r_1=m_2r_2\\)，且 \\(r_1+r_2=L\\)。因此 \\(r_1:r_2=m_2:m_1\\)。", "knowledge": ["质心关系"], "commonMistakes": [] },
+    { "stepId": 2, "title": "线速度之比", "content": "两星具有相同角速度 \\(\\omega\\)，由 \\(v=\\omega r\\) 得 \\(v_1:v_2=r_1:r_2=m_2:m_1\\)。", "knowledge": ["同角速度"], "commonMistakes": [] },
+    { "stepId": 3, "title": "求共同周期", "content": "对任一星列式并结合质心关系，可得 \\(\\omega^2=G(m_1+m_2)/L^3\\)。所以 \\(T=2\\pi/\\omega=2\\pi\\sqrt{L^3/[G(m_1+m_2)]}\\)。", "knowledge": ["双星周期"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：等质量双星",
+    "question": "两颗质量均为 \\(m\\) 的恒星相距 \\(L\\)，求每颗星的轨道半径和系统周期。",
+    "answer": "\\(r_1=r_2=L/2\\)，\\(T=2\\pi\\sqrt{L^3/(2Gm)}\\)。",
+    "thinking": "等质量时质心位于连线中点，再代入双星周期公式。"
+  }
+}

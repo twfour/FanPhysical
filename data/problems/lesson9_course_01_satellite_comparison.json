@@ -1,0 +1,27 @@
+{
+  "id": "lesson9_course_01_satellite_comparison",
+  "originalNumber": "课1",
+  "chapter": "行星运动与变轨等问题",
+  "title": "例1：四类地球卫星比较",
+  "question": "有 \\(a、b、c、d\\) 四颗地球卫星，\\(a\\) 在地球赤道上未发射，\\(b\\) 在地面附近的近地轨道上正常运动，\\(c\\) 是地球同步卫星，\\(d\\) 是高空探测卫星。各卫星由内到外排列如图，判断下列说法正确的是（  ）。",
+  "options": [
+    "A. \\(a\\) 的向心加速度等于重力加速度 \\(g\\)",
+    "B. \\(b\\) 在相同时间内转过的弧长最长",
+    "C. \\(c\\) 在 \\(4\\,\\mathrm h\\) 内转过的圆心角是 \\(\\pi/6\\)",
+    "D. \\(d\\) 的运行周期有可能是 \\(20\\,\\mathrm h\\)"
+  ],
+  "answer": "B",
+  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_satellite_comparison", "playable": true, "interactive": true, "notes": "四类地球卫星按各自角速度运行；右图同步比较相同时间内的路程与角位移。", "params": { "nearPeriod": { "label": "近地卫星周期", "value": 1.4, "min": 1.2, "max": 2.5, "step": 0.1, "unit": "h" }, "highPeriod": { "label": "高轨卫星周期", "value": 36, "min": 25, "max": 60, "step": 1, "unit": "h" } }, "timeline": { "duration": 8, "loop": false } },
+  "knowledge": ["圆轨道速度", "同步卫星", "万有引力"],
+  "steps": [
+    { "stepId": 1, "title": "比较运行规律", "content": "对绕地球做圆周运动的卫星，\\(v=\\sqrt{GM/r}\\)、\\(T=2\\pi\\sqrt{r^3/(GM)}\\)。轨道越高，线速度越小、周期越大。", "knowledge": ["圆轨道公式"], "commonMistakes": [] },
+    { "stepId": 2, "title": "逐项判断", "content": "赤道物体 \\(a\\) 随地球自转所需向心加速度远小于 \\(g\\)；近地卫星 \\(b\\) 的线速度最大，所以相同时间内弧长最大。同步卫星 \\(c\\) 的周期为 \\(24\\,\\mathrm h\\)，\\(4\\,\\mathrm h\\) 内转角为 \\(2\\pi\\times4/24=\\pi/3\\)。", "knowledge": ["同步卫星"], "commonMistakes": [] },
+    { "stepId": 3, "title": "判断高轨卫星", "content": "\\(d\\) 的轨道高于同步轨道，故 \\(T_d>24\\,\\mathrm h\\)，不可能为 \\(20\\,\\mathrm h\\)。因此选 B。", "knowledge": ["周期与半径"], "commonMistakes": [] }
+  ],
+  "practice": {
+    "title": "近似题：圆轨道卫星比较",
+    "question": "甲、乙两颗卫星分别在半径为 \\(R\\) 与 \\(4R\\) 的圆轨道上运行。求 \\(v_甲:v_乙\\) 与 \\(T_甲:T_乙\\)。",
+    "answer": "由 \\(v\\propto r^{-1/2}\\)、\\(T\\propto r^{3/2}\\)，得 \\(v_甲:v_乙=2:1\\)，\\(T_甲:T_乙=1:8\\)。",
+    "thinking": "先确认两颗卫星绕同一中心天体，再分别使用速度和周期的半径比例式。"
+  }
+}
