@@ -296,6 +296,13 @@
             <button class="tree-item indent" type="button" data-model-nav="ex71Concyclic">11-四点共圆</button>
           </div>
         </details>
+        <details class="tree-node" open>
+          <summary class="tree-subfolder">复习参考题 7</summary>
+          <div class="tree-children">
+            <button class="tree-item indent" type="button" data-model-nav="review7Lambda">9-参数范围</button>
+            <button class="tree-item indent" type="button" data-model-nav="review7Rhombus">10-复数菱形</button>
+          </div>
+        </details>
       </aside>
 
       <section class="workspace math-workspace">
@@ -535,6 +542,22 @@
             <label>显示步骤</label>
             <input id="concyclicStep" type="range" min="1" max="3" step="1" value="3" />
             <span id="concyclicStepVal" class="value">共圆</span>
+          </div>
+        </div>
+
+        <div id="review7LambdaControls" class="controls math-controls" data-model="review7Lambda">
+          <div class="control">
+            <label>\(\theta\)</label>
+            <input id="lambdaTheta" type="range" min="-180" max="180" step="1" value="30" />
+            <span id="lambdaThetaVal" class="value">30°</span>
+          </div>
+        </div>
+
+        <div id="review7RhombusControls" class="controls math-controls" data-model="review7Rhombus">
+          <div class="control">
+            <label>旋转角</label>
+            <input id="rhombusAngle" type="range" min="0" max="120" step="1" value="120" />
+            <span id="rhombusAngleVal" class="value">120°</span>
           </div>
         </div>
 
@@ -979,6 +1002,54 @@
                   |z|=\sqrt5
                 \]</p>
                 <p id="concyclicStepText">四个点都在以原点为圆心、\(\sqrt5\) 为半径的圆上。</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="review7LambdaView" class="math-view" data-model="review7Lambda">
+          <div class="math-stage">
+            <div id="lambdaBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>\(\sin\theta\)</span><strong id="lambdaSinMetric">0.50</strong></div>
+                <div class="metric"><span>\(m=2\cos\theta\)</span><strong id="lambdaMMetric">1.73</strong></div>
+                <div class="metric"><span>\(\lambda\)</span><strong id="lambdaValueMetric">-0.50</strong></div>
+                <div class="metric"><span>范围</span><strong>\([-1,5]\)</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>范围模型</h3>
+                <p>\[
+                  m=2\cos\theta,\quad \sqrt{4-m^2}=2|\sin\theta|
+                \]</p>
+                <p>\[
+                  \lambda=2|\sin\theta|-3\sin\theta\Rightarrow -1\le\lambda\le5
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="review7RhombusView" class="math-view" data-model="review7Rhombus">
+          <div class="math-stage">
+            <div id="rhombusBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>\(z_A\)</span><strong>\(2+i\)</strong></div>
+                <div class="metric"><span>\(z_C\)</span><strong id="rhombusCMetric">\(-1-\frac{\sqrt3}{2}+(\sqrt3-\frac12)i\)</strong></div>
+                <div class="metric"><span>\(z_B=z_A+z_C\)</span><strong id="rhombusBMetric">\(1-\frac{\sqrt3}{2}+(\sqrt3+\frac12)i\)</strong></div>
+                <div class="metric"><span>\(\angle AOC\)</span><strong id="rhombusAngleMetric">120°</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>旋转模型</h3>
+                <p>\[
+                  z_C=(2+i)(\cos120^\circ+i\sin120^\circ)
+                \]</p>
+                <p>\[
+                  z_B=z_A+z_C
+                \]</p>
               </div>
             </aside>
           </div>
@@ -1587,6 +1658,69 @@
             </details>
           </div>
         </section>
+
+        <section id="review7LambdaNotes" class="problem-notes math-notes" data-model="review7Lambda">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>复习参考题 7 第9题：由复数相等求参数范围</h2>
+              <p>已知复数 \(z_1=m+\sqrt{4-m^2}i\)（\(m\in\mathbb R\)），\(z_2=2\cos\theta+(\lambda+3\sin\theta)i\)（\(\lambda,\theta\in\mathbb R\)），并且 \(z_1=z_2\)，求 \(\lambda\) 的取值范围。</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>条件提取：</strong>由 \(z_1=z_2\)，实部相等、虚部相等。</li>
+                <li><strong>实部：</strong>\(m=2\cos\theta\)，因此 \(\sqrt{4-m^2}=\sqrt{4-4\cos^2\theta}=2|\sin\theta|\)。</li>
+                <li><strong>虚部：</strong>\(2|\sin\theta|=\lambda+3\sin\theta\)，所以 \(\lambda=2|\sin\theta|-3\sin\theta\)。</li>
+                <li><strong>分类取值：</strong>若 \(\sin\theta\ge0\)，则 \(\lambda=-\sin\theta\in[-1,0]\)；若 \(\sin\theta\lt0\)，则 \(\lambda=-5\sin\theta\in(0,5]\)。</li>
+                <li><strong>结论：</strong>\(\lambda\in[-1,5]\)。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>已知 \(w_1=t+\sqrt{9-t^2}i\)，\(w_2=3\cos\theta+(\mu+4\sin\theta)i\)，且 \(w_1=w_2\)，求 \(\mu\) 的取值范围。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{\mu\in[-1,7]}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>由实部得 \(t=3\cos\theta\)，于是 \(\sqrt{9-t^2}=3|\sin\theta|\)。虚部给出 \(\mu=3|\sin\theta|-4\sin\theta\)。令 \(s=\sin\theta\in[-1,1]\)，分 \(s\ge0\) 与 \(s\lt0\) 即可。</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="review7RhombusNotes" class="problem-notes math-notes" data-model="review7Rhombus">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>复习参考题 7 第10题：用复数旋转求菱形顶点</h2>
+              <p>在复平面的上半平面内有一个菱形 \(OABC\)，\(\angle AOC=120^\circ\)，点 \(A\) 所对应的复数是 \(2+i\)，求另外两个顶点 \(B,C\) 所对应的复数。</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>条件提取：</strong>菱形 \(OABC\) 中，\(|OA|=|OC|\)，且 \(\angle AOC=120^\circ\)。点 \(A\) 对应 \(z_A=2+i\)。</li>
+                <li><strong>旋转求 \(C\)：</strong>因为图形在上半平面内，取 \(OA\) 逆时针旋转 \(120^\circ\)，所以 \(z_C=(2+i)(\cos120^\circ+i\sin120^\circ)\)。</li>
+                <li><strong>展开：</strong>\(z_C=(2+i)(-\frac12+\frac{\sqrt3}{2}i)=-1-\frac{\sqrt3}{2}+(\sqrt3-\frac12)i\)。</li>
+                <li><strong>平行四边形加法：</strong>菱形也是平行四边形，\(z_B=z_A+z_C=1-\frac{\sqrt3}{2}+(\sqrt3+\frac12)i\)。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>在复平面内，菱形 \(OABC\) 满足 \(\angle AOC=90^\circ\)，点 \(A\) 对应 \(1+i\)，且图形在上半平面内，求 \(B,C\) 对应的复数。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{z_C=-1+i,\ z_B=2i}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>把 \(z_A=1+i\) 乘以 \(\cos90^\circ+i\sin90^\circ=i\)，得 \(z_C=-1+i\)。再由平行四边形法则 \(z_B=z_A+z_C=2i\)。</p>
+            </details>
+          </div>
+        </section>
       </section>
     </div>
   </main>
@@ -1631,7 +1765,9 @@
       surveyNear: 52,
       surveyFar: 34,
       halfLineReal: 2,
-      concyclicStep: 3
+      concyclicStep: 3,
+      lambdaTheta: 30,
+      rhombusAngle: 120
     };
 
     var linearityCases = [
@@ -1680,6 +1816,8 @@
       if (model === "ex64SurveyReport") initEx64SurveyReport();
       if (model === "ex71HalfLine") initEx71HalfLine();
       if (model === "ex71Concyclic") initEx71Concyclic();
+      if (model === "review7Lambda") initReview7Lambda();
+      if (model === "review7Rhombus") initReview7Rhombus();
     }
 
     function initProjection() {
@@ -2363,6 +2501,88 @@
       typesetMath();
     }
 
+    function initReview7Lambda() {
+      var board = JXG.JSXGraph.initBoard("lambdaBoard", boardOptions([-3.5, 5.8, 3.5, -1.8], true));
+      boards.review7Lambda = { board: board };
+      board.create("functiongraph", [function(t) {
+        var s = Math.sin(t);
+        return 2 * Math.abs(s) - 3 * s;
+      }, -Math.PI, Math.PI], lineStyle("#2563eb", 3));
+      board.create("line", [[-Math.PI, -1], [Math.PI, -1]], { strokeColor: "#dc2626", strokeWidth: 2, dash: 2, highlight: false });
+      board.create("line", [[-Math.PI, 5], [Math.PI, 5]], { strokeColor: "#dc2626", strokeWidth: 2, dash: 2, highlight: false });
+      var P = board.create("point", [
+        function() { return degToRad(state.lambdaTheta); },
+        function() { return lambdaValue(); }
+      ], pointStyle("P", "#dc2626"));
+      board.create("text", [-3.1, 5.25, "\\(\\lambda=5\\)"], textStyle("#dc2626"));
+      board.create("text", [-3.1, -0.78, "\\(\\lambda=-1\\)"], textStyle("#dc2626"));
+      board.create("text", [-1.4, 3.7, "\\(\\lambda=2|\\sin\\theta|-3\\sin\\theta\\)"], textStyle("#2563eb"));
+      boards.review7Lambda.objects = { P: P };
+      updateReview7Lambda();
+    }
+
+    function updateReview7Lambda() {
+      readRange("lambdaTheta", null, 0);
+      document.getElementById("lambdaThetaVal").textContent = state.lambdaTheta.toFixed(0) + "°";
+      var s = Math.sin(degToRad(state.lambdaTheta));
+      var m = 2 * Math.cos(degToRad(state.lambdaTheta));
+      document.getElementById("lambdaSinMetric").textContent = s.toFixed(2);
+      document.getElementById("lambdaMMetric").textContent = m.toFixed(2);
+      document.getElementById("lambdaValueMetric").textContent = lambdaValue().toFixed(2);
+      if (boards.review7Lambda) {
+        boards.review7Lambda.board.update();
+      }
+      typesetMath();
+    }
+
+    function initReview7Rhombus() {
+      var board = JXG.JSXGraph.initBoard("rhombusBoard", boardOptions([-3.2, 3.8, 3.5, -0.8], true));
+      boards.review7Rhombus = { board: board };
+      var O = board.create("point", [0, 0], pointStyle("O", "#111827"));
+      var A = board.create("point", [2, 1], pointStyle("A", "#dc2626"));
+      var C = board.create("point", [
+        function() { return rhombusCPoint()[0]; },
+        function() { return rhombusCPoint()[1]; }
+      ], pointStyle("C", "#2563eb"));
+      var B = board.create("point", [
+        function() { return 2 + rhombusCPoint()[0]; },
+        function() { return 1 + rhombusCPoint()[1]; }
+      ], pointStyle("B", "#f59e0b"));
+      var poly = board.create("polygon", [O, A, B, C], {
+        borders: { strokeColor: "#111827", strokeWidth: 2, highlight: false },
+        fillColor: "#dbeafe",
+        fillOpacity: 0.2,
+        highlight: false
+      });
+      board.create("arrow", [O, A], lineStyle("#dc2626", 4));
+      board.create("arrow", [O, C], lineStyle("#2563eb", 4));
+      board.create("segment", [A, B], { strokeColor: "#f59e0b", strokeWidth: 2, dash: 2, highlight: false });
+      board.create("segment", [C, B], { strokeColor: "#f59e0b", strokeWidth: 2, dash: 2, highlight: false });
+      board.create("circle", [O, Math.sqrt(5)], { strokeColor: "#94a3b8", strokeWidth: 2, dash: 2, highlight: false });
+      board.create("text", [0.82, 0.32, "\\(2+i\\)"], textStyle("#dc2626"));
+      board.create("text", [function() { return rhombusCPoint()[0] - 0.15; }, function() { return rhombusCPoint()[1] + 0.22; }, "\\(z_C\\)"], textStyle("#2563eb"));
+      boards.review7Rhombus.objects = { poly: poly, O: O, A: A, B: B, C: C };
+      updateReview7Rhombus();
+    }
+
+    function updateReview7Rhombus() {
+      readRange("rhombusAngle", null, 0);
+      document.getElementById("rhombusAngleVal").textContent = state.rhombusAngle.toFixed(0) + "°";
+      document.getElementById("rhombusAngleMetric").textContent = state.rhombusAngle.toFixed(0) + "°";
+      if (Math.abs(state.rhombusAngle - 120) < 0.001) {
+        document.getElementById("rhombusCMetric").innerHTML = "\\(-1-\\frac{\\sqrt3}{2}+(\\sqrt3-\\frac12)i\\)";
+        document.getElementById("rhombusBMetric").innerHTML = "\\(1-\\frac{\\sqrt3}{2}+(\\sqrt3+\\frac12)i\\)";
+      } else {
+        var c = rhombusCPoint();
+        document.getElementById("rhombusCMetric").textContent = c[0].toFixed(2) + "+" + c[1].toFixed(2) + "i";
+        document.getElementById("rhombusBMetric").textContent = (2 + c[0]).toFixed(2) + "+" + (1 + c[1]).toFixed(2) + "i";
+      }
+      if (boards.review7Rhombus) {
+        boards.review7Rhombus.board.update();
+      }
+      typesetMath();
+    }
+
     function linearityPoint(index) {
       return linearityCases[state.linearityCase].points[index];
     }
@@ -2563,6 +2783,20 @@
       ];
     }
 
+    function lambdaValue() {
+      var s = Math.sin(degToRad(state.lambdaTheta));
+      return 2 * Math.abs(s) - 3 * s;
+    }
+
+    function rhombusCPoint() {
+      var angle = degToRad(state.rhombusAngle);
+      var a = [2, 1];
+      return [
+        a[0] * Math.cos(angle) - a[1] * Math.sin(angle),
+        a[0] * Math.sin(angle) + a[1] * Math.cos(angle)
+      ];
+    }
+
     function boardOptions(box, axis) {
       return {
         boundingbox: box,
@@ -2698,6 +2932,8 @@
       document.getElementById("surveyFar").addEventListener("input", updateEx64SurveyReport);
       document.getElementById("halfLineReal").addEventListener("input", updateEx71HalfLine);
       document.getElementById("concyclicStep").addEventListener("input", updateEx71Concyclic);
+      document.getElementById("lambdaTheta").addEventListener("input", updateReview7Lambda);
+      document.getElementById("rhombusAngle").addEventListener("input", updateReview7Rhombus);
     }
 
     window.addEventListener("load", function() {
