@@ -1,0 +1,59 @@
+{
+  "id": "lesson10_hw_02_vertical_slider",
+  "originalNumber": "单2",
+  "chapter": "功和功率",
+  "title": "课后单选第2题：竖直滑块的绳拉力做功",
+  "question": "固定的光滑竖直杆上套着一个滑块，用轻绳系着滑块并绕过光滑定滑轮，以大小恒定的拉力 \\(F\\) 拉绳，使滑块从 \\(A\\) 点由静止开始上升。滑块从 \\(A\\) 点上升至 \\(B\\) 点和从 \\(B\\) 点上升至 \\(C\\) 点的过程中，轻绳对滑块做的功分别为 \\(W_1\\) 和 \\(W_2\\)，且 \\(AB=BC\\)，则（  ）。",
+  "options": [
+    "A. \\(W_1>W_2\\)",
+    "B. \\(W_1\\lt W_2\\)",
+    "C. \\(W_1=W_2\\)",
+    "D. 无法确定 \\(W_1\\) 和 \\(W_2\\) 的大小关系"
+  ],
+  "answer": "A",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_vertical_slider",
+    "playable": true,
+    "interactive": true,
+    "notes": "滑块沿竖直杆上升，绳与速度方向夹角逐渐增大；右图显示累计拉力功的斜率逐渐减小。",
+    "params": {
+      "force": { "label": "绳端拉力", "value": 20, "min": 5, "max": 50, "step": 1, "unit": "N" },
+      "offset": { "label": "滑轮水平距离", "value": 2, "min": 1, "max": 4, "step": 0.1, "unit": "m" },
+      "step": { "label": "AB=BC", "value": 1, "min": 0.5, "max": 2, "step": 0.1, "unit": "m" }
+    },
+    "timeline": { "duration": 6, "loop": false }
+  },
+  "knowledge": ["变方向力做功", "绳长变化", "几何比较"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "把拉力功转成绳长变化",
+      "content": "轻绳张力恒为 \\(F\\)。滑块上升时，滑块到定滑轮的斜绳段变短，张力对滑块做功等于 \\(F\\) 乘该斜绳段的缩短量。",
+      "knowledge": ["绳长几何"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "比较相等高度内的缩短量",
+      "content": "设滑轮水平距离为 \\(d\\)，滑块到滑轮的竖直距离为 \\(z\\)，斜绳长 \\(L=\\sqrt{d^2+z^2}\\)。滑块越接近滑轮，\\(|\\mathrm dL/\\mathrm dz|=z/\\sqrt{d^2+z^2}\\) 越小。",
+      "knowledge": ["函数变化率"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "得出功的大小关系",
+      "content": "在较低的 \\(AB\\) 段，等高位移使斜绳缩短得更多；在较高的 \\(BC\\) 段缩短较少。因此 \\(W_1>W_2\\)，答案为 A。",
+      "knowledge": ["变力功比较"],
+      "commonMistakes": ["因为 \\(AB=BC\\) 就直接判断两次功相等"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：给定几何尺寸",
+    "question": "定滑轮距竖直杆水平距离 \\(d=2\\,\\mathrm m\\)。滑块在 \\(A、B、C\\) 三点距滑轮的竖直距离分别为 \\(4\\,\\mathrm m、3\\,\\mathrm m、2\\,\\mathrm m\\)，绳张力恒为 \\(F=10\\,\\mathrm N\\)。求 \\(W_1\\) 和 \\(W_2\\)。",
+    "answer": "\\(W_1=10(\\sqrt{20}-\\sqrt{13})\\,\\mathrm J\\)，\\(W_2=10(\\sqrt{13}-\\sqrt8)\\,\\mathrm J\\)，且 \\(W_1>W_2\\)。",
+    "thinking": "分别求三个位置的斜绳长度，张力功等于相邻两位置斜绳长度减少量乘 \\(F\\)。"
+  }
+}

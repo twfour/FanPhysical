@@ -1,0 +1,67 @@
+{
+  "id": "lesson10_hw_06_elevator_work",
+  "originalNumber": "多6",
+  "chapter": "功和功率",
+  "title": "课后多选第6题：升降机内斜面对物体做功",
+  "question": "（多选）升降机内斜面的倾角 \\(\\theta=30^\\circ\\)，质量为 \\(2\\,\\mathrm{kg}\\) 的物体置于斜面上，始终不发生相对滑动。在升降机以 \\(5\\,\\mathrm{m/s^2}\\) 的加速度从静止开始匀加速上升 \\(4\\,\\mathrm s\\) 的过程中，取 \\(g=10\\,\\mathrm{m/s^2}\\)，则（  ）。",
+  "options": [
+    "A. 斜面对物体的支持力做功 \\(900\\,\\mathrm J\\)",
+    "B. 斜面对物体的摩擦力做功 \\(-300\\,\\mathrm J\\)",
+    "C. 物体克服重力做功 \\(-800\\,\\mathrm J\\)",
+    "D. 合外力对物体做功 \\(400\\,\\mathrm J\\)"
+  ],
+  "answer": "A、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_elevator_work",
+    "playable": true,
+    "interactive": true,
+    "notes": "物体随升降机竖直上升；右图分开显示支持力、摩擦力、重力和合力的累计功。",
+    "params": {
+      "mass": { "label": "物体质量", "value": 2, "min": 1, "max": 5, "step": 0.5, "unit": "kg" },
+      "accel": { "label": "升降机加速度", "value": 5, "min": 1, "max": 8, "step": 0.5, "unit": "m/s²" },
+      "angle": { "label": "斜面倾角", "value": 30, "min": 15, "max": 50, "step": 1, "unit": "deg" },
+      "g": { "label": "重力加速度", "value": 10, "min": 8, "max": 12, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["支持力做功", "摩擦力做功", "动能定理"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "求物体位移",
+      "content": "物体相对升降机静止，随升降机竖直向上做匀加速运动。\\(s=\\frac12at^2=\\frac12\\times5\\times4^2=40\\,\\mathrm m\\)，末速度 \\(v=at=20\\,\\mathrm{m/s}\\)。",
+      "knowledge": ["匀加速运动"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "求支持力与摩擦力",
+      "content": "物体在竖直方向具有加速度 \\(a\\)。分解斜面对物体的作用力可得 \\(N=m(g+a)\\cos\\theta\\)、\\(f=m(g+a)\\sin\\theta\\)，且静摩擦力沿斜面向上。",
+      "knowledge": ["加速参考情形受力"],
+      "commonMistakes": ["把摩擦力方向判为沿斜面向下"]
+    },
+    {
+      "stepId": 3,
+      "title": "分别计算各力的功",
+      "content": "\\(W_N=Ns\\cos\\theta=m(g+a)s\\cos^2\\theta=900\\,\\mathrm J\\)；\\(W_f=fs\\sin\\theta=m(g+a)s\\sin^2\\theta=300\\,\\mathrm J\\)，为正功。重力做功 \\(-mgs=-800\\,\\mathrm J\\)，克服重力做功应为 \\(+800\\,\\mathrm J\\)。",
+      "knowledge": ["功的夹角"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "用动能定理校验",
+      "content": "合外力功 \\(W_{\\mathrm{合}}=\\frac12mv^2=400\\,\\mathrm J\\)，也等于 \\(900+300-800\\)。因此 A、D 正确。",
+      "knowledge": ["动能定理"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：加速升降机中的斜面",
+    "question": "质量 \\(m=1\\,\\mathrm{kg}\\) 的物块固定在倾角 \\(37^\\circ\\) 的升降机斜面上。升降机由静止以 \\(a=2\\,\\mathrm{m/s^2}\\) 上升 \\(3\\,\\mathrm s\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)、\\(\\sin37^\\circ=0.6\\)、\\(\\cos37^\\circ=0.8\\)，求支持力和摩擦力对物块做的功。",
+    "answer": "\\(s=9\\,\\mathrm m\\)，\\(N=m(g+a)\\cos37^\\circ=9.6\\,\\mathrm N\\)，\\(f=m(g+a)\\sin37^\\circ=7.2\\,\\mathrm N\\)。故 \\(W_N=Ns\\cos37^\\circ=69.12\\,\\mathrm J\\)，\\(W_f=fs\\sin37^\\circ=38.88\\,\\mathrm J\\)。",
+    "thinking": "先在地面参考系中求物块竖直加速度和位移，再将斜面作用力分解到竖直位移方向。"
+  }
+}

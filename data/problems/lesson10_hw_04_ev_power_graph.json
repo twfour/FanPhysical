@@ -1,0 +1,59 @@
+{
+  "id": "lesson10_hw_04_ev_power_graph",
+  "originalNumber": "单4",
+  "chapter": "功和功率",
+  "title": "课后单选第4题：新能源汽车功率与速度图像",
+  "question": "一辆新能源汽车在平直公路上由静止开始启动。启动过程中，汽车牵引力的功率及瞬时速度随时间的变化分别如图甲、乙所示：前 \\(5\\,\\mathrm s\\) 功率由 \\(0\\) 线性增至 \\(15\\,\\mathrm{kW}\\)，速度由 \\(0\\) 线性增至 \\(5\\,\\mathrm{m/s}\\)；此后功率保持 \\(15\\,\\mathrm{kW}\\)，速度继续增大并逐渐稳定。已知汽车所受阻力恒为重力的 \\(\\frac15\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。下列说法正确的是（  ）。",
+  "options": [
+    "A. 该汽车的质量为 \\(2.0\\times10^3\\,\\mathrm{kg}\\)",
+    "B. 在前 \\(5\\,\\mathrm s\\) 内，汽车前进位移大小为 \\(25\\,\\mathrm m\\)",
+    "C. 整个过程中汽车的牵引力大小保持不变",
+    "D. 在前 \\(5\\,\\mathrm s\\) 内，汽车牵引力做功为 \\(3.75\\times10^4\\,\\mathrm J\\)"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_ev_power_graph",
+    "playable": true,
+    "interactive": true,
+    "notes": "前 5 秒功率与速度同比例增长，牵引力恒定；右侧用上下两幅图对应原题的 \\(P-t\\) 与 \\(v-t\\) 关系。",
+    "params": {
+      "ratedPower": { "label": "恒功率值", "value": 15, "min": 8, "max": 30, "step": 1, "unit": "kW" },
+      "rampTime": { "label": "线性增长时间", "value": 5, "min": 3, "max": 8, "step": 0.5, "unit": "s" },
+      "switchSpeed": { "label": "切换速度", "value": 5, "min": 3, "max": 10, "step": 0.5, "unit": "m/s" }
+    },
+    "timeline": { "duration": 15, "loop": false }
+  },
+  "knowledge": ["功率时间图像", "速度时间图像", "图像面积"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分析前 5 秒",
+      "content": "前 \\(5\\,\\mathrm s\\) 内 \\(P\\) 与 \\(v\\) 都从零线性增加，故 \\(F=P/v=15000/5=3000\\,\\mathrm N\\) 为常量；加速度 \\(a=5/5=1\\,\\mathrm{m/s^2}\\)。",
+      "knowledge": ["比例图像"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "判断质量与位移",
+      "content": "由 \\(F-\\frac15mg=ma\\) 得 \\(3000-2m=m\\)，所以 \\(m=1000\\,\\mathrm{kg}\\)，A 错。前 \\(5\\,\\mathrm s\\) 位移为 \\(s=\\frac12\\times5\\times5=12.5\\,\\mathrm m\\)，B 错。",
+      "knowledge": ["牛顿第二定律"],
+      "commonMistakes": ["把速度图像矩形面积当成位移"]
+    },
+    {
+      "stepId": 3,
+      "title": "用功率图像面积求功",
+      "content": "前 \\(5\\,\\mathrm s\\) 牵引力做功等于 \\(P-t\\) 图像面积：\\(W=\\frac12\\times5\\times15\\,\\mathrm{kW}=3.75\\times10^4\\,\\mathrm J\\)，D 对。进入恒功率阶段后 \\(F=P/v\\) 随速度增大而减小，C 错。",
+      "knowledge": ["功率图像面积"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：线性升功率启动",
+    "question": "某车前 \\(4\\,\\mathrm s\\) 的牵引功率由 \\(0\\) 线性增至 \\(24\\,\\mathrm{kW}\\)，速度由 \\(0\\) 线性增至 \\(8\\,\\mathrm{m/s}\\)。求这段时间牵引力、位移和牵引力做功。",
+    "answer": "\\(F=P/v=3000\\,\\mathrm N\\)，\\(s=\\frac12\\times4\\times8=16\\,\\mathrm m\\)，\\(W=\\frac12\\times4\\times24\\,\\mathrm{kW}=4.8\\times10^4\\,\\mathrm J\\)。",
+    "thinking": "当 \\(P\\) 与 \\(v\\) 同比例增长时，\\(P/v\\) 为恒定牵引力；功也可由 \\(P-t\\) 图像面积直接得到。"
+  }
+}

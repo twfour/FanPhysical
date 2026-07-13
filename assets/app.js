@@ -131,7 +131,8 @@ var promotedProblemChapterMap = {
   "圆周运动": true,
   "圆周运动日常": true,
   "万有引力与宇宙航行": true,
-  "行星运动与变轨等问题": true
+  "行星运动与变轨等问题": true,
+  "功和功率": true
 };
 var legacySceneMap = {
   spring: true,
@@ -1714,6 +1715,18 @@ function getJsonDuration(sceneName) {
   if (animation.type === "circular_concept" && animation.variant === "dart_disk") {
     return Math.max(0.2, getJsonParam(sceneName, "flight", 1.0));
   }
+  if (animation.type === "work_power_model" && animation.variant === "lesson10_conveyor_work") {
+    var beltSpeed = Math.max(0.1, getJsonParam(sceneName, "beltSpeed", 2));
+    var conveyorMu = Math.max(0.01, getJsonParam(sceneName, "mu", 0.2));
+    var conveyorG = Math.max(0.1, getJsonParam(sceneName, "g", 10));
+    return beltSpeed / (conveyorMu * conveyorG);
+  }
+  if (animation.type === "work_power_model" && animation.variant === "lesson10_gravity_power") {
+    var throwHeight = Math.max(0.1, getJsonParam(sceneName, "height", 20));
+    var throwSpeed = Math.max(0, getJsonParam(sceneName, "speed", 10));
+    var throwG = Math.max(0.1, getJsonParam(sceneName, "g", 10));
+    return (throwSpeed + Math.sqrt(throwSpeed * throwSpeed + 2 * throwG * throwHeight)) / throwG;
+  }
   return Math.max(0.5, Number((animation.timeline || {}).duration || 4));
 }
 
@@ -1790,6 +1803,9 @@ function drawJsonAnimationScene() {
   } else if (animation.type === "gravitation_model") {
     drawAnimScene(drawGravitationModelScene);
     drawGravitationModelGraph();
+  } else if (animation.type === "work_power_model") {
+    drawAnimScene(drawWorkPowerModelScene);
+    drawWorkPowerModelGraph();
   } else {
     drawAnimScene(drawJsonPlaceholderScene);
     drawJsonPlaceholderGraph();

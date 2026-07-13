@@ -1,0 +1,60 @@
+{
+  "id": "lesson10_hw_07_car_inverse_force",
+  "originalNumber": "多7",
+  "chapter": "功和功率",
+  "title": "课后多选第7题：汽车速度与牵引力倒数图像",
+  "question": "（多选）某型号汽车的速度 \\(v\\) 与牵引力 \\(F\\) 大小倒数 \\(1/F\\) 的关系如图，\\(v_m\\) 表示最大速度。汽车在水平路面上由静止启动，图中 \\(ab\\) 平行于 \\(v\\) 轴，\\(bc\\) 反向延长过原点 \\(O\\)。已知阻力恒定，汽车质量为 \\(1.5\\times10^3\\,\\mathrm{kg}\\)。图中 \\(b\\) 点为 \\(1/F=1/5\\times10^{-3}\\,\\mathrm{N^{-1}}\\)、\\(v=10\\,\\mathrm{m/s}\\)，\\(c\\) 点为 \\(1/F=1/2\\times10^{-3}\\,\\mathrm{N^{-1}}\\)。下列说法正确的是（  ）。",
+  "options": [
+    "A. 汽车由 \\(b\\) 到 \\(c\\) 过程做匀加速直线运动",
+    "B. 汽车从 \\(a\\) 到 \\(b\\) 持续的时间为 \\(5.0\\,\\mathrm s\\)",
+    "C. 汽车额定功率为 \\(50\\,\\mathrm{kW}\\)",
+    "D. 汽车能够获得的最大速度为 \\(20\\,\\mathrm{m/s}\\)"
+  ],
+  "answer": "B、C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_car_inverse_force",
+    "playable": true,
+    "interactive": true,
+    "notes": "竖直段表示恒牵引力，过原点斜线表示恒功率；右图按原题坐标显示 \\(v-1/F\\) 关系。",
+    "params": {
+      "power": { "label": "额定功率", "value": 50, "min": 30, "max": 100, "step": 5, "unit": "kW" },
+      "maxForce": { "label": "最大牵引力", "value": 5000, "min": 3000, "max": 8000, "step": 250, "unit": "N" },
+      "resistance": { "label": "恒定阻力", "value": 2000, "min": 1000, "max": 3500, "step": 250, "unit": "N" },
+      "mass": { "label": "汽车质量", "value": 1500, "min": 1000, "max": 3000, "step": 250, "unit": "kg" }
+    },
+    "timeline": { "duration": 8, "loop": false }
+  },
+  "knowledge": ["倒数图像", "恒功率", "汽车启动"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "识别恒牵引力段",
+      "content": "\\(ab\\) 平行于 \\(v\\) 轴，说明 \\(1/F\\) 不变，即 \\(F=5000\\,\\mathrm N\\)。\\(bc\\) 反向延长过原点，满足 \\(v=P(1/F)\\)，表示恒功率阶段而非匀加速阶段，A 错。",
+      "knowledge": ["图像识别"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "求额定功率与阻力",
+      "content": "在 \\(b\\) 点 \\(P=Fv=5000\\times10=50\\,\\mathrm{kW}\\)，C 对。最大速度对应 \\(c\\) 点，此时 \\(F=f=2000\\,\\mathrm N\\)。",
+      "knowledge": ["额定功率"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求时间与最大速度",
+      "content": "恒牵引力阶段 \\(a=(5000-2000)/1500=2\\,\\mathrm{m/s^2}\\)，由静止到 \\(10\\,\\mathrm{m/s}\\) 需 \\(5\\,\\mathrm s\\)，B 对。\\(v_m=P/f=50000/2000=25\\,\\mathrm{m/s}\\)，D 错。",
+      "knowledge": ["分段启动"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：读 \\(v-1/F\\) 图像",
+    "question": "某汽车恒牵引力段为 \\(F_{\\max}=6000\\,\\mathrm N\\)，在 \\(v=12\\,\\mathrm{m/s}\\) 时进入恒功率阶段；最大速度处牵引力为 \\(2400\\,\\mathrm N\\)。求额定功率和最大速度。",
+    "answer": "\\(P=F_{\\max}v_1=72\\,\\mathrm{kW}\\)，\\(v_{\\max}=P/f=72000/2400=30\\,\\mathrm{m/s}\\)。",
+    "thinking": "在分段交点用 \\(P=F_{\\max}v_1\\) 求额定功率，在最大速度点令牵引力等于阻力。"
+  }
+}

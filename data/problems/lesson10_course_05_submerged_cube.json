@@ -1,0 +1,53 @@
+{
+  "id": "lesson10_course_05_submerged_cube",
+  "originalNumber": "课5",
+  "chapter": "功和功率",
+  "title": "例5：缓慢下压漂浮木块",
+  "question": "一面积很大的水池水深为 \\(H\\)，水面上浮着正方体木块，木块边长为 \\(a\\)，密度为水的 \\(\\frac12\\)，质量为 \\(m\\)，开始时木块静止。现用力 \\(F\\) 将木块缓慢地向下压，不计摩擦。求从开始压木块到木块刚好完全没入水的过程中，力 \\(F\\) 所做的功。",
+  "answer": "\\(\\frac14mga\\)",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_submerged_cube",
+    "playable": true,
+    "interactive": true,
+    "notes": "木块缓慢下沉，外力随浸入深度线性增大；右图中曲线下方面积就是外力做功。",
+    "params": {
+      "mass": { "label": "木块质量", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "kg" },
+      "edge": { "label": "木块边长", "value": 1, "min": 0.4, "max": 2, "step": 0.1, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 8, "max": 12, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 6, "loop": false }
+  },
+  "knowledge": ["浮力", "变力做功", "图像面积"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "确定初末浸入深度",
+      "content": "木块密度为水的一半，漂浮时排开水的体积为木块体积的一半，所以初始浸入深度为 \\(a/2\\)。完全浸没前还需下压 \\(a/2\\)。",
+      "knowledge": ["漂浮条件"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "写出外力随位移的变化",
+      "content": "设向下位移为 \\(x\\)，其中 \\(0\\le x\\le a/2\\)。缓慢运动时 \\(F+mg=F_{\\mathrm{浮}}\\)，而新增浮力与 \\(x\\) 成正比，故 \\(F=\\frac{2mg}{a}x\\)。",
+      "knowledge": ["准静态平衡"],
+      "commonMistakes": ["把缓慢下压过程中的外力当成恒力"]
+    },
+    {
+      "stepId": 3,
+      "title": "用图像面积求变力功",
+      "content": "\\(F-x\\) 图像是一条从 \\(0\\) 增至 \\(mg\\) 的直线。外力功为三角形面积 \\(W=\\frac12\\cdot\\frac a2\\cdot mg=\\frac14mga\\)。",
+      "knowledge": ["变力做功"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：密度不同的木块",
+    "question": "边长为 \\(a\\)、质量为 \\(m\\) 的正方体木块密度为水的 \\(\\frac34\\)。缓慢下压至刚好完全浸没，求外力做功。",
+    "answer": "初始浸深为 \\(3a/4\\)，下压距离 \\(a/4\\)，末态外力为 \\(F_{\\max}=F_{\\mathrm{浮}}-mg=mg/3\\)。故 \\(W=\\frac12\\cdot\\frac a4\\cdot\\frac{mg}{3}=\\frac{mga}{24}\\)。",
+    "thinking": "先由密度比确定初始浸入比例，再找出外力的初值、末值与位移，利用线性变化的平均力求功。"
+  }
+}

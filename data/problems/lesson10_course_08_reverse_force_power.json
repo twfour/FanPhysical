@@ -1,0 +1,59 @@
+{
+  "id": "lesson10_course_08_reverse_force_power",
+  "originalNumber": "课8",
+  "chapter": "功和功率",
+  "title": "例8：反向恒力作用下的功和功率",
+  "question": "（多选）质量 \\(m=20\\,\\mathrm{kg}\\) 的物体在大小恒定的水平外力 \\(F\\) 作用下沿水平面做直线运动。\\(0\\sim2\\,\\mathrm s\\) 内 \\(F\\) 与运动方向相反，\\(2\\sim4\\,\\mathrm s\\) 内 \\(F\\) 与运动方向相同。物体的 \\(v-t\\) 图像显示：\\(v(0)=10\\,\\mathrm{m/s}\\)、\\(v(2)=0\\)、\\(v(4)=-2\\,\\mathrm{m/s}\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)，则（  ）。",
+  "options": [
+    "A. 拉力 \\(F\\) 的大小为 \\(100\\,\\mathrm N\\)",
+    "B. 在 \\(4\\,\\mathrm s\\) 时拉力的瞬时功率为 \\(120\\,\\mathrm W\\)",
+    "C. \\(4\\,\\mathrm s\\) 内拉力所做的功为 \\(480\\,\\mathrm J\\)",
+    "D. \\(4\\,\\mathrm s\\) 内物体克服摩擦力做功的平均功率为 \\(120\\,\\mathrm W\\)"
+  ],
+  "answer": "B、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_reverse_force_power",
+    "playable": true,
+    "interactive": true,
+    "notes": "物体先向右减速至零，再在恒力方向上反向加速；右图重现分段 \\(v-t\\) 图像。",
+    "params": {
+      "mass": { "label": "物体质量", "value": 20, "min": 10, "max": 40, "step": 1, "unit": "kg" },
+      "force": { "label": "恒定外力", "value": 60, "min": 30, "max": 100, "step": 5, "unit": "N" },
+      "friction": { "label": "滑动摩擦力", "value": 40, "min": 10, "max": 70, "step": 5, "unit": "N" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["速度图像", "变向运动", "瞬时功率"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "由图像求两段加速度",
+      "content": "\\(0\\sim2\\,\\mathrm s\\) 内 \\(a_1=(0-10)/2=-5\\,\\mathrm{m/s^2}\\)；\\(2\\sim4\\,\\mathrm s\\) 内 \\(a_2=(-2-0)/2=-1\\,\\mathrm{m/s^2}\\)。",
+      "knowledge": ["速度图像斜率"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "联立求恒力与摩擦力",
+      "content": "取向右为正，外力始终向左。前段外力和摩擦力同向，有 \\(F+f=20\\times5=100\\,\\mathrm N\\)；后段摩擦力反向，有 \\(F-f=20\\times1=20\\,\\mathrm N\\)。解得 \\(F=60\\,\\mathrm N\\)、\\(f=40\\,\\mathrm N\\)。",
+      "knowledge": ["分段受力"],
+      "commonMistakes": ["物体反向后仍把摩擦力画向左"]
+    },
+    {
+      "stepId": 3,
+      "title": "判断功和功率",
+      "content": "\\(4\\,\\mathrm s\\) 时 \\(F\\) 与速度同向，瞬时功率 \\(P=F|v|=120\\,\\mathrm W\\)，B 对。两段路程分别为 \\(10\\,\\mathrm m\\) 与 \\(2\\,\\mathrm m\\)，克服摩擦做功 \\(f(10+2)=480\\,\\mathrm J\\)，平均功率为 \\(480/4=120\\,\\mathrm W\\)，D 对。外力总位移为向右 \\(8\\,\\mathrm m\\)，其功为 \\(-480\\,\\mathrm J\\)，C 错。",
+      "knowledge": ["正负功", "平均功率"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：先减速后反向",
+    "question": "质量 \\(10\\,\\mathrm{kg}\\) 的物块初速度为 \\(6\\,\\mathrm{m/s}\\)，受到恒定向左外力 \\(F=40\\,\\mathrm N\\) 和大小 \\(20\\,\\mathrm N\\) 的滑动摩擦力。求物块停止前的时间，以及反向后速度达到 \\(2\\,\\mathrm{m/s}\\) 时外力的瞬时功率。",
+    "answer": "停止前合力为 \\(60\\,\\mathrm N\\)，减速度 \\(6\\,\\mathrm{m/s^2}\\)，故 \\(t=1\\,\\mathrm s\\)。反向后外力与速度同向，瞬时功率 \\(P=Fv=80\\,\\mathrm W\\)。",
+    "thinking": "变向前后摩擦力方向相反，要分段重新列牛顿第二定律；瞬时功率使用当前力与当前速度。"
+  }
+}

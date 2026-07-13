@@ -1,0 +1,60 @@
+{
+  "id": "lesson10_hw_09_gravity_power",
+  "originalNumber": "多9",
+  "chapter": "功和功率",
+  "title": "课后多选第9题：四种抛体的重力功率",
+  "question": "（多选）同一高度处有 \\(4\\) 个质量相同且可视为质点的小球。小球 \\(A\\) 做自由落体运动，小球 \\(B\\) 做平抛运动，小球 \\(C\\) 做竖直上抛运动，小球 \\(D\\) 做竖直下抛运动，且小球 \\(B、C、D\\) 抛出时的初速度大小相同。不计空气阻力。小球从释放或抛出到落地的过程中（  ）。",
+  "options": [
+    "A. 重力对 \\(4\\) 个小球做的功相同",
+    "B. 重力对 \\(4\\) 个小球做功的平均功率相等",
+    "C. 落地前瞬间，重力对 \\(4\\) 个小球的瞬时功率大小关系为 \\(P_A=P_B\\lt P_C=P_D\\)",
+    "D. 重力对 \\(4\\) 个小球做功的平均功率大小关系为 \\(\\bar P_A=\\bar P_B>\\bar P_C=\\bar P_D\\)"
+  ],
+  "answer": "A、C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_gravity_power",
+    "playable": true,
+    "interactive": true,
+    "notes": "四球从同一高度以四种方式运动并分别落地；右图比较重力瞬时功率随时间的变化。",
+    "params": {
+      "height": { "label": "初始高度", "value": 20, "min": 10, "max": 40, "step": 1, "unit": "m" },
+      "speed": { "label": "共同初速度", "value": 10, "min": 4, "max": 16, "step": 1, "unit": "m/s" },
+      "mass": { "label": "小球质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
+      "g": { "label": "重力加速度", "value": 10, "min": 8, "max": 12, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 3.24, "loop": false }
+  },
+  "knowledge": ["重力做功", "平均功率", "瞬时功率"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "比较重力做功",
+      "content": "重力是保守力，重力做功只由初末高度差决定。四球质量相同、初末高度相同，故均有 \\(W_G=mgh\\)，A 正确。",
+      "knowledge": ["重力功与路径无关"],
+      "commonMistakes": ["按运动轨迹长短比较重力功"]
+    },
+    {
+      "stepId": 2,
+      "title": "比较运动时间与平均功率",
+      "content": "\\(A、B\\) 的竖直分运动相同，所以 \\(t_A=t_B\\)；竖直下抛的 \\(D\\) 最先落地，竖直上抛的 \\(C\\) 最后落地。由于四球重力功相同，平均功率满足 \\(\\bar P_D>\\bar P_A=\\bar P_B>\\bar P_C\\)，B、D 错。",
+      "knowledge": ["平均功率"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "比较落地瞬时功率",
+      "content": "重力瞬时功率大小为 \\(P=mg|v_y|\\)。落地时 \\(A、B\\) 的竖直速度均为 \\(\\sqrt{2gh}\\)；\\(C、D\\) 的竖直速度大小均为 \\(\\sqrt{v_0^2+2gh}\\)。故 \\(P_A=P_B\\lt P_C=P_D\\)，C 正确。",
+      "knowledge": ["瞬时功率"],
+      "commonMistakes": ["用合速度而不是竖直速度计算重力功率"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：两种抛体重力功率",
+    "question": "从高度 \\(h=20\\,\\mathrm m\\) 同时释放小球甲，并以 \\(v_0=10\\,\\mathrm{m/s}\\) 竖直下抛同质量小球乙。取 \\(g=10\\,\\mathrm{m/s^2}\\)。比较两球落地前瞬间重力的功和瞬时功率。",
+    "answer": "两球重力功都为 \\(mgh=200m\\,\\mathrm J\\)。甲落地竖直速度 \\(20\\,\\mathrm{m/s}\\)，乙为 \\(10\\sqrt5\\,\\mathrm{m/s}\\)，故瞬时功率之比 \\(P_{\\甲}:P_{\\乙}=2:\\sqrt5\\)。",
+    "thinking": "重力功只看高度差；瞬时功率则看落地瞬间沿重力方向的速度分量。"
+  }
+}

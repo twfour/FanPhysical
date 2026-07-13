@@ -1,0 +1,59 @@
+{
+  "id": "lesson10_course_01_crane_work",
+  "originalNumber": "课1",
+  "chapter": "功和功率",
+  "title": "例1：起重机加速提升货物",
+  "question": "起重机以 \\(1\\,\\mathrm{m/s^2}\\) 的加速度将重为 \\(1.0\\times10^4\\,\\mathrm N\\) 的货物由静止加速向上提升。取 \\(g=10\\,\\mathrm{m/s^2}\\)，则在第 \\(1\\,\\mathrm s\\) 内起重机对货物做的功是（  ）。",
+  "options": [
+    "A. \\(500\\,\\mathrm J\\)",
+    "B. \\(5000\\,\\mathrm J\\)",
+    "C. \\(4500\\,\\mathrm J\\)",
+    "D. \\(5500\\,\\mathrm J\\)"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_crane_work",
+    "playable": true,
+    "interactive": true,
+    "notes": "货物由静止匀加速上升；右图同步显示起重机拉力的累计功。",
+    "params": {
+      "weight": { "label": "货物重力", "value": 10000, "min": 5000, "max": 20000, "step": 500, "unit": "N" },
+      "accel": { "label": "提升加速度", "value": 1, "min": 0.2, "max": 3, "step": 0.1, "unit": "m/s²" },
+      "g": { "label": "重力加速度", "value": 10, "min": 8, "max": 12, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 1, "loop": false }
+  },
+  "knowledge": ["功的计算", "牛顿第二定律", "匀加速直线运动"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "求质量与拉力",
+      "content": "货物质量为 \\(m=G/g=1000\\,\\mathrm{kg}\\)。由 \\(T-mg=ma\\)，得 \\(T=m(g+a)=1.1\\times10^4\\,\\mathrm N\\)。",
+      "knowledge": ["牛顿第二定律"],
+      "commonMistakes": ["把起重机拉力直接当成货物重力"]
+    },
+    {
+      "stepId": 2,
+      "title": "求第 1 秒位移",
+      "content": "货物由静止开始做匀加速运动，\\(h=\\frac12at^2=\\frac12\\times1\\times1^2=0.5\\,\\mathrm m\\)。",
+      "knowledge": ["匀加速位移"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "计算起重机做功",
+      "content": "拉力与位移同向，故 \\(W=Th=1.1\\times10^4\\times0.5=5.5\\times10^3\\,\\mathrm J\\)。答案为 D。",
+      "knowledge": ["恒力做功"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：电梯加速提升",
+    "question": "质量为 \\(800\\,\\mathrm{kg}\\) 的货物由静止以 \\(a=1.5\\,\\mathrm{m/s^2}\\) 竖直向上加速 \\(2\\,\\mathrm s\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求拉力对货物做的功。",
+    "answer": "\\(T=m(g+a)=9200\\,\\mathrm N\\)，\\(h=\\frac12at^2=3\\,\\mathrm m\\)，所以 \\(W=Th=2.76\\times10^4\\,\\mathrm J\\)。",
+    "thinking": "先用牛顿第二定律求实际拉力，再用匀加速位移公式求位移，最后代入 \\(W=Fs\\)。"
+  }
+}

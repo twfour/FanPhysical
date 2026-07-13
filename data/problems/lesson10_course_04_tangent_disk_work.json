@@ -1,0 +1,52 @@
+{
+  "id": "lesson10_course_04_tangent_disk_work",
+  "originalNumber": "课4",
+  "chapter": "功和功率",
+  "title": "例4：切向恒力推动转盘",
+  "question": "大小为 \\(F=10\\,\\mathrm N\\) 的力作用在半径 \\(r=1\\,\\mathrm m\\) 的转盘边缘，力的大小保持不变，方向在任意时刻均与作用点的切线一致。转盘转动一周，力 \\(F\\) 做的总功为多少？",
+  "answer": "\\(20\\pi\\,\\mathrm J\\)",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_tangent_disk_work",
+    "playable": true,
+    "interactive": true,
+    "notes": "力始终沿圆周切线，作用点走过一周弧长；右图显示累计功与转角的线性关系。",
+    "params": {
+      "force": { "label": "切向力", "value": 10, "min": 2, "max": 30, "step": 1, "unit": "N" },
+      "radius": { "label": "转盘半径", "value": 1, "min": 0.3, "max": 2, "step": 0.1, "unit": "m" }
+    },
+    "timeline": { "duration": 6, "loop": false }
+  },
+  "knowledge": ["变方向力做功", "弧长", "力矩"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "把圆周分成微小弧段",
+      "content": "每一微小段内力都沿切线，与作用点的微小位移同向，因此 \\(\\mathrm dW=F\\,\\mathrm ds\\)。",
+      "knowledge": ["微元法"],
+      "commonMistakes": ["因物体回到原位就误判总功为零"]
+    },
+    {
+      "stepId": 2,
+      "title": "计算一周路程",
+      "content": "作用点转动一周走过的弧长为 \\(s=2\\pi r=2\\pi\\,\\mathrm m\\)。",
+      "knowledge": ["圆周弧长"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求总功",
+      "content": "\\(W=Fs=10\\times2\\pi=20\\pi\\,\\mathrm J\\)。功取决于力沿实际路径的累积，不由始末位置单独决定。",
+      "knowledge": ["功的路径累积"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：半周切向做功",
+    "question": "半径 \\(r=0.5\\,\\mathrm m\\) 的圆盘边缘始终受到 \\(F=8\\,\\mathrm N\\) 的切向力。圆盘转过 \\(3\\pi\\,\\mathrm{rad}\\) 时，该力做功多少？",
+    "answer": "作用点弧长 \\(s=r\\theta=1.5\\pi\\,\\mathrm m\\)，故 \\(W=Fs=12\\pi\\,\\mathrm J\\)。",
+    "thinking": "对于始终沿切线的恒力，直接使用 \\(W=Fr\\theta\\)。"
+  }
+}

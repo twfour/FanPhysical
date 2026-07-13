@@ -1,0 +1,60 @@
+{
+  "id": "lesson10_hw_08_sled_circle",
+  "originalNumber": "多8",
+  "chapter": "功和功率",
+  "title": "课后多选第8题：狗拉雪橇做匀速圆周运动",
+  "question": "（多选）一条狗用水平拉力拉着质量为 \\(80\\,\\mathrm{kg}\\) 的雪橇（包括内部物品），在水平雪面做半径为 \\(24\\,\\mathrm m\\) 的匀速圆周运动，速度大小为 \\(3\\,\\mathrm{m/s}\\)。雪橇与地面间的动摩擦因数为 \\(0.05\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)、\\(\\cos53^\\circ=0.6\\)。下列说法正确的是（  ）。",
+  "options": [
+    "A. 雪橇受到狗的水平拉力大小为 \\(40\\,\\mathrm N\\)",
+    "B. 狗给雪橇的水平拉力方向与雪橇前进方向成 \\(37^\\circ\\)",
+    "C. 狗给雪橇的水平拉力功率为 \\(150\\,\\mathrm W\\)",
+    "D. 狗拉着雪橇转过 \\(30^\\circ\\) 圆弧的过程中，雪橇克服地面摩擦力做功 \\(160\\pi\\,\\mathrm J\\)"
+  ],
+  "answer": "B、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_sled_circle",
+    "playable": true,
+    "interactive": true,
+    "notes": "拉力的切向分量克服摩擦，径向分量提供向心力；右图显示克服摩擦力做功随圆心角线性增加。",
+    "params": {
+      "mass": { "label": "雪橇质量", "value": 80, "min": 40, "max": 120, "step": 5, "unit": "kg" },
+      "radius": { "label": "转弯半径", "value": 24, "min": 12, "max": 40, "step": 1, "unit": "m" },
+      "speed": { "label": "运动速度", "value": 3, "min": 1, "max": 6, "step": 0.1, "unit": "m/s" },
+      "mu": { "label": "动摩擦因数", "value": 0.05, "min": 0.02, "max": 0.15, "step": 0.01, "unit": "" }
+    },
+    "timeline": { "duration": 8, "loop": false }
+  },
+  "knowledge": ["圆周运动", "功率", "摩擦力做功"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分解水平拉力",
+      "content": "动摩擦力 \\(f=\\mu mg=40\\,\\mathrm N\\)，匀速运动要求拉力的切向分量 \\(F_t=f=40\\,\\mathrm N\\)。径向分量提供向心力：\\(F_r=mv^2/r=30\\,\\mathrm N\\)。",
+      "knowledge": ["力的正交分解"],
+      "commonMistakes": ["把全部拉力都当成向心力"]
+    },
+    {
+      "stepId": 2,
+      "title": "求拉力大小、方向和功率",
+      "content": "\\(F=\\sqrt{F_t^2+F_r^2}=50\\,\\mathrm N\\)，与速度方向夹角满足 \\(\\tan\\alpha=F_r/F_t=3/4\\)，故 \\(\\alpha=37^\\circ\\)。拉力功率只由切向分量贡献，\\(P=F_tv=120\\,\\mathrm W\\)。因此 B 对，A、C 错。",
+      "knowledge": ["瞬时功率"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求克服摩擦力做功",
+      "content": "转过 \\(30^\\circ=\\pi/6\\) 时弧长 \\(s=r\\theta=24\\times\\pi/6=4\\pi\\,\\mathrm m\\)。克服摩擦力做功 \\(W=fs=40\\times4\\pi=160\\pi\\,\\mathrm J\\)，D 对。",
+      "knowledge": ["弧长与功"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：水平圆周拉物",
+    "question": "质量 \\(m=50\\,\\mathrm{kg}\\) 的物体在水平面上以 \\(v=4\\,\\mathrm{m/s}\\) 做半径 \\(r=20\\,\\mathrm m\\) 的匀速圆周运动，\\(\\mu=0.04\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求水平拉力大小及其功率。",
+    "answer": "\\(F_t=\\mu mg=20\\,\\mathrm N\\)，\\(F_r=mv^2/r=40\\,\\mathrm N\\)，故 \\(F=20\\sqrt5\\,\\mathrm N\\)，功率 \\(P=F_tv=80\\,\\mathrm W\\)。",
+    "thinking": "先把拉力分成沿速度方向和指向圆心方向，只有切向分量做功。"
+  }
+}

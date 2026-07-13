@@ -1,0 +1,61 @@
+{
+  "id": "lesson10_course_10_rated_power_car",
+  "originalNumber": "课10",
+  "chapter": "功和功率",
+  "title": "例10：额定功率下的汽车运动",
+  "question": "汽车发动机的额定功率为 \\(60\\,\\mathrm{kW}\\)，汽车质量为 \\(5\\,\\mathrm t\\)。汽车在水平地面行驶时，阻力为车重的 \\(0.1\\) 倍，取 \\(g=10\\,\\mathrm{m/s^2}\\)。若汽车保持额定功率不变由静止启动，求：①汽车能达到的最大速度；②当汽车加速度为 \\(2\\,\\mathrm{m/s^2}\\) 时的速度；③当汽车速度为 \\(6\\,\\mathrm{m/s}\\) 时的加速度。",
+  "answer": "① \\(12\\,\\mathrm{m/s}\\)；② \\(4\\,\\mathrm{m/s}\\)；③ \\(1\\,\\mathrm{m/s^2}\\)",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_rated_power_car",
+    "playable": true,
+    "interactive": true,
+    "notes": "恒功率阶段牵引力随速度增大而减小；右图显示加速度 \\(a(v)\\) 逐渐趋近于零。",
+    "params": {
+      "power": { "label": "额定功率", "value": 60, "min": 30, "max": 120, "step": 5, "unit": "kW" },
+      "mass": { "label": "汽车质量", "value": 5000, "min": 2000, "max": 8000, "step": 500, "unit": "kg" },
+      "resistRatio": { "label": "阻力/车重", "value": 0.1, "min": 0.03, "max": 0.2, "step": 0.01, "unit": "" },
+      "g": { "label": "重力加速度", "value": 10, "min": 8, "max": 12, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 6, "loop": false }
+  },
+  "knowledge": ["机车启动", "恒功率", "瞬时功率"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "求恒定阻力",
+      "content": "\\(f=0.1mg=0.1\\times5000\\times10=5000\\,\\mathrm N\\)。恒功率阶段牵引力满足 \\(F=P/v\\)。",
+      "knowledge": ["恒功率牵引"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "求最大速度",
+      "content": "达到最大速度时 \\(a=0\\)，故 \\(F=f\\)。于是 \\(v_{\\max}=P/f=60000/5000=12\\,\\mathrm{m/s}\\)。",
+      "knowledge": ["终端速度"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求指定加速度对应速度",
+      "content": "当 \\(a=2\\,\\mathrm{m/s^2}\\) 时，\\(F=f+ma=15000\\,\\mathrm N\\)，所以 \\(v=P/F=4\\,\\mathrm{m/s}\\)。",
+      "knowledge": ["牛顿第二定律"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "求指定速度对应加速度",
+      "content": "当 \\(v=6\\,\\mathrm{m/s}\\) 时，\\(F=P/v=10000\\,\\mathrm N\\)，故 \\(a=(F-f)/m=1\\,\\mathrm{m/s^2}\\)。",
+      "knowledge": ["恒功率加速度"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：恒功率列车",
+    "question": "质量 \\(m=4.0\\times10^4\\,\\mathrm{kg}\\) 的列车以恒定功率 \\(P=400\\,\\mathrm{kW}\\) 行驶，阻力恒为 \\(2.0\\times10^4\\,\\mathrm N\\)。求最大速度和速度为 \\(10\\,\\mathrm{m/s}\\) 时的加速度。",
+    "answer": "\\(v_{\\max}=P/f=20\\,\\mathrm{m/s}\\)。当 \\(v=10\\,\\mathrm{m/s}\\) 时 \\(F=P/v=4.0\\times10^4\\,\\mathrm N\\)，故 \\(a=(F-f)/m=0.5\\,\\mathrm{m/s^2}\\)。",
+    "thinking": "始终使用 \\(P=Fv\\) 把功率换成当前牵引力，再与阻力一起代入牛顿第二定律。"
+  }
+}

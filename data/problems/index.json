@@ -408,6 +408,90 @@
     {
       "id": "lesson9_hw_10_ellipse_energy",
       "file": "lesson9_hw_10_ellipse_energy.json"
+    },
+    {
+      "id": "lesson10_course_01_crane_work",
+      "file": "lesson10_course_01_crane_work.json"
+    },
+    {
+      "id": "lesson10_course_02_moving_wedge",
+      "file": "lesson10_course_02_moving_wedge.json"
+    },
+    {
+      "id": "lesson10_course_03_conveyor_work",
+      "file": "lesson10_course_03_conveyor_work.json"
+    },
+    {
+      "id": "lesson10_course_04_tangent_disk_work",
+      "file": "lesson10_course_04_tangent_disk_work.json"
+    },
+    {
+      "id": "lesson10_course_05_submerged_cube",
+      "file": "lesson10_course_05_submerged_cube.json"
+    },
+    {
+      "id": "lesson10_course_06_pulley_person_work",
+      "file": "lesson10_course_06_pulley_person_work.json"
+    },
+    {
+      "id": "lesson10_course_07_three_paths_friction",
+      "file": "lesson10_course_07_three_paths_friction.json"
+    },
+    {
+      "id": "lesson10_course_08_reverse_force_power",
+      "file": "lesson10_course_08_reverse_force_power.json"
+    },
+    {
+      "id": "lesson10_course_09_horizontal_pull_ball",
+      "file": "lesson10_course_09_horizontal_pull_ball.json"
+    },
+    {
+      "id": "lesson10_course_10_rated_power_car",
+      "file": "lesson10_course_10_rated_power_car.json"
+    },
+    {
+      "id": "lesson10_course_11_two_stage_car",
+      "file": "lesson10_course_11_two_stage_car.json"
+    },
+    {
+      "id": "lesson10_course_12_force_reciprocal",
+      "file": "lesson10_course_12_force_reciprocal.json"
+    },
+    {
+      "id": "lesson10_hw_01_tilting_truck",
+      "file": "lesson10_hw_01_tilting_truck.json"
+    },
+    {
+      "id": "lesson10_hw_02_vertical_slider",
+      "file": "lesson10_hw_02_vertical_slider.json"
+    },
+    {
+      "id": "lesson10_hw_03_walking_power",
+      "file": "lesson10_hw_03_walking_power.json"
+    },
+    {
+      "id": "lesson10_hw_04_ev_power_graph",
+      "file": "lesson10_hw_04_ev_power_graph.json"
+    },
+    {
+      "id": "lesson10_hw_05_accel_reciprocal",
+      "file": "lesson10_hw_05_accel_reciprocal.json"
+    },
+    {
+      "id": "lesson10_hw_06_elevator_work",
+      "file": "lesson10_hw_06_elevator_work.json"
+    },
+    {
+      "id": "lesson10_hw_07_car_inverse_force",
+      "file": "lesson10_hw_07_car_inverse_force.json"
+    },
+    {
+      "id": "lesson10_hw_08_sled_circle",
+      "file": "lesson10_hw_08_sled_circle.json"
+    },
+    {
+      "id": "lesson10_hw_09_gravity_power",
+      "file": "lesson10_hw_09_gravity_power.json"
     }
   ]
 }

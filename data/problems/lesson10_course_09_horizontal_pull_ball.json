@@ -1,0 +1,59 @@
+{
+  "id": "lesson10_course_09_horizontal_pull_ball",
+  "originalNumber": "课9",
+  "chapter": "功和功率",
+  "title": "例9：水平拉球的瞬时功率",
+  "question": "细线的一端固定于 \\(O\\) 点，另一端系一小球。在水平拉力作用下，小球以恒定速率在竖直平面内由 \\(A\\) 点运动到 \\(B\\) 点。在此过程中，拉力的瞬时功率变化情况是（  ）。",
+  "options": [
+    "A. 逐渐增大",
+    "B. 逐渐减小",
+    "C. 先增大，后减小",
+    "D. 先减小，后增大"
+  ],
+  "answer": "A",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_horizontal_pull_ball",
+    "playable": true,
+    "interactive": true,
+    "notes": "小球沿圆弧等速上升，水平拉力随角度增大；右图显示瞬时功率 \\(P=mgv\\sin\\theta\\)。",
+    "params": {
+      "mass": { "label": "小球质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
+      "speed": { "label": "恒定速率", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "m/s" },
+      "g": { "label": "重力加速度", "value": 10, "min": 8, "max": 12, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 6, "loop": false }
+  },
+  "knowledge": ["瞬时功率", "切向平衡", "圆周运动"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "沿切线方向列平衡",
+      "content": "设细线与竖直方向夹角为 \\(\\theta\\)。小球速率不变，切向加速度为零，因此 \\(F\\cos\\theta=mg\\sin\\theta\\)，即 \\(F=mg\\tan\\theta\\)。",
+      "knowledge": ["切向动力学"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "求水平速度分量",
+      "content": "小球速度沿圆周切线，其水平方向分量为 \\(v_x=v\\cos\\theta\\)。",
+      "knowledge": ["速度分解"],
+      "commonMistakes": ["把小球的全部速率直接代入 \\(P=Fv\\)"]
+    },
+    {
+      "stepId": 3,
+      "title": "判断功率变化",
+      "content": "水平拉力的功率 \\(P=Fv_x=mg\\tan\\theta\\cdot v\\cos\\theta=mgv\\sin\\theta\\)。从 \\(A\\) 到 \\(B\\) 时 \\(\\theta\\) 逐渐增大，故 \\(P\\) 逐渐增大。答案为 A。",
+      "knowledge": ["功率标量积"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：圆弧上等速提升",
+    "question": "质量 \\(m=0.5\\,\\mathrm{kg}\\) 的小球以 \\(v=3\\,\\mathrm{m/s}\\) 的恒定速率运动。当细线与竖直方向夹角为 \\(30^\\circ\\) 时，求水平拉力的瞬时功率。取 \\(g=10\\,\\mathrm{m/s^2}\\)。",
+    "answer": "\\(P=mgv\\sin30^\\circ=0.5\\times10\\times3\\times0.5=7.5\\,\\mathrm W\\)。",
+    "thinking": "利用等速条件消去水平拉力，直接使用 \\(P=mgv\\sin\\theta\\)。"
+  }
+}

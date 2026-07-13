@@ -1,0 +1,60 @@
+{
+  "id": "lesson10_course_02_moving_wedge",
+  "originalNumber": "课2",
+  "chapter": "功和功率",
+  "title": "例2：平移斜面上的摩擦力做功",
+  "question": "质量为 \\(m\\) 的物体静止在倾角为 \\(\\theta\\) 的斜面上，物体与斜面间的动摩擦因数为 \\(\\mu\\)，重力加速度为 \\(g\\)。现使斜面向右水平匀速移动一段距离 \\(L\\)，物体与斜面的相对位置不变。在此过程中摩擦力对物体所做的功为（  ）。",
+  "options": [
+    "A. \\(\\mu mgL\\cos^2\\theta\\)",
+    "B. \\(mgL\\cos^2\\theta\\)",
+    "C. \\(mgL\\sin\\theta\\cos\\theta\\)",
+    "D. \\(\\mu mgL\\sin\\theta\\cos\\theta\\)"
+  ],
+  "answer": "C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_moving_wedge",
+    "playable": true,
+    "interactive": true,
+    "notes": "斜面和物体保持相对静止并整体水平平移；右图显示摩擦力的功随水平位移变化。",
+    "params": {
+      "mass": { "label": "物体质量", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "kg" },
+      "angle": { "label": "斜面倾角", "value": 30, "min": 10, "max": 60, "step": 1, "unit": "deg" },
+      "distance": { "label": "水平位移", "value": 4, "min": 1, "max": 8, "step": 0.5, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 8, "max": 12, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["摩擦力做功", "静力平衡", "功的夹角"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "判断摩擦力大小",
+      "content": "物体相对斜面静止，沿斜面方向受力平衡，因此静摩擦力大小为 \\(f=mg\\sin\\theta\\)，方向沿斜面向上。",
+      "knowledge": ["静摩擦力"],
+      "commonMistakes": ["题目给出 \\(\\mu\\) 就机械地写成 \\(f=\\mu N\\)"]
+    },
+    {
+      "stepId": 2,
+      "title": "确定位移与夹角",
+      "content": "物体随斜面水平向右移动 \\(L\\)。摩擦力沿斜面向上，与水平位移的夹角为 \\(\\theta\\)。",
+      "knowledge": ["功的方向"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "计算摩擦力做功",
+      "content": "\\(W_f=fL\\cos\\theta=mgL\\sin\\theta\\cos\\theta\\)。答案为 C。",
+      "knowledge": ["恒力做功"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：水平移动斜面",
+    "question": "质量 \\(m=3\\,\\mathrm{kg}\\) 的物块相对倾角 \\(37^\\circ\\) 的斜面静止，斜面水平向右移动 \\(L=5\\,\\mathrm m\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)、\\(\\sin37^\\circ=0.6\\)、\\(\\cos37^\\circ=0.8\\)，求摩擦力对物块做的功。",
+    "answer": "\\(f=mg\\sin37^\\circ=18\\,\\mathrm N\\)，故 \\(W_f=fL\\cos37^\\circ=72\\,\\mathrm J\\)。",
+    "thinking": "相对静止时先由沿斜面平衡求静摩擦力，再用物块相对地面的水平位移计算功。"
+  }
+}

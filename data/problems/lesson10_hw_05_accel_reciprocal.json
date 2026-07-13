@@ -1,0 +1,60 @@
+{
+  "id": "lesson10_hw_05_accel_reciprocal",
+  "originalNumber": "单5",
+  "chapter": "功和功率",
+  "title": "课后单选第5题：加速度与速度倒数图像",
+  "question": "一辆汽车在平直公路上由静止开始启动，质量为 \\(2\\times10^3\\,\\mathrm{kg}\\)。汽车的加速度 \\(a\\) 与速度倒数 \\(1/v\\) 的关系如图：低速阶段 \\(a=3\\,\\mathrm{m/s^2}\\)，恒功率段直线经过 \\((1/v=1/15\\,\\mathrm{s/m},a=3\\,\\mathrm{m/s^2})\\) 并在 \\(1/v=1/60\\,\\mathrm{s/m}\\) 处与横轴相交。下列结论正确的是（  ）。",
+  "options": [
+    "A. 汽车匀加速运动的时间为 \\(3\\,\\mathrm s\\)",
+    "B. 发动机的额定功率为 \\(120\\,\\mathrm{kW}\\)",
+    "C. 汽车所受的阻力为 \\(4\\times10^3\\,\\mathrm N\\)",
+    "D. 汽车速度为 \\(10\\,\\mathrm{m/s}\\) 时，发动机功率为 \\(120\\,\\mathrm{kW}\\)"
+  ],
+  "answer": "B",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_accel_reciprocal",
+    "playable": true,
+    "interactive": true,
+    "notes": "低速段加速度恒定，高速段 \\(a=(P/m)(1/v)-f/m\\)；右图重现原题折线。",
+    "params": {
+      "power": { "label": "额定功率", "value": 120, "min": 60, "max": 200, "step": 5, "unit": "kW" },
+      "mass": { "label": "汽车质量", "value": 2000, "min": 1000, "max": 4000, "step": 250, "unit": "kg" },
+      "resistance": { "label": "恒定阻力", "value": 2000, "min": 1000, "max": 5000, "step": 250, "unit": "N" },
+      "maxForce": { "label": "最大牵引力", "value": 8000, "min": 5000, "max": 12000, "step": 500, "unit": "N" }
+    },
+    "timeline": { "duration": 8, "loop": false }
+  },
+  "knowledge": ["加速度图像", "恒功率", "机车启动"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "写出恒功率段关系",
+      "content": "恒功率阶段 \\(F=P/v\\)，由 \\(F-f=ma\\) 得 \\(a=\\frac Pm\\frac1v-\\frac fm\\)。因此 \\(a-1/v\\) 直线斜率为 \\(P/m\\)，纵轴截距为 \\(-f/m\\)。",
+      "knowledge": ["图像方程"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "由两点求功率",
+      "content": "图线斜率为 \\(\\frac{3-0}{1/15-1/60}=60\\,\\mathrm{m^2/s^3}\\)，故 \\(P=m\\times60=1.2\\times10^5\\,\\mathrm W=120\\,\\mathrm{kW}\\)。B 对。",
+      "knowledge": ["图像斜率"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "判断其余选项",
+      "content": "横轴交点对应最大速度 \\(60\\,\\mathrm{m/s}\\)，所以 \\(f=P/v_{\\max}=2000\\,\\mathrm N\\)，C 错。匀加速到 \\(15\\,\\mathrm{m/s}\\) 需 \\(t=15/3=5\\,\\mathrm s\\)，A 错。速度 \\(10\\,\\mathrm{m/s}\\) 仍处于恒牵引力阶段，功率 \\(P=Fv=(ma+f)v=8000\\times10=80\\,\\mathrm{kW}\\)，D 错。",
+      "knowledge": ["阶段判定"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：由直线斜率求额定功率",
+    "question": "质量 \\(m=1000\\,\\mathrm{kg}\\) 的汽车恒功率阶段满足：当 \\(1/v=0.10\\,\\mathrm{s/m}\\) 时 \\(a=4\\,\\mathrm{m/s^2}\\)，当 \\(1/v=0.02\\,\\mathrm{s/m}\\) 时 \\(a=0\\)。求额定功率和阻力。",
+    "answer": "斜率 \\(P/m=4/(0.10-0.02)=50\\)，故 \\(P=50\\,\\mathrm{kW}\\)。由 \\(a=0\\) 时 \\(v=50\\,\\mathrm{m/s}\\)，得 \\(f=P/v=1000\\,\\mathrm N\\)。",
+    "thinking": "先从 \\(a-1/v\\) 图线斜率得到 \\(P/m\\)，再用横轴交点对应的最大速度求阻力。"
+  }
+}

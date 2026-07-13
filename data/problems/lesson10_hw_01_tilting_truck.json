@@ -1,0 +1,59 @@
+{
+  "id": "lesson10_hw_01_tilting_truck",
+  "originalNumber": "单1",
+  "chapter": "功和功率",
+  "title": "课后单选第1题：自卸车厢对货物做功",
+  "question": "某自动卸货车始终静止在水平地面上，车厢在液压机作用下倾角 \\(\\theta\\) 逐渐增大。货物与车厢保持相对静止。下列关于车厢对货物的摩擦力和支持力做功情况，说法正确的是（  ）。",
+  "options": [
+    "A. 摩擦力和支持力都做正功",
+    "B. 摩擦力和支持力都不做功",
+    "C. 摩擦力做负功，支持力做正功",
+    "D. 摩擦力不做功，支持力做正功"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "work_power_model",
+    "variant": "lesson10_tilting_truck",
+    "playable": true,
+    "interactive": true,
+    "notes": "货物固定在绕铰点转动的车厢上；瞬时速度垂直车厢，因而摩擦力不做功。",
+    "params": {
+      "angle": { "label": "最大倾角", "value": 35, "min": 15, "max": 50, "step": 1, "unit": "deg" },
+      "mass": { "label": "货物质量", "value": 100, "min": 40, "max": 200, "step": 10, "unit": "kg" },
+      "arm": { "label": "距铰点距离", "value": 3, "min": 1.5, "max": 5, "step": 0.1, "unit": "m" }
+    },
+    "timeline": { "duration": 6, "loop": false }
+  },
+  "knowledge": ["功的方向", "刚体转动", "静摩擦力"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "判断货物瞬时速度",
+      "content": "货物相对车厢静止，因此随车厢绕后端铰点转动。货物的瞬时速度沿圆周切线，始终垂直于车厢。",
+      "knowledge": ["转动速度方向"],
+      "commonMistakes": ["只看货物最终升高，忽略各力与瞬时位移方向"]
+    },
+    {
+      "stepId": 2,
+      "title": "判断摩擦力做功",
+      "content": "静摩擦力沿车厢方向，而货物瞬时位移垂直车厢，所以 \\(P_f=\\vec f\\cdot\\vec v=0\\)，摩擦力全过程不做功。",
+      "knowledge": ["瞬时功率"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "判断支持力做功",
+      "content": "支持力垂直车厢，与货物向上的切向速度同向分量为正，因此支持力做正功。答案为 D。",
+      "knowledge": ["支持力做功"],
+      "commonMistakes": ["认为支持力在任何情况下都不做功"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：转动平台上的物块",
+    "question": "物块固定在可绕一端转动的长板上，长板由水平缓慢转到与水平成 \\(30^\\circ\\)。判断长板对物块的静摩擦力和支持力分别做何种功。",
+    "answer": "静摩擦力沿板而瞬时位移垂直板，故不做功；支持力垂直板并推动物块升高，故做正功。",
+    "thinking": "对转动物体要比较力与瞬时速度，不要只用始末位移方向。"
+  }
+}
