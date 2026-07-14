@@ -1,0 +1,60 @@
+{
+  "id": "lesson11_course_02_spring_incline",
+  "originalNumber": "课2",
+  "chapter": "动能定理",
+  "title": "例2：斜面上压缩弹簧",
+  "question": "如图所示，光滑斜面的顶端固定一弹簧。小球在斜面最低点 \\(A\\) 的速度为 \\(v\\)，向上运动并将弹簧压缩；到 \\(C\\) 点时弹簧最短，且 \\(C\\) 点距地面高度为 \\(h\\)。不计小球与弹簧碰撞过程中的能量损失，则弹簧从开始接触到被压缩至最短的过程中，弹簧对小球做的功为（  ）。",
+  "options": [
+    "A. \\(mgh-\\frac12mv^2\\)",
+    "B. \\(\\frac12mv^2-mgh\\)",
+    "C. \\(mgh+\\frac12mv^2\\)",
+    "D. \\(mgh\\)"
+  ],
+  "answer": "A",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "kinetic_energy_model",
+    "variant": "lesson11_spring_incline",
+    "playable": true,
+    "interactive": true,
+    "notes": "小球上斜面并压缩弹簧至瞬时静止；右图显示动能、重力势能和弹性势能的转化。",
+    "params": {
+      "mass": { "label": "小球质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
+      "speed": { "label": "A点速度", "value": 10, "min": 6, "max": 16, "step": 0.5, "unit": "m/s" },
+      "height": { "label": "C点高度", "value": 3, "min": 1, "max": 5, "step": 0.2, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["动能定理", "弹簧功", "机械能转化"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "确定初末动能",
+      "content": "在 \\(A\\) 点，小球动能为 \\(E_{kA}=\\frac12mv^2\\)。到 \\(C\\) 点弹簧最短，小球瞬时静止，故 \\(E_{kC}=0\\)。",
+      "knowledge": ["瞬时静止"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "写出各力做功",
+      "content": "斜面光滑，支持力不做功。小球上升 \\(h\\)，重力做功 \\(W_G=-mgh\\)。设弹簧对小球做功为 \\(W_s\\)。",
+      "knowledge": ["重力功"],
+      "commonMistakes": ["把重力功写成正值"]
+    },
+    {
+      "stepId": 3,
+      "title": "应用动能定理",
+      "content": "\\[\nW_s-mgh=0-\\frac12mv^2,\n\\]\n\n所以\n\n\\[\nW_s=mgh-\\frac12mv^2.\n\\]\n\n答案为 A。正常压缩过程中该值为负，表示弹簧阻碍小球运动。",
+      "knowledge": ["动能定理"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：竖直压缩弹簧",
+    "question": "质量为 \\(m\\) 的小球以速度 \\(v_0\\) 竖直向上运动，接触弹簧后继续上升 \\(h\\) 并瞬时静止。忽略空气阻力，求弹簧对小球做的功。",
+    "answer": "\\(W_s=mgh-\\frac12mv_0^2\\)。",
+    "thinking": "把接触弹簧到最大压缩作为全过程，重力和弹簧力共同改变小球动能。"
+  }
+}

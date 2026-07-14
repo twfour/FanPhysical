@@ -1,0 +1,55 @@
+{
+  "id": "lesson11_course_03_round_trip_incline",
+  "originalNumber": "课3",
+  "chapter": "动能定理",
+  "title": "例3：斜面与水平面的往返功",
+  "question": "质量为 \\(m\\) 的物体从斜面上的 \\(A\\) 处由静止滑下，经斜面底端进入水平面时速度大小不变，最后停在水平面上的 \\(B\\) 处。\\(A、B\\) 两点间的水平距离为 \\(s\\)，\\(A\\) 点高度为 \\(h\\)。物体与斜面及水平面间的动摩擦因数相同，斜面倾角为 \\(\\theta\\)。求动摩擦因数 \\(\\mu\\)；若要物体沿原路再回到 \\(A\\) 点，外力至少做多少功？",
+  "answer": "\\(\\mu=\\dfrac{h}{s}\\)，\\(W_{\\min}=2mgh\\)",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "kinetic_energy_model",
+    "variant": "lesson11_round_trip_incline",
+    "playable": true,
+    "interactive": true,
+    "notes": "物体先从 A 滑至 B，再沿原路返回；右图显示势能、耗散能与最小外力功。",
+    "params": {
+      "height": { "label": "A点高度", "value": 4, "min": 2, "max": 8, "step": 0.5, "unit": "m" },
+      "horizontal": { "label": "AB水平距离", "value": 10, "min": 7, "max": 18, "step": 0.5, "unit": "m" },
+      "angle": { "label": "斜面倾角", "value": 37, "min": 25, "max": 55, "step": 1, "unit": "°" },
+      "mass": { "label": "物体质量", "value": 2, "min": 0.5, "max": 5, "step": 0.5, "unit": "kg" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 8, "loop": false }
+  },
+  "knowledge": ["全过程动能定理", "摩擦功", "最小外力功"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "统一写出摩擦功",
+      "content": "斜面段长度为 \\(h/\\sin\\theta\\)，其水平投影为 \\(h\\cot\\theta\\)。斜面段摩擦功大小为 \\(\\mu mg\\cos\\theta\\cdot h/\\sin\\theta=\\mu mgh\\cot\\theta\\)。水平段长度为 \\(s-h\\cot\\theta\\)，摩擦功大小为 \\(\\mu mg(s-h\\cot\\theta)\\)。两段相加恰为 \\(\\mu mgs\\)。",
+      "knowledge": ["摩擦功"],
+      "commonMistakes": ["把题给的水平距离 \\(s\\) 误当作水平面段长度"]
+    },
+    {
+      "stepId": 2,
+      "title": "求动摩擦因数",
+      "content": "物体从 \\(A\\) 由静止出发，到 \\(B\\) 又静止。对全过程列动能定理：\n\n\\[\nmgh-\\mu mgs=0,\n\\]\n\n故 \\(\\mu=\\dfrac{h}{s}\\)。这里的 \\(s\\) 是原题给出的 \\(A、B\\) 两点间水平距离。",
+      "knowledge": ["全过程法"],
+      "commonMistakes": ["混淆 AB 水平距离与水平面段长度"]
+    },
+    {
+      "stepId": 3,
+      "title": "求返回 A 的最小外力功",
+      "content": "返回时物体的重力势能增加 \\(mgh\\)，沿原路克服摩擦还要消耗与去程相同的能量 \\(mgh\\)。若始末速度均为零，外力至少做功\n\n\\[\nW_{\\min}=mgh+mgh=2mgh.\n\\]",
+      "knowledge": ["功能关系"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：粗糙轨道原路返回",
+    "question": "质量为 \\(1\\,\\mathrm{kg}\\) 的物体从高 \\(3\\,\\mathrm m\\) 处由静止沿粗糙轨道滑下，恰好停在底端。取 \\(g=10\\,\\mathrm{m/s^2}\\)。若以最省功的方式沿原路把它缓慢送回起点，外力至少做多少功？",
+    "answer": "去程摩擦耗能为 \\(mgh=30\\,\\mathrm J\\)。回程既增加势能 \\(30\\,\\mathrm J\\)，又克服摩擦 \\(30\\,\\mathrm J\\)，故 \\(W_{\\min}=60\\,\\mathrm J\\)。",
+    "thinking": "先由去程“始末都静止”确定摩擦耗能，再把回程的势能增加和摩擦耗能相加。"
+  }
+}

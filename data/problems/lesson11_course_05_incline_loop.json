@@ -1,0 +1,54 @@
+{
+  "id": "lesson11_course_05_incline_loop",
+  "originalNumber": "课5",
+  "chapter": "动能定理",
+  "title": "例5：粗糙斜面与光滑半圆轨道",
+  "question": "倾角为 \\(37^\\circ\\) 的粗糙斜面 \\(AB\\) 与半径 \\(R=0.4\\,\\mathrm m\\) 的光滑半圆轨道 \\(BC\\) 在 \\(B\\) 点平滑相连，\\(BC\\) 为竖直直径，\\(A、C\\) 两点等高。质量 \\(m=1\\,\\mathrm{kg}\\) 的滑块从 \\(A\\) 点由静止下滑，恰能滑到与圆心 \\(O\\) 等高的 \\(D\\) 点。取 \\(g=10\\,\\mathrm{m/s^2}\\)。求：（1）滑块与斜面间的动摩擦因数；（2）要使滑块能到达 \\(C\\) 点，从 \\(A\\) 点下滑时初速度的最小值；（3）若滑块离开 \\(C\\) 点的速度为 \\(10\\,\\mathrm{m/s}\\)，求落到斜面前的飞行时间。",
+  "answer": "（1）\\(\\mu=\\frac38\\)；（2）\\(v_{0\\min}=2\\sqrt3\\,\\mathrm{m/s}\\)；（3）\\(t=0.10\\,\\mathrm s\\)",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "kinetic_energy_model",
+    "variant": "lesson11_incline_loop",
+    "playable": true,
+    "interactive": true,
+    "notes": "滑块沿斜面下滑、进入半圆轨道并从 C 点平抛；右图显示沿程动能与最低接触条件。",
+    "params": {
+      "radius": { "label": "圆轨道半径", "value": 0.4, "min": 0.25, "max": 0.8, "step": 0.05, "unit": "m" },
+      "angle": { "label": "斜面倾角", "value": 37, "min": 30, "max": 50, "step": 1, "unit": "°" },
+      "launchSpeed": { "label": "C点飞出速度", "value": 10, "min": 6, "max": 14, "step": 0.5, "unit": "m/s" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 6, "loop": false }
+  },
+  "knowledge": ["动能定理", "竖直圆周运动", "平抛与斜面"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "由 A 到 D 求摩擦因数",
+      "content": "\\(A\\) 点比 \\(D\\) 点高 \\(R\\)，且滑块在两点均静止。斜面长度 \\(AB=2R/\\sin37^\\circ\\)。由动能定理，\n\n\\[\nmgR-\\mu mg\\cos37^\\circ\\frac{2R}{\\sin37^\\circ}=0,\n\\]\n\n代入 \\(\\sin37^\\circ=0.6\\)、\\(\\cos37^\\circ=0.8\\)，得 \\(\\mu=3/8\\)。",
+      "knowledge": ["全过程动能定理"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "求到达 C 点的最小初速度",
+      "content": "滑块恰好不断开轨道到达最高点 \\(C\\) 时，满足 \\(v_C^2=gR\\)。从 \\(A\\) 到 \\(C\\) 高度不变，而斜面摩擦耗能由第（1）问知为 \\(mgR\\)，所以\n\n\\[\n\\frac12mv_0^2=mgR+\\frac12mgR.\n\\]\n\n因此 \\(v_{0\\min}=\\sqrt{3gR}=2\\sqrt3\\,\\mathrm{m/s}\\)。",
+      "knowledge": ["最高点临界条件"],
+      "commonMistakes": ["只令到达 C 点速度为零，忽略不脱轨条件"]
+    },
+    {
+      "stepId": 3,
+      "title": "求从 C 到斜面的时间",
+      "content": "以 \\(B\\) 为原点、水平向右为 \\(x\\) 正方向。小球从 \\(C\\) 向左平抛：\\(x=-10t\\)，\\(y=2R-\\frac12gt^2\\)。斜面方程为 \\(y=-x\\tan37^\\circ\\)。代入 \\(R=0.4\\,\\mathrm m\\) 得\n\n\\[\n0.8-5t^2=7.5t,\n\\]\n\n取正根 \\(t=0.10\\,\\mathrm s\\)。",
+      "knowledge": ["平抛轨迹"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：半圆轨道最高点临界速度",
+    "question": "质量为 \\(m\\) 的小球从与竖直光滑圆轨道最低点相连的斜面滑入轨道。圆轨道半径为 \\(R=0.9\\,\\mathrm m\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。若小球恰能不断轨到达最高点，求其在最低点的最小速度。",
+    "answer": "最高点 \\(v_C^2=gR\\)。由最低点到最高点机械能守恒，\\(\\frac12mv_B^2=2mgR+\\frac12mgR\\)，故 \\(v_{B\\min}=\\sqrt{5gR}=3\\sqrt5\\,\\mathrm{m/s}\\)。",
+    "thinking": "先在最高点列向心力临界条件，再用机械能守恒把最高点速度换算到最低点。"
+  }
+}

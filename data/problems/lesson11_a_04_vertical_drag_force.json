@@ -1,0 +1,59 @@
+{
+  "id": "lesson11_a_04_vertical_drag_force",
+  "originalNumber": "A4",
+  "chapter": "动能定理",
+  "title": "A组第4题：恒阻力作用下的竖直上抛",
+  "question": "（多选）从地面竖直向上抛出一物体。除重力外，物体还受到一个大小不变、方向始终与运动方向相反的外力。高度 \\(h\\le3\\,\\mathrm m\\) 时，动能—高度图像显示：上升线段由 \\((0,72\\,\\mathrm J)\\) 到 \\((3\\,\\mathrm m,36\\,\\mathrm J)\\)，下落线段由 \\((0,48\\,\\mathrm J)\\) 到 \\((3\\,\\mathrm m,24\\,\\mathrm J)\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)。下列说法正确的是（  ）。",
+  "options": [
+    "A. 物体质量为 \\(0.8\\,\\mathrm{kg}\\)",
+    "B. 物体质量为 \\(1\\,\\mathrm{kg}\\)",
+    "C. 抛出后物体上升的最大高度为 \\(6\\,\\mathrm m\\)",
+    "D. 除重力外的恒定外力大小为 \\(4\\,\\mathrm N\\)"
+  ],
+  "answer": "B、C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "kinetic_energy_model",
+    "variant": "lesson11_vertical_drag_force",
+    "playable": true,
+    "interactive": true,
+    "notes": "物体上升和下落时恒阻力方向反转；右图显示两条不同斜率的 E_k-h 直线。",
+    "params": {
+      "initialEnergy": { "label": "抛出动能", "value": 72, "min": 48, "max": 100, "step": 4, "unit": "J" },
+      "weight": { "label": "物体重力", "value": 10, "min": 8, "max": 16, "step": 1, "unit": "N" },
+      "resistance": { "label": "恒阻力", "value": 2, "min": 1, "max": 5, "step": 0.5, "unit": "N" }
+    },
+    "timeline": { "duration": 5, "loop": false }
+  },
+  "knowledge": ["动能—高度图像", "图像斜率", "变向阻力"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "读取上升线斜率",
+      "content": "上升时重力和恒阻力都向下，图线斜率\n\n\\[\nk_{\\mathrm{上}}=\\frac{36-72}{3}=-12\\,\\mathrm{J/m}=-(mg+F),\n\\]\n\n故 \\(mg+F=12\\,\\mathrm N\\)。",
+      "knowledge": ["斜率对应合力"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "读取下落线斜率",
+      "content": "下落时恒阻力向上。把动能仍写成高度 \\(h\\) 的函数，图线斜率为\n\n\\[\nk_{\\mathrm{下}}=\\frac{24-48}{3}=-8\\,\\mathrm{J/m}=-(mg-F).\n\\]\n\n联立得 \\(mg=10\\,\\mathrm N\\)、\\(F=2\\,\\mathrm N\\)，所以 \\(m=1\\,\\mathrm{kg}\\)。B 正确，A、D 错。",
+      "knowledge": ["方向判断"],
+      "commonMistakes": ["下落时仍把阻力与重力写成同向"]
+    },
+    {
+      "stepId": 3,
+      "title": "求最大高度",
+      "content": "上升线满足 \\(E_k=72-12h\\)。到最高点 \\(E_k=0\\)，所以\n\n\\[\nh_{\\max}=72/12=6\\,\\mathrm m.\n\\]\n\nC 正确，答案为 B、C。",
+      "knowledge": ["图像横截距"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：由双斜率求质量与阻力",
+    "question": "物体竖直上抛并受到恒定阻力。其上升、下落的 \\(E_k-h\\) 图线斜率分别为 \\(-15\\,\\mathrm{J/m}\\) 和 \\(-9\\,\\mathrm{J/m}\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求物体质量和阻力大小。",
+    "answer": "\\(mg+F=15\\)、\\(mg-F=9\\)。联立得 \\(mg=12\\,\\mathrm N\\)、\\(F=3\\,\\mathrm N\\)，故 \\(m=1.2\\,\\mathrm{kg}\\)。",
+    "thinking": "上升时两力同向，下落时两力反向；两条斜率分别给出合力的大小。"
+  }
+}

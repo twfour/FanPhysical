@@ -1,0 +1,62 @@
+{
+  "id": "lesson11_course_10_arc_projectile",
+  "originalNumber": "课10",
+  "chapter": "动能定理",
+  "title": "例10：圆弧—水平轨道—平抛最远",
+  "question": "半径为 \\(2\\,\\mathrm m\\) 的四分之一竖直圆弧轨道 \\(AB\\) 与长度可调的水平轨道 \\(BC\\) 在 \\(B\\) 点平滑连接。质量 \\(0.2\\,\\mathrm{kg}\\) 的小球从 \\(A\\) 点由静止释放，经过 \\(B\\) 点时传感器测得轨道所受压力为 \\(3.6\\,\\mathrm N\\)。小球在 \\(BC\\) 段所受阻力为重力的 \\(0.2\\) 倍，从 \\(C\\) 点水平飞出，落到比 \\(C\\) 低 \\(3.2\\,\\mathrm m\\) 的地面。取 \\(g=10\\,\\mathrm{m/s^2}\\)。求：（1）小球到 \\(B\\) 点的速度；（2）圆弧段摩擦力做的功；（3）使落点到 \\(B\\) 点的水平距离最大时，\\(BC\\) 的长度。",
+  "answer": "（1）\\(4\\,\\mathrm{m/s}\\)；（2）\\(-2.4\\,\\mathrm J\\)；（3）\\(3.36\\,\\mathrm m\\)",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "kinetic_energy_model",
+    "variant": "lesson11_arc_projectile",
+    "playable": true,
+    "interactive": true,
+    "notes": "小球从圆弧进入可调水平段后平抛；右图显示落点水平距离随 BC 长度变化并标记最优值。",
+    "params": {
+      "radius": { "label": "圆弧半径", "value": 2, "min": 1, "max": 3, "step": 0.1, "unit": "m" },
+      "mass": { "label": "小球质量", "value": 0.2, "min": 0.1, "max": 0.5, "step": 0.05, "unit": "kg" },
+      "pressure": { "label": "B点压力", "value": 3.6, "min": 2.5, "max": 5, "step": 0.1, "unit": "N" },
+      "dropHeight": { "label": "平抛高度", "value": 3.2, "min": 2, "max": 5, "step": 0.2, "unit": "m" },
+      "trackLength": { "label": "BC长度", "value": 3.36, "min": 0, "max": 3.9, "step": 0.05, "unit": "m" }
+    },
+    "timeline": { "duration": 7, "loop": false }
+  },
+  "knowledge": ["圆周运动", "动能定理", "函数最值"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "由 B 点压力求速度",
+      "content": "在圆弧最低点 \\(B\\)，轨道支持力满足\n\n\\[\nN-mg=m\\frac{v_B^2}{R}.\n\\]\n\n代入 \\(N=3.6\\,\\mathrm N\\)、\\(m=0.2\\,\\mathrm{kg}\\)、\\(R=2\\,\\mathrm m\\)，得 \\(v_B=4\\,\\mathrm{m/s}\\)。",
+      "knowledge": ["向心力"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "求圆弧段摩擦功",
+      "content": "从 \\(A\\) 到 \\(B\\) 下降高度为 \\(R=2\\,\\mathrm m\\)。由动能定理\n\n\\[\nmgR+W_f=\\frac12mv_B^2,\n\\]\n\n所以 \\(W_f=1.6-4=-2.4\\,\\mathrm J\\)。",
+      "knowledge": ["非保守力功"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "建立落点距离函数",
+      "content": "水平段阻力为 \\(0.2mg=0.4\\,\\mathrm N\\)。设 \\(BC=L\\)，则\n\n\\[\nv_C^2=v_B^2-\\frac{2fL}{m}=16-4L.\n\\]\n\n平抛时间 \\(t=\\sqrt{2h/g}=0.8\\,\\mathrm s\\)，所以落点到 \\(B\\) 的水平距离\n\n\\[\nX(L)=L+0.8\\sqrt{16-4L}.\n\\]",
+      "knowledge": ["功能关系", "平抛运动"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "求函数最大值",
+      "content": "令 \\(X'(L)=0\\)，得 \\(\\sqrt{16-4L}=1.6\\)，因此\n\n\\[\nL=\\frac{16-1.6^2}{4}=3.36\\,\\mathrm m.\n\\]\n\n这时小球仍以 \\(1.6\\,\\mathrm{m/s}\\) 从 \\(C\\) 点飞出。",
+      "knowledge": ["函数最值"],
+      "commonMistakes": ["认为水平轨道越长，落点一定越远"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：粗糙平台后的平抛最远",
+    "question": "小球以 \\(v_B=6\\,\\mathrm{m/s}\\) 进入长度为 \\(L\\) 的粗糙水平轨道，减速度恒为 \\(2\\,\\mathrm{m/s^2}\\)，离开后从高 \\(h=5\\,\\mathrm m\\) 处平抛。取 \\(g=10\\,\\mathrm{m/s^2}\\)。求使总水平距离最大的 \\(L\\)。",
+    "answer": "平抛时间 \\(t=1\\,\\mathrm s\\)，离轨速度 \\(v_C=\\sqrt{36-4L}\\)，总距离 \\(X=L+\\sqrt{36-4L}\\)。令 \\(X'=0\\)，得 \\(\\sqrt{36-4L}=2\\)，所以 \\(L=8\\,\\mathrm m\\)。",
+    "thinking": "轨道变长会增加平台位移，却会减小平抛速度；把两部分距离相加后求最大值。"
+  }
+}

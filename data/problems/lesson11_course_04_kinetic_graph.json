@@ -1,0 +1,59 @@
+{
+  "id": "lesson11_course_04_kinetic_graph",
+  "originalNumber": "课4",
+  "chapter": "动能定理",
+  "title": "例4：动能—位移图像",
+  "question": "（多选）质量 \\(m=2\\,\\mathrm{kg}\\) 的物体以 \\(100\\,\\mathrm J\\) 的初动能在粗糙程度相同的水平地面上滑行，其动能 \\(E_k\\) 随位移 \\(x\\) 的图像是一条由 \\((0,100\\,\\mathrm J)\\) 到 \\((10\\,\\mathrm m,0)\\) 的直线。下列判断正确的是（  ）。",
+  "options": [
+    "A. 物体运动的总位移大小为 \\(10\\,\\mathrm m\\)",
+    "B. 物体运动的加速度大小为 \\(10\\,\\mathrm{m/s^2}\\)",
+    "C. 物体运动的初速度大小为 \\(10\\,\\mathrm{m/s}\\)",
+    "D. 物体所受的摩擦力大小为 \\(10\\,\\mathrm N\\)"
+  ],
+  "answer": "A、C、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "kinetic_energy_model",
+    "variant": "lesson11_kinetic_graph",
+    "playable": true,
+    "interactive": true,
+    "notes": "物体在粗糙水平面上减速至停；右图重现原题的 E_k-x 直线并同步标点。",
+    "params": {
+      "mass": { "label": "物体质量", "value": 2, "min": 1, "max": 5, "step": 0.5, "unit": "kg" },
+      "initialEnergy": { "label": "初动能", "value": 100, "min": 40, "max": 200, "step": 10, "unit": "J" },
+      "stopDistance": { "label": "停止距离", "value": 10, "min": 5, "max": 20, "step": 1, "unit": "m" }
+    },
+    "timeline": { "duration": 2, "loop": false }
+  },
+  "knowledge": ["动能—位移图像", "图像斜率", "摩擦力"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "读出停止位置",
+      "content": "图线在 \\(x=10\\,\\mathrm m\\) 处与横轴相交，表示动能降为零，物体停止。因此总位移为 \\(10\\,\\mathrm m\\)，A 正确。",
+      "knowledge": ["图像截距"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "用斜率求摩擦力",
+      "content": "由动能定理 \\(\\Delta E_k=-fx\\)，图线斜率为\n\n\\[\n\\frac{\\Delta E_k}{\\Delta x}=\\frac{0-100}{10-0}=-10\\,\\mathrm{J/m}=-10\\,\\mathrm N.\n\\]\n\n故摩擦力大小 \\(f=10\\,\\mathrm N\\)，D 正确。",
+      "knowledge": ["图像斜率"],
+      "commonMistakes": ["把负斜率直接当成负的力的大小"]
+    },
+    {
+      "stepId": 3,
+      "title": "求加速度和初速度",
+      "content": "加速度大小 \\(a=f/m=5\\,\\mathrm{m/s^2}\\)，所以 B 错。由 \\(E_{k0}=\\frac12mv_0^2=100\\,\\mathrm J\\)，得 \\(v_0=10\\,\\mathrm{m/s}\\)，C 正确。答案为 A、C、D。",
+      "knowledge": ["动能公式", "牛顿第二定律"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：由图像求阻力",
+    "question": "质量为 \\(4\\,\\mathrm{kg}\\) 的物体在水平面上运动，其 \\(E_k-x\\) 图线从 \\((0,180\\,\\mathrm J)\\) 线性下降到 \\((15\\,\\mathrm m,0)\\)。求阻力大小、加速度大小和初速度。",
+    "answer": "\\(f=180/15=12\\,\\mathrm N\\)，\\(a=f/m=3\\,\\mathrm{m/s^2}\\)，\\(v_0=\\sqrt{2E_{k0}/m}=3\\sqrt{10}\\,\\mathrm{m/s}\\)。",
+    "thinking": "图线斜率等于合力沿位移方向的分量；纵截距给出初动能。"
+  }
+}

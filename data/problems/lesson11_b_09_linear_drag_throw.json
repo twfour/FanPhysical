@@ -1,0 +1,60 @@
+{
+  "id": "lesson11_b_09_linear_drag_throw",
+  "originalNumber": "B9",
+  "chapter": "动能定理",
+  "title": "B组第9题：线性空气阻力下的竖直上抛",
+  "question": "（多选）从地面以初速度 \\(v_0\\) 竖直向上抛出质量为 \\(m\\) 的小球。空气阻力大小与速率成正比，比例系数为 \\(k\\)。小球在 \\(t_1\\) 时刻到达最高点，再落回地面；落地前已达到向下的终端速率 \\(v_1\\)。取重力加速度为 \\(g\\)。下列说法正确的是（  ）。",
+  "options": [
+    "A. 小球上升时间大于下落时间",
+    "B. 上升过程中速率为 \\(\\frac12v_0\\) 时，加速度大小为 \\(g+\\frac{kv_0}{2m}\\)",
+    "C. 最大高度为 \\(H=\\frac{(v_0-gt_1)k}{m}\\)",
+    "D. 从抛出到落地，克服空气阻力做功为 \\(\\frac12mv_0^2-\\frac12mv_1^2\\)"
+  ],
+  "answer": "B、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "kinetic_energy_model",
+    "variant": "lesson11_linear_drag_throw",
+    "playable": true,
+    "interactive": true,
+    "notes": "小球上升时阻力向下、下降时阻力向上并逐渐趋近终端速度；右图按原题绘制速率—时间曲线。",
+    "params": {
+      "initialSpeed": { "label": "初速度", "value": 15, "min": 10, "max": 24, "step": 1, "unit": "m/s" },
+      "terminalSpeed": { "label": "终端速率", "value": 8, "min": 5, "max": 12, "step": 0.5, "unit": "m/s" },
+      "mass": { "label": "小球质量", "value": 1, "min": 0.5, "max": 2, "step": 0.1, "unit": "kg" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 3.5, "loop": false }
+  },
+  "knowledge": ["线性阻力", "冲量", "功能关系"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "判断加速度和运动时间",
+      "content": "上升时阻力与重力同向，加速度大小大于 \\(g\\)；下降时阻力向上，加速度从 \\(g\\) 逐渐减小到零，因此同一高度范围内下落更慢，上升时间不大于下落时间，A 错。上升速率为 \\(v_0/2\\) 时，\\(ma=mg+k(v_0/2)\\)，故 B 正确。",
+      "knowledge": ["受力方向"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "由冲量关系求最大高度公式",
+      "content": "上升全过程满足\n\n\\[\nm(0-v_0)=-mgt_1-k\\int_0^{t_1}v\\,\\mathrm dt=-mgt_1-kH.\n\\]\n\n所以\n\n\\[\nH=\\frac{m(v_0-gt_1)}{k},\n\\]\n\n原选项把 \\(m/k\\) 写成了 \\(k/m\\)，C 错。",
+      "knowledge": ["变力冲量"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求克服空气阻力的功",
+      "content": "小球初、末位置都在地面，重力势能变化为零。空气阻力对小球做功\n\n\\[\nW_f=\\frac12mv_1^2-\\frac12mv_0^2.\n\\]\n\n因此克服空气阻力做功为其相反数\n\n\\[\nW_{\\mathrm{克服}}=\\frac12mv_0^2-\\frac12mv_1^2,\n\\]\n\nD 正确。答案为 B、D。",
+      "knowledge": ["全过程动能定理"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：由终端速度求阻力系数",
+    "question": "质量 \\(m=0.5\\,\\mathrm{kg}\\) 的小球在空气中竖直下落，阻力满足 \\(f=kv\\)，终端速度为 \\(10\\,\\mathrm{m/s}\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)。求 \\(k\\)，并求小球向下速率为 \\(4\\,\\mathrm{m/s}\\) 时的加速度。",
+    "answer": "终端状态 \\(mg=kv_t\\)，故 \\(k=0.5\\,\\mathrm{N\\,s/m}\\)。速率为 \\(4\\,\\mathrm{m/s}\\) 时 \\(a=(mg-kv)/m=(5-2)/0.5=6\\,\\mathrm{m/s^2}\\)，方向向下。",
+    "thinking": "先利用终端速度时合力为零确定 \\(k\\)，再代回瞬时牛顿第二定律。"
+  }
+}

@@ -492,6 +492,86 @@
     {
       "id": "lesson10_hw_09_gravity_power",
       "file": "lesson10_hw_09_gravity_power.json"
+    },
+    {
+      "id": "lesson11_course_01_jet_takeoff",
+      "file": "lesson11_course_01_jet_takeoff.json"
+    },
+    {
+      "id": "lesson11_course_02_spring_incline",
+      "file": "lesson11_course_02_spring_incline.json"
+    },
+    {
+      "id": "lesson11_course_03_round_trip_incline",
+      "file": "lesson11_course_03_round_trip_incline.json"
+    },
+    {
+      "id": "lesson11_course_04_kinetic_graph",
+      "file": "lesson11_course_04_kinetic_graph.json"
+    },
+    {
+      "id": "lesson11_course_05_incline_loop",
+      "file": "lesson11_course_05_incline_loop.json"
+    },
+    {
+      "id": "lesson11_course_06_rough_semicircle",
+      "file": "lesson11_course_06_rough_semicircle.json"
+    },
+    {
+      "id": "lesson11_course_07_hydrogen_car",
+      "file": "lesson11_course_07_hydrogen_car.json"
+    },
+    {
+      "id": "lesson11_course_08_arc_plank",
+      "file": "lesson11_course_08_arc_plank.json"
+    },
+    {
+      "id": "lesson11_course_09_conveyor_return",
+      "file": "lesson11_course_09_conveyor_return.json"
+    },
+    {
+      "id": "lesson11_course_10_arc_projectile",
+      "file": "lesson11_course_10_arc_projectile.json"
+    },
+    {
+      "id": "lesson11_a_01_spring_compression",
+      "file": "lesson11_a_01_spring_compression.json"
+    },
+    {
+      "id": "lesson11_a_02_incline_conveyor",
+      "file": "lesson11_a_02_incline_conveyor.json"
+    },
+    {
+      "id": "lesson11_a_03_incline_round_trip",
+      "file": "lesson11_a_03_incline_round_trip.json"
+    },
+    {
+      "id": "lesson11_a_04_vertical_drag_force",
+      "file": "lesson11_a_04_vertical_drag_force.json"
+    },
+    {
+      "id": "lesson11_a_05_cross_conveyor",
+      "file": "lesson11_a_05_cross_conveyor.json"
+    },
+    {
+      "id": "lesson11_b_06_hoist_shortest_time",
+      "file": "lesson11_b_06_hoist_shortest_time.json"
+    },
+    {
+      "id": "lesson11_b_07_car_rope_spring",
+      "file": "lesson11_b_07_car_rope_spring.json"
+    },
+    {
+      "id": "lesson11_b_08_pendulum_tension",
+      "file": "lesson11_b_08_pendulum_tension.json"
+    },
+    {
+      "id": "lesson11_b_09_linear_drag_throw",
+      "file": "lesson11_b_09_linear_drag_throw.json"
+    },
+    {
+      "id": "lesson11_b_10_trebuchet",
+      "file": "lesson11_b_10_trebuchet.json"
     }
   ]
 }

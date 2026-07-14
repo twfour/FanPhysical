@@ -1,0 +1,62 @@
+{
+  "id": "lesson11_a_01_spring_compression",
+  "originalNumber": "A1",
+  "chapter": "动能定理",
+  "title": "A组第1题：粗糙水平面上的弹簧压缩",
+  "question": "质量为 \\(m\\) 的物体以初速度 \\(v_0\\) 沿水平面向左运动，起始点 \\(A\\) 与轻弹簧 \\(O\\) 端相距 \\(s\\)。物体与水平面间的动摩擦因数为 \\(\\mu\\)，与弹簧相碰后弹簧的最大压缩量为 \\(x\\)。从开始碰撞到弹簧被压缩至最短，物体克服弹簧弹力所做的功为（  ）。",
+  "options": [
+    "A. \\(\\frac12mv_0^2-\\mu mg(s+x)\\)",
+    "B. \\(\\frac12mv_0^2-\\mu mgx\\)",
+    "C. \\(\\mu mgs\\)",
+    "D. \\(\\mu mg(s+x)\\)"
+  ],
+  "answer": "A",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "kinetic_energy_model",
+    "variant": "lesson11_spring_compression",
+    "playable": true,
+    "interactive": true,
+    "notes": "物体先滑过距离 s，再压缩弹簧 x；右图分开显示摩擦耗能与弹簧储能。",
+    "params": {
+      "mass": { "label": "物体质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
+      "speed": { "label": "初速度", "value": 8, "min": 5, "max": 12, "step": 0.5, "unit": "m/s" },
+      "distance": { "label": "距弹簧距离", "value": 2, "min": 1, "max": 4, "step": 0.2, "unit": "m" },
+      "compression": { "label": "最大压缩量", "value": 0.8, "min": 0.3, "max": 1.5, "step": 0.1, "unit": "m" },
+      "mu": { "label": "动摩擦因数", "value": 0.2, "min": 0.05, "max": 0.4, "step": 0.05, "unit": "" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["弹簧功", "摩擦功", "全过程动能定理"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "选取完整过程",
+      "content": "从 \\(A\\) 点开始到弹簧压缩最短，物体的总路程为 \\(s+x\\)，初动能为 \\(\\frac12mv_0^2\\)，末动能为零。",
+      "knowledge": ["研究过程"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "列动能定理",
+      "content": "设弹簧对物体做功为 \\(W_s<0\\)，摩擦力做功为 \\(-\\mu mg(s+x)\\)。则\n\n\\[\nW_s-\\mu mg(s+x)=-\\frac12mv_0^2.\n\\]",
+      "knowledge": ["动能定理"],
+      "commonMistakes": ["只计算压缩阶段的摩擦功，漏掉前面的距离 \\(s\\)"]
+    },
+    {
+      "stepId": 3,
+      "title": "写出克服弹力所做的功",
+      "content": "物体克服弹簧弹力做的功等于 \\(-W_s\\)，所以\n\n\\[\nW_{\\mathrm{克服弹力}}=\\frac12mv_0^2-\\mu mg(s+x).\n\\]\n\n答案为 A。",
+      "knowledge": ["克服力做功"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：求弹簧最大储能",
+    "question": "质量 \\(1\\,\\mathrm{kg}\\) 的物块以 \\(6\\,\\mathrm{m/s}\\) 滑过 \\(1\\,\\mathrm m\\) 的粗糙水平面后压缩弹簧 \\(0.5\\,\\mathrm m\\) 并停下。动摩擦因数 \\(\\mu=0.2\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求弹簧最大弹性势能。",
+    "answer": "\\(E_p=\\frac12mv_0^2-\\mu mg(s+x)=18-2\\times1.5=15\\,\\mathrm J\\)。",
+    "thinking": "把弹簧储能视为物体克服弹力做的功，对从起点到最大压缩的全过程列能量账。"
+  }
+}

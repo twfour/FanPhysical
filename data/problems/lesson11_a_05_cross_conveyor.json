@@ -1,0 +1,60 @@
+{
+  "id": "lesson11_a_05_cross_conveyor",
+  "originalNumber": "A5",
+  "chapter": "动能定理",
+  "title": "A组第5题：垂直冲上传送带",
+  "question": "（多选）甲为水平平台，乙为与甲同高的水平传送带，传送带以速度 \\(v\\) 向上匀速运行。质量为 \\(m\\) 的货物从平台上以垂直于传送带运动方向的速度 \\(v\\) 冲上传送带。货物与传送带间的动摩擦因数为 \\(\\mu\\)，达到相对静止前未脱离传送带。取重力加速度为 \\(g\\)。下列说法正确的是（  ）。",
+  "options": [
+    "A. 货物相对地面做曲线运动",
+    "B. 货物在传送带上留下的划痕为曲线",
+    "C. 摩擦力对货物做功为 \\(mv^2\\)",
+    "D. 货物在传送带上留下的划痕长度为 \\(\\frac{v^2}{\\mu g}\\)"
+  ],
+  "answer": "A、B",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "kinetic_energy_model",
+    "variant": "lesson11_cross_conveyor",
+    "playable": true,
+    "interactive": true,
+    "notes": "同时绘制货物对地轨迹与相对传送带的划痕；右图显示两个速度分量和相对速度。",
+    "params": {
+      "speed": { "label": "共同速度量级", "value": 4, "min": 2, "max": 7, "step": 0.5, "unit": "m/s" },
+      "mu": { "label": "动摩擦因数", "value": 0.4, "min": 0.2, "max": 0.7, "step": 0.05, "unit": "" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" },
+      "mass": { "label": "货物质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" }
+    },
+    "timeline": { "duration": 1, "loop": false }
+  },
+  "knowledge": ["二维传送带", "相对运动", "摩擦力做功"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "建立地面参考系运动方程",
+      "content": "取货物初速度方向为 \\(x\\) 轴、传送带方向为 \\(y\\) 轴。滑动摩擦力沿 \\(+y\\) 方向，故\n\n\\[\nx=vt,\\qquad y=\\frac12\\mu gt^2.\n\\]\n\n消去 \\(t\\) 得 \\(y=\\dfrac{\\mu g}{2v^2}x^2\\)，货物对地轨迹是抛物线，A 正确。",
+      "knowledge": ["运动合成"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "写出相对传送带轨迹",
+      "content": "传送带上材料点满足 \\(y_{\\mathrm{带}}=vt\\)，所以货物相对传送带的坐标为\n\n\\[\nx'=vt,\\qquad y'=\\frac12\\mu gt^2-vt.\n\\]\n\n消去 \\(t\\) 后仍是二次曲线，因此划痕为曲线，B 正确。",
+      "knowledge": ["相对位移"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "判断摩擦功和划痕长度",
+      "content": "相对静止时速度由 \\((v,0)\\) 变为 \\((v,v)\\)，所以摩擦力对货物做功\n\n\\[\nW_f=\\Delta E_k=\\frac12m(2v^2)-\\frac12mv^2=\\frac12mv^2,\n\\]\n\nC 错。相对轨迹是曲线，其弧长也不等于 \\(v^2/(\\mu g)\\)，D 错。答案为 A、B。",
+      "knowledge": ["动能定理"],
+      "commonMistakes": ["把相对位移某个分量当成划痕长度"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：二维传送带上的轨迹方程",
+    "question": "传送带沿 \\(y\\) 轴正方向以 \\(3\\,\\mathrm{m/s}\\) 运动，物块以 \\(4\\,\\mathrm{m/s}\\) 沿 \\(x\\) 轴冲上带面。滑动摩擦产生的加速度为 \\(2\\,\\mathrm{m/s^2}\\)，求物块对地轨迹方程以及达到与带同速所需时间。",
+    "answer": "\\(x=4t\\)、\\(y=t^2\\)，故 \\(y=x^2/16\\)。当 \\(v_y=2t=3\\) 时相对静止，所以 \\(t=1.5\\,\\mathrm s\\)。",
+    "thinking": "把两个互相垂直的分运动分别写出，再消去时间；达到同速只需比较传送带方向的速度分量。"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "id": "lesson11_a_03_incline_round_trip",
+  "originalNumber": "A3",
+  "chapter": "动能定理",
+  "title": "A组第3题：粗糙斜面上滑再返回",
+  "question": "（多选）物体以速度 \\(v_0\\) 沿倾角为 \\(\\theta\\) 的粗糙斜面上滑，到最高点后再沿斜面下滑，回到出发点时速度为 \\(\\frac12v_0\\)。下列判断正确的是（  ）。",
+  "options": [
+    "A. 动摩擦因数 \\(\\mu=\\frac35\\tan\\theta\\)",
+    "B. 上滑时的加速度大小是下滑时的 \\(\\frac14\\)",
+    "C. 沿斜面上滑的最大距离为 \\(\\frac{5v_0^2}{16g\\sin\\theta}\\)",
+    "D. 往返过程中摩擦力做功为 \\(\\frac14mv_0^2\\)"
+  ],
+  "answer": "A、C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "kinetic_energy_model",
+    "variant": "lesson11_incline_round_trip",
+    "playable": true,
+    "interactive": true,
+    "notes": "物体沿同一斜面上滑至停再返回；右图对比上、下行的动能—位置关系。",
+    "params": {
+      "speed": { "label": "初速度", "value": 8, "min": 5, "max": 12, "step": 0.5, "unit": "m/s" },
+      "angle": { "label": "斜面倾角", "value": 37, "min": 25, "max": 50, "step": 1, "unit": "°" },
+      "mass": { "label": "物体质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 5, "loop": false }
+  },
+  "knowledge": ["斜面往返", "动能定理", "摩擦功"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "分别列上滑和下滑的动能定理",
+      "content": "设最大上滑距离为 \\(s\\)。上滑有\n\n\\[\n\\frac12mv_0^2=mg(\\sin\\theta+\\mu\\cos\\theta)s.\n\\]\n\n下滑回原点有\n\n\\[\n\\frac12m\\left(\\frac{v_0}{2}\\right)^2=mg(\\sin\\theta-\\mu\\cos\\theta)s.\n\\]",
+      "knowledge": ["分过程动能定理"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "求摩擦因数和加速度比",
+      "content": "两式相除得\n\n\\[\n\\frac{\\sin\\theta-\\mu\\cos\\theta}{\\sin\\theta+\\mu\\cos\\theta}=\\frac14,\n\\]\n\n解得 \\(\\mu=\\frac35\\tan\\theta\\)，A 正确。相应地 \\(a_{\\mathrm{上}}/a_{\\mathrm{下}}=4\\)，所以 B 的“\\(1/4\\)”错误。",
+      "knowledge": ["比值法"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求最大距离和摩擦功",
+      "content": "代回上滑方程：\n\n\\[\ns=\\frac{5v_0^2}{16g\\sin\\theta},\n\\]\n\nC 正确。往返摩擦功\n\n\\[\nW_f=-2\\mu mg\\cos\\theta\\,s=-\\frac38mv_0^2,\n\\]\n\n不是正的 \\(\\frac14mv_0^2\\)，D 错。答案为 A、C。",
+      "knowledge": ["摩擦功"],
+      "commonMistakes": ["忽略摩擦功为负"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：由返回速度反求摩擦",
+    "question": "物体以 \\(v_0\\) 沿粗糙斜面上滑，返回出发点时速度为 \\(\\frac13v_0\\)。斜面倾角为 \\(\\theta\\)，求动摩擦因数 \\(\\mu\\)。",
+    "answer": "由 \\(\\frac{\\sin\\theta-\\mu\\cos\\theta}{\\sin\\theta+\\mu\\cos\\theta}=\\frac19\\)，解得 \\(\\mu=\\frac45\\tan\\theta\\)。",
+    "thinking": "上、下行经过同一距离，分别列动能定理后相除，可以消去距离、质量和重力加速度。"
+  }
+}

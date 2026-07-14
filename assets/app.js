@@ -132,7 +132,8 @@ var promotedProblemChapterMap = {
   "圆周运动日常": true,
   "万有引力与宇宙航行": true,
   "行星运动与变轨等问题": true,
-  "功和功率": true
+  "功和功率": true,
+  "动能定理": true
 };
 var legacySceneMap = {
   spring: true,
@@ -1674,7 +1675,8 @@ function renderJsonAnimationControls(sceneName) {
 }
 
 function formatParamValue(value, unit) {
-  var fixed = Math.abs(value) >= 10 ? value.toFixed(0) : value.toFixed(1);
+  var absolute = Math.abs(value);
+  var fixed = absolute >= 10 ? value.toFixed(0) : (absolute > 0 && absolute < 0.1 ? value.toFixed(2) : value.toFixed(1));
   var cleanUnit = formatPhysicsUnit(unit);
   if (cleanUnit === "deg" || cleanUnit === "°") {
     return fixed + "°";
@@ -1806,6 +1808,9 @@ function drawJsonAnimationScene() {
   } else if (animation.type === "work_power_model") {
     drawAnimScene(drawWorkPowerModelScene);
     drawWorkPowerModelGraph();
+  } else if (animation.type === "kinetic_energy_model") {
+    drawAnimScene(drawKineticEnergyModelScene);
+    drawKineticEnergyModelGraph();
   } else {
     drawAnimScene(drawJsonPlaceholderScene);
     drawJsonPlaceholderGraph();

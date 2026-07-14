@@ -1,0 +1,60 @@
+{
+  "id": "lesson11_course_09_conveyor_return",
+  "originalNumber": "课9",
+  "chapter": "动能定理",
+  "title": "例9：水平传送带上的往返运动",
+  "question": "水平传送带 \\(AB\\) 以恒定速率 \\(v_1\\) 向右运动，右端与光滑平台等高。质量 \\(m=2\\,\\mathrm{kg}\\) 的滑块以速率 \\(v_2\\) 向左从 \\(A\\) 点滑上传送带。其动能随路程变化的 \\(E_k-x\\) 图像依次经过 \\((0,16\\,\\mathrm J)\\)、\\((4\\,\\mathrm m,0)\\)、\\((5\\,\\mathrm m,4\\,\\mathrm J)\\)，并从 \\(x=5\\,\\mathrm m\\) 到 \\(8\\,\\mathrm m\\) 保持 \\(4\\,\\mathrm J\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)。下列说法正确的是（  ）。",
+  "options": [
+    "A. 传送带运行速率为 \\(v_1=1\\,\\mathrm{m/s}\\)",
+    "B. 滑块在传送带上的运动时间为 \\(2.5\\,\\mathrm s\\)",
+    "C. 若传送带速率增大，滑块在传送带上的运动时间一定越来越小",
+    "D. 滑块从滑上传送带到再次滑回平台的过程中，因摩擦产生的热量为 \\(36\\,\\mathrm J\\)"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "kinetic_energy_model",
+    "variant": "lesson11_conveyor_return",
+    "playable": true,
+    "interactive": true,
+    "notes": "滑块先向左减速、反向向右加速，随后与传送带同速返回 A；右图重现原题 E_k-x 折线。",
+    "params": {
+      "mass": { "label": "滑块质量", "value": 2, "min": 1, "max": 4, "step": 0.5, "unit": "kg" },
+      "initialEnergy": { "label": "初动能", "value": 16, "min": 8, "max": 32, "step": 2, "unit": "J" },
+      "beltEnergy": { "label": "同速动能", "value": 4, "min": 2, "max": 12, "step": 1, "unit": "J" },
+      "friction": { "label": "滑动摩擦力", "value": 4, "min": 2, "max": 8, "step": 0.5, "unit": "N" }
+    },
+    "timeline": { "duration": 4.5, "loop": false }
+  },
+  "knowledge": ["传送带模型", "动能—路程图像", "摩擦生热"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "由图像读速度和摩擦力",
+      "content": "\\(E_{k0}=16\\,\\mathrm J\\)，故 \\(v_2=\\sqrt{2E_k/m}=4\\,\\mathrm{m/s}\\)。图线斜率大小为 \\(16/4=4\\,\\mathrm N\\)，即滑动摩擦力 \\(f=4\\,\\mathrm N\\)，加速度大小 \\(a=f/m=2\\,\\mathrm{m/s^2}\\)。",
+      "knowledge": ["图像斜率"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "确定传送带速度和运动时间",
+      "content": "折线进入水平段时滑块与传送带同速，\\(\\frac12mv_1^2=4\\,\\mathrm J\\)，得 \\(v_1=2\\,\\mathrm{m/s}\\)，A 错。滑块向左减速用时 \\(2\\,\\mathrm s\\)，再向右加速到 \\(2\\,\\mathrm{m/s}\\) 用时 \\(1\\,\\mathrm s\\)，之后还需向右匀速 \\(3\\,\\mathrm m\\)，用时 \\(1.5\\,\\mathrm s\\)。总时间 \\(4.5\\,\\mathrm s\\)，B 错。",
+      "knowledge": ["分段运动"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "判断速率变化与摩擦生热",
+      "content": "当传送带足够快时，滑块会在尚未追上传送带速度前回到平台，运动时间不再随带速增大而减小，故 C 错。前 \\(2\\,\\mathrm s\\) 相对路程为 \\(8\\,\\mathrm m\\)，随后加速阶段相对路程为 \\(1\\,\\mathrm m\\)，所以\n\n\\[\nQ=f\\Delta s_{\\mathrm{相}}=4\\times9=36\\,\\mathrm J.\n\\]\n\n答案为 D。",
+      "knowledge": ["摩擦生热"],
+      "commonMistakes": ["用滑块对地位移代替相对路程"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：传送带上先减速再反向",
+    "question": "质量为 \\(1\\,\\mathrm{kg}\\) 的滑块以 \\(3\\,\\mathrm{m/s}\\) 向左滑上向右以 \\(1\\,\\mathrm{m/s}\\) 运动的传送带，滑动摩擦力为 \\(2\\,\\mathrm N\\)。求滑块从上带到与传送带同速的时间和此过程产生的热量。",
+    "answer": "加速度大小 \\(2\\,\\mathrm{m/s^2}\\)，速度从 \\(-3\\) 变到 \\(+1\\)，故 \\(t=2\\,\\mathrm s\\)。相对初速度为 \\(-4\\,\\mathrm{m/s}\\)，末相对速度为零，相对路程 \\(4\\,\\mathrm m\\)，所以 \\(Q=2\\times4=8\\,\\mathrm J\\)。",
+    "thinking": "统一规定向右为正，先用速度变化求时间，再用相对运动求摩擦生热。"
+  }
+}

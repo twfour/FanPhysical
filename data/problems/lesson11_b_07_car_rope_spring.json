@@ -1,0 +1,66 @@
+{
+  "id": "lesson11_b_07_car_rope_spring",
+  "originalNumber": "B7",
+  "chapter": "动能定理",
+  "title": "B组第7题：小车—轻绳—弹簧联动",
+  "question": "固定光滑斜面倾角 \\(37^\\circ\\)，下端有挡板。质量均为 \\(m\\) 的物块 \\(A、B\\) 用沿斜面的轻弹簧连接，\\(A\\) 靠在挡板上。轻绳跨过定滑轮，左端连 \\(B\\)，右端连地面上的小车；初态右侧绳竖直、长度为 \\(L\\)，绳中无弹力。小车缓慢向右移动 \\(\\frac34L\\) 时，\\(A\\) 恰好不离开挡板。取 \\(\\sin37^\\circ=0.6\\)、\\(\\cos37^\\circ=0.8\\)。在小车从图示位置移动 \\(\\frac34L\\) 的过程中，下列说法正确的是（  ）。",
+  "options": [
+    "A. 弹簧劲度系数为 \\(\\frac{12mg}{5L}\\)",
+    "B. 缓慢移动时，绳的拉力对物块 \\(B\\) 做功为 \\(mgL\\)",
+    "C. 若小车以 \\(2\\sqrt{gL}\\) 匀速向右运动，末态物块 \\(B\\) 的速率为 \\(\\frac85\\sqrt{gL}\\)",
+    "D. 若小车以 \\(2\\sqrt{gL}\\) 匀速向右运动，绳的拉力对 \\(B\\) 做功为 \\(\\frac{87}{100}mgL\\)"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "kinetic_energy_model",
+    "variant": "lesson11_car_rope_spring",
+    "playable": true,
+    "interactive": true,
+    "notes": "小车横移改变右侧斜绳长度，驱动物块 B 上移并使弹簧由压缩转为伸长；右图显示几何约束与张力功。",
+    "params": {
+      "ropeLength": { "label": "初始竖绳长度", "value": 4, "min": 2, "max": 6, "step": 0.2, "unit": "m" },
+      "carSpeedFactor": { "label": "车速系数", "value": 2, "min": 1, "max": 3, "step": 0.1, "unit": "√gL" },
+      "angle": { "label": "斜面倾角", "value": 37, "min": 30, "max": 45, "step": 1, "unit": "°" }
+    },
+    "timeline": { "duration": 1.5, "loop": false }
+  },
+  "knowledge": ["绳长约束", "弹簧形变", "变力做功"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "由绳长约束求 B 的位移",
+      "content": "小车横移 \\(3L/4\\) 后，右侧绳段由 \\(L\\) 变为\n\n\\[\n\\sqrt{L^2+(3L/4)^2}=\\frac54L.\n\\]\n\n右段增长 \\(L/4\\)，故左段缩短 \\(L/4\\)，物块 \\(B\\) 沿斜面上移 \\(L/4\\)。",
+      "knowledge": ["几何约束"],
+      "commonMistakes": ["把小车水平位移直接当成 B 的位移"]
+    },
+    {
+      "stepId": 2,
+      "title": "判断弹簧劲度系数",
+      "content": "初态绳张力为零，弹簧受压并以 \\(mg\\sin37^\\circ=3mg/5\\) 支撑 \\(B\\)。末态 \\(A\\) 恰离开挡板，弹簧受拉且拉力也为 \\(3mg/5\\)。初、末形变量大小相等，总变化为 \\(L/4\\)，故每个形变量为 \\(L/8\\)：\n\n\\[\nk=\\frac{3mg/5}{L/8}=\\frac{24mg}{5L}.\n\\]\n\nA 错。",
+      "knowledge": ["平衡条件"],
+      "commonMistakes": ["忽略初态弹簧已经被压缩"]
+    },
+    {
+      "stepId": 3,
+      "title": "求末态速度",
+      "content": "设小车水平位移为 \\(x\\)，右绳长 \\(r=\\sqrt{L^2+x^2}\\)。绳长约束给出\n\n\\[\nv_B=\\frac{\\mathrm dr}{\\mathrm dt}=\\frac{x}{r}v_{\\mathrm车}.\n\\]\n\n末态 \\(x=3L/4\\)、\\(r=5L/4\\)，所以 \\(v_B=\\frac35\\cdot2\\sqrt{gL}=\\frac65\\sqrt{gL}\\)，C 错。",
+      "knowledge": ["关联速度"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "用动能定理求张力功",
+      "content": "物块 \\(B\\) 的末动能为 \\(\\frac12m(\\frac65\\sqrt{gL})^2=\\frac{18}{25}mgL\\)。弹簧由压缩 \\(L/8\\) 变为伸长 \\(L/8\\)，弹簧势能不变，故弹簧对 \\(B\\) 的总功为零；重力做功 \\(-mg\\sin37^\\circ\\cdot L/4=-\\frac3{20}mgL\\)。因此\n\n\\[\nW_T=\\Delta E_k-W_G-W_s=\\frac{18}{25}mgL+\\frac3{20}mgL=\\frac{87}{100}mgL.\n\\]\n\nD 正确。",
+      "knowledge": ["变力做功"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：直角绳段的关联速度",
+    "question": "一根轻绳跨过定滑轮，一端连沿斜面运动的物块，另一端连水平小车。滑轮到小车轨道的竖直距离为 \\(H\\)。当小车距滑轮正下方水平距离为 \\(x\\)、速度为 \\(v\\) 时，求物块沿绳方向的速度。",
+    "answer": "右侧绳长 \\(r=\\sqrt{H^2+x^2}\\)，故 \\(v_{\\mathrm物}}=\\dot r=\\dfrac{x}{\\sqrt{H^2+x^2}}v\\)。方向由绳总长不变确定。",
+    "thinking": "先写可变绳段的几何长度，再对时间求导；关联速度不是简单相等。"
+  }
+}

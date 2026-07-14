@@ -1,0 +1,62 @@
+{
+  "id": "lesson11_b_10_trebuchet",
+  "originalNumber": "B10",
+  "chapter": "动能定理",
+  "title": "B组第10题：可调抛石机",
+  "question": "抛石机长臂 \\(OA\\) 长 \\(L=4\\,\\mathrm m\\)，\\(B\\) 为 \\(OA\\) 中点，石块可装在长臂的 \\(AB\\) 区域。初态长臂与水平面的夹角 \\(\\alpha=30^\\circ\\)，\\(A\\) 点位于地面；当长臂转到竖直位置时立即停止，石块被水平抛出。某次将质量 \\(m=10\\,\\mathrm{kg}\\) 的石块装在 \\(A\\) 点，恰击中地面上距 \\(O\\) 点水平距离 \\(x=12\\,\\mathrm m\\) 的目标。不计空气阻力和抛石机臂的质量，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求：（1）抛出瞬间石块所需向心力；（2）全过程抛石机对石块做的功；（3）若抛石机对石块做功恒定，应把石块装在距 \\(O\\) 点多远处，才能使落点水平距离最大？",
+  "answer": "（1）\\(300\\,\\mathrm N\\)；（2）\\(1200\\,\\mathrm J\\)；（3）\\(3\\,\\mathrm m\\)",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "kinetic_energy_model",
+    "variant": "lesson11_trebuchet",
+    "playable": true,
+    "interactive": true,
+    "notes": "长臂从 30° 位置转到竖直后水平抛出石块；右图显示落点距离随安装半径变化并标出 r=3m 的最优点。",
+    "params": {
+      "armLength": { "label": "长臂OA", "value": 4, "min": 3, "max": 6, "step": 0.2, "unit": "m" },
+      "angle": { "label": "初始夹角", "value": 30, "min": 20, "max": 45, "step": 1, "unit": "°" },
+      "mass": { "label": "石块质量", "value": 10, "min": 5, "max": 20, "step": 1, "unit": "kg" },
+      "target": { "label": "原目标距离", "value": 12, "min": 8, "max": 18, "step": 0.5, "unit": "m" },
+      "mountRadius": { "label": "安装半径", "value": 3, "min": 2, "max": 4, "step": 0.1, "unit": "m" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["圆周运动", "平抛运动", "动能定理", "二次函数最值"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "确定支点和释放点高度",
+      "content": "初态 \\(A\\) 点在地面，故支点 \\(O\\) 高度为\n\n\\[\nh_O=L\\sin30^\\circ=2\\,\\mathrm m.\n\\]\n\n长臂竖直且石块在 \\(A\\) 点释放时，石块离地高度 \\(H=h_O+L=6\\,\\mathrm m\\)。",
+      "knowledge": ["几何高度"],
+      "commonMistakes": ["把支点 O 误当成在地面上，漏掉其初态高度"]
+    },
+    {
+      "stepId": 2,
+      "title": "由平抛射程求释放速度和向心力",
+      "content": "平抛时间\n\n\\[\nt=\\sqrt{\\frac{2H}{g}}=\\sqrt{1.2}\\,\\mathrm s.\n\\]\n\n由 \\(x=vt=12\\,\\mathrm m\\) 得 \\(v^2=120\\,\\mathrm{m^2/s^2}\\)。因此抛出瞬间所需向心力\n\n\\[\nF_c=m\\frac{v^2}{L}=10\\times\\frac{120}{4}=300\\,\\mathrm N.\n\\]",
+      "knowledge": ["平抛运动", "向心力"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求抛石机做功",
+      "content": "石块从地面由静止开始，到释放时动能为 \\(\\frac12mv^2=600\\,\\mathrm J\\)，重力势能增加 \\(mgH=600\\,\\mathrm J\\)。故\n\n\\[\nW_{\\mathrm{机}}=\\Delta E_k+\\Delta E_p=1200\\,\\mathrm J.\n\\]",
+      "knowledge": ["功能关系"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "求最佳安装位置",
+      "content": "设安装半径为 \\(r\\in[2,4]\\)。初态石块高度为 \\(2-r\\sin30^\\circ\\)，释放高度为 \\(2+r\\)，故上升高度为 \\(\\frac32r\\)。抛石机做功保持 \\(1200\\,\\mathrm J\\)，有\n\n\\[\nv^2=\\frac{2W}{m}-3gr=240-30r.\n\\]\n\n射程平方\n\n\\[\nX^2=v^2\\frac{2(2+r)}{g}=96+36r-6r^2.\n\\]\n\n该二次函数在 \\(r=3\\,\\mathrm m\\) 处取最大值，因此应装在距 \\(O\\) 点 \\(3\\,\\mathrm m\\) 处。",
+      "knowledge": ["二次函数最值"],
+      "commonMistakes": ["只认为半径越大线速度越大，忽略提升石块消耗的功"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：固定做功下的最佳抛射半径",
+    "question": "某装置对质量 \\(m\\) 的小球做固定功 \\(W\\)。小球安装在转臂上距支点 \\(r\\) 处，转到竖直位置后水平抛出；支点离地高度为 \\(h_0\\)，小球从初态到释放上升 \\(ar\\)。写出射程平方 \\(X^2(r)\\) 的表达式。",
+    "answer": "由 \\(W=\\frac12mv^2+mgar\\)，得 \\(v^2=\\frac{2W}{m}-2gar\\)。释放高度为 \\(h_0+r\\)，所以 \\(X^2=v^2\\frac{2(h_0+r)}{g}=\\left(\\frac{2W}{m}-2gar\\right)\\frac{2(h_0+r)}{g}\\)。",
+    "thinking": "先用固定做功约束求速度随安装半径的变化，再与平抛时间共同组成射程函数。"
+  }
+}

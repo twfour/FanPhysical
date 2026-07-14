@@ -1,0 +1,55 @@
+{
+  "id": "lesson11_course_01_jet_takeoff",
+  "originalNumber": "课1",
+  "chapter": "动能定理",
+  "title": "例1：喷气式飞机起飞牵引力",
+  "question": "一架喷气式飞机的质量 \\(m=5\\times10^3\\,\\mathrm{kg}\\)。起飞过程中，飞机从静止开始滑跑 \\(s=5.3\\times10^2\\,\\mathrm m\\) 后达到起飞速度 \\(v=60\\,\\mathrm{m/s}\\)。飞机受到的平均阻力为其重力的 \\(0.02\\) 倍，求飞机受到的牵引力。取 \\(g=10\\,\\mathrm{m/s^2}\\)。",
+  "answer": "\\(F\\approx1.8\\times10^4\\,\\mathrm N\\)",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "kinetic_energy_model",
+    "variant": "lesson11_jet_takeoff",
+    "playable": true,
+    "interactive": true,
+    "notes": "飞机沿跑道加速；右图比较牵引力做功、阻力做功和动能增量。",
+    "params": {
+      "mass": { "label": "飞机质量", "value": 5000, "min": 3000, "max": 8000, "step": 100, "unit": "kg" },
+      "distance": { "label": "滑跑距离", "value": 530, "min": 300, "max": 800, "step": 10, "unit": "m" },
+      "speed": { "label": "起飞速度", "value": 60, "min": 40, "max": 90, "step": 1, "unit": "m/s" },
+      "resistanceRatio": { "label": "阻力重力比", "value": 0.02, "min": 0.005, "max": 0.05, "step": 0.005, "unit": "" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 12, "loop": false }
+  },
+  "knowledge": ["动能定理", "阻力做功", "平均牵引力"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "选取研究过程",
+      "content": "研究飞机从静止滑跑到达到 \\(60\\,\\mathrm{m/s}\\) 的全过程。牵引力做正功，平均阻力 \\(f=0.02mg\\) 做负功，重力和支持力不做功。",
+      "knowledge": ["功的正负"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "列动能定理",
+      "content": "由 \\(W_{\\mathrm{合}}=\\Delta E_k\\)，有\n\n\\[\n(F-f)s=\\frac12mv^2-0.\n\\]\n\n因此 \\(F=\\dfrac{mv^2}{2s}+0.02mg\\)。",
+      "knowledge": ["动能定理"],
+      "commonMistakes": ["漏掉平均阻力的负功"]
+    },
+    {
+      "stepId": 3,
+      "title": "代入原题数据",
+      "content": "\\[\nF=\\frac{5\\times10^3\\times60^2}{2\\times5.3\\times10^2}+0.02\\times5\\times10^3\\times10\n\\approx1.80\\times10^4\\,\\mathrm N.\n\\]\n\n所以飞机受到的平均牵引力约为 \\(1.8\\times10^4\\,\\mathrm N\\)。",
+      "knowledge": ["数值计算"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：汽车加速驶过测试道",
+    "question": "质量为 \\(1.5\\times10^3\\,\\mathrm{kg}\\) 的汽车由静止驶过 \\(200\\,\\mathrm m\\) 的测试道，末速度为 \\(20\\,\\mathrm{m/s}\\)，所受平均阻力为 \\(600\\,\\mathrm N\\)。求平均牵引力。",
+    "answer": "由 \\((F-f)s=\\frac12mv^2\\)，得 \\(F=\\frac{mv^2}{2s}+f=2.1\\times10^3\\,\\mathrm N\\)。",
+    "thinking": "先判断各力做功的正负，再把合功写成动能增量；不要把牵引力功直接等同于动能增量。"
+  }
+}
