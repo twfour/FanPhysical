@@ -299,7 +299,10 @@
         <details class="tree-node" open>
           <summary class="tree-subfolder">习题 8.3</summary>
           <div class="tree-children">
-            <a class="tree-item indent" href="./senior-math2-ch083-6-9.html">6-9 表面积体积</a>
+            <button class="tree-item indent" type="button" data-model-nav="ex83Chimney">6-烟筒贴砖</button>
+            <button class="tree-item indent" type="button" data-model-nav="ex83NutCount">7-六角螺母</button>
+            <button class="tree-item indent" type="button" data-model-nav="ex83RotationVolume">8-旋转体体积</button>
+            <button class="tree-item indent" type="button" data-model-nav="ex83Trophy">9-奖杯三视图</button>
           </div>
         </details>
         <details class="tree-node" open>
@@ -564,6 +567,58 @@
             <label>旋转角</label>
             <input id="rhombusAngle" type="range" min="0" max="120" step="1" value="120" />
             <span id="rhombusAngleVal" class="value">120°</span>
+          </div>
+        </div>
+
+        <div id="ex83ChimneyControls" class="controls math-controls" data-model="ex83Chimney">
+          <div class="control">
+            <label>棱柱高</label>
+            <input id="chimneyPrismH" type="range" min="40" max="120" step="1" value="80" />
+            <span id="chimneyPrismHVal" class="value">80 cm</span>
+          </div>
+          <div class="control">
+            <label>棱台高</label>
+            <input id="chimneyFrustumH" type="range" min="4" max="24" step="1" value="10" />
+            <span id="chimneyFrustumHVal" class="value">10 cm</span>
+          </div>
+        </div>
+
+        <div id="ex83NutCountControls" class="controls math-controls" data-model="ex83NutCount">
+          <div class="control">
+            <label>六边形边长</label>
+            <input id="nutSide" type="range" min="8" max="18" step="1" value="12" />
+            <span id="nutSideVal" class="value">12 mm</span>
+          </div>
+          <div class="control">
+            <label>内孔直径</label>
+            <input id="nutHole" type="range" min="4" max="16" step="1" value="10" />
+            <span id="nutHoleVal" class="value">10 mm</span>
+          </div>
+        </div>
+
+        <div id="ex83RotationVolumeControls" class="controls math-controls" data-model="ex83RotationVolume">
+          <div class="control">
+            <label>直角边 \(a\)</label>
+            <input id="rotateLegA" type="range" min="2" max="8" step="0.1" value="3" />
+            <span id="rotateLegAVal" class="value">3.0</span>
+          </div>
+          <div class="control">
+            <label>直角边 \(b\)</label>
+            <input id="rotateLegB" type="range" min="2" max="8" step="0.1" value="4" />
+            <span id="rotateLegBVal" class="value">4.0</span>
+          </div>
+        </div>
+
+        <div id="ex83TrophyControls" class="controls math-controls" data-model="ex83Trophy">
+          <div class="control">
+            <label>中柱高</label>
+            <input id="trophyPostH" type="range" min="12" max="30" step="1" value="20" />
+            <span id="trophyPostHVal" class="value">20 cm</span>
+          </div>
+          <div class="control">
+            <label>球半径</label>
+            <input id="trophyBallR" type="range" min="1.2" max="3.2" step="0.1" value="2" />
+            <span id="trophyBallRVal" class="value">2.0 cm</span>
           </div>
         </div>
 
@@ -1058,6 +1113,228 @@
                 \]</p>
               </div>
             </aside>
+          </div>
+        </section>
+
+        <section id="ex83ChimneyView" class="math-view" data-model="ex83Chimney">
+          <div class="math-stage">
+            <div id="chimneyBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>棱台斜高</span><strong id="chimneySlantMetric">11.18 cm</strong></div>
+                <div class="metric"><span>棱柱侧面积</span><strong id="chimneyPrismMetric">12800 cm²</strong></div>
+                <div class="metric"><span>棱台侧面积</span><strong id="chimneyFrustumMetric">2012 cm²</strong></div>
+                <div class="metric"><span>总面积</span><strong id="chimneyAreaMetric">14812 cm²</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>侧面积拆分</h3>
+                <p>\[
+                  S=4\cdot40h+\frac{4\cdot50+4\cdot40}{2}\,l
+                \]</p>
+                <p>\[
+                  l=\sqrt{h_0^2+\left(\frac{50-40}{2}\right)^2}
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="ex83NutCountView" class="math-view" data-model="ex83NutCount">
+          <div class="math-stage">
+            <div id="nutBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>净底面积</span><strong id="nutAreaMetric">295.62 mm²</strong></div>
+                <div class="metric"><span>单个体积</span><strong id="nutVolumeMetric">2956.2 mm³</strong></div>
+                <div class="metric"><span>单个质量</span><strong id="nutMassMetric">0.02335 kg</strong></div>
+                <div class="metric"><span>估算个数</span><strong id="nutCountMetric">248 个</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>挖孔模型</h3>
+                <p>\[
+                  A=\frac{3\sqrt3}{2}a^2-\pi\left(\frac d2\right)^2
+                \]</p>
+                <p>\[
+                  n\approx\frac{5.8}{7.9\times10^3\cdot A\cdot10\cdot10^{-9}}
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="ex83RotationVolumeView" class="math-view" data-model="ex83RotationVolume">
+          <div class="math-stage">
+            <div id="rotationVolumeBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>斜边 \(c\)</span><strong id="rotateCMetric">5.00</strong></div>
+                <div class="metric"><span>斜边轴体积 \(V_c\)</span><strong id="rotateVcMetric">10.05</strong></div>
+                <div class="metric"><span>直角边轴体积</span><strong id="rotateVaVbMetric">50.27 / 37.70</strong></div>
+                <div class="metric"><span>体积比</span><strong id="rotateRatioMetric">2.40 : 4.00 : 3.00</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>不变量</h3>
+                <p>\[
+                  V_a=\frac13\pi b^2a,\quad
+                  V_b=\frac13\pi a^2b
+                \]</p>
+                <p>\[
+                  V_c=\frac13\pi\left(\frac{ab}{c}\right)^2c
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="ex83TrophyView" class="math-view" data-model="ex83Trophy">
+          <div class="math-stage">
+            <div id="trophyBoard" class="math-board"></div>
+            <aside class="math-side">
+              <div class="math-card">
+                <h3>实时量</h3>
+                <div class="metric"><span>底座侧面积</span><strong id="trophyBaseSideMetric">263 cm²</strong></div>
+                <div class="metric"><span>中柱侧面积</span><strong id="trophyPostSideMetric">480 cm²</strong></div>
+                <div class="metric"><span>表面积</span><strong id="trophyAreaMetric">1194 cm²</strong></div>
+                <div class="metric"><span>体积</span><strong id="trophyVolumeMetric">1047 cm³</strong></div>
+              </div>
+              <div class="math-card">
+                <h3>三视图还原</h3>
+                <p>\[
+                  V=V_{\text{台}}+8\cdot4h+\frac43\pi r^3
+                \]</p>
+                <p>\[
+                  V_{\text{台}}=\frac23\left(320+\sqrt{320\cdot80}+80\right)
+                \]</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="ex83ChimneyNotes" class="problem-notes math-notes" data-model="ex83Chimney">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 8.3 第6题：烟筒外部贴瓷砖</h2>
+              <p>如图是一个烟筒的直观图，图中数据单位为厘米。它的下部是正四棱台，上部是正四棱柱，底面与四棱台上底面重合。已知四棱柱底面边长 \(40\)，高 \(80\)，四棱台下底边长 \(50\)，高 \(10\)。求烟筒外部需要多少平方厘米瓷砖，结果精确到 \(1\text{ cm}^2\)。</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>条件提取：</strong>贴瓷砖看外侧面，分成上部正四棱柱侧面积和下部正四棱台侧面积。</li>
+                <li><strong>棱柱：</strong>\(S_{\text{柱}}=4\cdot40\cdot80=12800\text{ cm}^2\)。</li>
+                <li><strong>棱台斜高：</strong>上下底边长差为 \(10\)，每侧缩进 \(5\)，所以 \(l=\sqrt{10^2+5^2}=5\sqrt5\)。</li>
+                <li><strong>棱台：</strong>\(S_{\text{台}}=\frac{4\cdot50+4\cdot40}{2}\cdot5\sqrt5=900\sqrt5\approx2012.46\text{ cm}^2\)。</li>
+                <li><strong>结论：</strong>\(S\approx12800+2012.46=14812.46\text{ cm}^2\)，精确到 \(1\text{ cm}^2\) 为 \(14812\text{ cm}^2\)。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>一个正四棱柱的底面边长为 \(30\text{ cm}\)、高为 \(60\text{ cm}\)，下面接一个正四棱台，棱台上底边长 \(30\text{ cm}\)，下底边长 \(42\text{ cm}\)，高 \(8\text{ cm}\)。求外侧面积。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{4\cdot30\cdot60+\frac{4\cdot42+4\cdot30}{2}\sqrt{8^2+6^2}=8640\text{ cm}^2}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>先算棱柱侧面积，再由上下底边长差的一半 \(6\) 和棱台高 \(8\) 求斜高 \(10\)，最后用正棱台侧面积公式相加。</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="ex83NutCountNotes" class="problem-notes math-notes" data-model="ex83NutCount">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 8.3 第7题：六角螺母数量估算</h2>
+              <p>一堆规格相同的铁制六角螺母共重 \(5.8\text{ kg}\)，铁的密度是 \(7.9\times10^3\text{ kg/m}^3\)。每个螺母的底面是正六边形，边长 \(12\text{ mm}\)，内孔直径 \(10\text{ mm}\)，高 \(10\text{ mm}\)。求这堆螺母大约有多少个，\(\pi\) 取 \(3.14\)。</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>底面积作差：</strong>正六边形面积 \(S_6=\frac{3\sqrt3}{2}\cdot12^2\)，内孔面积 \(S_0=3.14\cdot5^2\)。</li>
+                <li><strong>单个体积：</strong>\(V=(S_6-S_0)\cdot10\approx2956.2\text{ mm}^3=2.9562\times10^{-6}\text{ m}^3\)。</li>
+                <li><strong>单个质量：</strong>\(m=7.9\times10^3\cdot2.9562\times10^{-6}\approx0.02335\text{ kg}\)。</li>
+                <li><strong>数量估算：</strong>\(5.8\div0.02335\approx248.4\)，所以大约 \(248\) 个。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>若六角螺母底面正六边形边长 \(10\text{ mm}\)，内孔直径 \(8\text{ mm}\)，高 \(8\text{ mm}\)，总质量 \(3.2\text{ kg}\)，密度仍为 \(7.9\times10^3\text{ kg/m}^3\)，估算数量。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{\text{约 }290\text{ 个}}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>用 \(\frac{3\sqrt3}{2}a^2-\pi r^2\) 求净底面积，乘高后换成 \(\text{m}^3\)，再乘密度得到单个质量，最后用总质量除以单个质量。</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="ex83RotationVolumeNotes" class="problem-notes math-notes" data-model="ex83RotationVolume">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 8.3 第8题：直角三角形绕三边旋转</h2>
+              <p>分别以一个直角三角形的斜边、两条直角边所在直线为轴，其余各边旋转一周形成的曲面围成 \(3\) 个几何体。这 \(3\) 个几何体的体积之间有什么关系？</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>设量：</strong>设两条直角边为 \(a,b\)，斜边为 \(c=\sqrt{a^2+b^2}\)。</li>
+                <li><strong>直角边为轴：</strong>绕边 \(a\) 旋转得到圆锥 \(V_a=\frac13\pi b^2a\)；绕边 \(b\) 旋转得到圆锥 \(V_b=\frac13\pi a^2b\)。</li>
+                <li><strong>斜边为轴：</strong>直角顶点到斜边的高为 \(h=\frac{ab}{c}\)，形成两个同底圆锥，高之和为 \(c\)，所以 \(V_c=\frac13\pi h^2c=\frac{\pi a^2b^2}{3c}\)。</li>
+                <li><strong>关系：</strong>\(V_c:V_a:V_b=\frac{ab}{c}:b:a\)，等价于 \(V_c=\frac{a}{c}V_a=\frac{b}{c}V_b\)。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>直角三角形的两直角边为 \(5,12\)，分别绕三边所在直线旋转，求斜边为轴形成几何体的体积。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{V_c=\frac{\pi\cdot5^2\cdot12^2}{3\cdot13}=\frac{1200\pi}{13}}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>先由勾股定理得 \(c=13\)，再用直角顶点到斜边的高 \(h=\frac{5\cdot12}{13}\)。两个圆锥同底，高之和为 \(13\)。</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="ex83TrophyNotes" class="problem-notes math-notes" data-model="ex83Trophy">
+          <div class="problem-notes-grid">
+            <section class="problem-note-block has-favorite">
+              <p class="problem-note-kicker">题目 <button class="favorite-toggle" type="button" aria-label="收藏">♥</button></p>
+              <h2>习题 8.3 第9题：奖杯三视图求表面积和体积</h2>
+              <p>下页图是一个奖杯的三视图。由图可读出：底座为长方台，下底 \(20\times16\)，上底 \(10\times8\)，高 \(2\)；中柱为长方体 \(8\times4\times20\)；顶部为直径 \(4\) 的球。根据三视图计算奖杯的表面积和体积，单位为 cm，\(\pi\) 取 \(3.14\)，结果取整数。</p>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">解析</p>
+              <ul class="step-list">
+                <li><strong>体积：</strong>长方台体积 \(V_{\text{台}}=\frac23(320+\sqrt{320\cdot80}+80)=\frac{1120}{3}\)。中柱体积 \(8\cdot4\cdot20=640\)，球体积 \(\frac43\pi\cdot2^3\)。</li>
+                <li><strong>底座侧面积：</strong>\(2\cdot\frac{20+10}{2}\sqrt{2^2+4^2}+2\cdot\frac{16+8}{2}\sqrt{2^2+5^2}\approx263.4\)。</li>
+                <li><strong>表面积：</strong>加底面 \(20\cdot16\)、台顶露出 \(10\cdot8-8\cdot4\)、中柱侧面积 \(2(8+4)\cdot20\)、中柱顶面 \(8\cdot4\)、球面 \(4\pi\cdot2^2\)。</li>
+                <li><strong>结论：</strong>表面积约 \(1194\text{ cm}^2\)，体积约 \(1047\text{ cm}^3\)。</li>
+              </ul>
+            </section>
+            <section class="problem-note-block">
+              <p class="problem-note-kicker">近似题</p>
+              <p>一个奖杯由长方台底座、长方体中柱和球组成。底座下底 \(12\times10\)，上底 \(8\times6\)，高 \(2\)；中柱 \(6\times4\times12\)；球半径 \(2\)。求体积。</p>
+            </section>
+            <details class="problem-note-block">
+              <summary>近似题答案</summary>
+              <p>\(\boxed{V=\frac23(120+\sqrt{120\cdot48}+48)+6\cdot4\cdot12+\frac43\pi\cdot2^3}\)</p>
+            </details>
+            <details class="problem-note-block">
+              <summary>近似题解题思路</summary>
+              <p>先按长方台体积公式求底座，再加长方体和球体体积。三视图题的关键是把正视、侧视、俯视的长宽高对应到同一个立体。</p>
+            </details>
           </div>
         </section>
 
@@ -1773,7 +2050,15 @@
       halfLineReal: 2,
       concyclicStep: 3,
       lambdaTheta: 30,
-      rhombusAngle: 120
+      rhombusAngle: 120,
+      chimneyPrismH: 80,
+      chimneyFrustumH: 10,
+      nutSide: 12,
+      nutHole: 10,
+      rotateLegA: 3,
+      rotateLegB: 4,
+      trophyPostH: 20,
+      trophyBallR: 2
     };
 
     var linearityCases = [
@@ -1824,6 +2109,10 @@
       if (model === "ex71Concyclic") initEx71Concyclic();
       if (model === "review7Lambda") initReview7Lambda();
       if (model === "review7Rhombus") initReview7Rhombus();
+      if (model === "ex83Chimney") initEx83Chimney();
+      if (model === "ex83NutCount") initEx83NutCount();
+      if (model === "ex83RotationVolume") initEx83RotationVolume();
+      if (model === "ex83Trophy") initEx83Trophy();
     }
 
     function initProjection() {
@@ -2589,6 +2878,191 @@
       typesetMath();
     }
 
+    function initEx83Chimney() {
+      var board = JXG.JSXGraph.initBoard("chimneyBoard", boardOptions([-3.8, 5.9, 3.9, -1.8], false));
+      boards.ex83Chimney = { board: board };
+      var s = chimneyScale();
+      var topHalf = 1.25;
+      var bottomHalf = 1.56;
+      var dx = 0.55;
+      var dy = 0.42;
+      var F1 = board.create("point", [function() { return -bottomHalf; }, 0], pointStyle("", "#64748b"));
+      var F2 = board.create("point", [function() { return bottomHalf; }, 0], pointStyle("", "#64748b"));
+      var F3 = board.create("point", [function() { return topHalf; }, function() { return state.chimneyFrustumH * s; }], pointStyle("", "#64748b"));
+      var F4 = board.create("point", [function() { return -topHalf; }, function() { return state.chimneyFrustumH * s; }], pointStyle("", "#64748b"));
+      var P1 = board.create("point", [function() { return -topHalf; }, function() { return state.chimneyFrustumH * s; }], pointStyle("", "#64748b"));
+      var P2 = board.create("point", [function() { return topHalf; }, function() { return state.chimneyFrustumH * s; }], pointStyle("", "#64748b"));
+      var P3 = board.create("point", [function() { return topHalf; }, function() { return state.chimneyFrustumH * s + state.chimneyPrismH * s; }], pointStyle("", "#64748b"));
+      var P4 = board.create("point", [function() { return -topHalf; }, function() { return state.chimneyFrustumH * s + state.chimneyPrismH * s; }], pointStyle("", "#64748b"));
+      board.create("polygon", [F1, F2, F3, F4], solidPolygonStyle("#fbbf24"));
+      board.create("polygon", [P1, P2, P3, P4], solidPolygonStyle("#60a5fa"));
+      board.create("polygon", [
+        [function() { return -topHalf + dx; }, function() { return state.chimneyFrustumH * s + dy; }],
+        [function() { return topHalf + dx; }, function() { return state.chimneyFrustumH * s + dy; }],
+        [function() { return topHalf + dx; }, function() { return state.chimneyFrustumH * s + state.chimneyPrismH * s + dy; }],
+        [function() { return -topHalf + dx; }, function() { return state.chimneyFrustumH * s + state.chimneyPrismH * s + dy; }]
+      ], solidPolygonStyle("#93c5fd"));
+      board.create("segment", [F4, [function() { return -topHalf + dx; }, function() { return state.chimneyFrustumH * s + dy; }]], lineStyle("#111827", 2));
+      board.create("segment", [F3, [function() { return topHalf + dx; }, function() { return state.chimneyFrustumH * s + dy; }]], lineStyle("#111827", 2));
+      board.create("segment", [P4, [function() { return -topHalf + dx; }, function() { return state.chimneyFrustumH * s + state.chimneyPrismH * s + dy; }]], lineStyle("#111827", 2));
+      board.create("segment", [P3, [function() { return topHalf + dx; }, function() { return state.chimneyFrustumH * s + state.chimneyPrismH * s + dy; }]], lineStyle("#111827", 2));
+      board.create("text", [-2.95, 4.95, "\\(40\\)"], textStyle("#2563eb"));
+      board.create("text", [2.55, 3.0, "\\(80\\)"], textStyle("#2563eb"));
+      board.create("text", [-2.75, 0.35, "\\(10\\)"], textStyle("#f59e0b"));
+      board.create("text", [-0.25, -0.55, "\\(50\\)"], textStyle("#f59e0b"));
+      boards.ex83Chimney.objects = { points: [F1, F2, F3, F4, P1, P2, P3, P4] };
+      updateEx83Chimney();
+    }
+
+    function updateEx83Chimney() {
+      readRange("chimneyPrismH", null, 0);
+      readRange("chimneyFrustumH", null, 0);
+      document.getElementById("chimneyPrismHVal").textContent = state.chimneyPrismH.toFixed(0) + " cm";
+      document.getElementById("chimneyFrustumHVal").textContent = state.chimneyFrustumH.toFixed(0) + " cm";
+      var slant = Math.sqrt(state.chimneyFrustumH * state.chimneyFrustumH + 25);
+      var prismArea = 4 * 40 * state.chimneyPrismH;
+      var frustumArea = (4 * 50 + 4 * 40) / 2 * slant;
+      document.getElementById("chimneySlantMetric").textContent = slant.toFixed(2) + " cm";
+      document.getElementById("chimneyPrismMetric").textContent = Math.round(prismArea) + " cm²";
+      document.getElementById("chimneyFrustumMetric").textContent = Math.round(frustumArea) + " cm²";
+      document.getElementById("chimneyAreaMetric").textContent = Math.round(prismArea + frustumArea) + " cm²";
+      if (boards.ex83Chimney) boards.ex83Chimney.board.update();
+      typesetMath();
+    }
+
+    function initEx83NutCount() {
+      var board = JXG.JSXGraph.initBoard("nutBoard", boardOptions([-17, 15, 17, -10], true));
+      boards.ex83NutCount = { board: board };
+      var center = board.create("point", [0, 2], pointStyle("O", "#64748b"));
+      var vertices = [0, 1, 2, 3, 4, 5].map(function(i) {
+        return board.create("point", [
+          function() { return state.nutSide * Math.cos(Math.PI / 6 + i * Math.PI / 3); },
+          function() { return 2 + state.nutSide * Math.sin(Math.PI / 6 + i * Math.PI / 3); }
+        ], pointStyle("", "#2563eb"));
+      });
+      board.create("polygon", vertices, solidPolygonStyle("#94a3b8"));
+      board.create("circle", [center, function() { return state.nutHole / 2; }], {
+        strokeColor: "#dc2626",
+        strokeWidth: 3,
+        fillColor: "#ffffff",
+        fillOpacity: 0.85,
+        highlight: false
+      });
+      board.create("segment", [vertices[0], vertices[1]], lineStyle("#f59e0b", 4));
+      board.create("text", [8.5, 10.8, "\\(a=12\\text{ mm}\\)"], textStyle("#f59e0b"));
+      board.create("text", [-15.2, -7.5, "\\(A=A_{\\text{六边形}}-A_{\\text{圆孔}}\\)"], textStyle("#111827"));
+      board.create("text", [-3.6, 2.45, "\\(d\\)"], textStyle("#dc2626"));
+      boards.ex83NutCount.objects = { vertices: vertices, center: center };
+      updateEx83NutCount();
+    }
+
+    function updateEx83NutCount() {
+      readRange("nutSide", null, 0);
+      readRange("nutHole", null, 0);
+      document.getElementById("nutSideVal").textContent = state.nutSide.toFixed(0) + " mm";
+      document.getElementById("nutHoleVal").textContent = state.nutHole.toFixed(0) + " mm";
+      var area = 3 * Math.sqrt(3) / 2 * state.nutSide * state.nutSide - 3.14 * Math.pow(state.nutHole / 2, 2);
+      var volume = area * 10;
+      var mass = 7.9e3 * volume * 1e-9;
+      document.getElementById("nutAreaMetric").textContent = area.toFixed(2) + " mm²";
+      document.getElementById("nutVolumeMetric").textContent = volume.toFixed(1) + " mm³";
+      document.getElementById("nutMassMetric").textContent = mass.toFixed(5) + " kg";
+      document.getElementById("nutCountMetric").textContent = Math.round(5.8 / mass) + " 个";
+      if (boards.ex83NutCount) boards.ex83NutCount.board.update();
+      typesetMath();
+    }
+
+    function initEx83RotationVolume() {
+      var board = JXG.JSXGraph.initBoard("rotationVolumeBoard", boardOptions([-1.1, 8.5, 9.2, -1.3], true));
+      boards.ex83RotationVolume = { board: board };
+      var O = board.create("point", [0, 0], pointStyle("O", "#111827"));
+      var A = board.create("point", [function() { return state.rotateLegA; }, 0], pointStyle("A", "#2563eb"));
+      var B = board.create("point", [0, function() { return state.rotateLegB; }], pointStyle("B", "#dc2626"));
+      board.create("polygon", [O, A, B], {
+        borders: { strokeColor: "#111827", strokeWidth: 2, highlight: false },
+        fillColor: "#dbeafe",
+        fillOpacity: 0.22,
+        highlight: false
+      });
+      board.create("line", [O, A], { strokeColor: "#2563eb", strokeWidth: 2, dash: 2, highlight: false });
+      board.create("line", [O, B], { strokeColor: "#dc2626", strokeWidth: 2, dash: 2, highlight: false });
+      board.create("line", [A, B], { strokeColor: "#f59e0b", strokeWidth: 2, dash: 2, highlight: false });
+      board.create("segment", [[0.25, 0], [0.25, 0.25]], lineStyle("#111827", 2));
+      board.create("segment", [[0, 0.25], [0.25, 0.25]], lineStyle("#111827", 2));
+      board.create("text", [function() { return state.rotateLegA / 2 - 0.15; }, -0.58, "\\(a\\)"], textStyle("#2563eb"));
+      board.create("text", [-0.62, function() { return state.rotateLegB / 2; }, "\\(b\\)"], textStyle("#dc2626"));
+      board.create("text", [function() { return state.rotateLegA / 2 + 0.3; }, function() { return state.rotateLegB / 2 + 0.38; }, "\\(c\\)"], textStyle("#f59e0b"));
+      board.create("text", [5.2, 6.7, "\\(V_c:V_a:V_b=\\frac{ab}{c}:b:a\\)"], textStyle("#111827"));
+      updateEx83RotationVolume();
+    }
+
+    function updateEx83RotationVolume() {
+      readRange("rotateLegA", "rotateLegAVal", 1);
+      readRange("rotateLegB", "rotateLegBVal", 1);
+      var a = state.rotateLegA;
+      var b = state.rotateLegB;
+      var c = Math.sqrt(a * a + b * b);
+      var va = Math.PI * b * b * a / 3;
+      var vb = Math.PI * a * a * b / 3;
+      var vc = Math.PI * a * a * b * b / (3 * c);
+      document.getElementById("rotateCMetric").textContent = c.toFixed(2);
+      document.getElementById("rotateVcMetric").textContent = vc.toFixed(2);
+      document.getElementById("rotateVaVbMetric").textContent = va.toFixed(2) + " / " + vb.toFixed(2);
+      document.getElementById("rotateRatioMetric").textContent = (a * b / c).toFixed(2) + " : " + b.toFixed(2) + " : " + a.toFixed(2);
+      if (boards.ex83RotationVolume) boards.ex83RotationVolume.board.update();
+      typesetMath();
+    }
+
+    function initEx83Trophy() {
+      var board = JXG.JSXGraph.initBoard("trophyBoard", boardOptions([-12.5, 16.5, 12.8, -7.6], true));
+      boards.ex83Trophy = { board: board };
+      board.create("polygon", [[-4, -4], [4, -4], [5.6, -2], [-5.6, -2]], solidPolygonStyle("#fbbf24"));
+      board.create("polygon", [[-2, -2], [2, -2], [2, function() { return -2 + state.trophyPostH * 0.55; }], [-2, function() { return -2 + state.trophyPostH * 0.55; }]], solidPolygonStyle("#60a5fa"));
+      board.create("circle", [[0, function() { return -2 + state.trophyPostH * 0.55 + state.trophyBallR * 0.55; }], function() { return state.trophyBallR * 0.55; }], {
+        strokeColor: "#dc2626",
+        strokeWidth: 3,
+        fillColor: "#fecdd3",
+        fillOpacity: 0.45,
+        highlight: false
+      });
+      board.create("polygon", [[-11, -6.2], [-1, -6.2], [-3.5, -3.1], [-8.5, -3.1]], {
+        borders: { strokeColor: "#14b8a6", strokeWidth: 2, highlight: false },
+        fillColor: "none",
+        fillOpacity: 0,
+        highlight: false
+      });
+      board.create("polygon", [[-7, -5.1], [-5, -5.1], [-5, -4.1], [-7, -4.1]], {
+        borders: { strokeColor: "#2563eb", strokeWidth: 2, highlight: false },
+        fillColor: "none",
+        fillOpacity: 0,
+        highlight: false
+      });
+      board.create("circle", [[-6, -4.6], 0.55], lineStyle("#dc2626", 2));
+      board.create("text", [-9.8, -6.75, "\\(20\\times16\\)"], textStyle("#14b8a6"));
+      board.create("text", [-4.0, -4.0, "\\(8\\times4\\)"], textStyle("#2563eb"));
+      board.create("text", [3.1, 10.4, "\\(h=20\\)"], textStyle("#2563eb"));
+      board.create("text", [1.1, 13.0, "\\(d=4\\)"], textStyle("#dc2626"));
+      updateEx83Trophy();
+    }
+
+    function updateEx83Trophy() {
+      readRange("trophyPostH", null, 0);
+      readRange("trophyBallR", null, 1);
+      document.getElementById("trophyPostHVal").textContent = state.trophyPostH.toFixed(0) + " cm";
+      document.getElementById("trophyBallRVal").textContent = state.trophyBallR.toFixed(1) + " cm";
+      var baseSide = 2 * ((20 + 10) / 2) * Math.sqrt(2 * 2 + 4 * 4) + 2 * ((16 + 8) / 2) * Math.sqrt(2 * 2 + 5 * 5);
+      var exposedTop = 10 * 8 - 8 * 4;
+      var postSide = 2 * (8 + 4) * state.trophyPostH;
+      var area = baseSide + 20 * 16 + exposedTop + postSide + 8 * 4 + 4 * 3.14 * state.trophyBallR * state.trophyBallR;
+      var volume = 2 / 3 * (320 + Math.sqrt(320 * 80) + 80) + 8 * 4 * state.trophyPostH + 4 / 3 * 3.14 * Math.pow(state.trophyBallR, 3);
+      document.getElementById("trophyBaseSideMetric").textContent = Math.round(baseSide) + " cm²";
+      document.getElementById("trophyPostSideMetric").textContent = Math.round(postSide) + " cm²";
+      document.getElementById("trophyAreaMetric").textContent = Math.round(area) + " cm²";
+      document.getElementById("trophyVolumeMetric").textContent = Math.round(volume) + " cm³";
+      if (boards.ex83Trophy) boards.ex83Trophy.board.update();
+      typesetMath();
+    }
+
     function linearityPoint(index) {
       return linearityCases[state.linearityCase].points[index];
     }
@@ -2803,6 +3277,10 @@
       ];
     }
 
+    function chimneyScale() {
+      return 4.3 / 90;
+    }
+
     function boardOptions(box, axis) {
       return {
         boundingbox: box,
@@ -2833,6 +3311,15 @@
 
     function textStyle(color) {
       return { fixed: true, fontSize: 15, strokeColor: color, useMathJax: true, highlight: false };
+    }
+
+    function solidPolygonStyle(color) {
+      return {
+        borders: { strokeColor: "#111827", strokeWidth: 2, highlight: false },
+        fillColor: color,
+        fillOpacity: 0.35,
+        highlight: false
+      };
     }
 
     function readRange(id, valueId, digits) {
@@ -2940,6 +3427,14 @@
       document.getElementById("concyclicStep").addEventListener("input", updateEx71Concyclic);
       document.getElementById("lambdaTheta").addEventListener("input", updateReview7Lambda);
       document.getElementById("rhombusAngle").addEventListener("input", updateReview7Rhombus);
+      document.getElementById("chimneyPrismH").addEventListener("input", updateEx83Chimney);
+      document.getElementById("chimneyFrustumH").addEventListener("input", updateEx83Chimney);
+      document.getElementById("nutSide").addEventListener("input", updateEx83NutCount);
+      document.getElementById("nutHole").addEventListener("input", updateEx83NutCount);
+      document.getElementById("rotateLegA").addEventListener("input", updateEx83RotationVolume);
+      document.getElementById("rotateLegB").addEventListener("input", updateEx83RotationVolume);
+      document.getElementById("trophyPostH").addEventListener("input", updateEx83Trophy);
+      document.getElementById("trophyBallR").addEventListener("input", updateEx83Trophy);
     }
 
     window.addEventListener("load", function() {
