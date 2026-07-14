@@ -2011,6 +2011,11 @@
   <script>
     var activeModel = "projection";
     var boards = {};
+    var modelButtons = [];
+    var modelPanels = [];
+    var mathTypesetTimer = null;
+    var mathTypesetPromise = Promise.resolve();
+    var typesetReadyModels = {};
     var state = {
       projectionRadius: 3,
       projectionStep: 4,
@@ -2075,14 +2080,14 @@
 
     function switchModel(model) {
       activeModel = model;
-      document.querySelectorAll("[data-model-nav]").forEach(function(button) {
+      modelButtons.forEach(function(button) {
         button.classList.toggle("active", button.dataset.modelNav === model);
       });
-      document.querySelectorAll("[data-model]").forEach(function(section) {
+      modelPanels.forEach(function(section) {
         section.classList.toggle("active", section.dataset.model === model);
       });
       ensureBoard(model);
-      typesetMath();
+      typesetCurrentModelOnce();
     }
 
     function ensureBoard(model) {
@@ -3376,14 +3381,41 @@
       return value.toFixed(2) + "\\pi";
     }
 
-    function typesetMath() {
-      if (window.MathJax && window.MathJax.typesetPromise) {
-        window.MathJax.typesetPromise();
+    function activeMathRoots() {
+      return [
+        document.querySelector(".math-controls.active"),
+        document.querySelector(".math-view.active"),
+        document.querySelector(".math-notes.active")
+      ].filter(Boolean);
+    }
+
+    function typesetMath(roots, modelToMark) {
+      if (!window.MathJax || !window.MathJax.typesetPromise) {
+        return;
       }
+      var targets = roots || activeMathRoots();
+      clearTimeout(mathTypesetTimer);
+      mathTypesetTimer = setTimeout(function() {
+        mathTypesetPromise = mathTypesetPromise
+          .then(function() { return MathJax.typesetPromise(targets); })
+          .then(function() {
+            if (modelToMark) typesetReadyModels[modelToMark] = true;
+          })
+          .catch(function(error) { console.warn("MathJax typeset skipped", error); });
+      }, 16);
+    }
+
+    function typesetCurrentModelOnce() {
+      if (typesetReadyModels[activeModel]) {
+        return;
+      }
+      typesetMath(null, activeModel);
     }
 
     function bindControls() {
-      document.querySelectorAll("[data-model-nav]").forEach(function(button) {
+      modelButtons = Array.prototype.slice.call(document.querySelectorAll("[data-model-nav]"));
+      modelPanels = Array.prototype.slice.call(document.querySelectorAll("[data-model]"));
+      modelButtons.forEach(function(button) {
         button.addEventListener("click", function() {
           switchModel(button.dataset.modelNav);
         });
@@ -3440,7 +3472,7 @@
     window.addEventListener("load", function() {
       bindControls();
       ensureBoard("projection");
-      typesetMath();
+      typesetCurrentModelOnce();
     });
   </script>
 </body>
