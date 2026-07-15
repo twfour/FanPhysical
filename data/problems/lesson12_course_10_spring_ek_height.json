@@ -1,0 +1,61 @@
+{
+  "id": "lesson12_course_10_spring_ek_height",
+  "originalNumber": "课10",
+  "chapter": "机械能守恒定律",
+  "title": "例10：弹簧滑块动能—高度图",
+  "question": "（多选）竖直光滑杆固定，套在杆上的轻弹簧下端固定。将滑块向下压缩弹簧至离地高度 \\(h=0.1\\,\\mathrm m\\) 处，滑块与弹簧不拴接，由静止释放。传感器得到滑块的 \\(E_k-h\\) 图像：\\(0.2\\,\\mathrm m\\) 到 \\(0.35\\,\\mathrm m\\) 为从 \\(0.30\\,\\mathrm J\\) 线性降至零的直线，其余部分为曲线。以地面为零势能面，取 \\(g=10\\,\\mathrm{m/s^2}\\)。下列说法正确的是（  ）。",
+  "options": [
+    "A. 小滑块质量为 \\(0.2\\,\\mathrm{kg}\\)",
+    "B. 弹簧最大弹性势能为 \\(0.7\\,\\mathrm J\\)",
+    "C. 轻弹簧初始压缩量为 \\(0.25\\,\\mathrm m\\)",
+    "D. 滑块重力势能与弹簧弹性势能总和的最小值为 \\(0.38\\,\\mathrm J\\)"
+  ],
+  "answer": "A、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_spring_ek_height",
+    "playable": true,
+    "interactive": true,
+    "notes": "滑块先随弹簧上升，弹簧恢复原长后分离；右图重现原题 \\(E_k-h\\) 曲线。",
+    "params": {
+      "mass": { "label": "滑块质量", "value": 0.2, "min": 0.1, "max": 0.25, "step": 0.05, "unit": "kg" },
+      "k": { "label": "弹簧劲度", "value": 100, "min": 80, "max": 140, "step": 5, "unit": "N/m" },
+      "startHeight": { "label": "初始高度", "value": 0.1, "min": 0.08, "max": 0.12, "step": 0.01, "unit": "m" },
+      "naturalHeight": { "label": "弹簧原长高度", "value": 0.2, "min": 0.2, "max": 0.24, "step": 0.01, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["动能图像", "弹簧分离", "机械能守恒"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "用直线斜率求质量",
+      "content": "滑块在 \\(h=0.2\\sim0.35\\,\\mathrm m\\) 已与弹簧分离，只有重力做功，因此图线斜率为 \\(-mg\\)。由 \\(\\frac{0-0.30}{0.35-0.20}=-2\\,\\mathrm{N}\\)，得 \\(m=0.2\\,\\mathrm{kg}\\)，A 正确。",
+      "knowledge": ["图像斜率"],
+      "commonMistakes": ["把直线段仍当作受弹簧作用"]
+    },
+    {
+      "stepId": 2,
+      "title": "求系统总机械能与初始弹性势能",
+      "content": "最高点 \\(h=0.35\\,\\mathrm m\\) 时 \\(E_k=0\\)，总机械能 \\(E=mgh=0.7\\,\\mathrm J\\)。初态重力势能为 \\(0.2\\,\\mathrm J\\)，故最大弹性势能为 \\(0.7-0.2=0.5\\,\\mathrm J\\)，B 错。",
+      "knowledge": ["机械能守恒"],
+      "commonMistakes": ["把系统总机械能直接当作弹性势能"]
+    },
+    {
+      "stepId": 3,
+      "title": "读压缩量与势能和最小值",
+      "content": "曲线在 \\(h=0.2\\,\\mathrm m\\) 转为直线，说明弹簧原长对应 \\(0.2\\,\\mathrm m\\)，初始压缩量为 \\(0.1\\,\\mathrm m\\)，C 错。图像最大动能约为 \\(0.32\\,\\mathrm J\\)，故 \\(E_{pg}+E_{pe}\\) 的最小值为 \\(0.70-0.32=0.38\\,\\mathrm J\\)，D 正确。",
+      "knowledge": ["能量极值"],
+      "commonMistakes": ["把最高点高度与弹簧压缩量相减"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：由 \\(E_k-h\\) 直线求质量",
+    "question": "滑块脱离弹簧后，其 \\(E_k-h\\) 图线从 \\((0.30\\,\\mathrm m,0.40\\,\\mathrm J)\\) 直线降到 \\((0.50\\,\\mathrm m,0)\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求滑块质量。",
+    "answer": "斜率 \\(\\Delta E_k/\\Delta h=-0.40/0.20=-2\\,\\mathrm N=-mg\\)，故 \\(m=0.20\\,\\mathrm{kg}\\)。",
+    "thinking": "脱离弹簧后的直线段只受重力，\\(E_k=E-mgh\\)，图线斜率就是 \\(-mg\\)。"
+  }
+}

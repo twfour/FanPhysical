@@ -1,0 +1,61 @@
+{
+  "id": "lesson12_course_02_well_throw",
+  "originalNumber": "课2",
+  "chapter": "机械能守恒定律",
+  "title": "例2：深井等初动能上抛",
+  "question": "在深井底同一点，以相同的初动能将两个质量不同的物体竖直向上抛向井口。选取地面为零势能面，不计空气阻力。在它们各自达到最大高度时，下列说法正确的是（  ）。",
+  "options": [
+    "A. 质量大的物体势能一定大",
+    "B. 质量小的物体势能一定大",
+    "C. 两个物体的势能一定相等",
+    "D. 两个物体的势能可能相等"
+  ],
+  "answer": "B",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_well_throw",
+    "playable": true,
+    "interactive": true,
+    "notes": "两物体从同一井底以相同初动能上抛；右图给出最大高度处势能随质量的关系。",
+    "params": {
+      "lightMass": { "label": "较小质量", "value": 1, "min": 0.5, "max": 2, "step": 0.1, "unit": "kg" },
+      "heavyMass": { "label": "较大质量", "value": 2, "min": 1.2, "max": 4, "step": 0.1, "unit": "kg" },
+      "initialEnergy": { "label": "相同初动能", "value": 300, "min": 150, "max": 600, "step": 10, "unit": "J" },
+      "depth": { "label": "井深", "value": 10, "min": 5, "max": 20, "step": 1, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 3, "loop": false }
+  },
+  "knowledge": ["机械能守恒", "重力势能", "同初动能比较"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "写出井底势能",
+      "content": "设井深为 \\(H\\)，地面为零势能面，则质量为 \\(m\\) 的物体在井底有 \\(E_{p0}=-mgH\\)。两物体的初动能均为 \\(E_{k0}\\)。",
+      "knowledge": ["参考面"],
+      "commonMistakes": ["把井底势能写成正值"]
+    },
+    {
+      "stepId": 2,
+      "title": "用机械能守恒求最高点势能",
+      "content": "上抛过程只有重力做功。最高点速度为零，所以 \\(E_{p,\\max}=E_{k0}-mgH\\)。",
+      "knowledge": ["机械能守恒"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "比较不同质量",
+      "content": "初动能 \\(E_{k0}\\) 和井深 \\(H\\) 相同，质量越小，减去的 \\(mgH\\) 越小，因此最高点势能越大。两质量不同且 \\(H\\gt0\\)，势能不可能相等，故选 B。",
+      "knowledge": ["含参比较"],
+      "commonMistakes": ["只比较最高点高度，忽略势能还含质量因子"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：等动能上抛比较",
+    "question": "从距零势能面下方 \\(6\\,\\mathrm m\\) 的同一点，以相同初动能 \\(240\\,\\mathrm J\\) 竖直上抛质量分别为 \\(1\\,\\mathrm{kg}\\) 和 \\(3\\,\\mathrm{kg}\\) 的物体，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求各自最高点的重力势能。",
+    "answer": "\\(E_{p1}=240-1\\times10\\times6=180\\,\\mathrm J\\)，\\(E_{p2}=240-3\\times10\\times6=60\\,\\mathrm J\\)。",
+    "thinking": "把井底机械能直接搬到最高点：最高点动能为零，势能就是初始机械能。"
+  }
+}

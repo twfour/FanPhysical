@@ -1,0 +1,66 @@
+{
+  "id": "lesson12_b_09_rod_end_balls",
+  "originalNumber": "B9",
+  "chapter": "机械能守恒定律",
+  "title": "B组第9题：偏心轻杆双球",
+  "question": "（多选）轻杆长 \\(3L\\)，A、B 两端分别固定质量均为 \\(m\\) 的球。距 A 为 \\(L\\) 的 O 点装在光滑水平轴上，杆和球在竖直面内转动。若球 B 到最高点时对杆恰好无作用力，忽略空气阻力。下列说法正确的是（  ）。",
+  "options": [
+    "A. B 在最高点速度为 \\(\\sqrt{gL}\\)",
+    "B. B 在最高点时，杆对 A 的作用力为 \\(\\frac32mg\\)",
+    "C. B 在最低点速度为 \\(\\sqrt{5gL}\\)",
+    "D. 从最高点到最低点，杆对 B 做功为 \\(-\\frac{12}{5}mgL\\)"
+  ],
+  "answer": "B、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_rod_end_balls",
+    "playable": true,
+    "interactive": true,
+    "notes": "偏心轻杆带动 A、B 从 B 的最高点转到最低点；右图显示 B 的速度平方和杆功。",
+    "params": {
+      "mass": { "label": "每球质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
+      "length": { "label": "基准长度L", "value": 1, "min": 0.5, "max": 2, "step": 0.1, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["竖直圆周运动", "刚体机械能", "内力做功"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "用 B 最高点临界条件求角速度",
+      "content": "B 到 O 的距离为 \\(2L\\)。最高点杆对 B 无作用力，只有重力提供向心力：\\(mg=m v_B^2/(2L)\\)，所以 \\(v_B=\\sqrt{2gL}\\)，A 错。角速度满足 \\(\\omega^2=g/(2L)\\)。",
+      "knowledge": ["向心力"],
+      "commonMistakes": ["把 B 的转动半径误写成 \\(L\\)"]
+    },
+    {
+      "stepId": 2,
+      "title": "求杆对 A 的作用力",
+      "content": "最高点时 A 位于 O 下方，\\(v_A=\\omega L=\\sqrt{gL/2}\\)。向心方向向上，设杆对 A 向上作用力为 F，则 \\(F-mg=mv_A^2/L=mg/2\\)，故 \\(F=3mg/2\\)，B 正确。",
+      "knowledge": ["径向受力"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "由系统机械能求最低点速度",
+      "content": "从 B 最高点到最低点，系统重力势能减少 \\(2mgL\\)。总转动动能为 \\(\\frac12m\\omega^2(L^2+4L^2)\\)。计算得最低点 \\(v_B^2=\\frac{26}{5}gL\\)，并非 \\(5gL\\)，C 错。",
+      "knowledge": ["刚体机械能"],
+      "commonMistakes": ["只计算 B 的势能和动能"]
+    },
+    {
+      "stepId": 4,
+      "title": "单独研究 B 求杆功",
+      "content": "B 的动能增加 \\(\\Delta E_{kB}=\\frac12m(\\frac{26}{5}gL-2gL)=\\frac85mgL\\)，重力对 B 做功 \\(W_G=4mgL\\)。由动能定理 \\(W_{\\mathrm{杆}}=\\Delta E_{kB}-W_G=-\\frac{12}{5}mgL\\)，D 正确。",
+      "knowledge": ["内力做功"],
+      "commonMistakes": ["认为系统内力对每个物体都不做功"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：最高点无杆力",
+    "question": "小球固定在轻杆端点，距转轴半径为 \\(r\\)。球在竖直圆周最高点时杆对球作用力为零，求球速。",
+    "answer": "最高点只有重力提供向心力，\\(mg=mv^2/r\\)，故 \\(v=\\sqrt{gr}\\)。",
+    "thinking": "先确认实际转动半径，再在径向列牛顿第二定律；轻杆既能拉也能推，但题设此刻作用力为零。"
+  }
+}

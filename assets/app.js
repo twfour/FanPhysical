@@ -133,7 +133,8 @@ var promotedProblemChapterMap = {
   "万有引力与宇宙航行": true,
   "行星运动与变轨等问题": true,
   "功和功率": true,
-  "动能定理": true
+  "动能定理": true,
+  "机械能守恒定律": true
 };
 var legacySceneMap = {
   spring: true,
@@ -1811,6 +1812,9 @@ function drawJsonAnimationScene() {
   } else if (animation.type === "kinetic_energy_model") {
     drawAnimScene(drawKineticEnergyModelScene);
     drawKineticEnergyModelGraph();
+  } else if (animation.type === "mechanical_energy_model") {
+    drawAnimScene(drawMechanicalEnergyModelScene);
+    drawMechanicalEnergyModelGraph();
   } else {
     drawAnimScene(drawJsonPlaceholderScene);
     drawJsonPlaceholderGraph();

@@ -572,6 +572,90 @@
     {
       "id": "lesson11_b_10_trebuchet",
       "file": "lesson11_b_10_trebuchet.json"
+    },
+    {
+      "id": "lesson12_course_01_reference_plane",
+      "file": "lesson12_course_01_reference_plane.json"
+    },
+    {
+      "id": "lesson12_course_02_well_throw",
+      "file": "lesson12_course_02_well_throw.json"
+    },
+    {
+      "id": "lesson12_course_03_conservation_condition",
+      "file": "lesson12_course_03_conservation_condition.json"
+    },
+    {
+      "id": "lesson12_course_04_football_reference",
+      "file": "lesson12_course_04_football_reference.json"
+    },
+    {
+      "id": "lesson12_course_05_arc_max_height",
+      "file": "lesson12_course_05_arc_max_height.json"
+    },
+    {
+      "id": "lesson12_course_06_ball_spring_platform",
+      "file": "lesson12_course_06_ball_spring_platform.json"
+    },
+    {
+      "id": "lesson12_course_07_rod_two_balls",
+      "file": "lesson12_course_07_rod_two_balls.json"
+    },
+    {
+      "id": "lesson12_course_08_u_tube_water",
+      "file": "lesson12_course_08_u_tube_water.json"
+    },
+    {
+      "id": "lesson12_course_09_accelerated_descent",
+      "file": "lesson12_course_09_accelerated_descent.json"
+    },
+    {
+      "id": "lesson12_course_10_spring_ek_height",
+      "file": "lesson12_course_10_spring_ek_height.json"
+    },
+    {
+      "id": "lesson12_course_11_rope_spring_linkage",
+      "file": "lesson12_course_11_rope_spring_linkage.json"
+    },
+    {
+      "id": "lesson12_a_01_projectile_sea",
+      "file": "lesson12_a_01_projectile_sea.json"
+    },
+    {
+      "id": "lesson12_a_02_pirate_spring",
+      "file": "lesson12_a_02_pirate_spring.json"
+    },
+    {
+      "id": "lesson12_a_03_track_deformation",
+      "file": "lesson12_a_03_track_deformation.json"
+    },
+    {
+      "id": "lesson12_a_04_incline_pull",
+      "file": "lesson12_a_04_incline_pull.json"
+    },
+    {
+      "id": "lesson12_a_05_car_two_roads",
+      "file": "lesson12_a_05_car_two_roads.json"
+    },
+    {
+      "id": "lesson12_a_06_pulley_slider",
+      "file": "lesson12_a_06_pulley_slider.json"
+    },
+    {
+      "id": "lesson12_b_07_buffer_device",
+      "file": "lesson12_b_07_buffer_device.json"
+    },
+    {
+      "id": "lesson12_b_08_sliding_rope",
+      "file": "lesson12_b_08_sliding_rope.json"
+    },
+    {
+      "id": "lesson12_b_09_rod_end_balls",
+      "file": "lesson12_b_09_rod_end_balls.json"
+    },
+    {
+      "id": "lesson12_b_10_linked_sliders",
+      "file": "lesson12_b_10_linked_sliders.json"
     }
   ]
 }

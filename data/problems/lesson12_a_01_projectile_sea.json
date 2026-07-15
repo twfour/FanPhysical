@@ -1,0 +1,60 @@
+{
+  "id": "lesson12_a_01_projectile_sea",
+  "originalNumber": "A1",
+  "chapter": "机械能守恒定律",
+  "title": "A组第1题：抛体落海平面",
+  "question": "（多选）在地面上以速度 \\(v_0\\) 抛出质量为 \\(m\\) 的物体，物体落到比地面低 \\(h\\) 的海平面。以地面为零势能面，不计空气阻力。下列说法正确的是（  ）。",
+  "options": [
+    "A. 重力对物体做的功为 \\(-mgh\\)",
+    "B. 物体在海平面上的势能为 \\(-mgh\\)",
+    "C. 物体在海平面上的动能为 \\(\\frac12mv_0^2+mgh\\)",
+    "D. 物体在海平面上的机械能为 \\(\\frac12mv_0^2+mgh\\)"
+  ],
+  "answer": "B、C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_projectile_sea",
+    "playable": true,
+    "interactive": true,
+    "notes": "抛体从地面越过崖边落到海平面；右图以地面为零势能面显示三种能量。",
+    "params": {
+      "mass": { "label": "物体质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
+      "speed": { "label": "抛出速度", "value": 12, "min": 8, "max": 20, "step": 1, "unit": "m/s" },
+      "depth": { "label": "海面低于地面", "value": 8, "min": 4, "max": 15, "step": 0.5, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["负重力势能", "机械能守恒", "重力做功"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "确定海平面势能",
+      "content": "以地面为零势能面，海平面高度为 \\(-h\\)，故 \\(E_{p,\\mathrm{海}}=mg(-h)=-mgh\\)，B 正确。",
+      "knowledge": ["参考面"],
+      "commonMistakes": ["认为重力势能不能为负"]
+    },
+    {
+      "stepId": 2,
+      "title": "判断重力做功",
+      "content": "物体始末下降 \\(h\\)，重力与位移同向，因此 \\(W_G=mgh\\gt0\\)，A 错。由动能定理 \\(\\Delta E_k=W_G\\)，海平面动能为 \\(\\frac12mv_0^2+mgh\\)，C 正确。",
+      "knowledge": ["重力做功"],
+      "commonMistakes": ["把势能变化 \\(-mgh\\) 当成重力做功"]
+    },
+    {
+      "stepId": 3,
+      "title": "核对机械能",
+      "content": "海平面机械能为 \\((\\frac12mv_0^2+mgh)+(-mgh)=\\frac12mv_0^2\\)，与初态相同，所以 D 错。答案为 B、C。",
+      "knowledge": ["机械能守恒"],
+      "commonMistakes": ["只把末动能当作机械能"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：抛体落入低谷",
+    "question": "质量 \\(2\\,\\mathrm{kg}\\) 的物体以 \\(10\\,\\mathrm{m/s}\\) 从零势能面抛出，落点低于出发点 \\(5\\,\\mathrm m\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求落点的动能、势能和机械能。",
+    "answer": "\\(E_k=100+100=200\\,\\mathrm J\\)，\\(E_p=-100\\,\\mathrm J\\)，\\(E=100\\,\\mathrm J\\)。",
+    "thinking": "先用重力做功求动能增加，再用有符号高度求势能；两者相加应回到初始机械能。"
+  }
+}

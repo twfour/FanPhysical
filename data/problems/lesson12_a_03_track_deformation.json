@@ -1,0 +1,60 @@
+{
+  "id": "lesson12_a_03_track_deformation",
+  "originalNumber": "A3",
+  "chapter": "机械能守恒定律",
+  "title": "A组第3题：光滑轨道变形",
+  "question": "（多选）物体以初速度 \\(v_0\\) 冲向光滑斜面 \\(AB\\)，并恰好能沿斜面升高 \\(h\\)。保持 \\(v_0\\) 不变，下列说法正确的是（  ）。",
+  "options": [
+    "A. 从 C 点竖直向下锯断并去掉 BC，物体冲过 C 点后仍可能达到高度 \\(h\\)",
+    "B. 把斜面弯成直径为 \\(h\\) 的圆弧形轨道 D，物体仍可能达到高度 \\(h\\)",
+    "C. 锯断斜面或弯成上述圆弧的两种情况下，物体都不能达到高度 \\(h\\)",
+    "D. 把斜面 AB 变成光滑曲面 AEB，物体沿曲面上升仍能达到高度 \\(h\\)"
+  ],
+  "answer": "C、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_track_deformation",
+    "playable": true,
+    "interactive": true,
+    "notes": "对比完整光滑曲面、截断后抛体和圆弧脱轨；右图比较三种路径的最大高度。",
+    "params": {
+      "height": { "label": "目标高度h", "value": 4, "min": 2, "max": 7, "step": 0.5, "unit": "m" },
+      "cutRatio": { "label": "C点高度/h", "value": 0.6, "min": 0.3, "max": 0.8, "step": 0.05, "unit": "" },
+      "angle": { "label": "斜面倾角", "value": 35, "min": 20, "max": 55, "step": 1, "unit": "°" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["轨道约束", "脱轨抛体", "机械能守恒"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "确定基准能量",
+      "content": "原斜面光滑且物体恰好升高 \\(h\\)，所以 \\(\\frac12mv_0^2=mgh\\)，即 \\(v_0^2=2gh\\)。",
+      "knowledge": ["机械能守恒"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "分析失去轨道约束的两种情况",
+      "content": "从 C 点飞出后，最高点仍保留水平速度，不能把全部动能转为势能，故达不到 \\(h\\)。在直径为 \\(h\\) 的圆弧内运动时，小球在到达顶部前会因支持力降为零而脱轨，离轨后仍有水平分速度，也达不到 \\(h\\)。因此 A、B 错，C 对。",
+      "knowledge": ["离轨条件"],
+      "commonMistakes": ["只用总机械能上限，忽略轨道是否能持续提供约束"]
+    },
+    {
+      "stepId": 3,
+      "title": "分析连续光滑曲面",
+      "content": "把斜面改成连续光滑曲面 AEB 后，支持力始终不做功，物体不提前脱离曲面，仍可把初动能完全转化为 \\(mgh\\)，到达高度 \\(h\\)。D 正确，答案为 C、D。",
+      "knowledge": ["约束力不做功"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：截断斜面后的最高点",
+    "question": "物体以 \\(v_0=\\sqrt{2gh}\\) 沿倾角 \\(\\theta\\) 的光滑斜面上滑，在高度 \\(\\lambda h\\) 处离开斜面做斜抛。求离轨后的最大高度。",
+    "answer": "离轨速度平方 \\(v_C^2=2gh(1-\\lambda)\\)，竖直分量为 \\(v_C\\sin\\theta\\)。故 \\(H_{\\max}=\\lambda h+(1-\\lambda)h\\sin^2\\theta\\)。",
+    "thinking": "离轨前用机械能求速度；离轨后只有竖直分动能能继续转化为重力势能。"
+  }
+}

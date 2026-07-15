@@ -1,0 +1,61 @@
+{
+  "id": "lesson12_a_04_incline_pull",
+  "originalNumber": "A4",
+  "chapter": "机械能守恒定律",
+  "title": "A组第4题：斜面恒力加速",
+  "question": "倾角为 \\(30^\\circ\\) 的斜面上，质量为 \\(m\\) 的物块在沿斜面恒定拉力作用下，以加速度 \\(a=\\frac g2\\) 向上运动距离 \\(x\\)。下列说法正确的是（  ）。",
+  "options": [
+    "A. 重力势能增加 \\(mgx\\)",
+    "B. 拉力做功为 \\(\\frac12mgx\\)",
+    "C. 机械能增加 \\(mgx\\)",
+    "D. 动能增加 \\(\\frac14mgx\\)"
+  ],
+  "answer": "C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_incline_pull",
+    "playable": true,
+    "interactive": true,
+    "notes": "物块沿 30° 斜面匀加速上行；右图比较动能、势能和机械能增量。",
+    "params": {
+      "mass": { "label": "物块质量", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "kg" },
+      "distance": { "label": "沿斜面距离", "value": 4, "min": 2, "max": 8, "step": 0.5, "unit": "m" },
+      "angle": { "label": "斜面倾角", "value": 30, "min": 20, "max": 45, "step": 1, "unit": "°" },
+      "accelRatio": { "label": "加速度/g", "value": 0.5, "min": 0.2, "max": 0.8, "step": 0.05, "unit": "" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 3, "loop": false }
+  },
+  "knowledge": ["机械能增量", "恒力做功", "斜面运动"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "计算势能增量",
+      "content": "物块竖直升高 \\(x\\sin30^\\circ=x/2\\)，所以 \\(\\Delta E_p=mgx/2\\)，A 错。",
+      "knowledge": ["重力势能"],
+      "commonMistakes": ["把沿斜面位移直接当竖直高度"]
+    },
+    {
+      "stepId": 2,
+      "title": "计算动能增量",
+      "content": "由合力做功 \\(\\Delta E_k=max=m\\frac g2x=\\frac12mgx\\)，因此 D 错。",
+      "knowledge": ["动能定理"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求机械能与拉力功",
+      "content": "\\(\\Delta E=\\Delta E_k+\\Delta E_p=\\frac12mgx+\\frac12mgx=mgx\\)，C 正确。斜面光滑时拉力做功等于机械能增量，即 \\(mgx\\)，所以 B 错。",
+      "knowledge": ["功能关系"],
+      "commonMistakes": ["把合力功与拉力功混为一谈"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：变倾角与加速度",
+    "question": "质量 \\(m\\) 的物块沿倾角 \\(\\theta\\) 的光滑斜面，在拉力作用下以加速度 \\(a\\) 向上运动距离 \\(s\\)。求机械能增量。",
+    "answer": "\\(\\Delta E=\\Delta E_k+\\Delta E_p=mas+mgs\\sin\\theta=ms(a+g\\sin\\theta)\\)。",
+    "thinking": "机械能变化可直接分成动能增量和重力势能增量；光滑时也等于拉力做功。"
+  }
+}

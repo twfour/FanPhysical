@@ -1,0 +1,67 @@
+{
+  "id": "lesson12_b_10_linked_sliders",
+  "originalNumber": "B10",
+  "chapter": "机械能守恒定律",
+  "title": "B组第10题：刚杆连接双滑块",
+  "question": "（多选）滑块 \\(a,b\\) 的质量均为 \\(m\\)。a 套在固定竖直杆上，初始距光滑水平地面 \\(h\\)；b 放在地面上。a、b 由铰链用刚性轻杆连接并由静止开始运动，不计摩擦，二者视为质点。下列说法正确的是（  ）。",
+  "options": [
+    "A. a 落地前，轻杆对 b 先做正功后做负功",
+    "B. a 落地时速度为 \\(\\sqrt{gh}\\)",
+    "C. a 下落过程中，某一时刻其加速度大小大于 \\(g\\)",
+    "D. a 落地前，当 a 的机械能最小时，b 对地面的压力为 \\(0\\)"
+  ],
+  "answer": "A、C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_linked_sliders",
+    "playable": true,
+    "interactive": true,
+    "notes": "a 沿竖杆下降、b 在地面水平移动，刚杆长度不变；右图显示 a 的加速度和机械能。",
+    "params": {
+      "height": { "label": "a初始高度h", "value": 1.2, "min": 0.6, "max": 1.8, "step": 0.1, "unit": "m" },
+      "rodLength": { "label": "轻杆长度", "value": 2, "min": 2, "max": 3, "step": 0.1, "unit": "m" },
+      "mass": { "label": "每块质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["刚杆约束", "连接体机械能", "机械能极值"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "写位置和速度约束",
+      "content": "设 a 高度为 \\(y\\)、b 到竖杆水平距离为 \\(x\\)、杆长为 \\(l\\)，则 \\(x^2+y^2=l^2\\)，速度满足 \\(x\\dot x+y\\dot y=0\\)。b 先加速后减速，初末速度均为零，所以杆对 b 的总功先正后负，A 正确。",
+      "knowledge": ["几何约束"],
+      "commonMistakes": ["认为刚杆对两滑块都不做功"]
+    },
+    {
+      "stepId": 2,
+      "title": "求 a 落地速度",
+      "content": "系统机械能守恒。a 落地时 \\(y=0\\)，由速度约束得 \\(\\dot x=0\\)，此刻只有 a 有速度。因此 \\(mgh=\\frac12mv_a^2\\)，得 \\(v_a=\\sqrt{2gh}\\)，B 错。",
+      "knowledge": ["机械能守恒"],
+      "commonMistakes": ["把重力势能平均分给两个滑块"]
+    },
+    {
+      "stepId": 3,
+      "title": "分析 a 的加速度",
+      "content": "由能量和约束可得 \\(\\dot y^2=\\frac{2g(h-y)(l^2-y^2)}{l^2}\\)，进而 \\(\\ddot y=\\frac{g}{l^2}(-l^2-2hy+3y^2)\\)。当 \\(0\\lt y\\lt2h/3\\) 时，向下加速度大小大于 g，C 正确。",
+      "knowledge": ["加速度约束"],
+      "commonMistakes": ["认为只受重力的物体加速度才可能等于 g，连接体绝不可能超过 g"]
+    },
+    {
+      "stepId": 4,
+      "title": "判断 a 机械能最小时的支持力",
+      "content": "a 的机械能为 \\(E_a=mgh-mg\\,y^2(h-y)/l^2\\)，在 \\(y=2h/3\\) 处最小。此时杆的作用力恰为零，因此 b 只受重力和地面支持力，地面对 b 的支持力为 \\(mg\\)，不是 0，D 错。",
+      "knowledge": ["机械能极值"],
+      "commonMistakes": ["把杆力为零误判为地面支持力为零"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：刚杆双滑块落地速度",
+    "question": "质量分别为 \\(m_a,m_b\\) 的滑块由轻杆连接，a 沿竖直杆从高度 \\(h\\) 静止下落，b 在光滑水平面运动。a 落地瞬间 b 的速度为零，求 a 的速度。",
+    "answer": "由系统机械能守恒 \\(m_agh=\\frac12m_av_a^2\\)，故 \\(v_a=\\sqrt{2gh}\\)，结果与 \\(m_b\\) 无关。",
+    "thinking": "先用落地位置的几何约束判断 b 的瞬时速度，再决定末态动能中应保留哪些项。"
+  }
+}

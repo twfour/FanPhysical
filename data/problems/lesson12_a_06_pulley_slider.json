@@ -1,0 +1,59 @@
+{
+  "id": "lesson12_a_06_pulley_slider",
+  "originalNumber": "A6",
+  "chapter": "机械能守恒定律",
+  "title": "A组第6题：定滑轮竖杆小球",
+  "question": "（多选）竖直光滑细杆上穿着小球 \\(B\\)，B 通过不可伸长轻绳绕过光滑定滑轮与质量为 \\(m\\) 的物块 \\(A\\) 相连。初始将 A 向上托起，使滑轮左侧绳与竖直方向夹角为 \\(\\theta\\)，松手后 A 做竖直往复运动，B 最高到达 M。滑轮到细杆距离为 \\(d\\)，Q 与滑轮等高，且 \\(OM\\perp OP\\)，\\(\\sin\\theta=0.6\\)，滑轮视为质点。下列说法正确的是（  ）。",
+  "options": [
+    "A. B 经过 Q 点时，A 的加速度为零",
+    "B. 小球 B 的质量为 \\(\\frac m5\\)",
+    "C. B 经过 Q 点时的加速度大小为 \\(g\\)",
+    "D. A、B 组成的系统机械能不守恒"
+  ],
+  "answer": "B、C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_pulley_slider",
+    "playable": true,
+    "interactive": true,
+    "notes": "B 从 P 经 Q 到 M，A 先下降后上升；右图显示两物体位移的非线性约束。",
+    "params": {
+      "massA": { "label": "A质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
+      "distance": { "label": "滑轮到杆距离d", "value": 1.2, "min": 0.8, "max": 2, "step": 0.1, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["绳长约束", "连接体机械能", "瞬时加速度"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "由几何求 P、M 位置",
+      "content": "初态 \\(OP=d/\\sin\\theta=5d/3\\)，P 在 Q 下方 \\(4d/3\\)。由 \\(OM\\perp OP\\) 得 M 在 Q 上方 \\(3d/4\\)，且 \\(OM=5d/4\\)。",
+      "knowledge": ["几何约束"],
+      "commonMistakes": ["把 M 与 P 误认为关于 Q 对称"]
+    },
+    {
+      "stepId": 2,
+      "title": "用初末静止状态求 B 质量",
+      "content": "P 到 M：B 上升 \\(4d/3+3d/4=25d/12\\)；斜绳由 \\(5d/3\\) 变为 \\(5d/4\\)，A 下降 \\(5d/12\\)。初末均静止，机械能守恒给 \\(mg\\frac{5d}{12}=m_Bg\\frac{25d}{12}\\)，故 \\(m_B=m/5\\)，B 正确、D 错。",
+      "knowledge": ["机械能守恒"],
+      "commonMistakes": ["漏掉 A 的运动方向由斜绳长度变化决定"]
+    },
+    {
+      "stepId": 3,
+      "title": "分析 Q 点瞬时运动",
+      "content": "B 经过 Q 时斜绳水平，绳张力无竖直分量，杆的支持力也水平，所以 B 的竖直加速度就是 \\(g\\)，C 正确。虽然此刻 A 的速度为零，但绳长 \\(r=\\sqrt{d^2+y^2}\\) 在 Q 点有非零二阶变化，A 的加速度不为零，A 错。",
+      "knowledge": ["瞬时约束"],
+      "commonMistakes": ["由瞬时速度为零推出加速度也为零"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：变角滑轮位移",
+    "question": "滑轮到竖杆的水平距离为 \\(d\\)，杆上小球从滑轮下方 \\(y_1\\) 运动到 \\(y_2\\)。若另一端物块竖直运动，求其向下位移。",
+    "answer": "斜绳长度由 \\(\\sqrt{d^2+y_1^2}\\) 变为 \\(\\sqrt{d^2+y_2^2}\\)，另一端向下位移为 \\(\\sqrt{d^2+y_1^2}-\\sqrt{d^2+y_2^2}\\)。",
+    "thinking": "先写整根绳长不变；竖直端位移等于斜绳长度的减少量，而不等于杆上小球位移。"
+  }
+}

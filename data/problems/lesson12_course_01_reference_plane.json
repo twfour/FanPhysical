@@ -1,0 +1,54 @@
+{
+  "id": "lesson12_course_01_reference_plane",
+  "originalNumber": "课1",
+  "chapter": "机械能守恒定律",
+  "title": "例1：重力势能参考面",
+  "question": "如图，质量 \\(m=0.5\\,\\mathrm{kg}\\) 的小球从桌面上方 \\(h_1=1.2\\,\\mathrm m\\) 的 \\(A\\) 点落到地面的 \\(B\\) 点，桌面高 \\(h_2=0.8\\,\\mathrm m\\)。分别以桌面和地面为零势能面，填写小球在 \\(A,B\\) 两点的重力势能、下落过程重力做功和重力势能变化。取 \\(g=10\\,\\mathrm{m/s^2}\\)。",
+  "answer": "以桌面为参考面：\\(E_{pA}=6\\,\\mathrm J,\\ E_{pB}=-4\\,\\mathrm J,\\ W_G=10\\,\\mathrm J,\\ \\Delta E_p=-10\\,\\mathrm J\\)。以地面为参考面：\\(E_{pA}=10\\,\\mathrm J,\\ E_{pB}=0,\\ W_G=10\\,\\mathrm J,\\ \\Delta E_p=-10\\,\\mathrm J\\)。",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_reference_plane",
+    "playable": true,
+    "interactive": true,
+    "notes": "小球由 A 落到 B；右图同时画出以桌面、地面为零势能面时的重力势能。",
+    "params": {
+      "mass": { "label": "小球质量", "value": 0.5, "min": 0.2, "max": 2, "step": 0.1, "unit": "kg" },
+      "h1": { "label": "A高出桌面", "value": 1.2, "min": 0.5, "max": 2, "step": 0.1, "unit": "m" },
+      "h2": { "label": "桌面高度", "value": 0.8, "min": 0.3, "max": 1.5, "step": 0.1, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 2, "loop": false }
+  },
+  "knowledge": ["重力势能", "零势能参考面", "重力做功"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "确定相对高度",
+      "content": "以桌面为零势能面时，\\(y_A=h_1=1.2\\,\\mathrm m\\)，\\(y_B=-h_2=-0.8\\,\\mathrm m\\)；以地面为零势能面时，\\(y_A=h_1+h_2=2.0\\,\\mathrm m\\)，\\(y_B=0\\)。",
+      "knowledge": ["参考面"],
+      "commonMistakes": ["把参考面以下的重力势能误写成正值"]
+    },
+    {
+      "stepId": 2,
+      "title": "分别计算两点势能",
+      "content": "由 \\(E_p=mgy\\)，以桌面为参考面有 \\(E_{pA}=0.5\\times10\\times1.2=6\\,\\mathrm J\\)，\\(E_{pB}=0.5\\times10\\times(-0.8)=-4\\,\\mathrm J\\)。以地面为参考面有 \\(E_{pA}=0.5\\times10\\times2=10\\,\\mathrm J\\)，\\(E_{pB}=0\\)。",
+      "knowledge": ["重力势能"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "比较重力做功与势能变化",
+      "content": "总下降高度为 \\(h_1+h_2=2.0\\,\\mathrm m\\)，所以 \\(W_G=mg(h_1+h_2)=10\\,\\mathrm J\\)。无论选哪个参考面，\\(\\Delta E_p=E_{pB}-E_{pA}=-10\\,\\mathrm J=-W_G\\)。",
+      "knowledge": ["重力做功"],
+      "commonMistakes": ["误认为更换参考面会改变重力做功或势能变化量"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：阳台落球的参考面",
+    "question": "质量 \\(0.4\\,\\mathrm{kg}\\) 的小球从距地面 \\(5\\,\\mathrm m\\) 处落到距地面 \\(1\\,\\mathrm m\\) 的平台。分别以地面和平台为零势能面，求始末重力势能及 \\(\\Delta E_p\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。",
+    "answer": "以地面为参考面：\\(E_{p0}=20\\,\\mathrm J,\\ E_{p1}=4\\,\\mathrm J\\)；以平台为参考面：\\(E_{p0}=16\\,\\mathrm J,\\ E_{p1}=0\\)。两种选法均有 \\(\\Delta E_p=-16\\,\\mathrm J\\)。",
+    "thinking": "先统一写 \\(E_p=mgy\\)，其中 \\(y\\) 是相对所选参考面的有符号高度；势能值会变，势能差不变。"
+  }
+}

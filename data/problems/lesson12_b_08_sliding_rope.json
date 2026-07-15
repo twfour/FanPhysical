@@ -1,0 +1,59 @@
+{
+  "id": "lesson12_b_08_sliding_rope",
+  "originalNumber": "B8",
+  "chapter": "机械能守恒定律",
+  "title": "B组第8题：柔绳滑离桌面",
+  "question": "质量为 \\(M\\)、长度为 \\(L\\) 的均匀柔软细绳置于光滑水平桌面，右端恰在桌边。受扰后细绳从静止沿桌边下滑。下落长度为 \\(x\\) 时，加速度为 \\(a\\)，转折点 \\(O\\) 的张力为 \\(T\\)，桌面剩余绳的动能为 \\(E_k\\)、动量为 \\(p\\)。从初态到绳全部离开桌面的过程中，下列说法正确的是（  ）。",
+  "options": [
+    "A. 当 \\(x=L/4\\) 时，张力 \\(T\\) 有最大值",
+    "B. 当 \\(x=L/4\\) 时，动量 \\(p\\) 有最大值",
+    "C. 当 \\(x=L/2\\) 时，加速度 \\(a\\) 有最大值",
+    "D. 当 \\(x=2L/3\\) 时，动能 \\(E_k\\) 有最值"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_sliding_rope",
+    "playable": true,
+    "interactive": true,
+    "notes": "柔绳从桌边连续下滑；右图以 \\(x/L\\) 为横轴比较张力、桌面段动量与动能的归一化曲线。",
+    "params": {
+      "mass": { "label": "细绳质量", "value": 2, "min": 1, "max": 5, "step": 0.1, "unit": "kg" },
+      "length": { "label": "细绳长度", "value": 3, "min": 1.5, "max": 5, "step": 0.1, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["连续体", "机械能守恒", "函数极值"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "由机械能求绳速",
+      "content": "线密度 \\(\\lambda=M/L\\)。悬垂段重心下降 \\(x/2\\)，势能减少 \\(\\frac12\\lambda gx^2\\)，等于整根绳动能 \\(\\frac12Mv^2\\)。故 \\(v=x\\sqrt{g/L}\\)，进而 \\(a=v\\frac{dv}{dx}=gx/L\\)。加速度随 x 增大，在 \\(x=L\\) 最大，C 错。",
+      "knowledge": ["连续体势能"],
+      "commonMistakes": ["只计算悬垂段的动能"]
+    },
+    {
+      "stepId": 2,
+      "title": "求转折点张力",
+      "content": "对悬垂段列牛顿第二定律：\\(\\lambda xg-T=\\lambda xa\\)，得 \\(T=\\lambda gx(1-x/L)\\)。该二次函数在 \\(x=L/2\\) 最大，A 错。",
+      "knowledge": ["变质量段受力"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求桌面段动量与动能极值",
+      "content": "桌面剩余质量为 \\(\\lambda(L-x)\\)。其动量 \\(p=\\lambda(L-x)x\\sqrt{g/L}\\)，在 \\(x=L/2\\) 最大，B 错；动能 \\(E_k=\\frac{\\lambda g}{2L}x^2(L-x)\\)，求导得极值位置 \\(x=2L/3\\)，D 正确。",
+      "knowledge": ["函数极值"],
+      "commonMistakes": ["把整根绳动能与桌面剩余绳动能混为一谈"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：滑绳速度与加速度",
+    "question": "均匀绳长 \\(L=2\\,\\mathrm m\\)，从光滑桌边由静止下滑。当悬垂长度 \\(x=0.8\\,\\mathrm m\\) 时，取 \\(g=10\\,\\mathrm{m/s^2}\\)，求绳速与加速度。",
+    "answer": "\\(v=x\\sqrt{g/L}=0.8\\sqrt5\\,\\mathrm{m/s}\\)，\\(a=gx/L=4\\,\\mathrm{m/s^2}\\)。",
+    "thinking": "整根绳速相同；悬垂段重力势能的减少转化为整根绳的动能。"
+  }
+}

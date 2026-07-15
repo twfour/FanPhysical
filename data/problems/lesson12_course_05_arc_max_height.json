@@ -1,0 +1,58 @@
+{
+  "id": "lesson12_course_05_arc_max_height",
+  "originalNumber": "课5",
+  "chapter": "机械能守恒定律",
+  "title": "例5：圆弧轨道最大高度",
+  "question": "如图甲，质量为 \\(m\\) 的小球以速度 \\(v_0\\) 竖直上抛，最大高度为 \\(h\\)。再将质量分别为 \\(2m,3m,4m,5m\\) 的小球，以同样大小的速度 \\(v_0\\) 从半径均为 \\(R=\\frac12h\\) 的四种竖直圆弧形光滑轨道最低点水平射入。四轨道依次为半圆、圆心角 \\(120^\\circ\\)、圆心角 \\(90^\\circ\\)、圆心角 \\(30^\\circ\\)。小球大小和空气阻力均不计，能到达的最大高度仍为 \\(h\\) 的是（  ）。",
+  "options": [
+    "A. 质量为 \\(2m\\) 的小球",
+    "B. 质量为 \\(3m\\) 的小球",
+    "C. 质量为 \\(4m\\) 的小球",
+    "D. 质量为 \\(5m\\) 的小球"
+  ],
+  "answer": "C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_arc_max_height",
+    "playable": true,
+    "interactive": true,
+    "notes": "四种圆弧轨道同步演示；右图比较离轨后各球实际能到达的最大高度。",
+    "params": {
+      "height": { "label": "基准高度h", "value": 4, "min": 2, "max": 8, "step": 0.5, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["机械能守恒", "圆周运动约束", "离轨抛体"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "确定初速度能量",
+      "content": "竖直上抛最高点速度为零，故 \\(\\frac12mv_0^2=mgh\\)，即 \\(v_0^2=2gh\\)。质量在等式中约去，所以题中不同质量本身不改变所能达到的高度。",
+      "knowledge": ["机械能守恒"],
+      "commonMistakes": ["认为质量较大的球一定上升较低"]
+    },
+    {
+      "stepId": 2,
+      "title": "判断离轨后的竖直分速度",
+      "content": "小球离开轨道后，水平分速度对应的动能不能再转化为重力势能。只有 \\(90^\\circ\\) 圆弧的末端切线竖直，小球离轨时没有水平分速度，剩余动能可全部转化为势能。",
+      "knowledge": ["速度分解"],
+      "commonMistakes": ["只用总机械能判断高度，漏掉最高点仍可能有水平速度"]
+    },
+    {
+      "stepId": 3,
+      "title": "校验四分之一圆弧",
+      "content": "到 \\(90^\\circ\\) 圆弧末端已上升 \\(R=h/2\\)，由守恒得 \\(v^2=v_0^2-2gR=gh\\)。此时速度竖直向上，离轨后再上升 \\(\\frac{v^2}{2g}=h/2\\)，总高度恰为 \\(h\\)。故选 C。",
+      "knowledge": ["分段机械能守恒"],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：圆弧末端离轨高度",
+    "question": "小球从水平地面以 \\(v_0=\\sqrt{2gh}\\) 进入半径 \\(R=h/2\\)、圆心角 \\(60^\\circ\\) 的光滑圆弧，末端离轨。求离轨后最高点高度 \\(H_{\\max}\\)。",
+    "answer": "末端高度 \\(y=R(1-\\cos60^\\circ)=h/4\\)，末端 \\(v^2=2g(h-y)=\\frac32gh\\)，竖直分速度 \\(v_y=v\\sin60^\\circ\\)。故 \\(H_{\\max}=y+\\frac{v_y^2}{2g}=\\frac{13}{16}h\\)。",
+    "thinking": "先用机械能求离轨速度，再只把竖直分动能转化为离轨后的上升高度。"
+  }
+}

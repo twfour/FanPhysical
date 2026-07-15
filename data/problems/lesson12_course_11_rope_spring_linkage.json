@@ -1,0 +1,66 @@
+{
+  "id": "lesson12_course_11_rope_spring_linkage",
+  "originalNumber": "课11",
+  "chapter": "机械能守恒定律",
+  "title": "例11：绳弹簧连接体",
+  "question": "物块 \\(B,C\\) 由轻质弹簧相连，轻绳跨过定滑轮，两端分别连接套在竖直杆上的小球 \\(A\\) 和物块 \\(B\\)。初始托住 \\(A\\) 使系统静止，滑轮与 \\(A\\) 间绳水平、与 \\(B\\) 间绳竖直且绳无拉力。\\(B,C\\) 质量均为 \\(m\\)，\\(A\\) 质量为 \\(2m\\)。释放 \\(A\\)，当连接 \\(A\\) 的绳与竖直杆夹角为 \\(37^\\circ\\) 时，\\(B\\) 上升速度为 \\(v\\)，且 \\(C\\) 刚要离地。取 \\(\\sin37^\\circ=0.6,\\cos37^\\circ=0.8\\)，不计摩擦和空气阻力。此过程中 \\(A\\) 下降高度为（  ）。",
+  "options": [
+    "A. \\(\\frac{v^2}{2g}\\)",
+    "B. \\(\\frac{11v^2}{8g}\\)",
+    "C. \\(\\frac{v^2}{g}\\)",
+    "D. \\(\\frac{57v^2}{75g}\\)"
+  ],
+  "answer": "B",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_rope_spring_linkage",
+    "playable": true,
+    "interactive": true,
+    "notes": "A 沿竖杆下降、B 上升，弹簧由等量压缩转为等量伸长；右图展示系统能量分配。",
+    "params": {
+      "mass": { "label": "基准质量m", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
+      "speed": { "label": "B末速度v", "value": 4, "min": 2, "max": 7, "step": 0.2, "unit": "m/s" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["关联速度", "连接体机械能", "弹簧能量"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "由绳长约束求位移关系",
+      "content": "设滑轮到竖直杆的水平距离为 \\(d\\)。末态斜绳长为 \\(d/\\sin37^\\circ=5d/3\\)，A 下降 \\(4d/3\\)，斜绳增长 \\(2d/3\\)，故 B 上升 \\(2d/3\\)。因此 A 下降高度 \\(y_A\\) 与 B 上升高度 \\(y_B\\) 满足 \\(y_A=2y_B\\)。",
+      "knowledge": ["绳长约束"],
+      "commonMistakes": ["把 A、B 位移直接写成相等"]
+    },
+    {
+      "stepId": 2,
+      "title": "由速度投影求末速度",
+      "content": "A 的速度沿竖杆，投影到绳方向后等于 B 的绳速：\\(v=v_A\\cos37^\\circ\\)。故 \\(v_A=\\frac54v\\)。",
+      "knowledge": ["关联速度"],
+      "commonMistakes": ["使用位移比 \\(2:1\\) 直接当作瞬时速度比"]
+    },
+    {
+      "stepId": 3,
+      "title": "处理弹簧能量",
+      "content": "初态绳无拉力，B 静止要求弹簧对 B 的支持力为 \\(mg\\)，弹簧压缩量为 \\(mg/k\\)；末态 C 刚离地，弹簧拉力也为 \\(mg\\)，伸长量为 \\(mg/k\\)。初末弹性势能相等，在能量方程中抵消。",
+      "knowledge": ["弹簧状态"],
+      "commonMistakes": ["漏掉初态弹簧已经压缩"]
+    },
+    {
+      "stepId": 4,
+      "title": "列系统机械能守恒",
+      "content": "令 B 上升 \\(x\\)，则 A 下降 \\(2x\\)。重力势能净减少 \\(2mg(2x)-mgx=3mgx\\)，末动能为 \\(\\frac12(2m)(\\frac54v)^2+\\frac12mv^2=\\frac{33}{16}mv^2\\)。故 \\(x=\\frac{11v^2}{16g}\\)，A 下降 \\(2x=\\frac{11v^2}{8g}\\)，选 B。",
+      "knowledge": ["机械能守恒"],
+      "commonMistakes": ["漏掉 A 的质量为 \\(2m\\)"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：变角绳连接体",
+    "question": "质量为 \\(2m\\) 的滑块 A 沿竖杆下降，绳经定滑轮连接质量为 \\(m\\) 的 B。某时绳与竖杆夹角为 \\(60^\\circ\\)，B 速度为 \\(u\\)。求此时 A 的速度。",
+    "answer": "由绳方向速度投影相等，\\(u=v_A\\cos60^\\circ\\)，故 \\(v_A=2u\\)。",
+    "thinking": "关联速度要取各物体速度在各自绳段方向上的分量，不能直接比较速度大小。"
+  }
+}

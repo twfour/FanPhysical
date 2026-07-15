@@ -1,0 +1,60 @@
+{
+  "id": "lesson12_course_06_ball_spring_platform",
+  "originalNumber": "课6",
+  "chapter": "机械能守恒定律",
+  "title": "例6：落球压缩弹簧",
+  "question": "（多选）轻弹簧支撑质量忽略的平台 \\(PQ\\)，弹簧下端固定在地面。质量为 \\(m\\) 的金属球从高处落下。从球碰到 \\(PQ\\) 到弹簧压缩最短，弹簧始终发生弹性形变。下列说法正确的是（  ）。",
+  "options": [
+    "A. 金属球、地球与弹簧构成的系统机械能守恒",
+    "B. 在某个阶段内，球的动能增加而球的机械能减少",
+    "C. 球碰上 PQ 后动能立即减少，弹簧最短时弹性势能最大",
+    "D. 球受到的弹力与重力大小相等时，球的动能最大"
+  ],
+  "answer": "A、B、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_ball_spring_platform",
+    "playable": true,
+    "interactive": true,
+    "notes": "金属球先自由落下，再压缩弹簧；右图显示接触后的动能与弹性势能。",
+    "params": {
+      "mass": { "label": "金属球质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
+      "k": { "label": "弹簧劲度", "value": 100, "min": 40, "max": 220, "step": 10, "unit": "N/m" },
+      "drop": { "label": "接触前下落", "value": 0.8, "min": 0.2, "max": 1.5, "step": 0.1, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["弹性势能", "系统机械能", "动能极值"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "选择系统",
+      "content": "把金属球、地球和弹簧作为系统，重力势能和弹性势能都属于系统内部能量；平台质量忽略且无耗散，因此 \\(E_k+E_{pg}+E_{pe}\\) 守恒，A 正确。",
+      "knowledge": ["系统选择"],
+      "commonMistakes": ["只把小球作为系统却直接说机械能守恒"]
+    },
+    {
+      "stepId": 2,
+      "title": "判断接触后的速度变化",
+      "content": "刚接触时弹力小于重力，球仍向下加速，动能增加；同时弹簧对球做负功，球自身的 \\(E_k+E_{pg}\\) 减少，所以 B 正确，C 的“立即减少”错误。",
+      "knowledge": ["受力与功"],
+      "commonMistakes": ["认为碰到弹簧后速度立刻减小"]
+    },
+    {
+      "stepId": 3,
+      "title": "确定动能最大位置",
+      "content": "压缩量增大到 \\(kx=mg\\) 时合力为零，速度由增大转为减小，动能取最大值。最大压缩处速度为零、弹性势能最大，但 C 的前半句错误，故答案为 A、B、D。",
+      "knowledge": ["极值条件"],
+      "commonMistakes": ["把最大压缩位置与平衡位置混为一处"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：落球压簧的最大压缩",
+    "question": "质量 \\(m\\) 的小球从距轻弹簧上端 \\(H\\) 处由静止落下并竖直压缩劲度系数为 \\(k\\) 的弹簧。求最大压缩量 \\(x_{\\max}\\)。",
+    "answer": "由机械能守恒 \\(mg(H+x_{\\max})=\\frac12kx_{\\max}^2\\)，故 \\(x_{\\max}=\\frac{mg+\\sqrt{m^2g^2+2kmgH}}{k}\\)。",
+    "thinking": "最大压缩时速度为零，但小球在接触后还继续下降了 \\(x_{\\max}\\)，重力仍做正功。"
+  }
+}

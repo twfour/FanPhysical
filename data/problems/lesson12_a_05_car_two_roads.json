@@ -1,0 +1,64 @@
+{
+  "id": "lesson12_a_05_car_two_roads",
+  "originalNumber": "A5",
+  "chapter": "机械能守恒定律",
+  "title": "A组第5题：汽车两路段功率",
+  "question": "（多选）一辆无人驾驶车在水平路段 \\(MN\\) 上以恒定功率 \\(48\\,\\mathrm{kW}\\)、速度 \\(16\\,\\mathrm{m/s}\\) 匀速行驶；在斜坡路段 \\(PQ\\) 上以恒定功率 \\(96\\,\\mathrm{kW}\\)、速度 \\(8\\,\\mathrm{m/s}\\) 匀速行驶。车辆总质量 \\(1600\\,\\mathrm{kg}\\)，\\(MN=PQ=200\\,\\mathrm m\\)，斜坡倾角 \\(30^\\circ\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)，不计空气阻力。下列说法正确的是（  ）。",
+  "options": [
+    "A. 水平路段 MN 上的阻力为 \\(3000\\,\\mathrm N\\)",
+    "B. 从 M 到 N，牵引力做功为 \\(6\\times10^5\\,\\mathrm J\\)",
+    "C. 在斜坡 PQ 行驶过程中，汽车机械能减少",
+    "D. 从 P 到 Q，重力势能增加 \\(1.6\\times10^6\\,\\mathrm J\\)"
+  ],
+  "answer": "A、B、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_car_two_roads",
+    "playable": true,
+    "interactive": true,
+    "notes": "汽车先匀速经过水平路段，再匀速爬坡；右图显示机械能沿路程的变化。",
+    "params": {
+      "mass": { "label": "车辆质量", "value": 1600, "min": 1000, "max": 2400, "step": 100, "unit": "kg" },
+      "power1": { "label": "水平功率", "value": 48, "min": 30, "max": 70, "step": 1, "unit": "kW" },
+      "speed1": { "label": "水平速度", "value": 16, "min": 10, "max": 22, "step": 1, "unit": "m/s" },
+      "power2": { "label": "坡道功率", "value": 96, "min": 70, "max": 130, "step": 2, "unit": "kW" },
+      "speed2": { "label": "坡道速度", "value": 8, "min": 5, "max": 12, "step": 0.5, "unit": "m/s" },
+      "length": { "label": "每段路长", "value": 200, "min": 100, "max": 300, "step": 10, "unit": "m" },
+      "angle": { "label": "坡道倾角", "value": 30, "min": 20, "max": 40, "step": 1, "unit": "°" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 5, "loop": false }
+  },
+  "knowledge": ["功率", "匀速运动", "机械能变化"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "处理水平路段",
+      "content": "匀速时牵引力等于阻力，\\(F_1=P_1/v_1=48000/16=3000\\,\\mathrm N\\)，A 正确。牵引力做功 \\(W_1=F_1MN=3000\\times200=6\\times10^5\\,\\mathrm J\\)，B 正确。",
+      "knowledge": ["功率公式"],
+      "commonMistakes": ["把 kW 直接按 W 代入"]
+    },
+    {
+      "stepId": 2,
+      "title": "判断坡道机械能",
+      "content": "汽车在坡道仍匀速，动能不变；从 P 到 Q 高度增加，重力势能增加，因此机械能增加而不是减少，C 错。",
+      "knowledge": ["机械能"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "计算坡道势能增加量",
+      "content": "坡道竖直高度 \\(H=PQ\\sin30^\\circ=100\\,\\mathrm m\\)。故 \\(\\Delta E_p=mgH=1600\\times10\\times100=1.6\\times10^6\\,\\mathrm J\\)，D 正确。答案为 A、B、D。",
+      "knowledge": ["重力势能"],
+      "commonMistakes": ["把坡长 200 m 直接当高度"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：汽车匀速爬坡",
+    "question": "质量 \\(1200\\,\\mathrm{kg}\\) 的汽车以 \\(10\\,\\mathrm{m/s}\\) 匀速爬上长 \\(150\\,\\mathrm m\\)、倾角 \\(20^\\circ\\) 的坡，牵引功率为 \\(72\\,\\mathrm{kW}\\)。求牵引力和机械能增量。",
+    "answer": "\\(F=P/v=7200\\,\\mathrm N\\)，\\(\\Delta E=mgL\\sin20^\\circ\\approx6.16\\times10^5\\,\\mathrm J\\)。",
+    "thinking": "匀速只表示动能不变；机械能增量由高度变化决定，牵引功还要同时克服阻力。"
+  }
+}

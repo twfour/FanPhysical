@@ -1,0 +1,67 @@
+{
+  "id": "lesson12_b_07_buffer_device",
+  "originalNumber": "B7",
+  "chapter": "机械能守恒定律",
+  "title": "B组第7题：弹簧摩擦缓冲器",
+  "question": "某缓冲装置由劲度系数足够大的轻弹簧与可在固定槽内移动的轻杆相连，轻杆与槽间滑动摩擦力恒为 \\(f\\)，最大静摩擦力也为 \\(f\\)。轻杆向右移动不超过 \\(l\\) 时装置安全。质量为 \\(m\\) 的小车以速度 \\(v_0\\) 撞击弹簧时，轻杆向右移动 \\(l/4\\)。不计小车与地面的摩擦，弹簧劲度系数为 \\(k\\)。则（  ）。",
+  "options": [
+    "A. 轻杆开始移动时，弹簧压缩量为 \\(\\frac{k}{f}\\)",
+    "B. 轻杆开始移动时，小车加速度大小为 \\(\\frac{kl}{4m}\\)",
+    "C. 轻杆恰好能够移动时，小车撞击速度为 \\(\\sqrt{v_0^2-\\frac{fl}{2m}}\\)",
+    "D. 为使装置安全，允许小车撞击的最大速度为 \\(\\sqrt{v_0^2+\\frac{3fl}{m}}\\)"
+  ],
+  "answer": "C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanical_energy_model",
+    "variant": "lesson12_buffer_device",
+    "playable": true,
+    "interactive": true,
+    "notes": "小车先压缩弹簧至轻杆启动，再推动轻杆克服摩擦；右图给出所需撞击速度随杆位移的关系。",
+    "params": {
+      "mass": { "label": "小车质量", "value": 2, "min": 1, "max": 5, "step": 0.1, "unit": "kg" },
+      "k": { "label": "弹簧劲度", "value": 400, "min": 200, "max": 800, "step": 20, "unit": "N/m" },
+      "friction": { "label": "槽摩擦力", "value": 40, "min": 20, "max": 80, "step": 2, "unit": "N" },
+      "limit": { "label": "安全行程l", "value": 0.8, "min": 0.4, "max": 1.4, "step": 0.05, "unit": "m" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["弹簧能量", "摩擦耗能", "临界状态"],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "确定轻杆启动条件",
+      "content": "轻杆刚要移动时，弹簧弹力等于最大静摩擦力：\\(kx_0=f\\)，故 \\(x_0=f/k\\)。此时小车加速度大小为 \\(kx_0/m=f/m\\)，A、B 均错误。",
+      "knowledge": ["静摩擦临界"],
+      "commonMistakes": ["把 \\(f/k\\) 写成 \\(k/f\\)"]
+    },
+    {
+      "stepId": 2,
+      "title": "写速度与杆位移关系",
+      "content": "轻杆质量忽略，滑动时弹簧压缩量维持 \\(f/k\\)。若杆移动 \\(s\\) 后小车停下，能量关系为 \\(\\frac12mu^2=\\frac{f^2}{2k}+fs\\)。",
+      "knowledge": ["功能关系"],
+      "commonMistakes": ["轻杆滑动后继续把弹簧压缩量当作不断增大"]
+    },
+    {
+      "stepId": 3,
+      "title": "利用已知 \\(l/4\\) 消去弹簧能",
+      "content": "已知 \\(v_0\\) 对应 \\(s=l/4\\)，故 \\(v_0^2=\\frac{f^2}{km}+\\frac{fl}{2m}\\)。轻杆恰好启动时 \\(s=0\\)，所以 \\(u^2=\\frac{f^2}{km}=v_0^2-\\frac{fl}{2m}\\)，C 正确。",
+      "knowledge": ["临界速度"],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "核对安全最大速度",
+      "content": "安全极限 \\(s=l\\) 与已知状态相比多克服摩擦 \\(f(3l/4)\\)，故 \\(u_{\\max}^2-v_0^2=\\frac{2}{m}\\cdot\\frac{3fl}{4}=\\frac{3fl}{2m}\\)，不是选项 D 的 \\(\\frac{3fl}{m}\\)。答案为 C。",
+      "knowledge": ["能量差"],
+      "commonMistakes": ["漏掉动能中的系数 \\(\\frac12\\)"]
+    }
+  ],
+  "practice": {
+    "title": "近似题：缓冲器安全速度",
+    "question": "同类装置中，弹簧刚使轻杆启动所需速度为 \\(u_c\\)，轻杆与槽间摩擦力为 \\(f\\)，安全行程为 \\(l\\)，小车质量为 \\(m\\)。求安全最大撞击速度。",
+    "answer": "\\(\\frac12mu_{\\max}^2=\\frac12mu_c^2+fl\\)，故 \\(u_{\\max}=\\sqrt{u_c^2+\\frac{2fl}{m}}\\)。",
+    "thinking": "把启动临界状态作为能量基准；之后新增的初动能全部用来克服轻杆滑动摩擦。"
+  }
+}
