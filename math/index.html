@@ -2016,6 +2016,12 @@
     var mathTypesetTimer = null;
     var mathTypesetPromise = Promise.resolve();
     var typesetReadyModels = {};
+    var mathAiReadyModels = {};
+    var mathAiConversationStorageKey = "fanmath_step_ai_conversations_v1";
+    var mathAiConversationState = {};
+    var mathAiConversationStateLoaded = false;
+    var activeMathVoiceRecognition = null;
+    var activeMathVoiceButton = null;
     var state = {
       projectionRadius: 3,
       projectionStep: 4,
@@ -2087,6 +2093,7 @@
         section.classList.toggle("active", section.dataset.model === model);
       });
       ensureBoard(model);
+      ensureMathAiForModel(model);
       typesetCurrentModelOnce();
     }
 
@@ -3412,6 +3419,507 @@
       typesetMath(null, activeModel);
     }
 
+    function renderMathNow(root) {
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        return window.MathJax.typesetPromise(root ? [root] : undefined);
+      }
+      return Promise.resolve();
+    }
+
+    function ensureMathAiForModel(model) {
+      if (mathAiReadyModels[model]) {
+        return;
+      }
+      var notes = document.querySelector('.math-notes[data-model="' + model + '"]');
+      if (!notes) {
+        return;
+      }
+      var analysisBlocks = Array.prototype.filter.call(notes.querySelectorAll(".problem-note-block"), function(block) {
+        var kicker = block.querySelector(".problem-note-kicker");
+        return kicker && kicker.innerText.trim() === "解析";
+      });
+      analysisBlocks.forEach(function(block) {
+        var steps = Array.prototype.slice.call(block.querySelectorAll(".step-list > li"));
+        if (!steps.length) {
+          steps = Array.prototype.slice.call(block.querySelectorAll("p"));
+        }
+        steps.forEach(function(step, index) {
+          addMathStepConversationPanel(step, model, index);
+        });
+      });
+      mathAiReadyModels[model] = true;
+    }
+
+    function addMathStepConversationPanel(stepElement, model, stepIndex) {
+      if (!stepElement || stepElement.querySelector(":scope > .step-conversation")) {
+        return;
+      }
+      var conversationId = "math:" + model + ":" + String(stepIndex + 1);
+      var panel = document.createElement("section");
+      panel.className = "step-ai-tools step-conversation";
+      panel.dataset.conversationId = conversationId;
+      panel.dataset.model = model;
+      panel.dataset.stepIndex = String(stepIndex);
+
+      var header = document.createElement("div");
+      header.className = "step-conversation-header";
+      var title = document.createElement("strong");
+      title.innerText = "针对本步骤提问";
+      var clearButton = document.createElement("button");
+      clearButton.type = "button";
+      clearButton.className = "step-conversation-clear";
+      clearButton.innerText = "清空对话";
+      header.appendChild(title);
+      header.appendChild(clearButton);
+      panel.appendChild(header);
+
+      var history = document.createElement("div");
+      history.className = "step-conversation-history";
+      history.setAttribute("aria-live", "polite");
+      panel.appendChild(history);
+
+      var composer = document.createElement("div");
+      composer.className = "step-conversation-composer";
+      var input = document.createElement("textarea");
+      input.className = "step-conversation-input";
+      input.rows = 2;
+      input.maxLength = 1200;
+      input.placeholder = "口述或输入对这一步的疑问";
+      input.setAttribute("aria-label", "本步骤的问题");
+      var voiceButton = document.createElement("button");
+      voiceButton.type = "button";
+      voiceButton.className = "step-conversation-voice";
+      voiceButton.innerText = "口述提问";
+      voiceButton.title = "使用麦克风输入问题";
+      var sendButton = document.createElement("button");
+      sendButton.type = "button";
+      sendButton.className = "step-conversation-send";
+      sendButton.innerText = "发送";
+      composer.appendChild(input);
+      composer.appendChild(voiceButton);
+      composer.appendChild(sendButton);
+      panel.appendChild(composer);
+
+      var status = document.createElement("p");
+      status.className = "step-conversation-status";
+      status.setAttribute("aria-live", "polite");
+      status.innerText = getMathSpeechRecognitionConstructor()
+        ? "口述内容会先填入输入框，可修改后发送"
+        : "当前浏览器不支持口述，可直接输入问题";
+      panel.appendChild(status);
+
+      voiceButton.disabled = !getMathSpeechRecognitionConstructor();
+      voiceButton.onclick = function() {
+        if (activeMathVoiceButton === voiceButton) {
+          stopMathVoiceRecognition(false);
+          return;
+        }
+        startMathVoiceRecognition(input, voiceButton, status);
+      };
+      sendButton.onclick = function() {
+        askMathStepConversation(stepElement, panel, input);
+      };
+      input.addEventListener("keydown", function(event) {
+        if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
+          event.preventDefault();
+          askMathStepConversation(stepElement, panel, input);
+        }
+      });
+      clearButton.onclick = function() {
+        if (panel.dataset.pending === "1") {
+          return;
+        }
+        mathAiConversationState[conversationId] = [];
+        saveMathAiConversationState();
+        renderMathStepConversation(history, conversationId);
+        status.classList.remove("is-error");
+        status.innerText = "对话已清空，可以重新提问";
+      };
+
+      panel._historyElement = history;
+      panel._voiceButton = voiceButton;
+      panel._sendButton = sendButton;
+      panel._clearButton = clearButton;
+      panel._statusElement = status;
+      renderMathStepConversation(history, conversationId);
+      stepElement.appendChild(panel);
+    }
+
+    function loadMathAiConversationState() {
+      if (mathAiConversationStateLoaded) {
+        return;
+      }
+      mathAiConversationStateLoaded = true;
+      try {
+        var saved = window.sessionStorage.getItem(mathAiConversationStorageKey);
+        var parsed = saved ? JSON.parse(saved) : {};
+        mathAiConversationState = parsed && typeof parsed === "object" ? parsed : {};
+      } catch (error) {
+        mathAiConversationState = {};
+      }
+    }
+
+    function saveMathAiConversationState() {
+      try {
+        window.sessionStorage.setItem(mathAiConversationStorageKey, JSON.stringify(mathAiConversationState));
+      } catch (error) {
+        return;
+      }
+    }
+
+    function getMathStepConversation(conversationId) {
+      loadMathAiConversationState();
+      var history = mathAiConversationState[conversationId];
+      return Array.isArray(history) ? history : [];
+    }
+
+    function trimMathConversation(history) {
+      var trimmed = history.slice(-12);
+      while (trimmed.length && trimmed[0].role !== "user") {
+        trimmed.shift();
+      }
+      return trimmed;
+    }
+
+    function appendMathConversationMessage(conversationId, role, content) {
+      var history = getMathStepConversation(conversationId).slice();
+      history.push({ role: role, content: content });
+      mathAiConversationState[conversationId] = trimMathConversation(history);
+      saveMathAiConversationState();
+    }
+
+    function removeLastMathConversationMessage(conversationId, role, content) {
+      var history = getMathStepConversation(conversationId).slice();
+      var last = history[history.length - 1];
+      if (last && last.role === role && last.content === content) {
+        history.pop();
+      }
+      mathAiConversationState[conversationId] = history;
+      saveMathAiConversationState();
+    }
+
+    function renderMathStepConversation(target, conversationId) {
+      if (!target) {
+        return;
+      }
+      var history = getMathStepConversation(conversationId);
+      target.innerHTML = "";
+      if (!history.length) {
+        var empty = document.createElement("p");
+        empty.className = "step-conversation-empty";
+        empty.innerText = "还没有提问。你可以围绕这一小步连续追问。";
+        target.appendChild(empty);
+        return;
+      }
+      history.forEach(function(message) {
+        var item = document.createElement("div");
+        item.className = "step-conversation-message is-" + message.role;
+        var role = document.createElement("span");
+        role.className = "step-conversation-role";
+        role.innerText = message.role === "user" ? "你" : "AI";
+        var content = document.createElement("div");
+        content.className = "step-conversation-content";
+        if (message.role === "assistant") {
+          content.innerHTML = markdownLiteToHtml(message.content);
+        } else {
+          content.innerText = message.content;
+        }
+        item.appendChild(role);
+        item.appendChild(content);
+        target.appendChild(item);
+      });
+      target.scrollTop = target.scrollHeight;
+      renderMathNow(target);
+    }
+
+    function setMathConversationPending(panel, pending) {
+      panel.dataset.pending = pending ? "1" : "0";
+      panel._sendButton.disabled = pending;
+      panel._clearButton.disabled = pending;
+      panel._voiceButton.disabled = pending || !getMathSpeechRecognitionConstructor();
+    }
+
+    async function askMathStepConversation(stepElement, panel, input) {
+      if (!stepElement || !panel || panel.dataset.pending === "1") {
+        return;
+      }
+      var question = input.value.trim();
+      var status = panel._statusElement;
+      if (!question) {
+        status.classList.add("is-error");
+        status.innerText = "请先口述或输入问题";
+        input.focus();
+        return;
+      }
+      stopMathVoiceRecognition(true);
+      var conversationId = panel.dataset.conversationId;
+      var previousHistory = getMathStepConversation(conversationId).map(function(message) {
+        return { role: message.role, content: message.content };
+      });
+      var context = getMathStepContext(stepElement, panel, question);
+      context.conversationHistory = previousHistory;
+      appendMathConversationMessage(conversationId, "user", question);
+      input.value = "";
+      renderMathStepConversation(panel._historyElement, conversationId);
+      setMathConversationPending(panel, true);
+      status.classList.remove("is-error");
+      status.innerText = "AI 正在结合当前数学步骤回答...";
+
+      try {
+        var response = await fetch("/api/step-ai", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(context)
+        });
+        var data = await response.json();
+        if (!response.ok || !data.ok) {
+          throw new Error(data.error || "请求失败");
+        }
+        appendMathConversationMessage(conversationId, "assistant", data.answer);
+        incrementMathStudentState(context.problemId, context.stepId);
+        renderMathStepConversation(panel._historyElement, conversationId);
+        status.innerText = "可以继续口述或输入追问";
+      } catch (error) {
+        removeLastMathConversationMessage(conversationId, "user", question);
+        renderMathStepConversation(panel._historyElement, conversationId);
+        input.value = question;
+        status.classList.add("is-error");
+        status.innerText = "暂时无法回答，问题已保留。错误：" + error.message;
+      } finally {
+        setMathConversationPending(panel, false);
+      }
+    }
+
+    function getMathStepContext(stepElement, panel, question) {
+      var model = panel.dataset.model || activeModel;
+      var notes = document.querySelector('.math-notes[data-model="' + model + '"]');
+      var view = document.querySelector('.math-view[data-model="' + model + '"]');
+      var questionBlock = notes ? notes.querySelector(".problem-note-block") : null;
+      var titleElement = questionBlock ? questionBlock.querySelector("h2") : null;
+      var questionParagraphs = questionBlock ? Array.prototype.slice.call(questionBlock.querySelectorAll("p")).filter(function(p) {
+        return !p.classList.contains("problem-note-kicker");
+      }) : [];
+      var steps = notes ? Array.prototype.map.call(notes.querySelectorAll(".problem-note-block .step-list > li"), function(li) {
+        return liTextWithoutConversation(li);
+      }) : [];
+      var stepIndex = Number(panel.dataset.stepIndex || "0");
+      return {
+        assistantSubject: "math",
+        problemId: model,
+        problemTitle: titleElement ? titleElement.innerText.trim() : model,
+        problemQuestion: questionParagraphs.map(function(p) { return p.innerText.trim(); }).join("\n"),
+        referenceAnswer: collectMathReferenceAnswer(notes),
+        solutionSteps: steps,
+        stepId: String(stepIndex + 1),
+        stepTitle: stepStepTitle(stepElement, stepIndex),
+        stepContent: liTextWithoutConversation(stepElement),
+        previousSteps: steps.slice(0, stepIndex),
+        knowledge: collectMathKnowledge(view),
+        commonMistakes: [],
+        animationState: collectMathAnimationState(model, view),
+        studentState: getMathStudentState(model, String(stepIndex + 1)),
+        intent: "conversation",
+        userQuestion: question
+      };
+    }
+
+    function liTextWithoutConversation(element) {
+      if (!element) {
+        return "";
+      }
+      var clone = element.cloneNode(true);
+      clone.querySelectorAll(".step-conversation").forEach(function(node) {
+        node.remove();
+      });
+      return clone.innerText.trim();
+    }
+
+    function stepStepTitle(stepElement, stepIndex) {
+      var strong = stepElement ? stepElement.querySelector("strong") : null;
+      if (strong) {
+        return strong.innerText.replace(/：$/, "").trim();
+      }
+      return "第 " + String(stepIndex + 1) + " 步";
+    }
+
+    function collectMathReferenceAnswer(notes) {
+      if (!notes) {
+        return "";
+      }
+      var details = Array.prototype.find.call(notes.querySelectorAll("details.problem-note-block"), function(item) {
+        var summary = item.querySelector("summary");
+        return summary && summary.innerText.trim() === "近似题答案";
+      });
+      return details ? details.innerText.trim() : "";
+    }
+
+    function collectMathKnowledge(view) {
+      if (!view) {
+        return [];
+      }
+      return Array.prototype.map.call(view.querySelectorAll(".math-card h3"), function(item) {
+        return item.innerText.trim();
+      }).filter(Boolean);
+    }
+
+    function collectMathAnimationState(model, view) {
+      var values = {};
+      var controls = document.querySelector('.math-controls[data-model="' + model + '"]');
+      if (controls) {
+        controls.querySelectorAll("input, select").forEach(function(input) {
+          values[input.id || input.name] = input.value;
+        });
+      }
+      var metrics = {};
+      if (view) {
+        view.querySelectorAll(".metric").forEach(function(metric) {
+          var label = metric.querySelector("span");
+          var value = metric.querySelector("strong");
+          if (label && value) {
+            metrics[label.innerText.trim()] = value.innerText.trim();
+          }
+        });
+      }
+      return { scene: model, controls: values, metrics: metrics };
+    }
+
+    function getMathStudentState(model, stepId) {
+      var key = "fanmath_step_ai_" + model + "_" + stepId;
+      var count = Number(localStorage.getItem(key) || "0");
+      return { currentStepQuestionCount: count, status: count > 0 ? "提问中" : "未提问" };
+    }
+
+    function incrementMathStudentState(model, stepId) {
+      var key = "fanmath_step_ai_" + model + "_" + stepId;
+      var count = Number(localStorage.getItem(key) || "0") + 1;
+      localStorage.setItem(key, String(count));
+    }
+
+    function getMathSpeechRecognitionConstructor() {
+      return window.SpeechRecognition || window.webkitSpeechRecognition || null;
+    }
+
+    function startMathVoiceRecognition(input, button, status) {
+      var Recognition = getMathSpeechRecognitionConstructor();
+      if (!Recognition) {
+        status.classList.add("is-error");
+        status.innerText = "当前浏览器不支持口述，请直接输入问题";
+        return;
+      }
+      stopMathVoiceRecognition(true);
+      var recognition = new Recognition();
+      var initialText = input.value.trim();
+      var finalTranscript = "";
+      var recognitionError = "";
+      recognition.lang = "zh-CN";
+      recognition.interimResults = true;
+      recognition.continuous = false;
+      activeMathVoiceRecognition = recognition;
+      activeMathVoiceButton = button;
+      button.classList.add("is-listening");
+      button.innerText = "停止口述";
+      status.classList.remove("is-error");
+      status.innerText = "正在听，请说出你的问题...";
+
+      recognition.onresult = function(event) {
+        var interim = "";
+        finalTranscript = "";
+        for (var i = 0; i < event.results.length; i += 1) {
+          var transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            finalTranscript += transcript;
+          } else {
+            interim += transcript;
+          }
+        }
+        input.value = [initialText, finalTranscript || interim].filter(Boolean).join(initialText ? "\n" : "");
+      };
+      recognition.onerror = function(event) {
+        recognitionError = event.error || "语音识别失败";
+      };
+      recognition.onend = function() {
+        button.classList.remove("is-listening");
+        button.innerText = "口述提问";
+        if (activeMathVoiceRecognition === recognition) {
+          activeMathVoiceRecognition = null;
+          activeMathVoiceButton = null;
+        }
+        if (recognitionError) {
+          status.classList.add("is-error");
+          status.innerText = "口述失败：" + recognitionError + "。可以直接输入问题。";
+        } else {
+          status.classList.remove("is-error");
+          status.innerText = input.value.trim() ? "已填入口述内容，可修改后发送" : "没有听到清晰语音，可以再试一次";
+        }
+      };
+      try {
+        recognition.start();
+      } catch (error) {
+        status.classList.add("is-error");
+        status.innerText = "无法启动口述：" + error.message;
+      }
+    }
+
+    function stopMathVoiceRecognition(silent) {
+      if (!activeMathVoiceRecognition) {
+        return;
+      }
+      var recognition = activeMathVoiceRecognition;
+      var button = activeMathVoiceButton;
+      activeMathVoiceRecognition = null;
+      activeMathVoiceButton = null;
+      if (button) {
+        button.classList.remove("is-listening");
+        button.innerText = "口述提问";
+      }
+      try {
+        recognition.stop();
+      } catch (error) {
+        if (!silent) console.warn("Speech recognition stop failed", error);
+      }
+    }
+
+    function markdownLiteToHtml(text) {
+      var placeholders = [];
+      var protectedText = String(text || "").replace(/\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\)/g, function(match) {
+        var token = "@@MATH" + placeholders.length + "@@";
+        placeholders.push(match);
+        return token;
+      });
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      function restoreMath(value) {
+        return value.replace(/@@MATH(\d+)@@/g, function(_, index) {
+          return placeholders[Number(index)] || "";
+        });
+      }
+
+      function renderInline(value) {
+        var escaped = escapeHtml(value);
+        escaped = escaped.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+        return restoreMath(escaped);
+      }
+
+      return protectedText.split(/\n{2,}/).map(function(part) {
+        var lines = part.split("\n");
+        var isList = lines.length > 0 && lines.every(function(line) {
+          return /^\s*[-*]\s+/.test(line);
+        });
+        if (isList) {
+          return "<ul>" + lines.map(function(line) {
+            return "<li>" + renderInline(line.replace(/^\s*[-*]\s+/, "")) + "</li>";
+          }).join("") + "</ul>";
+        }
+        return "<p>" + lines.map(renderInline).join("<br>") + "</p>";
+      }).join("");
+    }
+
     function bindControls() {
       modelButtons = Array.prototype.slice.call(document.querySelectorAll("[data-model-nav]"));
       modelPanels = Array.prototype.slice.call(document.querySelectorAll("[data-model]"));
@@ -3472,6 +3980,7 @@
     window.addEventListener("load", function() {
       bindControls();
       ensureBoard("projection");
+      ensureMathAiForModel("projection");
       typesetCurrentModelOnce();
     });
   </script>
