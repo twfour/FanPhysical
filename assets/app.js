@@ -2,7 +2,6 @@ var currentScene = "home";
 var mathRenderedSceneMap = {};
 var mathRenderingSceneMap = {};
 var favoriteProblemStorageKey = "fanphysics:favoritedProblems";
-var stepConversationChapter = "机械能守恒定律";
 var stepConversationStorageKey = "fanphysics:stepConversations:v1";
 var stepConversationState = {};
 var stepConversationStateLoaded = false;
@@ -1215,12 +1214,12 @@ function enhanceProblemNotes() {
         toggle.onclick = function () {
           var collapsed = block.classList.toggle("is-collapsed");
           toggle.innerText = collapsed ? "展开" : "收起";
+          if (!collapsed && isAnalysisNoteBlock(block)) {
+            addStepAiButtons(body, sceneName);
+          }
           renderMath(block);
         };
         block.appendChild(toggle);
-        if (isAnalysisNoteBlock(block)) {
-          addStepAiButtons(body, sceneName);
-        }
       }
       block.appendChild(body);
     });
@@ -1240,43 +1239,7 @@ function isAnalysisNoteBlock(block) {
 }
 
 function addStepAiButtons(body, sceneName) {
-  if (supportsStepConversation(sceneName)) {
-    addStepConversationPanels(body, sceneName);
-    return;
-  }
-  var paragraphs = getStepAiParagraphs(body);
-  paragraphs.forEach(function (paragraph, paragraphIndex) {
-    if (paragraph.nextElementSibling && paragraph.nextElementSibling.classList.contains("step-ai-tools")) {
-      return;
-    }
-    var tools = document.createElement("div");
-    tools.className = "step-ai-tools";
-    [
-      [
-        "explain",
-        "AI 解析",
-        "学生已经看过解析，但是还是没懂。请把这一步当成第一次教高中学生，从基础开始一步一步解释，不要机械重复原解析。"
-      ]
-    ].forEach(function (item) {
-      var button = document.createElement("button");
-      button.type = "button";
-      button.className = "step-ai-button";
-      button.innerText = item[1];
-      button.onclick = function () {
-        askStepAi(paragraph, item[2], item[0], paragraphIndex);
-      };
-      tools.appendChild(button);
-    });
-    var response = document.createElement("div");
-    response.className = "step-ai-response";
-    tools.appendChild(response);
-    paragraph.insertAdjacentElement("afterend", tools);
-  });
-}
-
-function supportsStepConversation(sceneName) {
-  var problem = problemDataMap[sceneName];
-  return Boolean(problem && problem.chapter === stepConversationChapter);
+  addStepConversationPanels(body, sceneName);
 }
 
 function addStepConversationPanels(body, sceneName) {
@@ -4428,22 +4391,6 @@ function getAnimationState(sceneName) {
   return state;
 }
 
-function getOrCreateStepResponse(paragraph) {
-  var tools = paragraph.nextElementSibling;
-  if (tools && tools.classList.contains("step-ai-tools")) {
-    return tools.querySelector(".step-ai-response");
-  }
-  return null;
-}
-
-function renderStepAiAnswer(target, text) {
-  if (!target) {
-    return;
-  }
-  target.innerHTML = "<p class=\"step-ai-title\">AI 解释</p>" + markdownLiteToHtml(text);
-  renderMath(target);
-}
-
 function markdownLiteInlineToHtml(text) {
   var placeholders = [];
   var protectedText = String(text || "").replace(/\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\)/g, function (match) {
@@ -4511,49 +4458,6 @@ function markdownLiteToHtml(text) {
     }
     return "<p>" + lines.map(renderInline).join("<br>") + "</p>";
   }).join("");
-}
-
-function renderStepAiError(target, message) {
-  if (!target) {
-    return;
-  }
-  target.innerHTML = "<p class=\"step-ai-title\">AI 暂时不可用</p><p>" + message + "</p>";
-}
-
-async function askStepAi(paragraph, prompt, intent, fallbackStepIndex) {
-  if (!paragraph) {
-    return;
-  }
-  var block = paragraph.closest(".problem-note-block");
-  if (block && block.classList.contains("is-collapsed")) {
-    block.classList.remove("is-collapsed");
-    var toggle = block.querySelector(".note-toggle");
-    if (toggle) {
-      toggle.innerText = "收起";
-    }
-  }
-  var context = getStepContext(paragraph, prompt, intent, fallbackStepIndex);
-  var target = getOrCreateStepResponse(paragraph);
-  if (target) {
-    target.classList.add("is-open");
-    target.innerHTML = "<p class=\"step-ai-title\">AI 正在看这一小步...</p>";
-  }
-
-  try {
-    var response = await fetch("/api/step-ai", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(context)
-    });
-    var data = await response.json();
-    if (!response.ok || !data.ok) {
-      throw new Error(data.error || "请求失败");
-    }
-    incrementStudentState(context.problemId, context.stepId);
-    renderStepAiAnswer(target, data.answer);
-  } catch (error) {
-    renderStepAiError(target, "请确认已通过 server.py 运行，并设置 DEEPSEEK_API_KEY。错误：" + error.message);
-  }
 }
 
 function renderMath(root) {

@@ -917,81 +917,6 @@ button.action:hover {
   margin: 8px 0 16px;
 }
 
-.step-ai-button {
-  display: inline-flex;
-  align-items: center;
-  min-height: 30px;
-  margin: 0;
-  border: 1px solid rgba(139, 92, 246, 0.28);
-  border-radius: 8px;
-  background: #faf5ff;
-  color: #6d28d9;
-  padding: 0 10px;
-  font-family: inherit;
-  font-size: 12px;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.step-ai-button:hover {
-  border-color: var(--ai);
-  background: #f5f3ff;
-}
-
-.step-ai-response {
-  display: none;
-  flex-basis: 100%;
-  min-width: 0;
-  max-width: 100%;
-  border: 1px solid rgba(139, 92, 246, 0.24);
-  border-radius: 8px;
-  background: #fff;
-  padding: 12px 14px;
-  box-shadow: 0 12px 28px rgba(109, 40, 217, 0.08);
-  overflow-x: auto;
-  overflow-y: visible;
-  overflow-wrap: anywhere;
-}
-
-.step-ai-response.is-open {
-  display: block;
-}
-
-.step-ai-response p {
-  margin: 0 0 10px;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.75;
-}
-
-.step-ai-response ul {
-  margin: 0 0 10px 18px;
-  padding: 0;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.75;
-}
-
-.step-ai-response strong {
-  color: var(--ink);
-}
-
-.step-ai-response p:last-child {
-  margin-bottom: 0;
-}
-
-.step-ai-response .step-ai-title {
-  color: #5b21b6;
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.step-ai-response .step-ai-subtitle {
-  color: var(--ink);
-  font-size: 15px;
-  font-weight: 900;
-}
-
 .step-conversation {
   display: block;
   width: 100%;
@@ -1090,6 +1015,11 @@ button.action:hover {
 .step-conversation-content p:last-child,
 .step-conversation-content ul:last-child {
   margin-bottom: 0;
+}
+
+.step-conversation-content .step-ai-subtitle {
+  color: #312e81;
+  font-weight: 900;
 }
 
 .step-conversation-composer {
