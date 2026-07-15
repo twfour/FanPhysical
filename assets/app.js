@@ -2,6 +2,15 @@ var currentScene = "home";
 var mathRenderedSceneMap = {};
 var mathRenderingSceneMap = {};
 var favoriteProblemStorageKey = "fanphysics:favoritedProblems";
+var stepConversationSceneMap = {
+  lesson12_course_01_reference_plane: true
+};
+var stepConversationStorageKey = "fanphysics:stepConversations:v1";
+var stepConversationState = {};
+var stepConversationStateLoaded = false;
+var activeStepVoiceRecognition = null;
+var activeStepVoiceButton = null;
+var activeStepVoiceStatus = null;
 var modelSourceMap = {
   doubleThrow: {
     title: "2026春季班 / 竖直上抛运动",
@@ -375,6 +384,7 @@ function setup() {
   var cnv = createCanvas(canvasW, canvasH);
   cnv.parent("canvas-holder");
   textFont('"Noto Sans SC", "Microsoft YaHei", sans-serif');
+  loadStepConversationState();
   if (drawingContext) {
     drawingContext.fontKerning = "normal";
     drawingContext.textRendering = "geometricPrecision";
@@ -584,6 +594,9 @@ function drawAnimScene(sceneDrawer) {
 }
 
 function switchScene(sceneName) {
+  if (currentScene !== sceneName) {
+    stopStepVoiceRecognition(true);
+  }
   currentScene = sceneName;
 
   document.getElementById("treeHome").className = sceneName === "home" ? "tree-item active" : "tree-item";
@@ -1208,7 +1221,7 @@ function enhanceProblemNotes() {
         };
         block.appendChild(toggle);
         if (isAnalysisNoteBlock(block)) {
-          addStepAiButtons(body);
+          addStepAiButtons(body, sceneName);
         }
       }
       block.appendChild(body);
@@ -1228,7 +1241,11 @@ function isAnalysisNoteBlock(block) {
   return kicker && kicker.innerText.trim() === "解析";
 }
 
-function addStepAiButtons(body) {
+function addStepAiButtons(body, sceneName) {
+  if (stepConversationSceneMap[sceneName]) {
+    addStepConversationPanels(body, sceneName);
+    return;
+  }
   var paragraphs = getStepAiParagraphs(body);
   paragraphs.forEach(function (paragraph, paragraphIndex) {
     if (paragraph.nextElementSibling && paragraph.nextElementSibling.classList.contains("step-ai-tools")) {
@@ -1240,7 +1257,7 @@ function addStepAiButtons(body) {
       [
         "explain",
         "AI 解析",
-        "学生已经看过解析，但是还是没懂。请把这一步当成第一次教初中学生，不要出现专业术语，从基础开始一步一步解释，不要重复解析的内容。"
+        "学生已经看过解析，但是还是没懂。请把这一步当成第一次教高中学生，从基础开始一步一步解释，不要机械重复原解析。"
       ]
     ].forEach(function (item) {
       var button = document.createElement("button");
@@ -1257,6 +1274,361 @@ function addStepAiButtons(body) {
     tools.appendChild(response);
     paragraph.insertAdjacentElement("afterend", tools);
   });
+}
+
+function addStepConversationPanels(body, sceneName) {
+  var paragraphs = getStepAiParagraphs(body);
+  paragraphs.forEach(function (paragraph, paragraphIndex) {
+    if (paragraph.nextElementSibling && paragraph.nextElementSibling.classList.contains("step-conversation")) {
+      return;
+    }
+    var analysisStep = paragraph.closest(".analysis-step");
+    var stepIndex = analysisStep && analysisStep.dataset.stepIndex !== undefined
+      ? Number(analysisStep.dataset.stepIndex)
+      : paragraphIndex;
+    var conversationId = sceneName + ":" + String(stepIndex + 1);
+    var panel = document.createElement("section");
+    panel.className = "step-ai-tools step-conversation";
+    panel.dataset.conversationId = conversationId;
+
+    var header = document.createElement("div");
+    header.className = "step-conversation-header";
+    var title = document.createElement("strong");
+    title.innerText = "针对本步骤提问";
+    var clearButton = document.createElement("button");
+    clearButton.type = "button";
+    clearButton.className = "step-conversation-clear";
+    clearButton.innerText = "清空对话";
+    header.appendChild(title);
+    header.appendChild(clearButton);
+    panel.appendChild(header);
+
+    var history = document.createElement("div");
+    history.className = "step-conversation-history";
+    history.setAttribute("aria-live", "polite");
+    panel.appendChild(history);
+
+    var composer = document.createElement("div");
+    composer.className = "step-conversation-composer";
+    var input = document.createElement("textarea");
+    input.className = "step-conversation-input";
+    input.rows = 2;
+    input.maxLength = 1200;
+    input.placeholder = "口述或输入对这一步的疑问";
+    input.setAttribute("aria-label", "本步骤的问题");
+    var voiceButton = document.createElement("button");
+    voiceButton.type = "button";
+    voiceButton.className = "step-conversation-voice";
+    voiceButton.innerText = "口述提问";
+    voiceButton.title = "使用麦克风输入问题";
+    var sendButton = document.createElement("button");
+    sendButton.type = "button";
+    sendButton.className = "step-conversation-send";
+    sendButton.innerText = "发送";
+    composer.appendChild(input);
+    composer.appendChild(voiceButton);
+    composer.appendChild(sendButton);
+    panel.appendChild(composer);
+
+    var status = document.createElement("p");
+    status.className = "step-conversation-status";
+    status.setAttribute("aria-live", "polite");
+    status.innerText = getSpeechRecognitionConstructor()
+      ? "口述内容会先填入输入框，可修改后发送"
+      : "当前浏览器不支持口述，可直接输入问题";
+    panel.appendChild(status);
+
+    voiceButton.disabled = !getSpeechRecognitionConstructor();
+    voiceButton.onclick = function () {
+      if (activeStepVoiceButton === voiceButton) {
+        stopStepVoiceRecognition(false);
+        return;
+      }
+      startStepVoiceRecognition(input, voiceButton, status);
+    };
+    sendButton.onclick = function () {
+      askStepConversation(paragraph, panel, input, paragraphIndex, sceneName);
+    };
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
+        event.preventDefault();
+        askStepConversation(paragraph, panel, input, paragraphIndex, sceneName);
+      }
+    });
+    clearButton.onclick = function () {
+      if (panel.dataset.pending === "1") {
+        return;
+      }
+      stepConversationState[conversationId] = [];
+      saveStepConversationState();
+      renderStepConversation(history, conversationId);
+      status.classList.remove("is-error");
+      status.innerText = "对话已清空，可以重新提问";
+    };
+
+    panel._historyElement = history;
+    panel._voiceButton = voiceButton;
+    panel._sendButton = sendButton;
+    panel._clearButton = clearButton;
+    panel._statusElement = status;
+    renderStepConversation(history, conversationId);
+    paragraph.insertAdjacentElement("afterend", panel);
+  });
+}
+
+function loadStepConversationState() {
+  if (stepConversationStateLoaded) {
+    return;
+  }
+  stepConversationStateLoaded = true;
+  try {
+    var saved = window.sessionStorage.getItem(stepConversationStorageKey);
+    var parsed = saved ? JSON.parse(saved) : {};
+    stepConversationState = parsed && typeof parsed === "object" ? parsed : {};
+  } catch (error) {
+    stepConversationState = {};
+  }
+}
+
+function saveStepConversationState() {
+  try {
+    window.sessionStorage.setItem(stepConversationStorageKey, JSON.stringify(stepConversationState));
+  } catch (error) {
+    return;
+  }
+}
+
+function getStepConversation(conversationId) {
+  loadStepConversationState();
+  var history = stepConversationState[conversationId];
+  return Array.isArray(history) ? history : [];
+}
+
+function trimStepConversation(history) {
+  var trimmed = history.slice(-12);
+  while (trimmed.length && trimmed[0].role !== "user") {
+    trimmed.shift();
+  }
+  return trimmed;
+}
+
+function appendStepConversationMessage(conversationId, role, content) {
+  var history = getStepConversation(conversationId).slice();
+  history.push({ role: role, content: content });
+  stepConversationState[conversationId] = trimStepConversation(history);
+  saveStepConversationState();
+}
+
+function removeLastStepConversationMessage(conversationId, role, content) {
+  var history = getStepConversation(conversationId).slice();
+  var last = history[history.length - 1];
+  if (last && last.role === role && last.content === content) {
+    history.pop();
+  }
+  stepConversationState[conversationId] = history;
+  saveStepConversationState();
+}
+
+function renderStepConversation(target, conversationId) {
+  if (!target) {
+    return;
+  }
+  var history = getStepConversation(conversationId);
+  target.innerHTML = "";
+  if (!history.length) {
+    var empty = document.createElement("p");
+    empty.className = "step-conversation-empty";
+    empty.innerText = "还没有提问。你可以围绕这一小步连续追问。";
+    target.appendChild(empty);
+    return;
+  }
+  history.forEach(function (message) {
+    var item = document.createElement("div");
+    item.className = "step-conversation-message is-" + message.role;
+    var role = document.createElement("span");
+    role.className = "step-conversation-role";
+    role.innerText = message.role === "user" ? "你" : "AI";
+    var content = document.createElement("div");
+    content.className = "step-conversation-content";
+    if (message.role === "assistant") {
+      content.innerHTML = markdownLiteToHtml(message.content);
+    } else {
+      content.innerText = message.content;
+    }
+    item.appendChild(role);
+    item.appendChild(content);
+    target.appendChild(item);
+  });
+  target.scrollTop = target.scrollHeight;
+  renderMath(target);
+}
+
+function setStepConversationPending(panel, pending) {
+  panel.dataset.pending = pending ? "1" : "0";
+  panel._sendButton.disabled = pending;
+  panel._clearButton.disabled = pending;
+  panel._voiceButton.disabled = pending || !getSpeechRecognitionConstructor();
+}
+
+async function askStepConversation(paragraph, panel, input, fallbackStepIndex, sceneName) {
+  if (!paragraph || !panel || panel.dataset.pending === "1") {
+    return;
+  }
+  var question = input.value.trim();
+  var status = panel._statusElement;
+  if (!question) {
+    status.classList.add("is-error");
+    status.innerText = "请先口述或输入问题";
+    input.focus();
+    return;
+  }
+  stopStepVoiceRecognition(true);
+  var conversationId = panel.dataset.conversationId;
+  var previousHistory = getStepConversation(conversationId).map(function (message) {
+    return { role: message.role, content: message.content };
+  });
+  var context = getStepContext(paragraph, question, "conversation", fallbackStepIndex);
+  context.conversationHistory = previousHistory;
+  appendStepConversationMessage(conversationId, "user", question);
+  input.value = "";
+  renderStepConversation(panel._historyElement, conversationId);
+  setStepConversationPending(panel, true);
+  status.classList.remove("is-error");
+  status.innerText = "AI 正在结合当前步骤回答...";
+
+  try {
+    var response = await fetch("/api/step-ai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(context)
+    });
+    var data = await response.json();
+    if (!response.ok || !data.ok) {
+      throw new Error(data.error || "请求失败");
+    }
+    appendStepConversationMessage(conversationId, "assistant", data.answer);
+    incrementStudentState(sceneName, context.stepId);
+    renderStepConversation(panel._historyElement, conversationId);
+    status.innerText = "可以继续口述或输入追问";
+  } catch (error) {
+    removeLastStepConversationMessage(conversationId, "user", question);
+    renderStepConversation(panel._historyElement, conversationId);
+    input.value = question;
+    status.classList.add("is-error");
+    status.innerText = "暂时无法回答，问题已保留。错误：" + error.message;
+  } finally {
+    setStepConversationPending(panel, false);
+  }
+}
+
+function getSpeechRecognitionConstructor() {
+  return window.SpeechRecognition || window.webkitSpeechRecognition || null;
+}
+
+function startStepVoiceRecognition(input, button, status) {
+  var Recognition = getSpeechRecognitionConstructor();
+  if (!Recognition) {
+    status.classList.add("is-error");
+    status.innerText = "当前浏览器不支持口述，请直接输入问题";
+    return;
+  }
+  stopStepVoiceRecognition(true);
+  var recognition = new Recognition();
+  var initialText = input.value.trim();
+  var finalTranscript = "";
+  var recognitionError = "";
+  recognition.lang = "zh-CN";
+  recognition.continuous = false;
+  recognition.interimResults = true;
+  recognition.maxAlternatives = 1;
+  activeStepVoiceRecognition = recognition;
+  activeStepVoiceButton = button;
+  activeStepVoiceStatus = status;
+  button.classList.add("is-listening");
+  button.innerText = "停止录音";
+  status.classList.remove("is-error");
+  status.innerText = "正在聆听，请说出问题...";
+
+  recognition.onresult = function (event) {
+    var interimTranscript = "";
+    for (var i = event.resultIndex; i < event.results.length; i += 1) {
+      var transcript = event.results[i][0].transcript;
+      if (event.results[i].isFinal) {
+        finalTranscript += transcript;
+      } else {
+        interimTranscript += transcript;
+      }
+    }
+    input.value = [initialText, finalTranscript + interimTranscript].filter(Boolean).join(" ");
+  };
+  recognition.onerror = function (event) {
+    var messages = {
+      "not-allowed": "没有获得麦克风权限",
+      "audio-capture": "没有检测到可用麦克风",
+      "no-speech": "没有听到清晰语音",
+      network: "语音识别网络不可用",
+      aborted: "录音已停止"
+    };
+    recognitionError = messages[event.error] || "语音识别失败";
+    if (event.error !== "aborted") {
+      status.classList.add("is-error");
+    }
+    status.innerText = recognitionError;
+  };
+  recognition.onend = function () {
+    if (activeStepVoiceRecognition === recognition) {
+      activeStepVoiceRecognition = null;
+      activeStepVoiceButton = null;
+      activeStepVoiceStatus = null;
+    }
+    button.classList.remove("is-listening");
+    button.innerText = "口述提问";
+    if (!recognitionError) {
+      status.innerText = input.value.trim()
+        ? "识别完成，可修改后发送"
+        : "没有识别到内容，请再试一次";
+    }
+  };
+  try {
+    recognition.start();
+  } catch (error) {
+    stopStepVoiceRecognition(true);
+    status.classList.add("is-error");
+    status.innerText = "无法启动麦克风：" + error.message;
+  }
+}
+
+function stopStepVoiceRecognition(abortRecognition) {
+  var recognition = activeStepVoiceRecognition;
+  var button = activeStepVoiceButton;
+  var status = activeStepVoiceStatus;
+  if (!recognition) {
+    return;
+  }
+  activeStepVoiceRecognition = null;
+  activeStepVoiceButton = null;
+  activeStepVoiceStatus = null;
+  try {
+    if (abortRecognition) {
+      recognition.onresult = null;
+      recognition.onerror = null;
+      recognition.onend = null;
+      recognition.abort();
+    } else {
+      recognition.stop();
+    }
+  } catch (error) {
+    return;
+  } finally {
+    if (button) {
+      button.classList.remove("is-listening");
+      button.innerText = "口述提问";
+    }
+    if (status && !abortRecognition) {
+      status.classList.remove("is-error");
+      status.innerText = "录音已停止，可修改后发送";
+    }
+  }
 }
 
 function getStepAiParagraphs(body) {
@@ -1316,6 +1688,13 @@ function getStepContext(paragraph, prompt, intent, fallbackStepIndex) {
   return {
     problemId: currentScene,
     problemTitle: (problemData && problemData.title) || source.title || currentScene,
+    problemQuestion: (problemData && problemData.question) || "",
+    referenceAnswer: (problemData && problemData.answer) || "",
+    solutionSteps: problemData && Array.isArray(problemData.steps)
+      ? problemData.steps.map(function (item) {
+        return { title: item.title || "", content: item.content || "" };
+      })
+      : [],
     stepId: isAnalysisOverview ? "analysis" : stepIndex + 1,
     stepTitle: stepTitle || "当前步骤",
     stepContent: (dataStep && dataStep.content) || (isAnalysisOverview && problemData.analysis.content) || (paragraph ? paragraph.innerText : ""),

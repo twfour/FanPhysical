@@ -37,6 +37,8 @@ DEEPSEEK_API_URL = os.environ.get(
 )
 DEEPSEEK_MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash")
 MAX_BODY_BYTES = 120_000
+MAX_CONVERSATION_MESSAGES = 12
+MAX_CONVERSATION_MESSAGE_CHARS = 4_000
 
 
 def json_response(handler, status, payload):
@@ -48,10 +50,33 @@ def json_response(handler, status, payload):
     handler.wfile.write(body)
 
 
+def normalize_conversation_history(payload):
+    raw_history = payload.get("conversationHistory", [])
+    if not isinstance(raw_history, list):
+        return []
+    history = []
+    for item in raw_history[-MAX_CONVERSATION_MESSAGES:]:
+        if not isinstance(item, dict):
+            continue
+        role = item.get("role")
+        content = item.get("content")
+        if role not in {"user", "assistant"} or not isinstance(content, str):
+            continue
+        content = content.strip()[:MAX_CONVERSATION_MESSAGE_CHARS]
+        if content:
+            history.append({"role": role, "content": content})
+    while history and history[0]["role"] != "user":
+        history.pop(0)
+    return history
+
+
 def build_step_ai_messages(payload):
     context = {
         "problemId": payload.get("problemId"),
         "problemTitle": payload.get("problemTitle"),
+        "problemQuestion": payload.get("problemQuestion"),
+        "referenceAnswer": payload.get("referenceAnswer"),
+        "solutionSteps": payload.get("solutionSteps", []),
         "stepId": payload.get("stepId"),
         "stepTitle": payload.get("stepTitle"),
         "stepContent": payload.get("stepContent"),
@@ -61,27 +86,31 @@ def build_step_ai_messages(payload):
         "animationState": payload.get("animationState") or {},
         "studentState": payload.get("studentState") or {},
         "intent": payload.get("intent"),
-        "userQuestion": payload.get("userQuestion"),
     }
+    history = normalize_conversation_history(payload)
+    user_question = payload.get("userQuestion")
+    if not isinstance(user_question, str) or not user_question.strip():
+        user_question = "请解释当前步骤。"
+    user_question = user_question.strip()[:MAX_CONVERSATION_MESSAGE_CHARS]
     system = (
-        "你是 FanPhysics 的步骤级初中物理 AI 助教。"
-        "只解释当前步骤，不重写整题；优先用初中生能懂的话。"
-        "回答要短、具体、贴合动画状态和前置步骤，通常控制在 3 到 6 句话。"
+        "你是 FanPhysics 的步骤级高中物理 AI 助教。"
+        "只围绕当前题目和当前步骤回答，不重写整题；用高中生容易理解的语言。"
+        "如果提供了历史对话，要承接学生上一轮的问题和你的回答，直接回答新的追问。"
+        "回答要具体、贴合动画状态和前置步骤，通常控制在 3 到 8 句话。"
         "如果有 animationState，要引用这一帧的时间、速度、位置等信息解释。"
         "所有物理公式都必须使用 LaTeX：行内公式用 \\(...\\)，独立公式用 \\[...\\]。"
         "不要把公式写成纯文本，例如要写 \\(s=vt\\)，不要写 s=vt。"
         "不要编造题目没有给出的数值；不确定时说明需要看图或参数。"
-    )
-    user = (
-        "请基于下面 JSON 上下文回答学生问题。"
-        "输出 Markdown，建议包含：核心解释、为什么不是别的做法、下一步该看什么。"
-        "涉及公式时必须使用 LaTeX。\n\n"
+        "严格遵守 referenceAnswer 和 solutionSteps 中的定义与符号约定，尤其要区分势能差的大小与"
+        "势能变化量 \\(\\Delta E_p=E_{p,\\text{末}}-E_{p,\\text{初}}\\)。"
+        "只输出文字 Markdown 和 LaTeX，不生成朗读稿或音频说明。"
+        "\n\n当前题目和步骤上下文（JSON）：\n"
         + json.dumps(context, ensure_ascii=False)
     )
-    return [
-        {"role": "system", "content": system},
-        {"role": "user", "content": user},
-    ]
+    messages = [{"role": "system", "content": system}]
+    messages.extend(history)
+    messages.append({"role": "user", "content": user_question})
+    return messages
 
 
 def call_deepseek(payload):
