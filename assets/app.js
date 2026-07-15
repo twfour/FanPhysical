@@ -2,9 +2,7 @@ var currentScene = "home";
 var mathRenderedSceneMap = {};
 var mathRenderingSceneMap = {};
 var favoriteProblemStorageKey = "fanphysics:favoritedProblems";
-var stepConversationSceneMap = {
-  lesson12_course_01_reference_plane: true
-};
+var stepConversationChapter = "机械能守恒定律";
 var stepConversationStorageKey = "fanphysics:stepConversations:v1";
 var stepConversationState = {};
 var stepConversationStateLoaded = false;
@@ -1242,7 +1240,7 @@ function isAnalysisNoteBlock(block) {
 }
 
 function addStepAiButtons(body, sceneName) {
-  if (stepConversationSceneMap[sceneName]) {
+  if (supportsStepConversation(sceneName)) {
     addStepConversationPanels(body, sceneName);
     return;
   }
@@ -1274,6 +1272,11 @@ function addStepAiButtons(body, sceneName) {
     tools.appendChild(response);
     paragraph.insertAdjacentElement("afterend", tools);
   });
+}
+
+function supportsStepConversation(sceneName) {
+  var problem = problemDataMap[sceneName];
+  return Boolean(problem && problem.chapter === stepConversationChapter);
 }
 
 function addStepConversationPanels(body, sceneName) {
