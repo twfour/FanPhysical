@@ -830,21 +830,7 @@ function createProblemAnalysisBlock(problem) {
   var presentation = problem.analysisPresentation || {};
   var content = problem.analysis && problem.analysis.content ? problem.analysis.content.trim() : "";
   var analysisItems = optionAnalyses.length
-    ? optionAnalyses.map(function (item) {
-      var optionLabel = String(item.option || item.label || "").replace(/[．、.：:]+$/, "");
-      var itemContent = item.content || [
-        "**解题思路**",
-        item.thinking || "先判断该选项对应的物理过程与守恒条件。",
-        "**对应公式**",
-        item.formula || "根据题意选择相应的物理关系式。"
-      ].join("\n\n");
-      return {
-        title: "选项 " + optionLabel + (item.title ? "：" + item.title : ""),
-        content: itemContent,
-        knowledge: item.knowledge || [],
-        commonMistakes: item.commonMistakes || []
-      };
-    })
+    ? optionAnalyses.map(normalizeProblemOptionAnalysis)
     : steps;
   var collapseEachStep = presentation.collapseEachStep === true || optionAnalyses.length > 0;
   if (content && !analysisItems.length) {
@@ -880,6 +866,26 @@ function createProblemAnalysisBlock(problem) {
   }
   appendMarkdownChildren(block, content || (problem.summary && problem.summary.content) || "这道题的解析还需要补充。");
   return block;
+}
+
+function normalizeProblemOptionAnalysis(item, index) {
+  var optionLabel = String(item.option || item.label || index + 1).replace(/[．、.：:]+$/, "");
+  var contentParts = [
+    "**解题思路**",
+    item.thinking || "先判断该选项对应的物理过程与守恒条件。",
+    "**对应公式**",
+    item.formula || "根据题意选择相应的物理关系式。"
+  ];
+  var judgment = item.judgment || item.content || "";
+  if (judgment) {
+    contentParts.push("**选项判断**", judgment);
+  }
+  return {
+    title: "选项 " + optionLabel + (item.title ? "：" + item.title : ""),
+    content: contentParts.join("\n\n"),
+    knowledge: item.knowledge || [],
+    commonMistakes: item.commonMistakes || []
+  };
 }
 
 function createProblemPracticeBlock(problem) {
@@ -1701,10 +1707,16 @@ function getStepContext(paragraph, prompt, intent, fallbackStepIndex) {
     : (blockIndex > 0 ? blockIndex - 1 : (paragraph ? paragraphs.indexOf(paragraph) : fallbackStepIndex));
   var source = modelSourceMap[currentScene] || {};
   var problemData = problemDataMap[currentScene];
+  var optionAnalysisItems = problemData && Array.isArray(problemData.optionAnalyses)
+    ? problemData.optionAnalyses.map(normalizeProblemOptionAnalysis)
+    : [];
+  var problemAnalysisSteps = optionAnalysisItems.length
+    ? optionAnalysisItems
+    : (problemData && Array.isArray(problemData.steps) ? problemData.steps : []);
   var heading = block ? block.querySelector("h2") : null;
   var kicker = block ? block.querySelector(".problem-note-kicker") : null;
   var isAnalysisOverview = problemData && problemData.analysis && block && block.dataset.analysisBlock === "1" && !analysisStep;
-  var dataStep = !isAnalysisOverview && problemData && problemData.steps ? problemData.steps[stepIndex] : null;
+  var dataStep = !isAnalysisOverview ? problemAnalysisSteps[stepIndex] : null;
   var stepTitle = "";
   var strong = paragraph ? paragraph.querySelector("strong") : null;
   if (dataStep && dataStep.title) {
@@ -1722,16 +1734,16 @@ function getStepContext(paragraph, prompt, intent, fallbackStepIndex) {
     problemTitle: (problemData && problemData.title) || source.title || currentScene,
     problemQuestion: (problemData && problemData.question) || "",
     referenceAnswer: (problemData && problemData.answer) || "",
-    solutionSteps: problemData && Array.isArray(problemData.steps)
-      ? problemData.steps.map(function (item) {
+    solutionSteps: problemAnalysisSteps.length
+      ? problemAnalysisSteps.map(function (item) {
         return { title: item.title || "", content: item.content || "" };
       })
       : [],
     stepId: isAnalysisOverview ? "analysis" : stepIndex + 1,
     stepTitle: stepTitle || "当前步骤",
     stepContent: (dataStep && dataStep.content) || (isAnalysisOverview && problemData.analysis.content) || (paragraph ? paragraph.innerText : ""),
-    previousSteps: !isAnalysisOverview && problemData && problemData.steps
-      ? problemData.steps.slice(0, Math.max(stepIndex, 0)).map(function (item) {
+    previousSteps: !isAnalysisOverview && problemAnalysisSteps.length
+      ? problemAnalysisSteps.slice(0, Math.max(stepIndex, 0)).map(function (item) {
         return item.title + "：" + item.content;
       })
       : paragraphs.slice(0, Math.max(stepIndex, 0)).map(function (item) {
