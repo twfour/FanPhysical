@@ -105,10 +105,10 @@
     }
   ],
   "practice": {
-    "title": "近似题：变倾角与加速度",
-    "question": "质量 \\(m\\) 的物块沿倾角 \\(\\theta\\) 的光滑斜面，在拉力作用下以加速度 \\(a\\) 向上运动距离 \\(s\\)。求机械能增量。",
-    "answer": "\\(\\Delta E=\\Delta E_k+\\Delta E_p=mas+mgs\\sin\\theta=ms(a+g\\sin\\theta)\\)。",
-    "thinking": "机械能变化可直接分成动能增量和重力势能增量；光滑时也等于拉力做功。"
+    "title": "进阶近似题：斜拉粗糙斜面的能量账",
+    "question": "质量为 \\(m\\) 的物块沿倾角为 \\(\\theta\\) 的粗糙斜面向上运动，动摩擦因数为 \\(\\mu\\)。恒力 \\(F\\) 与斜面向上方向成 \\(\\beta\\) 角并斜向外拉物块，使物块以加速度 \\(a\\) 运动距离 \\(s\\)，且始终未离开斜面。（1）求支持力与摩擦力；（2）求拉力 \\(F\\)；（3）求动能、重力势能和机械能的变化；（4）求摩擦生热，并验证机械能变化等于非保守力做功。",
+    "answer": "**1. 垂直斜面方向**\n\n\\[N=mg\\cos\\theta-F\\sin\\beta,\\qquad f=\\mu N\\]\n\n**2. 沿斜面列动力学方程**\n\n\\[F\\cos\\beta-mg\\sin\\theta-\\mu N=ma\\]\n\n整理得\n\n\\[F=\\frac{m[a+g(\\sin\\theta+\\mu\\cos\\theta)]}{\\cos\\beta+\\mu\\sin\\beta}\\]\n\n**3. 分别计算能量变化**\n\n\\[\\Delta E_k=mas,\\qquad \\Delta E_p=mgs\\sin\\theta\\]\n\n所以 \\(\\Delta E=ms(a+g\\sin\\theta)\\)。\n\n**4. 核对非保守力功**\n\n摩擦生热 \\(Q=\\mu Ns\\)。拉力与摩擦力对机械能的净贡献为\n\n\\[W_F+W_f=Fs\\cos\\beta-\\mu Ns=\\Delta E\\]",
+    "thinking": "**新增难点**\n\n拉力不再沿斜面，因而它同时改变支持力和摩擦力。应先做受力分解，再进行能量核对，不能直接把 \\(Fs\\) 当作拉力功。"
   },
   "analysisPresentation": {
     "collapseEachStep": true

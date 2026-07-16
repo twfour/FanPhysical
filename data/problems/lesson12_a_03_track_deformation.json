@@ -95,10 +95,10 @@
     }
   ],
   "practice": {
-    "title": "近似题：截断斜面后的最高点",
-    "question": "物体以 \\(v_0=\\sqrt{2gh}\\) 沿倾角 \\(\\theta\\) 的光滑斜面上滑，在高度 \\(\\lambda h\\) 处离开斜面做斜抛。求离轨后的最大高度。",
-    "answer": "离轨速度平方 \\(v_C^2=2gh(1-\\lambda)\\)，竖直分量为 \\(v_C\\sin\\theta\\)。故 \\(H_{\\max}=\\lambda h+(1-\\lambda)h\\sin^2\\theta\\)。",
-    "thinking": "离轨前用机械能求速度；离轨后只有竖直分动能能继续转化为重力势能。"
+    "title": "进阶近似题：离轨角度与最高高度条件",
+    "question": "物体以初速度 \\(v_0\\) 进入光滑轨道，若始终不离轨，初动能恰能使它升高 \\(h\\)。现轨道在高度 \\(\\lambda h\\) 处结束，末端切线与水平方向夹角为 \\(\\alpha\\)，其中 \\(0\\lt\\lambda\\lt1\\)。物体离轨后做斜抛。（1）求离轨速度；（2）求离轨后的最高点高度 \\(H_{\\max}\\)；（3）求仍能达到高度 \\(h\\) 的条件；（4）当 \\(\\alpha=45^\\circ\\) 时，若要求 \\(H_{\\max}\\ge\\frac34h\\)，求 \\(\\lambda\\) 的范围。",
+    "answer": "**1. 求离轨速度**\n\n由 \\(\\frac12mv_0^2=mgh\\) 及机械能守恒：\n\n\\[v_e^2=2gh(1-\\lambda)\\]\n\n**2. 求最高点高度**\n\n离轨后的竖直分速度为 \\(v_e\\sin\\alpha\\)，所以\n\n\\[H_{\\max}=\\lambda h+\\frac{v_e^2\\sin^2\\alpha}{2g}=h\\left[\\lambda+(1-\\lambda)\\sin^2\\alpha\\right]\\]\n\n**3. 判断何时仍能达到 h**\n\n要使 \\(H_{\\max}=h\\)，必须有 \\((1-\\lambda)\\cos^2\\alpha=0\\)。因 \\(\\lambda\\lt1\\)，故只能是 \\(\\alpha=90^\\circ\\)，即离轨速度竖直向上。\n\n**4. 处理给定角度**\n\n当 \\(\\alpha=45^\\circ\\) 时，\\(H_{\\max}/h=(1+\\lambda)/2\\)。由其不小于 \\(3/4\\)，得 \\(\\lambda\\ge1/2\\)。",
+    "thinking": "**新增难点**\n\n把“离轨后保留水平动能”的定性结论推广为含 \\(\\lambda\\) 和 \\(\\alpha\\) 的通式，再反求达到指定高度的几何条件。"
   },
   "analysisPresentation": {
     "collapseEachStep": true
