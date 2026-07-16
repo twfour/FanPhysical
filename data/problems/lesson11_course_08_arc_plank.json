@@ -14,44 +14,103 @@
     "interactive": true,
     "notes": "依次显示平抛切入、光滑圆弧加速和物块—木板相对滑动；右图分对象显示动能与内摩擦功。",
     "params": {
-      "launchSpeed": { "label": "A点水平速度", "value": 4, "min": 3, "max": 7, "step": 0.5, "unit": "m/s" },
-      "radius": { "label": "圆弧半径", "value": 2.75, "min": 2, "max": 4, "step": 0.25, "unit": "m" },
-      "blockMass": { "label": "物块质量", "value": 1, "min": 0.5, "max": 2, "step": 0.1, "unit": "kg" },
-      "boardMass": { "label": "木板质量", "value": 2, "min": 1, "max": 4, "step": 0.2, "unit": "kg" },
-      "muBlock": { "label": "物块-板摩擦因数", "value": 0.5, "min": 0.3, "max": 0.7, "step": 0.05, "unit": "" },
-      "muGround": { "label": "板-地摩擦因数", "value": 0.1, "min": 0.05, "max": 0.2, "step": 0.01, "unit": "" }
+      "launchSpeed": {
+        "label": "A点水平速度",
+        "value": 4,
+        "min": 3,
+        "max": 7,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "radius": {
+        "label": "圆弧半径",
+        "value": 2.75,
+        "min": 2,
+        "max": 4,
+        "step": 0.25,
+        "unit": "m"
+      },
+      "blockMass": {
+        "label": "物块质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "boardMass": {
+        "label": "木板质量",
+        "value": 2,
+        "min": 1,
+        "max": 4,
+        "step": 0.2,
+        "unit": "kg"
+      },
+      "muBlock": {
+        "label": "物块-板摩擦因数",
+        "value": 0.5,
+        "min": 0.3,
+        "max": 0.7,
+        "step": 0.05,
+        "unit": ""
+      },
+      "muGround": {
+        "label": "板-地摩擦因数",
+        "value": 0.1,
+        "min": 0.05,
+        "max": 0.2,
+        "step": 0.01,
+        "unit": ""
+      }
     },
-    "timeline": { "duration": 7, "loop": false }
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
   },
-  "knowledge": ["平抛速度分解", "机械能守恒", "摩擦功"],
+  "knowledge": [
+    "平抛速度分解",
+    "机械能守恒",
+    "摩擦功"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "利用切线方向求 B 点速度",
       "content": "在 \\(B\\) 点速度与半径垂直，速度方向与水平方向成 \\(37^\\circ\\)。水平分速度保持 \\(v_x=4\\,\\mathrm{m/s}\\)，故 \\(v_y=v_x\\tan37^\\circ=3\\,\\mathrm{m/s}\\)，于是\n\n\\[\nv_B=\\sqrt{4^2+3^2}=5\\,\\mathrm{m/s}.\n\\]",
-      "knowledge": ["速度分解"],
+      "knowledge": [
+        "速度分解"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "由 B 到 C 使用机械能守恒",
       "content": "\\(B\\) 到 \\(C\\) 的下降高度为 \\(R(1-\\cos37^\\circ)=0.55\\,\\mathrm m\\)。因此\n\n\\[\nv_C^2=v_B^2+2gR(1-\\cos37^\\circ)=25+11=36,\n\\]\n\n得 \\(v_C=6\\,\\mathrm{m/s}\\)。",
-      "knowledge": ["机械能守恒"],
+      "knowledge": [
+        "机械能守恒"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "分析相对滑动阶段",
       "content": "物块受摩擦力 \\(5\\,\\mathrm N\\)，加速度 \\(-5\\,\\mathrm{m/s^2}\\)；木板受物块摩擦 \\(5\\,\\mathrm N\\) 向右、地面摩擦 \\(3\\,\\mathrm N\\) 向左，加速度 \\(1\\,\\mathrm{m/s^2}\\)。二者经 \\(1\\,\\mathrm s\\) 达到共同速度 \\(1\\,\\mathrm{m/s}\\)。这段内物块位移 \\(3.5\\,\\mathrm m\\)，木板位移 \\(0.5\\,\\mathrm m\\)。",
-      "knowledge": ["相对运动"],
+      "knowledge": [
+        "相对运动"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 4,
       "title": "求内摩擦功代数和",
       "content": "相对滑动阶段，物块与板间摩擦力做功之和为\n\n\\[\nW_{f,\\mathrm{内}}=-5\\times3.5+5\\times0.5=-15\\,\\mathrm J.\n\\]\n\n之后二者无相对滑动，静摩擦力对系统内两物体做功代数和为零。因此全过程答案为 \\(-15\\,\\mathrm J\\)。",
-      "knowledge": ["一对内力功"],
-      "commonMistakes": ["认为一对作用力与反作用力做功总和必为零"]
+      "knowledge": [
+        "一对内力功"
+      ],
+      "commonMistakes": [
+        "认为一对作用力与反作用力做功总和必为零"
+      ]
     }
   ],
   "practice": {
@@ -59,5 +118,8 @@
     "question": "质量 \\(m=1\\,\\mathrm{kg}\\) 的滑块以 \\(4\\,\\mathrm{m/s}\\) 滑上静止的质量 \\(M=3\\,\\mathrm{kg}\\) 的光滑地面长板，二者间动摩擦因数 \\(\\mu=0.2\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求达到共同速度前，滑块与板间摩擦力做功的代数和。",
     "answer": "共同速度 \\(v=mv_0/(m+M)=1\\,\\mathrm{m/s}\\)。内摩擦功之和等于系统动能变化：\\(W_f=\\frac12(m+M)v^2-\\frac12mv_0^2=2-8=-6\\,\\mathrm J\\)。",
     "thinking": "对“滑块+木板”整体使用动能定理，一对内摩擦力功的代数和正好等于系统机械能损失。"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

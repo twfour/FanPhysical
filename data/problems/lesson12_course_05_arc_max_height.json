@@ -20,32 +20,63 @@
     "interactive": true,
     "notes": "四种圆弧轨道同步演示；右图比较离轨后各球实际能到达的最大高度。",
     "params": {
-      "height": { "label": "基准高度h", "value": 4, "min": 2, "max": 8, "step": 0.5, "unit": "m" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "height": {
+        "label": "基准高度h",
+        "value": 4,
+        "min": 2,
+        "max": 8,
+        "step": 0.5,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 4, "loop": false }
+    "timeline": {
+      "duration": 4,
+      "loop": false
+    }
   },
-  "knowledge": ["机械能守恒", "圆周运动约束", "离轨抛体"],
+  "knowledge": [
+    "机械能守恒",
+    "圆周运动约束",
+    "离轨抛体"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "确定初速度能量",
       "content": "竖直上抛最高点速度为零，故 \\(\\frac12mv_0^2=mgh\\)，即 \\(v_0^2=2gh\\)。质量在等式中约去，所以题中不同质量本身不改变所能达到的高度。",
-      "knowledge": ["机械能守恒"],
-      "commonMistakes": ["认为质量较大的球一定上升较低"]
+      "knowledge": [
+        "机械能守恒"
+      ],
+      "commonMistakes": [
+        "认为质量较大的球一定上升较低"
+      ]
     },
     {
       "stepId": 2,
       "title": "判断离轨后的竖直分速度",
       "content": "小球离开轨道后，水平分速度对应的动能不能再转化为重力势能。只有 \\(90^\\circ\\) 圆弧的末端切线竖直，小球离轨时没有水平分速度，剩余动能可全部转化为势能。",
-      "knowledge": ["速度分解"],
-      "commonMistakes": ["只用总机械能判断高度，漏掉最高点仍可能有水平速度"]
+      "knowledge": [
+        "速度分解"
+      ],
+      "commonMistakes": [
+        "只用总机械能判断高度，漏掉最高点仍可能有水平速度"
+      ]
     },
     {
       "stepId": 3,
       "title": "校验四分之一圆弧",
       "content": "到 \\(90^\\circ\\) 圆弧末端已上升 \\(R=h/2\\)，由守恒得 \\(v^2=v_0^2-2gR=gh\\)。此时速度竖直向上，离轨后再上升 \\(\\frac{v^2}{2g}=h/2\\)，总高度恰为 \\(h\\)。故选 C。",
-      "knowledge": ["分段机械能守恒"],
+      "knowledge": [
+        "分段机械能守恒"
+      ],
       "commonMistakes": []
     }
   ],
@@ -54,5 +85,62 @@
     "question": "小球从水平地面以 \\(v_0=\\sqrt{2gh}\\) 进入半径 \\(R=h/2\\)、圆心角 \\(60^\\circ\\) 的光滑圆弧，末端离轨。求离轨后最高点高度 \\(H_{\\max}\\)。",
     "answer": "末端高度 \\(y=R(1-\\cos60^\\circ)=h/4\\)，末端 \\(v^2=2g(h-y)=\\frac32gh\\)，竖直分速度 \\(v_y=v\\sin60^\\circ\\)。故 \\(H_{\\max}=y+\\frac{v_y^2}{2g}=\\frac{13}{16}h\\)。",
     "thinking": "先用机械能求离轨速度，再只把竖直分动能转化为离轨后的上升高度。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "质量为 \\(2m\\) 的小球",
+      "thinking": "初速度对应的总机械能与质量无关。离开轨道后，只有竖直速度对应的动能还能转化为高度，水平分速度会保留到最高点。",
+      "formula": "\\[v_0^2=2gh,\\qquad H=y_{\\text{离}}+\\frac{v_{y,\\text{离}}^2}{2g}\\]",
+      "judgment": "该轨道末端速度含水平分量，离轨后不能把剩余动能全部转化为势能，因此 A 错误。",
+      "knowledge": [
+        "机械能守恒",
+        "圆周运动约束",
+        "离轨抛体"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "质量为 \\(3m\\) 的小球",
+      "thinking": "初速度对应的总机械能与质量无关。离开轨道后，只有竖直速度对应的动能还能转化为高度，水平分速度会保留到最高点。",
+      "formula": "\\[v_0^2=2gh,\\qquad H=y_{\\text{离}}+\\frac{v_{y,\\text{离}}^2}{2g}\\]",
+      "judgment": "该圆弧末端切线并非竖直，离轨后仍有水平动能，最大高度小于 \\(h\\)，因此 B 错误。",
+      "knowledge": [
+        "机械能守恒",
+        "圆周运动约束",
+        "离轨抛体"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "质量为 \\(4m\\) 的小球",
+      "thinking": "初速度对应的总机械能与质量无关。离开轨道后，只有竖直速度对应的动能还能转化为高度，水平分速度会保留到最高点。",
+      "formula": "\\[v_0^2=2gh,\\qquad H=y_{\\text{离}}+\\frac{v_{y,\\text{离}}^2}{2g}\\]",
+      "judgment": "四分之一圆弧末端切线竖直，离轨时剩余动能可继续全部转化为势能，总高度恰为 \\(h\\)，因此 C 正确。",
+      "knowledge": [
+        "机械能守恒",
+        "圆周运动约束",
+        "离轨抛体"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "质量为 \\(5m\\) 的小球",
+      "thinking": "初速度对应的总机械能与质量无关。离开轨道后，只有竖直速度对应的动能还能转化为高度，水平分速度会保留到最高点。",
+      "formula": "\\[v_0^2=2gh,\\qquad H=y_{\\text{离}}+\\frac{v_{y,\\text{离}}^2}{2g}\\]",
+      "judgment": "较小圆心角对应的离轨速度保留更多水平分量，无法达到原极限高度，因此 D 错误。",
+      "knowledge": [
+        "机械能守恒",
+        "圆周运动约束",
+        "离轨抛体"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

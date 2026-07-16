@@ -20,35 +20,80 @@
     "interactive": true,
     "notes": "足球由 A 运动到 B；右图以 B 为零势能面显示 \\(E_k,E_p,E\\) 的变化。",
     "params": {
-      "mass": { "label": "足球质量", "value": 0.5, "min": 0.3, "max": 1, "step": 0.1, "unit": "kg" },
-      "speed": { "label": "踢出速度", "value": 20, "min": 18, "max": 28, "step": 1, "unit": "m/s" },
-      "height": { "label": "B点高度", "value": 8, "min": 3, "max": 10, "step": 0.5, "unit": "m" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "足球质量",
+        "value": 0.5,
+        "min": 0.3,
+        "max": 1,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "speed": {
+        "label": "踢出速度",
+        "value": 20,
+        "min": 18,
+        "max": 28,
+        "step": 1,
+        "unit": "m/s"
+      },
+      "height": {
+        "label": "B点高度",
+        "value": 8,
+        "min": 3,
+        "max": 10,
+        "step": 0.5,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 3, "loop": false }
+    "timeline": {
+      "duration": 3,
+      "loop": false
+    }
   },
-  "knowledge": ["机械能", "参考面", "功与能"],
+  "knowledge": [
+    "机械能",
+    "参考面",
+    "功与能"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "确定 A 点势能",
       "content": "B 点比 A 点高 \\(h\\)，又取 B 处为零势能面，所以 \\(E_{pA}=-mgh\\)。刚踢出时 \\(E_{kA}=\\frac12mv_0^2\\)，故 \\(E_A=\\frac12mv_0^2-mgh\\)，A 正确。",
-      "knowledge": ["重力势能"],
-      "commonMistakes": ["把 A 点势能写成正的 \\(mgh\\)"]
+      "knowledge": [
+        "重力势能"
+      ],
+      "commonMistakes": [
+        "把 A 点势能写成正的 \\(mgh\\)"
+      ]
     },
     {
       "stepId": 2,
       "title": "求运动员做功",
       "content": "足球由静止到刚离脚，动能增加 \\(\\frac12mv_0^2\\)。忽略踢球瞬间重心高度变化，运动员对足球做功 \\(W=\\Delta E_k=\\frac12mv_0^2\\)，B 正确。",
-      "knowledge": ["动能定理"],
+      "knowledge": [
+        "动能定理"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "把机械能搬到 B 点",
       "content": "离脚后只有重力做功，足球机械能守恒。因此 \\(E_B=E_A=\\frac12mv_0^2-mgh\\)，D 正确而 C 错。答案为 A、B、D。",
-      "knowledge": ["机械能守恒"],
-      "commonMistakes": ["把零势能点误认为机械能为零"]
+      "knowledge": [
+        "机械能守恒"
+      ],
+      "commonMistakes": [
+        "把零势能点误认为机械能为零"
+      ]
     }
   ],
   "practice": {
@@ -56,5 +101,62 @@
     "question": "质量 \\(0.4\\,\\mathrm{kg}\\) 的球以 \\(15\\,\\mathrm{m/s}\\) 从地面斜抛，到达高 \\(6\\,\\mathrm m\\) 的 \\(P\\) 点。取 \\(P\\) 为零势能面，取 \\(g=10\\,\\mathrm{m/s^2}\\)，求球在地面刚抛出时的机械能。",
     "answer": "\\(E=\\frac12mv_0^2-mgh=\\frac12\\times0.4\\times15^2-0.4\\times10\\times6=21\\,\\mathrm J\\)。",
     "thinking": "零势能面只决定 \\(E_p=0\\) 在哪里；先写起点相对参考面的有符号高度，再与动能相加。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "足球在 A 点的机械能为 \\(\\frac12mv_0^2-mgh\\)",
+      "thinking": "先按 B 点为零势能面写出 A 点的负重力势能；踢球阶段用动能定理，离脚后用机械能守恒。",
+      "formula": "\\[E_{pA}=-mgh,\\qquad E_A=\\frac12mv_0^2-mgh,\\qquad E_B=E_A\\]",
+      "judgment": "A 点动能与相对 B 点的负势能相加，机械能表达式与 A 一致，因此 A 正确。",
+      "knowledge": [
+        "机械能",
+        "参考面",
+        "功与能"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "运动员对足球做的功为 \\(\\frac12mv_0^2\\)",
+      "thinking": "先按 B 点为零势能面写出 A 点的负重力势能；踢球阶段用动能定理，离脚后用机械能守恒。",
+      "formula": "\\[E_{pA}=-mgh,\\qquad E_A=\\frac12mv_0^2-mgh,\\qquad E_B=E_A\\]",
+      "judgment": "忽略踢球瞬间的高度变化，运动员做功等于足球从静止到离脚的动能增量，因此 B 正确。",
+      "knowledge": [
+        "机械能",
+        "参考面",
+        "功与能"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "足球在 B 点的机械能为 \\(0\\)",
+      "thinking": "先按 B 点为零势能面写出 A 点的负重力势能；踢球阶段用动能定理，离脚后用机械能守恒。",
+      "formula": "\\[E_{pA}=-mgh,\\qquad E_A=\\frac12mv_0^2-mgh,\\qquad E_B=E_A\\]",
+      "judgment": "B 点只是重力势能为零，足球在 B 点仍有动能，机械能不为零，因此 C 错误。",
+      "knowledge": [
+        "机械能",
+        "参考面",
+        "功与能"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "足球在 B 点的机械能为 \\(\\frac12mv_0^2-mgh\\)",
+      "thinking": "先按 B 点为零势能面写出 A 点的负重力势能；踢球阶段用动能定理，离脚后用机械能守恒。",
+      "formula": "\\[E_{pA}=-mgh,\\qquad E_A=\\frac12mv_0^2-mgh,\\qquad E_B=E_A\\]",
+      "judgment": "离脚后只有重力做功，B 点机械能等于 A 点机械能，表达式与 D 一致，因此 D 正确。",
+      "knowledge": [
+        "机械能",
+        "参考面",
+        "功与能"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

@@ -20,34 +20,77 @@
     "interactive": true,
     "notes": "用斜抛曲线运动展示动能与势能互化、机械能保持不变。",
     "params": {
-      "mass": { "label": "物体质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
-      "speed": { "label": "初速度", "value": 16, "min": 10, "max": 24, "step": 1, "unit": "m/s" },
-      "angle": { "label": "抛射角", "value": 55, "min": 30, "max": 70, "step": 1, "unit": "°" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "物体质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "speed": {
+        "label": "初速度",
+        "value": 16,
+        "min": 10,
+        "max": 24,
+        "step": 1,
+        "unit": "m/s"
+      },
+      "angle": {
+        "label": "抛射角",
+        "value": 55,
+        "min": 30,
+        "max": 70,
+        "step": 1,
+        "unit": "°"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 4, "loop": false }
+    "timeline": {
+      "duration": 4,
+      "loop": false
+    }
   },
-  "knowledge": ["机械能守恒条件", "曲线运动", "保守力"],
+  "knowledge": [
+    "机械能守恒条件",
+    "曲线运动",
+    "保守力"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "抓住真正判据",
       "content": "机械能是否守恒，取决于重力或系统内弹力以外的力是否做功；它不由运动轨迹、速度是否恒定或合力是否为零直接决定。",
-      "knowledge": ["守恒条件"],
-      "commonMistakes": ["把机械能守恒条件误写成合力为零"]
+      "knowledge": [
+        "守恒条件"
+      ],
+      "commonMistakes": [
+        "把机械能守恒条件误写成合力为零"
+      ]
     },
     {
       "stepId": 2,
       "title": "逐项判断反例",
       "content": "物体可在外力作用下匀速上升，此时动能不变而重力势能增加，A、C 均不能由匀速或合力为零推出。自由落体或斜抛时合力为重力且不为零，机械能仍守恒，D 错。",
-      "knowledge": ["反例法"],
+      "knowledge": [
+        "反例法"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "确认曲线运动情形",
       "content": "不计空气阻力的抛体运动是曲线运动，过程中只有重力做功，\\(E_k+E_p\\) 保持不变。因此 B 正确。",
-      "knowledge": ["抛体运动"],
+      "knowledge": [
+        "抛体运动"
+      ],
       "commonMistakes": []
     }
   ],
@@ -56,5 +99,62 @@
     "question": "下列过程中物体机械能一定守恒的是（  ）。A. 电梯匀速上升；B. 光滑斜面上自由下滑；C. 水平面上受恒定拉力匀速运动；D. 跳伞员匀速下降。",
     "answer": "B。光滑斜面支持力不做功，只有重力做功。",
     "thinking": "逐项找重力之外的力是否做功；“匀速”只说明动能不变，并不自动保证势能不变。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "做匀速直线运动的物体，机械能一定守恒",
+      "thinking": "机械能是否守恒只看重力或系统内弹力以外的力是否做功，不能仅根据轨迹形状、速度是否恒定或合力是否为零判断。",
+      "formula": "\\[\\Delta(E_k+E_p)=W_{\\text{非保守外力}}\\]",
+      "judgment": "物体可以在外力作用下匀速升高，此时动能不变而势能增加，所以匀速不能保证机械能守恒，A 错误。",
+      "knowledge": [
+        "机械能守恒条件",
+        "曲线运动",
+        "保守力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "做曲线运动的物体，机械能可能守恒",
+      "thinking": "机械能是否守恒只看重力或系统内弹力以外的力是否做功，不能仅根据轨迹形状、速度是否恒定或合力是否为零判断。",
+      "formula": "\\[\\Delta(E_k+E_p)=W_{\\text{非保守外力}}\\]",
+      "judgment": "不计阻力的抛体做曲线运动且只有重力做功，机械能可以守恒，因此 B 正确。",
+      "knowledge": [
+        "机械能守恒条件",
+        "曲线运动",
+        "保守力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "物体所受的合力为零，机械能一定守恒",
+      "thinking": "机械能是否守恒只看重力或系统内弹力以外的力是否做功，不能仅根据轨迹形状、速度是否恒定或合力是否为零判断。",
+      "formula": "\\[\\Delta(E_k+E_p)=W_{\\text{非保守外力}}\\]",
+      "judgment": "合力为零只保证动能不变，外力仍可能改变重力势能，所以 C 错误。",
+      "knowledge": [
+        "机械能守恒条件",
+        "曲线运动",
+        "保守力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "物体所受的合力不为零时，机械能一定不守恒",
+      "thinking": "机械能是否守恒只看重力或系统内弹力以外的力是否做功，不能仅根据轨迹形状、速度是否恒定或合力是否为零判断。",
+      "formula": "\\[\\Delta(E_k+E_p)=W_{\\text{非保守外力}}\\]",
+      "judgment": "自由落体时合力不为零，但只有重力做功，机械能仍守恒，因此 D 错误。",
+      "knowledge": [
+        "机械能守恒条件",
+        "曲线运动",
+        "保守力"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

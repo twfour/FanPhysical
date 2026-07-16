@@ -20,37 +20,98 @@
     "interactive": true,
     "notes": "U 形管两侧液面趋于等高；右图显示重力势能减少量转化为水柱动能。",
     "params": {
-      "h1": { "label": "左侧初高度", "value": 1.6, "min": 1, "max": 2.5, "step": 0.1, "unit": "m" },
-      "h2": { "label": "右侧初高度", "value": 0.6, "min": 0.2, "max": 1.2, "step": 0.1, "unit": "m" },
-      "totalLength": { "label": "水柱总长", "value": 4, "min": 2.5, "max": 7, "step": 0.1, "unit": "m" },
-      "area": { "label": "截面积", "value": 0.01, "min": 0.005, "max": 0.03, "step": 0.001, "unit": "m²" },
-      "density": { "label": "水密度", "value": 1000, "min": 800, "max": 1200, "step": 20, "unit": "kg/m³" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "h1": {
+        "label": "左侧初高度",
+        "value": 1.6,
+        "min": 1,
+        "max": 2.5,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "h2": {
+        "label": "右侧初高度",
+        "value": 0.6,
+        "min": 0.2,
+        "max": 1.2,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "totalLength": {
+        "label": "水柱总长",
+        "value": 4,
+        "min": 2.5,
+        "max": 7,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "area": {
+        "label": "截面积",
+        "value": 0.01,
+        "min": 0.005,
+        "max": 0.03,
+        "step": 0.001,
+        "unit": "m²"
+      },
+      "density": {
+        "label": "水密度",
+        "value": 1000,
+        "min": 800,
+        "max": 1200,
+        "step": 20,
+        "unit": "kg/m³"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 3, "loop": false }
+    "timeline": {
+      "duration": 3,
+      "loop": false
+    }
   },
-  "knowledge": ["连续体机械能", "水柱运动", "大气压力做功"],
+  "knowledge": [
+    "连续体机械能",
+    "水柱运动",
+    "大气压力做功"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "判断外力做功",
       "content": "高液面下降、低液面上升，水柱重心降低，所以重力做正功，A 正确。两端大气压相同，推动一端的正功与阻碍另一端的负功抵消，总功为零，B 错。",
-      "knowledge": ["压力做功"],
-      "commonMistakes": ["只看低液面上升的一侧大气压力"]
+      "knowledge": [
+        "压力做功"
+      ],
+      "commonMistakes": [
+        "只看低液面上升的一侧大气压力"
+      ]
     },
     {
       "stepId": 2,
       "title": "计算势能减少量",
       "content": "两竖直水柱初始势能为 \\(\\frac12\\rho Sg(h_1^2+h_2^2)\\)，等高后势能为 \\(\\rho Sg[(h_1+h_2)/2]^2\\)。故势能减少 \\(\\frac14\\rho Sg(h_1-h_2)^2\\)。",
-      "knowledge": ["连续体重力势能"],
-      "commonMistakes": ["把每侧水柱的质心高度直接写成液面高度"]
+      "knowledge": [
+        "连续体重力势能"
+      ],
+      "commonMistakes": [
+        "把每侧水柱的质心高度直接写成液面高度"
+      ]
     },
     {
       "stepId": 3,
       "title": "由机械能守恒求速度",
       "content": "水柱总质量为 \\(\\rho SH\\)，且各处流速大小相同。由 \\(\\frac12\\rho SHv^2=\\frac14\\rho Sg(h_1-h_2)^2\\)，得 \\(v=(h_1-h_2)\\sqrt{\\frac{g}{2H}}\\)。C、D 正确，答案为 A、C、D。",
-      "knowledge": ["机械能守恒"],
-      "commonMistakes": ["动能只计算一侧竖直水柱"]
+      "knowledge": [
+        "机械能守恒"
+      ],
+      "commonMistakes": [
+        "动能只计算一侧竖直水柱"
+      ]
     }
   ],
   "practice": {
@@ -58,5 +119,62 @@
     "question": "U 形管内水柱总长 \\(H=5\\,\\mathrm m\\)，初始两液面高度差为 \\(0.8\\,\\mathrm m\\)，忽略摩擦，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求第一次等高时水速。",
     "answer": "\\(v=0.8\\sqrt{\\frac{10}{2\\times5}}=0.8\\,\\mathrm{m/s}\\)。",
     "thinking": "整个水柱具有同一流速，先求两竖直水柱重力势能总变化，再等于整根水柱的动能。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "水柱的重力做正功",
+      "thinking": "以全部水柱为研究对象。两端大气压力的总功相互抵消，重心下降释放的重力势能转化为整段水柱的动能。",
+      "formula": "\\[\\Delta E_p=\\frac14\\rho Sg(h_1-h_2)^2,\\qquad \\frac12\\rho SHv^2=\\Delta E_p\\]",
+      "judgment": "高液面下降多于低液面上升带来的重心变化，水柱重心降低，所以重力做正功，A 正确。",
+      "knowledge": [
+        "连续体机械能",
+        "水柱运动",
+        "大气压力做功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "大气压力对水柱做负功",
+      "thinking": "以全部水柱为研究对象。两端大气压力的总功相互抵消，重心下降释放的重力势能转化为整段水柱的动能。",
+      "formula": "\\[\\Delta E_p=\\frac14\\rho Sg(h_1-h_2)^2,\\qquad \\frac12\\rho SHv^2=\\Delta E_p\\]",
+      "judgment": "两端大气压相同，一端做正功、另一端做负功且总和为零，不是总做负功，因此 B 错误。",
+      "knowledge": [
+        "连续体机械能",
+        "水柱运动",
+        "大气压力做功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "水柱的机械能守恒",
+      "thinking": "以全部水柱为研究对象。两端大气压力的总功相互抵消，重心下降释放的重力势能转化为整段水柱的动能。",
+      "formula": "\\[\\Delta E_p=\\frac14\\rho Sg(h_1-h_2)^2,\\qquad \\frac12\\rho SHv^2=\\Delta E_p\\]",
+      "judgment": "忽略筒壁摩擦且大气压力总功为零，水柱机械能守恒，因此 C 正确。",
+      "knowledge": [
+        "连续体机械能",
+        "水柱运动",
+        "大气压力做功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "若水柱总长为 \\(H\\)，等高时水柱速度为 \\((h_1-h_2)\\sqrt{\\frac{g}{2H}}\\)",
+      "thinking": "以全部水柱为研究对象。两端大气压力的总功相互抵消，重心下降释放的重力势能转化为整段水柱的动能。",
+      "formula": "\\[\\Delta E_p=\\frac14\\rho Sg(h_1-h_2)^2,\\qquad \\frac12\\rho SHv^2=\\Delta E_p\\]",
+      "judgment": "由势能减少量等于整段水柱动能可解得 D 所给速度，因此 D 正确。",
+      "knowledge": [
+        "连续体机械能",
+        "水柱运动",
+        "大气压力做功"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

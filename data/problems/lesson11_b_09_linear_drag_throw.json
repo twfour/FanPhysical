@@ -20,34 +20,75 @@
     "interactive": true,
     "notes": "小球上升时阻力向下、下降时阻力向上并逐渐趋近终端速度；右图按原题绘制速率—时间曲线。",
     "params": {
-      "initialSpeed": { "label": "初速度", "value": 15, "min": 10, "max": 24, "step": 1, "unit": "m/s" },
-      "terminalSpeed": { "label": "终端速率", "value": 8, "min": 5, "max": 12, "step": 0.5, "unit": "m/s" },
-      "mass": { "label": "小球质量", "value": 1, "min": 0.5, "max": 2, "step": 0.1, "unit": "kg" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "initialSpeed": {
+        "label": "初速度",
+        "value": 15,
+        "min": 10,
+        "max": 24,
+        "step": 1,
+        "unit": "m/s"
+      },
+      "terminalSpeed": {
+        "label": "终端速率",
+        "value": 8,
+        "min": 5,
+        "max": 12,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "mass": {
+        "label": "小球质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 3.5, "loop": false }
+    "timeline": {
+      "duration": 3.5,
+      "loop": false
+    }
   },
-  "knowledge": ["线性阻力", "冲量", "功能关系"],
+  "knowledge": [
+    "线性阻力",
+    "冲量",
+    "功能关系"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "判断加速度和运动时间",
       "content": "上升时阻力与重力同向，加速度大小大于 \\(g\\)；下降时阻力向上，加速度从 \\(g\\) 逐渐减小到零，因此同一高度范围内下落更慢，上升时间不大于下落时间，A 错。上升速率为 \\(v_0/2\\) 时，\\(ma=mg+k(v_0/2)\\)，故 B 正确。",
-      "knowledge": ["受力方向"],
+      "knowledge": [
+        "受力方向"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "由冲量关系求最大高度公式",
       "content": "上升全过程满足\n\n\\[\nm(0-v_0)=-mgt_1-k\\int_0^{t_1}v\\,\\mathrm dt=-mgt_1-kH.\n\\]\n\n所以\n\n\\[\nH=\\frac{m(v_0-gt_1)}{k},\n\\]\n\n原选项把 \\(m/k\\) 写成了 \\(k/m\\)，C 错。",
-      "knowledge": ["变力冲量"],
+      "knowledge": [
+        "变力冲量"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "求克服空气阻力的功",
       "content": "小球初、末位置都在地面，重力势能变化为零。空气阻力对小球做功\n\n\\[\nW_f=\\frac12mv_1^2-\\frac12mv_0^2.\n\\]\n\n因此克服空气阻力做功为其相反数\n\n\\[\nW_{\\mathrm{克服}}=\\frac12mv_0^2-\\frac12mv_1^2,\n\\]\n\nD 正确。答案为 B、D。",
-      "knowledge": ["全过程动能定理"],
+      "knowledge": [
+        "全过程动能定理"
+      ],
       "commonMistakes": []
     }
   ],
@@ -56,5 +97,62 @@
     "question": "质量 \\(m=0.5\\,\\mathrm{kg}\\) 的小球在空气中竖直下落，阻力满足 \\(f=kv\\)，终端速度为 \\(10\\,\\mathrm{m/s}\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)。求 \\(k\\)，并求小球向下速率为 \\(4\\,\\mathrm{m/s}\\) 时的加速度。",
     "answer": "终端状态 \\(mg=kv_t\\)，故 \\(k=0.5\\,\\mathrm{N\\,s/m}\\)。速率为 \\(4\\,\\mathrm{m/s}\\) 时 \\(a=(mg-kv)/m=(5-2)/0.5=6\\,\\mathrm{m/s^2}\\)，方向向下。",
     "thinking": "先利用终端速度时合力为零确定 \\(k\\)，再代回瞬时牛顿第二定律。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "小球上升时间大于下落时间",
+      "thinking": "上升和下降时阻力方向不同，先由牛顿第二定律判断加速度；高度关系用上升阶段冲量，阻力功用始末动能和重力势能变化判断。",
+      "formula": "\\[ma_{\\text{上}}=mg+kv,\\qquad m(0-v_0)=-mgt_1-kH,\\qquad W_f=\\Delta E_k-\\Delta E_p\\]",
+      "judgment": "上升时阻力与重力同向而下降时阻力抵消部分重力，同一高度范围内下降更慢，因此 A 错误。",
+      "knowledge": [
+        "线性阻力",
+        "冲量",
+        "功能关系"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "上升过程中速率为 \\(\\frac12v_0\\) 时，加速度大小为 \\(g+\\frac{kv_0}{2m}\\)",
+      "thinking": "上升和下降时阻力方向不同，先由牛顿第二定律判断加速度；高度关系用上升阶段冲量，阻力功用始末动能和重力势能变化判断。",
+      "formula": "\\[ma_{\\text{上}}=mg+kv,\\qquad m(0-v_0)=-mgt_1-kH,\\qquad W_f=\\Delta E_k-\\Delta E_p\\]",
+      "judgment": "把题给瞬时速率代入上升阶段的牛顿第二定律，得到的加速度表达式与 B 一致，因此 B 正确。",
+      "knowledge": [
+        "线性阻力",
+        "冲量",
+        "功能关系"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "最大高度为 \\(H=\\frac{(v_0-gt_1)k}{m}\\)",
+      "thinking": "上升和下降时阻力方向不同，先由牛顿第二定律判断加速度；高度关系用上升阶段冲量，阻力功用始末动能和重力势能变化判断。",
+      "formula": "\\[ma_{\\text{上}}=mg+kv,\\qquad m(0-v_0)=-mgt_1-kH,\\qquad W_f=\\Delta E_k-\\Delta E_p\\]",
+      "judgment": "由冲量方程解出的高度应含 \\(m/k\\) 而不是 \\(k/m\\)，选项公式也不满足正确量纲，因此 C 错误。",
+      "knowledge": [
+        "线性阻力",
+        "冲量",
+        "功能关系"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "从抛出到落地，克服空气阻力做功为 \\(\\frac12mv_0^2-\\frac12mv_1^2\\)",
+      "thinking": "上升和下降时阻力方向不同，先由牛顿第二定律判断加速度；高度关系用上升阶段冲量，阻力功用始末动能和重力势能变化判断。",
+      "formula": "\\[ma_{\\text{上}}=mg+kv,\\qquad m(0-v_0)=-mgt_1-kH,\\qquad W_f=\\Delta E_k-\\Delta E_p\\]",
+      "judgment": "始末位置相同，重力势能变化为零，克服阻力做功等于初动能与末动能之差，因此 D 正确。",
+      "knowledge": [
+        "线性阻力",
+        "冲量",
+        "功能关系"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

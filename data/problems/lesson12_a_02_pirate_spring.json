@@ -20,34 +20,79 @@
     "interactive": true,
     "notes": "小球从 B 被弹簧推到 A；右图显示势能和在 \\(kx=mg\\) 处最小、动能最大。",
     "params": {
-      "mass": { "label": "小球质量", "value": 0.2, "min": 0.1, "max": 0.4, "step": 0.05, "unit": "kg" },
-      "k": { "label": "弹簧劲度", "value": 80, "min": 60, "max": 150, "step": 5, "unit": "N/m" },
-      "compression": { "label": "初始压缩量", "value": 0.12, "min": 0.08, "max": 0.2, "step": 0.01, "unit": "m" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "小球质量",
+        "value": 0.2,
+        "min": 0.1,
+        "max": 0.4,
+        "step": 0.05,
+        "unit": "kg"
+      },
+      "k": {
+        "label": "弹簧劲度",
+        "value": 80,
+        "min": 60,
+        "max": 150,
+        "step": 5,
+        "unit": "N/m"
+      },
+      "compression": {
+        "label": "初始压缩量",
+        "value": 0.12,
+        "min": 0.08,
+        "max": 0.2,
+        "step": 0.01,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 3, "loop": false }
+    "timeline": {
+      "duration": 3,
+      "loop": false
+    }
   },
-  "knowledge": ["弹簧弹射", "势能极小", "小球机械能"],
+  "knowledge": [
+    "弹簧弹射",
+    "势能极小",
+    "小球机械能"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "区分小球与系统",
       "content": "弹簧对小球做正功，小球自身的 \\(E_k+E_{pg}\\) 会改变，因此小球机械能不守恒，A 错；小球、地球和弹簧构成的系统机械能才守恒。",
-      "knowledge": ["系统选择"],
-      "commonMistakes": ["把系统机械能守恒说成小球机械能守恒"]
+      "knowledge": [
+        "系统选择"
+      ],
+      "commonMistakes": [
+        "把系统机械能守恒说成小球机械能守恒"
+      ]
     },
     {
       "stepId": 2,
       "title": "判断速度与加速度",
       "content": "上升时弹簧压缩量 \\(x\\) 逐渐减小，合力 \\(kx-mg\\) 由向上变为向下。小球在 \\(kx=mg\\) 前加速、之后减速，速度并非一直增大；加速度的代数值单调减小，B、C 错。",
-      "knowledge": ["牛顿第二定律"],
-      "commonMistakes": ["把加速度为零误认为速度为零"]
+      "knowledge": [
+        "牛顿第二定律"
+      ],
+      "commonMistakes": [
+        "把加速度为零误认为速度为零"
+      ]
     },
     {
       "stepId": 3,
       "title": "判断两种势能之和",
       "content": "设小球向上位移 \\(y\\)，弹簧压缩量为 \\(x_0-y\\)，则 \\(U(y)=mgy+\\frac12k(x_0-y)^2\\)。其导数为 \\(mg-k(x_0-y)\\)，故 U 先减小，在 \\(kx=mg\\) 处最小，再增大，D 正确。",
-      "knowledge": ["函数极值"],
+      "knowledge": [
+        "函数极值"
+      ],
       "commonMistakes": []
     }
   ],
@@ -56,5 +101,62 @@
     "question": "质量 \\(m\\) 的小球置于竖直弹簧上，初始压缩量为 \\(x_0\\)，由静止释放且 \\(kx_0\\gt mg\\)。小球在何压缩量处速度最大？",
     "answer": "合力为零时速度最大，故 \\(kx=mg\\)，即 \\(x=mg/k\\)。",
     "thinking": "速度极值看加速度何时变号；也可用系统势能 \\(mgy+\\frac12kx^2\\) 的极小值判断。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "小球的机械能守恒",
+      "thinking": "先区分研究对象。对小球自身，弹簧力是外力；对小球、地球和弹簧组成的系统，重力势能和弹性势能都属于系统机械能。",
+      "formula": "\\[E_k+mgy+\\frac12kx^2=\\text{常量},\\qquad ma=kx-mg\\]",
+      "judgment": "弹簧对小球做功，小球自身的动能与重力势能之和会改变，因此 A 错误。",
+      "knowledge": [
+        "弹簧弹射",
+        "势能极小",
+        "小球机械能"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "小球的速度一直增大",
+      "thinking": "先区分研究对象。对小球自身，弹簧力是外力；对小球、地球和弹簧组成的系统，重力势能和弹性势能都属于系统机械能。",
+      "formula": "\\[E_k+mgy+\\frac12kx^2=\\text{常量},\\qquad ma=kx-mg\\]",
+      "judgment": "弹力逐渐减小，当合力由向上变为向下后，小球由加速转为减速，速度不会一直增大，因此 B 错误。",
+      "knowledge": [
+        "弹簧弹射",
+        "势能极小",
+        "小球机械能"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "小球的加速度先增大后减小",
+      "thinking": "先区分研究对象。对小球自身，弹簧力是外力；对小球、地球和弹簧组成的系统，重力势能和弹性势能都属于系统机械能。",
+      "formula": "\\[E_k+mgy+\\frac12kx^2=\\text{常量},\\qquad ma=kx-mg\\]",
+      "judgment": "加速度的代数值随压缩量减小而单调减小，并非先增大后减小，因此 C 错误。",
+      "knowledge": [
+        "弹簧弹射",
+        "势能极小",
+        "小球机械能"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "小球与弹簧组成的系统重力势能与弹性势能之和先减小后增大",
+      "thinking": "先区分研究对象。对小球自身，弹簧力是外力；对小球、地球和弹簧组成的系统，重力势能和弹性势能都属于系统机械能。",
+      "formula": "\\[E_k+mgy+\\frac12kx^2=\\text{常量},\\qquad ma=kx-mg\\]",
+      "judgment": "重力势能与弹性势能之和等于系统总能量减去动能，随动能先增后减而先减后增，因此 D 正确。",
+      "knowledge": [
+        "弹簧弹射",
+        "势能极小",
+        "小球机械能"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

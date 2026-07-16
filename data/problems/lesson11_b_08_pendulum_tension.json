@@ -20,35 +20,81 @@
     "interactive": true,
     "notes": "小球先在绳松弛时自由落体，绳再次绷紧后损失径向动能，再沿圆弧摆到最低点；右图显示速度平方的突变。",
     "params": {
-      "length": { "label": "摆长", "value": 2, "min": 1, "max": 3, "step": 0.1, "unit": "m" },
-      "mass": { "label": "小球质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
-      "angle": { "label": "初始水平夹角", "value": 30, "min": 15, "max": 60, "step": 1, "unit": "°" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "length": {
+        "label": "摆长",
+        "value": 2,
+        "min": 1,
+        "max": 3,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "mass": {
+        "label": "小球质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "angle": {
+        "label": "初始水平夹角",
+        "value": 30,
+        "min": 15,
+        "max": 60,
+        "step": 1,
+        "unit": "°"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 2, "loop": false }
+    "timeline": {
+      "duration": 2,
+      "loop": false
+    }
   },
-  "knowledge": ["摆动机械能", "最低点向心力", "绳张力"],
+  "knowledge": [
+    "摆动机械能",
+    "最低点向心力",
+    "绳张力"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "判断绳先松弛",
       "content": "初始小球位于悬点上方。若保持圆周运动，绳需对小球产生沿半径向外的推力，但轻绳只能拉不能推，所以释放后绳立即松弛，小球先做自由落体。小球横坐标保持 \\(L\\cos30^\\circ\\)，当它从悬点上方 \\(L/2\\) 落到下方 \\(L/2\\) 时，距 \\(O\\) 再次等于 \\(L\\)，绳重新绷紧。",
-      "knowledge": ["绳约束"],
-      "commonMistakes": ["从 A 点起直接按圆周运动机械能守恒"]
+      "knowledge": [
+        "绳约束"
+      ],
+      "commonMistakes": [
+        "从 A 点起直接按圆周运动机械能守恒"
+      ]
     },
     {
       "stepId": 2,
       "title": "处理绳绷紧瞬间的速度突变",
       "content": "自由落体高度为 \\(L\\)，绷紧前速度满足 \\(v_-^2=2gL\\)。绳绷紧的冲量消去沿绳方向的速度，只保留切向分量。切线与竖直方向夹角为 \\(30^\\circ\\)，所以\n\n\\[\nv_+=v_-\\cos30^\\circ,\\qquad v_+^2=\\frac32gL.\n\\]",
-      "knowledge": ["约束冲量"],
+      "knowledge": [
+        "约束冲量"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "求最低点速度和拉力",
       "content": "绳绷紧点比最低点高 \\(L/2\\)。之后沿圆弧运动机械能守恒：\n\n\\[\nv_C^2=v_+^2+2g\\frac L2=\\frac52gL.\n\\]\n\n最低点沿半径方向有\n\n\\[\nT-mg=m\\frac{v_C^2}{L}=\\frac52mg,\n\\]\n\n故 \\(T=3.5mg\\)，答案为 B。",
-      "knowledge": ["机械能守恒", "向心力"],
-      "commonMistakes": ["把向心力当成一个额外的力"]
+      "knowledge": [
+        "机械能守恒",
+        "向心力"
+      ],
+      "commonMistakes": [
+        "把向心力当成一个额外的力"
+      ]
     }
   ],
   "practice": {
@@ -56,5 +102,62 @@
     "question": "质量为 \\(m\\) 的摆球从绳水平的位置由静止释放，摆长为 \\(L\\)。求摆到最低点时绳的拉力。",
     "answer": "下降高度为 \\(L\\)，故 \\(v^2=2gL\\)。最低点 \\(T-mg=mv^2/L=2mg\\)，所以 \\(T=3mg\\)。",
     "thinking": "先由高度差求速度，再在最低点沿半径方向列牛顿第二定律。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(4mg\\)",
+      "thinking": "先判断轻绳是否能保持张紧。小球先自由落体，绳重新绷紧时只保留切向速度；之后再用机械能守恒和最低点向心方程。",
+      "formula": "\\[v_+=v_-\\cos30^\\circ,\\qquad v_C^2=v_+^2+2g\\Delta h,\\qquad T-mg=m\\frac{v_C^2}{L}\\]",
+      "judgment": "把自由落体、速度投影和圆弧下降依次处理后，最低点拉力小于 A 所给值，因此 A 错误。",
+      "knowledge": [
+        "摆动机械能",
+        "最低点向心力",
+        "绳张力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(3.5mg\\)",
+      "thinking": "先判断轻绳是否能保持张紧。小球先自由落体，绳重新绷紧时只保留切向速度；之后再用机械能守恒和最低点向心方程。",
+      "formula": "\\[v_+=v_-\\cos30^\\circ,\\qquad v_C^2=v_+^2+2g\\Delta h,\\qquad T-mg=m\\frac{v_C^2}{L}\\]",
+      "judgment": "按最低点向心方程得到的拉力与 B 一致，因此 B 正确。",
+      "knowledge": [
+        "摆动机械能",
+        "最低点向心力",
+        "绳张力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(3mg\\)",
+      "thinking": "先判断轻绳是否能保持张紧。小球先自由落体，绳重新绷紧时只保留切向速度；之后再用机械能守恒和最低点向心方程。",
+      "formula": "\\[v_+=v_-\\cos30^\\circ,\\qquad v_C^2=v_+^2+2g\\Delta h,\\qquad T-mg=m\\frac{v_C^2}{L}\\]",
+      "judgment": "C 所给拉力漏算了绳重新绷紧后继续下降所增加的速度，因此 C 错误。",
+      "knowledge": [
+        "摆动机械能",
+        "最低点向心力",
+        "绳张力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(1.75mg\\)",
+      "thinking": "先判断轻绳是否能保持张紧。小球先自由落体，绳重新绷紧时只保留切向速度；之后再用机械能守恒和最低点向心方程。",
+      "formula": "\\[v_+=v_-\\cos30^\\circ,\\qquad v_C^2=v_+^2+2g\\Delta h,\\qquad T-mg=m\\frac{v_C^2}{L}\\]",
+      "judgment": "D 所给值没有正确计入最低点的向心力需求，因此 D 错误。",
+      "knowledge": [
+        "摆动机械能",
+        "最低点向心力",
+        "绳张力"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

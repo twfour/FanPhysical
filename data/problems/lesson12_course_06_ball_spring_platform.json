@@ -20,35 +20,82 @@
     "interactive": true,
     "notes": "金属球先自由落下，再压缩弹簧；右图显示接触后的动能与弹性势能。",
     "params": {
-      "mass": { "label": "金属球质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
-      "k": { "label": "弹簧劲度", "value": 100, "min": 40, "max": 220, "step": 10, "unit": "N/m" },
-      "drop": { "label": "接触前下落", "value": 0.8, "min": 0.2, "max": 1.5, "step": 0.1, "unit": "m" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "金属球质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "k": {
+        "label": "弹簧劲度",
+        "value": 100,
+        "min": 40,
+        "max": 220,
+        "step": 10,
+        "unit": "N/m"
+      },
+      "drop": {
+        "label": "接触前下落",
+        "value": 0.8,
+        "min": 0.2,
+        "max": 1.5,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 4, "loop": false }
+    "timeline": {
+      "duration": 4,
+      "loop": false
+    }
   },
-  "knowledge": ["弹性势能", "系统机械能", "动能极值"],
+  "knowledge": [
+    "弹性势能",
+    "系统机械能",
+    "动能极值"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "选择系统",
       "content": "把金属球、地球和弹簧作为系统，重力势能和弹性势能都属于系统内部能量；平台质量忽略且无耗散，因此 \\(E_k+E_{pg}+E_{pe}\\) 守恒，A 正确。",
-      "knowledge": ["系统选择"],
-      "commonMistakes": ["只把小球作为系统却直接说机械能守恒"]
+      "knowledge": [
+        "系统选择"
+      ],
+      "commonMistakes": [
+        "只把小球作为系统却直接说机械能守恒"
+      ]
     },
     {
       "stepId": 2,
       "title": "判断接触后的速度变化",
       "content": "刚接触时弹力小于重力，球仍向下加速，动能增加；同时弹簧对球做负功，球自身的 \\(E_k+E_{pg}\\) 减少，所以 B 正确，C 的“立即减少”错误。",
-      "knowledge": ["受力与功"],
-      "commonMistakes": ["认为碰到弹簧后速度立刻减小"]
+      "knowledge": [
+        "受力与功"
+      ],
+      "commonMistakes": [
+        "认为碰到弹簧后速度立刻减小"
+      ]
     },
     {
       "stepId": 3,
       "title": "确定动能最大位置",
       "content": "压缩量增大到 \\(kx=mg\\) 时合力为零，速度由增大转为减小，动能取最大值。最大压缩处速度为零、弹性势能最大，但 C 的前半句错误，故答案为 A、B、D。",
-      "knowledge": ["极值条件"],
-      "commonMistakes": ["把最大压缩位置与平衡位置混为一处"]
+      "knowledge": [
+        "极值条件"
+      ],
+      "commonMistakes": [
+        "把最大压缩位置与平衡位置混为一处"
+      ]
     }
   ],
   "practice": {
@@ -56,5 +103,62 @@
     "question": "质量 \\(m\\) 的小球从距轻弹簧上端 \\(H\\) 处由静止落下并竖直压缩劲度系数为 \\(k\\) 的弹簧。求最大压缩量 \\(x_{\\max}\\)。",
     "answer": "由机械能守恒 \\(mg(H+x_{\\max})=\\frac12kx_{\\max}^2\\)，故 \\(x_{\\max}=\\frac{mg+\\sqrt{m^2g^2+2kmgH}}{k}\\)。",
     "thinking": "最大压缩时速度为零，但小球在接触后还继续下降了 \\(x_{\\max}\\)，重力仍做正功。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "金属球、地球与弹簧构成的系统机械能守恒",
+      "thinking": "把金属球、地球和弹簧作为系统判断总机械能；再根据弹力与重力的大小关系判断速度和动能的变化。",
+      "formula": "\\[E_k+mgy+\\frac12kx^2=\\text{常量},\\qquad ma=mg-kx,\\qquad E_k\\ \\text{最大时}\\ kx=mg\\]",
+      "judgment": "系统内部只有重力势能、弹性势能和动能相互转化且无耗散，因此 A 正确。",
+      "knowledge": [
+        "弹性势能",
+        "系统机械能",
+        "动能极值"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "在某个阶段内，球的动能增加而球的机械能减少",
+      "thinking": "把金属球、地球和弹簧作为系统判断总机械能；再根据弹力与重力的大小关系判断速度和动能的变化。",
+      "formula": "\\[E_k+mgy+\\frac12kx^2=\\text{常量},\\qquad ma=mg-kx,\\qquad E_k\\ \\text{最大时}\\ kx=mg\\]",
+      "judgment": "刚接触后的阶段弹力小于重力，球向下加速、动能增加；弹簧对球做负功使球自身机械能减少，因此 B 正确。",
+      "knowledge": [
+        "弹性势能",
+        "系统机械能",
+        "动能极值"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "球碰上 PQ 后动能立即减少，弹簧最短时弹性势能最大",
+      "thinking": "把金属球、地球和弹簧作为系统判断总机械能；再根据弹力与重力的大小关系判断速度和动能的变化。",
+      "formula": "\\[E_k+mgy+\\frac12kx^2=\\text{常量},\\qquad ma=mg-kx,\\qquad E_k\\ \\text{最大时}\\ kx=mg\\]",
+      "judgment": "球接触平台后并非立即减速，虽然最大压缩处弹性势能最大，但前半句错误使 C 错误。",
+      "knowledge": [
+        "弹性势能",
+        "系统机械能",
+        "动能极值"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "球受到的弹力与重力大小相等时，球的动能最大",
+      "thinking": "把金属球、地球和弹簧作为系统判断总机械能；再根据弹力与重力的大小关系判断速度和动能的变化。",
+      "formula": "\\[E_k+mgy+\\frac12kx^2=\\text{常量},\\qquad ma=mg-kx,\\qquad E_k\\ \\text{最大时}\\ kx=mg\\]",
+      "judgment": "弹力增大到与重力相等时合力为零，速度由增大转为减小，动能达到最大，因此 D 正确。",
+      "knowledge": [
+        "弹性势能",
+        "系统机械能",
+        "动能极值"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

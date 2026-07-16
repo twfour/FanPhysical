@@ -20,42 +20,91 @@
     "interactive": true,
     "notes": "小车先压缩弹簧至轻杆启动，再推动轻杆克服摩擦；右图给出所需撞击速度随杆位移的关系。",
     "params": {
-      "mass": { "label": "小车质量", "value": 2, "min": 1, "max": 5, "step": 0.1, "unit": "kg" },
-      "k": { "label": "弹簧劲度", "value": 400, "min": 200, "max": 800, "step": 20, "unit": "N/m" },
-      "friction": { "label": "槽摩擦力", "value": 40, "min": 20, "max": 80, "step": 2, "unit": "N" },
-      "limit": { "label": "安全行程l", "value": 0.8, "min": 0.4, "max": 1.4, "step": 0.05, "unit": "m" }
+      "mass": {
+        "label": "小车质量",
+        "value": 2,
+        "min": 1,
+        "max": 5,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "k": {
+        "label": "弹簧劲度",
+        "value": 400,
+        "min": 200,
+        "max": 800,
+        "step": 20,
+        "unit": "N/m"
+      },
+      "friction": {
+        "label": "槽摩擦力",
+        "value": 40,
+        "min": 20,
+        "max": 80,
+        "step": 2,
+        "unit": "N"
+      },
+      "limit": {
+        "label": "安全行程l",
+        "value": 0.8,
+        "min": 0.4,
+        "max": 1.4,
+        "step": 0.05,
+        "unit": "m"
+      }
     },
-    "timeline": { "duration": 4, "loop": false }
+    "timeline": {
+      "duration": 4,
+      "loop": false
+    }
   },
-  "knowledge": ["弹簧能量", "摩擦耗能", "临界状态"],
+  "knowledge": [
+    "弹簧能量",
+    "摩擦耗能",
+    "临界状态"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "确定轻杆启动条件",
       "content": "轻杆刚要移动时，弹簧弹力等于最大静摩擦力：\\(kx_0=f\\)，故 \\(x_0=f/k\\)。此时小车加速度大小为 \\(kx_0/m=f/m\\)，A、B 均错误。",
-      "knowledge": ["静摩擦临界"],
-      "commonMistakes": ["把 \\(f/k\\) 写成 \\(k/f\\)"]
+      "knowledge": [
+        "静摩擦临界"
+      ],
+      "commonMistakes": [
+        "把 \\(f/k\\) 写成 \\(k/f\\)"
+      ]
     },
     {
       "stepId": 2,
       "title": "写速度与杆位移关系",
       "content": "轻杆质量忽略，滑动时弹簧压缩量维持 \\(f/k\\)。若杆移动 \\(s\\) 后小车停下，能量关系为 \\(\\frac12mu^2=\\frac{f^2}{2k}+fs\\)。",
-      "knowledge": ["功能关系"],
-      "commonMistakes": ["轻杆滑动后继续把弹簧压缩量当作不断增大"]
+      "knowledge": [
+        "功能关系"
+      ],
+      "commonMistakes": [
+        "轻杆滑动后继续把弹簧压缩量当作不断增大"
+      ]
     },
     {
       "stepId": 3,
       "title": "利用已知 \\(l/4\\) 消去弹簧能",
       "content": "已知 \\(v_0\\) 对应 \\(s=l/4\\)，故 \\(v_0^2=\\frac{f^2}{km}+\\frac{fl}{2m}\\)。轻杆恰好启动时 \\(s=0\\)，所以 \\(u^2=\\frac{f^2}{km}=v_0^2-\\frac{fl}{2m}\\)，C 正确。",
-      "knowledge": ["临界速度"],
+      "knowledge": [
+        "临界速度"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 4,
       "title": "核对安全最大速度",
       "content": "安全极限 \\(s=l\\) 与已知状态相比多克服摩擦 \\(f(3l/4)\\)，故 \\(u_{\\max}^2-v_0^2=\\frac{2}{m}\\cdot\\frac{3fl}{4}=\\frac{3fl}{2m}\\)，不是选项 D 的 \\(\\frac{3fl}{m}\\)。答案为 C。",
-      "knowledge": ["能量差"],
-      "commonMistakes": ["漏掉动能中的系数 \\(\\frac12\\)"]
+      "knowledge": [
+        "能量差"
+      ],
+      "commonMistakes": [
+        "漏掉动能中的系数 \\(\\frac12\\)"
+      ]
     }
   ],
   "practice": {
@@ -63,5 +112,62 @@
     "question": "同类装置中，弹簧刚使轻杆启动所需速度为 \\(u_c\\)，轻杆与槽间摩擦力为 \\(f\\)，安全行程为 \\(l\\)，小车质量为 \\(m\\)。求安全最大撞击速度。",
     "answer": "\\(\\frac12mu_{\\max}^2=\\frac12mu_c^2+fl\\)，故 \\(u_{\\max}=\\sqrt{u_c^2+\\frac{2fl}{m}}\\)。",
     "thinking": "把启动临界状态作为能量基准；之后新增的初动能全部用来克服轻杆滑动摩擦。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "轻杆开始移动时，弹簧压缩量为 \\(\\frac{k}{f}\\)",
+      "thinking": "轻杆开始移动时弹簧力等于最大静摩擦力；轻杆滑动后质量忽略，弹簧力与摩擦力保持平衡，再用能量关系比较不同移动距离。",
+      "formula": "\\[kx_0=f,\\qquad \\frac12mu^2=\\frac{f^2}{2k}+fs\\]",
+      "judgment": "启动压缩量应为摩擦力除以劲度系数，选项把比值写反，因此 A 错误。",
+      "knowledge": [
+        "弹簧能量",
+        "摩擦耗能",
+        "临界状态"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "轻杆开始移动时，小车加速度大小为 \\(\\frac{kl}{4m}\\)",
+      "thinking": "轻杆开始移动时弹簧力等于最大静摩擦力；轻杆滑动后质量忽略，弹簧力与摩擦力保持平衡，再用能量关系比较不同移动距离。",
+      "formula": "\\[kx_0=f,\\qquad \\frac12mu^2=\\frac{f^2}{2k}+fs\\]",
+      "judgment": "启动瞬间小车加速度由弹簧力 \\(f\\) 决定，不含题给杆位移，因此 B 错误。",
+      "knowledge": [
+        "弹簧能量",
+        "摩擦耗能",
+        "临界状态"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "轻杆恰好能够移动时，小车撞击速度为 \\(\\sqrt{v_0^2-\\frac{fl}{2m}}\\)",
+      "thinking": "轻杆开始移动时弹簧力等于最大静摩擦力；轻杆滑动后质量忽略，弹簧力与摩擦力保持平衡，再用能量关系比较不同移动距离。",
+      "formula": "\\[kx_0=f,\\qquad \\frac12mu^2=\\frac{f^2}{2k}+fs\\]",
+      "judgment": "用已知状态消去共同的弹性势能，再取轻杆恰好启动的位移条件，得到的速度与 C 一致，因此 C 正确。",
+      "knowledge": [
+        "弹簧能量",
+        "摩擦耗能",
+        "临界状态"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "为使装置安全，允许小车撞击的最大速度为 \\(\\sqrt{v_0^2+\\frac{3fl}{m}}\\)",
+      "thinking": "轻杆开始移动时弹簧力等于最大静摩擦力；轻杆滑动后质量忽略，弹簧力与摩擦力保持平衡，再用能量关系比较不同移动距离。",
+      "formula": "\\[kx_0=f,\\qquad \\frac12mu^2=\\frac{f^2}{2k}+fs\\]",
+      "judgment": "从已知位移到安全极限只增加相应的摩擦耗能，速度平方增量中的系数是选项的一半，因此 D 错误。",
+      "knowledge": [
+        "弹簧能量",
+        "摩擦耗能",
+        "临界状态"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

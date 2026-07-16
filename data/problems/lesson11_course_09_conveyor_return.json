@@ -20,35 +20,78 @@
     "interactive": true,
     "notes": "滑块先向左减速、反向向右加速，随后与传送带同速返回 A；右图重现原题 E_k-x 折线。",
     "params": {
-      "mass": { "label": "滑块质量", "value": 2, "min": 1, "max": 4, "step": 0.5, "unit": "kg" },
-      "initialEnergy": { "label": "初动能", "value": 16, "min": 8, "max": 32, "step": 2, "unit": "J" },
-      "beltEnergy": { "label": "同速动能", "value": 4, "min": 2, "max": 12, "step": 1, "unit": "J" },
-      "friction": { "label": "滑动摩擦力", "value": 4, "min": 2, "max": 8, "step": 0.5, "unit": "N" }
+      "mass": {
+        "label": "滑块质量",
+        "value": 2,
+        "min": 1,
+        "max": 4,
+        "step": 0.5,
+        "unit": "kg"
+      },
+      "initialEnergy": {
+        "label": "初动能",
+        "value": 16,
+        "min": 8,
+        "max": 32,
+        "step": 2,
+        "unit": "J"
+      },
+      "beltEnergy": {
+        "label": "同速动能",
+        "value": 4,
+        "min": 2,
+        "max": 12,
+        "step": 1,
+        "unit": "J"
+      },
+      "friction": {
+        "label": "滑动摩擦力",
+        "value": 4,
+        "min": 2,
+        "max": 8,
+        "step": 0.5,
+        "unit": "N"
+      }
     },
-    "timeline": { "duration": 4.5, "loop": false }
+    "timeline": {
+      "duration": 4.5,
+      "loop": false
+    }
   },
-  "knowledge": ["传送带模型", "动能—路程图像", "摩擦生热"],
+  "knowledge": [
+    "传送带模型",
+    "动能—路程图像",
+    "摩擦生热"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "由图像读速度和摩擦力",
       "content": "\\(E_{k0}=16\\,\\mathrm J\\)，故 \\(v_2=\\sqrt{2E_k/m}=4\\,\\mathrm{m/s}\\)。图线斜率大小为 \\(16/4=4\\,\\mathrm N\\)，即滑动摩擦力 \\(f=4\\,\\mathrm N\\)，加速度大小 \\(a=f/m=2\\,\\mathrm{m/s^2}\\)。",
-      "knowledge": ["图像斜率"],
+      "knowledge": [
+        "图像斜率"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "确定传送带速度和运动时间",
       "content": "折线进入水平段时滑块与传送带同速，\\(\\frac12mv_1^2=4\\,\\mathrm J\\)，得 \\(v_1=2\\,\\mathrm{m/s}\\)，A 错。滑块向左减速用时 \\(2\\,\\mathrm s\\)，再向右加速到 \\(2\\,\\mathrm{m/s}\\) 用时 \\(1\\,\\mathrm s\\)，之后还需向右匀速 \\(3\\,\\mathrm m\\)，用时 \\(1.5\\,\\mathrm s\\)。总时间 \\(4.5\\,\\mathrm s\\)，B 错。",
-      "knowledge": ["分段运动"],
+      "knowledge": [
+        "分段运动"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "判断速率变化与摩擦生热",
       "content": "当传送带足够快时，滑块会在尚未追上传送带速度前回到平台，运动时间不再随带速增大而减小，故 C 错。前 \\(2\\,\\mathrm s\\) 相对路程为 \\(8\\,\\mathrm m\\)，随后加速阶段相对路程为 \\(1\\,\\mathrm m\\)，所以\n\n\\[\nQ=f\\Delta s_{\\mathrm{相}}=4\\times9=36\\,\\mathrm J.\n\\]\n\n答案为 D。",
-      "knowledge": ["摩擦生热"],
-      "commonMistakes": ["用滑块对地位移代替相对路程"]
+      "knowledge": [
+        "摩擦生热"
+      ],
+      "commonMistakes": [
+        "用滑块对地位移代替相对路程"
+      ]
     }
   ],
   "practice": {
@@ -56,5 +99,62 @@
     "question": "质量为 \\(1\\,\\mathrm{kg}\\) 的滑块以 \\(3\\,\\mathrm{m/s}\\) 向左滑上向右以 \\(1\\,\\mathrm{m/s}\\) 运动的传送带，滑动摩擦力为 \\(2\\,\\mathrm N\\)。求滑块从上带到与传送带同速的时间和此过程产生的热量。",
     "answer": "加速度大小 \\(2\\,\\mathrm{m/s^2}\\)，速度从 \\(-3\\) 变到 \\(+1\\)，故 \\(t=2\\,\\mathrm s\\)。相对初速度为 \\(-4\\,\\mathrm{m/s}\\)，末相对速度为零，相对路程 \\(4\\,\\mathrm m\\)，所以 \\(Q=2\\times4=8\\,\\mathrm J\\)。",
     "thinking": "统一规定向右为正，先用速度变化求时间，再用相对运动求摩擦生热。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "传送带运行速率为 \\(v_1=1\\,\\mathrm{m/s}\\)",
+      "thinking": "利用动能—路程图像的斜率求摩擦力，水平段动能对应与传送带同速；摩擦生热由滑动摩擦力与累计相对路程决定。",
+      "formula": "\\[f=\\left|\\frac{\\mathrm dE_k}{\\mathrm dx}\\right|,\\qquad E_k=\\frac12mv^2,\\qquad Q=f\\Delta s_{\\text{相}}\\]",
+      "judgment": "水平段对应的动能反推出的共同速度不是 A 所给值，因此 A 错误。",
+      "knowledge": [
+        "传送带模型",
+        "动能—路程图像",
+        "摩擦生热"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "滑块在传送带上的运动时间为 \\(2.5\\,\\mathrm s\\)",
+      "thinking": "利用动能—路程图像的斜率求摩擦力，水平段动能对应与传送带同速；摩擦生热由滑动摩擦力与累计相对路程决定。",
+      "formula": "\\[f=\\left|\\frac{\\mathrm dE_k}{\\mathrm dx}\\right|,\\qquad E_k=\\frac12mv^2,\\qquad Q=f\\Delta s_{\\text{相}}\\]",
+      "judgment": "总时间应包含向左减速、向右加速以及同速后的匀速返回三段，长于 B 所给时间，因此 B 错误。",
+      "knowledge": [
+        "传送带模型",
+        "动能—路程图像",
+        "摩擦生热"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "若传送带速率增大，滑块在传送带上的运动时间一定越来越小",
+      "thinking": "利用动能—路程图像的斜率求摩擦力，水平段动能对应与传送带同速；摩擦生热由滑动摩擦力与累计相对路程决定。",
+      "formula": "\\[f=\\left|\\frac{\\mathrm dE_k}{\\mathrm dx}\\right|,\\qquad E_k=\\frac12mv^2,\\qquad Q=f\\Delta s_{\\text{相}}\\]",
+      "judgment": "传送带速度足够大后，滑块会在追上带速前返回平台，此后再增大带速不会继续缩短运动时间，因此 C 错误。",
+      "knowledge": [
+        "传送带模型",
+        "动能—路程图像",
+        "摩擦生热"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "滑块从滑上传送带到再次滑回平台的过程中，因摩擦产生的热量为 \\(36\\,\\mathrm J\\)",
+      "thinking": "利用动能—路程图像的斜率求摩擦力，水平段动能对应与传送带同速；摩擦生热由滑动摩擦力与累计相对路程决定。",
+      "formula": "\\[f=\\left|\\frac{\\mathrm dE_k}{\\mathrm dx}\\right|,\\qquad E_k=\\frac12mv^2,\\qquad Q=f\\Delta s_{\\text{相}}\\]",
+      "judgment": "累计两个相对滑动阶段的相对路程后计算摩擦生热，结果与 D 一致，因此 D 正确。",
+      "knowledge": [
+        "传送带模型",
+        "动能—路程图像",
+        "摩擦生热"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

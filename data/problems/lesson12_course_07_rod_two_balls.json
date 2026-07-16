@@ -14,34 +14,72 @@
     "interactive": true,
     "notes": "刚性杆带动 A、B 以相同角速度转动；右图比较势能减少量与总动能。",
     "params": {
-      "mass": { "label": "每球质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
-      "length": { "label": "杆长", "value": 2, "min": 1, "max": 4, "step": 0.1, "unit": "m" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "每球质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "length": {
+        "label": "杆长",
+        "value": 2,
+        "min": 1,
+        "max": 4,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 3, "loop": false }
+    "timeline": {
+      "duration": 3,
+      "loop": false
+    }
   },
-  "knowledge": ["连接体机械能", "同轴转动", "角速度"],
+  "knowledge": [
+    "连接体机械能",
+    "同轴转动",
+    "角速度"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "写速度约束",
       "content": "两球固定在同一刚性杆上，角速度相同。因 \\(OA=L\\)、\\(OB=L/2\\)，有 \\(v_A=\\omega L\\)，\\(v_B=\\omega L/2=v_A/2\\)。",
-      "knowledge": ["刚体转动"],
-      "commonMistakes": ["误认为两球线速度相同"]
+      "knowledge": [
+        "刚体转动"
+      ],
+      "commonMistakes": [
+        "误认为两球线速度相同"
+      ]
     },
     {
       "stepId": 2,
       "title": "计算重力势能减少量",
       "content": "杆由水平转到竖直向下，A 下降 \\(L\\)，B 下降 \\(L/2\\)，故总势能减少 \\(\\Delta E_p=mgL+mg\\frac L2=\\frac32mgL\\)。",
-      "knowledge": ["重力势能"],
+      "knowledge": [
+        "重力势能"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "列系统机械能守恒",
       "content": "\\(\\frac32mgL=\\frac12mv_A^2+\\frac12mv_B^2=\\frac12m\\omega^2L^2(1+\\frac14)\\)。解得 \\(\\omega^2=\\frac{12g}{5L}\\)，从而 \\(v_A=\\sqrt{\\frac{12}{5}gL}\\)，\\(v_B=\\sqrt{\\frac35gL}\\)。",
-      "knowledge": ["机械能守恒"],
-      "commonMistakes": ["漏掉中点小球的动能"]
+      "knowledge": [
+        "机械能守恒"
+      ],
+      "commonMistakes": [
+        "漏掉中点小球的动能"
+      ]
     }
   ],
   "practice": {
@@ -49,5 +87,8 @@
     "question": "质量均为 \\(m\\) 的两球固定在轻杆上，距转轴分别为 \\(L\\) 和 \\(L/3\\)。轻杆从水平位置由静止转到竖直向下，求角速度 \\(\\omega\\)。",
     "answer": "\\(mg(L+L/3)=\\frac12m\\omega^2(L^2+L^2/9)\\)，故 \\(\\omega=\\sqrt{\\frac{12g}{5L}}\\)。",
     "thinking": "先用同角速度写每个球的线速度，再把所有球的动能和势能变化都列入系统方程。"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

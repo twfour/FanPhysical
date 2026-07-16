@@ -20,35 +20,85 @@
     "interactive": true,
     "notes": "包裹先相对传送带滑动加速，再与带同速匀速上行；右图比较摩擦功和摩擦热。",
     "params": {
-      "length": { "label": "传送带长度", "value": 8, "min": 6, "max": 12, "step": 0.5, "unit": "m" },
-      "beltSpeed": { "label": "传送带速度", "value": 2, "min": 1, "max": 4, "step": 0.2, "unit": "m/s" },
-      "angle": { "label": "倾角", "value": 37, "min": 25, "max": 45, "step": 1, "unit": "°" },
-      "mu": { "label": "动摩擦因数", "value": 0.8, "min": 0.6, "max": 1, "step": 0.05, "unit": "" },
-      "mass": { "label": "包裹质量", "value": 1, "min": 0.5, "max": 2, "step": 0.1, "unit": "kg" }
+      "length": {
+        "label": "传送带长度",
+        "value": 8,
+        "min": 6,
+        "max": 12,
+        "step": 0.5,
+        "unit": "m"
+      },
+      "beltSpeed": {
+        "label": "传送带速度",
+        "value": 2,
+        "min": 1,
+        "max": 4,
+        "step": 0.2,
+        "unit": "m/s"
+      },
+      "angle": {
+        "label": "倾角",
+        "value": 37,
+        "min": 25,
+        "max": 45,
+        "step": 1,
+        "unit": "°"
+      },
+      "mu": {
+        "label": "动摩擦因数",
+        "value": 0.8,
+        "min": 0.6,
+        "max": 1,
+        "step": 0.05,
+        "unit": ""
+      },
+      "mass": {
+        "label": "包裹质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "kg"
+      }
     },
-    "timeline": { "duration": 6.5, "loop": false }
+    "timeline": {
+      "duration": 6.5,
+      "loop": false
+    }
   },
-  "knowledge": ["倾斜传送带", "摩擦力做功", "摩擦生热"],
+  "knowledge": [
+    "倾斜传送带",
+    "摩擦力做功",
+    "摩擦生热"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "判断运动阶段",
       "content": "包裹刚放上时相对传送带向下滑，滑动摩擦力沿斜面向上，大小 \\(f=\\mu mg\\cos37^\\circ=6.4\\,\\mathrm N\\)。沿斜面合力为 \\(6.4-6=0.4\\,\\mathrm N\\)，故加速度 \\(a=0.4\\,\\mathrm{m/s^2}\\)。达到带速需 \\(5\\,\\mathrm s\\)，位移 \\(5\\,\\mathrm m\\)；余下 \\(3\\,\\mathrm m\\) 与传送带同速匀速运动，A 错。",
-      "knowledge": ["分段运动"],
+      "knowledge": [
+        "分段运动"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "计算摩擦力对包裹做功",
       "content": "滑动阶段摩擦力做功 \\(W_{f1}=6.4\\times5=32\\,\\mathrm J\\)。同速后，为平衡沿斜面向下的重力分力，静摩擦力大小为 \\(6\\,\\mathrm N\\)，继续做功 \\(W_{f2}=6\\times3=18\\,\\mathrm J\\)。所以\n\n\\[\nW_f=32+18=50\\,\\mathrm J.\n\\]\n\nC 正确，B 错。",
-      "knowledge": ["静摩擦力做功"],
-      "commonMistakes": ["认为静摩擦力一定不做功"]
+      "knowledge": [
+        "静摩擦力做功"
+      ],
+      "commonMistakes": [
+        "认为静摩擦力一定不做功"
+      ]
     },
     {
       "stepId": 3,
       "title": "计算摩擦生热",
       "content": "只有相对滑动阶段产生热量。前 \\(5\\,\\mathrm s\\) 内传送带移动 \\(10\\,\\mathrm m\\)，包裹移动 \\(5\\,\\mathrm m\\)，相对路程为 \\(5\\,\\mathrm m\\)。因此\n\n\\[\nQ=f\\Delta s_{\\mathrm{相}}=6.4\\times5=32\\,\\mathrm J,\n\\]\n\nD 错。答案为 C。",
-      "knowledge": ["相对路程"],
+      "knowledge": [
+        "相对路程"
+      ],
       "commonMistakes": []
     }
   ],
@@ -57,5 +107,62 @@
     "question": "倾角 \\(30^\\circ\\) 的传送带以 \\(3\\,\\mathrm{m/s}\\) 向上运行。质量 \\(2\\,\\mathrm{kg}\\) 的物块从静止放上后，以 \\(1\\,\\mathrm{m/s^2}\\) 加速至带速，再随带匀速上行 \\(2\\,\\mathrm m\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)。求全程摩擦力对物块做的功。",
     "answer": "加速段位移 \\(s_1=v^2/(2a)=4.5\\,\\mathrm m\\)。由动能定理，\\(W_{f1}-mg\\sin30^\\circ s_1=\\frac12mv^2\\)，得 \\(W_{f1}=54\\,\\mathrm J\\)。匀速段 \\(W_{f2}=mg\\sin30^\\circ\\times2=20\\,\\mathrm J\\)，总功 \\(74\\,\\mathrm J\\)。",
     "thinking": "把相对滑动和共同运动分开；两阶段摩擦力都可能对物块做正功。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "包裹从 \\(A\\) 到 \\(B\\) 的过程中始终做匀加速直线运动",
+      "thinking": "先判断包裹相对传送带是否滑动以及何时达到共同速度，再分别计算滑动摩擦力和静摩擦力在各阶段所做的功；摩擦生热只由相对滑动产生。",
+      "formula": "\\[W_f=f_k s_{\\text{滑}}+f_s s_{\\text{同速}},\\qquad Q=f_k\\Delta s_{\\text{相}}\\]",
+      "judgment": "包裹达到传送带速度后转为匀速运动，并非全程匀加速，因此 A 错误。",
+      "knowledge": [
+        "倾斜传送带",
+        "摩擦力做功",
+        "摩擦生热"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "传送带对包裹的摩擦力做功 \\(32\\,\\mathrm J\\)",
+      "thinking": "先判断包裹相对传送带是否滑动以及何时达到共同速度，再分别计算滑动摩擦力和静摩擦力在各阶段所做的功；摩擦生热只由相对滑动产生。",
+      "formula": "\\[W_f=f_k s_{\\text{滑}}+f_s s_{\\text{同速}},\\qquad Q=f_k\\Delta s_{\\text{相}}\\]",
+      "judgment": "该数值只对应相对滑动阶段的摩擦功，漏掉同速后静摩擦力继续做的功，因此 B 错误。",
+      "knowledge": [
+        "倾斜传送带",
+        "摩擦力做功",
+        "摩擦生热"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "传送带对包裹的摩擦力做功 \\(50\\,\\mathrm J\\)",
+      "thinking": "先判断包裹相对传送带是否滑动以及何时达到共同速度，再分别计算滑动摩擦力和静摩擦力在各阶段所做的功；摩擦生热只由相对滑动产生。",
+      "formula": "\\[W_f=f_k s_{\\text{滑}}+f_s s_{\\text{同速}},\\qquad Q=f_k\\Delta s_{\\text{相}}\\]",
+      "judgment": "把滑动阶段和同速阶段的摩擦功相加，得到题给结果，因此 C 正确。",
+      "knowledge": [
+        "倾斜传送带",
+        "摩擦力做功",
+        "摩擦生热"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "包裹与传送带因摩擦产生的热量为 \\(50\\,\\mathrm J\\)",
+      "thinking": "先判断包裹相对传送带是否滑动以及何时达到共同速度，再分别计算滑动摩擦力和静摩擦力在各阶段所做的功；摩擦生热只由相对滑动产生。",
+      "formula": "\\[W_f=f_k s_{\\text{滑}}+f_s s_{\\text{同速}},\\qquad Q=f_k\\Delta s_{\\text{相}}\\]",
+      "judgment": "摩擦生热应使用相对路程，且只发生在相对滑动阶段，不能等同于摩擦力对包裹的总功，因此 D 错误。",
+      "knowledge": [
+        "倾斜传送带",
+        "摩擦力做功",
+        "摩擦生热"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

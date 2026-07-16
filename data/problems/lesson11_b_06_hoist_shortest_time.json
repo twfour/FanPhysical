@@ -20,36 +20,86 @@
     "interactive": true,
     "notes": "提升过程分为最大拉力加速、额定功率运行和最大允许减速；右图显示速度与功率的分段变化。",
     "params": {
-      "ratedPower": { "label": "额定功率", "value": 1200, "min": 900, "max": 1800, "step": 100, "unit": "W" },
-      "maxTension": { "label": "最大拉力", "value": 300, "min": 250, "max": 400, "step": 10, "unit": "N" },
-      "mass": { "label": "重物质量", "value": 20, "min": 15, "max": 30, "step": 1, "unit": "kg" },
-      "height": { "label": "平台高度", "value": 85.2, "min": 50, "max": 120, "step": 1, "unit": "m" },
-      "maxDecel": { "label": "最大减速度", "value": 5, "min": 3, "max": 7, "step": 0.5, "unit": "m/s²" }
+      "ratedPower": {
+        "label": "额定功率",
+        "value": 1200,
+        "min": 900,
+        "max": 1800,
+        "step": 100,
+        "unit": "W"
+      },
+      "maxTension": {
+        "label": "最大拉力",
+        "value": 300,
+        "min": 250,
+        "max": 400,
+        "step": 10,
+        "unit": "N"
+      },
+      "mass": {
+        "label": "重物质量",
+        "value": 20,
+        "min": 15,
+        "max": 30,
+        "step": 1,
+        "unit": "kg"
+      },
+      "height": {
+        "label": "平台高度",
+        "value": 85.2,
+        "min": 50,
+        "max": 120,
+        "step": 1,
+        "unit": "m"
+      },
+      "maxDecel": {
+        "label": "最大减速度",
+        "value": 5,
+        "min": 3,
+        "max": 7,
+        "step": 0.5,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 15.5, "loop": false }
+    "timeline": {
+      "duration": 15.5,
+      "loop": false
+    }
   },
-  "knowledge": ["最短时间", "额定功率", "功率与功"],
+  "knowledge": [
+    "最短时间",
+    "额定功率",
+    "功率与功"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "确定最大加速度与切换速度",
       "content": "低速阶段应使用最大拉力。最大加速度\n\n\\[\na_1=\\frac{T_{\\max}-mg}{m}=\\frac{300-200}{20}=5\\,\\mathrm{m/s^2}.\n\\]\n\n当 \\(T_{\\max}v=P\\) 时进入额定功率阶段，故切换速度 \\(v_1=1200/300=4\\,\\mathrm{m/s}\\)，匀加速时间 \\(t_1=4/5=0.8\\,\\mathrm s\\)。A、C 错。",
-      "knowledge": ["力限制与功率限制"],
+      "knowledge": [
+        "力限制与功率限制"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "确定最大匀速速度与减速段",
       "content": "匀速提升时拉力等于重力，所以最大匀速速度\n\n\\[\nv_m=\\frac{P}{mg}=\frac{1200}{200}=6\\,\\mathrm{m/s}.\n\\]\n\n末段以最大允许减速度 \\(5\\,\\mathrm{m/s^2}\\) 制动，故 \\(t_3=6/5=1.2\\,\\mathrm s\\)，\\(s_3=v_m^2/(2a_3)=3.6\\,\\mathrm m\\)。B 正确。",
-      "knowledge": ["匀减速运动"],
+      "knowledge": [
+        "匀减速运动"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "用功率计算中间阶段时间",
       "content": "初段位移 \\(s_1=\\frac12a_1t_1^2=1.6\\,\\mathrm m\\)，拉力做功 \\(W_1=300\\times1.6=480\\,\\mathrm J\\)。末段拉力 \\(T_3=mg-ma_3=100\\,\\mathrm N\\)，做功 \\(W_3=100\\times3.6=360\\,\\mathrm J\\)。全过程拉力做功等于重力势能增加 \\(mgh=17040\\,\\mathrm J\\)，所以额定功率阶段做功 \\(16200\\,\\mathrm J\\)，用时\n\n\\[\nt_2=16200/1200=13.5\\,\\mathrm s.\n\\]\n\n总时间 \\(t=0.8+13.5+1.2=15.5\\,\\mathrm s\\)，D 正确。",
-      "knowledge": ["平均功率"],
-      "commonMistakes": ["只用平台高度除以最大速度，忽略加减速功率约束"]
+      "knowledge": [
+        "平均功率"
+      ],
+      "commonMistakes": [
+        "只用平台高度除以最大速度，忽略加减速功率约束"
+      ]
     }
   ],
   "practice": {
@@ -57,5 +107,62 @@
     "question": "质量为 \\(10\\,\\mathrm{kg}\\) 的重物由额定功率 \\(600\\,\\mathrm W\\)、最大拉力 \\(150\\,\\mathrm N\\) 的装置提升。取 \\(g=10\\,\\mathrm{m/s^2}\\)。求最大加速度、切换到额定功率时的速度和最大匀速速度。",
     "answer": "\\(a_{\\max}=(150-100)/10=5\\,\\mathrm{m/s^2}\\)，\\(v_1=P/T_{\\max}=4\\,\\mathrm{m/s}\\)，\\(v_m=P/(mg)=6\\,\\mathrm{m/s}\\)。",
     "thinking": "低速阶段由最大拉力限制；速度增大后转为额定功率限制；最终匀速时拉力等于重力。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "整个过程中最大加速度为 \\(15\\,\\mathrm{m/s^2}\\)",
+      "thinking": "最短时间策略是低速时使用最大拉力、随后保持额定功率，并在末段使用允许的最大减速度。各阶段由力、功率和运动学条件连接。",
+      "formula": "\\[a_1=\\frac{T_{\\max}-mg}{m},\\quad v_1=\\frac{P}{T_{\\max}},\\quad v_m=\\frac{P}{mg},\\quad s_3=\\frac{v_m^2}{2a_3}\\]",
+      "judgment": "最大拉力还要克服重力，物体的最大加速度不是直接用最大拉力除以质量，因此 A 错误。",
+      "knowledge": [
+        "最短时间",
+        "额定功率",
+        "功率与功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "匀减速运动的位移大小为 \\(3.6\\,\\mathrm m\\)",
+      "thinking": "最短时间策略是低速时使用最大拉力、随后保持额定功率，并在末段使用允许的最大减速度。各阶段由力、功率和运动学条件连接。",
+      "formula": "\\[a_1=\\frac{T_{\\max}-mg}{m},\\quad v_1=\\frac{P}{T_{\\max}},\\quad v_m=\\frac{P}{mg},\\quad s_3=\\frac{v_m^2}{2a_3}\\]",
+      "judgment": "末段从最大匀速速度以允许的最大减速度制动，制动距离与 B 一致，因此 B 正确。",
+      "knowledge": [
+        "最短时间",
+        "额定功率",
+        "功率与功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "从静止开始匀加速的时间为 \\(1.2\\,\\mathrm s\\)",
+      "thinking": "最短时间策略是低速时使用最大拉力、随后保持额定功率，并在末段使用允许的最大减速度。各阶段由力、功率和运动学条件连接。",
+      "formula": "\\[a_1=\\frac{T_{\\max}-mg}{m},\\quad v_1=\\frac{P}{T_{\\max}},\\quad v_m=\\frac{P}{mg},\\quad s_3=\\frac{v_m^2}{2a_3}\\]",
+      "judgment": "初段时间应由切换速度除以最大加速度得到，结果不等于 C 所给时间，因此 C 错误。",
+      "knowledge": [
+        "最短时间",
+        "额定功率",
+        "功率与功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "提升重物的最短时间为 \\(15.5\\,\\mathrm s\\)",
+      "thinking": "最短时间策略是低速时使用最大拉力、随后保持额定功率，并在末段使用允许的最大减速度。各阶段由力、功率和运动学条件连接。",
+      "formula": "\\[a_1=\\frac{T_{\\max}-mg}{m},\\quad v_1=\\frac{P}{T_{\\max}},\\quad v_m=\\frac{P}{mg},\\quad s_3=\\frac{v_m^2}{2a_3}\\]",
+      "judgment": "把初段、额定功率段和制动段时间相加，可得到 D 所给最短时间，因此 D 正确。",
+      "knowledge": [
+        "最短时间",
+        "额定功率",
+        "功率与功"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

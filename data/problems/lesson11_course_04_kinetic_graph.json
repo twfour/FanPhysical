@@ -20,33 +20,70 @@
     "interactive": true,
     "notes": "物体在粗糙水平面上减速至停；右图重现原题的 E_k-x 直线并同步标点。",
     "params": {
-      "mass": { "label": "物体质量", "value": 2, "min": 1, "max": 5, "step": 0.5, "unit": "kg" },
-      "initialEnergy": { "label": "初动能", "value": 100, "min": 40, "max": 200, "step": 10, "unit": "J" },
-      "stopDistance": { "label": "停止距离", "value": 10, "min": 5, "max": 20, "step": 1, "unit": "m" }
+      "mass": {
+        "label": "物体质量",
+        "value": 2,
+        "min": 1,
+        "max": 5,
+        "step": 0.5,
+        "unit": "kg"
+      },
+      "initialEnergy": {
+        "label": "初动能",
+        "value": 100,
+        "min": 40,
+        "max": 200,
+        "step": 10,
+        "unit": "J"
+      },
+      "stopDistance": {
+        "label": "停止距离",
+        "value": 10,
+        "min": 5,
+        "max": 20,
+        "step": 1,
+        "unit": "m"
+      }
     },
-    "timeline": { "duration": 2, "loop": false }
+    "timeline": {
+      "duration": 2,
+      "loop": false
+    }
   },
-  "knowledge": ["动能—位移图像", "图像斜率", "摩擦力"],
+  "knowledge": [
+    "动能—位移图像",
+    "图像斜率",
+    "摩擦力"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "读出停止位置",
       "content": "图线在 \\(x=10\\,\\mathrm m\\) 处与横轴相交，表示动能降为零，物体停止。因此总位移为 \\(10\\,\\mathrm m\\)，A 正确。",
-      "knowledge": ["图像截距"],
+      "knowledge": [
+        "图像截距"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "用斜率求摩擦力",
       "content": "由动能定理 \\(\\Delta E_k=-fx\\)，图线斜率为\n\n\\[\n\\frac{\\Delta E_k}{\\Delta x}=\\frac{0-100}{10-0}=-10\\,\\mathrm{J/m}=-10\\,\\mathrm N.\n\\]\n\n故摩擦力大小 \\(f=10\\,\\mathrm N\\)，D 正确。",
-      "knowledge": ["图像斜率"],
-      "commonMistakes": ["把负斜率直接当成负的力的大小"]
+      "knowledge": [
+        "图像斜率"
+      ],
+      "commonMistakes": [
+        "把负斜率直接当成负的力的大小"
+      ]
     },
     {
       "stepId": 3,
       "title": "求加速度和初速度",
       "content": "加速度大小 \\(a=f/m=5\\,\\mathrm{m/s^2}\\)，所以 B 错。由 \\(E_{k0}=\\frac12mv_0^2=100\\,\\mathrm J\\)，得 \\(v_0=10\\,\\mathrm{m/s}\\)，C 正确。答案为 A、C、D。",
-      "knowledge": ["动能公式", "牛顿第二定律"],
+      "knowledge": [
+        "动能公式",
+        "牛顿第二定律"
+      ],
       "commonMistakes": []
     }
   ],
@@ -55,5 +92,62 @@
     "question": "质量为 \\(4\\,\\mathrm{kg}\\) 的物体在水平面上运动，其 \\(E_k-x\\) 图线从 \\((0,180\\,\\mathrm J)\\) 线性下降到 \\((15\\,\\mathrm m,0)\\)。求阻力大小、加速度大小和初速度。",
     "answer": "\\(f=180/15=12\\,\\mathrm N\\)，\\(a=f/m=3\\,\\mathrm{m/s^2}\\)，\\(v_0=\\sqrt{2E_{k0}/m}=3\\sqrt{10}\\,\\mathrm{m/s}\\)。",
     "thinking": "图线斜率等于合力沿位移方向的分量；纵截距给出初动能。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "物体运动的总位移大小为 \\(10\\,\\mathrm m\\)",
+      "thinking": "从动能—位移图像读取横轴截距和斜率。图线斜率等于恒合力，初始纵截距则给出初动能。",
+      "formula": "\\[\\frac{\\mathrm dE_k}{\\mathrm dx}=F_{\\text{合}}=-f,\\qquad E_{k0}=\\frac12mv_0^2,\\qquad a=\\frac{f}{m}\\]",
+      "judgment": "图线与横轴交点就是停止位置，所对应位移与 A 一致，因此 A 正确。",
+      "knowledge": [
+        "动能—位移图像",
+        "图像斜率",
+        "摩擦力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "物体运动的加速度大小为 \\(10\\,\\mathrm{m/s^2}\\)",
+      "thinking": "从动能—位移图像读取横轴截距和斜率。图线斜率等于恒合力，初始纵截距则给出初动能。",
+      "formula": "\\[\\frac{\\mathrm dE_k}{\\mathrm dx}=F_{\\text{合}}=-f,\\qquad E_{k0}=\\frac12mv_0^2,\\qquad a=\\frac{f}{m}\\]",
+      "judgment": "加速度应由图线斜率给出的摩擦力再除以质量，结果不是 B 所给数值，因此 B 错误。",
+      "knowledge": [
+        "动能—位移图像",
+        "图像斜率",
+        "摩擦力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "物体运动的初速度大小为 \\(10\\,\\mathrm{m/s}\\)",
+      "thinking": "从动能—位移图像读取横轴截距和斜率。图线斜率等于恒合力，初始纵截距则给出初动能。",
+      "formula": "\\[\\frac{\\mathrm dE_k}{\\mathrm dx}=F_{\\text{合}}=-f,\\qquad E_{k0}=\\frac12mv_0^2,\\qquad a=\\frac{f}{m}\\]",
+      "judgment": "由初始动能和质量反求初速度，结果与 C 一致，因此 C 正确。",
+      "knowledge": [
+        "动能—位移图像",
+        "图像斜率",
+        "摩擦力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "物体所受的摩擦力大小为 \\(10\\,\\mathrm N\\)",
+      "thinking": "从动能—位移图像读取横轴截距和斜率。图线斜率等于恒合力，初始纵截距则给出初动能。",
+      "formula": "\\[\\frac{\\mathrm dE_k}{\\mathrm dx}=F_{\\text{合}}=-f,\\qquad E_{k0}=\\frac12mv_0^2,\\qquad a=\\frac{f}{m}\\]",
+      "judgment": "图线斜率绝对值就是摩擦力大小，结果与 D 一致，因此 D 正确。",
+      "knowledge": [
+        "动能—位移图像",
+        "图像斜率",
+        "摩擦力"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

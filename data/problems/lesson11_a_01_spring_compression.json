@@ -20,36 +20,93 @@
     "interactive": true,
     "notes": "物体先滑过距离 s，再压缩弹簧 x；右图分开显示摩擦耗能与弹簧储能。",
     "params": {
-      "mass": { "label": "物体质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
-      "speed": { "label": "初速度", "value": 8, "min": 5, "max": 12, "step": 0.5, "unit": "m/s" },
-      "distance": { "label": "距弹簧距离", "value": 2, "min": 1, "max": 4, "step": 0.2, "unit": "m" },
-      "compression": { "label": "最大压缩量", "value": 0.8, "min": 0.3, "max": 1.5, "step": 0.1, "unit": "m" },
-      "mu": { "label": "动摩擦因数", "value": 0.2, "min": 0.05, "max": 0.4, "step": 0.05, "unit": "" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "物体质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "speed": {
+        "label": "初速度",
+        "value": 8,
+        "min": 5,
+        "max": 12,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "distance": {
+        "label": "距弹簧距离",
+        "value": 2,
+        "min": 1,
+        "max": 4,
+        "step": 0.2,
+        "unit": "m"
+      },
+      "compression": {
+        "label": "最大压缩量",
+        "value": 0.8,
+        "min": 0.3,
+        "max": 1.5,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "mu": {
+        "label": "动摩擦因数",
+        "value": 0.2,
+        "min": 0.05,
+        "max": 0.4,
+        "step": 0.05,
+        "unit": ""
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 4, "loop": false }
+    "timeline": {
+      "duration": 4,
+      "loop": false
+    }
   },
-  "knowledge": ["弹簧功", "摩擦功", "全过程动能定理"],
+  "knowledge": [
+    "弹簧功",
+    "摩擦功",
+    "全过程动能定理"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "选取完整过程",
       "content": "从 \\(A\\) 点开始到弹簧压缩最短，物体的总路程为 \\(s+x\\)，初动能为 \\(\\frac12mv_0^2\\)，末动能为零。",
-      "knowledge": ["研究过程"],
+      "knowledge": [
+        "研究过程"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "列动能定理",
       "content": "设弹簧对物体做功为 \\(W_s<0\\)，摩擦力做功为 \\(-\\mu mg(s+x)\\)。则\n\n\\[\nW_s-\\mu mg(s+x)=-\\frac12mv_0^2.\n\\]",
-      "knowledge": ["动能定理"],
-      "commonMistakes": ["只计算压缩阶段的摩擦功，漏掉前面的距离 \\(s\\)"]
+      "knowledge": [
+        "动能定理"
+      ],
+      "commonMistakes": [
+        "只计算压缩阶段的摩擦功，漏掉前面的距离 \\(s\\)"
+      ]
     },
     {
       "stepId": 3,
       "title": "写出克服弹力所做的功",
       "content": "物体克服弹簧弹力做的功等于 \\(-W_s\\)，所以\n\n\\[\nW_{\\mathrm{克服弹力}}=\\frac12mv_0^2-\\mu mg(s+x).\n\\]\n\n答案为 A。",
-      "knowledge": ["克服力做功"],
+      "knowledge": [
+        "克服力做功"
+      ],
       "commonMistakes": []
     }
   ],
@@ -58,5 +115,62 @@
     "question": "质量 \\(1\\,\\mathrm{kg}\\) 的物块以 \\(6\\,\\mathrm{m/s}\\) 滑过 \\(1\\,\\mathrm m\\) 的粗糙水平面后压缩弹簧 \\(0.5\\,\\mathrm m\\) 并停下。动摩擦因数 \\(\\mu=0.2\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求弹簧最大弹性势能。",
     "answer": "\\(E_p=\\frac12mv_0^2-\\mu mg(s+x)=18-2\\times1.5=15\\,\\mathrm J\\)。",
     "thinking": "把弹簧储能视为物体克服弹力做的功，对从起点到最大压缩的全过程列能量账。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(\\frac12mv_0^2-\\mu mg(s+x)\\)",
+      "thinking": "把研究过程取为物体从起点运动到弹簧压缩最短，并把克服弹力做功与弹簧对物体做功区分开。摩擦力在接触弹簧前后都做负功。",
+      "formula": "\\[W_{\\text{克服弹力}}=\\frac12mv_0^2-\\mu mg(s+x)\\]",
+      "judgment": "完整计入路程 \\(s+x\\) 上的摩擦耗能后，剩余初动能转化为克服弹力所做的功，因此 A 正确。",
+      "knowledge": [
+        "弹簧功",
+        "摩擦功",
+        "全过程动能定理"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(\\frac12mv_0^2-\\mu mgx\\)",
+      "thinking": "把研究过程取为物体从起点运动到弹簧压缩最短，并把克服弹力做功与弹簧对物体做功区分开。摩擦力在接触弹簧前后都做负功。",
+      "formula": "\\[W_{\\text{克服弹力}}=\\frac12mv_0^2-\\mu mg(s+x)\\]",
+      "judgment": "该式只计入压缩阶段的摩擦功，漏掉物体从起点到弹簧端的摩擦耗能，因此 B 错误。",
+      "knowledge": [
+        "弹簧功",
+        "摩擦功",
+        "全过程动能定理"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(\\mu mgs\\)",
+      "thinking": "把研究过程取为物体从起点运动到弹簧压缩最短，并把克服弹力做功与弹簧对物体做功区分开。摩擦力在接触弹簧前后都做负功。",
+      "formula": "\\[W_{\\text{克服弹力}}=\\frac12mv_0^2-\\mu mg(s+x)\\]",
+      "judgment": "\\(\\mu mgs\\) 只表示接触弹簧前克服摩擦力所做的功，不是克服弹力所做的功，因此 C 错误。",
+      "knowledge": [
+        "弹簧功",
+        "摩擦功",
+        "全过程动能定理"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(\\mu mg(s+x)\\)",
+      "thinking": "把研究过程取为物体从起点运动到弹簧压缩最短，并把克服弹力做功与弹簧对物体做功区分开。摩擦力在接触弹簧前后都做负功。",
+      "formula": "\\[W_{\\text{克服弹力}}=\\frac12mv_0^2-\\mu mg(s+x)\\]",
+      "judgment": "\\(\\mu mg(s+x)\\) 是全程克服摩擦力所做的功，不是克服弹力所做的功，因此 D 错误。",
+      "knowledge": [
+        "弹簧功",
+        "摩擦功",
+        "全过程动能定理"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

@@ -20,35 +20,78 @@
     "interactive": true,
     "notes": "物体沿同一斜面上滑至停再返回；右图对比上、下行的动能—位置关系。",
     "params": {
-      "speed": { "label": "初速度", "value": 8, "min": 5, "max": 12, "step": 0.5, "unit": "m/s" },
-      "angle": { "label": "斜面倾角", "value": 37, "min": 25, "max": 50, "step": 1, "unit": "°" },
-      "mass": { "label": "物体质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "speed": {
+        "label": "初速度",
+        "value": 8,
+        "min": 5,
+        "max": 12,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "angle": {
+        "label": "斜面倾角",
+        "value": 37,
+        "min": 25,
+        "max": 50,
+        "step": 1,
+        "unit": "°"
+      },
+      "mass": {
+        "label": "物体质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 5, "loop": false }
+    "timeline": {
+      "duration": 5,
+      "loop": false
+    }
   },
-  "knowledge": ["斜面往返", "动能定理", "摩擦功"],
+  "knowledge": [
+    "斜面往返",
+    "动能定理",
+    "摩擦功"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "分别列上滑和下滑的动能定理",
       "content": "设最大上滑距离为 \\(s\\)。上滑有\n\n\\[\n\\frac12mv_0^2=mg(\\sin\\theta+\\mu\\cos\\theta)s.\n\\]\n\n下滑回原点有\n\n\\[\n\\frac12m\\left(\\frac{v_0}{2}\\right)^2=mg(\\sin\\theta-\\mu\\cos\\theta)s.\n\\]",
-      "knowledge": ["分过程动能定理"],
+      "knowledge": [
+        "分过程动能定理"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "求摩擦因数和加速度比",
       "content": "两式相除得\n\n\\[\n\\frac{\\sin\\theta-\\mu\\cos\\theta}{\\sin\\theta+\\mu\\cos\\theta}=\\frac14,\n\\]\n\n解得 \\(\\mu=\\frac35\\tan\\theta\\)，A 正确。相应地 \\(a_{\\mathrm{上}}/a_{\\mathrm{下}}=4\\)，所以 B 的“\\(1/4\\)”错误。",
-      "knowledge": ["比值法"],
+      "knowledge": [
+        "比值法"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "求最大距离和摩擦功",
       "content": "代回上滑方程：\n\n\\[\ns=\\frac{5v_0^2}{16g\\sin\\theta},\n\\]\n\nC 正确。往返摩擦功\n\n\\[\nW_f=-2\\mu mg\\cos\\theta\\,s=-\\frac38mv_0^2,\n\\]\n\n不是正的 \\(\\frac14mv_0^2\\)，D 错。答案为 A、C。",
-      "knowledge": ["摩擦功"],
-      "commonMistakes": ["忽略摩擦功为负"]
+      "knowledge": [
+        "摩擦功"
+      ],
+      "commonMistakes": [
+        "忽略摩擦功为负"
+      ]
     }
   ],
   "practice": {
@@ -56,5 +99,62 @@
     "question": "物体以 \\(v_0\\) 沿粗糙斜面上滑，返回出发点时速度为 \\(\\frac13v_0\\)。斜面倾角为 \\(\\theta\\)，求动摩擦因数 \\(\\mu\\)。",
     "answer": "由 \\(\\frac{\\sin\\theta-\\mu\\cos\\theta}{\\sin\\theta+\\mu\\cos\\theta}=\\frac19\\)，解得 \\(\\mu=\\frac45\\tan\\theta\\)。",
     "thinking": "上、下行经过同一距离，分别列动能定理后相除，可以消去距离、质量和重力加速度。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "动摩擦因数 \\(\\mu=\\frac35\\tan\\theta\\)",
+      "thinking": "设最大上滑距离为 \\(s\\)，分别对上滑和下滑过程应用动能定理，再利用两段路程相等比较重力分力与摩擦力。",
+      "formula": "\\[\\frac12mv_0^2=mg(\\sin\\theta+\\mu\\cos\\theta)s,\\qquad \\frac12m\\left(\\frac{v_0}{2}\\right)^2=mg(\\sin\\theta-\\mu\\cos\\theta)s\\]",
+      "judgment": "两式相除可确定动摩擦因数，结果与 A 一致，因此 A 正确。",
+      "knowledge": [
+        "斜面往返",
+        "动能定理",
+        "摩擦功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "上滑时的加速度大小是下滑时的 \\(\\frac14\\)",
+      "thinking": "设最大上滑距离为 \\(s\\)，分别对上滑和下滑过程应用动能定理，再利用两段路程相等比较重力分力与摩擦力。",
+      "formula": "\\[\\frac12mv_0^2=mg(\\sin\\theta+\\mu\\cos\\theta)s,\\qquad \\frac12m\\left(\\frac{v_0}{2}\\right)^2=mg(\\sin\\theta-\\mu\\cos\\theta)s\\]",
+      "judgment": "上滑时重力分力与摩擦力同向，下滑时二者反向，所以上滑加速度大小应更大而不是只有下滑的四分之一，因此 B 错误。",
+      "knowledge": [
+        "斜面往返",
+        "动能定理",
+        "摩擦功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "沿斜面上滑的最大距离为 \\(\\frac{5v_0^2}{16g\\sin\\theta}\\)",
+      "thinking": "设最大上滑距离为 \\(s\\)，分别对上滑和下滑过程应用动能定理，再利用两段路程相等比较重力分力与摩擦力。",
+      "formula": "\\[\\frac12mv_0^2=mg(\\sin\\theta+\\mu\\cos\\theta)s,\\qquad \\frac12m\\left(\\frac{v_0}{2}\\right)^2=mg(\\sin\\theta-\\mu\\cos\\theta)s\\]",
+      "judgment": "把求得的动摩擦因数代回上滑方程，可得到 C 所给的最大距离，因此 C 正确。",
+      "knowledge": [
+        "斜面往返",
+        "动能定理",
+        "摩擦功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "往返过程中摩擦力做功为 \\(\\frac14mv_0^2\\)",
+      "thinking": "设最大上滑距离为 \\(s\\)，分别对上滑和下滑过程应用动能定理，再利用两段路程相等比较重力分力与摩擦力。",
+      "formula": "\\[\\frac12mv_0^2=mg(\\sin\\theta+\\mu\\cos\\theta)s,\\qquad \\frac12m\\left(\\frac{v_0}{2}\\right)^2=mg(\\sin\\theta-\\mu\\cos\\theta)s\\]",
+      "judgment": "往返过程摩擦力始终做负功，且其大小由两段摩擦功之和决定，不等于选项所给正值，因此 D 错误。",
+      "knowledge": [
+        "斜面往返",
+        "动能定理",
+        "摩擦功"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

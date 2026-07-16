@@ -20,33 +20,69 @@
     "interactive": true,
     "notes": "并列显示从 2x 与 x 高度释放的两种轨迹；右图显示两条动能曲线的差值始终为正但逐渐缩小。",
     "params": {
-      "heightUnit": { "label": "高度单位x", "value": 1, "min": 0.5, "max": 2, "step": 0.1, "unit": "m" },
-      "radius": { "label": "轨道半径", "value": 1.5, "min": 1, "max": 2.5, "step": 0.1, "unit": "m" },
-      "lossFactor": { "label": "能量差保留率", "value": 0.55, "min": 0.3, "max": 0.8, "step": 0.05, "unit": "" }
+      "heightUnit": {
+        "label": "高度单位x",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "radius": {
+        "label": "轨道半径",
+        "value": 1.5,
+        "min": 1,
+        "max": 2.5,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "lossFactor": {
+        "label": "能量差保留率",
+        "value": 0.55,
+        "min": 0.3,
+        "max": 0.8,
+        "step": 0.05,
+        "unit": ""
+      }
     },
-    "timeline": { "duration": 7, "loop": false }
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
   },
-  "knowledge": ["粗糙曲面", "能量差比较", "摩擦耗能"],
+  "knowledge": [
+    "粗糙曲面",
+    "能量差比较",
+    "摩擦耗能"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "比较两次入轨能量",
       "content": "两次分别从 \\(B\\) 上方 \\(2x\\) 和 \\(x\\) 处释放，进入 \\(B\\) 点时的动能相差 \\(mgx\\)。高处释放的物块在轨道上任一点速度都更大。",
-      "knowledge": ["机械能转化"],
+      "knowledge": [
+        "机械能转化"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "判断能量差如何变化",
       "content": "粗糙圆弧上 \\(f=\\mu N\\)，而法向力含有 \\(mv^2/R\\)。高能轨迹受到的摩擦力更大，所以两物块的动能差沿轨道逐渐缩小；但由同一位置、同一运动方向比较，两条动力学解不会相交，故高能轨迹到达 \\(A\\) 时仍具有更大的动能。",
-      "knowledge": ["比较法"],
-      "commonMistakes": ["把两次通过圆槽的摩擦功简单看成相等"]
+      "knowledge": [
+        "比较法"
+      ],
+      "commonMistakes": [
+        "把两次通过圆槽的摩擦功简单看成相等"
+      ]
     },
     {
       "stepId": 3,
       "title": "确定低释放轨迹的出轨速度",
       "content": "高处释放时，物块从 \\(A\\) 冲出后还能上升 \\(x\\)，故其在 \\(A\\) 点动能为 \\(mgx\\)。两次入轨动能差也是 \\(mgx\\)，而经过粗糙轨道后该差值已经小于 \\(mgx\\)。因此低处释放的物块到达 \\(A\\) 时仍有正动能，冲出后最高点必在 \\(A\\) 上方。答案为 A。",
-      "knowledge": ["动能定理"],
+      "knowledge": [
+        "动能定理"
+      ],
       "commonMistakes": []
     }
   ],
@@ -55,5 +91,62 @@
     "question": "两个相同物块先后从同一粗糙固定圆弧的同一入口进入，初动能满足 \\(E_{k1}>E_{k2}>0\\)。若两者均能通过出口，比较出口动能并判断动能差相对入口是增大还是减小。",
     "answer": "出口仍有 \\(E'_{k1}>E'_{k2}\\)，但由于速度较大的物块法向力和滑动摩擦力更大，通常有 \\(0<E'_{k1}-E'_{k2}<E_{k1}-E_{k2}\\)。",
     "thinking": "在同一弧长位置比较两物块：速度较大者损耗率更大，所以能量差被压缩；动力学解的有序性保证能量大小关系不会反转。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(A\\) 点上方",
+      "thinking": "比较两条从同一轨道位置出发、初能量不同的运动。高能轨迹速度更大、摩擦也更大，但两条动力学轨迹不会在相同位置和方向上相交。",
+      "formula": "\\[\\frac{\\mathrm dE_k}{\\mathrm ds}=mg\\,\\boldsymbol e_g\\!\\cdot\\!\\boldsymbol e_t-\\mu N,\\qquad N\\ \\text{随}\\ v^2\\ \\text{增大}\\]",
+      "judgment": "高能轨迹在 A 点的动能与两次入轨能量差相等，而粗糙轨道使这一区间能量差缩小，所以低能轨迹到 A 时仍有正动能，最高点在 A 上方。因此 A 正确。",
+      "knowledge": [
+        "粗糙曲面",
+        "能量差比较",
+        "摩擦耗能"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(A\\) 点",
+      "thinking": "比较两条从同一轨道位置出发、初能量不同的运动。高能轨迹速度更大、摩擦也更大，但两条动力学轨迹不会在相同位置和方向上相交。",
+      "formula": "\\[\\frac{\\mathrm dE_k}{\\mathrm ds}=mg\\,\\boldsymbol e_g\\!\\cdot\\!\\boldsymbol e_t-\\mu N,\\qquad N\\ \\text{随}\\ v^2\\ \\text{增大}\\]",
+      "judgment": "低能轨迹到 A 点时仍未停下，不会恰在 A 点达到最高位置，因此 B 错误。",
+      "knowledge": [
+        "粗糙曲面",
+        "能量差比较",
+        "摩擦耗能"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(A\\) 点下方",
+      "thinking": "比较两条从同一轨道位置出发、初能量不同的运动。高能轨迹速度更大、摩擦也更大，但两条动力学轨迹不会在相同位置和方向上相交。",
+      "formula": "\\[\\frac{\\mathrm dE_k}{\\mathrm ds}=mg\\,\\boldsymbol e_g\\!\\cdot\\!\\boldsymbol e_t-\\mu N,\\qquad N\\ \\text{随}\\ v^2\\ \\text{增大}\\]",
+      "judgment": "物块能够以正速度冲出 A 点，最高位置不可能在 A 点下方，因此 C 错误。",
+      "knowledge": [
+        "粗糙曲面",
+        "能量差比较",
+        "摩擦耗能"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "无法判断",
+      "thinking": "比较两条从同一轨道位置出发、初能量不同的运动。高能轨迹速度更大、摩擦也更大，但两条动力学轨迹不会在相同位置和方向上相交。",
+      "formula": "\\[\\frac{\\mathrm dE_k}{\\mathrm ds}=mg\\,\\boldsymbol e_g\\!\\cdot\\!\\boldsymbol e_t-\\mu N,\\qquad N\\ \\text{随}\\ v^2\\ \\text{增大}\\]",
+      "judgment": "题给首次运动结果足以比较两次轨迹的能量差，无需额外条件，因此 D 错误。",
+      "knowledge": [
+        "粗糙曲面",
+        "能量差比较",
+        "摩擦耗能"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

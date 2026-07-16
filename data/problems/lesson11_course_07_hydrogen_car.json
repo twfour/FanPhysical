@@ -20,41 +20,86 @@
     "interactive": true,
     "notes": "汽车依次经历恒牵引力、恒功率、匀速和关闭动力滑行；右图按原题绘制 v-t 曲线。",
     "params": {
-      "mass": { "label": "汽车质量", "value": 1000, "min": 800, "max": 1600, "step": 100, "unit": "kg" },
-      "ratedPower": { "label": "额定功率", "value": 80, "min": 50, "max": 120, "step": 5, "unit": "kW" },
-      "maxSpeed": { "label": "最大速度", "value": 40, "min": 30, "max": 50, "step": 1, "unit": "m/s" },
-      "switchSpeed": { "label": "切换速度", "value": 20, "min": 15, "max": 25, "step": 1, "unit": "m/s" }
+      "mass": {
+        "label": "汽车质量",
+        "value": 1000,
+        "min": 800,
+        "max": 1600,
+        "step": 100,
+        "unit": "kg"
+      },
+      "ratedPower": {
+        "label": "额定功率",
+        "value": 80,
+        "min": 50,
+        "max": 120,
+        "step": 5,
+        "unit": "kW"
+      },
+      "maxSpeed": {
+        "label": "最大速度",
+        "value": 40,
+        "min": 30,
+        "max": 50,
+        "step": 1,
+        "unit": "m/s"
+      },
+      "switchSpeed": {
+        "label": "切换速度",
+        "value": 20,
+        "min": 15,
+        "max": 25,
+        "step": 1,
+        "unit": "m/s"
+      }
     },
-    "timeline": { "duration": 90, "loop": false }
+    "timeline": {
+      "duration": 90,
+      "loop": false
+    }
   },
-  "knowledge": ["机车启动", "恒功率运动", "动能定理"],
+  "knowledge": [
+    "机车启动",
+    "恒功率运动",
+    "动能定理"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "由最大速度求阻力",
       "content": "汽车在 \\(40\\,\\mathrm{m/s}\\) 时以额定功率匀速，故\n\n\\[\nf=\\frac{P}{v_m}=\\frac{80\\times10^3}{40}=2000\\,\\mathrm N.\n\\]",
-      "knowledge": ["功率公式"],
+      "knowledge": [
+        "功率公式"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "确定 t₁ 和 t₂",
       "content": "恒牵引力阶段结束时 \\(F=P/v_1=4000\\,\\mathrm N\\)，加速度 \\(a=(F-f)/m=2\\,\\mathrm{m/s^2}\\)，所以 \\(t_1=20/2=10\\,\\mathrm s\\)。关闭动力后减速度 \\(a'=f/m=2\\,\\mathrm{m/s^2}\\)，从 \\(40\\,\\mathrm{m/s}\\) 减到零需 \\(20\\,\\mathrm s\\)，故 \\(t_2=90\\,\\mathrm s\\)。A、B 均错。",
-      "knowledge": ["牛顿第二定律"],
+      "knowledge": [
+        "牛顿第二定律"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "求恒功率阶段位移",
       "content": "在 \\(10\\sim50\\,\\mathrm s\\) 内，牵引力做功 \\(Pt=3.2\\times10^6\\,\\mathrm J\\)。由\n\n\\[\nPt-fs=\\frac12m(40^2-20^2),\n\\]\n\n得 \\(s=1300\\,\\mathrm m\\)，所以 C 错。",
-      "knowledge": ["恒功率阶段动能定理"],
-      "commonMistakes": ["用平均速度直接处理变加速阶段"]
+      "knowledge": [
+        "恒功率阶段动能定理"
+      ],
+      "commonMistakes": [
+        "用平均速度直接处理变加速阶段"
+      ]
     },
     {
       "stepId": 4,
       "title": "求全过程阻力功",
       "content": "四段位移依次为 \\(100\\,\\mathrm m\\)、\\(1300\\,\\mathrm m\\)、\\(800\\,\\mathrm m\\)、\\(400\\,\\mathrm m\\)，总位移 \\(2600\\,\\mathrm m\\)。克服阻力做功\n\n\\[\nW_f=fs=2000\\times2600=5.2\\times10^6\\,\\mathrm J.\n\\]\n\n答案为 D。",
-      "knowledge": ["分段运动"],
+      "knowledge": [
+        "分段运动"
+      ],
       "commonMistakes": []
     }
   ],
@@ -63,5 +108,62 @@
     "question": "质量为 \\(1200\\,\\mathrm{kg}\\) 的汽车以额定功率 \\(60\\,\\mathrm{kW}\\) 行驶，最大速度为 \\(30\\,\\mathrm{m/s}\\)。若从 \\(20\\,\\mathrm{m/s}\\) 加速到最大速度经历 \\(25\\,\\mathrm s\\)，求阻力和该阶段位移。",
     "answer": "\\(f=P/v_m=2000\\,\\mathrm N\\)。由 \\(Pt-fs=\\frac12m(v_m^2-v_0^2)\\)，得 \\(s=600\\,\\mathrm m\\)。",
     "thinking": "最大速度对应牵引力等于阻力；恒功率变加速阶段用功—能关系求位移最直接。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "汽车从启动到停止共历时 \\(t_2=100\\,\\mathrm s\\)",
+      "thinking": "按恒牵引力、恒功率、匀速和关闭动力四个阶段分析。匀速段由功率求阻力，恒功率段用功—能关系求位移。",
+      "formula": "\\[f=\\frac{P}{v_m},\\qquad F=\\frac{P}{v},\\qquad Pt-fs=\\Delta E_k,\\qquad W_{\\text{克阻}}=fs\\]",
+      "judgment": "关闭动力后的减速度由恒定阻力决定，停止时刻早于 A 所给时刻，因此 A 错误。",
+      "knowledge": [
+        "机车启动",
+        "恒功率运动",
+        "动能定理"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "汽车在 \\(t_2\\) 时间内牵引力最大值为 \\(2000\\,\\mathrm N\\)",
+      "thinking": "按恒牵引力、恒功率、匀速和关闭动力四个阶段分析。匀速段由功率求阻力，恒功率段用功—能关系求位移。",
+      "formula": "\\[f=\\frac{P}{v_m},\\qquad F=\\frac{P}{v},\\qquad Pt-fs=\\Delta E_k,\\qquad W_{\\text{克阻}}=fs\\]",
+      "judgment": "最大牵引力出现在恒牵引力启动阶段，大于匀速时等于阻力的牵引力，因此 B 错误。",
+      "knowledge": [
+        "机车启动",
+        "恒功率运动",
+        "动能定理"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "汽车在 \\(t_1\\sim50\\,\\mathrm s\\) 内共行驶 \\(1200\\,\\mathrm m\\)",
+      "thinking": "按恒牵引力、恒功率、匀速和关闭动力四个阶段分析。匀速段由功率求阻力，恒功率段用功—能关系求位移。",
+      "formula": "\\[f=\\frac{P}{v_m},\\qquad F=\\frac{P}{v},\\qquad Pt-fs=\\Delta E_k,\\qquad W_{\\text{克阻}}=fs\\]",
+      "judgment": "恒功率阶段应由功—能方程同时计入阻力功，所得位移与 C 不同，因此 C 错误。",
+      "knowledge": [
+        "机车启动",
+        "恒功率运动",
+        "动能定理"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "汽车在 \\(t_2\\) 时间内克服阻力做功 \\(5.2\\times10^6\\,\\mathrm J\\)",
+      "thinking": "按恒牵引力、恒功率、匀速和关闭动力四个阶段分析。匀速段由功率求阻力，恒功率段用功—能关系求位移。",
+      "formula": "\\[f=\\frac{P}{v_m},\\qquad F=\\frac{P}{v},\\qquad Pt-fs=\\Delta E_k,\\qquad W_{\\text{克阻}}=fs\\]",
+      "judgment": "把四阶段位移相加后乘以恒定阻力，克服阻力的总功与 D 一致，因此 D 正确。",
+      "knowledge": [
+        "机车启动",
+        "恒功率运动",
+        "动能定理"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }

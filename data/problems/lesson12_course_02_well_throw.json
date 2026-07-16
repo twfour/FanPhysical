@@ -20,15 +20,57 @@
     "interactive": true,
     "notes": "两物体从同一井底以相同初动能上抛；右图给出最大高度处势能随质量的关系。",
     "params": {
-      "lightMass": { "label": "较小质量", "value": 1, "min": 0.5, "max": 2, "step": 0.1, "unit": "kg" },
-      "heavyMass": { "label": "较大质量", "value": 2, "min": 1.2, "max": 4, "step": 0.1, "unit": "kg" },
-      "initialEnergy": { "label": "相同初动能", "value": 300, "min": 150, "max": 600, "step": 10, "unit": "J" },
-      "depth": { "label": "井深", "value": 10, "min": 5, "max": 20, "step": 1, "unit": "m" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "lightMass": {
+        "label": "较小质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "heavyMass": {
+        "label": "较大质量",
+        "value": 2,
+        "min": 1.2,
+        "max": 4,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "initialEnergy": {
+        "label": "相同初动能",
+        "value": 300,
+        "min": 150,
+        "max": 600,
+        "step": 10,
+        "unit": "J"
+      },
+      "depth": {
+        "label": "井深",
+        "value": 10,
+        "min": 5,
+        "max": 20,
+        "step": 1,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 3, "loop": false }
+    "timeline": {
+      "duration": 3,
+      "loop": false
+    }
   },
-  "knowledge": ["机械能守恒", "重力势能", "同初动能比较"],
+  "knowledge": [
+    "机械能守恒",
+    "重力势能",
+    "同初动能比较"
+  ],
   "analysisPresentation": {
     "collapseEachStep": true
   },
@@ -39,8 +81,13 @@
       "thinking": "比较最高点重力势能时，不能只依据质量大小直接判断，应先把井底的初始机械能传递到最高点，再观察质量项对结果的影响。",
       "formula": "\\[E_{p,\\max}=E_{k0}-mgH\\]",
       "judgment": "在 \\(E_{k0}\\)、\\(H\\) 和 \\(g\\) 相同的条件下，质量越大，\\(mgH\\) 越大，最高点势能反而越小。因此 A 错误。",
-      "knowledge": ["机械能守恒", "含参比较"],
-      "commonMistakes": ["只看到势能公式含质量，就误判质量越大势能越大"]
+      "knowledge": [
+        "机械能守恒",
+        "含参比较"
+      ],
+      "commonMistakes": [
+        "只看到势能公式含质量，就误判质量越大势能越大"
+      ]
     },
     {
       "option": "B",
@@ -48,7 +95,10 @@
       "thinking": "先写出最高点势能关于质量的表达式，再在其余条件相同的前提下判断该表达式随质量怎样变化。",
       "formula": "\\[E_{p,\\max}=E_{k0}-mgH\\]",
       "judgment": "最高点势能随质量增大而减小，所以质量较小的物体具有较大的最高点势能。因此 B 正确。",
-      "knowledge": ["机械能守恒", "函数单调性"],
+      "knowledge": [
+        "机械能守恒",
+        "函数单调性"
+      ],
       "commonMistakes": []
     },
     {
@@ -57,8 +107,13 @@
       "thinking": "要判断两个最高点势能是否相等，可以直接写出两者势能之差，并检查质量不同是否会使该差值为零。",
       "formula": "\\[E_{p,\\max}(m_1)-E_{p,\\max}(m_2)=-(m_1-m_2)gH\\]",
       "judgment": "两物体质量不同，且井深和重力加速度均不为零，因此势能之差不为零，两者势能不相等。因此 C 错误。",
-      "knowledge": ["势能差", "含参比较"],
-      "commonMistakes": ["误认为相同初动能必然对应相同最高点势能"]
+      "knowledge": [
+        "势能差",
+        "含参比较"
+      ],
+      "commonMistakes": [
+        "误认为相同初动能必然对应相同最高点势能"
+      ]
     },
     {
       "option": "D",
@@ -66,8 +121,13 @@
       "thinking": "把“势能可能相等”转化为等式条件，检查该条件能否与题设中的质量不同、井深为正同时成立。",
       "formula": "\\[E_{p,\\max}(m_1)=E_{p,\\max}(m_2)\\Longrightarrow (m_1-m_2)gH=0\\]",
       "judgment": "题设中 \\(m_1\\ne m_2\\)，同时 \\(g\\gt0\\)、\\(H\\gt0\\)，等式条件不能成立。因此 D 错误。",
-      "knowledge": ["等式条件", "机械能守恒"],
-      "commonMistakes": ["忽略题设已经限定两物体质量不同"]
+      "knowledge": [
+        "等式条件",
+        "机械能守恒"
+      ],
+      "commonMistakes": [
+        "忽略题设已经限定两物体质量不同"
+      ]
     }
   ],
   "steps": [
@@ -75,22 +135,32 @@
       "stepId": 1,
       "title": "写出井底势能",
       "content": "设井深为 \\(H\\)，地面为零势能面，则质量为 \\(m\\) 的物体在井底有 \\(E_{p0}=-mgH\\)。两物体的初动能均为 \\(E_{k0}\\)。",
-      "knowledge": ["参考面"],
-      "commonMistakes": ["把井底势能写成正值"]
+      "knowledge": [
+        "参考面"
+      ],
+      "commonMistakes": [
+        "把井底势能写成正值"
+      ]
     },
     {
       "stepId": 2,
       "title": "用机械能守恒求最高点势能",
       "content": "上抛过程只有重力做功。最高点速度为零，所以 \\(E_{p,\\max}=E_{k0}-mgH\\)。",
-      "knowledge": ["机械能守恒"],
+      "knowledge": [
+        "机械能守恒"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "比较不同质量",
       "content": "初动能 \\(E_{k0}\\) 和井深 \\(H\\) 相同，质量越小，减去的 \\(mgH\\) 越小，因此最高点势能越大。两质量不同且 \\(H\\gt0\\)，势能不可能相等，故选 B。",
-      "knowledge": ["含参比较"],
-      "commonMistakes": ["只比较最高点高度，忽略势能还含质量因子"]
+      "knowledge": [
+        "含参比较"
+      ],
+      "commonMistakes": [
+        "只比较最高点高度，忽略势能还含质量因子"
+      ]
     }
   ],
   "practice": {

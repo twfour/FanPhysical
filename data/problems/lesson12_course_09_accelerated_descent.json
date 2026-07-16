@@ -20,35 +20,81 @@
     "interactive": true,
     "notes": "物体以小于 g 的加速度下降；右图比较动能增加、势能减少和机械能损失。",
     "params": {
-      "mass": { "label": "物体质量", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "kg" },
-      "height": { "label": "下降高度", "value": 4, "min": 2, "max": 8, "step": 0.5, "unit": "m" },
-      "ratio": { "label": "加速度/g", "value": 0.75, "min": 0.3, "max": 0.9, "step": 0.05, "unit": "" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "物体质量",
+        "value": 2,
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "height": {
+        "label": "下降高度",
+        "value": 4,
+        "min": 2,
+        "max": 8,
+        "step": 0.5,
+        "unit": "m"
+      },
+      "ratio": {
+        "label": "加速度/g",
+        "value": 0.75,
+        "min": 0.3,
+        "max": 0.9,
+        "step": 0.05,
+        "unit": ""
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 3, "loop": false }
+    "timeline": {
+      "duration": 3,
+      "loop": false
+    }
   },
-  "knowledge": ["匀变速运动", "机械能变化", "非保守力做功"],
+  "knowledge": [
+    "匀变速运动",
+    "机械能变化",
+    "非保守力做功"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "由运动学求末速度",
       "content": "物体由静止下降 \\(h\\)，有 \\(v^2=2ah=2\\times\\frac34gh=\\frac32gh\\)。",
-      "knowledge": ["运动学"],
+      "knowledge": [
+        "运动学"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "计算动能和势能变化",
       "content": "\\(\\Delta E_k=\\frac12mv^2=\\frac34mgh\\)，所以 A 正确；下降 \\(h\\) 使 \\(\\Delta E_p=-mgh\\)，即势能减少 \\(mgh\\)，C 正确。",
-      "knowledge": ["动能", "重力势能"],
-      "commonMistakes": ["把势能减少量写成负的“大小”"]
+      "knowledge": [
+        "动能",
+        "重力势能"
+      ],
+      "commonMistakes": [
+        "把势能减少量写成负的“大小”"
+      ]
     },
     {
       "stepId": 3,
       "title": "合成机械能变化",
       "content": "\\(\\Delta E=\\Delta E_k+\\Delta E_p=\\frac34mgh-mgh=-\\frac14mgh\\)。机械能减少 \\(\\frac14mgh\\)，故 B 正确、D 错，答案为 A、B、C。",
-      "knowledge": ["机械能变化"],
-      "commonMistakes": ["看到竖直运动就默认只有重力做功"]
+      "knowledge": [
+        "机械能变化"
+      ],
+      "commonMistakes": [
+        "看到竖直运动就默认只有重力做功"
+      ]
     }
   ],
   "practice": {
@@ -56,5 +102,62 @@
     "question": "质量为 \\(m\\) 的物体由静止以 \\(a=0.6g\\) 竖直下降 \\(h\\)。求动能增加量和机械能变化量。",
     "answer": "\\(\\Delta E_k=mah=0.6mgh\\)，\\(\\Delta E_p=-mgh\\)，所以 \\(\\Delta E=-0.4mgh\\)。",
     "thinking": "先用合力做功或 \\(v^2=2ah\\) 求动能变化，再与重力势能变化相加。"
-  }
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "物体动能增加了 \\(\\frac34mgh\\)",
+      "thinking": "先用匀加速运动学求末速度，再分别计算动能变化、重力势能变化以及二者之和。",
+      "formula": "\\[v^2=2ah,\\qquad \\Delta E_k=\\frac12mv^2,\\qquad \\Delta E_p=-mgh,\\qquad \\Delta E=\\Delta E_k+\\Delta E_p\\]",
+      "judgment": "把题给加速度代入动能增量公式，结果与 A 一致，因此 A 正确。",
+      "knowledge": [
+        "匀变速运动",
+        "机械能变化",
+        "非保守力做功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "物体机械能减少了 \\(\\frac14mgh\\)",
+      "thinking": "先用匀加速运动学求末速度，再分别计算动能变化、重力势能变化以及二者之和。",
+      "formula": "\\[v^2=2ah,\\qquad \\Delta E_k=\\frac12mv^2,\\qquad \\Delta E_p=-mgh,\\qquad \\Delta E=\\Delta E_k+\\Delta E_p\\]",
+      "judgment": "机械能变化等于动能增加与势能减少的代数和，表现为减少，数值与 B 一致，因此 B 正确。",
+      "knowledge": [
+        "匀变速运动",
+        "机械能变化",
+        "非保守力做功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "物体重力势能减少了 \\(mgh\\)",
+      "thinking": "先用匀加速运动学求末速度，再分别计算动能变化、重力势能变化以及二者之和。",
+      "formula": "\\[v^2=2ah,\\qquad \\Delta E_k=\\frac12mv^2,\\qquad \\Delta E_p=-mgh,\\qquad \\Delta E=\\Delta E_k+\\Delta E_p\\]",
+      "judgment": "物体下降高度为 \\(h\\)，重力势能减少量为 \\(mgh\\)，因此 C 正确。",
+      "knowledge": [
+        "匀变速运动",
+        "机械能变化",
+        "非保守力做功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "物体机械能守恒",
+      "thinking": "先用匀加速运动学求末速度，再分别计算动能变化、重力势能变化以及二者之和。",
+      "formula": "\\[v^2=2ah,\\qquad \\Delta E_k=\\frac12mv^2,\\qquad \\Delta E_p=-mgh,\\qquad \\Delta E=\\Delta E_k+\\Delta E_p\\]",
+      "judgment": "物体还受到使加速度小于 \\(g\\) 的外力作用，机械能发生变化，因此 D 错误。",
+      "knowledge": [
+        "匀变速运动",
+        "机械能变化",
+        "非保守力做功"
+      ],
+      "commonMistakes": []
+    }
+  ]
 }
