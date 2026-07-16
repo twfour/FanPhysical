@@ -1,0 +1,49 @@
+{
+  "id": "lesson13_course_05_spring_track_plank",
+  "originalNumber": "课5",
+  "chapter": "功能关系",
+  "title": "例5：弹簧—传送带—圆轨道—木板",
+  "question": "如图所示，弹簧储存的弹性势能 \\(E_p=4.5\\,\\mathrm J\\)，右端放一质量为 \\(m=1\\,\\mathrm{kg}\\) 的物块，物块与弹簧不粘连，弹簧恢复原长时物块仍未到 \\(B\\) 点。传送带 \\(BC\\) 长 \\(L_1=0.7\\,\\mathrm m\\)；\\(DE、FG\\) 是竖直放置、半径分别为 \\(R=0.3\\,\\mathrm m\\) 和 \\(r=0.15\\,\\mathrm m\\) 的两个半圆轨道；\\(HI\\) 是固定光滑长直轨道，其上放有长 \\(L_2=0.5\\,\\mathrm m\\)、质量 \\(M=1\\,\\mathrm{kg}\\) 的木板。物块与传送带、物块与木板间的动摩擦因数均为 \\(\\mu=0.5\\)，其余轨道光滑，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求：\n\n（1）传送带静止时，物块到达右端 \\(C\\) 点的速度；\n\n（2）传送带顺时针匀速转动，物块恰好不脱离轨道运动至 \\(G\\) 点时的带速；\n\n（3）物块能滑上木板且不滑离木板时，传送带速度的范围。",
+  "answer": "（1）\\(v_C=\\sqrt2\\,\\mathrm{m/s}\\)；（2）\\(u=\\sqrt{15}\\,\\mathrm{m/s}\\)；（3）\\(u\\ge\\sqrt{15}\\,\\mathrm{m/s}\\)。",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "functional_relation_model",
+    "variant": "lesson13_spring_track_plank",
+    "playable": true,
+    "interactive": true,
+    "notes": "物块依次经历弹簧加速、传送带、两段半圆轨道和滑上木板；右图显示各关键点动能。",
+    "params": {
+      "beltSpeed": { "label": "传送带速度", "value": 3.9, "min": 2.5, "max": 6, "step": 0.05, "unit": "m/s" },
+      "springEnergy": { "label": "弹簧初始能量", "value": 4.5, "min": 3.5, "max": 7, "step": 0.1, "unit": "J" },
+      "mu": { "label": "动摩擦因数", "value": 0.5, "min": 0.2, "max": 0.8, "step": 0.05, "unit": "" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 9, "loop": false }
+  },
+  "knowledge": ["全过程能量", "圆周运动临界", "板块相对运动"],
+  "steps": [
+    {
+      "title": "求到达 B 点的速度",
+      "content": "\\(A\\) 到 \\(B\\) 光滑，弹簧恢复原长后物块与弹簧分离。由 \\(\\frac12mv_B^2=E_p=4.5\\,\\mathrm J\\)，得 \\(v_B=3\\,\\mathrm{m/s}\\)。"
+    },
+    {
+      "title": "传送带静止时求 C 点速度",
+      "content": "传送带静止时，摩擦力做功 \\(-\\mu mgL_1=-3.5\\,\\mathrm J\\)。由 \\(\\frac12mv_C^2=4.5-3.5=1.0\\,\\mathrm J\\)，得 \\(v_C=\\sqrt2\\,\\mathrm{m/s}\\)。"
+    },
+    {
+      "title": "确定不脱轨临界带速",
+      "content": "顺时针转动时带面向右，物块在 \\(BC\\) 上被加速。通过半径为 \\(R\\) 的竖直半圆内轨道，顶部临界条件为 \\(v_E^2=gR\\)。由 \\(C\\) 到 \\(E\\) 升高 \\(2R\\)，故 \\(v_C^2=v_E^2+4gR=5gR=15\\)。在 \\(3\\lt u\\lt4\\,\\mathrm{m/s}\\) 时物块可先加速到带速再匀速，因而临界带速为 \\(u=\\sqrt{15}\\,\\mathrm{m/s}\\)。"
+    },
+    {
+      "title": "判断木板长度约束",
+      "content": "到达 \\(H\\) 时物块相对 \\(C\\) 升高 \\(2r=0.30\\,\\mathrm m\\)，故 \\(v_H^2=v_C^2-4gr=v_C^2-6\\)。物块滑上质量相等的木板后，相对加速度为 \\(a_{\\text{相}}=\\mu g+\\mu mg/M=10\\,\\mathrm{m/s^2}\\)，相对滑程 \\(s_{\\text{相}}=v_H^2/(2a_{\\text{相}})=v_H^2/20\\)。不滑离要求 \\(s_{\\text{相}}\\le0.5\\,\\mathrm m\\)，即 \\(v_C^2\\le16\\)。结合不脱轨的 \\(v_C^2\\ge15\\)，以及当 \\(u\\ge4\\,\\mathrm{m/s}\\) 时物块在带末速度固定为 \\(4\\,\\mathrm{m/s}\\)，最终得到 \\(u\\ge\\sqrt{15}\\,\\mathrm{m/s}\\)。"
+    }
+  ],
+  "practice": {
+    "title": "近似题：传送带接竖直圆轨道",
+    "question": "质量为 \\(1\\,\\mathrm{kg}\\) 的物块以 \\(3\\,\\mathrm{m/s}\\) 滑上长 \\(0.8\\,\\mathrm m\\) 的水平传送带，\\(\\mu=0.5\\)，带面向右运动；带末接半径 \\(R=0.20\\,\\mathrm m\\) 的光滑竖直圆轨道。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求物块恰好通过圆轨道最高点时在带末所需的速度。",
+    "answer": "最高点临界 \\(v_{\\text{顶}}^2=gR\\)，由能量守恒 \\(v_C^2=v_{\\text{顶}}^2+4gR=5gR=10\\)，故 \\(v_C=\\sqrt{10}\\,\\mathrm{m/s}\\)。",
+    "thinking": "先用最高点支持力为零确定临界速度，再从带末到圆轨道最高点应用机械能守恒。"
+  }
+}

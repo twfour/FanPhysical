@@ -1,0 +1,54 @@
+{
+  "id": "lesson13_course_03_mechanical_energy_graph",
+  "originalNumber": "课3",
+  "chapter": "功能关系",
+  "title": "例3：恒力上提机械能图像",
+  "question": "（多选）对一静止在水平地面上的物体（可视为质点）施加竖直向上的恒力 \\(F\\)，物体上升到一定高度时撤去 \\(F\\)。物体向上运动过程中，机械能 \\(E\\) 随距地面高度 \\(h\\) 的关系如图：从 \\((0,0)\\) 线性增至 \\((h_0,5E_0)\\)，再线性减至 \\((2h_0,4E_0)\\)。已知物体所受阻力大小恒定，物体上升的最大高度为 \\(2h_0\\)，重力加速度为 \\(g\\)。下列说法正确的是（  ）。",
+  "options": [
+    "A. 物体质量为 \\(\\dfrac{2E_0}{gh_0}\\)",
+    "B. 物体质量为 \\(\\dfrac{E_0}{gh_0}\\)",
+    "C. 物体所受阻力大小为 \\(\\dfrac{E_0}{h_0}\\)",
+    "D. 物体所受阻力大小为 \\(\\dfrac{2E_0}{h_0}\\)"
+  ],
+  "answer": "A、C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "functional_relation_model",
+    "variant": "lesson13_mechanical_energy_graph",
+    "playable": true,
+    "interactive": true,
+    "notes": "物体先在恒力作用下上升，再撤力减速到最高点；右图复现题给折线。",
+    "params": {
+      "E0": { "label": "能量标度", "value": 20, "min": 5, "max": 50, "step": 1, "unit": "J" },
+      "h0": { "label": "高度标度", "value": 2, "min": 1, "max": 5, "step": 0.1, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 5, "loop": false }
+  },
+  "knowledge": ["机械能变化率", "图像斜率", "恒定阻力"],
+  "steps": [
+    {
+      "title": "读取撤力后的斜率",
+      "content": "从 \\(h_0\\) 到 \\(2h_0\\) 只有恒定阻力做非保守功，故 \\(\\dfrac{\\Delta E}{\\Delta h}=-f\\)。由图得 \\(-f=\\dfrac{4E_0-5E_0}{2h_0-h_0}=-\\dfrac{E_0}{h_0}\\)，所以 \\(f=\\dfrac{E_0}{h_0}\\)，C 正确。"
+    },
+    {
+      "title": "利用最高点确定质量",
+      "content": "在最高点 \\(h=2h_0\\) 处速度为零，机械能只剩重力势能。取地面为零势能面，有 \\(mg(2h_0)=4E_0\\)，所以 \\(m=\\dfrac{2E_0}{gh_0}\\)，A 正确。"
+    },
+    {
+      "title": "补充求恒力",
+      "content": "在 \\(0\\sim h_0\\) 内，图线斜率为 \\(F-f=\\dfrac{5E_0}{h_0}\\)，故 \\(F=\\dfrac{6E_0}{h_0}\\)。这一结果也与前两步相互校验。"
+    },
+    {
+      "title": "结论",
+      "content": "正确选项为 A、C。"
+    }
+  ],
+  "practice": {
+    "title": "近似题：由机械能折线反推外力",
+    "question": "物体竖直上升时，机械能从 \\((0,0)\\) 线性增至 \\((3\\,\\mathrm m,120\\,\\mathrm J)\\)，撤去拉力后又线性减至最高点 \\((6\\,\\mathrm m,90\\,\\mathrm J)\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求质量、阻力和拉力。",
+    "answer": "\\(m=90/(10\\times6)=1.5\\,\\mathrm{kg}\\)，\\(f=(120-90)/(6-3)=10\\,\\mathrm N\\)，\\(F-f=120/3=40\\,\\mathrm N\\)，故 \\(F=50\\,\\mathrm N\\)。",
+    "thinking": "机械能—高度图像的斜率就是单位高度内非保守力做的功；最高点的机械能等于重力势能。"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "lesson13_b_09_game_track_range",
+  "originalNumber": "B9",
+  "chapter": "功能关系",
+  "title": "B 组第9题：斜轨—传送带—半圆—平抛",
+  "question": "如图，一游戏装置由倾角为 \\(\\alpha\\) 的轨道 \\(AB\\)、水平传送带 \\(BC\\) 和半径为 \\(R\\) 的光滑半圆弧轨道 \\(DE\\) 组成，\\(D、C、O、E\\) 在同一竖直线上。小滑块从斜面不同高度静止释放，经过传送带和半圆轨道，最后由 \\(E\\) 点平抛落地。已知小滑块与斜面、传送带间的动摩擦因数分别为 \\(\\mu_1=0.5\\)、\\(\\mu_2=0.1\\)，\\(BC=L=4\\,\\mathrm m\\)，\\(AB=L'=6\\,\\mathrm m\\)，传送带向右匀速运动，速度 \\(v=4\\,\\mathrm{m/s}\\)，\\(D\\) 距地面的高度 \\(H=3.05\\,\\mathrm m\\)，\\(R=0.9\\,\\mathrm m\\)，\\(\\alpha=37^\\circ\\)，\\(CD\\) 间距离刚好允许滑块通过。忽略转轮大小和 \\(CD\\) 间距，滑块经过 \\(B\\) 点时无能量损失，其余阻力不计，取 \\(g=10\\,\\mathrm{m/s^2}\\)，\\(\\sin37^\\circ=0.6\\)。求：\n\n（1）若滑块匀速通过传送带，释放高度 \\(h\\)；\n\n（2）在（1）条件下，滑块平抛的水平距离 \\(x\\)；\n\n（3）平抛距离 \\(x\\) 与释放高度 \\(h\\) 的关系。",
+  "answer": "（1）\\(h=2.4\\,\\mathrm m\\)；（2）\\(x=\\sqrt{13}\\,\\mathrm m\\)；（3）当 \\(0\\le h\\lt1.2\\,\\mathrm m\\) 时 \\(x=\\dfrac12\\sqrt{\\dfrac{20}{3}h+44}\\)，当 \\(1.2\\le h\\le3.6\\,\\mathrm m\\) 时 \\(x=\\sqrt{13}\\,\\mathrm m\\)。",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "functional_relation_model",
+    "variant": "lesson13_game_track_range",
+    "playable": true,
+    "interactive": true,
+    "notes": "滑块依次下滑、通过传送带、绕半圆下降并从 E 点平抛；右图绘制平抛距离随释放高度的分段关系。",
+    "params": {
+      "releaseHeight": { "label": "释放高度", "value": 2.4, "min": 0, "max": 3.6, "step": 0.1, "unit": "m" },
+      "beltSpeed": { "label": "传送带速度", "value": 4, "min": 2, "max": 6, "step": 0.2, "unit": "m/s" },
+      "radius": { "label": "半圆半径", "value": 0.9, "min": 0.6, "max": 1.2, "step": 0.05, "unit": "m" },
+      "topHeight": { "label": "D 点高度", "value": 3.05, "min": 2.5, "max": 4, "step": 0.05, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 10, "loop": false }
+  },
+  "knowledge": ["多过程能量", "传送带速度匹配", "平抛运动", "分段函数"],
+  "steps": [
+    {
+      "title": "求到达 B 点的速度",
+      "content": "从释放点到 \\(B\\) 的斜面路程为 \\(h/\\sin37^\\circ\\)。由动能定理，\\(\\frac12mv_B^2=mgh-\\mu_1mg\\cos37^\\circ\\cdot h/\\sin37^\\circ\\)。代入 \\(\\sin37^\\circ=0.6\\)、\\(\\cos37^\\circ=0.8\\)，得 \\(v_B^2=\\frac{20}{3}h\\)。"
+    },
+    {
+      "title": "求匀速通过传送带的释放高度",
+      "content": "要在传送带上始终匀速，进入 \\(B\\) 时就应与带速相同，即 \\(v_B=4\\,\\mathrm{m/s}\\)。由 \\(16=\\frac{20}{3}h\\)，得 \\(h=2.4\\,\\mathrm m\\)。"
+    },
+    {
+      "title": "求 E 点速度和平抛距离",
+      "content": "由 \\(D\\) 到 \\(E\\) 下降 \\(2R=1.8\\,\\mathrm m\\)，故 \\(v_E^2=4^2+4gR=52\\)。\\(E\\) 点距地面 \\(H-2R=1.25\\,\\mathrm m\\)，平抛时间 \\(t=\\sqrt{2(H-2R)/g}=0.5\\,\\mathrm s\\)，所以 \\(x=v_Et=\\sqrt{13}\\,\\mathrm m\\)。"
+    },
+    {
+      "title": "建立 x 与 h 的分段关系",
+      "content": "若 \\(v_B\\) 较小且在长 \\(4\\,\\mathrm m\\) 的带面上尚未加速到 \\(4\\,\\mathrm{m/s}\\)，则 \\(v_C^2=v_B^2+2\\mu_2gL=\\frac{20}{3}h+8\\)。达到带速的临界为 \\(v_B^2=8\\)，即 \\(h=1.2\\,\\mathrm m\\)。因此 \\(0\\le h\\lt1.2\\) 时 \\(x=\\frac12\\sqrt{\\frac{20}{3}h+44}\\)；当 \\(1.2\\le h\\le3.6\\) 时，滑块在离开传送带前已与带同速，故 \\(x=\\sqrt{13}\\,\\mathrm m\\)。"
+    }
+  ],
+  "practice": {
+    "title": "近似题：多过程末速度与射程",
+    "question": "滑块以 \\(v_C=3\\,\\mathrm{m/s}\\) 从半径 \\(R=0.8\\,\\mathrm m\\) 的光滑竖直半圆上端进入，从下端水平飞出；下端距地 \\(1.8\\,\\mathrm m\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求平抛距离。",
+    "answer": "\\(v_E^2=v_C^2+4gR=9+32=41\\)，飞行时间 \\(t=\\sqrt{2\\times1.8/10}=0.6\\,\\mathrm s\\)，故 \\(x=0.6\\sqrt{41}\\,\\mathrm m\\)。",
+    "thinking": "先用机械能守恒从半圆上端求下端速度，再把下端作为平抛起点。"
+  }
+}

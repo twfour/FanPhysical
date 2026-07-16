@@ -1,0 +1,51 @@
+{
+  "id": "lesson13_a_03_conveyor_motor",
+  "originalNumber": "A3",
+  "chapter": "功能关系",
+  "title": "A 组第3题：水平传送带电功与热量",
+  "question": "（多选）质量为 \\(m\\) 的物体在水平传送带上由静止释放，传送带由电动机带动，始终以速度 \\(v\\) 匀速运动。物体与传送带间的动摩擦因数为 \\(\\mu\\)，物体经过一会儿与传送带保持相对静止。对于物体从静止释放到相对静止这一过程，下列说法正确的是（  ）。",
+  "options": [
+    "A. 电动机多做的功为 \\(\\dfrac12mv^2\\)",
+    "B. 摩擦力对物体做的功为 \\(mv^2\\)",
+    "C. 传送带克服摩擦力所做的功为 \\(mv^2\\)",
+    "D. 电动机增加的功率为 \\(\\mu mgv\\)"
+  ],
+  "answer": "C、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "functional_relation_model",
+    "variant": "lesson13_conveyor_motor",
+    "playable": true,
+    "interactive": true,
+    "notes": "物体加速到共同速度；右图按时间显示摩擦功、电动机额外做功及功率。",
+    "params": {
+      "mass": { "label": "物体质量", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "kg" },
+      "mu": { "label": "动摩擦因数", "value": 0.3, "min": 0.05, "max": 0.8, "step": 0.01, "unit": "" },
+      "beltSpeed": { "label": "传送带速度", "value": 5, "min": 1, "max": 10, "step": 0.2, "unit": "m/s" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["摩擦功", "电动机功率", "能量分配"],
+  "steps": [
+    {
+      "title": "求加速时间与摩擦功",
+      "content": "物体加速度 \\(a=\\mu g\\)，达到带速的时间 \\(t=v/(\\mu g)\\)。摩擦力对物体做功等于动能增量：\\(W_{f,\\text{物}}=\\frac12mv^2\\)，所以 B 错误。"
+    },
+    {
+      "title": "求电动机额外做功",
+      "content": "滑动阶段带面位移 \\(x_{\\text{带}}=vt=v^2/(\\mu g)\\)，所以传送带克服摩擦力的功为 \\(f x_{\\text{带}}=\\mu mg\\cdot v^2/(\\mu g)=mv^2\\)。这就是电动机多做的功，A 错、C 对。"
+    },
+    {
+      "title": "求增加的功率",
+      "content": "滑动阶段传送带受摩擦力大小恒为 \\(\\mu mg\\)，带速恒为 \\(v\\)，所以电动机增加的瞬时功率为 \\(P=fv=\\mu mgv\\)，D 正确。"
+    }
+  ],
+  "practice": {
+    "title": "近似题：电动机额外功率",
+    "question": "传送带以 \\(4\\,\\mathrm{m/s}\\) 匀速运行，轻放一个 \\(3\\,\\mathrm{kg}\\) 的物体，\\(\\mu=0.2\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求滑动阶段电动机增加的功率和全过程额外做功。",
+    "answer": "\\(P=\\mu mgv=0.2\\times3\\times10\\times4=24\\,\\mathrm W\\)，\\(W=mv^2=48\\,\\mathrm J\\)。",
+    "thinking": "额外功率用带受摩擦力乘带速；额外做功可再乘滑动时间，也可直接用 \\(mv^2\\)。"
+  }
+}

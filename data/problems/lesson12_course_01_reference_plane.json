@@ -22,25 +22,28 @@
     "timeline": { "duration": 2, "loop": false }
   },
   "knowledge": ["重力势能", "零势能参考面", "重力做功"],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
   "steps": [
     {
       "stepId": 1,
       "title": "确定相对高度",
-      "content": "以桌面为零势能面时，\\(y_A=h_1=1.2\\,\\mathrm m\\)，\\(y_B=-h_2=-0.8\\,\\mathrm m\\)；以地面为零势能面时，\\(y_A=h_1+h_2=2.0\\,\\mathrm m\\)，\\(y_B=0\\)。",
+      "content": "**解题思路**\n\n先确定零势能面，再把各点相对该参考面的高度记为带正负号的 \\(y\\)。参考面上方取正，下方取负。\n\n**对应公式**\n\n\\[E_p=mgy\\]\n\n**本题应用**\n\n以桌面为零势能面时，\\(y_A=h_1=1.2\\,\\mathrm m\\)，\\(y_B=-h_2=-0.8\\,\\mathrm m\\)；以地面为零势能面时，\\(y_A=h_1+h_2=2.0\\,\\mathrm m\\)，\\(y_B=0\\)。",
       "knowledge": ["参考面"],
       "commonMistakes": ["把参考面以下的重力势能误写成正值"]
     },
     {
       "stepId": 2,
       "title": "分别计算两点势能",
-      "content": "由 \\(E_p=mgy\\)，以桌面为参考面有 \\(E_{pA}=0.5\\times10\\times1.2=6\\,\\mathrm J\\)，\\(E_{pB}=0.5\\times10\\times(-0.8)=-4\\,\\mathrm J\\)。以地面为参考面有 \\(E_{pA}=0.5\\times10\\times2=10\\,\\mathrm J\\)，\\(E_{pB}=0\\)。",
+      "content": "**解题思路**\n\n质量和重力加速度不变，重力势能的数值只由相对所选参考面的有符号高度决定。更换参考面后，应重新确定每一点的 \\(y\\)。\n\n**对应公式**\n\n\\[E_{pA}=mgy_A,\\qquad E_{pB}=mgy_B\\]\n\n**本题应用**\n\n以桌面为参考面有 \\(E_{pA}=0.5\\times10\\times1.2=6\\,\\mathrm J\\)，\\(E_{pB}=0.5\\times10\\times(-0.8)=-4\\,\\mathrm J\\)。以地面为参考面有 \\(E_{pA}=0.5\\times10\\times2=10\\,\\mathrm J\\)，\\(E_{pB}=0\\)。",
       "knowledge": ["重力势能"],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "比较重力做功与势能变化",
-      "content": "总下降高度为 \\(h_1+h_2=2.0\\,\\mathrm m\\)，所以 \\(W_G=mg(h_1+h_2)=10\\,\\mathrm J\\)。无论选哪个参考面，\\(\\Delta E_p=E_{pB}-E_{pA}=-10\\,\\mathrm J=-W_G\\)。",
+      "content": "**解题思路**\n\n重力做功由始末位置的实际高度差决定，与零势能面的选择无关；重力势能变化量始终等于重力做功的相反数。\n\n**对应公式**\n\n\\[W_G=mg(y_A-y_B),\\qquad \\Delta E_p=E_{pB}-E_{pA}=-W_G\\]\n\n**本题应用**\n\n总下降高度为 \\(h_1+h_2=2.0\\,\\mathrm m\\)，所以 \\(W_G=mg(h_1+h_2)=10\\,\\mathrm J\\)。无论选哪个参考面，\\(\\Delta E_p=E_{pB}-E_{pA}=-10\\,\\mathrm J=-W_G\\)。",
       "knowledge": ["重力做功"],
       "commonMistakes": ["误认为更换参考面会改变重力做功或势能变化量"]
     }

@@ -1,0 +1,51 @@
+{
+  "id": "lesson13_a_01_spring_pendulum",
+  "originalNumber": "A1",
+  "chapter": "功能关系",
+  "title": "A 组第1题：弹簧摆能量转化",
+  "question": "如图，一轻弹簧的一端固定于 \\(O\\) 点，另一端系一小球。将小球从与悬点 \\(O\\) 在同一水平面且弹簧保持原长的 \\(A\\) 点无初速度释放，不计空气阻力。在小球由 \\(A\\) 点摆向最低点 \\(B\\) 的过程中，下列说法正确的是（  ）。",
+  "options": [
+    "A. 小球减少的机械能一定等于弹簧增加的弹性势能",
+    "B. 小球减少的重力势能等于弹簧增加的弹性势能",
+    "C. 小球增加的动能一定等于弹簧增加的弹性势能",
+    "D. 小球增加的动能大于减少的重力势能"
+  ],
+  "answer": "A",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "functional_relation_model",
+    "variant": "lesson13_spring_pendulum",
+    "playable": true,
+    "interactive": true,
+    "notes": "小球从水平位置摆向最低点，弹簧伸长；右图显示重力势能、动能和弹性势能的转化。",
+    "params": {
+      "mass": { "label": "小球质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
+      "naturalLength": { "label": "弹簧原长", "value": 1.2, "min": 0.8, "max": 1.8, "step": 0.1, "unit": "m" },
+      "k": { "label": "弹簧劲度", "value": 18, "min": 8, "max": 35, "step": 1, "unit": "N/m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 5, "loop": false }
+  },
+  "knowledge": ["系统机械能", "弹性势能", "功能关系"],
+  "steps": [
+    {
+      "title": "选择研究系统",
+      "content": "把小球、地球和弹簧组成的系统作为研究对象。过程中只有重力和弹簧弹力做功，且都对应系统内部的势能变化，因此系统机械能守恒。"
+    },
+    {
+      "title": "写出能量关系",
+      "content": "从 \\(A\\) 到任意位置有 \\(-\\Delta E_{pg}=\\Delta E_k+\\Delta E_{pe}\\)。所以重力势能的减少同时转化为动能和弹性势能，B、C 均把两部分误当成相等；且 \\(\\Delta E_k\\lt-\\Delta E_{pg}\\)，D 错误。"
+    },
+    {
+      "title": "只看小球的机械能",
+      "content": "小球自身机械能为 \\(E_k+E_{pg}\\)。弹簧弹力对小球做负功，所以小球机械能的减少量恰等于弹簧弹性势能的增加量，A 正确。"
+    }
+  ],
+  "practice": {
+    "title": "近似题：弹簧摆最低点速度",
+    "question": "质量为 \\(m\\) 的小球由与悬点等高处静止释放，下降到最低点时重力势能减少 \\(12\\,\\mathrm J\\)，弹簧弹性势能增加 \\(5\\,\\mathrm J\\)。求最低点动能。",
+    "answer": "由系统机械能守恒，\\(\\Delta E_k=12-5=7\\,\\mathrm J\\)。",
+    "thinking": "重力势能减少量不是全部变成动能，还要扣除弹簧弹性势能的增加量。"
+  }
+}

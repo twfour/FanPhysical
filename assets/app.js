@@ -140,7 +140,8 @@ var promotedProblemChapterMap = {
   "行星运动与变轨等问题": true,
   "功和功率": true,
   "动能定理": true,
-  "机械能守恒定律": true
+  "机械能守恒定律": true,
+  "功能关系": true
 };
 var legacySceneMap = {
   spring: true,
@@ -825,20 +826,54 @@ function appendProblemImages(block, images) {
 function createProblemAnalysisBlock(problem) {
   var block = createProblemNoteBlock("解析", (problem.analysis && problem.analysis.title) || "分步解析", "");
   var steps = Array.isArray(problem.steps) ? problem.steps : [];
+  var optionAnalyses = Array.isArray(problem.optionAnalyses) ? problem.optionAnalyses : [];
+  var presentation = problem.analysisPresentation || {};
   var content = problem.analysis && problem.analysis.content ? problem.analysis.content.trim() : "";
-  if (content && !steps.length) {
+  var analysisItems = optionAnalyses.length
+    ? optionAnalyses.map(function (item) {
+      var optionLabel = String(item.option || item.label || "").replace(/[．、.：:]+$/, "");
+      var itemContent = item.content || [
+        "**解题思路**",
+        item.thinking || "先判断该选项对应的物理过程与守恒条件。",
+        "**对应公式**",
+        item.formula || "根据题意选择相应的物理关系式。"
+      ].join("\n\n");
+      return {
+        title: "选项 " + optionLabel + (item.title ? "：" + item.title : ""),
+        content: itemContent,
+        knowledge: item.knowledge || [],
+        commonMistakes: item.commonMistakes || []
+      };
+    })
+    : steps;
+  var collapseEachStep = presentation.collapseEachStep === true || optionAnalyses.length > 0;
+  if (content && !analysisItems.length) {
     appendMarkdownChildren(block, content);
     return block;
   }
-  if (steps.length) {
-    steps.forEach(function (step, index) {
-      var stepWrap = document.createElement("div");
+  if (analysisItems.length) {
+    analysisItems.forEach(function (step, index) {
+      var stepWrap = document.createElement(collapseEachStep ? "details" : "div");
       stepWrap.className = "analysis-step";
       stepWrap.dataset.stepIndex = String(index);
-      var title = document.createElement("h3");
-      title.innerText = "步骤 " + (index + 1) + "：" + (step.title || "分析");
-      stepWrap.appendChild(title);
-      appendMarkdownChildren(stepWrap, step.content || "");
+      if (collapseEachStep) {
+        stepWrap.dataset.collapsibleStep = "1";
+        var summary = document.createElement("summary");
+        summary.className = "analysis-step-summary";
+        summary.innerText = optionAnalyses.length
+          ? (step.title || "选项 " + (index + 1))
+          : "步骤 " + (index + 1) + "：" + (step.title || "分析");
+        stepWrap.appendChild(summary);
+        var stepBody = document.createElement("div");
+        stepBody.className = "analysis-step-content";
+        appendMarkdownChildren(stepBody, step.content || "");
+        stepWrap.appendChild(stepBody);
+      } else {
+        var title = document.createElement("h3");
+        title.innerText = "步骤 " + (index + 1) + "：" + (step.title || "分析");
+        stepWrap.appendChild(title);
+        appendMarkdownChildren(stepWrap, step.content || "");
+      }
       block.appendChild(stepWrap);
     });
     return block;
@@ -1205,7 +1240,10 @@ function enhanceProblemNotes() {
         }
         body.appendChild(child);
       });
-      if (index > 0 && kickerText !== "近似题") {
+      var hasCollapsibleSteps = body.querySelector('details.analysis-step[data-collapsible-step="1"]');
+      if (hasCollapsibleSteps && isAnalysisNoteBlock(block)) {
+        wireCollapsedAnalysisSteps(body, sceneName);
+      } else if (index > 0 && kickerText !== "近似题") {
         block.classList.add("is-collapsed");
         var toggle = document.createElement("button");
         toggle.type = "button";
@@ -1227,6 +1265,23 @@ function enhanceProblemNotes() {
   });
 }
 
+function wireCollapsedAnalysisSteps(body, sceneName) {
+  var steps = body.querySelectorAll('details.analysis-step[data-collapsible-step="1"]');
+  steps.forEach(function (step) {
+    step.open = false;
+    if (step.dataset.collapseEnhanced === "1") {
+      return;
+    }
+    step.dataset.collapseEnhanced = "1";
+    step.addEventListener("toggle", function () {
+      if (step.open) {
+        addStepConversationPanels(step, sceneName);
+        renderMath(step);
+      }
+    });
+  });
+}
+
 function isAnalysisNoteBlock(block) {
   if (!block) {
     return false;
@@ -1243,7 +1298,18 @@ function addStepAiButtons(body, sceneName) {
 }
 
 function addStepConversationPanels(body, sceneName) {
-  var paragraphs = getStepAiParagraphs(body);
+  var isCollapsedStep = body && body.matches
+    ? body.matches('details.analysis-step[data-collapsible-step="1"]')
+    : false;
+  if (isCollapsedStep && body.querySelector(".step-conversation")) {
+    return;
+  }
+  var paragraphs = getStepAiParagraphs(body).filter(function (paragraph) {
+    return !paragraph.closest(".step-conversation");
+  });
+  if (isCollapsedStep && paragraphs.length) {
+    paragraphs = [paragraphs[paragraphs.length - 1]];
+  }
   paragraphs.forEach(function (paragraph, paragraphIndex) {
     if (paragraph.nextElementSibling && paragraph.nextElementSibling.classList.contains("step-conversation")) {
       return;
@@ -1961,11 +2027,11 @@ function renderJsonAnimationControls(sceneName) {
     input.value = getJsonParam(sceneName, key, Number(param.value || 0));
     var value = document.createElement("span");
     value.className = "value";
-    value.innerText = formatParamValue(Number(input.value), param.unit);
+    value.innerText = formatParamValue(Number(input.value), param.unit, param.step);
     input.oninput = function () {
       state.values[key] = input.valueAsNumber;
       state.playing = false;
-      value.innerText = formatParamValue(state.values[key], param.unit);
+      value.innerText = formatParamValue(state.values[key], param.unit, param.step);
       syncJsonTimeControl(sceneName);
     };
     control.appendChild(label);
@@ -2020,9 +2086,13 @@ function renderJsonAnimationControls(sceneName) {
   container.style.display = "grid";
 }
 
-function formatParamValue(value, unit) {
+function formatParamValue(value, unit, step) {
   var absolute = Math.abs(value);
-  var fixed = absolute >= 10 ? value.toFixed(0) : (absolute > 0 && absolute < 0.1 ? value.toFixed(2) : value.toFixed(1));
+  var numericStep = Math.abs(Number(step || 0));
+  var digits = numericStep > 0 && numericStep < 1
+    ? Math.min(3, Math.ceil(-Math.log10(numericStep)))
+    : (absolute >= 10 ? 0 : 1);
+  var fixed = value.toFixed(digits);
   var cleanUnit = formatPhysicsUnit(unit);
   if (cleanUnit === "deg" || cleanUnit === "°") {
     return fixed + "°";
@@ -2160,6 +2230,9 @@ function drawJsonAnimationScene() {
   } else if (animation.type === "mechanical_energy_model") {
     drawAnimScene(drawMechanicalEnergyModelScene);
     drawMechanicalEnergyModelGraph();
+  } else if (animation.type === "functional_relation_model") {
+    drawAnimScene(drawFunctionalRelationModelScene);
+    drawFunctionalRelationModelGraph();
   } else {
     drawAnimScene(drawJsonPlaceholderScene);
     drawJsonPlaceholderGraph();

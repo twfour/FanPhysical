@@ -1,0 +1,55 @@
+{
+  "id": "lesson13_course_02_skydiving_graph",
+  "originalNumber": "课2",
+  "chapter": "功能关系",
+  "title": "例2：极限跳伞能量图像",
+  "question": "极限跳伞者起跳后并不立即打开降落伞。开伞前可看成自由落体，开伞后空气阻力与速度平方成正比，跳伞者先减速下降，最后匀速下降。用 \\(h\\) 表示下落高度，\\(E_p\\) 表示以地面为零势能面的重力势能，\\(E_k\\) 表示动能，\\(E\\) 表示机械能，\\(v\\) 表示下落速度。下列图像可能符合事实的是（  ）。",
+  "options": [
+    "A. \\(E_p-h\\) 图像为逐渐变缓并降到零的曲线",
+    "B. \\(E_k-h\\) 图像在开伞前直线上升，开伞后下降并趋于一个正的定值",
+    "C. \\(E-h\\) 图像在开伞前保持不变，开伞后下降并逐渐趋近于零",
+    "D. \\(v-h\\) 图像在开伞前直线上升，开伞后下降并趋于一个正的定值"
+  ],
+  "answer": "B",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "functional_relation_model",
+    "variant": "lesson13_skydiving_graph",
+    "playable": true,
+    "interactive": true,
+    "notes": "跳伞者先自由落体，开伞后减速并趋于终端速度；右图绘制动能随下落高度的变化。",
+    "params": {
+      "mass": { "label": "跳伞者质量", "value": 70, "min": 40, "max": 100, "step": 5, "unit": "kg" },
+      "openHeight": { "label": "开伞前下落", "value": 40, "min": 15, "max": 70, "step": 1, "unit": "m" },
+      "terminalSpeed": { "label": "开伞后终端速度", "value": 8, "min": 4, "max": 15, "step": 0.5, "unit": "m/s" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 7, "loop": false }
+  },
+  "knowledge": ["自由落体", "空气阻力", "能量图像"],
+  "steps": [
+    {
+      "title": "判断重力势能图像",
+      "content": "\\(h\\) 是已经下落的高度，因此 \\(E_p=E_{p0}-mgh\\)，应随 \\(h\\) 线性减小。A 画成曲线，不符合。"
+    },
+    {
+      "title": "判断开伞前的动能与速度",
+      "content": "开伞前近似自由落体，有 \\(E_k=mgh\\)，所以 \\(E_k-h\\) 为直线；而 \\(v=\\sqrt{2gh}\\)，所以 \\(v-h\\) 不是直线，D 不符合。"
+    },
+    {
+      "title": "判断开伞后的长期状态",
+      "content": "开伞后先减速，最终空气阻力等于重力，速度趋于非零的终端速度，因此动能也趋于非零定值，B 可以成立。终端匀速阶段机械能仍因空气阻力做负功而持续减小，不会水平趋近于零，C 不符合。"
+    },
+    {
+      "title": "结论",
+      "content": "可能符合事实的只有 B。"
+    }
+  ],
+  "practice": {
+    "title": "近似题：开伞前后的动能",
+    "question": "质量为 \\(60\\,\\mathrm{kg}\\) 的跳伞者由静止下落 \\(20\\,\\mathrm m\\) 后开伞，忽略开伞前空气阻力，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求刚开伞时的速度和动能，并说明随后动能的变化趋势。",
+    "answer": "\\(v=\\sqrt{2gh}=20\\,\\mathrm{m/s}\\)，\\(E_k=\\frac12mv^2=1.2\\times10^4\\,\\mathrm J\\)。开伞后先减小，最后趋于由终端速度决定的正值。",
+    "thinking": "自由落体阶段直接用动能定理；开伞后依据合力方向判断速度变化，再由 \\(E_k=\\frac12mv^2\\) 判断动能。"
+  }
+}

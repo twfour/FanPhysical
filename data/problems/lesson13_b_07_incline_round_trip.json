@@ -1,0 +1,55 @@
+{
+  "id": "lesson13_b_07_incline_round_trip",
+  "originalNumber": "B7",
+  "chapter": "功能关系",
+  "title": "B 组第7题：粗糙斜面往返能量",
+  "question": "（多选）如图，\\(t=0\\) 时质量为 \\(1\\,\\mathrm{kg}\\) 的滑块以 \\(20\\,\\mathrm{m/s}\\) 的初速度从倾角为 \\(\\alpha\\) 的固定斜面底部沿斜面向上滑行。滑块与斜面间的动摩擦因数为 \\(0.5\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)，\\(\\sin\\alpha=0.6\\)，斜面足够长。下列说法正确的是（  ）。",
+  "options": [
+    "A. \\(0\\sim3\\,\\mathrm s\\) 内物块损失的机械能为 \\(84\\,\\mathrm J\\)",
+    "B. \\(0\\sim3\\,\\mathrm s\\) 内物块克服重力做功为 \\(126\\,\\mathrm J\\)",
+    "C. 滑块滑回斜面底端时的速度大小为 \\(4\\sqrt5\\,\\mathrm{m/s}\\)",
+    "D. 滑块在斜面上运动的整个过程中系统产生的热量为 \\(80\\,\\mathrm J\\)"
+  ],
+  "answer": "A、C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "functional_relation_model",
+    "variant": "lesson13_incline_round_trip",
+    "playable": true,
+    "interactive": true,
+    "notes": "滑块先上滑 2 秒后返回；右图绘制动能、重力势能和累计热量随时间变化。",
+    "params": {
+      "initialSpeed": { "label": "初速度", "value": 20, "min": 12, "max": 26, "step": 0.5, "unit": "m/s" },
+      "mu": { "label": "动摩擦因数", "value": 0.5, "min": 0.2, "max": 0.7, "step": 0.05, "unit": "" },
+      "angle": { "label": "斜面角", "value": 36.87, "min": 25, "max": 45, "step": 0.5, "unit": "deg" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 7, "loop": false }
+  },
+  "knowledge": ["斜面往返", "机械能损失", "摩擦生热"],
+  "steps": [
+    {
+      "title": "分段求运动",
+      "content": "\\(\\cos\\alpha=0.8\\)，摩擦力为 \\(f=\\mu mg\\cos\\alpha=4\\,\\mathrm N\\)。上滑加速度大小 \\(g\\sin\\alpha+\\mu g\\cos\\alpha=10\\,\\mathrm{m/s^2}\\)，故 \\(2\\,\\mathrm s\\) 后停下，上滑距离 \\(s_1=20\\,\\mathrm m\\)。下滑加速度为 \\(g\\sin\\alpha-\\mu g\\cos\\alpha=2\\,\\mathrm{m/s^2}\\)。"
+    },
+    {
+      "title": "判断 0 到 3 秒内能量",
+      "content": "第 \\(3\\,\\mathrm s\\) 时已下滑 \\(s_2=\\frac12\\times2\\times1^2=1\\,\\mathrm m\\)。累计路程为 \\(21\\,\\mathrm m\\)，摩擦生热也就是机械能损失 \\(Q=f(s_1+s_2)=4\\times21=84\\,\\mathrm J\\)，A 正确。此时相对底端仍在斜面上 \\(19\\,\\mathrm m\\)，重力势能为 \\(mg\\cdot19\\sin\\alpha=114\\,\\mathrm J\\)，B 错误。"
+    },
+    {
+      "title": "求返回底端速度",
+      "content": "从最高点下滑 \\(20\\,\\mathrm m\\)，有 \\(v^2=2(g\\sin\\alpha-\\mu g\\cos\\alpha)s=2\\times2\\times20=80\\)，所以 \\(v=4\\sqrt5\\,\\mathrm{m/s}\\)，C 正确。"
+    },
+    {
+      "title": "求全过程热量",
+      "content": "往返总路程为 \\(40\\,\\mathrm m\\)，所以 \\(Q_{\\text{总}}=4\\times40=160\\,\\mathrm J\\)，D 错误。"
+    }
+  ],
+  "practice": {
+    "title": "近似题：斜面往返速度",
+    "question": "滑块以 \\(v_0\\) 沿倾角 \\(\\theta\\) 的粗糙斜面上滑后返回原点，动摩擦因数为 \\(\\mu\\)，且 \\(\\tan\\theta>\\mu\\)。求返回原点速度。",
+    "answer": "上滑距离 \\(s=v_0^2/[2g(\\sin\\theta+\\mu\\cos\\theta)]\\)。下滑有 \\(v^2=2g(\\sin\\theta-\\mu\\cos\\theta)s\\)，故 \\(v=v_0\\sqrt{\\dfrac{\\sin\\theta-\\mu\\cos\\theta}{\\sin\\theta+\\mu\\cos\\theta}}\\)。",
+    "thinking": "上、下行摩擦方向不同，先分别写加速度，再消去共同的上滑距离。"
+  }
+}

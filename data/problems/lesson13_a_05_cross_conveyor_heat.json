@@ -1,0 +1,51 @@
+{
+  "id": "lesson13_a_05_cross_conveyor_heat",
+  "originalNumber": "A5",
+  "chapter": "功能关系",
+  "title": "A 组第5题：垂直传送带相对运动",
+  "question": "如图，有两个相互垂直且等高的水平传送带 \\(M\\) 和 \\(N\\)，速度大小分别为 \\(0.6\\,\\mathrm{m/s}\\)、\\(0.8\\,\\mathrm{m/s}\\)，方向如图。一小煤块离开传送带 \\(M\\) 前已与 \\(M\\) 同速，并平稳地传到传送带 \\(N\\) 上。煤块质量为 \\(1\\,\\mathrm{kg}\\)，与传送带 \\(N\\) 间的动摩擦因数为 \\(0.2\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)，传送带 \\(N\\) 足够宽。下列说法正确的是（  ）。",
+  "options": [
+    "A. 煤块传到 \\(N\\) 前的瞬间，相对传送带 \\(N\\) 的速度大小为 \\(1.4\\,\\mathrm{m/s}\\)",
+    "B. 煤块传到 \\(N\\) 上后，经过 \\(1\\,\\mathrm s\\) 与 \\(N\\) 保持相对静止",
+    "C. 煤块在 \\(N\\) 上滑动的划痕是直线，长度为 \\(0.25\\,\\mathrm m\\)",
+    "D. 煤块在 \\(N\\) 上滑动过程中，因摩擦产生的热量为 \\(1\\,\\mathrm J\\)"
+  ],
+  "answer": "B、C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "functional_relation_model",
+    "variant": "lesson13_cross_conveyor_heat",
+    "playable": true,
+    "interactive": true,
+    "notes": "煤块带着横向速度进入纵向传送带，相对速度沿固定方向衰减；右图显示相对速度和相对路程。",
+    "params": {
+      "vx": { "label": "来自 M 的速度", "value": 0.6, "min": 0.3, "max": 1.2, "step": 0.05, "unit": "m/s" },
+      "beltSpeed": { "label": "N 带速度", "value": 0.8, "min": 0.4, "max": 1.4, "step": 0.05, "unit": "m/s" },
+      "mu": { "label": "动摩擦因数", "value": 0.2, "min": 0.1, "max": 0.5, "step": 0.01, "unit": "" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 3, "loop": false }
+  },
+  "knowledge": ["相对速度", "矢量运动", "摩擦生热"],
+  "steps": [
+    {
+      "title": "求初始相对速度",
+      "content": "取 \\(M\\) 的方向为 \\(x\\) 轴、\\(N\\) 的方向为 \\(y\\) 轴，则煤块相对 \\(N\\) 的初速度为 \\(\\vec v_{\\text{相}}=(0.6,-0.8)\\,\\mathrm{m/s}\\)，大小为 \\(\\sqrt{0.6^2+0.8^2}=1.0\\,\\mathrm{m/s}\\)，A 错误。"
+    },
+    {
+      "title": "求达到相对静止的时间",
+      "content": "滑动摩擦力始终与相对速度反向，相对速度大小以 \\(a_{\\text{相}}=\\mu g=2\\,\\mathrm{m/s^2}\\) 匀减至零，所需时间为 \\(t=1/2=0.5\\,\\mathrm s\\)。经过 \\(1\\,\\mathrm s\\) 时当然已经相对静止，B 正确。"
+    },
+    {
+      "title": "求划痕与热量",
+      "content": "相对加速度始终与相对速度共线，所以相对轨迹为直线。划痕长度 \\(s_{\\text{相}}=v_{\\text{相}}^2/(2\\mu g)=1^2/4=0.25\\,\\mathrm m\\)，C 正确。热量 \\(Q=\\mu mg s_{\\text{相}}=0.2\\times1\\times10\\times0.25=0.5\\,\\mathrm J\\)，D 错误。"
+    }
+  ],
+  "practice": {
+    "title": "近似题：正交带上的相对速度",
+    "question": "煤块以 \\(3\\,\\mathrm{m/s}\\) 的水平速度落到速度为 \\(4\\,\\mathrm{m/s}\\) 的竖直方向传送带上，\\(\\mu g=5\\,\\mathrm{m/s^2}\\)。求初始相对速度、达到相对静止的时间和相对滑程。",
+    "answer": "\\(v_{\\text{相}}=\\sqrt{3^2+4^2}=5\\,\\mathrm{m/s}\\)，\\(t=v_{\\text{相}}/(\\mu g)=1\\,\\mathrm s\\)，\\(s_{\\text{相}}=v_{\\text{相}}^2/(2\\mu g)=2.5\\,\\mathrm m\\)。",
+    "thinking": "先作速度矢量差，再把相对运动看成一维匀减速运动。"
+  }
+}

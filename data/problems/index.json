@@ -656,6 +656,70 @@
     {
       "id": "lesson12_b_10_linked_sliders",
       "file": "lesson12_b_10_linked_sliders.json"
+    },
+    {
+      "id": "lesson13_course_01_conveyor_energy",
+      "file": "lesson13_course_01_conveyor_energy.json"
+    },
+    {
+      "id": "lesson13_course_02_skydiving_graph",
+      "file": "lesson13_course_02_skydiving_graph.json"
+    },
+    {
+      "id": "lesson13_course_03_mechanical_energy_graph",
+      "file": "lesson13_course_03_mechanical_energy_graph.json"
+    },
+    {
+      "id": "lesson13_course_04_incline_conveyor_heat",
+      "file": "lesson13_course_04_incline_conveyor_heat.json"
+    },
+    {
+      "id": "lesson13_course_05_spring_track_plank",
+      "file": "lesson13_course_05_spring_track_plank.json"
+    },
+    {
+      "id": "lesson13_course_06_pulley_arc_collision",
+      "file": "lesson13_course_06_pulley_arc_collision.json"
+    },
+    {
+      "id": "lesson13_course_07_s_curve_road",
+      "file": "lesson13_course_07_s_curve_road.json"
+    },
+    {
+      "id": "lesson13_a_01_spring_pendulum",
+      "file": "lesson13_a_01_spring_pendulum.json"
+    },
+    {
+      "id": "lesson13_a_02_block_cart_work",
+      "file": "lesson13_a_02_block_cart_work.json"
+    },
+    {
+      "id": "lesson13_a_03_conveyor_motor",
+      "file": "lesson13_a_03_conveyor_motor.json"
+    },
+    {
+      "id": "lesson13_a_04_vertical_throw_energy_graph",
+      "file": "lesson13_a_04_vertical_throw_energy_graph.json"
+    },
+    {
+      "id": "lesson13_a_05_cross_conveyor_heat",
+      "file": "lesson13_a_05_cross_conveyor_heat.json"
+    },
+    {
+      "id": "lesson13_b_06_spring_ring_rod",
+      "file": "lesson13_b_06_spring_ring_rod.json"
+    },
+    {
+      "id": "lesson13_b_07_incline_round_trip",
+      "file": "lesson13_b_07_incline_round_trip.json"
+    },
+    {
+      "id": "lesson13_b_08_incline_conveyor_scratch",
+      "file": "lesson13_b_08_incline_conveyor_scratch.json"
+    },
+    {
+      "id": "lesson13_b_09_game_track_range",
+      "file": "lesson13_b_09_game_track_range.json"
     }
   ]
 }

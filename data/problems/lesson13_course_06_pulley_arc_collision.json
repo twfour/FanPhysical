@@ -1,0 +1,49 @@
+{
+  "id": "lesson13_course_06_pulley_arc_collision",
+  "originalNumber": "课6",
+  "chapter": "功能关系",
+  "title": "例6：动滑轮—圆弧—碰撞综合",
+  "question": "一根长 \\(8.5\\,\\mathrm m\\) 的不可伸长柔软绳子两端分别固定在 \\(A、B\\) 点，\\(A、B\\) 的水平距离为 \\(4\\,\\mathrm m\\)，高度差为 \\(0.5\\,\\mathrm m\\)。绳上挂一小动滑轮，滑轮下固定一小木块，二者总质量 \\(M=2\\,\\mathrm{kg}\\)，平衡时位于 \\(C\\) 点。右下方有半径 \\(R=11\\,\\mathrm m\\)、圆心角 \\(37^\\circ\\) 的光滑圆弧轨道，最高点为 \\(D\\)，最低点 \\(E\\) 与粗糙水平轨道相切。质量 \\(m=2\\,\\mathrm{kg}\\) 的小球从 \\(E\\) 点右侧 \\(5\\,\\mathrm m\\) 处以 \\(v_0=13\\,\\mathrm{m/s}\\) 向左运动，水平轨道动摩擦因数 \\(\\mu=0.25\\)。小球经过 \\(E\\) 点、滑上圆弧后从 \\(D\\) 点抛出，在最高点恰与木块相碰并粘在一起，碰后速度为碰前小球速度的一半；随后经动滑轮向上运动，到 \\(A\\) 点正下方时速度恰为零。忽略空气阻力，取 \\(g=10\\,\\mathrm{m/s^2}\\)，\\(\\sin37^\\circ=0.6\\)，\\(\\cos37^\\circ=0.8\\)。求：\n\n（1）小球运动到圆弧最低点 \\(E\\) 时对轨道的压力；\n\n（2）\\(C\\) 点距 \\(D\\) 点的高度 \\(h\\) 和水平距离 \\(x\\)；\n\n（3）碰后系统向上运动过程中克服滑轮摩擦力做的功。",
+  "answer": "（1）\\(N=\\dfrac{508}{11}\\,\\mathrm N\\approx46.2\\,\\mathrm N\\)；（2）\\(h=1.8\\,\\mathrm m\\)，\\(x=4.8\\,\\mathrm m\\)；（3）\\(W_f=12\\,\\mathrm J\\)。",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "functional_relation_model",
+    "variant": "lesson13_pulley_arc_collision",
+    "playable": true,
+    "interactive": true,
+    "notes": "小球先在粗糙面减速、沿圆弧上升、斜抛至 C 碰撞，再带动滑轮上移；右图显示各阶段机械能。",
+    "params": {
+      "initialSpeed": { "label": "小球初速度", "value": 13, "min": 10, "max": 16, "step": 0.2, "unit": "m/s" },
+      "mu": { "label": "水平面动摩擦因数", "value": 0.25, "min": 0.1, "max": 0.4, "step": 0.01, "unit": "" },
+      "radius": { "label": "圆弧半径", "value": 11, "min": 8, "max": 14, "step": 0.5, "unit": "m" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 10, "loop": false }
+  },
+  "knowledge": ["动能定理", "斜抛运动", "完全非弹性碰撞", "功能关系"],
+  "steps": [
+    {
+      "title": "求 E 点速度与压力",
+      "content": "小球在粗糙水平面上运动 \\(5\\,\\mathrm m\\)，由 \\(v_E^2=v_0^2-2\\mu gL=13^2-2\\times0.25\\times10\\times5=144\\)，得 \\(v_E=12\\,\\mathrm{m/s}\\)。在圆弧最低点有 \\(N-mg=m v_E^2/R\\)，所以 \\(N=20+2\\times144/11=508/11\\,\\mathrm N\\)。"
+    },
+    {
+      "title": "求 D 点速度",
+      "content": "从 \\(E\\) 到 \\(D\\) 升高 \\(R(1-\\cos37^\\circ)=11\\times0.2=2.2\\,\\mathrm m\\)。圆弧光滑，故 \\(v_D^2=v_E^2-2g\\times2.2=100\\)，即 \\(v_D=10\\,\\mathrm{m/s}\\)。切线与水平成 \\(37^\\circ\\)，所以 \\(v_{Dx}=8\\,\\mathrm{m/s}\\)，\\(v_{Dy}=6\\,\\mathrm{m/s}\\)。"
+    },
+    {
+      "title": "求抛体最高点位置",
+      "content": "到最高点的时间 \\(t=v_{Dy}/g=0.6\\,\\mathrm s\\)。因此 \\(h=v_{Dy}^2/(2g)=1.8\\,\\mathrm m\\)，\\(x=v_{Dx}t=4.8\\,\\mathrm m\\)。"
+    },
+    {
+      "title": "求克服滑轮摩擦力的功",
+      "content": "平衡时两段绳关于竖直方向对称。由绳长和端点几何可得 \\(C\\) 点在 \\(A\\) 下方 \\(4.0\\,\\mathrm m\\)；动滑轮到达 \\(A\\) 正下方时，令其距 \\(A\\) 为 \\(y\\)，有 \\(y+\\sqrt{4^2+(y-0.5)^2}=8.5\\)，解得 \\(y=3.5\\,\\mathrm m\\)，故碰后系统上升 \\(0.5\\,\\mathrm m\\)。碰前最高点处小球水平速度为 \\(8\\,\\mathrm{m/s}\\)，碰后速度为 \\(4\\,\\mathrm{m/s}\\)，总质量为 \\(4\\,\\mathrm{kg}\\)，碰后动能为 \\(32\\,\\mathrm J\\)。重力势能增加 \\(4\\times10\\times0.5=20\\,\\mathrm J\\)，末动能为零，故克服摩擦力做功为 \\(32-20=12\\,\\mathrm J\\)。"
+    }
+  ],
+  "practice": {
+    "title": "近似题：圆弧离轨后的最高点碰撞",
+    "question": "质量 \\(m\\) 的小球以 \\(10\\,\\mathrm{m/s}\\) 从圆弧端点沿与水平成 \\(30^\\circ\\) 的切线抛出，在最高点与静止的同质量木块粘在一起。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求最高点相对抛出点的水平、竖直位移和碰后速度。",
+    "answer": "\\(t=0.5\\,\\mathrm s\\)，\\(x=10\\cos30^\\circ\\times0.5=\\frac{5\\sqrt3}{2}\\,\\mathrm m\\)，\\(h=(10\\sin30^\\circ)^2/(2g)=1.25\\,\\mathrm m\\)。最高点水平速度为 \\(5\\sqrt3\\,\\mathrm{m/s}\\)，完全非弹性碰撞后为 \\(\\frac{5\\sqrt3}{2}\\,\\mathrm{m/s}\\)。",
+    "thinking": "先把斜抛分解到水平与竖直方向；最高点竖直速度为零，再只在水平方向用动量守恒。"
+  }
+}

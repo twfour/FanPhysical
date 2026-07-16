@@ -1,0 +1,49 @@
+{
+  "id": "lesson13_course_01_conveyor_energy",
+  "originalNumber": "课1",
+  "chapter": "功能关系",
+  "title": "例1：传送带功能关系",
+  "question": "传送带以速度 \\(v\\) 顺时针转动，在传送带左端轻放一质量为 \\(m\\) 的物块。已知物块与传送带间的动摩擦因数为 \\(\\mu\\)，重力加速度为 \\(g\\)，且传送带足够长。要将物块传送到右端，问：\n\n（1）物块相对传送带的位移是多少？\n\n（2）传送带的电动机要多做多少功？\n\n（3）在这一过程中，摩擦产生了多少热量？",
+  "answer": "（1）\\(\\Delta x=\\dfrac{v^2}{2\\mu g}\\)；（2）\\(W_{\\text{电}}=mv^2\\)；（3）\\(Q=\\dfrac12mv^2\\)。",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "functional_relation_model",
+    "variant": "lesson13_conveyor_energy",
+    "playable": true,
+    "interactive": true,
+    "notes": "物块由静止加速到带速；右图同步比较物块动能、电动机额外做功与热量。",
+    "params": {
+      "mass": { "label": "物块质量", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "kg" },
+      "mu": { "label": "动摩擦因数", "value": 0.2, "min": 0.05, "max": 0.8, "step": 0.01, "unit": "" },
+      "beltSpeed": { "label": "传送带速度", "value": 4, "min": 1, "max": 10, "step": 0.2, "unit": "m/s" },
+      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+    },
+    "timeline": { "duration": 4, "loop": false }
+  },
+  "knowledge": ["相对位移", "摩擦生热", "电动机做功"],
+  "steps": [
+    {
+      "title": "确定加速过程",
+      "content": "物块受到大小为 \\(f=\\mu mg\\) 的滑动摩擦力，故加速度 \\(a=\\mu g\\)。当物块速度达到 \\(v\\) 后与传送带相对静止，加速时间为 \\(t=\\dfrac{v}{\\mu g}\\)。"
+    },
+    {
+      "title": "比较两种位移",
+      "content": "在加速时间内，物块对地位移 \\(x_{\\text{物}}=\\dfrac12at^2=\\dfrac{v^2}{2\\mu g}\\)，传送带对地位移 \\(x_{\\text{带}}=vt=\\dfrac{v^2}{\\mu g}\\)。因此相对位移大小为 \\(\\Delta x=x_{\\text{带}}-x_{\\text{物}}=\\dfrac{v^2}{2\\mu g}\\)。"
+    },
+    {
+      "title": "计算电动机额外做功",
+      "content": "摩擦力对传送带做负功，电动机为维持带速所做的额外功为 \\(W_{\\text{电}}=f x_{\\text{带}}=\\mu mg\\cdot\\dfrac{v^2}{\\mu g}=mv^2\\)。其中一半转化为物块动能，另一半转化为内能。"
+    },
+    {
+      "title": "计算摩擦生热",
+      "content": "摩擦生热等于摩擦力与相对路程的乘积：\\(Q=f\\Delta x=\\mu mg\\cdot\\dfrac{v^2}{2\\mu g}=\\dfrac12mv^2\\)。"
+    }
+  ],
+  "practice": {
+    "title": "近似题：传送带加速木块",
+    "question": "水平传送带以 \\(6\\,\\mathrm{m/s}\\) 匀速运动，将 \\(m=1.5\\,\\mathrm{kg}\\) 的木块由静止轻放在带上，\\(\\mu=0.30\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求木块达到共同速度前的相对位移、热量和电动机额外做功。",
+    "answer": "\\(\\Delta x=6^2/(2\\times0.30\\times10)=6\\,\\mathrm m\\)，\\(Q=\\frac12mv^2=27\\,\\mathrm J\\)，\\(W_{\\text{电}}=mv^2=54\\,\\mathrm J\\)。",
+    "thinking": "先求达到共同速度的时间，再分别写出带和物块的对地位移；热量用 \\(Q=f\\Delta x\\)，电动机额外做功用 \\(W=f x_{\\text{带}}\\)。"
+  }
+}
