@@ -16,7 +16,7 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <link rel="stylesheet" href="assets/styles.css?v=20260716-all-model-voice-chat" />
+  <link rel="stylesheet" href="assets/styles.css?v=20260717-summer-exam" />
 </head>
 
 <body>
@@ -60,6 +60,7 @@
             <details class="tree-node">
               <summary class="tree-subfolder">2026暑假班</summary>
               <div class="tree-children">
+                <button class="tree-item indent" data-scene="summerExam" onclick="switchScene('summerExam')">综合卷-暑假班100分</button>
                 <details class="tree-node">
                   <summary class="tree-subfolder">曲线运动</summary>
                   <div class="tree-children">
@@ -337,6 +338,64 @@
         <div id="favoriteHomeGrid" class="home-grid"></div>
       </section>
     </div>
+
+    <section id="summerExamPanel" class="summer-exam-panel" style="display:none;">
+      <header class="summer-exam-header">
+        <p class="eyebrow">2026暑假班 · 综合测评</p>
+        <h1>FanPhysics 暑假班综合试卷</h1>
+        <p>覆盖曲线运动、平抛运动、圆周运动、万有引力、功与能等十个章节，题目均由当前模型页的近似题改编。</p>
+        <div class="summer-exam-meta" aria-label="试卷信息">
+          <span>满分 100 分</span>
+          <span>单选 10 题 × 5 分</span>
+          <span>多选 10 题 × 5 分</span>
+        </div>
+      </header>
+
+      <section id="summerExamResult" class="summer-exam-result" hidden aria-live="polite">
+        <div class="summer-exam-score">
+          <span>本次得分</span>
+          <strong id="summerExamTotalScore">0</strong>
+          <span>/ 100</span>
+        </div>
+        <div class="summer-exam-result-grid">
+          <div><span>单选题</span><strong id="summerExamSingleScore">0 / 50</strong></div>
+          <div><span>多选题</span><strong id="summerExamMultipleScore">0 / 50</strong></div>
+          <div><span>已作答</span><strong id="summerExamAnsweredCount">0 / 20</strong></div>
+        </div>
+        <p id="summerExamResultMessage"></p>
+      </section>
+
+      <form id="summerExamForm" onsubmit="gradeSummerExam(event)">
+        <section class="summer-exam-section">
+          <div class="summer-exam-section-heading">
+            <div>
+              <p class="eyebrow">第一部分</p>
+              <h2>单项选择题</h2>
+            </div>
+            <span>共 10 题，50 分</span>
+          </div>
+          <p class="summer-exam-rule">每题只有一个正确选项，每题 5 分。</p>
+          <div id="summerExamSingleQuestions" class="summer-exam-question-list"></div>
+        </section>
+
+        <section class="summer-exam-section">
+          <div class="summer-exam-section-heading">
+            <div>
+              <p class="eyebrow">第二部分</p>
+              <h2>多项选择题</h2>
+            </div>
+            <span>共 10 题，50 分</span>
+          </div>
+          <p class="summer-exam-rule">每题有两个或三个正确选项，全部选对得 5 分，漏选或错选不得分。</p>
+          <div id="summerExamMultipleQuestions" class="summer-exam-question-list"></div>
+        </section>
+
+        <div class="summer-exam-actions">
+          <button class="primary-action" type="submit">提交批卷</button>
+          <button class="ghost-action" type="button" onclick="resetSummerExam()">重新作答</button>
+        </div>
+      </form>
+    </section>
 
     <div id="springControls" class="controls" style="display:none;">
       <div class="control">
@@ -1871,7 +1930,8 @@
   </main>
 
   <script src="assets/legacy-content.js?v=20260716-analysis-upgrade-2"></script>
-  <script src="assets/app.js?v=20260716-analysis-upgrade-2"></script>
+  <script src="assets/summer-exam.js?v=20260717-summer-exam"></script>
+  <script src="assets/app.js?v=20260717-summer-exam"></script>
   <script src="assets/scenes/common.js?v=20260711-gravitation-all"></script>
   <script src="assets/scenes/sample.js?v=20260711-gravitation-all"></script>
   <script src="assets/scenes/spring-2026.js?v=20260711-gravitation-all"></script>

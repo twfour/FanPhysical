@@ -633,6 +633,13 @@ function switchScene(sceneName) {
   if (sceneName === "home") {
     renderFavoriteHome();
   }
+  var summerExamPanel = document.getElementById("summerExamPanel");
+  if (summerExamPanel) {
+    summerExamPanel.style.display = sceneName === "summerExam" ? "block" : "none";
+  }
+  if (sceneName === "summerExam" && typeof renderSummerExamMath === "function") {
+    renderSummerExamMath();
+  }
   document.getElementById("canvas-holder").style.display = shouldShowCanvas(sceneName) ? "block" : "none";
   document.getElementById("springControls").style.display = sceneName === "spring" ? "grid" : "none";
   document.getElementById("pendulumControls").style.display = sceneName === "pendulum" ? "grid" : "none";
@@ -1803,7 +1810,7 @@ function isProblemAnimationEnabled(problem) {
 }
 
 function shouldShowCanvas(sceneName) {
-  if (sceneName === "home") {
+  if (sceneName === "home" || sceneName === "summerExam") {
     return false;
   }
   if (isJsonProblemScene(sceneName)) {
