@@ -14,14 +14,49 @@
     "interactive": true,
     "notes": "物块依次经历弹簧加速、传送带、两段半圆轨道和滑上木板；右图显示各关键点动能。",
     "params": {
-      "beltSpeed": { "label": "传送带速度", "value": 3.9, "min": 2.5, "max": 6, "step": 0.05, "unit": "m/s" },
-      "springEnergy": { "label": "弹簧初始能量", "value": 4.5, "min": 3.5, "max": 7, "step": 0.1, "unit": "J" },
-      "mu": { "label": "动摩擦因数", "value": 0.5, "min": 0.2, "max": 0.8, "step": 0.05, "unit": "" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "beltSpeed": {
+        "label": "传送带速度",
+        "value": 3.9,
+        "min": 2.5,
+        "max": 6,
+        "step": 0.05,
+        "unit": "m/s"
+      },
+      "springEnergy": {
+        "label": "弹簧初始能量",
+        "value": 4.5,
+        "min": 3.5,
+        "max": 7,
+        "step": 0.1,
+        "unit": "J"
+      },
+      "mu": {
+        "label": "动摩擦因数",
+        "value": 0.5,
+        "min": 0.2,
+        "max": 0.8,
+        "step": 0.05,
+        "unit": ""
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 9, "loop": false }
+    "timeline": {
+      "duration": 9,
+      "loop": false
+    }
   },
-  "knowledge": ["全过程能量", "圆周运动临界", "板块相对运动"],
+  "knowledge": [
+    "全过程能量",
+    "圆周运动临界",
+    "板块相对运动"
+  ],
   "steps": [
     {
       "title": "求到达 B 点的速度",
@@ -41,9 +76,14 @@
     }
   ],
   "practice": {
-    "title": "近似题：传送带接竖直圆轨道",
-    "question": "质量为 \\(1\\,\\mathrm{kg}\\) 的物块以 \\(3\\,\\mathrm{m/s}\\) 滑上长 \\(0.8\\,\\mathrm m\\) 的水平传送带，\\(\\mu=0.5\\)，带面向右运动；带末接半径 \\(R=0.20\\,\\mathrm m\\) 的光滑竖直圆轨道。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求物块恰好通过圆轨道最高点时在带末所需的速度。",
-    "answer": "最高点临界 \\(v_{\\text{顶}}^2=gR\\)，由能量守恒 \\(v_C^2=v_{\\text{顶}}^2+4gR=5gR=10\\)，故 \\(v_C=\\sqrt{10}\\,\\mathrm{m/s}\\)。",
-    "thinking": "先用最高点支持力为零确定临界速度，再从带末到圆轨道最高点应用机械能守恒。"
+    "title": "进阶近似题：传送带接竖直圆轨道",
+    "question": "**基础设问**\n\n质量为 \\(1\\,\\mathrm{kg}\\) 的物块以 \\(3\\,\\mathrm{m/s}\\) 滑上长 \\(0.8\\,\\mathrm m\\) 的水平传送带，\\(\\mu=0.5\\)，带面向右运动；带末接半径 \\(R=0.20\\,\\mathrm m\\) 的光滑竖直圆轨道。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求物块恰好通过圆轨道最高点时在带末所需的速度。\n\n**综合提升**\n\n在原传送带或板块模型中，把物块与带面组成系统。（1）列出外力功、系统动能变化和内能增加的关系；（2）用相对路程求热量；（3）若带速可调，找出相对滑动方向改变的临界；（4）说明电动机做功为何不等于物块动能增加。",
+    "answer": "**1. 基础设问**\n\n最高点临界 \\(v_{\\text{顶}}^2=gR\\)，由能量守恒 \\(v_C^2=v_{\\text{顶}}^2+4gR=5gR=10\\)，故 \\(v_C=\\sqrt{10}\\,\\mathrm{m/s}\\)。\n\n**2. 综合提升**\n\n系统能量关系为\n\n\\[W_{电}+W_{其他外}=\\Delta E_{k,系统}+\\Delta E_p+Q,\\qquad Q=f\\Delta s_{rel}.\\]\n\n相对速度为零是滑动方向可能改变的临界，应分段计算。电动机还要改变传送带自身能量并补偿摩擦生热，所以其功通常不等于物块动能增量。",
+    "thinking": "**基础思路**\n\n先用最高点支持力为零确定临界速度，再从带末到圆轨道最高点应用机械能守恒。\n\n**进阶思路**\n\n先选系统再记账，把一对内摩擦的功合并为内能；速度匹配点决定是否需要分段。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

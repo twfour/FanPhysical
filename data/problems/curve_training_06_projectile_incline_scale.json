@@ -1,0 +1,124 @@
+{
+  "id": "curve_training_06_projectile_incline_scale",
+  "originalNumber": "题6",
+  "chapter": "曲线运动",
+  "title": "第6题：平抛落斜面参数缩放",
+  "question": "从倾角为 \\(\\theta\\) 的足够长斜面顶端 \\(P\\) 以速度 \\(v_0\\) 水平抛出一个小球，小球落在斜面上的 \\(Q\\) 点，落到斜面时速度与斜面的夹角为 \\(\\alpha\\)。若把初速度改为 \\(2v_0\\)，则（　　）。",
+  "options": [
+    "A. \\(PQ\\) 间距离变为原来的 \\(2\\) 倍",
+    "B. 空中的运动时间变为原来的 \\(\\sqrt2\\) 倍",
+    "C. 夹角 \\(\\alpha\\) 将变大",
+    "D. 夹角 \\(\\alpha\\) 将不变"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "curve_training_model",
+    "variant": "curve_training_06_projectile_incline_scale",
+    "playable": true,
+    "interactive": true,
+    "notes": "同时绘制 \\(v_0\\) 与 \\(2v_0\\) 两条轨迹，突出时间、落点距离和末速度角的缩放规律。",
+    "params": {
+      "v0": {
+        "label": "初速度",
+        "value": 8,
+        "min": 4,
+        "max": 14,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "theta": {
+        "label": "斜面倾角",
+        "value": 30,
+        "min": 15,
+        "max": 50,
+        "step": 1,
+        "unit": "deg"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "平抛运动",
+    "斜面几何",
+    "比例关系",
+    "末速度方向"
+  ],
+  "steps": [
+    {
+      "title": "联立斜面和平抛方程",
+      "content": "取下落方向为正，平抛满足 \\(x=v_0t\\)、\\(y=\\frac12gt^2\\)，落点在斜面上满足 \\(y=x\\tan\\theta\\)。"
+    },
+    {
+      "title": "求时间与距离比例",
+      "content": "联立得 \\(t=\\dfrac{2v_0\\tan\\theta}{g}\\)，所以 \\(t\\propto v_0\\)；水平位移与沿斜面距离均正比于 \\(v_0^2\\)。"
+    },
+    {
+      "title": "求末速度方向",
+      "content": "落地时 \\(v_y=gt=2v_0\\tan\\theta\\)，故 \\(v_y/v_x=2\\tan\\theta\\)，与 \\(v_0\\) 无关。"
+    },
+    {
+      "title": "得出结论",
+      "content": "初速度加倍后时间变为 \\(2\\) 倍、\\(PQ\\) 变为 \\(4\\) 倍，而 \\(\\alpha\\) 不变，答案 D。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "沿斜面距离",
+      "thinking": "先由斜面条件求飞行时间，再判断位移对初速度的幂次。",
+      "formula": "\\[PQ\\propto v_0t\\propto v_0^2\\]",
+      "judgment": "初速度加倍时 \\(PQ\\) 变为 \\(4\\) 倍，不是 \\(2\\) 倍，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "飞行时间",
+      "thinking": "落点并非固定高度，时间由斜面方程和平抛方程共同决定。",
+      "formula": "\\[t=\\frac{2v_0\\tan\\theta}{g}\\]",
+      "judgment": "时间与 \\(v_0\\) 成正比，应变为 \\(2\\) 倍，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "末速度夹角变大",
+      "thinking": "把末速度的竖直分量与水平分量作比。",
+      "formula": "\\[\\frac{v_y}{v_x}=2\\tan\\theta\\]",
+      "judgment": "速度方向只由斜面角决定，\\(\\alpha\\) 不变，C 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "末速度夹角不变",
+      "thinking": "检查方向比值中是否仍含初速度。",
+      "formula": "\\[\\tan(\\theta+\\alpha)=2\\tan\\theta\\]",
+      "judgment": "式中没有 \\(v_0\\)，所以 \\(\\alpha\\) 不变，D 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：推广到任意速度倍率",
+    "question": "小球从同一斜面顶端水平抛出，第二次初速度为第一次的 \\(\\lambda\\) 倍。证明两次飞行时间、沿斜面位移和落地速度大小分别满足怎样的比例，并说明末速度与斜面夹角是否变化。",
+    "answer": "**飞行时间**\n\n由 \\(t=2v_0\\tan\\theta/g\\)，得 \\(t_2/t_1=\\lambda\\)。\n\n**沿斜面位移**\n\n\\(PQ=x/\\cos\\theta=v_0t/\\cos\\theta\\)，故 \\(PQ_2/PQ_1=\\lambda^2\\)。\n\n**落地速度**\n\n\\(v_y=2v_0\\tan\\theta\\)，所以 \\(v= v_0\\sqrt{1+4\\tan^2\\theta}\\)，得 \\(v_2/v_1=\\lambda\\)。\n\n**方向结论**\n\n\\(v_y/v_x=2\\tan\\theta\\) 不变，因此末速度与斜面夹角不变。",
+    "thinking": "**思路**\n\n先联立轨迹与斜面条件求出 \\(t(v_0)\\)，再把它代回位移和末速度；不要直接套固定高度平抛的时间公式。"
+  }
+}

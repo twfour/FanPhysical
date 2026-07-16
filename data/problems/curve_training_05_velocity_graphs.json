@@ -1,0 +1,116 @@
+{
+  "id": "curve_training_05_velocity_graphs",
+  "originalNumber": "题5",
+  "chapter": "曲线运动",
+  "title": "第5题：二维速度图像合成",
+  "question": "某物体在竖直 \\(y\\) 方向（向上为正）和水平 \\(x\\) 方向运动的 \\(v-t\\) 图像如下：\\(v_y\\) 在 \\(0\\sim4\\,\\mathrm s\\) 内由 \\(0\\) 匀增到 \\(4\\,\\mathrm{m/s}\\)，再在 \\(4\\sim8\\,\\mathrm s\\) 内匀减到 \\(0\\)；\\(v_x\\) 在 \\(0\\sim4\\,\\mathrm s\\) 内由 \\(3\\,\\mathrm{m/s}\\) 匀减到 \\(1\\,\\mathrm{m/s}\\)，随后保持不变。关于物体在 \\(0\\sim8\\,\\mathrm s\\) 内的运动，下列说法正确的是（　　）。",
+  "options": [
+    "A. 物体在 \\(2\\,\\mathrm s\\) 时刻处于失重状态",
+    "B. 物体在 \\(0\\sim4\\,\\mathrm s\\) 内沿直线飞行",
+    "C. 物体在 \\(4\\,\\mathrm s\\) 时上升至最高点",
+    "D. 物体在 \\(4\\sim8\\,\\mathrm s\\) 内做匀变速运动"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "curve_training_model",
+    "variant": "curve_training_05_velocity_graphs",
+    "playable": true,
+    "interactive": true,
+    "notes": "左侧由分段速度积分生成二维轨迹，右侧复现 \\(v_x-t\\)、\\(v_y-t\\) 关系。",
+    "params": {
+      "vx0": {
+        "label": "初始水平速度",
+        "value": 3,
+        "min": 2,
+        "max": 6,
+        "step": 0.2,
+        "unit": "m/s"
+      },
+      "switchT": {
+        "label": "分段时刻",
+        "value": 4,
+        "min": 2,
+        "max": 6,
+        "step": 0.2,
+        "unit": "s"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "速度图像",
+    "运动合成",
+    "匀变速曲线运动",
+    "失重"
+  ],
+  "steps": [
+    {
+      "title": "读取前半段加速度",
+      "content": "在 \\(0\\sim4\\,\\mathrm s\\) 内，\\(a_x=-0.5\\,\\mathrm{m/s^2}\\)，\\(a_y=1\\,\\mathrm{m/s^2}\\)。初速度与加速度不共线，轨迹不是直线。"
+    },
+    {
+      "title": "读取后半段加速度",
+      "content": "在 \\(4\\sim8\\,\\mathrm s\\) 内，\\(a_x=0\\)，\\(a_y=-1\\,\\mathrm{m/s^2}\\)，加速度矢量恒定，所以是匀变速运动。"
+    },
+    {
+      "title": "判断最高点和失重",
+      "content": "最高点应满足 \\(v_y=0\\)，对应 \\(8\\,\\mathrm s\\) 而非 \\(4\\,\\mathrm s\\)。\\(2\\,\\mathrm s\\) 时竖直加速度向上，不能据此判为失重。"
+    },
+    {
+      "title": "得出结论",
+      "content": "只有 D 正确。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "失重判断",
+      "thinking": "失重看支持力是否小于重力，不能只看物体具有竖直运动。",
+      "formula": "\\[N-mg=ma_y\\]",
+      "judgment": "此时 \\(a_y\\gt0\\)，若有支持面则 \\(N\\gt mg\\)，不是失重，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "前半段轨迹",
+      "thinking": "比较初速度方向与恒加速度方向是否共线。",
+      "formula": "\\[\\vec v_0=(3,0),\\quad\\vec a=(-0.5,1)\\]",
+      "judgment": "两矢量不共线，合运动为曲线，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "最高点时刻",
+      "thinking": "竖直位置达到极值的必要条件是竖直分速度为零。",
+      "formula": "\\[v_y=0\\]",
+      "judgment": "\\(4\\,\\mathrm s\\) 时 \\(v_y=4\\,\\mathrm{m/s}\\)，仍在上升，C 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "后半段运动性质",
+      "thinking": "检查两方向加速度是否都为常量。",
+      "formula": "\\[\\vec a=(0,-1)\\,\\mathrm{m/s^2}\\]",
+      "judgment": "\\(4\\sim8\\,\\mathrm s\\) 内加速度矢量恒定，D 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：由分段速度重建轨迹性质",
+    "question": "质点在 \\(0\\le t\\le6\\,\\mathrm s\\) 内满足 \\(v_x=4-t\\)、\\(v_y=2t\\)；在 \\(t\\gt6\\,\\mathrm s\\) 后满足 \\(v_x=-2\\)、\\(v_y=12-3(t-6)\\)。判断两个阶段分别是直线还是曲线运动，并求第二阶段到达最高点的时刻。",
+    "answer": "**第一阶段**\n\n\\(\\vec a=(-1,2)\\)，而 \\(\\vec v(0)=(4,0)\\)，二者不共线，所以做匀变速曲线运动。\n\n**第二阶段**\n\n\\(\\vec a=(0,-3)\\)，\\(v_x=-2\\) 恒定，速度与加速度不共线，仍做匀变速曲线运动。\n\n**最高点条件**\n\n令 \\(v_y=12-3(t-6)=0\\)，得 \\(t=10\\,\\mathrm s\\)。\n\n**结论**\n\n两个阶段均为匀变速曲线运动，最高点出现在总时刻 \\(10\\,\\mathrm s\\)。",
+    "thinking": "**思路**\n\n先对速度表达式求导得到加速度，再比较 \\(\\vec v\\) 与 \\(\\vec a\\) 是否共线；最高点只看 \\(v_y=0\\)，不能看速度大小。"
+  }
+}

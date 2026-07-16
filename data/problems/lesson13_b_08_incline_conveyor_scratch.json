@@ -20,15 +20,57 @@
     "interactive": true,
     "notes": "煤块先在向下带面上加速，达到带速后共同运动；右图显示相对位移及总用时随带速的变化。",
     "params": {
-      "beltSpeed": { "label": "传送带速度", "value": 10, "min": 3, "max": 20, "step": 0.5, "unit": "m/s" },
-      "length": { "label": "AB 长度", "value": 16, "min": 8, "max": 24, "step": 1, "unit": "m" },
-      "mu": { "label": "动摩擦因数", "value": 0.5, "min": 0.2, "max": 0.7, "step": 0.05, "unit": "" },
-      "angle": { "label": "倾角", "value": 36.87, "min": 25, "max": 45, "step": 0.5, "unit": "deg" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "beltSpeed": {
+        "label": "传送带速度",
+        "value": 10,
+        "min": 3,
+        "max": 20,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "length": {
+        "label": "AB 长度",
+        "value": 16,
+        "min": 8,
+        "max": 24,
+        "step": 1,
+        "unit": "m"
+      },
+      "mu": {
+        "label": "动摩擦因数",
+        "value": 0.5,
+        "min": 0.2,
+        "max": 0.7,
+        "step": 0.05,
+        "unit": ""
+      },
+      "angle": {
+        "label": "倾角",
+        "value": 36.87,
+        "min": 25,
+        "max": 45,
+        "step": 0.5,
+        "unit": "deg"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 5, "loop": false }
+    "timeline": {
+      "duration": 5,
+      "loop": false
+    }
   },
-  "knowledge": ["倾斜传送带", "划痕长度", "最短时间"],
+  "knowledge": [
+    "倾斜传送带",
+    "划痕长度",
+    "最短时间"
+  ],
   "steps": [
     {
       "title": "确定带面方向与加速度",
@@ -48,9 +90,68 @@
     }
   ],
   "practice": {
-    "title": "近似题：带速可调的最短输送时间",
-    "question": "物块在长度为 \\(L\\) 的同向传送带上由静止开始，以恒加速度 \\(a\\) 加速到带速 \\(u\\) 后共同匀速。求总时间 \\(T(u)\\) 及最优带速。",
-    "answer": "\\(T(u)=u/(2a)+L/u\\)，令导数为零得 \\(u_{\\text{opt}}=\\sqrt{2aL}\\)，\\(T_{\\min}=\\sqrt{2L/a}\\)。",
-    "thinking": "把全过程分为加速段和共同匀速段，再把总时间写成带速的函数求最小值。"
+    "title": "进阶近似题：带速可调的最短输送时间",
+    "question": "**基础设问**\n\n物块在长度为 \\(L\\) 的同向传送带上由静止开始，以恒加速度 \\(a\\) 加速到带速 \\(u\\) 后共同匀速。求总时间 \\(T(u)\\) 及最优带速。\n\n**综合提升**\n\n在原传送带或板块模型中，把物块与带面组成系统。（1）列出外力功、系统动能变化和内能增加的关系；（2）用相对路程求热量；（3）若带速可调，找出相对滑动方向改变的临界；（4）说明电动机做功为何不等于物块动能增加。",
+    "answer": "**1. 基础设问**\n\n\\(T(u)=u/(2a)+L/u\\)，令导数为零得 \\(u_{\\text{opt}}=\\sqrt{2aL}\\)，\\(T_{\\min}=\\sqrt{2L/a}\\)。\n\n**2. 综合提升**\n\n系统能量关系为\n\n\\[W_{电}+W_{其他外}=\\Delta E_{k,系统}+\\Delta E_p+Q,\\qquad Q=f\\Delta s_{rel}.\\]\n\n相对速度为零是滑动方向可能改变的临界，应分段计算。电动机还要改变传送带自身能量并补偿摩擦生热，所以其功通常不等于物块动能增量。",
+    "thinking": "**基础思路**\n\n把全过程分为加速段和共同匀速段，再把总时间写成带速的函数求最小值。\n\n**进阶思路**\n\n先选系统再记账，把一对内摩擦的功合并为内能；速度匹配点决定是否需要分段。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "煤块从 \\(A\\) 到 \\(B\\) 运动的时间为 \\(2\\,\\mathrm s\\)",
+      "thinking": "先确定带面方向与加速度，再求给定带速下的时间与划痕，最后求摩擦生热；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a=g\\sin\\theta+\\mu g\\cos\\theta=6+4\\]\n\n\\[t_1=v/a\\]\n\n\\[s_1=v^2/(2a)\\]\n\n\\[f=\\mu mg\\cos\\theta\\]\n\n\\[Q=f\\Delta x_{\\text{相}}\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "倾斜传送带",
+        "划痕长度",
+        "最短时间"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "煤块从 \\(A\\) 到 \\(B\\) 的过程中，传送带与煤块因摩擦产生的热量为 \\(8\\,\\mathrm J\\)",
+      "thinking": "先确定带面方向与加速度，再求给定带速下的时间与划痕，最后求摩擦生热；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a=g\\sin\\theta+\\mu g\\cos\\theta=6+4\\]\n\n\\[t_1=v/a\\]\n\n\\[s_1=v^2/(2a)\\]\n\n\\[f=\\mu mg\\cos\\theta\\]\n\n\\[Q=f\\Delta x_{\\text{相}}\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "倾斜传送带",
+        "划痕长度",
+        "最短时间"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "煤块从 \\(A\\) 到 \\(B\\) 的过程中，传送带上形成划痕的长度为 \\(5\\,\\mathrm m\\)",
+      "thinking": "先确定带面方向与加速度，再求给定带速下的时间与划痕，最后求摩擦生热；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a=g\\sin\\theta+\\mu g\\cos\\theta=6+4\\]\n\n\\[t_1=v/a\\]\n\n\\[s_1=v^2/(2a)\\]\n\n\\[f=\\mu mg\\cos\\theta\\]\n\n\\[Q=f\\Delta x_{\\text{相}}\\]",
+      "judgment": "该结论与主方程推导结果及“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "倾斜传送带",
+        "划痕长度",
+        "最短时间"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "若传送带逆时针转动的速度可以调节，物体从 \\(A\\) 到 \\(B\\) 的最短时间为 \\(\\dfrac{4\\sqrt5}{5}\\,\\mathrm s\\)",
+      "thinking": "先确定带面方向与加速度，再求给定带速下的时间与划痕，最后求摩擦生热；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a=g\\sin\\theta+\\mu g\\cos\\theta=6+4\\]\n\n\\[t_1=v/a\\]\n\n\\[s_1=v^2/(2a)\\]\n\n\\[f=\\mu mg\\cos\\theta\\]\n\n\\[Q=f\\Delta x_{\\text{相}}\\]",
+      "judgment": "该结论与主方程推导结果及“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "倾斜传送带",
+        "划痕长度",
+        "最短时间"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

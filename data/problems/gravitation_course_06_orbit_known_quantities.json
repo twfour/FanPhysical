@@ -11,17 +11,134 @@
     "D. 月球绕地球运行速度的大小"
   ],
   "answer": "B、D",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "orbit_known_quantities", "playable": true, "interactive": true, "notes": "月球绕地球匀速圆周运动，轨道半径与周期可确定地球质量和月球线速度。", "params": { "orbitRadius": { "label": "轨道半径", "value": 3.84, "min": 2, "max": 6, "step": 0.1, "unit": "×10⁸m" }, "period": { "label": "环绕周期", "value": 27.3, "min": 15, "max": 40, "step": 0.5, "unit": "d" } }, "timeline": { "duration": 7, "loop": false } },
-  "knowledge": ["万有引力提供向心力", "轨道周期", "线速度"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "orbit_known_quantities",
+    "playable": true,
+    "interactive": true,
+    "notes": "月球绕地球匀速圆周运动，轨道半径与周期可确定地球质量和月球线速度。",
+    "params": {
+      "orbitRadius": {
+        "label": "轨道半径",
+        "value": 3.84,
+        "min": 2,
+        "max": 6,
+        "step": 0.1,
+        "unit": "×10⁸m"
+      },
+      "period": {
+        "label": "环绕周期",
+        "value": 27.3,
+        "min": 15,
+        "max": 40,
+        "step": 0.5,
+        "unit": "d"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "万有引力提供向心力",
+    "轨道周期",
+    "线速度"
+  ],
   "steps": [
-    { "stepId": 1, "title": "中心天体质量", "content": "由 \\(GMm/r^2=m(2\\pi/T)^2r\\)，可得地球质量 \\(M=\\dfrac{4\\pi^2r^3}{GT^2}\\)。", "knowledge": ["中心天体质量"], "commonMistakes": [] },
-    { "stepId": 2, "title": "轨道速度", "content": "月球做圆周运动，速度 \\(v=\\dfrac{2\\pi r}{T}\\)，因此 D 可估算。", "knowledge": ["圆周运动"], "commonMistakes": [] },
-    { "stepId": 3, "title": "排除", "content": "卫星质量在方程中被约去；没有地球半径也不能求地球密度。故选 B、D。", "knowledge": ["可测量判断"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "中心天体质量",
+      "content": "由 \\(GMm/r^2=m(2\\pi/T)^2r\\)，可得地球质量 \\(M=\\dfrac{4\\pi^2r^3}{GT^2}\\)。",
+      "knowledge": [
+        "中心天体质量"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "轨道速度",
+      "content": "月球做圆周运动，速度 \\(v=\\dfrac{2\\pi r}{T}\\)，因此 D 可估算。",
+      "knowledge": [
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "排除",
+      "content": "卫星质量在方程中被约去；没有地球半径也不能求地球密度。故选 B、D。",
+      "knowledge": [
+        "可测量判断"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：由卫星轨道求中心天体质量",
-    "question": "某卫星绕行星做半径为 \\(r\\)、周期为 \\(T\\) 的圆周运动，求行星质量。",
-    "answer": "\\(M=\\dfrac{4\\pi^2r^3}{GT^2}\\)。",
-    "thinking": "令万有引力提供卫星做圆周运动所需的向心力。"
+    "title": "进阶近似题：由卫星轨道求中心天体质量",
+    "question": "**基础设问**\n\n某卫星绕行星做半径为 \\(r\\)、周期为 \\(T\\) 的圆周运动，求行星质量。\n\n**综合提升**\n\n把原圆轨道半径由 \\(r\\) 改为 \\(\\lambda r\\)，中心天体不变。（1）推导重力加速度、线速度、角速度、周期和单位质量机械能的变化比；（2）由任意两项观测量反求 \\(GM\\)；（3）讨论 \\(\\lambda>1\\) 时“速度变小但周期变大”的原因；（4）指出这些比例对椭圆轨道瞬时点为何不能直接使用。",
+    "answer": "**1. 基础设问**\n\n\\(M=\\dfrac{4\\pi^2r^3}{GT^2}\\)。\n\n**2. 综合提升**\n\n圆轨道有\n\n\\[g\\propto r^{-2},\\quad v\\propto r^{-1/2},\\quad \\omega\\propto r^{-3/2},\\quad T\\propto r^{3/2},\\quad \\varepsilon=-\\frac{GM}{2r}.\\]\n\n所以半径乘 \\(\\lambda\\) 后比例依次为 \\(\\lambda^{-2},\\lambda^{-1/2},\\lambda^{-3/2},\\lambda^{3/2},\\lambda^{-1}\\)。可由 \\(GM=v^2r=4\\pi^2r^3/T^2\\) 反求。椭圆轨道瞬时速度还取决于半长轴，不能只看当前 \\(r\\)。",
+    "thinking": "**基础思路**\n\n令万有引力提供卫星做圆周运动所需的向心力。\n\n**进阶思路**\n\n所有比例都从同一个圆轨道主方程推出，再用适用条件区分圆轨道与椭圆轨道。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "月球的质量",
+      "thinking": "先中心天体质量，再轨道速度，最后排除；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[GMm/r^2=m(2\\pi/T)^2r\\]\n\n\\[M=\\dfrac{4\\pi^2r^3}{GT^2}\\]\n\n\\[v=\\dfrac{2\\pi r}{T}\\]",
+      "judgment": "该结论没有同时满足“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "万有引力提供向心力",
+        "轨道周期",
+        "线速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "地球的质量",
+      "thinking": "先中心天体质量，再轨道速度，最后排除；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[GMm/r^2=m(2\\pi/T)^2r\\]\n\n\\[M=\\dfrac{4\\pi^2r^3}{GT^2}\\]\n\n\\[v=\\dfrac{2\\pi r}{T}\\]",
+      "judgment": "该结论与主方程推导结果及“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "万有引力提供向心力",
+        "轨道周期",
+        "线速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "地球的密度",
+      "thinking": "先中心天体质量，再轨道速度，最后排除；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[GMm/r^2=m(2\\pi/T)^2r\\]\n\n\\[M=\\dfrac{4\\pi^2r^3}{GT^2}\\]\n\n\\[v=\\dfrac{2\\pi r}{T}\\]",
+      "judgment": "该结论没有同时满足“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "万有引力提供向心力",
+        "轨道周期",
+        "线速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "月球绕地球运行速度的大小",
+      "thinking": "先中心天体质量，再轨道速度，最后排除；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[GMm/r^2=m(2\\pi/T)^2r\\]\n\n\\[M=\\dfrac{4\\pi^2r^3}{GT^2}\\]\n\n\\[v=\\dfrac{2\\pi r}{T}\\]",
+      "judgment": "该结论与主方程推导结果及“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "万有引力提供向心力",
+        "轨道周期",
+        "线速度"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

@@ -20,14 +20,49 @@
     "interactive": true,
     "notes": "物体在恒定空气阻力下竖直上升；右图同时绘制机械能、重力势能和动能。",
     "params": {
-      "initialEnergy": { "label": "初始机械能", "value": 100, "min": 60, "max": 150, "step": 5, "unit": "J" },
-      "mass": { "label": "物体质量", "value": 2, "min": 1, "max": 4, "step": 0.1, "unit": "kg" },
-      "drag": { "label": "空气阻力", "value": 5, "min": 0, "max": 15, "step": 0.5, "unit": "N" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "initialEnergy": {
+        "label": "初始机械能",
+        "value": 100,
+        "min": 60,
+        "max": 150,
+        "step": 5,
+        "unit": "J"
+      },
+      "mass": {
+        "label": "物体质量",
+        "value": 2,
+        "min": 1,
+        "max": 4,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "drag": {
+        "label": "空气阻力",
+        "value": 5,
+        "min": 0,
+        "max": 15,
+        "step": 0.5,
+        "unit": "N"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 5, "loop": false }
+    "timeline": {
+      "duration": 5,
+      "loop": false
+    }
   },
-  "knowledge": ["能量图像", "恒定阻力", "竖直上抛"],
+  "knowledge": [
+    "能量图像",
+    "恒定阻力",
+    "竖直上抛"
+  ],
   "steps": [
     {
       "title": "由势能图线求质量",
@@ -47,9 +82,68 @@
     }
   ],
   "practice": {
-    "title": "近似题：由能量图求阻力",
-    "question": "一物体竖直上升 \\(5\\,\\mathrm m\\) 时，机械能由 \\(150\\,\\mathrm J\\) 线性减至 \\(120\\,\\mathrm J\\)。若阻力恒定，求阻力大小。",
-    "answer": "\\(f=-\\Delta E/\\Delta h=(150-120)/5=6\\,\\mathrm N\\)。",
-    "thinking": "机械能—高度图像的负斜率就是恒定阻力的大小。"
+    "title": "进阶近似题：由能量图求阻力",
+    "question": "**基础设问**\n\n一物体竖直上升 \\(5\\,\\mathrm m\\) 时，机械能由 \\(150\\,\\mathrm J\\) 线性减至 \\(120\\,\\mathrm J\\)。若阻力恒定，求阻力大小。\n\n**综合提升**\n\n给出机械能 \\(E-x\\) 图像和动能 \\(E_k-x\\) 图像。（1）分别说明两图斜率的物理意义；（2）反求非保守力与合力；（3）由两图之差得到势能函数；（4）判断转折点、停止点和受力规律改变点在图像上怎样区分。",
+    "answer": "**1. 基础设问**\n\n\\(f=-\\Delta E/\\Delta h=(150-120)/5=6\\,\\mathrm N\\)。\n\n**2. 综合提升**\n\n有\n\n\\[\\frac{dE}{dx}=F_{非保守,x},\\qquad \\frac{dE_k}{dx}=F_{合,x},\\qquad E_p=E-E_k.\\]\n\n停止点满足 \\(E_k=0\\)；动能极值处合力为零；机械能图斜率突变表示非保守力规律改变。三者含义不同，不能只凭图线“拐弯”统一判断。",
+    "thinking": "**基础思路**\n\n机械能—高度图像的负斜率就是恒定阻力的大小。\n\n**进阶思路**\n\n把图像斜率翻译成力，把两图差翻译成势能，再用非负动能判断可达区间。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "该物体的质量为 \\(1\\,\\mathrm{kg}\\)",
+      "thinking": "先由势能图线求质量，再由初始动能求初速度，最后读取 h=2 m 时的动能；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[E_p=mgh\\]\n\n\\[mg=80/4\\]\n\n\\[h=0\\]\n\n\\[E_p=0\\]\n\n\\[E_k=E_{\\text{总}}\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "能量图像",
+        "恒定阻力",
+        "竖直上抛"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "当 \\(h=0\\) 时，物体的速率为 \\(10\\,\\mathrm{m/s}\\)",
+      "thinking": "先由势能图线求质量，再由初始动能求初速度，最后读取 h=2 m 时的动能；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[E_p=mgh\\]\n\n\\[mg=80/4\\]\n\n\\[h=0\\]\n\n\\[E_p=0\\]\n\n\\[E_k=E_{\\text{总}}\\]",
+      "judgment": "该结论与主方程推导结果及“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "能量图像",
+        "恒定阻力",
+        "竖直上抛"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "当 \\(h=2\\,\\mathrm m\\) 时，物体的动能 \\(E_k=50\\,\\mathrm J\\)",
+      "thinking": "先由势能图线求质量，再由初始动能求初速度，最后读取 h=2 m 时的动能；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[E_p=mgh\\]\n\n\\[mg=80/4\\]\n\n\\[h=0\\]\n\n\\[E_p=0\\]\n\n\\[E_k=E_{\\text{总}}\\]",
+      "judgment": "该结论与主方程推导结果及“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "能量图像",
+        "恒定阻力",
+        "竖直上抛"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "物体所受空气阻力大小为 \\(25\\,\\mathrm N\\)",
+      "thinking": "先由势能图线求质量，再由初始动能求初速度，最后读取 h=2 m 时的动能；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[E_p=mgh\\]\n\n\\[mg=80/4\\]\n\n\\[h=0\\]\n\n\\[E_p=0\\]\n\n\\[E_k=E_{\\text{总}}\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "能量图像",
+        "恒定阻力",
+        "竖直上抛"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

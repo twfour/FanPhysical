@@ -5,17 +5,79 @@
   "title": "例4：空心球壳引力",
   "question": "两个均质球壳的质量均为 \\(M\\)，外径为 \\(R_1\\)，内径为 \\(R_2\\)，两球壳中心距离为 \\(L\\)。求两球壳之间的万有引力。",
   "answer": "\\(F=\\dfrac{GM^2}{L^2}\\)",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "hollow_shells", "playable": true, "interactive": true, "notes": "两个均匀球壳在外部相互作用时都可等效为球心处质点，图表显示引力随中心距平方反比变化。", "params": { "separation": { "label": "中心距离", "value": 4, "min": 2.5, "max": 8, "step": 0.2, "unit": "m" }, "mass": { "label": "球壳质量", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "kg" } }, "timeline": { "duration": 6, "loop": false } },
-  "knowledge": ["球壳定理", "万有引力"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "hollow_shells",
+    "playable": true,
+    "interactive": true,
+    "notes": "两个均匀球壳在外部相互作用时都可等效为球心处质点，图表显示引力随中心距平方反比变化。",
+    "params": {
+      "separation": {
+        "label": "中心距离",
+        "value": 4,
+        "min": 2.5,
+        "max": 8,
+        "step": 0.2,
+        "unit": "m"
+      },
+      "mass": {
+        "label": "球壳质量",
+        "value": 2,
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1,
+        "unit": "kg"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "球壳定理",
+    "万有引力"
+  ],
   "steps": [
-    { "stepId": 1, "title": "模型判断", "content": "均匀球壳对壳外任一点的引力，等效为全部质量集中在球心。", "knowledge": ["球壳定理"], "commonMistakes": [] },
-    { "stepId": 2, "title": "相互作用", "content": "对两个互不相交的球壳逐层使用球壳定理，可把两个球壳分别等效为位于各自球心的质点。", "knowledge": ["对称性"], "commonMistakes": [] },
-    { "stepId": 3, "title": "结论", "content": "两球壳之间的引力为 \\(F=\\dfrac{GM^2}{L^2}\\)，与内、外径无关。", "knowledge": ["万有引力定律"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "模型判断",
+      "content": "均匀球壳对壳外任一点的引力，等效为全部质量集中在球心。",
+      "knowledge": [
+        "球壳定理"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "相互作用",
+      "content": "对两个互不相交的球壳逐层使用球壳定理，可把两个球壳分别等效为位于各自球心的质点。",
+      "knowledge": [
+        "对称性"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "两球壳之间的引力为 \\(F=\\dfrac{GM^2}{L^2}\\)，与内、外径无关。",
+      "knowledge": [
+        "万有引力定律"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：不同质量球壳",
-    "question": "两个均匀球壳质量分别为 \\(M\\) 和 \\(2M\\)，球心相距 \\(3R\\)，且互不相交。求两者间引力。",
-    "answer": "\\(F=\\dfrac{2GM^2}{9R^2}\\)。",
-    "thinking": "球外引力等效为质点引力，直接代入两个球心之间的距离。"
+    "title": "进阶近似题：不同质量球壳",
+    "question": "**基础设问**\n\n两个均匀球壳质量分别为 \\(M\\) 和 \\(2M\\)，球心相距 \\(3R\\)，且互不相交。求两者间引力。\n\n**综合提升**\n\n在密度为 \\(\\rho\\) 的均匀实心球内挖去一个半径为 \\(b\\) 的球形空腔，空腔球心相对原球心的位移矢量为 \\(\\vec a\\)，且空腔完全位于大球内部。（1）用叠加法求空腔内任意点的引力场；（2）说明场是否随点的位置变化；（3）求小质点在腔内所受引力；（4）比较同心空腔与偏心空腔。",
+    "answer": "**1. 基础设问**\n\n\\(F=\\dfrac{2GM^2}{9R^2}\\)。\n\n**2. 综合提升**\n\n把挖腔等效为“完整均匀球 + 密度为 \\(-\\rho\\) 的小球”。均匀球内部 \\(\\vec g=-(4\\pi G\\rho/3)\\vec r\\)，叠加后空腔内\n\n\\[\\vec g_{腔}=-\\frac{4\\pi G\\rho}{3}\\vec a,\\]\n\n与腔内位置无关，是匀强引力场。质量为 \\(m\\) 的质点受力 \\(m\\vec g_{腔}\\)。同心空腔 \\(\\vec a=0\\) 时场为零；偏心时场非零且均匀。",
+    "thinking": "**基础思路**\n\n球外引力等效为质点引力，直接代入两个球心之间的距离。\n\n**进阶思路**\n\n把几何缺失转化为负密度球叠加，利用两个线性场相减，位置矢量项自动消去。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

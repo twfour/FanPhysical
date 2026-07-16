@@ -20,41 +20,145 @@
     "interactive": true,
     "notes": "四球从同一高度以四种方式运动并分别落地；右图比较重力瞬时功率随时间的变化。",
     "params": {
-      "height": { "label": "初始高度", "value": 20, "min": 10, "max": 40, "step": 1, "unit": "m" },
-      "speed": { "label": "共同初速度", "value": 10, "min": 4, "max": 16, "step": 1, "unit": "m/s" },
-      "mass": { "label": "小球质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
-      "g": { "label": "重力加速度", "value": 10, "min": 8, "max": 12, "step": 0.1, "unit": "m/s²" }
+      "height": {
+        "label": "初始高度",
+        "value": 20,
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "unit": "m"
+      },
+      "speed": {
+        "label": "共同初速度",
+        "value": 10,
+        "min": 4,
+        "max": 16,
+        "step": 1,
+        "unit": "m/s"
+      },
+      "mass": {
+        "label": "小球质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 8,
+        "max": 12,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 3.24, "loop": false }
+    "timeline": {
+      "duration": 3.24,
+      "loop": false
+    }
   },
-  "knowledge": ["重力做功", "平均功率", "瞬时功率"],
+  "knowledge": [
+    "重力做功",
+    "平均功率",
+    "瞬时功率"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "比较重力做功",
       "content": "重力是保守力，重力做功只由初末高度差决定。四球质量相同、初末高度相同，故均有 \\(W_G=mgh\\)，A 正确。",
-      "knowledge": ["重力功与路径无关"],
-      "commonMistakes": ["按运动轨迹长短比较重力功"]
+      "knowledge": [
+        "重力功与路径无关"
+      ],
+      "commonMistakes": [
+        "按运动轨迹长短比较重力功"
+      ]
     },
     {
       "stepId": 2,
       "title": "比较运动时间与平均功率",
       "content": "\\(A、B\\) 的竖直分运动相同，所以 \\(t_A=t_B\\)；竖直下抛的 \\(D\\) 最先落地，竖直上抛的 \\(C\\) 最后落地。由于四球重力功相同，平均功率满足 \\(\\bar P_D>\\bar P_A=\\bar P_B>\\bar P_C\\)，B、D 错。",
-      "knowledge": ["平均功率"],
+      "knowledge": [
+        "平均功率"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "比较落地瞬时功率",
       "content": "重力瞬时功率大小为 \\(P=mg|v_y|\\)。落地时 \\(A、B\\) 的竖直速度均为 \\(\\sqrt{2gh}\\)；\\(C、D\\) 的竖直速度大小均为 \\(\\sqrt{v_0^2+2gh}\\)。故 \\(P_A=P_B\\lt P_C=P_D\\)，C 正确。",
-      "knowledge": ["瞬时功率"],
-      "commonMistakes": ["用合速度而不是竖直速度计算重力功率"]
+      "knowledge": [
+        "瞬时功率"
+      ],
+      "commonMistakes": [
+        "用合速度而不是竖直速度计算重力功率"
+      ]
     }
   ],
   "practice": {
-    "title": "近似题：两种抛体重力功率",
-    "question": "从高度 \\(h=20\\,\\mathrm m\\) 同时释放小球甲，并以 \\(v_0=10\\,\\mathrm{m/s}\\) 竖直下抛同质量小球乙。取 \\(g=10\\,\\mathrm{m/s^2}\\)。比较两球落地前瞬间重力的功和瞬时功率。",
-    "answer": "两球重力功都为 \\(mgh=200m\\,\\mathrm J\\)。甲落地竖直速度 \\(20\\,\\mathrm{m/s}\\)，乙为 \\(10\\sqrt5\\,\\mathrm{m/s}\\)，故瞬时功率之比 \\(P_{\\甲}:P_{\\乙}=2:\\sqrt5\\)。",
-    "thinking": "重力功只看高度差；瞬时功率则看落地瞬间沿重力方向的速度分量。"
+    "title": "进阶近似题：两种抛体重力功率",
+    "question": "**基础设问**\n\n从高度 \\(h=20\\,\\mathrm m\\) 同时释放小球甲，并以 \\(v_0=10\\,\\mathrm{m/s}\\) 竖直下抛同质量小球乙。取 \\(g=10\\,\\mathrm{m/s^2}\\)。比较两球落地前瞬间重力的功和瞬时功率。\n\n**综合提升**\n\n把原题中的恒力推广为方向或大小随路径参数 \\(s\\) 变化的力 \\(\\vec F(s)\\)。（1）写出总功的积分表达式；（2）给出瞬时功率；（3）说明同一始末位置沿不同路径做功何时相同；（4）设计一个由 \\(P-t\\) 图像反求总功的方法。",
+    "answer": "**1. 基础设问**\n\n两球重力功都为 \\(mgh=200m\\,\\mathrm J\\)。甲落地竖直速度 \\(20\\,\\mathrm{m/s}\\)，乙为 \\(10\\sqrt5\\,\\mathrm{m/s}\\)，故瞬时功率之比 \\(P_{\\甲}:P_{\\乙}=2:\\sqrt5\\)。\n\n**2. 综合提升**\n\n总功和瞬时功率分别为\n\n\\[W=\\int_{s_1}^{s_2}\\vec F(s)\\cdot d\\vec s,\\qquad P=\\vec F\\cdot\\vec v=\\frac{dW}{dt}.\\]\n\n只有保守力的功才只由始末位置决定；一般外力功与路径有关。\\(P-t\\) 图像的有符号面积 \\(\\int Pdt\\) 就是总功。",
+    "thinking": "**基础思路**\n\n重力功只看高度差；瞬时功率则看落地瞬间沿重力方向的速度分量。\n\n**进阶思路**\n\n从定力公式升级到线积分与功率积分，可统一处理变大小、变方向和分段做功。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "重力对 \\(4\\) 个小球做的功相同",
+      "thinking": "先比较重力做功，再比较运动时间与平均功率，最后比较落地瞬时功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[W_G=mgh\\]\n\n\\[t_A=t_B\\]\n\n\\[\\bar P_D>\\bar P_A=\\bar P_B>\\bar P_C\\]\n\n\\[P=mg|v_y|\\]\n\n\\[P_A=P_B\\lt P_C=P_D\\]",
+      "judgment": "该结论与主方程推导结果及“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "重力做功",
+        "平均功率",
+        "瞬时功率"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "重力对 \\(4\\) 个小球做功的平均功率相等",
+      "thinking": "先比较重力做功，再比较运动时间与平均功率，最后比较落地瞬时功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[W_G=mgh\\]\n\n\\[t_A=t_B\\]\n\n\\[\\bar P_D>\\bar P_A=\\bar P_B>\\bar P_C\\]\n\n\\[P=mg|v_y|\\]\n\n\\[P_A=P_B\\lt P_C=P_D\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "重力做功",
+        "平均功率",
+        "瞬时功率"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "落地前瞬间，重力对 \\(4\\) 个小球的瞬时功率大小关系为 \\(P_A=P_B\\lt P_C=P_D\\)",
+      "thinking": "先比较重力做功，再比较运动时间与平均功率，最后比较落地瞬时功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[W_G=mgh\\]\n\n\\[t_A=t_B\\]\n\n\\[\\bar P_D>\\bar P_A=\\bar P_B>\\bar P_C\\]\n\n\\[P=mg|v_y|\\]\n\n\\[P_A=P_B\\lt P_C=P_D\\]",
+      "judgment": "该结论与主方程推导结果及“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "重力做功",
+        "平均功率",
+        "瞬时功率"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "重力对 \\(4\\) 个小球做功的平均功率大小关系为 \\(\\bar P_A=\\bar P_B>\\bar P_C=\\bar P_D\\)",
+      "thinking": "先比较重力做功，再比较运动时间与平均功率，最后比较落地瞬时功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[W_G=mgh\\]\n\n\\[t_A=t_B\\]\n\n\\[\\bar P_D>\\bar P_A=\\bar P_B>\\bar P_C\\]\n\n\\[P=mg|v_y|\\]\n\n\\[P_A=P_B\\lt P_C=P_D\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "重力做功",
+        "平均功率",
+        "瞬时功率"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

@@ -14,15 +14,58 @@
     "interactive": true,
     "notes": "滑块依次下滑、通过传送带、绕半圆下降并从 E 点平抛；右图绘制平抛距离随释放高度的分段关系。",
     "params": {
-      "releaseHeight": { "label": "释放高度", "value": 2.4, "min": 0, "max": 3.6, "step": 0.1, "unit": "m" },
-      "beltSpeed": { "label": "传送带速度", "value": 4, "min": 2, "max": 6, "step": 0.2, "unit": "m/s" },
-      "radius": { "label": "半圆半径", "value": 0.9, "min": 0.6, "max": 1.2, "step": 0.05, "unit": "m" },
-      "topHeight": { "label": "D 点高度", "value": 3.05, "min": 2.5, "max": 4, "step": 0.05, "unit": "m" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "releaseHeight": {
+        "label": "释放高度",
+        "value": 2.4,
+        "min": 0,
+        "max": 3.6,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "beltSpeed": {
+        "label": "传送带速度",
+        "value": 4,
+        "min": 2,
+        "max": 6,
+        "step": 0.2,
+        "unit": "m/s"
+      },
+      "radius": {
+        "label": "半圆半径",
+        "value": 0.9,
+        "min": 0.6,
+        "max": 1.2,
+        "step": 0.05,
+        "unit": "m"
+      },
+      "topHeight": {
+        "label": "D 点高度",
+        "value": 3.05,
+        "min": 2.5,
+        "max": 4,
+        "step": 0.05,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 10, "loop": false }
+    "timeline": {
+      "duration": 10,
+      "loop": false
+    }
   },
-  "knowledge": ["多过程能量", "传送带速度匹配", "平抛运动", "分段函数"],
+  "knowledge": [
+    "多过程能量",
+    "传送带速度匹配",
+    "平抛运动",
+    "分段函数"
+  ],
   "steps": [
     {
       "title": "求到达 B 点的速度",
@@ -42,9 +85,14 @@
     }
   ],
   "practice": {
-    "title": "近似题：多过程末速度与射程",
-    "question": "滑块以 \\(v_C=3\\,\\mathrm{m/s}\\) 从半径 \\(R=0.8\\,\\mathrm m\\) 的光滑竖直半圆上端进入，从下端水平飞出；下端距地 \\(1.8\\,\\mathrm m\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求平抛距离。",
-    "answer": "\\(v_E^2=v_C^2+4gR=9+32=41\\)，飞行时间 \\(t=\\sqrt{2\\times1.8/10}=0.6\\,\\mathrm s\\)，故 \\(x=0.6\\sqrt{41}\\,\\mathrm m\\)。",
-    "thinking": "先用机械能守恒从半圆上端求下端速度，再把下端作为平抛起点。"
+    "title": "进阶近似题：多过程末速度与射程",
+    "question": "**基础设问**\n\n滑块以 \\(v_C=3\\,\\mathrm{m/s}\\) 从半径 \\(R=0.8\\,\\mathrm m\\) 的光滑竖直半圆上端进入，从下端水平飞出；下端距地 \\(1.8\\,\\mathrm m\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求平抛距离。\n\n**综合提升**\n\n在原传送带或板块模型中，把物块与带面组成系统。（1）列出外力功、系统动能变化和内能增加的关系；（2）用相对路程求热量；（3）若带速可调，找出相对滑动方向改变的临界；（4）说明电动机做功为何不等于物块动能增加。",
+    "answer": "**1. 基础设问**\n\n\\(v_E^2=v_C^2+4gR=9+32=41\\)，飞行时间 \\(t=\\sqrt{2\\times1.8/10}=0.6\\,\\mathrm s\\)，故 \\(x=0.6\\sqrt{41}\\,\\mathrm m\\)。\n\n**2. 综合提升**\n\n系统能量关系为\n\n\\[W_{电}+W_{其他外}=\\Delta E_{k,系统}+\\Delta E_p+Q,\\qquad Q=f\\Delta s_{rel}.\\]\n\n相对速度为零是滑动方向可能改变的临界，应分段计算。电动机还要改变传送带自身能量并补偿摩擦生热，所以其功通常不等于物块动能增量。",
+    "thinking": "**基础思路**\n\n先用机械能守恒从半圆上端求下端速度，再把下端作为平抛起点。\n\n**进阶思路**\n\n先选系统再记账，把一对内摩擦的功合并为内能；速度匹配点决定是否需要分段。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

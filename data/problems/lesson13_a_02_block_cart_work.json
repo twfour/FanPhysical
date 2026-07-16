@@ -20,15 +20,57 @@
     "interactive": true,
     "notes": "滑块相对小车向右滑动，小车同时向右移动；右图区分滑块对地位移、车位移和相对位移。",
     "params": {
-      "mass": { "label": "滑块质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
-      "mu": { "label": "动摩擦因数", "value": 0.25, "min": 0.05, "max": 0.6, "step": 0.01, "unit": "" },
-      "length": { "label": "小车长度", "value": 4, "min": 2, "max": 7, "step": 0.2, "unit": "m" },
-      "force": { "label": "水平恒力", "value": 8, "min": 4, "max": 18, "step": 0.5, "unit": "N" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "滑块质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "mu": {
+        "label": "动摩擦因数",
+        "value": 0.25,
+        "min": 0.05,
+        "max": 0.6,
+        "step": 0.01,
+        "unit": ""
+      },
+      "length": {
+        "label": "小车长度",
+        "value": 4,
+        "min": 2,
+        "max": 7,
+        "step": 0.2,
+        "unit": "m"
+      },
+      "force": {
+        "label": "水平恒力",
+        "value": 8,
+        "min": 4,
+        "max": 18,
+        "step": 0.5,
+        "unit": "N"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 5, "loop": false }
+    "timeline": {
+      "duration": 5,
+      "loop": false
+    }
   },
-  "knowledge": ["相对位移", "摩擦功", "系统能量"],
+  "knowledge": [
+    "相对位移",
+    "摩擦功",
+    "系统能量"
+  ],
   "steps": [
     {
       "title": "分析小车运动",
@@ -44,9 +86,68 @@
     }
   ],
   "practice": {
-    "title": "近似题：板块系统的热量",
-    "question": "质量 \\(m\\) 的滑块在质量 \\(3m\\)、长 \\(L\\) 的木板上从左端滑到右端，动摩擦因数为 \\(\\mu\\)，地面光滑。求全过程产生的热量。",
-    "answer": "滑块与木板的相对路程就是 \\(L\\)，所以 \\(Q=\\mu mgL\\)。",
-    "thinking": "摩擦生热只看接触面的相对位移，与木板对地移动了多远无关。"
+    "title": "进阶近似题：板块系统的热量",
+    "question": "**基础设问**\n\n质量 \\(m\\) 的滑块在质量 \\(3m\\)、长 \\(L\\) 的木板上从左端滑到右端，动摩擦因数为 \\(\\mu\\)，地面光滑。求全过程产生的热量。\n\n**综合提升**\n\n把原题改为含一个可调非保守力参数 \\(\\lambda\\) 的系统。（1）选定系统并写完整能量流方程；（2）由末状态反求 \\(\\lambda\\)；（3）求机械能保持不变的临界参数；（4）判断参数越过临界后能量转化方向。",
+    "answer": "**1. 基础设问**\n\n滑块与木板的相对路程就是 \\(L\\)，所以 \\(Q=\\mu mgL\\)。\n\n**2. 综合提升**\n\n统一写成\n\n\\[W_{外,非保守}(\\lambda)=\\Delta E_{mech}+\\Delta E_{int}.\\]\n\n把题设末状态代入即可反求 \\(\\lambda\\)；机械能不变的临界满足 \\(\\Delta E_{mech}=0\\)。临界两侧由 \\(W_{外,非保守}-\\Delta E_{int}\\) 的符号判断机械能增加或减少。",
+    "thinking": "**基础思路**\n\n摩擦生热只看接触面的相对位移，与木板对地移动了多远无关。\n\n**进阶思路**\n\n先固定系统边界，把能量输入、机械能变化和耗散分成三栏，再做参数反演与临界讨论。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "小车运动的加速度大小为 \\(\\mu g\\)",
+      "thinking": "先分析小车运动，再区分三个位移，最后判断系统机械能增量；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a_{\\text{车}}=\\mu g/2\\]\n\n\\[W=\\mu mg(L+x)\\]\n\n\\[Q=\\mu mgL\\]\n\n\\[\\Delta E=F(L+x)-\\mu mgL\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "相对位移",
+        "摩擦功",
+        "系统能量"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "小物块到达小车最右端时，小车具有的动能为 \\(2\\mu mgx\\)",
+      "thinking": "先分析小车运动，再区分三个位移，最后判断系统机械能增量；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a_{\\text{车}}=\\mu g/2\\]\n\n\\[W=\\mu mg(L+x)\\]\n\n\\[Q=\\mu mgL\\]\n\n\\[\\Delta E=F(L+x)-\\mu mgL\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "相对位移",
+        "摩擦功",
+        "系统能量"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "小物块克服摩擦力所做的功为 \\(\\mu mg(L+x)\\)",
+      "thinking": "先分析小车运动，再区分三个位移，最后判断系统机械能增量；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a_{\\text{车}}=\\mu g/2\\]\n\n\\[W=\\mu mg(L+x)\\]\n\n\\[Q=\\mu mgL\\]\n\n\\[\\Delta E=F(L+x)-\\mu mgL\\]",
+      "judgment": "该结论与主方程推导结果及“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "相对位移",
+        "摩擦功",
+        "系统能量"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "小物块和小车增加的机械能为 \\(F(L+x)\\)",
+      "thinking": "先分析小车运动，再区分三个位移，最后判断系统机械能增量；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a_{\\text{车}}=\\mu g/2\\]\n\n\\[W=\\mu mg(L+x)\\]\n\n\\[Q=\\mu mgL\\]\n\n\\[\\Delta E=F(L+x)-\\mu mgL\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "相对位移",
+        "摩擦功",
+        "系统能量"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

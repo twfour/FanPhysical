@@ -11,17 +11,142 @@
     "D. \\(\\sqrt{RPg/(QK)}\\)"
   ],
   "answer": "A",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_change4_speed", "playable": true, "interactive": true, "notes": "地球与月球参数并列换算，嫦娥四号绕月运行；右图显示速率随轨道倍数 K 的变化和原题值。", "params": { "K": { "label": "轨道半径倍数 K", "value": 2, "min": 1.1, "max": 5.0, "step": 0.1, "unit": "" }, "P": { "label": "地月质量比 P", "value": 81, "min": 60, "max": 100, "step": 1, "unit": "" }, "Q": { "label": "地月半径比 Q", "value": 4, "min": 3, "max": 5, "step": 0.1, "unit": "" } }, "timeline": { "duration": 8, "loop": false } },
-  "knowledge": ["环月速度", "比例换算", "地表重力"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_change4_speed",
+    "playable": true,
+    "interactive": true,
+    "notes": "地球与月球参数并列换算，嫦娥四号绕月运行；右图显示速率随轨道倍数 K 的变化和原题值。",
+    "params": {
+      "K": {
+        "label": "轨道半径倍数 K",
+        "value": 2,
+        "min": 1.1,
+        "max": 5,
+        "step": 0.1,
+        "unit": ""
+      },
+      "P": {
+        "label": "地月质量比 P",
+        "value": 81,
+        "min": 60,
+        "max": 100,
+        "step": 1,
+        "unit": ""
+      },
+      "Q": {
+        "label": "地月半径比 Q",
+        "value": 4,
+        "min": 3,
+        "max": 5,
+        "step": 0.1,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "环月速度",
+    "比例换算",
+    "地表重力"
+  ],
   "steps": [
-    { "stepId": 1, "title": "换算月球参数", "content": "月球质量 \\(M_月=M_地/P\\)，月球半径 \\(R_月=R/Q\\)，探测器轨道半径 \\(r=KR/Q\\)。", "knowledge": ["比例关系"], "commonMistakes": [] },
-    { "stepId": 2, "title": "写圆轨道速度", "content": "由 \\(GM_月m/r^2=mv^2/r\\)，得 \\(v^2=GM_月/r\\)。", "knowledge": ["万有引力提供向心力"], "commonMistakes": [] },
-    { "stepId": 3, "title": "用地表重力消元", "content": "地球表面有 \\(GM_地=gR^2\\)。代入得 \\(v^2=gR^2Q/(PKR)=RQg/(KP)\\)，故 \\(v=\\sqrt{RQg/(KP)}\\)，选 A。", "knowledge": ["重力参数"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "换算月球参数",
+      "content": "月球质量 \\(M_月=M_地/P\\)，月球半径 \\(R_月=R/Q\\)，探测器轨道半径 \\(r=KR/Q\\)。",
+      "knowledge": [
+        "比例关系"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "写圆轨道速度",
+      "content": "由 \\(GM_月m/r^2=mv^2/r\\)，得 \\(v^2=GM_月/r\\)。",
+      "knowledge": [
+        "万有引力提供向心力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "用地表重力消元",
+      "content": "地球表面有 \\(GM_地=gR^2\\)。代入得 \\(v^2=gR^2Q/(PKR)=RQg/(KP)\\)，故 \\(v=\\sqrt{RQg/(KP)}\\)，选 A。",
+      "knowledge": [
+        "重力参数"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：绕小天体速度",
-    "question": "甲星球质量为地球的 \\(1/8\\)，半径为地球的 \\(1/2\\)。卫星贴近甲星球表面运行，求其速度与地球第一宇宙速度之比。",
-    "answer": "\\(v_甲/v_地=\\sqrt{(1/8)/(1/2)}=1/2\\)。",
-    "thinking": "近地圆轨道使用 \\(v=\\sqrt{GM/R}\\)，分别比较质量比和半径比。"
+    "title": "进阶近似题：绕小天体速度",
+    "question": "**基础设问**\n\n甲星球质量为地球的 \\(1/8\\)，半径为地球的 \\(1/2\\)。卫星贴近甲星球表面运行，求其速度与地球第一宇宙速度之比。\n\n**综合提升**\n\n对同一中心天体的圆轨道，把半径从 \\(r\\) 连续调到 \\(\\lambda r\\)。（1）推导 \\(v,\\omega,T,E\\) 的比例；（2）若只测得周期比，反求半径比；（3）若卫星在原位置瞬时加速，说明它为何先进入椭圆而不是立即跳到新圆轨道；（4）比较点火瞬间加速度与速度的变化。",
+    "answer": "**1. 基础设问**\n\n\\(v_甲/v_地=\\sqrt{(1/8)/(1/2)}=1/2\\)。\n\n**2. 综合提升**\n\n圆轨道比例为 \\(v\\propto r^{-1/2}\\)、\\(\\omega\\propto r^{-3/2}\\)、\\(T\\propto r^{3/2}\\)、\\(E=-GMm/(2r)\\)。因此 \\(r_2/r_1=(T_2/T_1)^{2/3}\\)。瞬时点火只能改变速度，位置仍为原半径；新速度通常不等于该处圆轨道速度，故先形成以该点为近点或远点的椭圆。点火瞬间引力加速度不变，速度突变。",
+    "thinking": "**基础思路**\n\n近地圆轨道使用 \\(v=\\sqrt{GM/R}\\)，分别比较质量比和半径比。\n\n**进阶思路**\n\n把‘圆轨道之间的比较’与‘瞬时变轨过程’分开，避免把目标圆轨道速度直接当成点火后的即时状态。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(\\sqrt{RQg/(KP)}\\)",
+      "thinking": "先换算月球参数，再写圆轨道速度，最后用地表重力消元；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[M_月=M_地/P\\]\n\n\\[R_月=R/Q\\]\n\n\\[r=KR/Q\\]\n\n\\[GM_月m/r^2=mv^2/r\\]\n\n\\[v^2=GM_月/r\\]",
+      "judgment": "该结论与主方程推导结果及“动力学比例和相对运动几何必须分别建立后再联立”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "环月速度",
+        "比例换算",
+        "地表重力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(\\sqrt{RPKg/Q}\\)",
+      "thinking": "先换算月球参数，再写圆轨道速度，最后用地表重力消元；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[M_月=M_地/P\\]\n\n\\[R_月=R/Q\\]\n\n\\[r=KR/Q\\]\n\n\\[GM_月m/r^2=mv^2/r\\]\n\n\\[v^2=GM_月/r\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "环月速度",
+        "比例换算",
+        "地表重力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(\\sqrt{RKg/(QP)}\\)",
+      "thinking": "先换算月球参数，再写圆轨道速度，最后用地表重力消元；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[M_月=M_地/P\\]\n\n\\[R_月=R/Q\\]\n\n\\[r=KR/Q\\]\n\n\\[GM_月m/r^2=mv^2/r\\]\n\n\\[v^2=GM_月/r\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "环月速度",
+        "比例换算",
+        "地表重力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(\\sqrt{RPg/(QK)}\\)",
+      "thinking": "先换算月球参数，再写圆轨道速度，最后用地表重力消元；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[M_月=M_地/P\\]\n\n\\[R_月=R/Q\\]\n\n\\[r=KR/Q\\]\n\n\\[GM_月m/r^2=mv^2/r\\]\n\n\\[v^2=GM_月/r\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "环月速度",
+        "比例换算",
+        "地表重力"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

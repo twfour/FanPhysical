@@ -11,17 +11,134 @@
     "D. 先减小后增大"
   ],
   "answer": "D",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "earth_tunnel", "playable": true, "interactive": true, "notes": "物体穿过地心隧道，加速度大小随距地心距离先减小到零、再增大。", "params": { "radius": { "label": "地球半径", "value": 1, "min": 0.6, "max": 1.5, "step": 0.1, "unit": "R" }, "surfaceGravity": { "label": "表面重力", "value": 10, "min": 5, "max": 15, "step": 0.5, "unit": "m/s²" } }, "timeline": { "duration": 8, "loop": false } },
-  "knowledge": ["均匀球体内部引力", "穿地隧道", "简谐运动"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "earth_tunnel",
+    "playable": true,
+    "interactive": true,
+    "notes": "物体穿过地心隧道，加速度大小随距地心距离先减小到零、再增大。",
+    "params": {
+      "radius": {
+        "label": "地球半径",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.5,
+        "step": 0.1,
+        "unit": "R"
+      },
+      "surfaceGravity": {
+        "label": "表面重力",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.5,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "均匀球体内部引力",
+    "穿地隧道",
+    "简谐运动"
+  ],
   "steps": [
-    { "stepId": 1, "title": "球内引力", "content": "设物体距地心为 \\(r\\)。均匀地球中只有半径 \\(r\\) 内的质量产生合引力，包围质量 \\(M_r=M(r/R)^3\\)。", "knowledge": ["球壳定理"], "commonMistakes": [] },
-    { "stepId": 2, "title": "加速度关系", "content": "\\(a=GM_r/r^2=GMr/R^3\\)，所以加速度大小与到地心距离 \\(r\\) 成正比。", "knowledge": ["线性回复力"], "commonMistakes": [] },
-    { "stepId": 3, "title": "结论", "content": "从入口到地心，\\(r\\) 减小，加速度减至零；越过地心后，\\(r\\) 增大，加速度增大。故选 D。", "knowledge": ["运动过程"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "球内引力",
+      "content": "设物体距地心为 \\(r\\)。均匀地球中只有半径 \\(r\\) 内的质量产生合引力，包围质量 \\(M_r=M(r/R)^3\\)。",
+      "knowledge": [
+        "球壳定理"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "加速度关系",
+      "content": "\\(a=GM_r/r^2=GMr/R^3\\)，所以加速度大小与到地心距离 \\(r\\) 成正比。",
+      "knowledge": [
+        "线性回复力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "从入口到地心，\\(r\\) 减小，加速度减至零；越过地心后，\\(r\\) 增大，加速度增大。故选 D。",
+      "knowledge": [
+        "运动过程"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：地球内部重力",
-    "question": "把地球视为均匀球体，表面重力加速度为 \\(g\\)。求距地心 \\(R/3\\) 处的重力加速度大小。",
-    "answer": "\\(g'=g/3\\)。",
-    "thinking": "均匀球体内部有 \\(g(r)=g\\,r/R\\)。"
+    "title": "进阶近似题：地球内部重力",
+    "question": "**基础设问**\n\n把地球视为均匀球体，表面重力加速度为 \\(g\\)。求距地心 \\(R/3\\) 处的重力加速度大小。\n\n**综合提升**\n\n设天体为密度均匀、半径 \\(R\\) 的球体。（1）推导内部距球心 \\(r\\) 处的重力加速度；（2）证明贯穿球心的真空隧道内运动为简谐运动；（3）求振动周期并用平均密度表示；（4）比较该周期与贴近表面的圆轨道周期。",
+    "answer": "**1. 基础设问**\n\n\\(g'=g/3\\)。\n\n**2. 综合提升**\n\n球内有效质量 \\(M(r)=4\\pi\\rho r^3/3\\)，故\n\n\\[g(r)=\\frac{GM(r)}{r^2}=\\frac{4\\pi G\\rho}{3}r.\\]\n\n沿隧道有 \\(a=-\\omega^2r\\)，其中 \\(\\omega^2=4\\pi G\\rho/3\\)，所以\n\n\\[T=2\\pi\\sqrt{\\frac{3}{4\\pi G\\rho}}.\\]\n\n贴地圆轨道满足同一 \\(GM/R^3=4\\pi G\\rho/3\\)，周期相同。",
+    "thinking": "**基础思路**\n\n均匀球体内部有 \\(g(r)=g\\,r/R\\)。\n\n**进阶思路**\n\n关键升级是把表面重力推广到球内有效质量，再识别加速度与位移成正比的简谐结构。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "一直增大",
+      "thinking": "先球内引力，再加速度关系，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[M_r=M(r/R)^3\\]\n\n\\[a=GM_r/r^2=GMr/R^3\\]",
+      "judgment": "该结论没有同时满足“有效质量的选取和引力场矢量叠加必须正确”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "均匀球体内部引力",
+        "穿地隧道",
+        "简谐运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "一直减小",
+      "thinking": "先球内引力，再加速度关系，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[M_r=M(r/R)^3\\]\n\n\\[a=GM_r/r^2=GMr/R^3\\]",
+      "judgment": "该结论没有同时满足“有效质量的选取和引力场矢量叠加必须正确”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "均匀球体内部引力",
+        "穿地隧道",
+        "简谐运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "先增大后减小",
+      "thinking": "先球内引力，再加速度关系，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[M_r=M(r/R)^3\\]\n\n\\[a=GM_r/r^2=GMr/R^3\\]",
+      "judgment": "该结论没有同时满足“有效质量的选取和引力场矢量叠加必须正确”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "均匀球体内部引力",
+        "穿地隧道",
+        "简谐运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "先减小后增大",
+      "thinking": "先球内引力，再加速度关系，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[M_r=M(r/R)^3\\]\n\n\\[a=GM_r/r^2=GMr/R^3\\]",
+      "judgment": "该结论与主方程推导结果及“有效质量的选取和引力场矢量叠加必须正确”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "均匀球体内部引力",
+        "穿地隧道",
+        "简谐运动"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

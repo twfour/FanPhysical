@@ -1,0 +1,123 @@
+{
+  "id": "curve_training_02_nonuniform_river",
+  "originalNumber": "题2",
+  "chapter": "曲线运动",
+  "title": "第2题：非均匀水流渡河",
+  "question": "小船从 \\(M\\) 点出发横渡一条河，船头始终垂直于河岸方向，船速大小不变。小船的实际运动轨迹先向下游弯曲加剧、经过中部后弯曲减弱并到达对岸 \\(N\\) 点。能表示河水流速随横向位置变化的是（　　）。",
+  "options": [
+    "A. 水速从 \\(M\\) 岸到 \\(N\\) 岸逐渐增大",
+    "B. 水速从 \\(M\\) 岸到 \\(N\\) 岸逐渐减小",
+    "C. 水速先增大后减小，河道中部附近最大",
+    "D. 水速先减小后增大，河道中部附近最小"
+  ],
+  "answer": "C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "curve_training_model",
+    "variant": "curve_training_02_nonuniform_river",
+    "playable": true,
+    "interactive": true,
+    "notes": "船头恒指向对岸；局部轨迹斜率直接反映该处水速。",
+    "params": {
+      "boatSpeed": {
+        "label": "静水船速",
+        "value": 4,
+        "min": 2,
+        "max": 8,
+        "step": 0.2,
+        "unit": "m/s"
+      },
+      "flowBase": {
+        "label": "岸边水速",
+        "value": 1,
+        "min": 0.2,
+        "max": 3,
+        "step": 0.1,
+        "unit": "m/s"
+      },
+      "flowPeak": {
+        "label": "中部增量",
+        "value": 4,
+        "min": 1,
+        "max": 7,
+        "step": 0.2,
+        "unit": "m/s"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "速度合成",
+    "非均匀水流",
+    "轨迹斜率"
+  ],
+  "steps": [
+    {
+      "title": "建立分速度",
+      "content": "以 \\(y\\) 表示垂直河岸方向、\\(x\\) 表示顺流方向。船头始终垂直河岸，故 \\(\\dot y=v_{\\text{船}}\\)，\\(\\dot x=u(y)\\)。"
+    },
+    {
+      "title": "用轨迹斜率读水速",
+      "content": "消去时间得到 \\(\\dfrac{\\mathrm dx}{\\mathrm dy}=\\dfrac{u(y)}{v_{\\text{船}}}\\)。船速不变，因此轨迹越偏向下游，局部水速越大。"
+    },
+    {
+      "title": "对应题图",
+      "content": "轨迹斜率从岸边到中部增大、再向对岸减小，说明水速先增大后减小。"
+    },
+    {
+      "title": "得出结论",
+      "content": "河道中部附近流速最大，答案为 C。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "水速单调增大",
+      "thinking": "比较轨迹沿渡河方向的局部斜率是否一直变大。",
+      "formula": "\\[\\frac{\\mathrm dx}{\\mathrm dy}=\\frac{u(y)}{v_{\\text{船}}}\\]",
+      "judgment": "题图后半段斜率减小，不支持水速一直增大，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "水速单调减小",
+      "thinking": "观察出发后轨迹是否立即逐渐变直。",
+      "formula": "\\[u(y)=v_{\\text{船}}\\frac{\\mathrm dx}{\\mathrm dy}\\]",
+      "judgment": "轨迹前半段弯向下游的程度增大，说明水速先增大，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "中部流速最大",
+      "thinking": "把轨迹最陡处对应到水速峰值位置。",
+      "formula": "\\[u_{\\max}=v_{\\text{船}}\\max\\left(\\frac{\\mathrm dx}{\\mathrm dy}\\right)\\]",
+      "judgment": "轨迹斜率先增后减，与水速中部最大一致，C 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "中部流速最小",
+      "thinking": "若中部水速最小，轨迹在中部应最接近垂直河岸。",
+      "formula": "\\[u(y)\\downarrow\\Rightarrow\\frac{\\mathrm dx}{\\mathrm dy}\\downarrow\\]",
+      "judgment": "题图中部反而最偏向下游，D 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：由轨迹方程反演水速",
+    "question": "河宽为 \\(d\\)，船头始终垂直河岸，静水船速为 \\(v\\)。测得实际轨迹满足\n\n\\[x(y)=\\frac{u_0}{v}y+\\frac{u_1}{v}\\left[\\frac y2-\\frac{d}{4\\pi}\\sin\\left(\\frac{2\\pi y}{d}\\right)\\right].\\]\n\n求水速分布 \\(u(y)\\)，并指出水速最大的位置与最大值。",
+    "answer": "**速度关系**\n\n由 \\(\\mathrm dx/\\mathrm dy=u(y)/v\\)。\n\n**求导**\n\n\\[u(y)=v\\frac{\\mathrm dx}{\\mathrm dy}=u_0+\\frac{u_1}{2}\\left[1-\\cos\\left(\\frac{2\\pi y}{d}\\right)\\right].\\]\n\n**化简**\n\n利用 \\(1-\\cos2\\theta=2\\sin^2\\theta\\)，得 \\(u(y)=u_0+u_1\\sin^2(\\pi y/d)\\)。\n\n**结论**\n\n在 \\(y=d/2\\) 处水速最大，\\(u_{\\max}=u_0+u_1\\)。",
+    "thinking": "**思路**\n\n不要先求渡河时间。船的横向速度恒为 \\(v\\)，所以轨迹对 \\(y\\) 的导数就是顺流速度与 \\(v\\) 的比值。"
+  }
+}

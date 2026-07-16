@@ -20,41 +20,143 @@
     "interactive": true,
     "notes": "斜面和物体保持相对静止并整体水平平移；右图显示摩擦力的功随水平位移变化。",
     "params": {
-      "mass": { "label": "物体质量", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "kg" },
-      "angle": { "label": "斜面倾角", "value": 30, "min": 10, "max": 60, "step": 1, "unit": "deg" },
-      "distance": { "label": "水平位移", "value": 4, "min": 1, "max": 8, "step": 0.5, "unit": "m" },
-      "g": { "label": "重力加速度", "value": 10, "min": 8, "max": 12, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "物体质量",
+        "value": 2,
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "angle": {
+        "label": "斜面倾角",
+        "value": 30,
+        "min": 10,
+        "max": 60,
+        "step": 1,
+        "unit": "deg"
+      },
+      "distance": {
+        "label": "水平位移",
+        "value": 4,
+        "min": 1,
+        "max": 8,
+        "step": 0.5,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 8,
+        "max": 12,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 4, "loop": false }
+    "timeline": {
+      "duration": 4,
+      "loop": false
+    }
   },
-  "knowledge": ["摩擦力做功", "静力平衡", "功的夹角"],
+  "knowledge": [
+    "摩擦力做功",
+    "静力平衡",
+    "功的夹角"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "判断摩擦力大小",
       "content": "物体相对斜面静止，沿斜面方向受力平衡，因此静摩擦力大小为 \\(f=mg\\sin\\theta\\)，方向沿斜面向上。",
-      "knowledge": ["静摩擦力"],
-      "commonMistakes": ["题目给出 \\(\\mu\\) 就机械地写成 \\(f=\\mu N\\)"]
+      "knowledge": [
+        "静摩擦力"
+      ],
+      "commonMistakes": [
+        "题目给出 \\(\\mu\\) 就机械地写成 \\(f=\\mu N\\)"
+      ]
     },
     {
       "stepId": 2,
       "title": "确定位移与夹角",
       "content": "物体随斜面水平向右移动 \\(L\\)。摩擦力沿斜面向上，与水平位移的夹角为 \\(\\theta\\)。",
-      "knowledge": ["功的方向"],
+      "knowledge": [
+        "功的方向"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "计算摩擦力做功",
       "content": "\\(W_f=fL\\cos\\theta=mgL\\sin\\theta\\cos\\theta\\)。答案为 C。",
-      "knowledge": ["恒力做功"],
+      "knowledge": [
+        "恒力做功"
+      ],
       "commonMistakes": []
     }
   ],
   "practice": {
-    "title": "近似题：水平移动斜面",
-    "question": "质量 \\(m=3\\,\\mathrm{kg}\\) 的物块相对倾角 \\(37^\\circ\\) 的斜面静止，斜面水平向右移动 \\(L=5\\,\\mathrm m\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)、\\(\\sin37^\\circ=0.6\\)、\\(\\cos37^\\circ=0.8\\)，求摩擦力对物块做的功。",
-    "answer": "\\(f=mg\\sin37^\\circ=18\\,\\mathrm N\\)，故 \\(W_f=fL\\cos37^\\circ=72\\,\\mathrm J\\)。",
-    "thinking": "相对静止时先由沿斜面平衡求静摩擦力，再用物块相对地面的水平位移计算功。"
+    "title": "进阶近似题：水平移动斜面",
+    "question": "**基础设问**\n\n质量 \\(m=3\\,\\mathrm{kg}\\) 的物块相对倾角 \\(37^\\circ\\) 的斜面静止，斜面水平向右移动 \\(L=5\\,\\mathrm m\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)、\\(\\sin37^\\circ=0.6\\)、\\(\\cos37^\\circ=0.8\\)，求摩擦力对物块做的功。\n\n**综合提升**\n\n把原题中的恒力推广为方向或大小随路径参数 \\(s\\) 变化的力 \\(\\vec F(s)\\)。（1）写出总功的积分表达式；（2）给出瞬时功率；（3）说明同一始末位置沿不同路径做功何时相同；（4）设计一个由 \\(P-t\\) 图像反求总功的方法。",
+    "answer": "**1. 基础设问**\n\n\\(f=mg\\sin37^\\circ=18\\,\\mathrm N\\)，故 \\(W_f=fL\\cos37^\\circ=72\\,\\mathrm J\\)。\n\n**2. 综合提升**\n\n总功和瞬时功率分别为\n\n\\[W=\\int_{s_1}^{s_2}\\vec F(s)\\cdot d\\vec s,\\qquad P=\\vec F\\cdot\\vec v=\\frac{dW}{dt}.\\]\n\n只有保守力的功才只由始末位置决定；一般外力功与路径有关。\\(P-t\\) 图像的有符号面积 \\(\\int Pdt\\) 就是总功。",
+    "thinking": "**基础思路**\n\n相对静止时先由沿斜面平衡求静摩擦力，再用物块相对地面的水平位移计算功。\n\n**进阶思路**\n\n从定力公式升级到线积分与功率积分，可统一处理变大小、变方向和分段做功。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(\\mu mgL\\cos^2\\theta\\)",
+      "thinking": "先判断摩擦力大小，再确定位移与夹角，最后计算摩擦力做功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f=mg\\sin\\theta\\]\n\n\\[W_f=fL\\cos\\theta=mgL\\sin\\theta\\cos\\theta\\]",
+      "judgment": "该结论没有同时满足“做功取决于力的作用点位移和沿位移方向的力分量”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "摩擦力做功",
+        "静力平衡",
+        "功的夹角"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(mgL\\cos^2\\theta\\)",
+      "thinking": "先判断摩擦力大小，再确定位移与夹角，最后计算摩擦力做功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f=mg\\sin\\theta\\]\n\n\\[W_f=fL\\cos\\theta=mgL\\sin\\theta\\cos\\theta\\]",
+      "judgment": "该结论没有同时满足“做功取决于力的作用点位移和沿位移方向的力分量”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "摩擦力做功",
+        "静力平衡",
+        "功的夹角"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(mgL\\sin\\theta\\cos\\theta\\)",
+      "thinking": "先判断摩擦力大小，再确定位移与夹角，最后计算摩擦力做功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f=mg\\sin\\theta\\]\n\n\\[W_f=fL\\cos\\theta=mgL\\sin\\theta\\cos\\theta\\]",
+      "judgment": "该结论与主方程推导结果及“做功取决于力的作用点位移和沿位移方向的力分量”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "摩擦力做功",
+        "静力平衡",
+        "功的夹角"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(\\mu mgL\\sin\\theta\\cos\\theta\\)",
+      "thinking": "先判断摩擦力大小，再确定位移与夹角，最后计算摩擦力做功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f=mg\\sin\\theta\\]\n\n\\[W_f=fL\\cos\\theta=mgL\\sin\\theta\\cos\\theta\\]",
+      "judgment": "该结论没有同时满足“做功取决于力的作用点位移和沿位移方向的力分量”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "摩擦力做功",
+        "静力平衡",
+        "功的夹角"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

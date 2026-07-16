@@ -1,0 +1,124 @@
+{
+  "id": "curve_training_09_wind_tunnel_force",
+  "originalNumber": "题9",
+  "chapter": "曲线运动",
+  "title": "第9题：风洞恒力曲线运动",
+  "question": "在某次风洞实验中，将质量 \\(m=1\\,\\mathrm{kg}\\) 的物体从 \\(A\\) 点以 \\(v_A=5\\sqrt3\\,\\mathrm{m/s}\\) 的初速度水平抛出。物体运动到 \\(B\\) 点时的速度 \\(v_B=5\\sqrt3\\,\\mathrm{m/s}\\)，\\(v_A\\)、\\(v_B\\) 与 \\(AB\\) 连线的夹角均为 \\(30^\\circ\\)，\\(A\\)、\\(B\\) 两点间距离 \\(s=7.5\\,\\mathrm m\\)。风洞对物体的作用力 \\(F\\) 恒定且方向与纸面平行，取 \\(g=10\\,\\mathrm{m/s^2}\\)。下列说法正确的是（　　）。",
+  "options": [
+    "A. \\(F=5\\sqrt3\\,\\mathrm N\\)，方向竖直向上",
+    "B. \\(F=5\\sqrt3\\,\\mathrm N\\)，方向斜向左上方且与水平方向成 \\(30^\\circ\\)",
+    "C. \\(F=5\\,\\mathrm N\\)，方向竖直向下",
+    "D. \\(F=5\\,\\mathrm N\\)，方向斜向左上方且与水平方向成 \\(30^\\circ\\)"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "curve_training_model",
+    "variant": "curve_training_09_wind_tunnel_force",
+    "playable": true,
+    "interactive": true,
+    "notes": "以速度矢量变化重建恒加速度，再从合力中扣除重力得到风力。",
+    "params": {
+      "speed": {
+        "label": "端点速度",
+        "value": 8.66,
+        "min": 6,
+        "max": 12,
+        "step": 0.1,
+        "unit": "m/s"
+      },
+      "angle": {
+        "label": "对称夹角",
+        "value": 30,
+        "min": 20,
+        "max": 45,
+        "step": 1,
+        "unit": "deg"
+      },
+      "distance": {
+        "label": "AB距离",
+        "value": 7.5,
+        "min": 5,
+        "max": 12,
+        "step": 0.5,
+        "unit": "m"
+      }
+    },
+    "timeline": {
+      "duration": 5,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "恒力曲线运动",
+    "平均速度",
+    "速度变化量",
+    "力的合成"
+  ],
+  "steps": [
+    {
+      "title": "由平均速度求时间",
+      "content": "恒加速度运动的平均速度为 \\((\\vec v_A+\\vec v_B)/2\\)。两端速度关于 \\(AB\\) 对称，平均速度沿 \\(AB\\)，大小为 \\(7.5\\,\\mathrm{m/s}\\)，故运动时间 \\(t=s/\\bar v=1\\,\\mathrm s\\)。"
+    },
+    {
+      "title": "由速度变化求合加速度",
+      "content": "取水平向右、竖直向上为正，\\(\\vec v_A=(5\\sqrt3,0)\\)，\\(\\vec v_B=(5\\sqrt3\\cos60^\\circ,-5\\sqrt3\\sin60^\\circ)\\)。由 \\(\\vec a=\\Delta\\vec v/t\\) 得合加速度。"
+    },
+    {
+      "title": "分离风力与重力",
+      "content": "合力满足 \\(m\\vec a=\\vec F+m\\vec g\\)。将重力从合力矢量中扣除，得到 \\(\\vec F=(-5\\sqrt3/2,5/2)\\,\\mathrm N\\)。"
+    },
+    {
+      "title": "得出结论",
+      "content": "风力大小为 \\(5\\,\\mathrm N\\)，方向斜向左上方且与水平方向成 \\(30^\\circ\\)，答案 D。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "竖直向上的 \\(5\\sqrt3\\,\\mathrm N\\)",
+      "thinking": "先由端点速度求合加速度，再扣除重力；不能把速度变化量直接当风力方向。",
+      "formula": "\\[\\vec F=m\\frac{\\Delta\\vec v}{t}-m\\vec g\\]",
+      "judgment": "计算得到风力含向左分量且大小为 \\(5\\,\\mathrm N\\)，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "左上方的 \\(5\\sqrt3\\,\\mathrm N\\)",
+      "thinking": "方向可能吻合时仍需独立核对大小。",
+      "formula": "\\[|\\vec F|=\\sqrt{F_x^2+F_y^2}\\]",
+      "judgment": "风力大小不是 \\(5\\sqrt3\\,\\mathrm N\\)，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "竖直向下的 \\(5\\,\\mathrm N\\)",
+      "thinking": "合加速度向下不代表风力也向下，因为重力已经提供向下分量。",
+      "formula": "\\[\\vec F=m\\vec a-m\\vec g\\]",
+      "judgment": "扣除重力后风力转为左上方向，C 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "左上方的 \\(5\\,\\mathrm N\\)",
+      "thinking": "用平均速度确定时间，再用速度三角形确定 \\(\\Delta\\vec v\\)。",
+      "formula": "\\[\\vec F=(-5\\sqrt3/2,5/2)\\,\\mathrm N\\]",
+      "judgment": "其大小为 \\(5\\,\\mathrm N\\)，与水平向左方向夹角为 \\(30^\\circ\\)，D 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：对称端速度反求外力通式",
+    "question": "质量为 \\(m\\) 的物体在重力和恒定风力共同作用下由 \\(A\\) 运动到 \\(B\\)。初、末速度大小均为 \\(v\\)，方向分别位于位移 \\(AB\\) 两侧并与 \\(AB\\) 成 \\(\\phi\\)，位移大小为 \\(s\\)。求运动时间、合加速度，并写出风力矢量的求法。",
+    "answer": "**运动时间**\n\n恒加速度下 \\(\\bar{\\vec v}=(\\vec v_A+\\vec v_B)/2\\)。对称分量相消，沿 \\(AB\\) 的平均速度为 \\(v\\cos\\phi\\)，所以 \\(t=s/(v\\cos\\phi)\\)。\n\n**合加速度**\n\n取沿 \\(AB\\) 和垂直 \\(AB\\) 的坐标，两速度的沿程分量相同，垂直分量反向，故 \\(|\\Delta\\vec v|=2v\\sin\\phi\\)，\\(|\\vec a|=2v^2\\sin\\phi\\cos\\phi/s\\)。\n\n**风力矢量**\n\n先按图中方向写出 \\(\\vec a=\\Delta\\vec v/t\\)，再用 \\(\\vec F=m\\vec a-m\\vec g\\)。\n\n**结论**\n\n风力大小和方向必须由最后的矢量差确定，不能只由轨迹凹向判断。",
+    "thinking": "**思路**\n\n对称的初末速度最适合用“和”求平均速度、用“差”求加速度；重力属于合力的一部分，最后再从 \\(m\\vec a\\) 中分离。"
+  }
+}

@@ -14,48 +14,96 @@
     "interactive": true,
     "notes": "汽车先以恒牵引力匀加速，功率升至额定值后转入恒功率阶段；右图突出第一阶段功率增长。",
     "params": {
-      "power": { "label": "额定功率", "value": 80, "min": 40, "max": 150, "step": 5, "unit": "kW" },
-      "mass": { "label": "汽车质量", "value": 5000, "min": 2000, "max": 8000, "step": 500, "unit": "kg" },
-      "accel": { "label": "初段加速度", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "m/s²" },
-      "resistRatio": { "label": "阻力/车重", "value": 0.06, "min": 0.02, "max": 0.15, "step": 0.01, "unit": "" }
+      "power": {
+        "label": "额定功率",
+        "value": 80,
+        "min": 40,
+        "max": 150,
+        "step": 5,
+        "unit": "kW"
+      },
+      "mass": {
+        "label": "汽车质量",
+        "value": 5000,
+        "min": 2000,
+        "max": 8000,
+        "step": 500,
+        "unit": "kg"
+      },
+      "accel": {
+        "label": "初段加速度",
+        "value": 1,
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "unit": "m/s²"
+      },
+      "resistRatio": {
+        "label": "阻力/车重",
+        "value": 0.06,
+        "min": 0.02,
+        "max": 0.15,
+        "step": 0.01,
+        "unit": ""
+      }
     },
-    "timeline": { "duration": 10, "loop": false }
+    "timeline": {
+      "duration": 10,
+      "loop": false
+    }
   },
-  "knowledge": ["机车两阶段启动", "平均功率", "额定功率"],
+  "knowledge": [
+    "机车两阶段启动",
+    "平均功率",
+    "额定功率"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "求匀加速阶段牵引力",
       "content": "阻力 \\(f=0.06mg=3000\\,\\mathrm N\\)。匀加速阶段牵引力恒为 \\(F=ma+f=8000\\,\\mathrm N\\)。",
-      "knowledge": ["匀加速牵引"],
+      "knowledge": [
+        "匀加速牵引"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "确定额定功率切换点",
       "content": "当 \\(Fv=P_{\\mathrm{额}}\\) 时匀加速阶段结束，\\(v_1=80000/8000=10\\,\\mathrm{m/s}\\)，故 \\(t_1=v_1/a=10\\,\\mathrm s\\)。",
-      "knowledge": ["阶段切换"],
+      "knowledge": [
+        "阶段切换"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "求第一阶段功率",
       "content": "第一阶段 \\(P=Fv\\) 从 \\(0\\) 线性增至 \\(80\\,\\mathrm{kW}\\)，所以平均功率为 \\(40\\,\\mathrm{kW}\\)，\\(10\\,\\mathrm s\\) 末瞬时功率为 \\(80\\,\\mathrm{kW}\\)。",
-      "knowledge": ["平均功率"],
+      "knowledge": [
+        "平均功率"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 4,
       "title": "求极限与变式功率",
       "content": "最大速度满足 \\(P_{\\mathrm{额}}=fv_{\\max}\\)，得 \\(v_{\\max}=80000/3000=80/3\\,\\mathrm{m/s}\\)。若只匀加速 \\(5\\,\\mathrm s\\)，此时 \\(v=5\\,\\mathrm{m/s}\\)，随后匀速只需克服阻力，实际功率 \\(P=fv=15\\,\\mathrm{kW}\\)。",
-      "knowledge": ["最大速度"],
+      "knowledge": [
+        "最大速度"
+      ],
       "commonMistakes": []
     }
   ],
   "practice": {
-    "title": "近似题：两阶段启动参数",
-    "question": "质量 \\(m=2000\\,\\mathrm{kg}\\) 的汽车先以 \\(a=2\\,\\mathrm{m/s^2}\\) 匀加速，阻力恒为 \\(2000\\,\\mathrm N\\)，额定功率为 \\(72\\,\\mathrm{kW}\\)。求匀加速维持时间和最大速度。",
-    "answer": "匀加速牵引力 \\(F=ma+f=6000\\,\\mathrm N\\)，切换速度 \\(v_1=P/F=12\\,\\mathrm{m/s}\\)，故 \\(t_1=6\\,\\mathrm s\\)。最大速度 \\(v_{\\max}=P/f=36\\,\\mathrm{m/s}\\)。",
-    "thinking": "先用恒牵引力求额定功率切换点，再在恒功率阶段用牵引力等于阻力求最大速度。"
+    "title": "进阶近似题：两阶段启动参数",
+    "question": "**基础设问**\n\n质量 \\(m=2000\\,\\mathrm{kg}\\) 的汽车先以 \\(a=2\\,\\mathrm{m/s^2}\\) 匀加速，阻力恒为 \\(2000\\,\\mathrm N\\)，额定功率为 \\(72\\,\\mathrm{kW}\\)。求匀加速维持时间和最大速度。\n\n**综合提升**\n\n质量为 \\(m\\) 的车辆在恒定阻力 \\(f\\) 下以恒功率 \\(P\\) 加速。（1）写出牵引力和加速度关于速度的函数；（2）求极限速度；（3）若从速度 \\(v_1\\) 加速到 \\(v_2\\)，写出时间积分式；（4）解释为什么接近极限速度时继续提速越来越慢。",
+    "answer": "**1. 基础设问**\n\n匀加速牵引力 \\(F=ma+f=6000\\,\\mathrm N\\)，切换速度 \\(v_1=P/F=12\\,\\mathrm{m/s}\\)，故 \\(t_1=6\\,\\mathrm s\\)。最大速度 \\(v_{\\max}=P/f=36\\,\\mathrm{m/s}\\)。\n\n**2. 综合提升**\n\n恒功率阶段\n\n\\[F=\\frac Pv,\\qquad a(v)=\\frac1m\\left(\\frac Pv-f\\right),\\qquad v_m=\\frac Pf.\\]\n\n时间满足\n\n\\[t=\\int_{v_1}^{v_2}\\frac{m\\,dv}{P/v-f}=m\\int_{v_1}^{v_2}\\frac{v\\,dv}{P-fv}.\\]\n\n当 \\(v\\to v_m\\) 时牵引力趋近阻力，合力与加速度趋近零，所以达到极限速度只是一种渐近过程。",
+    "thinking": "**基础思路**\n\n先用恒牵引力求额定功率切换点，再在恒功率阶段用牵引力等于阻力求最大速度。\n\n**进阶思路**\n\n由 \\(P=Fv\\) 把恒功率转成随速度减小的牵引力，再进入牛顿第二定律；这比只算某一时刻多了函数与极限。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

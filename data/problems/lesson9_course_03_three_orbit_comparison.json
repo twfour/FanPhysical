@@ -11,17 +11,126 @@
     "D. \\(\\omega_1=\\omega_3<\\omega_2\\)"
   ],
   "answer": "D",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_three_orbit_comparison", "playable": true, "interactive": true, "notes": "赤道物体与同步卫星保持同角位置，近地卫星快速超越；右图比较三者角速度。", "params": { "nearOmegaRatio": { "label": "近地角速度倍数", "value": 12, "min": 6, "max": 18, "step": 1, "unit": "" } }, "timeline": { "duration": 8, "loop": false } },
-  "knowledge": ["同步卫星", "第一宇宙速度", "向心运动"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_three_orbit_comparison",
+    "playable": true,
+    "interactive": true,
+    "notes": "赤道物体与同步卫星保持同角位置，近地卫星快速超越；右图比较三者角速度。",
+    "params": {
+      "nearOmegaRatio": {
+        "label": "近地角速度倍数",
+        "value": 12,
+        "min": 6,
+        "max": 18,
+        "step": 1,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "同步卫星",
+    "第一宇宙速度",
+    "向心运动"
+  ],
   "steps": [
-    { "stepId": 1, "title": "赤道物体与近地卫星", "content": "赤道物体只需很小的向心加速度 \\(a_1=\\omega_地^2R<g\\)；近地卫星满足 \\(a_2=g\\)、\\(v_2=v\\)，且 \\(\\omega_2=v/R\\)。", "knowledge": ["近地轨道"], "commonMistakes": [] },
-    { "stepId": 2, "title": "同步卫星", "content": "同步卫星与地球自转角速度相同，因此 \\(\\omega_3=\\omega_1\\)。它的轨道半径更大，故 \\(a_3<a_2\\)、\\(v_3<v_2\\)。", "knowledge": ["同步条件"], "commonMistakes": [] },
-    { "stepId": 3, "title": "得出答案", "content": "只有 \\(\\omega_1=\\omega_3<\\omega_2\\) 正确，故选 D。", "knowledge": ["综合比较"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "赤道物体与近地卫星",
+      "content": "赤道物体只需很小的向心加速度 \\(a_1=\\omega_地^2R<g\\)；近地卫星满足 \\(a_2=g\\)、\\(v_2=v\\)，且 \\(\\omega_2=v/R\\)。",
+      "knowledge": [
+        "近地轨道"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "同步卫星",
+      "content": "同步卫星与地球自转角速度相同，因此 \\(\\omega_3=\\omega_1\\)。它的轨道半径更大，故 \\(a_3<a_2\\)、\\(v_3<v_2\\)。",
+      "knowledge": [
+        "同步条件"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "得出答案",
+      "content": "只有 \\(\\omega_1=\\omega_3<\\omega_2\\) 正确，故选 D。",
+      "knowledge": [
+        "综合比较"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：同步角速度",
-    "question": "地球同步卫星与赤道上一座城市的角速度、线速度是否分别相等？",
-    "answer": "角速度相等；同步卫星轨道半径更大，所以其线速度更大。",
-    "thinking": "同步只保证角速度相同，线速度还要乘轨道半径：\\(v=\\omega r\\)。"
+    "title": "进阶近似题：同步角速度",
+    "question": "**基础设问**\n\n地球同步卫星与赤道上一座城市的角速度、线速度是否分别相等？\n\n**综合提升**\n\n两颗卫星绕同一中心天体同向做圆周运动，半径为 \\(r_1<r_2\\)。（1）求相对角速度和会合周期；（2）若初始相差角 \\(\\Delta\\theta_0\\)，求首次会合时间；（3）若改为反向运动重新作答；（4）说明距离图像的极大、极小时刻与相对相位的关系。",
+    "answer": "**1. 基础设问**\n\n角速度相等；同步卫星轨道半径更大，所以其线速度更大。\n\n**2. 综合提升**\n\n\\(\\omega_i=\\sqrt{GM/r_i^3}\\)。同向时\n\n\\[\\omega_{rel}=|\\omega_1-\\omega_2|,\\qquad T_{syn}=\\frac{2\\pi}{\\omega_{rel}},\\]\n\n首次会合时间由 \\(\\Delta\\theta_0+\\omega_{rel}t=2n\\pi\\) 取最小正解。反向时相对角速度变为 \\(\\omega_1+\\omega_2\\)。相位差为 \\(0\\) 时距离极小，为 \\(\\pi\\) 时距离极大。",
+    "thinking": "**基础思路**\n\n同步只保证角速度相同，线速度还要乘轨道半径：\\(v=\\omega r\\)。\n\n**进阶思路**\n\n先把各自轨道动力学转成角速度，再单独做相对运动；相对周期不是任一卫星自身周期。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(F_1=F_2>F_3\\)",
+      "thinking": "先赤道物体与近地卫星，再同步卫星，最后得出答案；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a_1=\\omega_地^2R<g\\]\n\n\\[a_2=g\\]\n\n\\[v_2=v\\]\n\n\\[\\omega_2=v/R\\]\n\n\\[\\omega_3=\\omega_1\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "同步卫星",
+        "第一宇宙速度",
+        "向心运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(a_1=a_2=g>a_3\\)",
+      "thinking": "先赤道物体与近地卫星，再同步卫星，最后得出答案；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a_1=\\omega_地^2R<g\\]\n\n\\[a_2=g\\]\n\n\\[v_2=v\\]\n\n\\[\\omega_2=v/R\\]\n\n\\[\\omega_3=\\omega_1\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "同步卫星",
+        "第一宇宙速度",
+        "向心运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(v_1=v_2=v>v_3\\)",
+      "thinking": "先赤道物体与近地卫星，再同步卫星，最后得出答案；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a_1=\\omega_地^2R<g\\]\n\n\\[a_2=g\\]\n\n\\[v_2=v\\]\n\n\\[\\omega_2=v/R\\]\n\n\\[\\omega_3=\\omega_1\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "同步卫星",
+        "第一宇宙速度",
+        "向心运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(\\omega_1=\\omega_3<\\omega_2\\)",
+      "thinking": "先赤道物体与近地卫星，再同步卫星，最后得出答案；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a_1=\\omega_地^2R<g\\]\n\n\\[a_2=g\\]\n\n\\[v_2=v\\]\n\n\\[\\omega_2=v/R\\]\n\n\\[\\omega_3=\\omega_1\\]",
+      "judgment": "该结论与主方程推导结果及“动力学比例和相对运动几何必须分别建立后再联立”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "同步卫星",
+        "第一宇宙速度",
+        "向心运动"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

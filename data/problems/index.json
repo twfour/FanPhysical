@@ -2,6 +2,118 @@
   "version": 1,
   "problems": [
     {
+      "id": "curve_training_01_concepts",
+      "file": "curve_training_01_concepts.json"
+    },
+    {
+      "id": "curve_training_02_nonuniform_river",
+      "file": "curve_training_02_nonuniform_river.json"
+    },
+    {
+      "id": "curve_training_03_accelerating_bomber",
+      "file": "curve_training_03_accelerating_bomber.json"
+    },
+    {
+      "id": "curve_training_04_formation_turn",
+      "file": "curve_training_04_formation_turn.json"
+    },
+    {
+      "id": "curve_training_05_velocity_graphs",
+      "file": "curve_training_05_velocity_graphs.json"
+    },
+    {
+      "id": "curve_training_06_projectile_incline_scale",
+      "file": "curve_training_06_projectile_incline_scale.json"
+    },
+    {
+      "id": "curve_training_07_projectile_wall_angles",
+      "file": "curve_training_07_projectile_wall_angles.json"
+    },
+    {
+      "id": "curve_training_08_bombs_on_slope",
+      "file": "curve_training_08_bombs_on_slope.json"
+    },
+    {
+      "id": "curve_training_09_wind_tunnel_force",
+      "file": "curve_training_09_wind_tunnel_force.json"
+    },
+    {
+      "id": "curve_training_10_tangent_rope_circle",
+      "file": "curve_training_10_tangent_rope_circle.json"
+    },
+    {
+      "id": "curve_training_11_two_boats",
+      "file": "curve_training_11_two_boats.json"
+    },
+    {
+      "id": "curve_training_12_pulley_linkage",
+      "file": "curve_training_12_pulley_linkage.json"
+    },
+    {
+      "id": "curve_training_13_banked_railway",
+      "file": "curve_training_13_banked_railway.json"
+    },
+    {
+      "id": "curve_training_14_valve_light",
+      "file": "curve_training_14_valve_light.json"
+    },
+    {
+      "id": "curve_training_15_two_blocks_disk",
+      "file": "curve_training_15_two_blocks_disk.json"
+    },
+    {
+      "id": "curve_training_16_rope_wrap_prism",
+      "file": "curve_training_16_rope_wrap_prism.json"
+    },
+    {
+      "id": "projectile_lesson_04_wall_marks",
+      "file": "projectile_lesson_04_wall_marks.json"
+    },
+    {
+      "id": "projectile_lesson_09_plane_comparison",
+      "file": "projectile_lesson_09_plane_comparison.json"
+    },
+    {
+      "id": "projectile_a_01_dart_wall",
+      "file": "projectile_a_01_dart_wall.json"
+    },
+    {
+      "id": "projectile_a_02_dam_slope",
+      "file": "projectile_a_02_dam_slope.json"
+    },
+    {
+      "id": "projectile_a_03_fountain",
+      "file": "projectile_a_03_fountain.json"
+    },
+    {
+      "id": "projectile_a_04_fire_hose",
+      "file": "projectile_a_04_fire_hose.json"
+    },
+    {
+      "id": "projectile_a_06_bottle_holes",
+      "file": "projectile_a_06_bottle_holes.json"
+    },
+    {
+      "id": "projectile_a_07_semicircle_incline",
+      "file": "projectile_a_07_semicircle_incline.json"
+    },
+    {
+      "id": "projectile_a_08_two_balls_incline",
+      "file": "projectile_a_08_two_balls_incline.json"
+    },
+    {
+      "id": "projectile_b_09_conveyor",
+      "file": "projectile_b_09_conveyor.json"
+    },
+    {
+      "id": "projectile_b_10_arc_game",
+      "file": "projectile_b_10_arc_game.json"
+    },
+    {
+      "id": "projectile_b_11_ski_slope",
+      "file": "projectile_b_11_ski_slope.json"
+    },
+    {
       "id": "projectileBasic",
       "file": "projectile_basic.json"
     },

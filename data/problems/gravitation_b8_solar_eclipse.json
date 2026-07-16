@@ -19,22 +19,133 @@
     "interactive": true,
     "notes": "月球逐渐进入日地视线；重合时月球与太阳角直径相等。右图用实际值与选项值之比核验四个选项。",
     "params": {
-      "periodRatio": { "label": "周期比", "value": 13, "min": 10, "max": 16, "step": 1, "unit": "" },
-      "sunEarthRadiusRatio": { "label": "日地半径比", "value": 100, "min": 80, "max": 120, "step": 1, "unit": "" },
-      "earthMoonRadiusRatio": { "label": "地月半径比", "value": 4, "min": 3, "max": 5, "step": 0.1, "unit": "" }
+      "periodRatio": {
+        "label": "周期比",
+        "value": 13,
+        "min": 10,
+        "max": 16,
+        "step": 1,
+        "unit": ""
+      },
+      "sunEarthRadiusRatio": {
+        "label": "日地半径比",
+        "value": 100,
+        "min": 80,
+        "max": 120,
+        "step": 1,
+        "unit": ""
+      },
+      "earthMoonRadiusRatio": {
+        "label": "地月半径比",
+        "value": 4,
+        "min": 3,
+        "max": 5,
+        "step": 0.1,
+        "unit": ""
+      }
     },
-    "timeline": { "duration": 6, "loop": false }
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
-  "knowledge": ["角直径", "开普勒第三定律", "平均密度"],
+  "knowledge": [
+    "角直径",
+    "开普勒第三定律",
+    "平均密度"
+  ],
   "steps": [
-    { "stepId": 1, "title": "角直径", "content": "视角相等给出 \\(R_\\odot/D_\\odot=R_m/D_m\\)。又 \\(R_\\odot=100R_E=400R_m\\)，故 \\(D_\\odot:D_m\\approx400:1\\)，A 对。", "knowledge": ["小角度"], "commonMistakes": [] },
-    { "stepId": 2, "title": "质量比", "content": "由开普勒第三定律，\\(M_\\odot/M_E=(D_\\odot/D_m)^3/(T_E/T_m)^2=400^3/13^2\\approx3.8\\times10^5\\)，C 对。", "knowledge": ["中心天体质量"], "commonMistakes": [] },
-    { "stepId": 3, "title": "排除", "content": "引力比约为 \\(0.42:1\\)，不是 \\(2:1\\)；密度比约为 \\(10^6/(3.8\\times10^5)\\approx2.6:1\\)，不是 \\(2:1\\)。故 B、D 错。", "knowledge": ["数量级估算"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "角直径",
+      "content": "视角相等给出 \\(R_\\odot/D_\\odot=R_m/D_m\\)。又 \\(R_\\odot=100R_E=400R_m\\)，故 \\(D_\\odot:D_m\\approx400:1\\)，A 对。",
+      "knowledge": [
+        "小角度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "质量比",
+      "content": "由开普勒第三定律，\\(M_\\odot/M_E=(D_\\odot/D_m)^3/(T_E/T_m)^2=400^3/13^2\\approx3.8\\times10^5\\)，C 对。",
+      "knowledge": [
+        "中心天体质量"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "排除",
+      "content": "引力比约为 \\(0.42:1\\)，不是 \\(2:1\\)；密度比约为 \\(10^6/(3.8\\times10^5)\\approx2.6:1\\)，不是 \\(2:1\\)。故 B、D 错。",
+      "knowledge": [
+        "数量级估算"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：角直径与距离比",
-    "question": "两个天体从观察者看来角直径相同，半径之比为 \\(50:1\\)。求它们到观察者的距离之比。",
-    "answer": "距离之比约为 \\(50:1\\)。",
-    "thinking": "小角度下角直径与半径和距离之比 \\(R/D\\) 成正比。"
+    "title": "进阶近似题：角直径与距离比",
+    "question": "**基础设问**\n\n两个天体从观察者看来角直径相同，半径之比为 \\(50:1\\)。求它们到观察者的距离之比。\n\n**综合提升**\n\n设天体为密度均匀、半径 \\(R\\) 的球体。（1）推导内部距球心 \\(r\\) 处的重力加速度；（2）证明贯穿球心的真空隧道内运动为简谐运动；（3）求振动周期并用平均密度表示；（4）比较该周期与贴近表面的圆轨道周期。",
+    "answer": "**1. 基础设问**\n\n距离之比约为 \\(50:1\\)。\n\n**2. 综合提升**\n\n球内有效质量 \\(M(r)=4\\pi\\rho r^3/3\\)，故\n\n\\[g(r)=\\frac{GM(r)}{r^2}=\\frac{4\\pi G\\rho}{3}r.\\]\n\n沿隧道有 \\(a=-\\omega^2r\\)，其中 \\(\\omega^2=4\\pi G\\rho/3\\)，所以\n\n\\[T=2\\pi\\sqrt{\\frac{3}{4\\pi G\\rho}}.\\]\n\n贴地圆轨道满足同一 \\(GM/R^3=4\\pi G\\rho/3\\)，周期相同。",
+    "thinking": "**基础思路**\n\n小角度下角直径与半径和距离之比 \\(R/D\\) 成正比。\n\n**进阶思路**\n\n关键升级是把表面重力推广到球内有效质量，再识别加速度与位移成正比的简谐结构。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "地球到太阳的距离与月球到地球的距离之比约为 \\(400:1\\)",
+      "thinking": "先角直径，再质量比，最后排除；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[R_\\odot/D_\\odot=R_m/D_m\\]\n\n\\[R_\\odot=100R_E=400R_m\\]\n\n\\[M_\\odot/M_E=(D_\\odot/D_m)^3/(T_E/T_m)^2\\]",
+      "judgment": "该结论与主方程推导结果及“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "角直径",
+        "开普勒第三定律",
+        "平均密度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "地球对月球的引力与太阳对月球的引力之比约为 \\(2:1\\)",
+      "thinking": "先角直径，再质量比，最后排除；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[R_\\odot/D_\\odot=R_m/D_m\\]\n\n\\[R_\\odot=100R_E=400R_m\\]\n\n\\[M_\\odot/M_E=(D_\\odot/D_m)^3/(T_E/T_m)^2\\]",
+      "judgment": "该结论没有同时满足“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "角直径",
+        "开普勒第三定律",
+        "平均密度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "太阳的质量约为地球质量的 \\(3.8\\times10^5\\) 倍",
+      "thinking": "先角直径，再质量比，最后排除；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[R_\\odot/D_\\odot=R_m/D_m\\]\n\n\\[R_\\odot=100R_E=400R_m\\]\n\n\\[M_\\odot/M_E=(D_\\odot/D_m)^3/(T_E/T_m)^2\\]",
+      "judgment": "该结论与主方程推导结果及“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "角直径",
+        "开普勒第三定律",
+        "平均密度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "地球与太阳的平均密度之比约为 \\(2:1\\)",
+      "thinking": "先角直径，再质量比，最后排除；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[R_\\odot/D_\\odot=R_m/D_m\\]\n\n\\[R_\\odot=100R_E=400R_m\\]\n\n\\[M_\\odot/M_E=(D_\\odot/D_m)^3/(T_E/T_m)^2\\]",
+      "judgment": "该结论没有同时满足“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "角直径",
+        "开普勒第三定律",
+        "平均密度"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

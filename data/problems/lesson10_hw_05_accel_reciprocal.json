@@ -20,41 +20,141 @@
     "interactive": true,
     "notes": "低速段加速度恒定，高速段 \\(a=(P/m)(1/v)-f/m\\)；右图重现原题折线。",
     "params": {
-      "power": { "label": "额定功率", "value": 120, "min": 60, "max": 200, "step": 5, "unit": "kW" },
-      "mass": { "label": "汽车质量", "value": 2000, "min": 1000, "max": 4000, "step": 250, "unit": "kg" },
-      "resistance": { "label": "恒定阻力", "value": 2000, "min": 1000, "max": 5000, "step": 250, "unit": "N" },
-      "maxForce": { "label": "最大牵引力", "value": 8000, "min": 5000, "max": 12000, "step": 500, "unit": "N" }
+      "power": {
+        "label": "额定功率",
+        "value": 120,
+        "min": 60,
+        "max": 200,
+        "step": 5,
+        "unit": "kW"
+      },
+      "mass": {
+        "label": "汽车质量",
+        "value": 2000,
+        "min": 1000,
+        "max": 4000,
+        "step": 250,
+        "unit": "kg"
+      },
+      "resistance": {
+        "label": "恒定阻力",
+        "value": 2000,
+        "min": 1000,
+        "max": 5000,
+        "step": 250,
+        "unit": "N"
+      },
+      "maxForce": {
+        "label": "最大牵引力",
+        "value": 8000,
+        "min": 5000,
+        "max": 12000,
+        "step": 500,
+        "unit": "N"
+      }
     },
-    "timeline": { "duration": 8, "loop": false }
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
   },
-  "knowledge": ["加速度图像", "恒功率", "机车启动"],
+  "knowledge": [
+    "加速度图像",
+    "恒功率",
+    "机车启动"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "写出恒功率段关系",
       "content": "恒功率阶段 \\(F=P/v\\)，由 \\(F-f=ma\\) 得 \\(a=\\frac Pm\\frac1v-\\frac fm\\)。因此 \\(a-1/v\\) 直线斜率为 \\(P/m\\)，纵轴截距为 \\(-f/m\\)。",
-      "knowledge": ["图像方程"],
+      "knowledge": [
+        "图像方程"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "由两点求功率",
       "content": "图线斜率为 \\(\\frac{3-0}{1/15-1/60}=60\\,\\mathrm{m^2/s^3}\\)，故 \\(P=m\\times60=1.2\\times10^5\\,\\mathrm W=120\\,\\mathrm{kW}\\)。B 对。",
-      "knowledge": ["图像斜率"],
+      "knowledge": [
+        "图像斜率"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "判断其余选项",
       "content": "横轴交点对应最大速度 \\(60\\,\\mathrm{m/s}\\)，所以 \\(f=P/v_{\\max}=2000\\,\\mathrm N\\)，C 错。匀加速到 \\(15\\,\\mathrm{m/s}\\) 需 \\(t=15/3=5\\,\\mathrm s\\)，A 错。速度 \\(10\\,\\mathrm{m/s}\\) 仍处于恒牵引力阶段，功率 \\(P=Fv=(ma+f)v=8000\\times10=80\\,\\mathrm{kW}\\)，D 错。",
-      "knowledge": ["阶段判定"],
+      "knowledge": [
+        "阶段判定"
+      ],
       "commonMistakes": []
     }
   ],
   "practice": {
-    "title": "近似题：由直线斜率求额定功率",
-    "question": "质量 \\(m=1000\\,\\mathrm{kg}\\) 的汽车恒功率阶段满足：当 \\(1/v=0.10\\,\\mathrm{s/m}\\) 时 \\(a=4\\,\\mathrm{m/s^2}\\)，当 \\(1/v=0.02\\,\\mathrm{s/m}\\) 时 \\(a=0\\)。求额定功率和阻力。",
-    "answer": "斜率 \\(P/m=4/(0.10-0.02)=50\\)，故 \\(P=50\\,\\mathrm{kW}\\)。由 \\(a=0\\) 时 \\(v=50\\,\\mathrm{m/s}\\)，得 \\(f=P/v=1000\\,\\mathrm N\\)。",
-    "thinking": "先从 \\(a-1/v\\) 图线斜率得到 \\(P/m\\)，再用横轴交点对应的最大速度求阻力。"
+    "title": "进阶近似题：由直线斜率求额定功率",
+    "question": "**基础设问**\n\n质量 \\(m=1000\\,\\mathrm{kg}\\) 的汽车恒功率阶段满足：当 \\(1/v=0.10\\,\\mathrm{s/m}\\) 时 \\(a=4\\,\\mathrm{m/s^2}\\)，当 \\(1/v=0.02\\,\\mathrm{s/m}\\) 时 \\(a=0\\)。求额定功率和阻力。\n\n**综合提升**\n\n质量为 \\(m\\) 的车辆在恒定阻力 \\(f\\) 下以恒功率 \\(P\\) 加速。（1）写出牵引力和加速度关于速度的函数；（2）求极限速度；（3）若从速度 \\(v_1\\) 加速到 \\(v_2\\)，写出时间积分式；（4）解释为什么接近极限速度时继续提速越来越慢。",
+    "answer": "**1. 基础设问**\n\n斜率 \\(P/m=4/(0.10-0.02)=50\\)，故 \\(P=50\\,\\mathrm{kW}\\)。由 \\(a=0\\) 时 \\(v=50\\,\\mathrm{m/s}\\)，得 \\(f=P/v=1000\\,\\mathrm N\\)。\n\n**2. 综合提升**\n\n恒功率阶段\n\n\\[F=\\frac Pv,\\qquad a(v)=\\frac1m\\left(\\frac Pv-f\\right),\\qquad v_m=\\frac Pf.\\]\n\n时间满足\n\n\\[t=\\int_{v_1}^{v_2}\\frac{m\\,dv}{P/v-f}=m\\int_{v_1}^{v_2}\\frac{v\\,dv}{P-fv}.\\]\n\n当 \\(v\\to v_m\\) 时牵引力趋近阻力，合力与加速度趋近零，所以达到极限速度只是一种渐近过程。",
+    "thinking": "**基础思路**\n\n先从 \\(a-1/v\\) 图线斜率得到 \\(P/m\\)，再用横轴交点对应的最大速度求阻力。\n\n**进阶思路**\n\n由 \\(P=Fv\\) 把恒功率转成随速度减小的牵引力，再进入牛顿第二定律；这比只算某一时刻多了函数与极限。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "汽车匀加速运动的时间为 \\(3\\,\\mathrm s\\)",
+      "thinking": "先写出恒功率段关系，再由两点求功率，最后判断其余选项；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F=P/v\\]\n\n\\[F-f=ma\\]\n\n\\[a=\\frac Pm\\frac1v-\\frac fm\\]\n\n\\[f=P/v_{\\max}\\]\n\n\\[t=15/3\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "加速度图像",
+        "恒功率",
+        "机车启动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "发动机的额定功率为 \\(120\\,\\mathrm{kW}\\)",
+      "thinking": "先写出恒功率段关系，再由两点求功率，最后判断其余选项；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F=P/v\\]\n\n\\[F-f=ma\\]\n\n\\[a=\\frac Pm\\frac1v-\\frac fm\\]\n\n\\[f=P/v_{\\max}\\]\n\n\\[t=15/3\\]",
+      "judgment": "该结论与主方程推导结果及“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "加速度图像",
+        "恒功率",
+        "机车启动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "汽车所受的阻力为 \\(4\\times10^3\\,\\mathrm N\\)",
+      "thinking": "先写出恒功率段关系，再由两点求功率，最后判断其余选项；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F=P/v\\]\n\n\\[F-f=ma\\]\n\n\\[a=\\frac Pm\\frac1v-\\frac fm\\]\n\n\\[f=P/v_{\\max}\\]\n\n\\[t=15/3\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "加速度图像",
+        "恒功率",
+        "机车启动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "汽车速度为 \\(10\\,\\mathrm{m/s}\\) 时，发动机功率为 \\(120\\,\\mathrm{kW}\\)",
+      "thinking": "先写出恒功率段关系，再由两点求功率，最后判断其余选项；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F=P/v\\]\n\n\\[F-f=ma\\]\n\n\\[a=\\frac Pm\\frac1v-\\frac fm\\]\n\n\\[f=P/v_{\\max}\\]\n\n\\[t=15/3\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "加速度图像",
+        "恒功率",
+        "机车启动"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

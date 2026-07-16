@@ -14,14 +14,50 @@
     "interactive": true,
     "notes": "小球先在粗糙面减速、沿圆弧上升、斜抛至 C 碰撞，再带动滑轮上移；右图显示各阶段机械能。",
     "params": {
-      "initialSpeed": { "label": "小球初速度", "value": 13, "min": 10, "max": 16, "step": 0.2, "unit": "m/s" },
-      "mu": { "label": "水平面动摩擦因数", "value": 0.25, "min": 0.1, "max": 0.4, "step": 0.01, "unit": "" },
-      "radius": { "label": "圆弧半径", "value": 11, "min": 8, "max": 14, "step": 0.5, "unit": "m" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "initialSpeed": {
+        "label": "小球初速度",
+        "value": 13,
+        "min": 10,
+        "max": 16,
+        "step": 0.2,
+        "unit": "m/s"
+      },
+      "mu": {
+        "label": "水平面动摩擦因数",
+        "value": 0.25,
+        "min": 0.1,
+        "max": 0.4,
+        "step": 0.01,
+        "unit": ""
+      },
+      "radius": {
+        "label": "圆弧半径",
+        "value": 11,
+        "min": 8,
+        "max": 14,
+        "step": 0.5,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 10, "loop": false }
+    "timeline": {
+      "duration": 10,
+      "loop": false
+    }
   },
-  "knowledge": ["动能定理", "斜抛运动", "完全非弹性碰撞", "功能关系"],
+  "knowledge": [
+    "动能定理",
+    "斜抛运动",
+    "完全非弹性碰撞",
+    "功能关系"
+  ],
   "steps": [
     {
       "title": "求 E 点速度与压力",
@@ -41,9 +77,14 @@
     }
   ],
   "practice": {
-    "title": "近似题：圆弧离轨后的最高点碰撞",
-    "question": "质量 \\(m\\) 的小球以 \\(10\\,\\mathrm{m/s}\\) 从圆弧端点沿与水平成 \\(30^\\circ\\) 的切线抛出，在最高点与静止的同质量木块粘在一起。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求最高点相对抛出点的水平、竖直位移和碰后速度。",
-    "answer": "\\(t=0.5\\,\\mathrm s\\)，\\(x=10\\cos30^\\circ\\times0.5=\\frac{5\\sqrt3}{2}\\,\\mathrm m\\)，\\(h=(10\\sin30^\\circ)^2/(2g)=1.25\\,\\mathrm m\\)。最高点水平速度为 \\(5\\sqrt3\\,\\mathrm{m/s}\\)，完全非弹性碰撞后为 \\(\\frac{5\\sqrt3}{2}\\,\\mathrm{m/s}\\)。",
-    "thinking": "先把斜抛分解到水平与竖直方向；最高点竖直速度为零，再只在水平方向用动量守恒。"
+    "title": "进阶近似题：圆弧离轨后的最高点碰撞",
+    "question": "**基础设问**\n\n质量 \\(m\\) 的小球以 \\(10\\,\\mathrm{m/s}\\) 从圆弧端点沿与水平成 \\(30^\\circ\\) 的切线抛出，在最高点与静止的同质量木块粘在一起。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求最高点相对抛出点的水平、竖直位移和碰后速度。\n\n**综合提升**\n\n给出机械能 \\(E-x\\) 图像和动能 \\(E_k-x\\) 图像。（1）分别说明两图斜率的物理意义；（2）反求非保守力与合力；（3）由两图之差得到势能函数；（4）判断转折点、停止点和受力规律改变点在图像上怎样区分。",
+    "answer": "**1. 基础设问**\n\n\\(t=0.5\\,\\mathrm s\\)，\\(x=10\\cos30^\\circ\\times0.5=\\frac{5\\sqrt3}{2}\\,\\mathrm m\\)，\\(h=(10\\sin30^\\circ)^2/(2g)=1.25\\,\\mathrm m\\)。最高点水平速度为 \\(5\\sqrt3\\,\\mathrm{m/s}\\)，完全非弹性碰撞后为 \\(\\frac{5\\sqrt3}{2}\\,\\mathrm{m/s}\\)。\n\n**2. 综合提升**\n\n有\n\n\\[\\frac{dE}{dx}=F_{非保守,x},\\qquad \\frac{dE_k}{dx}=F_{合,x},\\qquad E_p=E-E_k.\\]\n\n停止点满足 \\(E_k=0\\)；动能极值处合力为零；机械能图斜率突变表示非保守力规律改变。三者含义不同，不能只凭图线“拐弯”统一判断。",
+    "thinking": "**基础思路**\n\n先把斜抛分解到水平与竖直方向；最高点竖直速度为零，再只在水平方向用动量守恒。\n\n**进阶思路**\n\n把图像斜率翻译成力，把两图差翻译成势能，再用非负动能判断可达区间。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

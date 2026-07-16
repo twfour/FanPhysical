@@ -70,10 +70,15 @@
   },
   "images": [],
   "practice": {
-    "title": "近似题：子弹穿旋转纸筒",
-    "question": "纸筒直径 \\(d=0.30\\,\\mathrm{m}\\)，角速度 \\(\\omega=6\\,\\mathrm{rad/s}\\)。两个弹孔对应半径夹角为 \\(60^\\circ\\)，且纸筒转过不到半周，求子弹速度。",
-    "answer": "穿筒时间对应转角 \\(\\pi-\\varphi\\)，其中 \\(\\varphi=\\frac{\\pi}{3}\\)。所以 \\(t=\\frac{\\pi-\\varphi}{\\omega}=\\frac{2\\pi/3}{6}=\\frac{\\pi}{9}\\,\\mathrm{s}\\)，\\(v=\\frac{d}{t}=\\frac{0.30}{\\pi/9}\\approx0.86\\,\\mathrm{m/s}\\)。",
-    "thinking": "先把孔位夹角转成纸筒实际转角，再用穿筒直径除以时间。"
+    "title": "进阶近似题：子弹穿旋转纸筒",
+    "question": "**基础设问**\n\n纸筒直径 \\(d=0.30\\,\\mathrm{m}\\)，角速度 \\(\\omega=6\\,\\mathrm{rad/s}\\)。两个弹孔对应半径夹角为 \\(60^\\circ\\)，且纸筒转过不到半周，求子弹速度。\n\n**综合提升**\n\n在原“平动—转动”模型中加入启动延迟：抛体先运动 \\(\\tau\\) 后转盘才以角速度 \\(\\omega\\) 启动。设抛体到达转盘的总时间为 \\(t_f\\)，目标从启动位置到命中位置所需相位为 \\(\\varphi+2n\\pi\\)。（1）推导全部可行角速度；（2）给出存在解的时间条件；（3）求最小正角速度对应的圈数；（4）说明竖直位移条件为何仍须独立检查。",
+    "answer": "**1. 基础设问**\n\n穿筒时间对应转角 \\(\\pi-\\varphi\\)，其中 \\(\\varphi=\\frac{\\pi}{3}\\)。所以 \\(t=\\frac{\\pi-\\varphi}{\\omega}=\\frac{2\\pi/3}{6}=\\frac{\\pi}{9}\\,\\mathrm{s}\\)，\\(v=\\frac{d}{t}=\\frac{0.30}{\\pi/9}\\approx0.86\\,\\mathrm{m/s}\\)。\n\n**2. 综合提升**\n\n转盘实际转动时间为 \\(t_f-\\tau\\)，故\n\n\\[\\omega_n=\\frac{\\varphi+2n\\pi}{t_f-\\tau},\\qquad n=0,1,2,\\ldots\\]\n\n必须有 \\(t_f>\\tau\\)。在 \\(\\varphi>0\\) 时最小正角速度通常取满足几何方向的最小非负 \\(n\\)。相位条件只保证材料点转到正确方向，抛体还必须满足 \\(x=v_0t_f\\) 与 \\(y=gt_f^2/2\\) 等空间坐标条件。",
+    "thinking": "**基础思路**\n\n先把孔位夹角转成纸筒实际转角，再用穿筒直径除以时间。\n\n**进阶思路**\n\n先由平动锁定总时间，再扣除延迟得到有效转动时间；周期性用整数 \\(n\\) 表示，几何坐标另行验算。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
   },
-  "analysisText": "两孔原本位于同一直径两端，几何角差为 \\(\\pi\\)。纸筒在子弹穿过的时间内转过不到半周，所以实际转角为 \\(\\pi-\\varphi\\)。由 \\(t=\\frac{\\pi-\\varphi}{\\omega}\\)，子弹速度为 \\(v=\\frac{d}{t}=\\frac{\\omega d}{\\pi-\\varphi}\\)。"
+  "analysisText": "两孔原本位于同一直径两端，几何角差为 \\(\\pi\\)。纸筒在子弹穿过的时间内转过不到半周，所以实际转角为 \\(\\pi-\\varphi\\)。由 \\(t=\\frac{\\pi-\\varphi}{\\omega}\\)，子弹速度为 \\(v=\\frac{d}{t}=\\frac{\\omega d}{\\pi-\\varphi}\\)。",
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
 }

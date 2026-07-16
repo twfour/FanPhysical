@@ -75,10 +75,65 @@
   },
   "images": [],
   "practice": {
-    "title": "近似题：倾斜弯道无侧滑",
-    "question": "雪车以 \\(v=12\\,\\mathrm{m/s}\\) 通过倾角为 \\(30^\\circ\\) 的无摩擦弯道，求对应圆周半径 \\(R\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)。",
-    "answer": "支持力竖直分量平衡重力，水平分量提供向心力，因此 \\(\\frac{v^2}{R}=g\\tan30^\\circ\\)。故 \\(R=\\frac{v^2}{g\\tan30^\\circ}=\\frac{144}{10\\times0.577}\\approx25.0\\,\\mathrm{m}\\)。",
-    "thinking": "无摩擦弯道的向心力来自支持力的水平分量，核心关系是 \\(a_c=g\\tan\\theta\\)。"
+    "title": "进阶近似题：倾斜弯道无侧滑",
+    "question": "**基础设问**\n\n雪车以 \\(v=12\\,\\mathrm{m/s}\\) 通过倾角为 \\(30^\\circ\\) 的无摩擦弯道，求对应圆周半径 \\(R\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)。\n\n**综合提升**\n\n把原约束改为“只能拉、不能推”的轻绳，小球在竖直圆周内运动，半径为 \\(r\\)。（1）求恰能通过最高点的最小最高点速度；（2）若全过程只有重力做功，求对应的最小最低点速度；（3）求该临界状态最低点绳张力；（4）若半径改为 \\(\\lambda r\\)，给出三者的缩放关系。",
+    "answer": "**1. 基础设问**\n\n支持力竖直分量平衡重力，水平分量提供向心力，因此 \\(\\frac{v^2}{R}=g\\tan30^\\circ\\)。故 \\(R=\\frac{v^2}{g\\tan30^\\circ}=\\frac{144}{10\\times0.577}\\approx25.0\\,\\mathrm{m}\\)。\n\n**2. 综合提升**\n\n最高点临界张力为零：\n\n\\[mg=m\\frac{v_t^2}{r}\\Rightarrow v_{t,\\min}=\\sqrt{gr}.\\]\n\n由最低点到最高点上升 \\(2r\\)：\\(v_b^2=v_t^2+4gr=5gr\\)，故 \\(v_{b,\\min}=\\sqrt{5gr}\\)。最低点\n\n\\[T_b-mg=m\\frac{v_b^2}{r}\\Rightarrow T_b=6mg.\\]\n\n半径乘 \\(\\lambda\\) 后两临界速度均乘 \\(\\sqrt\\lambda\\)，临界张力仍为 \\(6mg\\)。",
+    "thinking": "**基础思路**\n\n无摩擦弯道的向心力来自支持力的水平分量，核心关系是 \\(a_c=g\\tan\\theta\\)。\n\n**进阶思路**\n\n先用约束力为零确定最高点临界，再用能量把临界状态传到最低点；这比只比较某一位置多了一层全过程联系。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
   },
-  "analysisText": "水平弯道中，竖直方向重力和支持力平衡，水平方向静摩擦力提供向心力。临界不侧滑时 \\(f_{\\max}=\\mu mg\\)，由 \\(\\mu mg=\\frac{mv^2}{R}\\)，得 \\(v_{\\max}=\\sqrt{\\mu gR}\\)。"
+  "analysisText": "水平弯道中，竖直方向重力和支持力平衡，水平方向静摩擦力提供向心力。临界不侧滑时 \\(f_{\\max}=\\mu mg\\)，由 \\(\\mu mg=\\frac{mv^2}{R}\\)，得 \\(v_{\\max}=\\sqrt{\\mu gR}\\)。",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "在 \\(P\\) 处车对弯道的压力大小为 \\(F_{压}=\\frac{mg}{\\cos\\theta}\\)",
+      "thinking": "先找向心力来源，再列临界条件，最后求最大速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f_{\\max}=\\mu mg\\]\n\n\\[\\mu mg=\\frac{mv^2}{R}\\]\n\n\\[v_{\\max}=\\sqrt{\\mu gR}\\]",
+      "judgment": "该结论与主方程推导结果及“竖直平衡、径向动力学和接触约束必须同时成立”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "圆周运动向心力",
+        "受力分析"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "在 \\(P\\) 处运动员和车的向心加速度大小为 \\(a=g\\tan\\theta\\)",
+      "thinking": "先找向心力来源，再列临界条件，最后求最大速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f_{\\max}=\\mu mg\\]\n\n\\[\\mu mg=\\frac{mv^2}{R}\\]\n\n\\[v_{\\max}=\\sqrt{\\mu gR}\\]",
+      "judgment": "该结论与主方程推导结果及“竖直平衡、径向动力学和接触约束必须同时成立”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "圆周运动向心力",
+        "受力分析"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "在 \\(P\\) 处运动员和车做圆周运动的半径为 \\(R=\\frac{v^2}{g\\sin\\theta}\\)",
+      "thinking": "先找向心力来源，再列临界条件，最后求最大速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f_{\\max}=\\mu mg\\]\n\n\\[\\mu mg=\\frac{mv^2}{R}\\]\n\n\\[v_{\\max}=\\sqrt{\\mu gR}\\]",
+      "judgment": "该结论没有同时满足“竖直平衡、径向动力学和接触约束必须同时成立”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "圆周运动向心力",
+        "受力分析"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "若雪车在更靠近轨道内侧的位置无侧滑通过该处弯道，则速率比原来大",
+      "thinking": "先找向心力来源，再列临界条件，最后求最大速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f_{\\max}=\\mu mg\\]\n\n\\[\\mu mg=\\frac{mv^2}{R}\\]\n\n\\[v_{\\max}=\\sqrt{\\mu gR}\\]",
+      "judgment": "该结论没有同时满足“竖直平衡、径向动力学和接触约束必须同时成立”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "圆周运动向心力",
+        "受力分析"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
 }

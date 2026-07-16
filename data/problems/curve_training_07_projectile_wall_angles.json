@@ -1,0 +1,116 @@
+{
+  "id": "curve_training_07_projectile_wall_angles",
+  "originalNumber": "题7",
+  "chapter": "曲线运动",
+  "title": "第7题：平抛撞墙角度",
+  "question": "从同一点水平抛出三个小球，分别撞在同一竖直墙壁上的 \\(a\\)、\\(b\\)、\\(c\\) 点。小球撞到墙壁时的速度方向与竖直墙壁的夹角分别为 \\(60^\\circ\\)、\\(45^\\circ\\)、\\(30^\\circ\\)。不计空气阻力，下列说法正确的是（　　）。",
+  "options": [
+    "A. 落在 \\(a\\) 点的小球撞在墙面的速度最小",
+    "B. 三个小球撞在墙面的速度一定满足 \\(v_a\\gt v_c\\gt v_b\\)",
+    "C. 落在 \\(c\\) 点的小球飞行时间最短",
+    "D. \\(a\\)、\\(b\\)、\\(c\\) 三点速度方向的反向延长线交于一点"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "curve_training_model",
+    "variant": "curve_training_07_projectile_wall_angles",
+    "playable": true,
+    "interactive": true,
+    "notes": "三条平抛轨迹同时到达同一墙面，并绘出撞墙速度的反向延长线。",
+    "params": {
+      "wallDistance": {
+        "label": "墙距",
+        "value": 12,
+        "min": 8,
+        "max": 18,
+        "step": 0.5,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 5,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "平抛运动",
+    "末速度方向",
+    "轨迹切线",
+    "几何共点"
+  ],
+  "steps": [
+    {
+      "title": "用角度反求初速度",
+      "content": "设墙距为 \\(L\\)，撞墙速度与竖直方向夹角为 \\(\\beta\\)。由 \\(\\tan\\beta=v_x/v_y\\) 和 \\(t=L/v_0\\)，得 \\(v_0^2=gL\\tan\\beta\\)。"
+    },
+    {
+      "title": "比较时间与末速度",
+      "content": "角度越大，\\(v_0\\) 越大、飞行时间越短。末速度满足 \\(v^2=2gL/\\sin2\\beta\\)，因此 \\(v_a=v_c\\gt v_b\\)。"
+    },
+    {
+      "title": "证明反向延长线共点",
+      "content": "撞墙点下落量为 \\(y=\\frac12gt^2\\)，轨迹切线斜率为 \\(v_y/v_x=2y/L\\)。切线方程均经过发射点与墙面之间的水平中点。"
+    },
+    {
+      "title": "得出结论",
+      "content": "只有 D 正确。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "比较撞墙速度",
+      "thinking": "把速度大小写成撞墙角 \\(\\beta\\) 的函数。",
+      "formula": "\\[v^2=\\frac{2gL}{\\sin2\\beta}\\]",
+      "judgment": "\\(45^\\circ\\) 对应的 \\(b\\) 球速度最小，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "三个末速度的顺序",
+      "thinking": "利用 \\(\\sin120^\\circ=\\sin60^\\circ\\) 比较。",
+      "formula": "\\[v_a=v_c\\gt v_b\\]",
+      "judgment": "原选项给出的严格不等关系不成立，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "比较飞行时间",
+      "thinking": "角度越大意味着水平初速度越大，墙距相同时飞行时间越短。",
+      "formula": "\\[t=\\sqrt{\\frac{L}{g\\tan\\beta}}\\]",
+      "judgment": "\\(c\\) 球的 \\(\\beta=30^\\circ\\) 最小，飞行时间反而最长，C 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "速度反向延长线",
+      "thinking": "把每个撞墙点的切线方程写成只含墙距和下落量的形式。",
+      "formula": "\\[y_{\\text{线}}=\\frac{2y}{L}\\left(x-\\frac L2\\right)\\]",
+      "judgment": "所有切线都经过 \\((L/2,0)\\)，反向延长线共点，D 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：任意撞墙点切线的公共点",
+    "question": "从同一位置以不同水平初速度抛出若干小球，它们均撞到距发射点水平距离为 \\(L\\) 的竖直墙。证明所有撞墙瞬间速度方向的反向延长线必经过同一点，并给出该点相对发射点的位置。",
+    "answer": "**撞墙位置**\n\n设某球下落量为 \\(y=\\frac12gt^2\\)，墙上坐标为 \\((L,y)\\)。\n\n**切线斜率**\n\n\\[k=\\frac{v_y}{v_x}=\\frac{gt}{v_0}=\\frac{gt^2}{L}=\\frac{2y}{L}.\\]\n\n**切线方程**\n\n\\[Y-y=\\frac{2y}{L}(X-L).\\]\n\n令 \\(Y=0\\)，得到 \\(X=L/2\\)。\n\n**结论**\n\n所有反向延长线都经过发射点与墙面之间的水平中点 \\((L/2,0)\\)。",
+    "thinking": "**思路**\n\n公共点不是发射点。关键恒等式是“平抛末速度斜率等于平均位移斜率的两倍”，即 \\(v_y/v_x=2y/L\\)。"
+  }
+}

@@ -79,10 +79,69 @@
   },
   "images": [],
   "practice": {
-    "title": "近似题：变速自行车传动",
-    "question": "某自行车后轮直径为 \\(0.70\\,\\mathrm{m}\\)，链轮齿数为 \\(42\\)，飞轮齿数为 \\(21\\)。若自行车速度为 \\(3.5\\,\\mathrm{m/s}\\)，求脚踏板的角速度。",
-    "answer": "后轮角速度 \\(\\omega_轮=\\frac{v}{r}=\\frac{3.5}{0.35}=10\\,\\mathrm{rad/s}\\)。飞轮与后轮同轴，\\(\\omega_飞=10\\,\\mathrm{rad/s}\\)。链条传动满足 \\(\\omega_链N_链=\\omega_飞N_飞\\)，所以 \\(\\omega_链=10\\times\\frac{21}{42}=5\\,\\mathrm{rad/s}\\)。",
-    "thinking": "先用车速求后轮角速度；再用同轴角速度相等、链条线速度相等，把飞轮传到链轮。"
+    "title": "进阶近似题：变速自行车传动",
+    "question": "**基础设问**\n\n某自行车后轮直径为 \\(0.70\\,\\mathrm{m}\\)，链轮齿数为 \\(42\\)，飞轮齿数为 \\(21\\)。若自行车速度为 \\(3.5\\,\\mathrm{m/s}\\)，求脚踏板的角速度。\n\n**综合提升**\n\n在原输出轴上同轴加装半径为 \\(r\\) 的主动轮，再用无滑动皮带带动半径为 \\(\\lambda r\\) 的从动轮。（1）用原输出角速度 \\(\\omega_0\\) 表示新轮角速度；（2）比较两轮边缘线速度；（3）求两轮边缘向心加速度之比；（4）反求使新轮边缘向心加速度为主动轮一半时的 \\(\\lambda\\)。",
+    "answer": "**1. 基础设问**\n\n后轮角速度 \\(\\omega_轮=\\frac{v}{r}=\\frac{3.5}{0.35}=10\\,\\mathrm{rad/s}\\)。飞轮与后轮同轴，\\(\\omega_飞=10\\,\\mathrm{rad/s}\\)。链条传动满足 \\(\\omega_链N_链=\\omega_飞N_飞\\)，所以 \\(\\omega_链=10\\times\\frac{21}{42}=5\\,\\mathrm{rad/s}\\)。\n\n**2. 综合提升**\n\n无滑动给出 \\(\\omega_0r=\\omega_1\\lambda r\\)，故 \\(\\omega_1=\\omega_0/\\lambda\\)，两接触边缘线速度相等。向心加速度满足\n\n\\[a_0=\\omega_0^2r,\\qquad a_1=\\left(\\frac{\\omega_0}{\\lambda}\\right)^2\\lambda r=\\frac{a_0}{\\lambda}.\\]\n\n所以 \\(a_1:a_0=1:\\lambda\\)；若 \\(a_1=a_0/2\\)，则 \\(\\lambda=2\\)。",
+    "thinking": "**基础思路**\n\n先用车速求后轮角速度；再用同轴角速度相等、链条线速度相等，把飞轮传到链轮。\n\n**进阶思路**\n\n新增一层传动后不能只连乘转速比，还要回到每个实际半径计算向心加速度。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
   },
-  "analysisText": "后轮角速度 \\(\\omega_轮=\\frac{v}{d/2}\\)。后轮与飞轮同轴，角速度相等；链条传动时边缘线速度相等，故 \\(\\omega_链N_链=\\omega_飞N_飞\\)。要使脚踏板角速度最小，取最大链轮 \\(48\\) 齿和最小飞轮 \\(15\\) 齿，\\(\\omega_{\\min}=\\frac{4}{0.33}\\times\\frac{15}{48}\\approx3.8\\,\\mathrm{rad/s}\\)。"
+  "analysisText": "后轮角速度 \\(\\omega_轮=\\frac{v}{d/2}\\)。后轮与飞轮同轴，角速度相等；链条传动时边缘线速度相等，故 \\(\\omega_链N_链=\\omega_飞N_飞\\)。要使脚踏板角速度最小，取最大链轮 \\(48\\) 齿和最小飞轮 \\(15\\) 齿，\\(\\omega_{\\min}=\\frac{4}{0.33}\\times\\frac{15}{48}\\approx3.8\\,\\mathrm{rad/s}\\)。",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(1.9\\,\\mathrm{rad/s}\\)",
+      "thinking": "先先求后轮角速度，再建立传动关系，最后取最小值；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega_轮=\\frac{v}{d/2}\\]\n\n\\[\\omega_链N_链=\\omega_飞N_飞\\]",
+      "judgment": "该结论没有同时满足“同轴处角速度相同、无滑动接触处边缘线速度相同”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "圆周运动",
+        "传动比",
+        "线速度与角速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(3.8\\,\\mathrm{rad/s}\\)",
+      "thinking": "先先求后轮角速度，再建立传动关系，最后取最小值；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega_轮=\\frac{v}{d/2}\\]\n\n\\[\\omega_链N_链=\\omega_飞N_飞\\]",
+      "judgment": "该结论与主方程推导结果及“同轴处角速度相同、无滑动接触处边缘线速度相同”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "圆周运动",
+        "传动比",
+        "线速度与角速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(6.5\\,\\mathrm{rad/s}\\)",
+      "thinking": "先先求后轮角速度，再建立传动关系，最后取最小值；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega_轮=\\frac{v}{d/2}\\]\n\n\\[\\omega_链N_链=\\omega_飞N_飞\\]",
+      "judgment": "该结论没有同时满足“同轴处角速度相同、无滑动接触处边缘线速度相同”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "圆周运动",
+        "传动比",
+        "线速度与角速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(7.1\\,\\mathrm{rad/s}\\)",
+      "thinking": "先先求后轮角速度，再建立传动关系，最后取最小值；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega_轮=\\frac{v}{d/2}\\]\n\n\\[\\omega_链N_链=\\omega_飞N_飞\\]",
+      "judgment": "该结论没有同时满足“同轴处角速度相同、无滑动接触处边缘线速度相同”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "圆周运动",
+        "传动比",
+        "线速度与角速度"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
 }

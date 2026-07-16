@@ -20,14 +20,49 @@
     "interactive": true,
     "notes": "跳伞者先自由落体，开伞后减速并趋于终端速度；右图绘制动能随下落高度的变化。",
     "params": {
-      "mass": { "label": "跳伞者质量", "value": 70, "min": 40, "max": 100, "step": 5, "unit": "kg" },
-      "openHeight": { "label": "开伞前下落", "value": 40, "min": 15, "max": 70, "step": 1, "unit": "m" },
-      "terminalSpeed": { "label": "开伞后终端速度", "value": 8, "min": 4, "max": 15, "step": 0.5, "unit": "m/s" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "跳伞者质量",
+        "value": 70,
+        "min": 40,
+        "max": 100,
+        "step": 5,
+        "unit": "kg"
+      },
+      "openHeight": {
+        "label": "开伞前下落",
+        "value": 40,
+        "min": 15,
+        "max": 70,
+        "step": 1,
+        "unit": "m"
+      },
+      "terminalSpeed": {
+        "label": "开伞后终端速度",
+        "value": 8,
+        "min": 4,
+        "max": 15,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 7, "loop": false }
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
   },
-  "knowledge": ["自由落体", "空气阻力", "能量图像"],
+  "knowledge": [
+    "自由落体",
+    "空气阻力",
+    "能量图像"
+  ],
   "steps": [
     {
       "title": "判断重力势能图像",
@@ -47,9 +82,68 @@
     }
   ],
   "practice": {
-    "title": "近似题：开伞前后的动能",
-    "question": "质量为 \\(60\\,\\mathrm{kg}\\) 的跳伞者由静止下落 \\(20\\,\\mathrm m\\) 后开伞，忽略开伞前空气阻力，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求刚开伞时的速度和动能，并说明随后动能的变化趋势。",
-    "answer": "\\(v=\\sqrt{2gh}=20\\,\\mathrm{m/s}\\)，\\(E_k=\\frac12mv^2=1.2\\times10^4\\,\\mathrm J\\)。开伞后先减小，最后趋于由终端速度决定的正值。",
-    "thinking": "自由落体阶段直接用动能定理；开伞后依据合力方向判断速度变化，再由 \\(E_k=\\frac12mv^2\\) 判断动能。"
+    "title": "进阶近似题：开伞前后的动能",
+    "question": "**基础设问**\n\n质量为 \\(60\\,\\mathrm{kg}\\) 的跳伞者由静止下落 \\(20\\,\\mathrm m\\) 后开伞，忽略开伞前空气阻力，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求刚开伞时的速度和动能，并说明随后动能的变化趋势。\n\n**综合提升**\n\n给出机械能 \\(E-x\\) 图像和动能 \\(E_k-x\\) 图像。（1）分别说明两图斜率的物理意义；（2）反求非保守力与合力；（3）由两图之差得到势能函数；（4）判断转折点、停止点和受力规律改变点在图像上怎样区分。",
+    "answer": "**1. 基础设问**\n\n\\(v=\\sqrt{2gh}=20\\,\\mathrm{m/s}\\)，\\(E_k=\\frac12mv^2=1.2\\times10^4\\,\\mathrm J\\)。开伞后先减小，最后趋于由终端速度决定的正值。\n\n**2. 综合提升**\n\n有\n\n\\[\\frac{dE}{dx}=F_{非保守,x},\\qquad \\frac{dE_k}{dx}=F_{合,x},\\qquad E_p=E-E_k.\\]\n\n停止点满足 \\(E_k=0\\)；动能极值处合力为零；机械能图斜率突变表示非保守力规律改变。三者含义不同，不能只凭图线“拐弯”统一判断。",
+    "thinking": "**基础思路**\n\n自由落体阶段直接用动能定理；开伞后依据合力方向判断速度变化，再由 \\(E_k=\\frac12mv^2\\) 判断动能。\n\n**进阶思路**\n\n把图像斜率翻译成力，把两图差翻译成势能，再用非负动能判断可达区间。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(E_p-h\\) 图像为逐渐变缓并降到零的曲线",
+      "thinking": "先判断重力势能图像，再判断开伞前的动能与速度，最后判断开伞后的长期状态；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[E_p=E_{p0}-mgh\\]\n\n\\[E_k=mgh\\]\n\n\\[v=\\sqrt{2gh}\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "自由落体",
+        "空气阻力",
+        "能量图像"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(E_k-h\\) 图像在开伞前直线上升，开伞后下降并趋于一个正的定值",
+      "thinking": "先判断重力势能图像，再判断开伞前的动能与速度，最后判断开伞后的长期状态；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[E_p=E_{p0}-mgh\\]\n\n\\[E_k=mgh\\]\n\n\\[v=\\sqrt{2gh}\\]",
+      "judgment": "该结论与主方程推导结果及“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "自由落体",
+        "空气阻力",
+        "能量图像"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(E-h\\) 图像在开伞前保持不变，开伞后下降并逐渐趋近于零",
+      "thinking": "先判断重力势能图像，再判断开伞前的动能与速度，最后判断开伞后的长期状态；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[E_p=E_{p0}-mgh\\]\n\n\\[E_k=mgh\\]\n\n\\[v=\\sqrt{2gh}\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "自由落体",
+        "空气阻力",
+        "能量图像"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(v-h\\) 图像在开伞前直线上升，开伞后下降并趋于一个正的定值",
+      "thinking": "先判断重力势能图像，再判断开伞前的动能与速度，最后判断开伞后的长期状态；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[E_p=E_{p0}-mgh\\]\n\n\\[E_k=mgh\\]\n\n\\[v=\\sqrt{2gh}\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "自由落体",
+        "空气阻力",
+        "能量图像"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

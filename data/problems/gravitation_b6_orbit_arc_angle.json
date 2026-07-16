@@ -11,17 +11,142 @@
     "D. 月球的密度为 \\(3\\pi/(Gt^2)\\)"
   ],
   "answer": "B、C",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "arc_angle", "playable": true, "interactive": true, "notes": "航天器走过弧长 s，同时地月连线扫过角度 θ；动画把 s=rθ、周期和月球质量联系起来。", "params": { "arcLength": { "label": "运动弧长", "value": 3, "min": 1, "max": 8, "step": 0.2, "unit": "×10⁶m" }, "angle": { "label": "扫过角度", "value": 0.6, "min": 0.2, "max": 1.5, "step": 0.05, "unit": "rad" }, "time": { "label": "经过时间", "value": 2, "min": 0.5, "max": 6, "step": 0.1, "unit": "h" } }, "timeline": { "duration": 7, "loop": false } },
-  "knowledge": ["弧长公式", "轨道周期", "中心天体质量"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "arc_angle",
+    "playable": true,
+    "interactive": true,
+    "notes": "航天器走过弧长 s，同时地月连线扫过角度 θ；动画把 s=rθ、周期和月球质量联系起来。",
+    "params": {
+      "arcLength": {
+        "label": "运动弧长",
+        "value": 3,
+        "min": 1,
+        "max": 8,
+        "step": 0.2,
+        "unit": "×10⁶m"
+      },
+      "angle": {
+        "label": "扫过角度",
+        "value": 0.6,
+        "min": 0.2,
+        "max": 1.5,
+        "step": 0.05,
+        "unit": "rad"
+      },
+      "time": {
+        "label": "经过时间",
+        "value": 2,
+        "min": 0.5,
+        "max": 6,
+        "step": 0.1,
+        "unit": "h"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "弧长公式",
+    "轨道周期",
+    "中心天体质量"
+  ],
   "steps": [
-    { "stepId": 1, "title": "运动学量", "content": "弧长满足 \\(s=r\\theta\\)，故 \\(r=s/\\theta\\)；角速度 \\(\\omega=\\theta/t\\)，所以 \\(T=2\\pi/\\omega=2\\pi t/\\theta\\)。A 错、B 对。", "knowledge": ["圆周运动"], "commonMistakes": [] },
-    { "stepId": 2, "title": "月球质量", "content": "轨道速度 \\(v=s/t\\)。由 \\(GM/r^2=v^2/r\\)，得 \\(M=v^2r/G=s^3/(Gt^2\\theta)\\)，C 对。", "knowledge": ["万有引力"], "commonMistakes": [] },
-    { "stepId": 3, "title": "密度判断", "content": "题目没有给出月球半径，不能由轨道半径代替月球半径求密度，D 错。故选 B、C。", "knowledge": ["信息判断"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "运动学量",
+      "content": "弧长满足 \\(s=r\\theta\\)，故 \\(r=s/\\theta\\)；角速度 \\(\\omega=\\theta/t\\)，所以 \\(T=2\\pi/\\omega=2\\pi t/\\theta\\)。A 错、B 对。",
+      "knowledge": [
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "月球质量",
+      "content": "轨道速度 \\(v=s/t\\)。由 \\(GM/r^2=v^2/r\\)，得 \\(M=v^2r/G=s^3/(Gt^2\\theta)\\)，C 对。",
+      "knowledge": [
+        "万有引力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "密度判断",
+      "content": "题目没有给出月球半径，不能由轨道半径代替月球半径求密度，D 错。故选 B、C。",
+      "knowledge": [
+        "信息判断"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：弧长与角速度测轨道",
-    "question": "卫星在 \\(30\\,\\mathrm{s}\\) 内走过弧长 \\(600\\,\\mathrm{km}\\)，扫角为 \\(0.2\\,\\mathrm{rad}\\)。求轨道半径和周期。",
-    "answer": "\\(r=3000\\,\\mathrm{km}\\)，\\(T=300\\pi\\,\\mathrm{s}\\)。",
-    "thinking": "使用 \\(r=s/\\theta\\) 与 \\(T=2\\pi t/\\theta\\)。"
+    "title": "进阶近似题：弧长与角速度测轨道",
+    "question": "**基础设问**\n\n卫星在 \\(30\\,\\mathrm{s}\\) 内走过弧长 \\(600\\,\\mathrm{km}\\)，扫角为 \\(0.2\\,\\mathrm{rad}\\)。求轨道半径和周期。\n\n**综合提升**\n\n观测到一颗卫星的角直径为 \\(\\alpha\\)，已知其实际直径为 \\(D\\)，同时测得它绕中心天体的周期为 \\(T\\)；小角度近似成立。（1）估算观测距离；（2）若该距离可视为轨道半径，反求中心天体质量；（3）分析 \\(\\alpha\\) 的相对误差怎样传递到质量；（4）说明何时不能把观测距离直接当作轨道半径。",
+    "answer": "**1. 基础设问**\n\n\\(r=3000\\,\\mathrm{km}\\)，\\(T=300\\pi\\,\\mathrm{s}\\)。\n\n**2. 综合提升**\n\n小角度下 \\(r\\approx D/\\alpha\\)。圆轨道给出\n\n\\[M=\\frac{4\\pi^2r^3}{GT^2}=\\frac{4\\pi^2D^3}{G\\alpha^3T^2}.\\]\n\n若其他量误差忽略，\\(|\\delta M/M|\\approx3|\\delta\\alpha/\\alpha|\\)。当观测者不在中心天体处、轨道明显偏心或视线距离与中心距差异不可忽略时，必须先做几何修正。",
+    "thinking": "**基础思路**\n\n使用 \\(r=s/\\theta\\) 与 \\(T=2\\pi t/\\theta\\)。\n\n**进阶思路**\n\n先把观测量通过几何变成轨道量，再进入动力学；误差分析揭示三次方关系会放大角度误差。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "航天器的轨道半径为 \\(\\theta/s\\)",
+      "thinking": "先运动学量，再月球质量，最后密度判断；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[s=r\\theta\\]\n\n\\[r=s/\\theta\\]\n\n\\[\\omega=\\theta/t\\]\n\n\\[T=2\\pi/\\omega=2\\pi t/\\theta\\]\n\n\\[v=s/t\\]",
+      "judgment": "该结论没有同时满足“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "弧长公式",
+        "轨道周期",
+        "中心天体质量"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "航天器的环绕周期为 \\(2\\pi t/\\theta\\)",
+      "thinking": "先运动学量，再月球质量，最后密度判断；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[s=r\\theta\\]\n\n\\[r=s/\\theta\\]\n\n\\[\\omega=\\theta/t\\]\n\n\\[T=2\\pi/\\omega=2\\pi t/\\theta\\]\n\n\\[v=s/t\\]",
+      "judgment": "该结论与主方程推导结果及“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "弧长公式",
+        "轨道周期",
+        "中心天体质量"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "月球的质量为 \\(s^3/(Gt^2\\theta)\\)",
+      "thinking": "先运动学量，再月球质量，最后密度判断；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[s=r\\theta\\]\n\n\\[r=s/\\theta\\]\n\n\\[\\omega=\\theta/t\\]\n\n\\[T=2\\pi/\\omega=2\\pi t/\\theta\\]\n\n\\[v=s/t\\]",
+      "judgment": "该结论与主方程推导结果及“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "弧长公式",
+        "轨道周期",
+        "中心天体质量"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "月球的密度为 \\(3\\pi/(Gt^2)\\)",
+      "thinking": "先运动学量，再月球质量，最后密度判断；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[s=r\\theta\\]\n\n\\[r=s/\\theta\\]\n\n\\[\\omega=\\theta/t\\]\n\n\\[T=2\\pi/\\omega=2\\pi t/\\theta\\]\n\n\\[v=s/t\\]",
+      "judgment": "该结论没有同时满足“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "弧长公式",
+        "轨道周期",
+        "中心天体质量"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

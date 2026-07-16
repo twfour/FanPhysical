@@ -1,0 +1,124 @@
+{
+  "id": "curve_training_03_accelerating_bomber",
+  "originalNumber": "题3",
+  "chapter": "曲线运动",
+  "title": "第3题：加速飞机投弹队列",
+  "question": "某型战斗机沿水平方向向右做匀加速直线运动，从某时刻开始以相等时间间隔自由释放无动力炸弹（图中用小球替代）。不计空气阻力，炸弹落地前在空中形成的排列图景是（　　）。",
+  "options": [
+    "A. 炸弹沿竖直直线排列",
+    "B. 炸弹沿一条向右上方倾斜的直线排列",
+    "C. 炸弹排列成向左弯曲的曲线",
+    "D. 炸弹排列成向右弯曲的曲线"
+  ],
+  "answer": "B",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "curve_training_model",
+    "variant": "curve_training_03_accelerating_bomber",
+    "playable": true,
+    "interactive": true,
+    "notes": "飞机匀加速而炸弹释放后水平匀速；同一时刻各炸弹仍落在一条斜直线上。",
+    "params": {
+      "planeA": {
+        "label": "飞机加速度",
+        "value": 3,
+        "min": 1,
+        "max": 7,
+        "step": 0.2,
+        "unit": "m/s²"
+      },
+      "interval": {
+        "label": "投弹间隔",
+        "value": 0.7,
+        "min": 0.3,
+        "max": 1.2,
+        "step": 0.05,
+        "unit": "s"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 5,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "相对运动",
+    "匀加速载体",
+    "平抛运动",
+    "轨迹方程"
+  ],
+  "steps": [
+    {
+      "title": "选取共同观察时刻",
+      "content": "设某炸弹离开飞机已有 \\(\\tau\\)。释放瞬间它继承飞机的水平速度，此后水平方向不再具有飞机的加速度。"
+    },
+    {
+      "title": "写相对飞机的位移",
+      "content": "同一时刻，炸弹落后飞机的水平距离为 \\(\\Delta x=\\frac12a\\tau^2\\)，竖直下落距离为 \\(y=\\frac12g\\tau^2\\)。"
+    },
+    {
+      "title": "消去释放时长",
+      "content": "两式相除得到 \\(y=\\dfrac ga\\Delta x\\)，说明所有炸弹相对飞机的位置落在同一条直线上。"
+    },
+    {
+      "title": "判断方向",
+      "content": "释放越早的炸弹越靠左、越靠下，因此队列是一条向右上方倾斜的直线，答案 B。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "竖直队列",
+      "thinking": "比较炸弹与飞机在水平方向是否保持同一位置。",
+      "formula": "\\[\\Delta x=\\frac12a\\tau^2\\]",
+      "judgment": "飞机继续加速，已释放炸弹会逐渐落后，不能竖直排列，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "斜直线队列",
+      "thinking": "分别写水平落后量和竖直下落量，再消去释放时长。",
+      "formula": "\\[y=\\frac ga\\Delta x\\]",
+      "judgment": "两方向位移都正比于 \\(\\tau^2\\)，所有炸弹共线，B 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "向左弯曲",
+      "thinking": "判断 \\(y\\) 与 \\(\\Delta x\\) 是否为非线性关系。",
+      "formula": "\\[\\frac{y}{\\Delta x}=\\frac ga=\\text{常量}\\]",
+      "judgment": "比值恒定，不形成曲线，C 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "向右弯曲",
+      "thinking": "同样检查队列是否存在曲率。",
+      "formula": "\\[y\\propto\\Delta x\\]",
+      "judgment": "队列是直线而非曲线，D 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：投弹间距的平方规律",
+    "question": "飞机以恒加速度 \\(a\\) 水平飞行，每隔 \\(\\Delta t\\) 释放一颗炸弹。在刚释放第 4 颗炸弹的瞬间，忽略空气阻力，求前 3 颗炸弹相对飞机的水平落后距离之比，并求相邻三段水平间距之比。",
+    "answer": "**释放时长**\n\n前三颗炸弹离开飞机的时长依次为 \\(3\\Delta t,2\\Delta t,\\Delta t\\)。\n\n**落后距离**\n\n\\[\\Delta x=\\frac12a\\tau^2,\\qquad \\Delta x_1:\\Delta x_2:\\Delta x_3=9:4:1.\\]\n\n**相邻间距**\n\n从飞机向后看四个位置为 \\(0,1,4,9\\) 个单位，三段间距为 \\(1:3:5\\)。\n\n**结论**\n\n落后距离比为 \\(9:4:1\\)，相邻间距比为 \\(1:3:5\\)。",
+    "thinking": "**思路**\n\n关键不是分别计算每颗炸弹的地面位置，而是用飞机仍在加速、炸弹不再水平加速得到相对位移 \\(\\Delta x=\\frac12a\\tau^2\\)。"
+  }
+}

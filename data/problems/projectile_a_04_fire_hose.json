@@ -1,0 +1,124 @@
+{
+  "id": "projectile_a_04_fire_hose",
+  "originalNumber": "A4",
+  "chapter": "平抛运动",
+  "title": "A组第4题：水柱垂直击墙",
+  "question": "消防员在水平地面上使用喷水枪对着火房屋喷水灭火，出水轨迹可简化为抛物线。消防员控制水柱恰好垂直击中竖直墙面，此时喷水枪出水口和水平面的夹角为 \\(60^\\circ\\)，不计空气阻力。下列做法仍可能让水柱垂直打到竖直墙面的是（　　）。",
+  "options": [
+    "A. 喷水枪与水平面夹角不变，增大喷水初速度，人向前走一定距离",
+    "B. 喷水枪初速度大小不变，增大与水平面夹角，人向前走一定距离",
+    "C. 喷水枪初速度大小不变，减小与水平面夹角，人向后走一定距离",
+    "D. 喷水枪初速度大小不变，夹角减小为 \\(30^\\circ\\)，人向前走一定距离"
+  ],
+  "answer": "B、C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "projectile_training_model",
+    "variant": "projectile_a_04_fire_hose",
+    "playable": true,
+    "interactive": true,
+    "notes": "墙面位于水柱最高点处；改变速度或仰角会移动最高点。",
+    "params": {
+      "speed": {
+        "label": "喷水初速度",
+        "value": 18,
+        "min": 10,
+        "max": 26,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "angle": {
+        "label": "喷水仰角",
+        "value": 60,
+        "min": 30,
+        "max": 78,
+        "step": 1,
+        "unit": "°"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "斜抛运动",
+    "最高点",
+    "垂直击墙",
+    "参数调整"
+  ],
+  "steps": [
+    {
+      "title": "识别垂直击墙条件",
+      "content": "速度方向与竖直墙面垂直，说明撞墙时速度水平，即竖直分速度恰为零，墙面位于水柱轨迹最高点。"
+    },
+    {
+      "title": "写出最高点的水平距离",
+      "content": "达到最高点的时间为 \\(t_m=v_0\\sin\\theta/g\\)，故墙距应为 \\(X_m=v_0^2\\sin2\\theta/(2g)\\)。"
+    },
+    {
+      "title": "比较角度改变",
+      "content": "从 \\(60^\\circ\\) 增大角度，\\(\\sin2\\theta\\) 减小，最高点变近，人与墙距离应减小；从 \\(60^\\circ\\) 减小到 \\(45^\\circ\\) 附近，最高点变远，人与墙距离应增大。"
+    },
+    {
+      "title": "结论",
+      "content": "B、C 的调整方向匹配。增速会使最高点变远，不能同时向前；\\(60^\\circ\\) 与 \\(30^\\circ\\) 的 \\(\\sin2\\theta\\) 相同，也不需向前。答案为 B、C。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "增速使最高点远离",
+      "thinking": "保持角度时最高点水平距离正比于 \\(v_0^2\\)。",
+      "formula": "\\[X_m=\\frac{v_0^2\\sin2\\theta}{2g}\\]",
+      "judgment": "增大速度应向后移动而不是向前，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "大于六十度时最高点变近",
+      "thinking": "在 \\(60^\\circ\\lt\\theta\\lt90^\\circ\\) 内，\\(\\sin2\\theta\\) 随角度增大而减小。",
+      "formula": "\\[X_m\\propto\\sin2\\theta\\]",
+      "judgment": "人与墙距离应减小，即向前走，B 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "向四十五度调节时最高点变远",
+      "thinking": "从 \\(60^\\circ\\) 减小到 \\(45^\\circ\\) 的过程中，\\(\\sin2\\theta\\) 增大。",
+      "formula": "\\[\\sin90^\\circ\\gt\\sin120^\\circ\\]",
+      "judgment": "最高点变远，人向后走可重新匹配，C 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "互余角具有相同射程因子",
+      "thinking": "比较 \\(30^\\circ\\) 与 \\(60^\\circ\\) 的二倍角正弦。",
+      "formula": "\\[\\sin60^\\circ=\\sin120^\\circ\\]",
+      "judgment": "墙距保持不变才可垂直击墙，向前移动会破坏条件，D 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：限定墙距的双角解",
+    "question": "水枪初速度为 \\(v\\)，竖直墙距喷口为 \\(L\\)。要求水柱在最高点垂直击墙。证明当 \\(0\\lt2gL/v^2\\lt1\\) 时通常存在两个发射角，并说明两条轨迹最高点高度的关系。",
+    "answer": "**角度方程**\n\n\\[L=\\frac{v^2\\sin2\\theta}{2g}\\Rightarrow\\sin2\\theta=\\frac{2gL}{v^2}.\\]\n\n两解满足 \\(2\\theta_1+2\\theta_2=180^\\circ\\)，即 \\(\\theta_1+\\theta_2=90^\\circ\\)。\n\n**高度比较**\n\n\\[H_m=\\frac{v^2\\sin^2\\theta}{2g}.\\]\n\n较大的发射角具有更大的最高点高度；两个高度之和为 \\(v^2/(2g)\\)。",
+    "thinking": "**思路**\n\n把“垂直击墙”转成“墙位于最高点”，问题就变成方程 \\(\\sin2\\theta=c\\) 的双解结构。再利用两个角互余比较 \\(\\sin^2\\theta\\)。"
+  }
+}

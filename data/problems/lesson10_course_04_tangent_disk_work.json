@@ -14,39 +14,73 @@
     "interactive": true,
     "notes": "力始终沿圆周切线，作用点走过一周弧长；右图显示累计功与转角的线性关系。",
     "params": {
-      "force": { "label": "切向力", "value": 10, "min": 2, "max": 30, "step": 1, "unit": "N" },
-      "radius": { "label": "转盘半径", "value": 1, "min": 0.3, "max": 2, "step": 0.1, "unit": "m" }
+      "force": {
+        "label": "切向力",
+        "value": 10,
+        "min": 2,
+        "max": 30,
+        "step": 1,
+        "unit": "N"
+      },
+      "radius": {
+        "label": "转盘半径",
+        "value": 1,
+        "min": 0.3,
+        "max": 2,
+        "step": 0.1,
+        "unit": "m"
+      }
     },
-    "timeline": { "duration": 6, "loop": false }
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
-  "knowledge": ["变方向力做功", "弧长", "力矩"],
+  "knowledge": [
+    "变方向力做功",
+    "弧长",
+    "力矩"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "把圆周分成微小弧段",
       "content": "每一微小段内力都沿切线，与作用点的微小位移同向，因此 \\(\\mathrm dW=F\\,\\mathrm ds\\)。",
-      "knowledge": ["微元法"],
-      "commonMistakes": ["因物体回到原位就误判总功为零"]
+      "knowledge": [
+        "微元法"
+      ],
+      "commonMistakes": [
+        "因物体回到原位就误判总功为零"
+      ]
     },
     {
       "stepId": 2,
       "title": "计算一周路程",
       "content": "作用点转动一周走过的弧长为 \\(s=2\\pi r=2\\pi\\,\\mathrm m\\)。",
-      "knowledge": ["圆周弧长"],
+      "knowledge": [
+        "圆周弧长"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "求总功",
       "content": "\\(W=Fs=10\\times2\\pi=20\\pi\\,\\mathrm J\\)。功取决于力沿实际路径的累积，不由始末位置单独决定。",
-      "knowledge": ["功的路径累积"],
+      "knowledge": [
+        "功的路径累积"
+      ],
       "commonMistakes": []
     }
   ],
   "practice": {
-    "title": "近似题：半周切向做功",
-    "question": "半径 \\(r=0.5\\,\\mathrm m\\) 的圆盘边缘始终受到 \\(F=8\\,\\mathrm N\\) 的切向力。圆盘转过 \\(3\\pi\\,\\mathrm{rad}\\) 时，该力做功多少？",
-    "answer": "作用点弧长 \\(s=r\\theta=1.5\\pi\\,\\mathrm m\\)，故 \\(W=Fs=12\\pi\\,\\mathrm J\\)。",
-    "thinking": "对于始终沿切线的恒力，直接使用 \\(W=Fr\\theta\\)。"
+    "title": "进阶近似题：半周切向做功",
+    "question": "**基础设问**\n\n半径 \\(r=0.5\\,\\mathrm m\\) 的圆盘边缘始终受到 \\(F=8\\,\\mathrm N\\) 的切向力。圆盘转过 \\(3\\pi\\,\\mathrm{rad}\\) 时，该力做功多少？\n\n**综合提升**\n\n把原题中的恒力推广为方向或大小随路径参数 \\(s\\) 变化的力 \\(\\vec F(s)\\)。（1）写出总功的积分表达式；（2）给出瞬时功率；（3）说明同一始末位置沿不同路径做功何时相同；（4）设计一个由 \\(P-t\\) 图像反求总功的方法。",
+    "answer": "**1. 基础设问**\n\n作用点弧长 \\(s=r\\theta=1.5\\pi\\,\\mathrm m\\)，故 \\(W=Fs=12\\pi\\,\\mathrm J\\)。\n\n**2. 综合提升**\n\n总功和瞬时功率分别为\n\n\\[W=\\int_{s_1}^{s_2}\\vec F(s)\\cdot d\\vec s,\\qquad P=\\vec F\\cdot\\vec v=\\frac{dW}{dt}.\\]\n\n只有保守力的功才只由始末位置决定；一般外力功与路径有关。\\(P-t\\) 图像的有符号面积 \\(\\int Pdt\\) 就是总功。",
+    "thinking": "**基础思路**\n\n对于始终沿切线的恒力，直接使用 \\(W=Fr\\theta\\)。\n\n**进阶思路**\n\n从定力公式升级到线积分与功率积分，可统一处理变大小、变方向和分段做功。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

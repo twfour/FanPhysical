@@ -1,0 +1,124 @@
+{
+  "id": "curve_training_04_formation_turn",
+  "originalNumber": "题4",
+  "chapter": "曲线运动",
+  "title": "第4题：方阵通过圆弧跑道",
+  "question": "同学们组成的跑操方阵排列整齐地匀速率通过圆弧形跑道区域，每个方阵中的每位同学均可视为做匀速圆周运动。下列说法正确的是（　　）。",
+  "options": [
+    "A. 每位同学的角速度相同",
+    "B. 每位同学所受的合力为零",
+    "C. 每位同学的速度大小相同",
+    "D. 每位同学的加速度保持不变"
+  ],
+  "answer": "A",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "curve_training_model",
+    "variant": "curve_training_04_formation_turn",
+    "playable": true,
+    "interactive": true,
+    "notes": "方阵作为整体转过相同角度；不同半径上的线速度和向心加速度不同。",
+    "params": {
+      "omega": {
+        "label": "方阵角速度",
+        "value": 0.8,
+        "min": 0.3,
+        "max": 1.6,
+        "step": 0.05,
+        "unit": "rad/s"
+      },
+      "innerR": {
+        "label": "内侧半径",
+        "value": 2.5,
+        "min": 1.5,
+        "max": 4,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "spacing": {
+        "label": "横向间距",
+        "value": 0.7,
+        "min": 0.4,
+        "max": 1.2,
+        "step": 0.05,
+        "unit": "m"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "同轴转动",
+    "角速度",
+    "线速度",
+    "向心加速度"
+  ],
+  "steps": [
+    {
+      "title": "利用队形约束",
+      "content": "方阵要保持排列整齐，同一时刻所有同学绕共同圆心转过的角度必须相同，所以角速度相同。"
+    },
+    {
+      "title": "比较线速度",
+      "content": "不同同学所在圆弧半径不同，由 \\(v=\\omega r\\)，外侧同学速度更大。"
+    },
+    {
+      "title": "判断合力和加速度",
+      "content": "每人都有指向圆心的向心加速度 \\(a_n=\\omega^2r\\)，合力不为零；加速度方向随位置改变，矢量不恒定。"
+    },
+    {
+      "title": "得出结论",
+      "content": "只有 A 正确。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "角速度关系",
+      "thinking": "保持方阵形状意味着所有人的角位移始终相同。",
+      "formula": "\\[\\omega=\\frac{\\Delta\\theta}{\\Delta t}\\]",
+      "judgment": "相同时间转过相同角度，角速度相同，A 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "合力是否为零",
+      "thinking": "只要速度方向改变，就需要向心加速度和合力。",
+      "formula": "\\[F_n=m\\omega^2r\\]",
+      "judgment": "匀速圆周运动的合力不为零，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "速度大小关系",
+      "thinking": "同角速度转动时，比较各人的半径。",
+      "formula": "\\[v=\\omega r\\]",
+      "judgment": "半径不同导致线速度不同，C 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "加速度是否恒定",
+      "thinking": "区分加速度大小和加速度矢量。",
+      "formula": "\\[\\vec a_n\\text{始终指向圆心}\\]",
+      "judgment": "方向不断改变，所以加速度矢量不保持不变，D 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：方阵内外侧的力学比值",
+    "question": "一个保持队形的方阵绕同一圆心转弯，内侧同学半径为 \\(R\\)，外侧同学半径为 \\(\\frac32R\\)，两人质量相同。比较两人的角速度、线速度、向心加速度和所需合力。",
+    "answer": "**角速度**\n\n保持队形要求 \\(\\omega_{内}=\\omega_{外}\\)。\n\n**线速度**\n\n由 \\(v=\\omega r\\)，有 \\(v_{外}:v_{内}=3:2\\)。\n\n**向心加速度**\n\n由 \\(a_n=\\omega^2r\\)，有 \\(a_{外}:a_{内}=3:2\\)。\n\n**合力**\n\n质量相同，\\(F=ma_n\\)，故 \\(F_{外}:F_{内}=3:2\\)。",
+    "thinking": "**思路**\n\n先用刚性队形确定共同角速度，再把半径比分别代入 \\(v=\\omega r\\) 和 \\(a_n=\\omega^2r\\)。"
+  }
+}

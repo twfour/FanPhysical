@@ -20,14 +20,49 @@
     "interactive": true,
     "notes": "物体加速到共同速度；右图按时间显示摩擦功、电动机额外做功及功率。",
     "params": {
-      "mass": { "label": "物体质量", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "kg" },
-      "mu": { "label": "动摩擦因数", "value": 0.3, "min": 0.05, "max": 0.8, "step": 0.01, "unit": "" },
-      "beltSpeed": { "label": "传送带速度", "value": 5, "min": 1, "max": 10, "step": 0.2, "unit": "m/s" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "物体质量",
+        "value": 2,
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "mu": {
+        "label": "动摩擦因数",
+        "value": 0.3,
+        "min": 0.05,
+        "max": 0.8,
+        "step": 0.01,
+        "unit": ""
+      },
+      "beltSpeed": {
+        "label": "传送带速度",
+        "value": 5,
+        "min": 1,
+        "max": 10,
+        "step": 0.2,
+        "unit": "m/s"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 4, "loop": false }
+    "timeline": {
+      "duration": 4,
+      "loop": false
+    }
   },
-  "knowledge": ["摩擦功", "电动机功率", "能量分配"],
+  "knowledge": [
+    "摩擦功",
+    "电动机功率",
+    "能量分配"
+  ],
   "steps": [
     {
       "title": "求加速时间与摩擦功",
@@ -43,9 +78,68 @@
     }
   ],
   "practice": {
-    "title": "近似题：电动机额外功率",
-    "question": "传送带以 \\(4\\,\\mathrm{m/s}\\) 匀速运行，轻放一个 \\(3\\,\\mathrm{kg}\\) 的物体，\\(\\mu=0.2\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求滑动阶段电动机增加的功率和全过程额外做功。",
-    "answer": "\\(P=\\mu mgv=0.2\\times3\\times10\\times4=24\\,\\mathrm W\\)，\\(W=mv^2=48\\,\\mathrm J\\)。",
-    "thinking": "额外功率用带受摩擦力乘带速；额外做功可再乘滑动时间，也可直接用 \\(mv^2\\)。"
+    "title": "进阶近似题：电动机额外功率",
+    "question": "**基础设问**\n\n传送带以 \\(4\\,\\mathrm{m/s}\\) 匀速运行，轻放一个 \\(3\\,\\mathrm{kg}\\) 的物体，\\(\\mu=0.2\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求滑动阶段电动机增加的功率和全过程额外做功。\n\n**综合提升**\n\n在原传送带或板块模型中，把物块与带面组成系统。（1）列出外力功、系统动能变化和内能增加的关系；（2）用相对路程求热量；（3）若带速可调，找出相对滑动方向改变的临界；（4）说明电动机做功为何不等于物块动能增加。",
+    "answer": "**1. 基础设问**\n\n\\(P=\\mu mgv=0.2\\times3\\times10\\times4=24\\,\\mathrm W\\)，\\(W=mv^2=48\\,\\mathrm J\\)。\n\n**2. 综合提升**\n\n系统能量关系为\n\n\\[W_{电}+W_{其他外}=\\Delta E_{k,系统}+\\Delta E_p+Q,\\qquad Q=f\\Delta s_{rel}.\\]\n\n相对速度为零是滑动方向可能改变的临界，应分段计算。电动机还要改变传送带自身能量并补偿摩擦生热，所以其功通常不等于物块动能增量。",
+    "thinking": "**基础思路**\n\n额外功率用带受摩擦力乘带速；额外做功可再乘滑动时间，也可直接用 \\(mv^2\\)。\n\n**进阶思路**\n\n先选系统再记账，把一对内摩擦的功合并为内能；速度匹配点决定是否需要分段。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "电动机多做的功为 \\(\\dfrac12mv^2\\)",
+      "thinking": "先求加速时间与摩擦功，再求电动机额外做功，最后求增加的功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a=\\mu g\\]\n\n\\[t=v/(\\mu g)\\]\n\n\\[W_{f,\\text{物}}=\\frac12mv^2\\]\n\n\\[x_{\\text{带}}=vt=v^2/(\\mu g)\\]\n\n\\[f x_{\\text{带}}=\\mu mg\\cdot v^2/(\\mu g)=mv^2\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "摩擦功",
+        "电动机功率",
+        "能量分配"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "摩擦力对物体做的功为 \\(mv^2\\)",
+      "thinking": "先求加速时间与摩擦功，再求电动机额外做功，最后求增加的功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a=\\mu g\\]\n\n\\[t=v/(\\mu g)\\]\n\n\\[W_{f,\\text{物}}=\\frac12mv^2\\]\n\n\\[x_{\\text{带}}=vt=v^2/(\\mu g)\\]\n\n\\[f x_{\\text{带}}=\\mu mg\\cdot v^2/(\\mu g)=mv^2\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "摩擦功",
+        "电动机功率",
+        "能量分配"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "传送带克服摩擦力所做的功为 \\(mv^2\\)",
+      "thinking": "先求加速时间与摩擦功，再求电动机额外做功，最后求增加的功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a=\\mu g\\]\n\n\\[t=v/(\\mu g)\\]\n\n\\[W_{f,\\text{物}}=\\frac12mv^2\\]\n\n\\[x_{\\text{带}}=vt=v^2/(\\mu g)\\]\n\n\\[f x_{\\text{带}}=\\mu mg\\cdot v^2/(\\mu g)=mv^2\\]",
+      "judgment": "该结论与主方程推导结果及“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "摩擦功",
+        "电动机功率",
+        "能量分配"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "电动机增加的功率为 \\(\\mu mgv\\)",
+      "thinking": "先求加速时间与摩擦功，再求电动机额外做功，最后求增加的功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a=\\mu g\\]\n\n\\[t=v/(\\mu g)\\]\n\n\\[W_{f,\\text{物}}=\\frac12mv^2\\]\n\n\\[x_{\\text{带}}=vt=v^2/(\\mu g)\\]\n\n\\[f x_{\\text{带}}=\\mu mg\\cdot v^2/(\\mu g)=mv^2\\]",
+      "judgment": "该结论与主方程推导结果及“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "摩擦功",
+        "电动机功率",
+        "能量分配"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

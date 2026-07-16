@@ -14,14 +14,49 @@
     "interactive": true,
     "notes": "物块由静止加速到带速；右图同步比较物块动能、电动机额外做功与热量。",
     "params": {
-      "mass": { "label": "物块质量", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "kg" },
-      "mu": { "label": "动摩擦因数", "value": 0.2, "min": 0.05, "max": 0.8, "step": 0.01, "unit": "" },
-      "beltSpeed": { "label": "传送带速度", "value": 4, "min": 1, "max": 10, "step": 0.2, "unit": "m/s" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "物块质量",
+        "value": 2,
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "mu": {
+        "label": "动摩擦因数",
+        "value": 0.2,
+        "min": 0.05,
+        "max": 0.8,
+        "step": 0.01,
+        "unit": ""
+      },
+      "beltSpeed": {
+        "label": "传送带速度",
+        "value": 4,
+        "min": 1,
+        "max": 10,
+        "step": 0.2,
+        "unit": "m/s"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 4, "loop": false }
+    "timeline": {
+      "duration": 4,
+      "loop": false
+    }
   },
-  "knowledge": ["相对位移", "摩擦生热", "电动机做功"],
+  "knowledge": [
+    "相对位移",
+    "摩擦生热",
+    "电动机做功"
+  ],
   "steps": [
     {
       "title": "确定加速过程",
@@ -41,9 +76,14 @@
     }
   ],
   "practice": {
-    "title": "近似题：传送带加速木块",
-    "question": "水平传送带以 \\(6\\,\\mathrm{m/s}\\) 匀速运动，将 \\(m=1.5\\,\\mathrm{kg}\\) 的木块由静止轻放在带上，\\(\\mu=0.30\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求木块达到共同速度前的相对位移、热量和电动机额外做功。",
-    "answer": "\\(\\Delta x=6^2/(2\\times0.30\\times10)=6\\,\\mathrm m\\)，\\(Q=\\frac12mv^2=27\\,\\mathrm J\\)，\\(W_{\\text{电}}=mv^2=54\\,\\mathrm J\\)。",
-    "thinking": "先求达到共同速度的时间，再分别写出带和物块的对地位移；热量用 \\(Q=f\\Delta x\\)，电动机额外做功用 \\(W=f x_{\\text{带}}\\)。"
+    "title": "进阶近似题：传送带加速木块",
+    "question": "**基础设问**\n\n水平传送带以 \\(6\\,\\mathrm{m/s}\\) 匀速运动，将 \\(m=1.5\\,\\mathrm{kg}\\) 的木块由静止轻放在带上，\\(\\mu=0.30\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求木块达到共同速度前的相对位移、热量和电动机额外做功。\n\n**综合提升**\n\n在原传送带或板块模型中，把物块与带面组成系统。（1）列出外力功、系统动能变化和内能增加的关系；（2）用相对路程求热量；（3）若带速可调，找出相对滑动方向改变的临界；（4）说明电动机做功为何不等于物块动能增加。",
+    "answer": "**1. 基础设问**\n\n\\(\\Delta x=6^2/(2\\times0.30\\times10)=6\\,\\mathrm m\\)，\\(Q=\\frac12mv^2=27\\,\\mathrm J\\)，\\(W_{\\text{电}}=mv^2=54\\,\\mathrm J\\)。\n\n**2. 综合提升**\n\n系统能量关系为\n\n\\[W_{电}+W_{其他外}=\\Delta E_{k,系统}+\\Delta E_p+Q,\\qquad Q=f\\Delta s_{rel}.\\]\n\n相对速度为零是滑动方向可能改变的临界，应分段计算。电动机还要改变传送带自身能量并补偿摩擦生热，所以其功通常不等于物块动能增量。",
+    "thinking": "**基础思路**\n\n先求达到共同速度的时间，再分别写出带和物块的对地位移；热量用 \\(Q=f\\Delta x\\)，电动机额外做功用 \\(W=f x_{\\text{带}}\\)。\n\n**进阶思路**\n\n先选系统再记账，把一对内摩擦的功合并为内能；速度匹配点决定是否需要分段。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

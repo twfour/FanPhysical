@@ -1,0 +1,124 @@
+{
+  "id": "curve_training_15_two_blocks_disk",
+  "originalNumber": "题15",
+  "chapter": "曲线运动",
+  "title": "第15题：圆盘双木块摩擦图像",
+  "question": "两个完全相同的小木块 \\(a\\)、\\(b\\) 用轻绳连接并置于水平圆盘上，\\(a\\) 与转轴 \\(OO'\\) 的距离为 \\(l\\)。圆盘从静止开始绕转轴极缓慢地加速转动，木块与圆盘保持相对静止。\\(\\omega\\) 表示圆盘角速度，\\(a\\)、\\(b\\) 所受摩擦力 \\(f\\) 与 \\(\\omega^2\\) 的关系如题图所示：图线（1）先达到平台值 \\(f_2\\)，图线（2）在 \\(\\omega_1^2\\) 处由 \\(f_1\\) 改变斜率并在 \\(\\omega_2^2\\) 处达到 \\(f_2\\)，且 \\(f_2=3f_1\\)。下列判断正确的是（多选）。",
+  "options": [
+    "A. 图线（1）对应物体 \\(a\\)",
+    "B. 绳长为 \\(2l\\)",
+    "C. \\(\\omega_2=\\dfrac32\\omega_1\\)",
+    "D. \\(\\omega=\\omega_2\\) 时绳上张力大小为 \\(\\dfrac12f_2\\)"
+  ],
+  "answer": "B、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "curve_training_model",
+    "variant": "curve_training_15_two_blocks_disk",
+    "playable": true,
+    "interactive": true,
+    "notes": "圆盘缓慢加速，外块先达到最大静摩擦，随后张力分担向心力并改变内块图线斜率。",
+    "params": {
+      "omega": {
+        "label": "圆盘角速度",
+        "value": 1.8,
+        "min": 0.2,
+        "max": 3.2,
+        "step": 0.05,
+        "unit": "rad/s"
+      },
+      "innerR": {
+        "label": "内块半径",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.6,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "ropeRatio": {
+        "label": "绳长/l",
+        "value": 2,
+        "min": 1,
+        "max": 3,
+        "step": 0.1,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "静摩擦力图像",
+    "圆盘连接体",
+    "张力",
+    "临界角速度"
+  ],
+  "steps": [
+    {
+      "title": "识别两条图线",
+      "content": "在张力出现前，摩擦力为 \\(f=m\\omega^2r\\)。外侧木块半径较大，图线斜率更大并先达到最大静摩擦，所以图线（1）对应 \\(b\\)。"
+    },
+    {
+      "title": "由第一临界点求绳长",
+      "content": "在 \\(\\omega_1\\) 时张力刚出现，\\(f_2/f_1=r_b/r_a=3\\)。由 \\(r_a=l\\) 得 \\(r_b=3l\\)，故绳长为 \\(2l\\)。"
+    },
+    {
+      "title": "求第二临界角速度",
+      "content": "在 \\(\\omega_2\\) 时两块摩擦力均为 \\(f_2\\)。对两块组成的系统列向心力：\\(2f_2=m\\omega_2^2(l+3l)\\)。结合 \\(f_2=3ml\\omega_1^2\\)，得 \\(\\omega_2^2=\\frac32\\omega_1^2\\)。"
+    },
+    {
+      "title": "求绳张力",
+      "content": "对外块列式 \\(f_2+T=m\\omega_2^2(3l)\\)，代入上式得 \\(T=f_2/2\\)。所以 B、D 正确。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "图线（1）的物体",
+      "thinking": "在张力尚未出现时，\\(f-\\omega^2\\) 图线斜率等于 \\(mr\\)。",
+      "formula": "\\[\\frac{\\mathrm df}{\\mathrm d(\\omega^2)}=mr\\]",
+      "judgment": "图线（1）斜率较大，对应半径更大的外块 \\(b\\)，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "绳长",
+      "thinking": "第一临界时张力刚为零，两块摩擦力之比就是半径之比。",
+      "formula": "\\[\\frac{f_2}{f_1}=\\frac{r_b}{r_a}=3\\]",
+      "judgment": "\\(r_b=3l\\)，绳长 \\(r_b-r_a=2l\\)，B 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "两个临界角速度",
+      "thinking": "图中横轴是 \\(\\omega^2\\)，求出平方比后还要开方。",
+      "formula": "\\[\\omega_2=\\sqrt{\\frac32}\\,\\omega_1\\]",
+      "judgment": "不是 \\(3\\omega_1/2\\)，C 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "第二临界时张力",
+      "thinking": "对外块单独列向心力，摩擦力和张力同向指向圆心。",
+      "formula": "\\[f_2+T=m\\omega_2^2(3l)\\]",
+      "judgment": "代入临界关系得到 \\(T=f_2/2\\)，D 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：推广摩擦平台比值",
+    "question": "在同一双木块圆盘模型中，设第一临界点有 \\(f_{b,\\max}=k f_a\\)，其中 \\(k\\gt1\\)，内块半径为 \\(l\\)。两块最大静摩擦力相同。求绳长、第二临界角速度与第一临界角速度之比，以及第二临界时的张力。",
+    "answer": "**绳长**\n\n第一临界时张力为零，\\(r_b/r_a=k\\)，故 \\(r_b=kl\\)，绳长为 \\((k-1)l\\)。\n\n**角速度关系**\n\n记最大静摩擦为 \\(f_m=kml\\omega_1^2\\)。第二临界时 \\(2f_m=m\\omega_2^2(l+kl)\\)，所以 \\(\\omega_2^2/\\omega_1^2=2k/(k+1)\\)。\n\n**张力**\n\n对外块：\\(f_m+T=m\\omega_2^2kl\\)，得到 \\(T=f_m(k-1)/(k+1)\\)。\n\n**检验**\n\n取 \\(k=3\\) 可还原 \\(L=2l\\)、\\(\\omega_2^2/\\omega_1^2=3/2\\)、\\(T=f_m/2\\)。",
+    "thinking": "**思路**\n\n把图像的两处拐点分别解释为“外块先达最大摩擦”和“两块同时达最大摩擦”，先看系统再看单个外块。"
+  }
+}

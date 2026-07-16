@@ -79,10 +79,69 @@
   },
   "images": [],
   "practice": {
-    "title": "近似题：旋转飞椅夹角",
-    "question": "旋转飞椅的绳与竖直方向夹角为 \\(37^\\circ\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求椅子的向心加速度。",
-    "answer": "圆锥摆满足 \\(\\tan\\theta=\\frac{a_c}{g}\\)，所以 \\(a_c=g\\tan37^\\circ\\approx10\\times0.75=7.5\\,\\mathrm{m/s^2}\\)。",
-    "thinking": "拉力竖直分量平衡重力，水平分量提供向心力；两式相除得到 \\(a_c=g\\tan\\theta\\)。"
+    "title": "进阶近似题：旋转飞椅夹角",
+    "question": "**基础设问**\n\n旋转飞椅的绳与竖直方向夹角为 \\(37^\\circ\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求椅子的向心加速度。\n\n**综合提升**\n\n把原约束改为“只能拉、不能推”的轻绳，小球在竖直圆周内运动，半径为 \\(r\\)。（1）求恰能通过最高点的最小最高点速度；（2）若全过程只有重力做功，求对应的最小最低点速度；（3）求该临界状态最低点绳张力；（4）若半径改为 \\(\\lambda r\\)，给出三者的缩放关系。",
+    "answer": "**1. 基础设问**\n\n圆锥摆满足 \\(\\tan\\theta=\\frac{a_c}{g}\\)，所以 \\(a_c=g\\tan37^\\circ\\approx10\\times0.75=7.5\\,\\mathrm{m/s^2}\\)。\n\n**2. 综合提升**\n\n最高点临界张力为零：\n\n\\[mg=m\\frac{v_t^2}{r}\\Rightarrow v_{t,\\min}=\\sqrt{gr}.\\]\n\n由最低点到最高点上升 \\(2r\\)：\\(v_b^2=v_t^2+4gr=5gr\\)，故 \\(v_{b,\\min}=\\sqrt{5gr}\\)。最低点\n\n\\[T_b-mg=m\\frac{v_b^2}{r}\\Rightarrow T_b=6mg.\\]\n\n半径乘 \\(\\lambda\\) 后两临界速度均乘 \\(\\sqrt\\lambda\\)，临界张力仍为 \\(6mg\\)。",
+    "thinking": "**基础思路**\n\n拉力竖直分量平衡重力，水平分量提供向心力；两式相除得到 \\(a_c=g\\tan\\theta\\)。\n\n**进阶思路**\n\n先用约束力为零确定最高点临界，再用能量把临界状态传到最低点；这比只比较某一位置多了一层全过程联系。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
   },
-  "analysisText": "飞椅是圆锥摆模型。绳拉力竖直分量平衡重力：\\(T\\cos\\theta=mg\\)；水平分量提供向心力：\\(T\\sin\\theta=ma_c\\)。两式相除得 \\(a_c=g\\tan\\theta\\)，所以向心加速度由夹角决定，与质量无关。拉力 \\(T=\\frac{mg}{\\cos\\theta}\\)，与质量和夹角都有关。"
+  "analysisText": "飞椅是圆锥摆模型。绳拉力竖直分量平衡重力：\\(T\\cos\\theta=mg\\)；水平分量提供向心力：\\(T\\sin\\theta=ma_c\\)。两式相除得 \\(a_c=g\\tan\\theta\\)，所以向心加速度由夹角决定，与质量无关。拉力 \\(T=\\frac{mg}{\\cos\\theta}\\)，与质量和夹角都有关。",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "由重力与绳子拉力的合力提供向心力",
+      "thinking": "先圆锥摆模型，再受力方程，最后结论比较；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T\\cos\\theta=mg\\]\n\n\\[T\\sin\\theta=ma_c\\]\n\n\\[a_c=g\\tan\\theta\\]\n\n\\[T=\\frac{mg}{\\cos\\theta}\\]",
+      "judgment": "该结论与主方程推导结果及“竖直平衡、径向动力学和接触约束必须同时成立”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "圆锥摆模型",
+        "向心力来源",
+        "力的合成与分解"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(F_A:F_B=4m_A:3m_B\\)",
+      "thinking": "先圆锥摆模型，再受力方程，最后结论比较；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T\\cos\\theta=mg\\]\n\n\\[T\\sin\\theta=ma_c\\]\n\n\\[a_c=g\\tan\\theta\\]\n\n\\[T=\\frac{mg}{\\cos\\theta}\\]",
+      "judgment": "该结论没有同时满足“竖直平衡、径向动力学和接触约束必须同时成立”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "圆锥摆模型",
+        "向心力来源",
+        "力的合成与分解"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(a_A:a_B=16:9\\)",
+      "thinking": "先圆锥摆模型，再受力方程，最后结论比较；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T\\cos\\theta=mg\\]\n\n\\[T\\sin\\theta=ma_c\\]\n\n\\[a_c=g\\tan\\theta\\]\n\n\\[T=\\frac{mg}{\\cos\\theta}\\]",
+      "judgment": "该结论没有同时满足“竖直平衡、径向动力学和接触约束必须同时成立”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "圆锥摆模型",
+        "向心力来源",
+        "力的合成与分解"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "悬绳与竖直方向的夹角与游客质量无关",
+      "thinking": "先圆锥摆模型，再受力方程，最后结论比较；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T\\cos\\theta=mg\\]\n\n\\[T\\sin\\theta=ma_c\\]\n\n\\[a_c=g\\tan\\theta\\]\n\n\\[T=\\frac{mg}{\\cos\\theta}\\]",
+      "judgment": "该结论与主方程推导结果及“竖直平衡、径向动力学和接触约束必须同时成立”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "圆锥摆模型",
+        "向心力来源",
+        "力的合成与分解"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
 }

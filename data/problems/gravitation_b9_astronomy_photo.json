@@ -11,17 +11,134 @@
     "D. 该行星到太阳的距离一定大于地球到太阳的距离"
   ],
   "answer": "B、C",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "astronomy_photo", "playable": true, "interactive": true, "notes": "卫星做匀速圆周运动，照片只记录其水平投影；右图复现每隔 2h 测得的 L-t 正弦数据。", "params": { "period": { "label": "卫星周期", "value": 48, "min": 24, "max": 72, "step": 2, "unit": "h" }, "orbitRatio": { "label": "轨道半径比", "value": 10, "min": 5, "max": 15, "step": 0.5, "unit": "R" } }, "timeline": { "duration": 8, "loop": false } },
-  "knowledge": ["正弦投影", "开普勒第三定律", "天体密度"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "astronomy_photo",
+    "playable": true,
+    "interactive": true,
+    "notes": "卫星做匀速圆周运动，照片只记录其水平投影；右图复现每隔 2h 测得的 L-t 正弦数据。",
+    "params": {
+      "period": {
+        "label": "卫星周期",
+        "value": 48,
+        "min": 24,
+        "max": 72,
+        "step": 2,
+        "unit": "h"
+      },
+      "orbitRatio": {
+        "label": "轨道半径比",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.5,
+        "unit": "R"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "正弦投影",
+    "开普勒第三定律",
+    "天体密度"
+  ],
   "steps": [
-    { "stepId": 1, "title": "读取周期", "content": "表中数据对应 \\(L=10\\sin(7.5^\\circ t+15^\\circ)\\,\\mathrm{cm}\\)，角速度为 \\(7.5^\\circ/\\mathrm{h}\\)，故卫星周期为 \\(48\\,\\mathrm{h}\\)，A 错。", "knowledge": ["圆周投影"], "commonMistakes": [] },
-    { "stepId": 2, "title": "近地周期", "content": "照片上卫星轨道半径为 \\(10\\,\\mathrm{cm}\\)，行星半径为 \\(1\\,\\mathrm{cm}\\)，故 \\(r=10R\\)。由 \\(T_0/T=(R/r)^{3/2}\\)，得 \\(T_0=48/(10\\sqrt{10})=12\\sqrt{10}/25\\,\\mathrm{h}\\)，B 对。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] },
-    { "stepId": 3, "title": "密度与结论", "content": "近地周期满足 \\(\\rho=3\\pi/(GT_0^2)\\)，代入并换算为秒得 \\(\\rho\\approx4.7\\times10^3\\,\\mathrm{kg/m^3}\\)，约为 \\(5\\times10^3\\,\\mathrm{kg/m^3}\\)。照片不能确定行星到太阳的距离，故选 B、C。", "knowledge": ["平均密度"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "读取周期",
+      "content": "表中数据对应 \\(L=10\\sin(7.5^\\circ t+15^\\circ)\\,\\mathrm{cm}\\)，角速度为 \\(7.5^\\circ/\\mathrm{h}\\)，故卫星周期为 \\(48\\,\\mathrm{h}\\)，A 错。",
+      "knowledge": [
+        "圆周投影"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "近地周期",
+      "content": "照片上卫星轨道半径为 \\(10\\,\\mathrm{cm}\\)，行星半径为 \\(1\\,\\mathrm{cm}\\)，故 \\(r=10R\\)。由 \\(T_0/T=(R/r)^{3/2}\\)，得 \\(T_0=48/(10\\sqrt{10})=12\\sqrt{10}/25\\,\\mathrm{h}\\)，B 对。",
+      "knowledge": [
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "密度与结论",
+      "content": "近地周期满足 \\(\\rho=3\\pi/(GT_0^2)\\)，代入并换算为秒得 \\(\\rho\\approx4.7\\times10^3\\,\\mathrm{kg/m^3}\\)，约为 \\(5\\times10^3\\,\\mathrm{kg/m^3}\\)。照片不能确定行星到太阳的距离，故选 B、C。",
+      "knowledge": [
+        "平均密度"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：由近地周期求密度",
-    "question": "某均匀球形天体的近地卫星周期为 \\(T_0\\)，求天体平均密度。",
-    "answer": "\\(\\rho=\\dfrac{3\\pi}{GT_0^2}\\)。",
-    "thinking": "联立 \\(GMm/R^2=m4\\pi^2R/T_0^2\\) 与 \\(M=4\\pi R^3\\rho/3\\)。"
+    "title": "进阶近似题：由近地周期求密度",
+    "question": "**基础设问**\n\n某均匀球形天体的近地卫星周期为 \\(T_0\\)，求天体平均密度。\n\n**综合提升**\n\n设天体为密度均匀、半径 \\(R\\) 的球体。（1）推导内部距球心 \\(r\\) 处的重力加速度；（2）证明贯穿球心的真空隧道内运动为简谐运动；（3）求振动周期并用平均密度表示；（4）比较该周期与贴近表面的圆轨道周期。",
+    "answer": "**1. 基础设问**\n\n\\(\\rho=\\dfrac{3\\pi}{GT_0^2}\\)。\n\n**2. 综合提升**\n\n球内有效质量 \\(M(r)=4\\pi\\rho r^3/3\\)，故\n\n\\[g(r)=\\frac{GM(r)}{r^2}=\\frac{4\\pi G\\rho}{3}r.\\]\n\n沿隧道有 \\(a=-\\omega^2r\\)，其中 \\(\\omega^2=4\\pi G\\rho/3\\)，所以\n\n\\[T=2\\pi\\sqrt{\\frac{3}{4\\pi G\\rho}}.\\]\n\n贴地圆轨道满足同一 \\(GM/R^3=4\\pi G\\rho/3\\)，周期相同。",
+    "thinking": "**基础思路**\n\n联立 \\(GMm/R^2=m4\\pi^2R/T_0^2\\) 与 \\(M=4\\pi R^3\\rho/3\\)。\n\n**进阶思路**\n\n关键升级是把表面重力推广到球内有效质量，再识别加速度与位移成正比的简谐结构。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "该卫星绕行星运动的周期为 \\(24\\,\\mathrm{h}\\)",
+      "thinking": "先读取周期，再近地周期，最后密度与结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r=10R\\]\n\n\\[T_0/T=(R/r)^{3/2}\\]\n\n\\[T_0=48/(10\\sqrt{10})\\]\n\n\\[\\rho=3\\pi/(GT_0^2)\\]",
+      "judgment": "该结论没有同时满足“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "正弦投影",
+        "开普勒第三定律",
+        "天体密度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "该行星的近地卫星环绕周期 \\(T_0=\\dfrac{12}{25}\\sqrt{10}\\,\\mathrm{h}\\)",
+      "thinking": "先读取周期，再近地周期，最后密度与结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r=10R\\]\n\n\\[T_0/T=(R/r)^{3/2}\\]\n\n\\[T_0=48/(10\\sqrt{10})\\]\n\n\\[\\rho=3\\pi/(GT_0^2)\\]",
+      "judgment": "该结论与主方程推导结果及“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "正弦投影",
+        "开普勒第三定律",
+        "天体密度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "该行星的平均密度约为 \\(5\\times10^3\\,\\mathrm{kg/m^3}\\)",
+      "thinking": "先读取周期，再近地周期，最后密度与结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r=10R\\]\n\n\\[T_0/T=(R/r)^{3/2}\\]\n\n\\[T_0=48/(10\\sqrt{10})\\]\n\n\\[\\rho=3\\pi/(GT_0^2)\\]",
+      "judgment": "该结论与主方程推导结果及“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "正弦投影",
+        "开普勒第三定律",
+        "天体密度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "该行星到太阳的距离一定大于地球到太阳的距离",
+      "thinking": "先读取周期，再近地周期，最后密度与结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r=10R\\]\n\n\\[T_0/T=(R/r)^{3/2}\\]\n\n\\[T_0=48/(10\\sqrt{10})\\]\n\n\\[\\rho=3\\pi/(GT_0^2)\\]",
+      "judgment": "该结论没有同时满足“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "正弦投影",
+        "开普勒第三定律",
+        "天体密度"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

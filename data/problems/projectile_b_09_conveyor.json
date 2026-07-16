@@ -1,0 +1,124 @@
+{
+  "id": "projectile_b_09_conveyor",
+  "originalNumber": "B9",
+  "chapter": "平抛运动",
+  "title": "B组第9题：传送带相对运动",
+  "question": "如图，粗糙水平传送带的运行速度大小为 \\(v\\)。一物块以 \\(v_0\\) 从传送带的边缘、沿垂直传送带运行方向滑上传送带。在物块达到与传送带共速前的过程中，下列说法正确的是（　　）。",
+  "options": [
+    "A. 物块的速度一直增大",
+    "B. 物块的速度一直减小",
+    "C. 物块可能做直线运动",
+    "D. 物块一定做曲线运动"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "projectile_training_model",
+    "variant": "projectile_b_09_conveyor",
+    "playable": true,
+    "interactive": true,
+    "notes": "以传送带速度为基准显示相对速度衰减、摩擦方向和物块弯曲轨迹。",
+    "params": {
+      "beltSpeed": {
+        "label": "传送带速度",
+        "value": 4,
+        "min": 2,
+        "max": 7,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "v0": {
+        "label": "物块初速度",
+        "value": 5,
+        "min": 2,
+        "max": 8,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "mu": {
+        "label": "动摩擦因数",
+        "value": 0.25,
+        "min": 0.1,
+        "max": 0.5,
+        "step": 0.05,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "相对运动",
+    "滑动摩擦",
+    "曲线运动",
+    "速度合成"
+  ],
+  "steps": [
+    {
+      "title": "写出初始相对速度",
+      "content": "取传送带方向为 \\(x\\) 轴，物块初速度沿 \\(y\\) 轴。则物块相对传送带的初速度为 \\(\\vec v_{r0}=\\vec v_0-\\vec v_{带}\\)，它既不与 \\(\\vec v_0\\) 共线，也不与传送带速度共线。"
+    },
+    {
+      "title": "确定摩擦力方向",
+      "content": "滑动摩擦力始终与相对速度方向相反。由于传送带速度恒定，\\(\\vec v_r\\) 沿固定方向减小到零，故摩擦加速度方向固定。"
+    },
+    {
+      "title": "判断轨迹",
+      "content": "物块初速度与加速度不共线，所以速度方向持续改变，轨迹一定是曲线。"
+    },
+    {
+      "title": "判断速率",
+      "content": "速率变化取决于加速度在瞬时速度方向上的投影，可能先减小后增大，不能断言一直增大或一直减小。答案为 D。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "速率不一定单调增大",
+      "thinking": "比较加速度与瞬时速度的夹角。",
+      "formula": "\\[\\frac{d(v^2)}{dt}=2\\vec a\\cdot\\vec v\\]",
+      "judgment": "点积可随过程改变符号，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "速率也不一定单调减小",
+      "thinking": "物块最终速度等于传送带速度，初末速率大小关系由 \\(v\\) 与 \\(v_0\\) 决定。",
+      "formula": "\\[v_{\\text{末}}=v\\]",
+      "judgment": "若传送带更快，后段速率会增大，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "初速度与摩擦加速度不共线",
+      "thinking": "摩擦方向由 \\(-\\vec v_{r0}\\) 决定。",
+      "formula": "\\[\\vec a\\parallel(\\vec v_{带}-\\vec v_0)\\]",
+      "judgment": "因 \\(\\vec v_0\\perp\\vec v_{带}\\) 且二者均非零，\\(\\vec a\\) 不与 \\(\\vec v_0\\) 共线，不能做直线运动，C 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "加速度改变速度方向",
+      "thinking": "非零加速度具有垂直于速度的分量。",
+      "formula": "\\[\\vec a\\\not\\parallel\\vec v_0\\]",
+      "judgment": "物块在共速前一定做曲线运动，D 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：传送带上的轨迹方程",
+    "question": "水平传送带沿 \\(x\\) 轴以速度 \\(u\\) 匀速运动，物块以速度 \\(v_0\\) 沿 \\(y\\) 轴滑入，动摩擦因数为 \\(\\mu\\)。求共速前物块的加速度矢量、共速时间及轨迹参数方程，并求物块速率的最小值。",
+    "answer": "**加速度与共速时间**\n\n初相对速度为 \\((-u,v_0)\\)，故\n\n\\[\\vec a=\\mu g\\frac{(u,-v_0)}{\\sqrt{u^2+v_0^2}},\\qquad t_c=\\frac{\\sqrt{u^2+v_0^2}}{\\mu g}.\\]\n\n**轨迹**\n\n\\[x=\\frac12a_xt^2,\\qquad y=v_0t+\\frac12a_yt^2.\\]\n\n**最小速率**\n\n令 \\(\\vec v\\cdot\\vec a=0\\)，可得最小速率\n\n\\[v_{\\min}=\\frac{uv_0}{\\sqrt{u^2+v_0^2}}.\\]",
+    "thinking": "**思路**\n\n在传送带参考系中，相对速度沿固定方向匀减速；再转换回地面参考系。速率最小时速度与加速度垂直。"
+  }
+}

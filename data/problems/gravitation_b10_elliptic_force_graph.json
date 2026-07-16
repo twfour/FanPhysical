@@ -11,17 +11,135 @@
     "D. \\(Q\\) 的轨道长轴与短轴之比为 \\(2:\\sqrt3\\)"
   ],
   "answer": "A、C、D",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "elliptic_force_graph", "playable": true, "interactive": true, "notes": "卫星 P、Q 在不同椭圆轨道上运动，右图同步显示引力随时间的周期变化与极值。", "params": { "t1": { "label": "P周期 t₁", "value": 4, "min": 2, "max": 8, "step": 0.5, "unit": "h" }, "baseForce": { "label": "基准力 F", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "N" } }, "timeline": { "duration": 10, "loop": false } },
-  "knowledge": ["椭圆轨道", "引力图像", "开普勒第三定律"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "elliptic_force_graph",
+    "playable": true,
+    "interactive": true,
+    "notes": "卫星 P、Q 在不同椭圆轨道上运动，右图同步显示引力随时间的周期变化与极值。",
+    "params": {
+      "t1": {
+        "label": "P周期 t₁",
+        "value": 4,
+        "min": 2,
+        "max": 8,
+        "step": 0.5,
+        "unit": "h"
+      },
+      "baseForce": {
+        "label": "基准力 F",
+        "value": 1,
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "unit": "N"
+      }
+    },
+    "timeline": {
+      "duration": 10,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "椭圆轨道",
+    "引力图像",
+    "开普勒第三定律"
+  ],
   "steps": [
-    { "stepId": 1, "title": "周期与半长轴", "content": "由图得 \\(T_P=t_1\\)、\\(T_Q=2t_2=2\\sqrt2t_1\\)，A 正确。由 \\(T^2\\propto a^3\\)，得半长轴 \\(a_P:a_Q=1:2\\)。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] },
-    { "stepId": 2, "title": "近远点距离", "content": "对同一卫星有 \\(F_{近}/F_{远}=(r_{远}/r_{近})^2\\)。故 \\(P\\) 的 \\(r_a/r_p=2\\)，\\(Q\\) 的 \\(r_a/r_p=3\\)。由 \\(a=(r_p+r_a)/2\\)，得 \\(r_{pP}=2a_P/3\\)、\\(r_{pQ}=a_Q/2\\)，所以 \\(r_{pP}:r_{pQ}=2:3\\)，B 错。", "knowledge": ["平方反比"], "commonMistakes": [] },
-    { "stepId": 3, "title": "质量与轴比", "content": "用近点最大引力 \\(8F=GMm_P/r_{pP}^2\\)、\\(9F=GMm_Q/r_{pQ}^2\\)，得 \\(m_P:m_Q=32:81\\)，C 对。对 \\(Q\\)，偏心率 \\(e=(3-1)/(3+1)=1/2\\)，故长轴与短轴之比 \\(a:b=1/\\sqrt{1-e^2}=2:\\sqrt3\\)，D 对。", "knowledge": ["卫星质量", "椭圆几何"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "周期与半长轴",
+      "content": "由图得 \\(T_P=t_1\\)、\\(T_Q=2t_2=2\\sqrt2t_1\\)，A 正确。由 \\(T^2\\propto a^3\\)，得半长轴 \\(a_P:a_Q=1:2\\)。",
+      "knowledge": [
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "近远点距离",
+      "content": "对同一卫星有 \\(F_{近}/F_{远}=(r_{远}/r_{近})^2\\)。故 \\(P\\) 的 \\(r_a/r_p=2\\)，\\(Q\\) 的 \\(r_a/r_p=3\\)。由 \\(a=(r_p+r_a)/2\\)，得 \\(r_{pP}=2a_P/3\\)、\\(r_{pQ}=a_Q/2\\)，所以 \\(r_{pP}:r_{pQ}=2:3\\)，B 错。",
+      "knowledge": [
+        "平方反比"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "质量与轴比",
+      "content": "用近点最大引力 \\(8F=GMm_P/r_{pP}^2\\)、\\(9F=GMm_Q/r_{pQ}^2\\)，得 \\(m_P:m_Q=32:81\\)，C 对。对 \\(Q\\)，偏心率 \\(e=(3-1)/(3+1)=1/2\\)，故长轴与短轴之比 \\(a:b=1/\\sqrt{1-e^2}=2:\\sqrt3\\)，D 对。",
+      "knowledge": [
+        "卫星质量",
+        "椭圆几何"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：引力极值求轨道偏心率",
-    "question": "同一卫星在椭圆轨道上所受最大引力与最小引力之比为 \\(16:1\\)，求轨道偏心率。",
-    "answer": "\\(r_a/r_p=4\\)，故 \\(e=(r_a-r_p)/(r_a+r_p)=3/5\\)。",
-    "thinking": "先由引力平方反比求远近点距离比，再用 \\(e=(r_a-r_p)/(r_a+r_p)\\)。"
+    "title": "进阶近似题：引力极值求轨道偏心率",
+    "question": "**基础设问**\n\n同一卫星在椭圆轨道上所受最大引力与最小引力之比为 \\(16:1\\)，求轨道偏心率。\n\n**综合提升**\n\n某天体沿椭圆轨道运动，近日点、远日点距离分别为 \\(r_p,r_a\\)。（1）推导两点速度比；（2）用 \\(r_p,r_a\\) 写出半长轴和周期；（3）由万有引力比较两点加速度；（4）若保持半长轴不变而增大偏心率，讨论速度比和周期怎样变化。",
+    "answer": "**1. 基础设问**\n\n\\(r_a/r_p=4\\)，故 \\(e=(r_a-r_p)/(r_a+r_p)=3/5\\)。\n\n**2. 综合提升**\n\n近远点速度均与半径垂直，由角动量守恒\n\n\\[\\frac{v_p}{v_a}=\\frac{r_a}{r_p}.\\]\n\n半长轴 \\(a=(r_p+r_a)/2\\)，周期 \\(T=2\\pi\\sqrt{a^3/(GM)}\\)。加速度比 \\(g_p/g_a=(r_a/r_p)^2\\)。保持 \\(a\\) 不变时周期不变；偏心率增大使 \\(r_a/r_p\\) 增大，因此速度比增大。",
+    "thinking": "**基础思路**\n\n先由引力平方反比求远近点距离比，再用 \\(e=(r_a-r_p)/(r_a+r_p)\\)。\n\n**进阶思路**\n\n把局部比较与整轨道性质分开：角动量管近远点速度，半长轴管周期。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(P\\)、\\(Q\\) 绕行星公转的周期之比为 \\(1:2\\sqrt2\\)",
+      "thinking": "先周期与半长轴，再近远点距离，最后质量与轴比；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T_P=t_1\\]\n\n\\[T_Q=2t_2=2\\sqrt2t_1\\]\n\n\\[a_P:a_Q=1:2\\]\n\n\\[F_{近}/F_{远}=(r_{远}/r_{近})^2\\]\n\n\\[r_a/r_p=2\\]",
+      "judgment": "该结论与主方程推导结果及“近远点的角动量关系与半长轴决定周期的关系必须区分”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "椭圆轨道",
+        "引力图像",
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(P\\)、\\(Q\\) 到行星中心距离的最小值之比为 \\(3:2\\)",
+      "thinking": "先周期与半长轴，再近远点距离，最后质量与轴比；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T_P=t_1\\]\n\n\\[T_Q=2t_2=2\\sqrt2t_1\\]\n\n\\[a_P:a_Q=1:2\\]\n\n\\[F_{近}/F_{远}=(r_{远}/r_{近})^2\\]\n\n\\[r_a/r_p=2\\]",
+      "judgment": "该结论没有同时满足“近远点的角动量关系与半长轴决定周期的关系必须区分”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "椭圆轨道",
+        "引力图像",
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(P\\)、\\(Q\\) 的质量之比为 \\(32:81\\)",
+      "thinking": "先周期与半长轴，再近远点距离，最后质量与轴比；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T_P=t_1\\]\n\n\\[T_Q=2t_2=2\\sqrt2t_1\\]\n\n\\[a_P:a_Q=1:2\\]\n\n\\[F_{近}/F_{远}=(r_{远}/r_{近})^2\\]\n\n\\[r_a/r_p=2\\]",
+      "judgment": "该结论与主方程推导结果及“近远点的角动量关系与半长轴决定周期的关系必须区分”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "椭圆轨道",
+        "引力图像",
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(Q\\) 的轨道长轴与短轴之比为 \\(2:\\sqrt3\\)",
+      "thinking": "先周期与半长轴，再近远点距离，最后质量与轴比；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T_P=t_1\\]\n\n\\[T_Q=2t_2=2\\sqrt2t_1\\]\n\n\\[a_P:a_Q=1:2\\]\n\n\\[F_{近}/F_{远}=(r_{远}/r_{近})^2\\]\n\n\\[r_a/r_p=2\\]",
+      "judgment": "该结论与主方程推导结果及“近远点的角动量关系与半长轴决定周期的关系必须区分”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "椭圆轨道",
+        "引力图像",
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

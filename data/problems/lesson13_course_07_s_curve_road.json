@@ -14,15 +14,58 @@
     "interactive": true,
     "notes": "汽车依次通过两弯道和上坡直道；右图比较允许速度与半径，并标示功率输入和阻力功。",
     "params": {
-      "radius1": { "label": "弯道 1 半径", "value": 10, "min": 6, "max": 16, "step": 0.5, "unit": "m" },
-      "radius2": { "label": "弯道 2 半径", "value": 20, "min": 12, "max": 30, "step": 1, "unit": "m" },
-      "frictionRatio": { "label": "最大摩擦/车重", "value": 1.25, "min": 0.6, "max": 1.6, "step": 0.05, "unit": "" },
-      "roadWidth": { "label": "路面宽度", "value": 10, "min": 4, "max": 12, "step": 0.5, "unit": "m" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "radius1": {
+        "label": "弯道 1 半径",
+        "value": 10,
+        "min": 6,
+        "max": 16,
+        "step": 0.5,
+        "unit": "m"
+      },
+      "radius2": {
+        "label": "弯道 2 半径",
+        "value": 20,
+        "min": 12,
+        "max": 30,
+        "step": 1,
+        "unit": "m"
+      },
+      "frictionRatio": {
+        "label": "最大摩擦/车重",
+        "value": 1.25,
+        "min": 0.6,
+        "max": 1.6,
+        "step": 0.05,
+        "unit": ""
+      },
+      "roadWidth": {
+        "label": "路面宽度",
+        "value": 10,
+        "min": 4,
+        "max": 12,
+        "step": 0.5,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 8, "loop": false }
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
   },
-  "knowledge": ["水平圆周运动", "功率做功", "动能定理", "弯道优化"],
+  "knowledge": [
+    "水平圆周运动",
+    "功率做功",
+    "动能定理",
+    "弯道优化"
+  ],
   "steps": [
     {
       "title": "求弯道 1 最大速度",
@@ -42,9 +85,14 @@
     }
   ],
   "practice": {
-    "title": "近似题：水平弯道临界速度",
-    "question": "汽车在半径 \\(R=25\\,\\mathrm m\\) 的水平弯道上匀速行驶，最大侧向静摩擦力为 \\(0.8mg\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求不侧滑的最大速度。",
-    "answer": "由 \\(0.8mg=mv^2/R\\)，得 \\(v_{\\max}=\\sqrt{0.8gR}=10\\sqrt2\\,\\mathrm{m/s}\\)。",
-    "thinking": "水平弯道没有倾角时，径向静摩擦力是向心力的唯一来源；质量会约去。"
+    "title": "进阶近似题：水平弯道临界速度",
+    "question": "**基础设问**\n\n汽车在半径 \\(R=25\\,\\mathrm m\\) 的水平弯道上匀速行驶，最大侧向静摩擦力为 \\(0.8mg\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求不侧滑的最大速度。\n\n**综合提升**\n\n给出机械能 \\(E-x\\) 图像和动能 \\(E_k-x\\) 图像。（1）分别说明两图斜率的物理意义；（2）反求非保守力与合力；（3）由两图之差得到势能函数；（4）判断转折点、停止点和受力规律改变点在图像上怎样区分。",
+    "answer": "**1. 基础设问**\n\n由 \\(0.8mg=mv^2/R\\)，得 \\(v_{\\max}=\\sqrt{0.8gR}=10\\sqrt2\\,\\mathrm{m/s}\\)。\n\n**2. 综合提升**\n\n有\n\n\\[\\frac{dE}{dx}=F_{非保守,x},\\qquad \\frac{dE_k}{dx}=F_{合,x},\\qquad E_p=E-E_k.\\]\n\n停止点满足 \\(E_k=0\\)；动能极值处合力为零；机械能图斜率突变表示非保守力规律改变。三者含义不同，不能只凭图线“拐弯”统一判断。",
+    "thinking": "**基础思路**\n\n水平弯道没有倾角时，径向静摩擦力是向心力的唯一来源；质量会约去。\n\n**进阶思路**\n\n把图像斜率翻译成力，把两图差翻译成势能，再用非负动能判断可达区间。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

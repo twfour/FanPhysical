@@ -83,10 +83,73 @@
   },
   "images": [],
   "practice": {
-    "title": "近似题：打夯机临界转速",
-    "question": "打夯机支架质量 \\(M=18\\,\\mathrm{kg}\\)，铁球质量 \\(m=2\\,\\mathrm{kg}\\)，轻杆长 \\(l=0.5\\,\\mathrm{m}\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求支架刚好可能离地时的角速度。",
-    "answer": "最高点时铁球对支架的竖直作用可能向上。临界离地满足 \\((M+m)g=m\\omega^2l\\)，所以 \\(\\omega=\\sqrt{\\frac{(M+m)g}{ml}}=\\sqrt{\\frac{20\\times10}{2\\times0.5}}=10\\sqrt2\\,\\mathrm{rad/s}\\)。",
-    "thinking": "找最高点、地面对支架支持力为零的临界条件，把整机竖直方向受力写出来。"
+    "title": "进阶近似题：打夯机临界转速",
+    "question": "**基础设问**\n\n打夯机支架质量 \\(M=18\\,\\mathrm{kg}\\)，铁球质量 \\(m=2\\,\\mathrm{kg}\\)，轻杆长 \\(l=0.5\\,\\mathrm{m}\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求支架刚好可能离地时的角速度。\n\n**综合提升**\n\n把原约束改为“只能拉、不能推”的轻绳，小球在竖直圆周内运动，半径为 \\(r\\)。（1）求恰能通过最高点的最小最高点速度；（2）若全过程只有重力做功，求对应的最小最低点速度；（3）求该临界状态最低点绳张力；（4）若半径改为 \\(\\lambda r\\)，给出三者的缩放关系。",
+    "answer": "**1. 基础设问**\n\n最高点时铁球对支架的竖直作用可能向上。临界离地满足 \\((M+m)g=m\\omega^2l\\)，所以 \\(\\omega=\\sqrt{\\frac{(M+m)g}{ml}}=\\sqrt{\\frac{20\\times10}{2\\times0.5}}=10\\sqrt2\\,\\mathrm{rad/s}\\)。\n\n**2. 综合提升**\n\n最高点临界张力为零：\n\n\\[mg=m\\frac{v_t^2}{r}\\Rightarrow v_{t,\\min}=\\sqrt{gr}.\\]\n\n由最低点到最高点上升 \\(2r\\)：\\(v_b^2=v_t^2+4gr=5gr\\)，故 \\(v_{b,\\min}=\\sqrt{5gr}\\)。最低点\n\n\\[T_b-mg=m\\frac{v_b^2}{r}\\Rightarrow T_b=6mg.\\]\n\n半径乘 \\(\\lambda\\) 后两临界速度均乘 \\(\\sqrt\\lambda\\)，临界张力仍为 \\(6mg\\)。",
+    "thinking": "**基础思路**\n\n找最高点、地面对支架支持力为零的临界条件，把整机竖直方向受力写出来。\n\n**进阶思路**\n\n先用约束力为零确定最高点临界，再用能量把临界状态传到最低点；这比只比较某一位置多了一层全过程联系。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
   },
-  "analysisText": "铁球线速度 \\(v=\\omega l\\)，向心加速度 \\(a_c=\\omega^2l\\)。最低点时铁球需要向上的向心力，支架受到更大的向下作用；最高点时铁球向心加速度向下，支架可能被向上拉。支架刚好离地的临界条件可写成 \\((M+m)g=m\\omega^2l\\)。"
+  "analysisText": "铁球线速度 \\(v=\\omega l\\)，向心加速度 \\(a_c=\\omega^2l\\)。最低点时铁球需要向上的向心力，支架受到更大的向下作用；最高点时铁球向心加速度向下，支架可能被向上拉。支架刚好离地的临界条件可写成 \\((M+m)g=m\\omega^2l\\)。",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "铁球转动过程线速度不变",
+      "thinking": "先线速度和加速度，再最低点压力最大，最后最高点临界；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v=\\omega l\\]\n\n\\[a_c=\\omega^2l\\]\n\n\\[(M+m)g=m\\omega^2l\\]\n\n\\[\\omega=\\sqrt{\\frac{(M+m)g}{ml}}\\]",
+      "judgment": "该结论没有同时满足“径向合力、速度随高度的变化以及约束力非负必须一起检查”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "匀速圆周运动",
+        "向心力",
+        "超重与失重",
+        "临界条件"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "铁球做圆周运动的向心加速度大小是 \\(\\omega^2l+g\\)",
+      "thinking": "先线速度和加速度，再最低点压力最大，最后最高点临界；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v=\\omega l\\]\n\n\\[a_c=\\omega^2l\\]\n\n\\[(M+m)g=m\\omega^2l\\]\n\n\\[\\omega=\\sqrt{\\frac{(M+m)g}{ml}}\\]",
+      "judgment": "该结论没有同时满足“径向合力、速度随高度的变化以及约束力非负必须一起检查”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "匀速圆周运动",
+        "向心力",
+        "超重与失重",
+        "临界条件"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "铁球转动到最低点时，打夯机整体对地面压力最大",
+      "thinking": "先线速度和加速度，再最低点压力最大，最后最高点临界；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v=\\omega l\\]\n\n\\[a_c=\\omega^2l\\]\n\n\\[(M+m)g=m\\omega^2l\\]\n\n\\[\\omega=\\sqrt{\\frac{(M+m)g}{ml}}\\]",
+      "judgment": "该结论与主方程推导结果及“径向合力、速度随高度的变化以及约束力非负必须一起检查”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "匀速圆周运动",
+        "向心力",
+        "超重与失重",
+        "临界条件"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "若铁球转动到最高点时，支架对地面的压力刚好为零，则 \\(\\omega=\\sqrt{\\frac{(M+m)g}{ml}}\\)",
+      "thinking": "先线速度和加速度，再最低点压力最大，最后最高点临界；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v=\\omega l\\]\n\n\\[a_c=\\omega^2l\\]\n\n\\[(M+m)g=m\\omega^2l\\]\n\n\\[\\omega=\\sqrt{\\frac{(M+m)g}{ml}}\\]",
+      "judgment": "该结论与主方程推导结果及“径向合力、速度随高度的变化以及约束力非负必须一起检查”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "匀速圆周运动",
+        "向心力",
+        "超重与失重",
+        "临界条件"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
 }

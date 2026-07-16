@@ -14,40 +14,81 @@
     "interactive": true,
     "notes": "人水平远离滑轮，右侧绳段变长并使重物上升；右图显示拉力功随人的水平位移累积。",
     "params": {
-      "mass": { "label": "重物质量", "value": 50, "min": 20, "max": 100, "step": 5, "unit": "kg" },
-      "walk": { "label": "水平移动", "value": 2, "min": 1, "max": 4, "step": 0.1, "unit": "m" },
-      "g": { "label": "重力加速度", "value": 10, "min": 8, "max": 12, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "重物质量",
+        "value": 50,
+        "min": 20,
+        "max": 100,
+        "step": 5,
+        "unit": "kg"
+      },
+      "walk": {
+        "label": "水平移动",
+        "value": 2,
+        "min": 1,
+        "max": 4,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 8,
+        "max": 12,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 6, "loop": false }
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
-  "knowledge": ["变方向力做功", "定滑轮", "几何约束"],
+  "knowledge": [
+    "变方向力做功",
+    "定滑轮",
+    "几何约束"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "求滑轮高度",
       "content": "设滑轮到人手所在水平线的高度为 \\(h\\)。由水平距离变化 \\(h\\cot30^\\circ-h\\cot60^\\circ=2\\,\\mathrm m\\)，得 \\(h=\\sqrt3\\,\\mathrm m\\)。",
-      "knowledge": ["三角函数"],
+      "knowledge": [
+        "三角函数"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "求斜绳长度变化",
       "content": "初态斜绳长 \\(L_A=h/\\sin60^\\circ=2\\,\\mathrm m\\)，末态 \\(L_B=h/\\sin30^\\circ=2\\sqrt3\\,\\mathrm m\\)，故人端绳长增加 \\(\\Delta L=2(\\sqrt3-1)\\,\\mathrm m\\)。",
-      "knowledge": ["绳长约束"],
-      "commonMistakes": ["直接用水平位移 \\(2\\,\\mathrm m\\) 代替拉力方向上的位移"]
+      "knowledge": [
+        "绳长约束"
+      ],
+      "commonMistakes": [
+        "直接用水平位移 \\(2\\,\\mathrm m\\) 代替拉力方向上的位移"
+      ]
     },
     {
       "stepId": 3,
       "title": "计算拉力功",
       "content": "重物匀速上升，绳中张力 \\(T=mg=500\\,\\mathrm N\\)。人对绳做功 \\(W=T\\Delta L=1000(\\sqrt3-1)\\,\\mathrm J\\)。",
-      "knowledge": ["变方向恒力做功"],
+      "knowledge": [
+        "变方向恒力做功"
+      ],
       "commonMistakes": []
     }
   ],
   "practice": {
-    "title": "近似题：改变末态角度",
-    "question": "质量 \\(m=40\\,\\mathrm{kg}\\) 的物体由定滑轮匀速提升。人端绳与水平夹角从 \\(53^\\circ\\) 变为 \\(37^\\circ\\)，滑轮高度为 \\(h=2.4\\,\\mathrm m\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)、\\(\\sin53^\\circ=0.8\\)、\\(\\sin37^\\circ=0.6\\)，求人对绳做的功。",
-    "answer": "\\(L_1=2.4/0.8=3\\,\\mathrm m\\)，\\(L_2=2.4/0.6=4\\,\\mathrm m\\)，故 \\(W=mg(L_2-L_1)=400\\,\\mathrm J\\)。",
-    "thinking": "张力恒为 \\(mg\\)，但作用点沿拉力方向的有效位移等于人端斜绳长度的增加量。"
+    "title": "进阶近似题：改变末态角度",
+    "question": "**基础设问**\n\n质量 \\(m=40\\,\\mathrm{kg}\\) 的物体由定滑轮匀速提升。人端绳与水平夹角从 \\(53^\\circ\\) 变为 \\(37^\\circ\\)，滑轮高度为 \\(h=2.4\\,\\mathrm m\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)、\\(\\sin53^\\circ=0.8\\)、\\(\\sin37^\\circ=0.6\\)，求人对绳做的功。\n\n**综合提升**\n\n把原题中的恒力推广为方向或大小随路径参数 \\(s\\) 变化的力 \\(\\vec F(s)\\)。（1）写出总功的积分表达式；（2）给出瞬时功率；（3）说明同一始末位置沿不同路径做功何时相同；（4）设计一个由 \\(P-t\\) 图像反求总功的方法。",
+    "answer": "**1. 基础设问**\n\n\\(L_1=2.4/0.8=3\\,\\mathrm m\\)，\\(L_2=2.4/0.6=4\\,\\mathrm m\\)，故 \\(W=mg(L_2-L_1)=400\\,\\mathrm J\\)。\n\n**2. 综合提升**\n\n总功和瞬时功率分别为\n\n\\[W=\\int_{s_1}^{s_2}\\vec F(s)\\cdot d\\vec s,\\qquad P=\\vec F\\cdot\\vec v=\\frac{dW}{dt}.\\]\n\n只有保守力的功才只由始末位置决定；一般外力功与路径有关。\\(P-t\\) 图像的有符号面积 \\(\\int Pdt\\) 就是总功。",
+    "thinking": "**基础思路**\n\n张力恒为 \\(mg\\)，但作用点沿拉力方向的有效位移等于人端斜绳长度的增加量。\n\n**进阶思路**\n\n从定力公式升级到线积分与功率积分，可统一处理变大小、变方向和分段做功。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

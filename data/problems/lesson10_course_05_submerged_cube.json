@@ -14,40 +14,81 @@
     "interactive": true,
     "notes": "木块缓慢下沉，外力随浸入深度线性增大；右图中曲线下方面积就是外力做功。",
     "params": {
-      "mass": { "label": "木块质量", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "kg" },
-      "edge": { "label": "木块边长", "value": 1, "min": 0.4, "max": 2, "step": 0.1, "unit": "m" },
-      "g": { "label": "重力加速度", "value": 10, "min": 8, "max": 12, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "木块质量",
+        "value": 2,
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "edge": {
+        "label": "木块边长",
+        "value": 1,
+        "min": 0.4,
+        "max": 2,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 8,
+        "max": 12,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 6, "loop": false }
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
-  "knowledge": ["浮力", "变力做功", "图像面积"],
+  "knowledge": [
+    "浮力",
+    "变力做功",
+    "图像面积"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "确定初末浸入深度",
       "content": "木块密度为水的一半，漂浮时排开水的体积为木块体积的一半，所以初始浸入深度为 \\(a/2\\)。完全浸没前还需下压 \\(a/2\\)。",
-      "knowledge": ["漂浮条件"],
+      "knowledge": [
+        "漂浮条件"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "写出外力随位移的变化",
       "content": "设向下位移为 \\(x\\)，其中 \\(0\\le x\\le a/2\\)。缓慢运动时 \\(F+mg=F_{\\mathrm{浮}}\\)，而新增浮力与 \\(x\\) 成正比，故 \\(F=\\frac{2mg}{a}x\\)。",
-      "knowledge": ["准静态平衡"],
-      "commonMistakes": ["把缓慢下压过程中的外力当成恒力"]
+      "knowledge": [
+        "准静态平衡"
+      ],
+      "commonMistakes": [
+        "把缓慢下压过程中的外力当成恒力"
+      ]
     },
     {
       "stepId": 3,
       "title": "用图像面积求变力功",
       "content": "\\(F-x\\) 图像是一条从 \\(0\\) 增至 \\(mg\\) 的直线。外力功为三角形面积 \\(W=\\frac12\\cdot\\frac a2\\cdot mg=\\frac14mga\\)。",
-      "knowledge": ["变力做功"],
+      "knowledge": [
+        "变力做功"
+      ],
       "commonMistakes": []
     }
   ],
   "practice": {
-    "title": "近似题：密度不同的木块",
-    "question": "边长为 \\(a\\)、质量为 \\(m\\) 的正方体木块密度为水的 \\(\\frac34\\)。缓慢下压至刚好完全浸没，求外力做功。",
-    "answer": "初始浸深为 \\(3a/4\\)，下压距离 \\(a/4\\)，末态外力为 \\(F_{\\max}=F_{\\mathrm{浮}}-mg=mg/3\\)。故 \\(W=\\frac12\\cdot\\frac a4\\cdot\\frac{mg}{3}=\\frac{mga}{24}\\)。",
-    "thinking": "先由密度比确定初始浸入比例，再找出外力的初值、末值与位移，利用线性变化的平均力求功。"
+    "title": "进阶近似题：密度不同的木块",
+    "question": "**基础设问**\n\n边长为 \\(a\\)、质量为 \\(m\\) 的正方体木块密度为水的 \\(\\frac34\\)。缓慢下压至刚好完全浸没，求外力做功。\n\n**综合提升**\n\n把原过程中的合力推广为随位移变化的 \\(F(x)=F_0-kx\\)。（1）求从 \\(0\\) 到 \\(x\\) 的总功；（2）由动能定理求速度函数；（3）求速度最大的位移；（4）若 \\(F-x\\) 图线不是直线，说明怎样由图像判断功与动能变化。",
+    "answer": "**1. 基础设问**\n\n初始浸深为 \\(3a/4\\)，下压距离 \\(a/4\\)，末态外力为 \\(F_{\\max}=F_{\\mathrm{浮}}-mg=mg/3\\)。故 \\(W=\\frac12\\cdot\\frac a4\\cdot\\frac{mg}{3}=\\frac{mga}{24}\\)。\n\n**2. 综合提升**\n\n总功为\n\n\\[W(x)=\\int_0^x(F_0-k\\xi)d\\xi=F_0x-\\frac12kx^2.\\]\n\n若初速度为 \\(v_0\\)，则 \\(v^2=v_0^2+2W/m\\)。速度最大处满足合力变号的临界 \\(F(x)=0\\)，即 \\(x=F_0/k\\)。一般 \\(F-x\\) 图像下的有符号面积就是功，也就是动能变化。",
+    "thinking": "**基础思路**\n\n先由密度比确定初始浸入比例，再找出外力的初值、末值与位移，利用线性变化的平均力求功。\n\n**进阶思路**\n\n把定值计算提升为函数分析：先积出功，再从功的导数就是合力判断动能的极值。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

@@ -11,18 +11,135 @@
     "D. 三角形三星系统中每颗星加速度为 \\(\\sqrt3Gm/L^2\\)"
   ],
   "answer": "BD",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_triple_star", "playable": true, "interactive": true, "notes": "上方为直线三星、下方为等边三星，两套系统同步旋转；右图逐项核验速度、周期、角速度与加速度。", "params": { "massScale": { "label": "恒星质量", "value": 1, "min": 0.5, "max": 3.0, "step": 0.1, "unit": "m" } }, "timeline": { "duration": 8, "loop": false } },
-  "knowledge": ["三星模型", "引力合成", "匀速圆周运动"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_triple_star",
+    "playable": true,
+    "interactive": true,
+    "notes": "上方为直线三星、下方为等边三星，两套系统同步旋转；右图逐项核验速度、周期、角速度与加速度。",
+    "params": {
+      "massScale": {
+        "label": "恒星质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "unit": "m"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "三星模型",
+    "引力合成",
+    "匀速圆周运动"
+  ],
   "steps": [
-    { "stepId": 1, "title": "直线三星受力", "content": "外星受中央星引力 \\(Gm^2/L^2\\) 和另一外星引力 \\(Gm^2/(2L)^2\\)，合力为 \\(5Gm^2/(4L^2)\\)。", "knowledge": ["万有引力叠加"], "commonMistakes": [] },
-    { "stepId": 2, "title": "直线系统速度与周期", "content": "由 \\(mv^2/L=5Gm^2/(4L^2)\\)，得 \\(v=\\tfrac12\\sqrt{5Gm/L}\\)，A 错误；\\(T=2\\pi L/v=4\\pi\\sqrt{L^3/(5Gm)}\\)，B 正确。", "knowledge": ["圆周运动"], "commonMistakes": [] },
-    { "stepId": 3, "title": "三角形系统合力", "content": "每颗星受两个大小为 \\(Gm^2/L^2\\)、夹角为 \\(60^\\circ\\) 的引力，合力为 \\(\\sqrt3Gm^2/L^2\\)，所以加速度为 \\(\\sqrt3Gm/L^2\\)，D 正确。", "knowledge": ["力的合成"], "commonMistakes": [] },
-    { "stepId": 4, "title": "检查角速度", "content": "轨道半径为 \\(L/\\sqrt3\\)，由 \\(\\omega^2L/\\sqrt3=\\sqrt3Gm/L^2\\) 得 \\(\\omega=\\sqrt{3Gm/L^3}\\)，与 C 不符。故选 B、D。", "knowledge": ["角速度"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "直线三星受力",
+      "content": "外星受中央星引力 \\(Gm^2/L^2\\) 和另一外星引力 \\(Gm^2/(2L)^2\\)，合力为 \\(5Gm^2/(4L^2)\\)。",
+      "knowledge": [
+        "万有引力叠加"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "直线系统速度与周期",
+      "content": "由 \\(mv^2/L=5Gm^2/(4L^2)\\)，得 \\(v=\\tfrac12\\sqrt{5Gm/L}\\)，A 错误；\\(T=2\\pi L/v=4\\pi\\sqrt{L^3/(5Gm)}\\)，B 正确。",
+      "knowledge": [
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "三角形系统合力",
+      "content": "每颗星受两个大小为 \\(Gm^2/L^2\\)、夹角为 \\(60^\\circ\\) 的引力，合力为 \\(\\sqrt3Gm^2/L^2\\)，所以加速度为 \\(\\sqrt3Gm/L^2\\)，D 正确。",
+      "knowledge": [
+        "力的合成"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "检查角速度",
+      "content": "轨道半径为 \\(L/\\sqrt3\\)，由 \\(\\omega^2L/\\sqrt3=\\sqrt3Gm/L^2\\) 得 \\(\\omega=\\sqrt{3Gm/L^3}\\)，与 C 不符。故选 B、D。",
+      "knowledge": [
+        "角速度"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：等边三星角速度",
-    "question": "三颗质量均为 \\(m\\) 的恒星位于边长为 \\(a\\) 的等边三角形顶点并稳定转动，求角速度。",
-    "answer": "\\(\\omega=\\sqrt{3Gm/a^3}\\)。",
-    "thinking": "先合成另外两颗星的引力，再用顶点到中心距离 \\(a/\\sqrt3\\) 列向心力方程。"
+    "title": "进阶近似题：等边三星角速度",
+    "question": "**基础设问**\n\n三颗质量均为 \\(m\\) 的恒星位于边长为 \\(a\\) 的等边三角形顶点并稳定转动，求角速度。\n\n**综合提升**\n\n质量为 \\(M,m\\) 的双星相距 \\(L\\)，绕共同质心做圆周运动。（1）求两星轨道半径；（2）推导共同角速度和周期；（3）在 \\(L\\) 不变、总质量不变时，把少量质量由 \\(M\\) 转移给 \\(m\\)，讨论周期是否改变；（4）讨论两星线速度之比怎样变化。",
+    "answer": "**1. 基础设问**\n\n\\(\\omega=\\sqrt{3Gm/a^3}\\)。\n\n**2. 综合提升**\n\n质心关系给出\n\n\\[r_M=\\frac{m}{M+m}L,\\qquad r_m=\\frac{M}{M+m}L.\\]\n\n由万有引力提供向心力得\n\n\\[\\omega^2=\\frac{G(M+m)}{L^3},\\qquad T=2\\pi\\sqrt{\\frac{L^3}{G(M+m)}}.\\]\n\n若 \\(L\\) 与总质量均不变，周期不变；速度比 \\(v_M:v_m=r_M:r_m=m:M\\)，会随质量分配改变。",
+    "thinking": "**基础思路**\n\n先合成另外两颗星的引力，再用顶点到中心距离 \\(a/\\sqrt3\\) 列向心力方程。\n\n**进阶思路**\n\n先由质心分配半径，再由总质量决定共同角速度；质量转移可能改变半径比，却不一定改变周期。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "直线三星系统中外星线速度为 \\(\\sqrt{Gm/L}\\)",
+      "thinking": "先直线三星受力，再直线系统速度与周期，最后三角形系统合力；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[mv^2/L=5Gm^2/(4L^2)\\]\n\n\\[v=\\tfrac12\\sqrt{5Gm/L}\\]\n\n\\[T=2\\pi L/v=4\\pi\\sqrt{L^3/(5Gm)}\\]\n\n\\[\\omega^2L/\\sqrt3=\\sqrt3Gm/L^2\\]\n\n\\[\\omega=\\sqrt{3Gm/L^3}\\]",
+      "judgment": "该结论没有同时满足“质心关系、星间距离和共同角速度必须使用同一套几何量”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "三星模型",
+        "引力合成",
+        "匀速圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "直线三星系统中外星周期为 \\(4\\pi\\sqrt{L^3/(5Gm)}\\)",
+      "thinking": "先直线三星受力，再直线系统速度与周期，最后三角形系统合力；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[mv^2/L=5Gm^2/(4L^2)\\]\n\n\\[v=\\tfrac12\\sqrt{5Gm/L}\\]\n\n\\[T=2\\pi L/v=4\\pi\\sqrt{L^3/(5Gm)}\\]\n\n\\[\\omega^2L/\\sqrt3=\\sqrt3Gm/L^2\\]\n\n\\[\\omega=\\sqrt{3Gm/L^3}\\]",
+      "judgment": "该结论与主方程推导结果及“质心关系、星间距离和共同角速度必须使用同一套几何量”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "三星模型",
+        "引力合成",
+        "匀速圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "三角形三星系统中每颗星角速度为 \\(2\\sqrt{L^3/(3Gm)}\\)",
+      "thinking": "先直线三星受力，再直线系统速度与周期，最后三角形系统合力；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[mv^2/L=5Gm^2/(4L^2)\\]\n\n\\[v=\\tfrac12\\sqrt{5Gm/L}\\]\n\n\\[T=2\\pi L/v=4\\pi\\sqrt{L^3/(5Gm)}\\]\n\n\\[\\omega^2L/\\sqrt3=\\sqrt3Gm/L^2\\]\n\n\\[\\omega=\\sqrt{3Gm/L^3}\\]",
+      "judgment": "该结论没有同时满足“质心关系、星间距离和共同角速度必须使用同一套几何量”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "三星模型",
+        "引力合成",
+        "匀速圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "三角形三星系统中每颗星加速度为 \\(\\sqrt3Gm/L^2\\)",
+      "thinking": "先直线三星受力，再直线系统速度与周期，最后三角形系统合力；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[mv^2/L=5Gm^2/(4L^2)\\]\n\n\\[v=\\tfrac12\\sqrt{5Gm/L}\\]\n\n\\[T=2\\pi L/v=4\\pi\\sqrt{L^3/(5Gm)}\\]\n\n\\[\\omega^2L/\\sqrt3=\\sqrt3Gm/L^2\\]\n\n\\[\\omega=\\sqrt{3Gm/L^3}\\]",
+      "judgment": "该结论与主方程推导结果及“质心关系、星间距离和共同角速度必须使用同一套几何量”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "三星模型",
+        "引力合成",
+        "匀速圆周运动"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

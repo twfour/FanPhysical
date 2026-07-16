@@ -4,19 +4,133 @@
   "chapter": "行星运动与变轨等问题",
   "title": "例5：三颗同步卫星的最小周期",
   "question": "三颗位置适当的地球同步卫星可使赤道上任意两点保持无线电通信。当前同步卫星轨道半径约为地球半径的 \\(6.6\\) 倍。若地球自转周期变小，仍只用三颗同步卫星实现上述目的，则地球自转周期的最小值约为（  ）。",
-  "options": ["A. \\(1\\,\\mathrm h\\)", "B. \\(4\\,\\mathrm h\\)", "C. \\(8\\,\\mathrm h\\)", "D. \\(16\\,\\mathrm h\\)"],
+  "options": [
+    "A. \\(1\\,\\mathrm h\\)",
+    "B. \\(4\\,\\mathrm h\\)",
+    "C. \\(8\\,\\mathrm h\\)",
+    "D. \\(16\\,\\mathrm h\\)"
+  ],
   "answer": "B",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_sync_min_period", "playable": true, "interactive": true, "notes": "三颗同步卫星的轨道由 6.6R 缩小到相邻通信线恰与地球相切的 2R；右图给出周期变化。", "params": { "startRadiusRatio": { "label": "当前同步半径", "value": 6.6, "min": 4.0, "max": 8.0, "step": 0.1, "unit": "R" } }, "timeline": { "duration": 8, "loop": false } },
-  "knowledge": ["同步卫星", "覆盖几何", "开普勒第三定律"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_sync_min_period",
+    "playable": true,
+    "interactive": true,
+    "notes": "三颗同步卫星的轨道由 6.6R 缩小到相邻通信线恰与地球相切的 2R；右图给出周期变化。",
+    "params": {
+      "startRadiusRatio": {
+        "label": "当前同步半径",
+        "value": 6.6,
+        "min": 4,
+        "max": 8,
+        "step": 0.1,
+        "unit": "R"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "同步卫星",
+    "覆盖几何",
+    "开普勒第三定律"
+  ],
   "steps": [
-    { "stepId": 1, "title": "确定最低轨道", "content": "三颗卫星均匀分布时相邻夹角为 \\(120^\\circ\\)。要让相邻卫星之间的通信射线刚好不被地球遮挡，连线到地心的最短距离应为 \\(R\\)，故 \\(r_{\\min}\\cos60^\\circ=R\\)，得到 \\(r_{\\min}=2R\\)。", "knowledge": ["相切条件"], "commonMistakes": [] },
-    { "stepId": 2, "title": "周期比例", "content": "同步卫星周期等于地球自转周期。由 \\(T\\propto r^{3/2}\\)，\\(T_{\\min}/24=(2/6.6)^{3/2}\\)。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] },
-    { "stepId": 3, "title": "数值结果", "content": "\\(T_{\\min}\\approx24\\times(2/6.6)^{3/2}\\approx4.0\\,\\mathrm h\\)，故选 B。", "knowledge": ["数值计算"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "确定最低轨道",
+      "content": "三颗卫星均匀分布时相邻夹角为 \\(120^\\circ\\)。要让相邻卫星之间的通信射线刚好不被地球遮挡，连线到地心的最短距离应为 \\(R\\)，故 \\(r_{\\min}\\cos60^\\circ=R\\)，得到 \\(r_{\\min}=2R\\)。",
+      "knowledge": [
+        "相切条件"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "周期比例",
+      "content": "同步卫星周期等于地球自转周期。由 \\(T\\propto r^{3/2}\\)，\\(T_{\\min}/24=(2/6.6)^{3/2}\\)。",
+      "knowledge": [
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "数值结果",
+      "content": "\\(T_{\\min}\\approx24\\times(2/6.6)^{3/2}\\approx4.0\\,\\mathrm h\\)，故选 B。",
+      "knowledge": [
+        "数值计算"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：四颗同步卫星覆盖",
-    "question": "若用四颗均匀分布的同步卫星，使任意相邻两颗的连线不穿过半径为 \\(R\\) 的地球，求最小轨道半径。",
-    "answer": "相邻圆心角为 \\(90^\\circ\\)，弦到圆心距离为 \\(r\\cos45^\\circ\\)。令其等于 \\(R\\)，得 \\(r_{\\min}=\\sqrt2R\\)。",
-    "thinking": "把通信临界转化为卫星连线与地球表面相切。"
+    "title": "进阶近似题：四颗同步卫星覆盖",
+    "question": "**基础设问**\n\n若用四颗均匀分布的同步卫星，使任意相邻两颗的连线不穿过半径为 \\(R\\) 的地球，求最小轨道半径。\n\n**综合提升**\n\n两颗卫星绕同一中心天体同向做圆周运动，半径为 \\(r_1<r_2\\)。（1）求相对角速度和会合周期；（2）若初始相差角 \\(\\Delta\\theta_0\\)，求首次会合时间；（3）若改为反向运动重新作答；（4）说明距离图像的极大、极小时刻与相对相位的关系。",
+    "answer": "**1. 基础设问**\n\n相邻圆心角为 \\(90^\\circ\\)，弦到圆心距离为 \\(r\\cos45^\\circ\\)。令其等于 \\(R\\)，得 \\(r_{\\min}=\\sqrt2R\\)。\n\n**2. 综合提升**\n\n\\(\\omega_i=\\sqrt{GM/r_i^3}\\)。同向时\n\n\\[\\omega_{rel}=|\\omega_1-\\omega_2|,\\qquad T_{syn}=\\frac{2\\pi}{\\omega_{rel}},\\]\n\n首次会合时间由 \\(\\Delta\\theta_0+\\omega_{rel}t=2n\\pi\\) 取最小正解。反向时相对角速度变为 \\(\\omega_1+\\omega_2\\)。相位差为 \\(0\\) 时距离极小，为 \\(\\pi\\) 时距离极大。",
+    "thinking": "**基础思路**\n\n把通信临界转化为卫星连线与地球表面相切。\n\n**进阶思路**\n\n先把各自轨道动力学转成角速度，再单独做相对运动；相对周期不是任一卫星自身周期。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(1\\,\\mathrm h\\)",
+      "thinking": "先确定最低轨道，再周期比例，最后数值结果；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_{\\min}\\cos60^\\circ=R\\]\n\n\\[r_{\\min}=2R\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "同步卫星",
+        "覆盖几何",
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(4\\,\\mathrm h\\)",
+      "thinking": "先确定最低轨道，再周期比例，最后数值结果；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_{\\min}\\cos60^\\circ=R\\]\n\n\\[r_{\\min}=2R\\]",
+      "judgment": "该结论与主方程推导结果及“动力学比例和相对运动几何必须分别建立后再联立”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "同步卫星",
+        "覆盖几何",
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(8\\,\\mathrm h\\)",
+      "thinking": "先确定最低轨道，再周期比例，最后数值结果；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_{\\min}\\cos60^\\circ=R\\]\n\n\\[r_{\\min}=2R\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "同步卫星",
+        "覆盖几何",
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(16\\,\\mathrm h\\)",
+      "thinking": "先确定最低轨道，再周期比例，最后数值结果；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_{\\min}\\cos60^\\circ=R\\]\n\n\\[r_{\\min}=2R\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "同步卫星",
+        "覆盖几何",
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

@@ -11,17 +11,134 @@
     "D. Q 的向心加速度小于 P 的向心加速度"
   ],
   "answer": "D",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_space_elevator", "playable": true, "interactive": true, "notes": "Q 随地球和缆绳转动，P 在同高度按自由圆轨道运行并逐渐超越；右图比较角位置与向心加速度。", "params": { "altitudeRatio": { "label": "位置 a 半径", "value": 3.0, "min": 1.5, "max": 5.5, "step": 0.1, "unit": "R" }, "syncRadiusRatio": { "label": "同步轨道半径", "value": 6.6, "min": 5.5, "max": 7.5, "step": 0.1, "unit": "R" } }, "timeline": { "duration": 8, "loop": false } },
-  "knowledge": ["太空电梯", "同步转动", "圆轨道"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_space_elevator",
+    "playable": true,
+    "interactive": true,
+    "notes": "Q 随地球和缆绳转动，P 在同高度按自由圆轨道运行并逐渐超越；右图比较角位置与向心加速度。",
+    "params": {
+      "altitudeRatio": {
+        "label": "位置 a 半径",
+        "value": 3,
+        "min": 1.5,
+        "max": 5.5,
+        "step": 0.1,
+        "unit": "R"
+      },
+      "syncRadiusRatio": {
+        "label": "同步轨道半径",
+        "value": 6.6,
+        "min": 5.5,
+        "max": 7.5,
+        "step": 0.1,
+        "unit": "R"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "太空电梯",
+    "同步转动",
+    "圆轨道"
+  ],
   "steps": [
-    { "stepId": 1, "title": "识别两种运动", "content": "Q 被缆绳约束，与地球同角速度转动，周期为地球自转周期；P 是同高度自由圆轨道卫星，角速度由 \\(\\omega_P=\\sqrt{GM/r^3}\\) 决定。", "knowledge": ["约束运动"], "commonMistakes": [] },
-    { "stepId": 2, "title": "比较角速度", "content": "a 位置低于同步轨道，因此自由卫星 P 的角速度大于地球自转角速度，即 \\(\\omega_P>\\omega_Q\\)。同半径下 \\(v=\\omega r\\)，所以速度和周期均不相同。", "knowledge": ["同步半径"], "commonMistakes": [] },
-    { "stepId": 3, "title": "比较加速度与受力", "content": "同半径下 \\(a=\\omega^2r\\)，故 \\(a_Q<a_P\\)。Q 还受缆绳作用，并非完全失重。选 D。", "knowledge": ["向心加速度"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "识别两种运动",
+      "content": "Q 被缆绳约束，与地球同角速度转动，周期为地球自转周期；P 是同高度自由圆轨道卫星，角速度由 \\(\\omega_P=\\sqrt{GM/r^3}\\) 决定。",
+      "knowledge": [
+        "约束运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "比较角速度",
+      "content": "a 位置低于同步轨道，因此自由卫星 P 的角速度大于地球自转角速度，即 \\(\\omega_P>\\omega_Q\\)。同半径下 \\(v=\\omega r\\)，所以速度和周期均不相同。",
+      "knowledge": [
+        "同步半径"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "比较加速度与受力",
+      "content": "同半径下 \\(a=\\omega^2r\\)，故 \\(a_Q<a_P\\)。Q 还受缆绳作用，并非完全失重。选 D。",
+      "knowledge": [
+        "向心加速度"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：同步缆绳上的物体",
-    "question": "缆绳上某物体位于同步轨道半径的一半处，并随地球转动。其向心加速度与同高度自由卫星相比谁更大？",
-    "answer": "自由卫星更大，因为该高度低于同步轨道，\\(\\omega_卫>\\omega_地\\)，同半径下 \\(a=\\omega^2r\\)。",
-    "thinking": "先区分“随地球转动”和“由万有引力独立运行”。"
+    "title": "进阶近似题：同步缆绳上的物体",
+    "question": "**基础设问**\n\n缆绳上某物体位于同步轨道半径的一半处，并随地球转动。其向心加速度与同高度自由卫星相比谁更大？\n\n**综合提升**\n\n两颗卫星绕同一中心天体同向做圆周运动，半径为 \\(r_1<r_2\\)。（1）求相对角速度和会合周期；（2）若初始相差角 \\(\\Delta\\theta_0\\)，求首次会合时间；（3）若改为反向运动重新作答；（4）说明距离图像的极大、极小时刻与相对相位的关系。",
+    "answer": "**1. 基础设问**\n\n自由卫星更大，因为该高度低于同步轨道，\\(\\omega_卫>\\omega_地\\)，同半径下 \\(a=\\omega^2r\\)。\n\n**2. 综合提升**\n\n\\(\\omega_i=\\sqrt{GM/r_i^3}\\)。同向时\n\n\\[\\omega_{rel}=|\\omega_1-\\omega_2|,\\qquad T_{syn}=\\frac{2\\pi}{\\omega_{rel}},\\]\n\n首次会合时间由 \\(\\Delta\\theta_0+\\omega_{rel}t=2n\\pi\\) 取最小正解。反向时相对角速度变为 \\(\\omega_1+\\omega_2\\)。相位差为 \\(0\\) 时距离极小，为 \\(\\pi\\) 时距离极大。",
+    "thinking": "**基础思路**\n\n先区分“随地球转动”和“由万有引力独立运行”。\n\n**进阶思路**\n\n先把各自轨道动力学转成角速度，再单独做相对运动；相对周期不是任一卫星自身周期。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "Q 与 P 的速度相同",
+      "thinking": "先识别两种运动，再比较角速度，最后比较加速度与受力；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega_P=\\sqrt{GM/r^3}\\]\n\n\\[v=\\omega r\\]\n\n\\[a=\\omega^2r\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "太空电梯",
+        "同步转动",
+        "圆轨道"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "Q 与 P 的周期相同",
+      "thinking": "先识别两种运动，再比较角速度，最后比较加速度与受力；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega_P=\\sqrt{GM/r^3}\\]\n\n\\[v=\\omega r\\]\n\n\\[a=\\omega^2r\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "太空电梯",
+        "同步转动",
+        "圆轨道"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "Q 处于完全失重状态",
+      "thinking": "先识别两种运动，再比较角速度，最后比较加速度与受力；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega_P=\\sqrt{GM/r^3}\\]\n\n\\[v=\\omega r\\]\n\n\\[a=\\omega^2r\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "太空电梯",
+        "同步转动",
+        "圆轨道"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "Q 的向心加速度小于 P 的向心加速度",
+      "thinking": "先识别两种运动，再比较角速度，最后比较加速度与受力；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega_P=\\sqrt{GM/r^3}\\]\n\n\\[v=\\omega r\\]\n\n\\[a=\\omega^2r\\]",
+      "judgment": "该结论与主方程推导结果及“动力学比例和相对运动几何必须分别建立后再联立”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "太空电梯",
+        "同步转动",
+        "圆轨道"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

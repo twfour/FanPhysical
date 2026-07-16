@@ -5,18 +5,89 @@
   "title": "例10：地火霍曼转移",
   "question": "地球和火星在同一平面内绕太阳做圆周运动，火星轨道半径为地球轨道半径 \\(R_e\\) 的 \\(1.5\\) 倍。探测器从地球轨道点火后，沿与地球、火星轨道分别在长轴两端相切的半椭圆转移轨道飞向火星。某年 3 月 1 日零时，探测器与火星的角距离为 \\(60^\\circ\\)，火星沿公转方向领先。已知 \\(T_e=365\\,\\mathrm d\\)、\\(\\sqrt{1.5^3}=1.840\\)、\\(\\sqrt{1.25^3}=1.400\\)。求：（1）火星公转周期和转移时间；（2）点火日期。",
   "answer": "\\(T_m\\approx672\\,\\mathrm d\\)，转移时间 \\(t\\approx256\\,\\mathrm d\\)，应于当年 4 月 8 日左右点火。",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_earth_mars_transfer", "playable": true, "interactive": true, "notes": "先等待火星领先角由 60° 减至 42.9°，再沿霍曼半椭圆飞行约 256 天；右图显示相位窗口。", "params": { "marsRadiusRatio": { "label": "火星轨道半径", "value": 1.5, "min": 1.3, "max": 2.0, "step": 0.05, "unit": "Rₑ" }, "initialLead": { "label": "3月1日领先角", "value": 60, "min": 45, "max": 90, "step": 1, "unit": "deg" } }, "timeline": { "duration": 12, "loop": false } },
-  "knowledge": ["霍曼转移", "开普勒第三定律", "追及角"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_earth_mars_transfer",
+    "playable": true,
+    "interactive": true,
+    "notes": "先等待火星领先角由 60° 减至 42.9°，再沿霍曼半椭圆飞行约 256 天；右图显示相位窗口。",
+    "params": {
+      "marsRadiusRatio": {
+        "label": "火星轨道半径",
+        "value": 1.5,
+        "min": 1.3,
+        "max": 2,
+        "step": 0.05,
+        "unit": "Rₑ"
+      },
+      "initialLead": {
+        "label": "3月1日领先角",
+        "value": 60,
+        "min": 45,
+        "max": 90,
+        "step": 1,
+        "unit": "deg"
+      }
+    },
+    "timeline": {
+      "duration": 12,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "霍曼转移",
+    "开普勒第三定律",
+    "追及角"
+  ],
   "steps": [
-    { "stepId": 1, "title": "求火星周期", "content": "由开普勒第三定律，\\(T_m/T_e=(1.5)^{3/2}=1.840\\)，所以 \\(T_m=365\\times1.840\\approx672\\,\\mathrm d\\)。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] },
-    { "stepId": 2, "title": "求半椭圆飞行时间", "content": "转移椭圆半长轴 \\(a=(R_e+1.5R_e)/2=1.25R_e\\)。其完整周期 \\(T_H=365\\times(1.25)^{3/2}=365\\times1.400=511\\,\\mathrm d\\)，飞过半个椭圆需 \\(t=T_H/2\\approx256\\,\\mathrm d\\)。", "knowledge": ["椭圆周期"], "commonMistakes": [] },
-    { "stepId": 3, "title": "确定点火相位", "content": "探测器飞行期间转过 \\(180^\\circ\\)，火星转角为 \\(360^\\circ t/T_m\\approx137.1^\\circ\\)，故点火时火星应领先 \\(180^\\circ-137.1^\\circ=42.9^\\circ\\)。", "knowledge": ["相位角"], "commonMistakes": [] },
-    { "stepId": 4, "title": "换算等待日期", "content": "3 月 1 日火星领先 \\(60^\\circ\\)。地球相对火星每日追近 \\(360/365-360/672\\approx0.450^\\circ\\)，需等待 \\((60-42.9)/0.450\\approx38\\) 天，因此约在 4 月 8 日点火。", "knowledge": ["相对角速度"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "求火星周期",
+      "content": "由开普勒第三定律，\\(T_m/T_e=(1.5)^{3/2}=1.840\\)，所以 \\(T_m=365\\times1.840\\approx672\\,\\mathrm d\\)。",
+      "knowledge": [
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "求半椭圆飞行时间",
+      "content": "转移椭圆半长轴 \\(a=(R_e+1.5R_e)/2=1.25R_e\\)。其完整周期 \\(T_H=365\\times(1.25)^{3/2}=365\\times1.400=511\\,\\mathrm d\\)，飞过半个椭圆需 \\(t=T_H/2\\approx256\\,\\mathrm d\\)。",
+      "knowledge": [
+        "椭圆周期"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "确定点火相位",
+      "content": "探测器飞行期间转过 \\(180^\\circ\\)，火星转角为 \\(360^\\circ t/T_m\\approx137.1^\\circ\\)，故点火时火星应领先 \\(180^\\circ-137.1^\\circ=42.9^\\circ\\)。",
+      "knowledge": [
+        "相位角"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "换算等待日期",
+      "content": "3 月 1 日火星领先 \\(60^\\circ\\)。地球相对火星每日追近 \\(360/365-360/672\\approx0.450^\\circ\\)，需等待 \\((60-42.9)/0.450\\approx38\\) 天，因此约在 4 月 8 日点火。",
+      "knowledge": [
+        "相对角速度"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：地外行星转移时间",
-    "question": "某行星轨道半径为地球轨道半径的 \\(2R_e\\)。探测器采用半椭圆转移，求飞行时间与地球年的比值。",
-    "answer": "转移椭圆半长轴为 \\(1.5R_e\\)，故 \\(t/T_e=\\tfrac12(1.5)^{3/2}=3\\sqrt6/8\\)。",
-    "thinking": "半椭圆飞行时间是该转移椭圆完整周期的一半。"
+    "title": "进阶近似题：地外行星转移时间",
+    "question": "**基础设问**\n\n某行星轨道半径为地球轨道半径的 \\(2R_e\\)。探测器采用半椭圆转移，求飞行时间与地球年的比值。\n\n**综合提升**\n\n中心天体质量为 \\(M\\)，用霍曼转移从半径 \\(r_1\\) 的圆轨道升至 \\(r_2>r_1\\)。（1）求转移椭圆半长轴和飞行时间；（2）分别写出转移轨道近、远点速度；（3）比较它们与对应圆轨道速度；（4）说明两次点火为什么都要沿速度方向加速。",
+    "answer": "**1. 基础设问**\n\n转移椭圆半长轴为 \\(1.5R_e\\)，故 \\(t/T_e=\\tfrac12(1.5)^{3/2}=3\\sqrt6/8\\)。\n\n**2. 综合提升**\n\n转移椭圆半长轴 \\(a_t=(r_1+r_2)/2\\)，半个周期为\n\n\\[t_t=\\pi\\sqrt{\\frac{a_t^3}{GM}}.\\]\n\n由活力公式\n\n\\[v_p=\\sqrt{GM\\left(\\frac2{r_1}-\\frac1{a_t}\\right)},\\qquad v_a=\\sqrt{GM\\left(\\frac2{r_2}-\\frac1{a_t}\\right)}.\\]\n\n有 \\(v_p>\\sqrt{GM/r_1}\\)、\\(v_a<\\sqrt{GM/r_2}\\)。第一次加速进入更高远地点的椭圆，第二次在远点加速使轨道圆化。",
+    "thinking": "**基础思路**\n\n半椭圆飞行时间是该转移椭圆完整周期的一半。\n\n**进阶思路**\n\n每次点火只改变速度，不瞬间改变位置和引力加速度；用活力公式比较同一点属于不同轨道的速度。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

@@ -11,17 +11,126 @@
     "D. 在轨道 1 上经过 P 点时的加速度等于在轨道 2 上经过 P 点时的加速度"
   ],
   "answer": "BD",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_sync_transfer", "playable": true, "interactive": true, "notes": "卫星从近地圆轨道经椭圆转移到同步圆轨道；右图比较两圆轨道速度、角速度及同点加速度。", "params": { "outerRadiusRatio": { "label": "同步轨道半径", "value": 3.2, "min": 2.0, "max": 5.0, "step": 0.1, "unit": "r₁" } }, "timeline": { "duration": 9, "loop": false } },
-  "knowledge": ["卫星变轨", "圆轨道速度", "引力加速度"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_sync_transfer",
+    "playable": true,
+    "interactive": true,
+    "notes": "卫星从近地圆轨道经椭圆转移到同步圆轨道；右图比较两圆轨道速度、角速度及同点加速度。",
+    "params": {
+      "outerRadiusRatio": {
+        "label": "同步轨道半径",
+        "value": 3.2,
+        "min": 2,
+        "max": 5,
+        "step": 0.1,
+        "unit": "r₁"
+      }
+    },
+    "timeline": {
+      "duration": 9,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "卫星变轨",
+    "圆轨道速度",
+    "引力加速度"
+  ],
   "steps": [
-    { "stepId": 1, "title": "比较两圆轨道", "content": "圆轨道满足 \\(v=\\sqrt{GM/r}\\)、\\(\\omega=\\sqrt{GM/r^3}\\)。轨道 3 半径更大，所以 \\(v_3<v_1\\)、\\(\\omega_3<\\omega_1\\)，B 正确、A 错误。", "knowledge": ["圆轨道规律"], "commonMistakes": [] },
-    { "stepId": 2, "title": "比较同一点加速度", "content": "卫星在任一轨道上的加速度都由万有引力决定，\\(a=GM/r^2\\)，只与当前位置到地心的距离有关。", "knowledge": ["引力加速度"], "commonMistakes": [] },
-    { "stepId": 3, "title": "判断 P、Q 两点", "content": "轨道 2 与轨道 3 在 Q 点的位置相同，故加速度相等，C 错误；轨道 1 与轨道 2 在 P 点的位置相同，加速度也相等，D 正确。故选 B、D。", "knowledge": ["同位置比较"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "比较两圆轨道",
+      "content": "圆轨道满足 \\(v=\\sqrt{GM/r}\\)、\\(\\omega=\\sqrt{GM/r^3}\\)。轨道 3 半径更大，所以 \\(v_3<v_1\\)、\\(\\omega_3<\\omega_1\\)，B 正确、A 错误。",
+      "knowledge": [
+        "圆轨道规律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "比较同一点加速度",
+      "content": "卫星在任一轨道上的加速度都由万有引力决定，\\(a=GM/r^2\\)，只与当前位置到地心的距离有关。",
+      "knowledge": [
+        "引力加速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "判断 P、Q 两点",
+      "content": "轨道 2 与轨道 3 在 Q 点的位置相同，故加速度相等，C 错误；轨道 1 与轨道 2 在 P 点的位置相同，加速度也相等，D 正确。故选 B、D。",
+      "knowledge": [
+        "同位置比较"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：同一点变轨比较",
-    "question": "卫星在半径为 \\(r\\) 的圆轨道上加速后进入远地点为 \\(2r\\) 的椭圆轨道。点火前后瞬间，其速度和加速度如何变化？",
-    "answer": "速度增大；位置未变，因此引力加速度大小仍为 \\(GM/r^2\\)，不发生突变。",
-    "thinking": "变轨点速度可突变，而引力加速度由位置决定。"
+    "title": "进阶近似题：同一点变轨比较",
+    "question": "**基础设问**\n\n卫星在半径为 \\(r\\) 的圆轨道上加速后进入远地点为 \\(2r\\) 的椭圆轨道。点火前后瞬间，其速度和加速度如何变化？\n\n**综合提升**\n\n中心天体质量为 \\(M\\)，用霍曼转移从半径 \\(r_1\\) 的圆轨道升至 \\(r_2>r_1\\)。（1）求转移椭圆半长轴和飞行时间；（2）分别写出转移轨道近、远点速度；（3）比较它们与对应圆轨道速度；（4）说明两次点火为什么都要沿速度方向加速。",
+    "answer": "**1. 基础设问**\n\n速度增大；位置未变，因此引力加速度大小仍为 \\(GM/r^2\\)，不发生突变。\n\n**2. 综合提升**\n\n转移椭圆半长轴 \\(a_t=(r_1+r_2)/2\\)，半个周期为\n\n\\[t_t=\\pi\\sqrt{\\frac{a_t^3}{GM}}.\\]\n\n由活力公式\n\n\\[v_p=\\sqrt{GM\\left(\\frac2{r_1}-\\frac1{a_t}\\right)},\\qquad v_a=\\sqrt{GM\\left(\\frac2{r_2}-\\frac1{a_t}\\right)}.\\]\n\n有 \\(v_p>\\sqrt{GM/r_1}\\)、\\(v_a<\\sqrt{GM/r_2}\\)。第一次加速进入更高远地点的椭圆，第二次在远点加速使轨道圆化。",
+    "thinking": "**基础思路**\n\n变轨点速度可突变，而引力加速度由位置决定。\n\n**进阶思路**\n\n每次点火只改变速度，不瞬间改变位置和引力加速度；用活力公式比较同一点属于不同轨道的速度。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "在轨道 3 上的速率大于轨道 1 上的速率",
+      "thinking": "先比较两圆轨道，再比较同一点加速度，最后判断 P、Q 两点；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v=\\sqrt{GM/r}\\]\n\n\\[\\omega=\\sqrt{GM/r^3}\\]\n\n\\[a=GM/r^2\\]",
+      "judgment": "该结论没有同时满足“同一点的引力加速度只由位置决定，但速度、周期和机械能取决于所属轨道”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "卫星变轨",
+        "圆轨道速度",
+        "引力加速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "在轨道 3 上的角速度小于轨道 1 上的角速度",
+      "thinking": "先比较两圆轨道，再比较同一点加速度，最后判断 P、Q 两点；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v=\\sqrt{GM/r}\\]\n\n\\[\\omega=\\sqrt{GM/r^3}\\]\n\n\\[a=GM/r^2\\]",
+      "judgment": "该结论与主方程推导结果及“同一点的引力加速度只由位置决定，但速度、周期和机械能取决于所属轨道”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "卫星变轨",
+        "圆轨道速度",
+        "引力加速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "在轨道 2 上经过 Q 点时的加速度小于在轨道 3 上经过 Q 点时的加速度",
+      "thinking": "先比较两圆轨道，再比较同一点加速度，最后判断 P、Q 两点；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v=\\sqrt{GM/r}\\]\n\n\\[\\omega=\\sqrt{GM/r^3}\\]\n\n\\[a=GM/r^2\\]",
+      "judgment": "该结论没有同时满足“同一点的引力加速度只由位置决定，但速度、周期和机械能取决于所属轨道”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "卫星变轨",
+        "圆轨道速度",
+        "引力加速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "在轨道 1 上经过 P 点时的加速度等于在轨道 2 上经过 P 点时的加速度",
+      "thinking": "先比较两圆轨道，再比较同一点加速度，最后判断 P、Q 两点；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v=\\sqrt{GM/r}\\]\n\n\\[\\omega=\\sqrt{GM/r^3}\\]\n\n\\[a=GM/r^2\\]",
+      "judgment": "该结论与主方程推导结果及“同一点的引力加速度只由位置决定，但速度、周期和机械能取决于所属轨道”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "卫星变轨",
+        "圆轨道速度",
+        "引力加速度"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

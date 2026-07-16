@@ -11,17 +11,134 @@
     "D. \\(T=\\dfrac{2\\pi R}{\\sin(\\alpha/2)}\\sqrt{\\dfrac{R}{GM\\sin(\\alpha/2)}}\\)"
   ],
   "answer": "AD",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_eclipse_geometry", "playable": true, "interactive": true, "notes": "飞船穿过地球阴影，张角 α 同时确定轨道半径、日全食时长和轨道周期；右图同步显示阴影区间。", "params": { "alpha": { "label": "地球张角", "value": 60, "min": 30, "max": 110, "step": 1, "unit": "deg" }, "earthRadius": { "label": "地球半径", "value": 6.4, "min": 5.0, "max": 8.0, "step": 0.1, "unit": "×10⁶m" } }, "timeline": { "duration": 8, "loop": false } },
-  "knowledge": ["张角几何", "圆轨道周期", "日全食"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_eclipse_geometry",
+    "playable": true,
+    "interactive": true,
+    "notes": "飞船穿过地球阴影，张角 α 同时确定轨道半径、日全食时长和轨道周期；右图同步显示阴影区间。",
+    "params": {
+      "alpha": {
+        "label": "地球张角",
+        "value": 60,
+        "min": 30,
+        "max": 110,
+        "step": 1,
+        "unit": "deg"
+      },
+      "earthRadius": {
+        "label": "地球半径",
+        "value": 6.4,
+        "min": 5,
+        "max": 8,
+        "step": 0.1,
+        "unit": "×10⁶m"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "张角几何",
+    "圆轨道周期",
+    "日全食"
+  ],
   "steps": [
-    { "stepId": 1, "title": "由张角求轨道半径", "content": "视线与地球相切构成直角三角形，故 \\(\\sin(\\alpha/2)=R/r\\)，即 \\(r=R/\\sin(\\alpha/2)\\)。", "knowledge": ["相切几何"], "commonMistakes": [] },
-    { "stepId": 2, "title": "速度与周期", "content": "由 \\(v=2\\pi r/T\\) 得 A。再由 \\(T=2\\pi\\sqrt{r^3/(GM)}\\) 代入 \\(r\\)，得到 D。", "knowledge": ["圆周运动"], "commonMistakes": [] },
-    { "stepId": 3, "title": "日全食计数", "content": "一天内次数应约为 \\(T_0/T\\)，每次进入阴影所占圆心角为 \\(\\alpha\\)，持续时间为 \\(\\alpha T/(2\\pi)\\)。B、C 均把周期写反或混用了 \\(T_0\\)，故选 A、D。", "knowledge": ["周期占比"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "由张角求轨道半径",
+      "content": "视线与地球相切构成直角三角形，故 \\(\\sin(\\alpha/2)=R/r\\)，即 \\(r=R/\\sin(\\alpha/2)\\)。",
+      "knowledge": [
+        "相切几何"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "速度与周期",
+      "content": "由 \\(v=2\\pi r/T\\) 得 A。再由 \\(T=2\\pi\\sqrt{r^3/(GM)}\\) 代入 \\(r\\)，得到 D。",
+      "knowledge": [
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "日全食计数",
+      "content": "一天内次数应约为 \\(T_0/T\\)，每次进入阴影所占圆心角为 \\(\\alpha\\)，持续时间为 \\(\\alpha T/(2\\pi)\\)。B、C 均把周期写反或混用了 \\(T_0\\)，故选 A、D。",
+      "knowledge": [
+        "周期占比"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：张角求轨道半径",
-    "question": "飞船观察地球的张角为 \\(60^\\circ\\)，地球半径为 \\(R\\)。求飞船圆轨道半径。",
-    "answer": "\\(r=R/\\sin30^\\circ=2R\\)。",
-    "thinking": "取半张角，在地心、飞船与切点组成的直角三角形中使用正弦。"
+    "title": "进阶近似题：张角求轨道半径",
+    "question": "**基础设问**\n\n飞船观察地球的张角为 \\(60^\\circ\\)，地球半径为 \\(R\\)。求飞船圆轨道半径。\n\n**综合提升**\n\n对同一中心天体的圆轨道，把半径从 \\(r\\) 连续调到 \\(\\lambda r\\)。（1）推导 \\(v,\\omega,T,E\\) 的比例；（2）若只测得周期比，反求半径比；（3）若卫星在原位置瞬时加速，说明它为何先进入椭圆而不是立即跳到新圆轨道；（4）比较点火瞬间加速度与速度的变化。",
+    "answer": "**1. 基础设问**\n\n\\(r=R/\\sin30^\\circ=2R\\)。\n\n**2. 综合提升**\n\n圆轨道比例为 \\(v\\propto r^{-1/2}\\)、\\(\\omega\\propto r^{-3/2}\\)、\\(T\\propto r^{3/2}\\)、\\(E=-GMm/(2r)\\)。因此 \\(r_2/r_1=(T_2/T_1)^{2/3}\\)。瞬时点火只能改变速度，位置仍为原半径；新速度通常不等于该处圆轨道速度，故先形成以该点为近点或远点的椭圆。点火瞬间引力加速度不变，速度突变。",
+    "thinking": "**基础思路**\n\n取半张角，在地心、飞船与切点组成的直角三角形中使用正弦。\n\n**进阶思路**\n\n把‘圆轨道之间的比较’与‘瞬时变轨过程’分开，避免把目标圆轨道速度直接当成点火后的即时状态。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(v=\\dfrac{2\\pi R}{T\\sin(\\alpha/2)}\\)",
+      "thinking": "先由张角求轨道半径，再速度与周期，最后日全食计数；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\sin(\\alpha/2)=R/r\\]\n\n\\[r=R/\\sin(\\alpha/2)\\]\n\n\\[v=2\\pi r/T\\]\n\n\\[T=2\\pi\\sqrt{r^3/(GM)}\\]",
+      "judgment": "该结论与主方程推导结果及“动力学比例和相对运动几何必须分别建立后再联立”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "张角几何",
+        "圆轨道周期",
+        "日全食"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "一天内飞船经历日全食的次数为 \\(T/T_0\\)",
+      "thinking": "先由张角求轨道半径，再速度与周期，最后日全食计数；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\sin(\\alpha/2)=R/r\\]\n\n\\[r=R/\\sin(\\alpha/2)\\]\n\n\\[v=2\\pi r/T\\]\n\n\\[T=2\\pi\\sqrt{r^3/(GM)}\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "张角几何",
+        "圆轨道周期",
+        "日全食"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "每次日全食持续时间为 \\(\\alpha T_0/(2\\pi)\\)",
+      "thinking": "先由张角求轨道半径，再速度与周期，最后日全食计数；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\sin(\\alpha/2)=R/r\\]\n\n\\[r=R/\\sin(\\alpha/2)\\]\n\n\\[v=2\\pi r/T\\]\n\n\\[T=2\\pi\\sqrt{r^3/(GM)}\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "张角几何",
+        "圆轨道周期",
+        "日全食"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(T=\\dfrac{2\\pi R}{\\sin(\\alpha/2)}\\sqrt{\\dfrac{R}{GM\\sin(\\alpha/2)}}\\)",
+      "thinking": "先由张角求轨道半径，再速度与周期，最后日全食计数；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\sin(\\alpha/2)=R/r\\]\n\n\\[r=R/\\sin(\\alpha/2)\\]\n\n\\[v=2\\pi r/T\\]\n\n\\[T=2\\pi\\sqrt{r^3/(GM)}\\]",
+      "judgment": "该结论与主方程推导结果及“动力学比例和相对运动几何必须分别建立后再联立”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "张角几何",
+        "圆轨道周期",
+        "日全食"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

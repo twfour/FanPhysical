@@ -79,10 +79,69 @@
   },
   "images": [],
   "practice": {
-    "title": "近似题：双绳临界角速度",
-    "question": "小球由斜绳和水平绳系住，水平绳长 \\(l=0.50\\,\\mathrm{m}\\)，斜绳与水平方向成 \\(60^\\circ\\)。求水平绳刚要有张力时的临界角速度。取 \\(g=10\\,\\mathrm{m/s^2}\\)。",
-    "answer": "临界时水平绳张力为零，\\(\\omega_0=\\sqrt{\\frac{g\\cot\\theta}{l}}\\)。代入得 \\(\\omega_0=\\sqrt{\\frac{10\\cot60^\\circ}{0.50}}\\approx3.40\\,\\mathrm{rad/s}\\)。",
-    "thinking": "临界点先令水平绳张力为零，只由斜绳竖直平衡并提供水平向心分量。"
+    "title": "进阶近似题：双绳临界角速度",
+    "question": "**基础设问**\n\n小球由斜绳和水平绳系住，水平绳长 \\(l=0.50\\,\\mathrm{m}\\)，斜绳与水平方向成 \\(60^\\circ\\)。求水平绳刚要有张力时的临界角速度。取 \\(g=10\\,\\mathrm{m/s^2}\\)。\n\n**综合提升**\n\n在原圆周运动模型中把半径改为 \\(\\lambda r\\)。（1）分别讨论角速度不变、线速度不变、周期不变三种控制方式下 \\(v,\\omega,T,a_c\\) 的变化；（2）指出哪些结论不能跨控制方式直接套用；（3）设计一个可由测量周期和向心加速度反求半径的关系式。",
+    "answer": "**1. 基础设问**\n\n临界时水平绳张力为零，\\(\\omega_0=\\sqrt{\\frac{g\\cot\\theta}{l}}\\)。代入得 \\(\\omega_0=\\sqrt{\\frac{10\\cot60^\\circ}{0.50}}\\approx3.40\\,\\mathrm{rad/s}\\)。\n\n**2. 综合提升**\n\n由 \\(v=\\omega r\\)、\\(T=2\\pi/\\omega\\)、\\(a_c=\\omega^2r=v^2/r\\)：角速度不变时 \\(v,a_c\\) 均乘 \\(\\lambda\\)；线速度不变时 \\(\\omega\\) 除以 \\(\\lambda\\)、\\(T\\) 乘 \\(\\lambda\\)、\\(a_c\\) 除以 \\(\\lambda\\)；周期不变等价于角速度不变。由 \\(a_c=4\\pi^2r/T^2\\) 可得 \\(r=a_cT^2/(4\\pi^2)\\)。",
+    "thinking": "**基础思路**\n\n临界点先令水平绳张力为零，只由斜绳竖直平衡并提供水平向心分量。\n\n**进阶思路**\n\n同一个半径变化，在不同控制量保持不变时会产生不同结论；先声明不变量再做比例推导。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
   },
-  "analysisText": "竖直方向由 \\(a\\) 绳竖直分量平衡重力：\\(T_a\\sin\\theta=mg\\)。水平方向提供向心力，半径为 \\(l\\)。当 \\(b\\) 绳刚要有张力时，令 \\(T_b=0\\)，由 \\(T_a\\cos\\theta=ml\\omega_0^2\\)，得 \\(\\omega_0=\\sqrt{\\frac{g\\cot\\theta}{l}}\\)。若 \\(\\omega\\) 大于该临界值，\\(b\\) 绳出现张力；若小于该值，\\(b\\) 绳松弛。"
+  "analysisText": "竖直方向由 \\(a\\) 绳竖直分量平衡重力：\\(T_a\\sin\\theta=mg\\)。水平方向提供向心力，半径为 \\(l\\)。当 \\(b\\) 绳刚要有张力时，令 \\(T_b=0\\)，由 \\(T_a\\cos\\theta=ml\\omega_0^2\\)，得 \\(\\omega_0=\\sqrt{\\frac{g\\cot\\theta}{l}}\\)。若 \\(\\omega\\) 大于该临界值，\\(b\\) 绳出现张力；若小于该值，\\(b\\) 绳松弛。",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(a\\) 绳张力不可能为零",
+      "thinking": "先竖直方向平衡，再临界条件，最后求临界角速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T_a\\sin\\theta=mg\\]\n\n\\[T_b=0\\]\n\n\\[T_a\\cos\\theta=ml\\omega_0^2\\]\n\n\\[\\omega_0=\\sqrt{\\frac{g\\cot\\theta}{l}}\\]",
+      "judgment": "该结论与主方程推导结果及“线量与角量的换算必须使用同一转轴和对应半径”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "双绳圆周运动模型",
+        "临界角速度",
+        "受力分析"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(a\\) 绳的张力随角速度的增大而增大",
+      "thinking": "先竖直方向平衡，再临界条件，最后求临界角速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T_a\\sin\\theta=mg\\]\n\n\\[T_b=0\\]\n\n\\[T_a\\cos\\theta=ml\\omega_0^2\\]\n\n\\[\\omega_0=\\sqrt{\\frac{g\\cot\\theta}{l}}\\]",
+      "judgment": "该结论没有同时满足“线量与角量的换算必须使用同一转轴和对应半径”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "双绳圆周运动模型",
+        "临界角速度",
+        "受力分析"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "当角速度 \\(\\omega>\\sqrt{\\frac{g\\cos\\theta}{l}}\\) 时，\\(b\\) 绳将出现张力",
+      "thinking": "先竖直方向平衡，再临界条件，最后求临界角速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T_a\\sin\\theta=mg\\]\n\n\\[T_b=0\\]\n\n\\[T_a\\cos\\theta=ml\\omega_0^2\\]\n\n\\[\\omega_0=\\sqrt{\\frac{g\\cot\\theta}{l}}\\]",
+      "judgment": "该结论没有同时满足“线量与角量的换算必须使用同一转轴和对应半径”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "双绳圆周运动模型",
+        "临界角速度",
+        "受力分析"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "若 \\(b\\) 绳突然被剪断，\\(a\\) 绳的张力可能不变",
+      "thinking": "先竖直方向平衡，再临界条件，最后求临界角速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T_a\\sin\\theta=mg\\]\n\n\\[T_b=0\\]\n\n\\[T_a\\cos\\theta=ml\\omega_0^2\\]\n\n\\[\\omega_0=\\sqrt{\\frac{g\\cot\\theta}{l}}\\]",
+      "judgment": "该结论与主方程推导结果及“线量与角量的换算必须使用同一转轴和对应半径”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "双绳圆周运动模型",
+        "临界角速度",
+        "受力分析"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
 }

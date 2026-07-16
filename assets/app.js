@@ -134,6 +134,8 @@ var knowledgePointMap = {
 var problemDataMap = {};
 var problemDataList = [];
 var promotedProblemChapterMap = {
+  "曲线运动": true,
+  "平抛运动": true,
   "圆周运动": true,
   "圆周运动日常": true,
   "万有引力与宇宙航行": true,
@@ -1224,6 +1226,10 @@ function enhanceProblemNotes() {
       return;
     }
 
+    if (typeof enhanceLegacyProblemNote === "function") {
+      enhanceLegacyProblemNote(note, sceneName);
+    }
+
     var blocks = grid.querySelectorAll(".problem-note-block");
     blocks.forEach(function (block, index) {
       var kicker = block.querySelector(".problem-note-kicker");
@@ -2218,6 +2224,12 @@ function drawJsonAnimationScene() {
   } else if (animation.type === "force_diagram") {
     drawAnimScene(drawJsonForceDiagramScene);
     drawJsonForceDiagramGraph();
+  } else if (animation.type === "curve_training_model") {
+    drawAnimScene(drawCurveTrainingModelScene);
+    drawCurveTrainingModelGraph();
+  } else if (animation.type === "projectile_training_model") {
+    drawAnimScene(drawProjectileTrainingModelScene);
+    drawProjectileTrainingModelGraph();
   } else if (animation.type === "bullet_cylinder") {
     drawAnimScene(drawJsonBulletCylinderScene);
     drawJsonBulletCylinderGraph();

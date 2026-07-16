@@ -87,10 +87,12 @@
   },
   "images": [],
   "practice": {
-    "title": "近似题：由剩余面积求半径",
-    "question": "半径为 \\(R\\) 的圆盘上细沙均匀分布，旋转后只剩原来面积的 \\(\\frac14\\)。剩余区域半径是多少？",
-    "answer": "面积比等于半径平方比，\\(\\frac{r^2}{R^2}=\\frac14\\)，所以 \\(r=\\frac R2\\)。",
-    "thinking": "面积比例题先把面积转成半径，再代入摩擦临界方程。"
+    "title": "进阶近似题：由剩余面积求半径",
+    "question": "**基础设问**\n\n半径为 \\(R\\) 的圆盘上细沙均匀分布，旋转后只剩原来面积的 \\(\\frac14\\)。剩余区域半径是多少？\n\n**综合提升**\n\n半径为 \\(r\\)、倾角为 \\(\\theta\\) 的弯道先按无摩擦设计，再考虑静摩擦因数 \\(\\mu\\)。（1）求无摩擦设计速度；（2）分别写出高速、低速临界时的径向与竖直方程；（3）说明摩擦方向为何随速度改变；（4）给出求允许速度区间的统一步骤。",
+    "answer": "**1. 基础设问**\n\n面积比等于半径平方比，\\(\\frac{r^2}{R^2}=\\frac14\\)，所以 \\(r=\\frac R2\\)。\n\n**2. 综合提升**\n\n无摩擦时\n\n\\[N\\cos\\theta=mg,\\qquad N\\sin\\theta=m\\frac{v_0^2}{r},\\]\n\n故 \\(v_0=\\sqrt{rg\\tan\\theta}\\)。考虑摩擦时取 \\(f=\\mu N\\)，高速临界摩擦沿斜面向下，低速临界沿斜面向上，分别联立\n\n\\[N\\sin\\theta\\pm f\\cos\\theta=m\\frac{v^2}{r},\\qquad N\\cos\\theta\\mp f\\sin\\theta=mg.\\]\n\n两组解给出 \\(v_{\\max}\\) 与 \\(v_{\\min}\\)。",
+    "thinking": "**基础思路**\n\n面积比例题先把面积转成半径，再代入摩擦临界方程。\n\n**进阶思路**\n\n先用无摩擦速度作为分界：高于它时物体趋向外上方滑，低于它时趋向内下方滑，因此静摩擦方向相反。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
   },
   "analysisText": "细沙均匀分布，若有 \\(\\frac89\\) 被甩掉，则剩余面积为原来的 \\(\\frac19\\)，剩余圆形区域半径为 \\(r=\\frac R3\\)。最容易脱落的位置在圆盘下坡方向，沿盘面向外的惯性趋势与重力沿盘面分量同向，临界时有 \\(m\\omega^2r+mg\\sin\\theta=\\mu mg\\cos\\theta\\)。代入 \\(r=\\frac R3\\)，得 \\(\\omega^2=\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}\\)，所以 \\(\\omega=\\sqrt{\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}}\\)，选 D。",
   "steps": [
@@ -130,5 +132,66 @@
       ],
       "commonMistakes": []
     }
-  ]
+  ],
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(\\sqrt{\\frac{g(\\mu\\cos\\theta+\\sin\\theta)}{R}}\\)",
+      "thinking": "先条件提取，再建模，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r=\\frac R3\\]\n\n\\[m\\omega^2r+mg\\sin\\theta=\\mu mg\\cos\\theta\\]\n\n\\[\\omega^2=\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}\\]\n\n\\[\\omega=\\sqrt{\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}}\\]",
+      "judgment": "该结论没有同时满足“竖直平衡、径向动力学和接触约束必须同时成立”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "倾斜圆盘",
+        "静摩擦临界",
+        "面积比例",
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(\\sqrt{\\frac{g(\\mu\\cos\\theta-\\sin\\theta)}{R}}\\)",
+      "thinking": "先条件提取，再建模，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r=\\frac R3\\]\n\n\\[m\\omega^2r+mg\\sin\\theta=\\mu mg\\cos\\theta\\]\n\n\\[\\omega^2=\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}\\]\n\n\\[\\omega=\\sqrt{\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}}\\]",
+      "judgment": "该结论没有同时满足“竖直平衡、径向动力学和接触约束必须同时成立”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "倾斜圆盘",
+        "静摩擦临界",
+        "面积比例",
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(\\sqrt{\\frac{3g(\\mu\\cos\\theta+\\sin\\theta)}{R}}\\)",
+      "thinking": "先条件提取，再建模，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r=\\frac R3\\]\n\n\\[m\\omega^2r+mg\\sin\\theta=\\mu mg\\cos\\theta\\]\n\n\\[\\omega^2=\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}\\]\n\n\\[\\omega=\\sqrt{\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}}\\]",
+      "judgment": "该结论没有同时满足“竖直平衡、径向动力学和接触约束必须同时成立”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "倾斜圆盘",
+        "静摩擦临界",
+        "面积比例",
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(\\sqrt{\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}}\\)",
+      "thinking": "先条件提取，再建模，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r=\\frac R3\\]\n\n\\[m\\omega^2r+mg\\sin\\theta=\\mu mg\\cos\\theta\\]\n\n\\[\\omega^2=\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}\\]\n\n\\[\\omega=\\sqrt{\\frac{3g(\\mu\\cos\\theta-\\sin\\theta)}{R}}\\]",
+      "judgment": "该结论与主方程推导结果及“竖直平衡、径向动力学和接触约束必须同时成立”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "倾斜圆盘",
+        "静摩擦临界",
+        "面积比例",
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
 }

@@ -1,0 +1,124 @@
+{
+  "id": "curve_training_14_valve_light",
+  "originalNumber": "题14",
+  "chapter": "曲线运动",
+  "title": "第14题：自行车气嘴灯临界",
+  "question": "自行车气嘴灯由接触式开关控制。弹簧一端固定在顶部，另一端与小物块 \\(P\\) 连接；当车轮角速度达到一定值时，\\(P\\) 拉伸弹簧并使触点 \\(A\\)、\\(B\\) 接触，电路接通。触点 \\(B\\) 与车轮圆心距离为 \\(R\\)。车轮静止且气嘴灯在最低点时，触点 \\(A\\)、\\(B\\) 距离为 \\(d\\)，\\(d\\lt R\\)。已知 \\(P\\) 与触点 \\(A\\) 的总质量为 \\(m\\)，弹簧劲度系数为 \\(k\\)，重力加速度为 \\(g\\)，忽略开关内摩擦。下列说法正确的是（多选）。",
+  "options": [
+    "A. 气嘴灯在最低点能发光，其他位置一定能发光",
+    "B. 气嘴灯在最高点能发光，其他位置一定能发光",
+    "C. 要使气嘴灯能够发光，车轮匀速转动的最小角速度为 \\(\\sqrt{\\dfrac{kd}{mR}}\\)",
+    "D. 要使气嘴灯一直发光，车轮匀速转动的最小角速度为 \\(\\sqrt{\\dfrac{kd+2mg}{mR}}\\)"
+  ],
+  "answer": "B、C、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "curve_training_model",
+    "variant": "curve_training_14_valve_light",
+    "playable": true,
+    "interactive": true,
+    "notes": "随车轮转角显示重力径向分量和触发阈值，最高点是持续发光的最不利位置。",
+    "params": {
+      "omega": {
+        "label": "车轮角速度",
+        "value": 4,
+        "min": 1,
+        "max": 7,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "radius": {
+        "label": "触点半径",
+        "value": 0.35,
+        "min": 0.2,
+        "max": 0.6,
+        "step": 0.01,
+        "unit": "m"
+      },
+      "kdOverM": {
+        "label": "kd/m",
+        "value": 4,
+        "min": 1,
+        "max": 10,
+        "step": 0.2,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "竖直圆周",
+    "弹簧触发",
+    "径向分力",
+    "临界角速度"
+  ],
+  "steps": [
+    {
+      "title": "确定最低点临界",
+      "content": "静止在最低点时弹簧已平衡重力。触点再闭合需要增加伸长 \\(d\\)，故最低点触发条件化为 \\(m\\omega^2R=kd\\)。"
+    },
+    {
+      "title": "比较最高点",
+      "content": "最高点重力指向圆心，与弹簧一起形成更大的向内作用；要让物块达到同一外移位置，需要更大的 \\(m\\omega^2R\\)，因此最高点最难触发。"
+    },
+    {
+      "title": "求持续发光阈值",
+      "content": "由最低点静止平衡带来的预伸长计入后，最高点临界满足 \\(m\\omega^2R=kd+2mg\\)。"
+    },
+    {
+      "title": "得出结论",
+      "content": "最低点最容易、最高点最困难；B、C、D 正确。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "最低点能亮是否保证全程",
+      "thinking": "比较重力在最低点和最高点相对径向外移的作用。",
+      "formula": "\\[\\omega_{最低}<\\omega_{最高}\\]",
+      "judgment": "最低点最容易触发，能亮不能保证其他位置也亮，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "最高点能亮是否保证全程",
+      "thinking": "最高点是触发所需角速度最大的最不利位置。",
+      "formula": "\\[\\omega_{临界}(\\varphi)\\le\\omega_{最高}\\]",
+      "judgment": "若最高点能够闭合触点，其余位置也能闭合，B 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "首次发光的最小角速度",
+      "thinking": "首次发光发生在最低点，静止时的重力平衡量会相消。",
+      "formula": "\\[m\\omega^2R=kd\\]",
+      "judgment": "解得 \\(\\omega_{\\min}=\\sqrt{kd/(mR)}\\)，C 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "持续发光的最小角速度",
+      "thinking": "持续发光要检查最不利的最高点，并计入重力方向反转带来的 \\(2mg\\) 差额。",
+      "formula": "\\[m\\omega^2R=kd+2mg\\]",
+      "judgment": "解得题给表达式，D 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：任意轮位角的触发阈值",
+    "question": "以气嘴灯位于最低点时的轮位角为 \\(\\varphi=0\\)。在保持原装置参数不变的情况下，推导任意轮位角 \\(\\varphi\\) 处触点刚好闭合所需的 \\(\\omega_c(\\varphi)\\)，并由此说明哪里最先发光、哪里最后发光。",
+    "answer": "**重力径向变化**\n\n相对于最低点静止平衡，轮位角为 \\(\\varphi\\) 时重力沿径向外侧的分量减少了 \\(mg(1-\\cos\\varphi)\\)。\n\n**临界方程**\n\n\\[m\\omega_c^2R=kd+mg(1-\\cos\\varphi).\\]\n\n**临界角速度**\n\n\\[\\omega_c(\\varphi)=\\sqrt{\\frac{kd+mg(1-\\cos\\varphi)}{mR}}.\\]\n\n**结论**\n\n\\(\\varphi=0\\) 的最低点阈值最小，最先发光；\\(\\varphi=\\pi\\) 的最高点阈值最大，最后发光。",
+    "thinking": "**思路**\n\n以最低点静止平衡作为基准，避免重复引入弹簧原伸长；只计算重力径向分量相对最低点改变了多少。"
+  }
+}

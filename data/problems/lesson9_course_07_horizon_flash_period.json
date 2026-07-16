@@ -5,17 +5,80 @@
   "title": "例7：地平线闪光卫星周期",
   "question": "地球赤道上某人在日落后八小时，刚好看到西边地平线上一颗卫星闪亮一下后消失。卫星轨道半径低于同步卫星轨道半径。已知地球半径为 \\(R\\)，地表重力加速度为 \\(g\\)，引力常量为 \\(G\\)。卫星自身不发光，反射太阳光，忽略大气折射。求该卫星的运行周期。",
   "answer": "\\(T=4\\pi\\sqrt{2R/g}\\)",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_horizon_flash", "playable": true, "interactive": true, "notes": "观察者从日落位置转过 120°，卫星同时到达西方地平线与地球阴影边界；右图由 r=2R 得周期。", "params": { "elapsedHours": { "label": "日落后时间", "value": 8, "min": 4, "max": 12, "step": 0.5, "unit": "h" }, "surfaceGravity": { "label": "地表重力", "value": 9.8, "min": 8.0, "max": 12.0, "step": 0.1, "unit": "m/s²" } }, "timeline": { "duration": 8, "loop": false } },
-  "knowledge": ["地球阴影", "相切几何", "圆轨道周期"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_horizon_flash",
+    "playable": true,
+    "interactive": true,
+    "notes": "观察者从日落位置转过 120°，卫星同时到达西方地平线与地球阴影边界；右图由 r=2R 得周期。",
+    "params": {
+      "elapsedHours": {
+        "label": "日落后时间",
+        "value": 8,
+        "min": 4,
+        "max": 12,
+        "step": 0.5,
+        "unit": "h"
+      },
+      "surfaceGravity": {
+        "label": "地表重力",
+        "value": 9.8,
+        "min": 8,
+        "max": 12,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "地球阴影",
+    "相切几何",
+    "圆轨道周期"
+  ],
   "steps": [
-    { "stepId": 1, "title": "确定观察者位置", "content": "日落时观察者位于昼夜分界线。八小时后地球自转角为 \\(120^\\circ\\)，因此观察者相对太阳方向转过 \\(120^\\circ\\)。", "knowledge": ["地球自转"], "commonMistakes": [] },
-    { "stepId": 2, "title": "利用两条相切线", "content": "卫星位于西边地平线，观察者视线与地球相切；卫星又恰在闪光后进入地球阴影，太阳光线也与地球相切。由这组切线与 \\(120^\\circ\\) 几何关系可得卫星到地心距离 \\(r=2R\\)。", "knowledge": ["相切几何"], "commonMistakes": [] },
-    { "stepId": 3, "title": "求运行周期", "content": "地表有 \\(GM=gR^2\\)。圆轨道周期 \\(T=2\\pi\\sqrt{r^3/(GM)}\\)，代入 \\(r=2R\\) 得 \\(T=4\\pi\\sqrt{2R/g}\\)。", "knowledge": ["圆轨道周期"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "确定观察者位置",
+      "content": "日落时观察者位于昼夜分界线。八小时后地球自转角为 \\(120^\\circ\\)，因此观察者相对太阳方向转过 \\(120^\\circ\\)。",
+      "knowledge": [
+        "地球自转"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "利用两条相切线",
+      "content": "卫星位于西边地平线，观察者视线与地球相切；卫星又恰在闪光后进入地球阴影，太阳光线也与地球相切。由这组切线与 \\(120^\\circ\\) 几何关系可得卫星到地心距离 \\(r=2R\\)。",
+      "knowledge": [
+        "相切几何"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求运行周期",
+      "content": "地表有 \\(GM=gR^2\\)。圆轨道周期 \\(T=2\\pi\\sqrt{r^3/(GM)}\\)，代入 \\(r=2R\\) 得 \\(T=4\\pi\\sqrt{2R/g}\\)。",
+      "knowledge": [
+        "圆轨道周期"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：由轨道半径求周期",
-    "question": "某卫星绕地球做半径为 \\(3R\\) 的圆周运动，已知地表重力加速度为 \\(g\\)。求其周期。",
-    "answer": "\\(T=2\\pi\\sqrt{(3R)^3/(gR^2)}=6\\pi\\sqrt{3R/g}\\)。",
-    "thinking": "先用 \\(GM=gR^2\\) 消去地球质量，再代入圆轨道周期公式。"
+    "title": "进阶近似题：由轨道半径求周期",
+    "question": "**基础设问**\n\n某卫星绕地球做半径为 \\(3R\\) 的圆周运动，已知地表重力加速度为 \\(g\\)。求其周期。\n\n**综合提升**\n\n两颗卫星绕同一中心天体同向做圆周运动，半径为 \\(r_1<r_2\\)。（1）求相对角速度和会合周期；（2）若初始相差角 \\(\\Delta\\theta_0\\)，求首次会合时间；（3）若改为反向运动重新作答；（4）说明距离图像的极大、极小时刻与相对相位的关系。",
+    "answer": "**1. 基础设问**\n\n\\(T=2\\pi\\sqrt{(3R)^3/(gR^2)}=6\\pi\\sqrt{3R/g}\\)。\n\n**2. 综合提升**\n\n\\(\\omega_i=\\sqrt{GM/r_i^3}\\)。同向时\n\n\\[\\omega_{rel}=|\\omega_1-\\omega_2|,\\qquad T_{syn}=\\frac{2\\pi}{\\omega_{rel}},\\]\n\n首次会合时间由 \\(\\Delta\\theta_0+\\omega_{rel}t=2n\\pi\\) 取最小正解。反向时相对角速度变为 \\(\\omega_1+\\omega_2\\)。相位差为 \\(0\\) 时距离极小，为 \\(\\pi\\) 时距离极大。",
+    "thinking": "**基础思路**\n\n先用 \\(GM=gR^2\\) 消去地球质量，再代入圆轨道周期公式。\n\n**进阶思路**\n\n先把各自轨道动力学转成角速度，再单独做相对运动；相对周期不是任一卫星自身周期。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

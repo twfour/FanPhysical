@@ -5,17 +5,80 @@
   "title": "例7：星球自转解体",
   "question": "已知某星球不自转时，其表面重力加速度为 \\(g\\)，半径为 \\(R\\)。问该星球自转的角速度 \\(\\omega\\) 增大为多少时，星球开始解体？",
   "answer": "\\(\\omega=\\sqrt{g/R}\\)",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "planet_breakup", "playable": true, "interactive": true, "notes": "角速度逐渐增大，赤道表面质点在离心需求等于重力时达到解体临界。", "params": { "gravity": { "label": "表面重力", "value": 10, "min": 3, "max": 20, "step": 0.5, "unit": "m/s²" }, "radius": { "label": "星球半径", "value": 6.4, "min": 2, "max": 10, "step": 0.2, "unit": "×10⁶m" } }, "timeline": { "duration": 7, "loop": false } },
-  "knowledge": ["自转临界", "万有引力", "向心力"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "planet_breakup",
+    "playable": true,
+    "interactive": true,
+    "notes": "角速度逐渐增大，赤道表面质点在离心需求等于重力时达到解体临界。",
+    "params": {
+      "gravity": {
+        "label": "表面重力",
+        "value": 10,
+        "min": 3,
+        "max": 20,
+        "step": 0.5,
+        "unit": "m/s²"
+      },
+      "radius": {
+        "label": "星球半径",
+        "value": 6.4,
+        "min": 2,
+        "max": 10,
+        "step": 0.2,
+        "unit": "×10⁶m"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "自转临界",
+    "万有引力",
+    "向心力"
+  ],
   "steps": [
-    { "stepId": 1, "title": "临界位置", "content": "赤道处最先达到解体临界，因为该处距自转轴最远，需要的向心力最大。", "knowledge": ["临界条件"], "commonMistakes": [] },
-    { "stepId": 2, "title": "建立方程", "content": "临界时表面物体仅靠万有引力提供向心力：\\(mg=m\\omega^2R\\)。", "knowledge": ["向心力"], "commonMistakes": [] },
-    { "stepId": 3, "title": "结论", "content": "约去质量得 \\(\\omega=\\sqrt{g/R}\\)。", "knowledge": ["临界角速度"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "临界位置",
+      "content": "赤道处最先达到解体临界，因为该处距自转轴最远，需要的向心力最大。",
+      "knowledge": [
+        "临界条件"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "建立方程",
+      "content": "临界时表面物体仅靠万有引力提供向心力：\\(mg=m\\omega^2R\\)。",
+      "knowledge": [
+        "向心力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "约去质量得 \\(\\omega=\\sqrt{g/R}\\)。",
+      "knowledge": [
+        "临界角速度"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：星球解体临界周期",
-    "question": "某星球表面重力加速度为 \\(g\\)，半径为 \\(R\\)，求不发生解体的最小自转周期。",
-    "answer": "\\(T_{\\min}=2\\pi\\sqrt{R/g}\\)。",
-    "thinking": "先求临界角速度 \\(\\omega_{\\max}=\\sqrt{g/R}\\)，再用 \\(T=2\\pi/\\omega\\)。"
+    "title": "进阶近似题：星球解体临界周期",
+    "question": "**基础设问**\n\n某星球表面重力加速度为 \\(g\\)，半径为 \\(R\\)，求不发生解体的最小自转周期。\n\n**综合提升**\n\n设天体为密度均匀、半径 \\(R\\) 的球体。（1）推导内部距球心 \\(r\\) 处的重力加速度；（2）证明贯穿球心的真空隧道内运动为简谐运动；（3）求振动周期并用平均密度表示；（4）比较该周期与贴近表面的圆轨道周期。",
+    "answer": "**1. 基础设问**\n\n\\(T_{\\min}=2\\pi\\sqrt{R/g}\\)。\n\n**2. 综合提升**\n\n球内有效质量 \\(M(r)=4\\pi\\rho r^3/3\\)，故\n\n\\[g(r)=\\frac{GM(r)}{r^2}=\\frac{4\\pi G\\rho}{3}r.\\]\n\n沿隧道有 \\(a=-\\omega^2r\\)，其中 \\(\\omega^2=4\\pi G\\rho/3\\)，所以\n\n\\[T=2\\pi\\sqrt{\\frac{3}{4\\pi G\\rho}}.\\]\n\n贴地圆轨道满足同一 \\(GM/R^3=4\\pi G\\rho/3\\)，周期相同。",
+    "thinking": "**基础思路**\n\n先求临界角速度 \\(\\omega_{\\max}=\\sqrt{g/R}\\)，再用 \\(T=2\\pi/\\omega\\)。\n\n**进阶思路**\n\n关键升级是把表面重力推广到球内有效质量，再识别加速度与位移成正比的简谐结构。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

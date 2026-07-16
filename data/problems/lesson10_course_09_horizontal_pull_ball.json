@@ -20,40 +20,135 @@
     "interactive": true,
     "notes": "小球沿圆弧等速上升，水平拉力随角度增大；右图显示瞬时功率 \\(P=mgv\\sin\\theta\\)。",
     "params": {
-      "mass": { "label": "小球质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
-      "speed": { "label": "恒定速率", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "m/s" },
-      "g": { "label": "重力加速度", "value": 10, "min": 8, "max": 12, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "小球质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "speed": {
+        "label": "恒定速率",
+        "value": 2,
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1,
+        "unit": "m/s"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 8,
+        "max": 12,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 6, "loop": false }
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
-  "knowledge": ["瞬时功率", "切向平衡", "圆周运动"],
+  "knowledge": [
+    "瞬时功率",
+    "切向平衡",
+    "圆周运动"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "沿切线方向列平衡",
       "content": "设细线与竖直方向夹角为 \\(\\theta\\)。小球速率不变，切向加速度为零，因此 \\(F\\cos\\theta=mg\\sin\\theta\\)，即 \\(F=mg\\tan\\theta\\)。",
-      "knowledge": ["切向动力学"],
+      "knowledge": [
+        "切向动力学"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "求水平速度分量",
       "content": "小球速度沿圆周切线，其水平方向分量为 \\(v_x=v\\cos\\theta\\)。",
-      "knowledge": ["速度分解"],
-      "commonMistakes": ["把小球的全部速率直接代入 \\(P=Fv\\)"]
+      "knowledge": [
+        "速度分解"
+      ],
+      "commonMistakes": [
+        "把小球的全部速率直接代入 \\(P=Fv\\)"
+      ]
     },
     {
       "stepId": 3,
       "title": "判断功率变化",
       "content": "水平拉力的功率 \\(P=Fv_x=mg\\tan\\theta\\cdot v\\cos\\theta=mgv\\sin\\theta\\)。从 \\(A\\) 到 \\(B\\) 时 \\(\\theta\\) 逐渐增大，故 \\(P\\) 逐渐增大。答案为 A。",
-      "knowledge": ["功率标量积"],
+      "knowledge": [
+        "功率标量积"
+      ],
       "commonMistakes": []
     }
   ],
   "practice": {
-    "title": "近似题：圆弧上等速提升",
-    "question": "质量 \\(m=0.5\\,\\mathrm{kg}\\) 的小球以 \\(v=3\\,\\mathrm{m/s}\\) 的恒定速率运动。当细线与竖直方向夹角为 \\(30^\\circ\\) 时，求水平拉力的瞬时功率。取 \\(g=10\\,\\mathrm{m/s^2}\\)。",
-    "answer": "\\(P=mgv\\sin30^\\circ=0.5\\times10\\times3\\times0.5=7.5\\,\\mathrm W\\)。",
-    "thinking": "利用等速条件消去水平拉力，直接使用 \\(P=mgv\\sin\\theta\\)。"
+    "title": "进阶近似题：圆弧上等速提升",
+    "question": "**基础设问**\n\n质量 \\(m=0.5\\,\\mathrm{kg}\\) 的小球以 \\(v=3\\,\\mathrm{m/s}\\) 的恒定速率运动。当细线与竖直方向夹角为 \\(30^\\circ\\) 时，求水平拉力的瞬时功率。取 \\(g=10\\,\\mathrm{m/s^2}\\)。\n\n**综合提升**\n\n把原题中的恒力推广为方向或大小随路径参数 \\(s\\) 变化的力 \\(\\vec F(s)\\)。（1）写出总功的积分表达式；（2）给出瞬时功率；（3）说明同一始末位置沿不同路径做功何时相同；（4）设计一个由 \\(P-t\\) 图像反求总功的方法。",
+    "answer": "**1. 基础设问**\n\n\\(P=mgv\\sin30^\\circ=0.5\\times10\\times3\\times0.5=7.5\\,\\mathrm W\\)。\n\n**2. 综合提升**\n\n总功和瞬时功率分别为\n\n\\[W=\\int_{s_1}^{s_2}\\vec F(s)\\cdot d\\vec s,\\qquad P=\\vec F\\cdot\\vec v=\\frac{dW}{dt}.\\]\n\n只有保守力的功才只由始末位置决定；一般外力功与路径有关。\\(P-t\\) 图像的有符号面积 \\(\\int Pdt\\) 就是总功。",
+    "thinking": "**基础思路**\n\n利用等速条件消去水平拉力，直接使用 \\(P=mgv\\sin\\theta\\)。\n\n**进阶思路**\n\n从定力公式升级到线积分与功率积分，可统一处理变大小、变方向和分段做功。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "逐渐增大",
+      "thinking": "先沿切线方向列平衡，再求水平速度分量，最后判断功率变化；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F\\cos\\theta=mg\\sin\\theta\\]\n\n\\[F=mg\\tan\\theta\\]\n\n\\[v_x=v\\cos\\theta\\]\n\n\\[P=Fv_x=mg\\tan\\theta\\cdot v\\cos\\theta=mgv\\sin\\theta\\]",
+      "judgment": "该结论与主方程推导结果及“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "瞬时功率",
+        "切向平衡",
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "逐渐减小",
+      "thinking": "先沿切线方向列平衡，再求水平速度分量，最后判断功率变化；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F\\cos\\theta=mg\\sin\\theta\\]\n\n\\[F=mg\\tan\\theta\\]\n\n\\[v_x=v\\cos\\theta\\]\n\n\\[P=Fv_x=mg\\tan\\theta\\cdot v\\cos\\theta=mgv\\sin\\theta\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "瞬时功率",
+        "切向平衡",
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "先增大，后减小",
+      "thinking": "先沿切线方向列平衡，再求水平速度分量，最后判断功率变化；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F\\cos\\theta=mg\\sin\\theta\\]\n\n\\[F=mg\\tan\\theta\\]\n\n\\[v_x=v\\cos\\theta\\]\n\n\\[P=Fv_x=mg\\tan\\theta\\cdot v\\cos\\theta=mgv\\sin\\theta\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "瞬时功率",
+        "切向平衡",
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "先减小，后增大",
+      "thinking": "先沿切线方向列平衡，再求水平速度分量，最后判断功率变化；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F\\cos\\theta=mg\\sin\\theta\\]\n\n\\[F=mg\\tan\\theta\\]\n\n\\[v_x=v\\cos\\theta\\]\n\n\\[P=Fv_x=mg\\tan\\theta\\cdot v\\cos\\theta=mgv\\sin\\theta\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "瞬时功率",
+        "切向平衡",
+        "圆周运动"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

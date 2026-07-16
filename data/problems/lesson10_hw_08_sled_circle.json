@@ -20,41 +20,143 @@
     "interactive": true,
     "notes": "拉力的切向分量克服摩擦，径向分量提供向心力；右图显示克服摩擦力做功随圆心角线性增加。",
     "params": {
-      "mass": { "label": "雪橇质量", "value": 80, "min": 40, "max": 120, "step": 5, "unit": "kg" },
-      "radius": { "label": "转弯半径", "value": 24, "min": 12, "max": 40, "step": 1, "unit": "m" },
-      "speed": { "label": "运动速度", "value": 3, "min": 1, "max": 6, "step": 0.1, "unit": "m/s" },
-      "mu": { "label": "动摩擦因数", "value": 0.05, "min": 0.02, "max": 0.15, "step": 0.01, "unit": "" }
+      "mass": {
+        "label": "雪橇质量",
+        "value": 80,
+        "min": 40,
+        "max": 120,
+        "step": 5,
+        "unit": "kg"
+      },
+      "radius": {
+        "label": "转弯半径",
+        "value": 24,
+        "min": 12,
+        "max": 40,
+        "step": 1,
+        "unit": "m"
+      },
+      "speed": {
+        "label": "运动速度",
+        "value": 3,
+        "min": 1,
+        "max": 6,
+        "step": 0.1,
+        "unit": "m/s"
+      },
+      "mu": {
+        "label": "动摩擦因数",
+        "value": 0.05,
+        "min": 0.02,
+        "max": 0.15,
+        "step": 0.01,
+        "unit": ""
+      }
     },
-    "timeline": { "duration": 8, "loop": false }
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
   },
-  "knowledge": ["圆周运动", "功率", "摩擦力做功"],
+  "knowledge": [
+    "圆周运动",
+    "功率",
+    "摩擦力做功"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "分解水平拉力",
       "content": "动摩擦力 \\(f=\\mu mg=40\\,\\mathrm N\\)，匀速运动要求拉力的切向分量 \\(F_t=f=40\\,\\mathrm N\\)。径向分量提供向心力：\\(F_r=mv^2/r=30\\,\\mathrm N\\)。",
-      "knowledge": ["力的正交分解"],
-      "commonMistakes": ["把全部拉力都当成向心力"]
+      "knowledge": [
+        "力的正交分解"
+      ],
+      "commonMistakes": [
+        "把全部拉力都当成向心力"
+      ]
     },
     {
       "stepId": 2,
       "title": "求拉力大小、方向和功率",
       "content": "\\(F=\\sqrt{F_t^2+F_r^2}=50\\,\\mathrm N\\)，与速度方向夹角满足 \\(\\tan\\alpha=F_r/F_t=3/4\\)，故 \\(\\alpha=37^\\circ\\)。拉力功率只由切向分量贡献，\\(P=F_tv=120\\,\\mathrm W\\)。因此 B 对，A、C 错。",
-      "knowledge": ["瞬时功率"],
+      "knowledge": [
+        "瞬时功率"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "求克服摩擦力做功",
       "content": "转过 \\(30^\\circ=\\pi/6\\) 时弧长 \\(s=r\\theta=24\\times\\pi/6=4\\pi\\,\\mathrm m\\)。克服摩擦力做功 \\(W=fs=40\\times4\\pi=160\\pi\\,\\mathrm J\\)，D 对。",
-      "knowledge": ["弧长与功"],
+      "knowledge": [
+        "弧长与功"
+      ],
       "commonMistakes": []
     }
   ],
   "practice": {
-    "title": "近似题：水平圆周拉物",
-    "question": "质量 \\(m=50\\,\\mathrm{kg}\\) 的物体在水平面上以 \\(v=4\\,\\mathrm{m/s}\\) 做半径 \\(r=20\\,\\mathrm m\\) 的匀速圆周运动，\\(\\mu=0.04\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求水平拉力大小及其功率。",
-    "answer": "\\(F_t=\\mu mg=20\\,\\mathrm N\\)，\\(F_r=mv^2/r=40\\,\\mathrm N\\)，故 \\(F=20\\sqrt5\\,\\mathrm N\\)，功率 \\(P=F_tv=80\\,\\mathrm W\\)。",
-    "thinking": "先把拉力分成沿速度方向和指向圆心方向，只有切向分量做功。"
+    "title": "进阶近似题：水平圆周拉物",
+    "question": "**基础设问**\n\n质量 \\(m=50\\,\\mathrm{kg}\\) 的物体在水平面上以 \\(v=4\\,\\mathrm{m/s}\\) 做半径 \\(r=20\\,\\mathrm m\\) 的匀速圆周运动，\\(\\mu=0.04\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求水平拉力大小及其功率。\n\n**综合提升**\n\n把原题中的恒力推广为方向或大小随路径参数 \\(s\\) 变化的力 \\(\\vec F(s)\\)。（1）写出总功的积分表达式；（2）给出瞬时功率；（3）说明同一始末位置沿不同路径做功何时相同；（4）设计一个由 \\(P-t\\) 图像反求总功的方法。",
+    "answer": "**1. 基础设问**\n\n\\(F_t=\\mu mg=20\\,\\mathrm N\\)，\\(F_r=mv^2/r=40\\,\\mathrm N\\)，故 \\(F=20\\sqrt5\\,\\mathrm N\\)，功率 \\(P=F_tv=80\\,\\mathrm W\\)。\n\n**2. 综合提升**\n\n总功和瞬时功率分别为\n\n\\[W=\\int_{s_1}^{s_2}\\vec F(s)\\cdot d\\vec s,\\qquad P=\\vec F\\cdot\\vec v=\\frac{dW}{dt}.\\]\n\n只有保守力的功才只由始末位置决定；一般外力功与路径有关。\\(P-t\\) 图像的有符号面积 \\(\\int Pdt\\) 就是总功。",
+    "thinking": "**基础思路**\n\n先把拉力分成沿速度方向和指向圆心方向，只有切向分量做功。\n\n**进阶思路**\n\n从定力公式升级到线积分与功率积分，可统一处理变大小、变方向和分段做功。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "雪橇受到狗的水平拉力大小为 \\(40\\,\\mathrm N\\)",
+      "thinking": "先分解水平拉力，再求拉力大小、方向和功率，最后求克服摩擦力做功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f=\\mu mg\\]\n\n\\[F_t=f\\]\n\n\\[F_r=mv^2/r\\]\n\n\\[F=\\sqrt{F_t^2+F_r^2}\\]\n\n\\[\\tan\\alpha=F_r/F_t=3/4\\]",
+      "judgment": "该结论没有同时满足“做功取决于力的作用点位移和沿位移方向的力分量”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "圆周运动",
+        "功率",
+        "摩擦力做功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "狗给雪橇的水平拉力方向与雪橇前进方向成 \\(37^\\circ\\)",
+      "thinking": "先分解水平拉力，再求拉力大小、方向和功率，最后求克服摩擦力做功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f=\\mu mg\\]\n\n\\[F_t=f\\]\n\n\\[F_r=mv^2/r\\]\n\n\\[F=\\sqrt{F_t^2+F_r^2}\\]\n\n\\[\\tan\\alpha=F_r/F_t=3/4\\]",
+      "judgment": "该结论与主方程推导结果及“做功取决于力的作用点位移和沿位移方向的力分量”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "圆周运动",
+        "功率",
+        "摩擦力做功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "狗给雪橇的水平拉力功率为 \\(150\\,\\mathrm W\\)",
+      "thinking": "先分解水平拉力，再求拉力大小、方向和功率，最后求克服摩擦力做功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f=\\mu mg\\]\n\n\\[F_t=f\\]\n\n\\[F_r=mv^2/r\\]\n\n\\[F=\\sqrt{F_t^2+F_r^2}\\]\n\n\\[\\tan\\alpha=F_r/F_t=3/4\\]",
+      "judgment": "该结论没有同时满足“做功取决于力的作用点位移和沿位移方向的力分量”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "圆周运动",
+        "功率",
+        "摩擦力做功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "狗拉着雪橇转过 \\(30^\\circ\\) 圆弧的过程中，雪橇克服地面摩擦力做功 \\(160\\pi\\,\\mathrm J\\)",
+      "thinking": "先分解水平拉力，再求拉力大小、方向和功率，最后求克服摩擦力做功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f=\\mu mg\\]\n\n\\[F_t=f\\]\n\n\\[F_r=mv^2/r\\]\n\n\\[F=\\sqrt{F_t^2+F_r^2}\\]\n\n\\[\\tan\\alpha=F_r/F_t=3/4\\]",
+      "judgment": "该结论与主方程推导结果及“做功取决于力的作用点位移和沿位移方向的力分量”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "圆周运动",
+        "功率",
+        "摩擦力做功"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

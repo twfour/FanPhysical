@@ -1,0 +1,124 @@
+{
+  "id": "projectile_a_08_two_balls_incline",
+  "originalNumber": "A8",
+  "chapter": "平抛运动",
+  "title": "A组第8题：双球同落斜面",
+  "question": "如图，两小球 \\(M、N\\) 从同一高度同时分别以 \\(v_1、v_2\\) 的初速度水平抛出，经过时间 \\(t\\) 都落在倾角 \\(\\theta=37^\\circ\\) 的斜面上的 \\(A\\) 点，其中小球 \\(N\\) 垂直打到斜面上。已知 \\(\\sin37^\\circ=0.6\\)、\\(\\cos37^\\circ=0.8\\)，则（　　）。",
+  "options": [
+    "A. 初速度 \\(v_1、v_2\\) 大小之比为 \\(9:8\\)",
+    "B. 初速度 \\(v_1、v_2\\) 大小之比为 \\(8:9\\)",
+    "C. 若 \\(v_1、v_2\\) 都变为原来的 \\(2\\) 倍，则两球在空中相遇，从抛出到相遇经过的时间为 \\(t/2\\)",
+    "D. 若 \\(v_1、v_2\\) 都变为原来的 \\(2\\) 倍，则两球在空中相遇，从抛出到相遇经过的时间为 \\(t/4\\)"
+  ],
+  "answer": "B、C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "projectile_training_model",
+    "variant": "projectile_a_08_two_balls_incline",
+    "playable": true,
+    "interactive": true,
+    "notes": "两球相向平抛并落在同一点；切换加倍速度时显示新的空中相遇点。",
+    "params": {
+      "theta": {
+        "label": "斜面倾角",
+        "value": 37,
+        "min": 25,
+        "max": 55,
+        "step": 1,
+        "unit": "°"
+      },
+      "time": {
+        "label": "原飞行时间",
+        "value": 1.2,
+        "min": 0.7,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "s"
+      },
+      "speedScale": {
+        "label": "速度倍数",
+        "value": 1,
+        "min": 1,
+        "max": 2,
+        "step": 1,
+        "unit": "倍"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "平抛运动",
+    "垂直斜面",
+    "相向运动",
+    "相遇时间"
+  ],
+  "steps": [
+    {
+      "title": "由斜面几何求 \\(v_1\\)",
+      "content": "两球下落高度为 \\(y=\\frac12gt^2\\)。\\(M\\) 点到 \\(A\\) 的水平距离为 \\(y\\cot\\theta\\)，所以 \\(v_1=\\frac12gt\\cot\\theta\\)。"
+    },
+    {
+      "title": "由垂直碰撞求 \\(v_2\\)",
+      "content": "\\(N\\) 垂直打到斜面，末速度与水平夹角为 \\(90^\\circ-\\theta\\)，故 \\(gt/v_2=\\cot\\theta\\)，即 \\(v_2=gt\\tan\\theta\\)。"
+    },
+    {
+      "title": "求初速度比",
+      "content": "\\(v_1/v_2=\\frac12\\cot^2\\theta\\)。代入 \\(\\tan37^\\circ=3/4\\)，得到 \\(v_1:v_2=8:9\\)。"
+    },
+    {
+      "title": "分析速度加倍后的相遇",
+      "content": "原来两球的水平间距为 \\((v_1+v_2)t\\)。两速度同时加倍后相对速度也加倍，因此相遇时间为 \\(t/2\\)。答案为 B、C。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "速度比的顺序",
+      "thinking": "分别由位移方向和末速度方向求两初速度。",
+      "formula": "\\[\\frac{v_1}{v_2}=\\frac12\\cot^2\\theta=\\frac89\\]",
+      "judgment": "不是 \\(9:8\\)，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "代入三七度三角值",
+      "thinking": "使用 \\(\\tan37^\\circ=3/4\\)。",
+      "formula": "\\[v_1:v_2=\\frac12\\left(\\frac43\\right)^2:1=8:9\\]",
+      "judgment": "B 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "相对速度加倍",
+      "thinking": "初始水平间距不变，两球仍处于同一高度，比较水平相对运动即可。",
+      "formula": "\\[T'=\\frac{(v_1+v_2)t}{2(v_1+v_2)}=\\frac t2\\]",
+      "judgment": "此时两球竖直位移仍相同，确实在空中相遇，C 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "相遇时间不是四分之一",
+      "thinking": "水平位移与速度成一次关系，不是平方关系。",
+      "formula": "\\[T'\\propto\\frac1{v_{\\text{rel}}}\\]",
+      "judgment": "相对速度只变为两倍，时间变为一半，D 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：任意倾角与任意倍率",
+    "question": "保持原题几何条件，把斜面倾角改为 \\(\\theta\\)。先求 \\(v_1/v_2\\)。若两初速度同时乘以倍率 \\(k\\gt1\\)，求两球相遇时间，并判断相遇发生在落地前的条件。",
+    "answer": "**速度比**\n\n\\[\\frac{v_1}{v_2}=\\frac12\\cot^2\\theta.\\]\n\n**相遇时间**\n\n原水平间距为 \\((v_1+v_2)t\\)，新相对速度为 \\(k(v_1+v_2)\\)，所以\n\n\\[t_m=\\frac{t}{k}.\\]\n\n只要 \\(k\\gt1\\)，就有 \\(t_m\\lt t\\)，相遇发生在原落点高度以上。",
+    "thinking": "**思路**\n\n第一问分别使用“位移在斜面上”和“末速度垂直斜面”两个不同约束。第二问利用两球竖直运动完全相同，把二维相遇化成一维水平相对运动。"
+  }
+}

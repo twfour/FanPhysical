@@ -1,0 +1,116 @@
+{
+  "id": "projectile_a_01_dart_wall",
+  "originalNumber": "A1",
+  "chapter": "平抛运动",
+  "title": "A组第1题：双飞镖墙距",
+  "question": "如图，墙壁上沿有两只飞镖，它们从同一位置水平射出。飞镖 \\(A\\) 与竖直墙壁成 \\(53^\\circ\\) 角，飞镖 \\(B\\) 与竖直墙壁成 \\(37^\\circ\\) 角，两者相距 \\(d\\)。假设飞镖做平抛运动，已知 \\(\\sin37^\\circ=0.6\\)、\\(\\cos37^\\circ=0.8\\)，则射出点离墙壁的水平距离为（　　）。",
+  "options": [
+    "A. \\(\\frac{24}{7}d\\)",
+    "B. \\(\\frac{23}{5}d\\)",
+    "C. \\(\\frac{21}{4}d\\)",
+    "D. \\(\\frac{25}{3}d\\)"
+  ],
+  "answer": "A",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "projectile_training_model",
+    "variant": "projectile_a_01_dart_wall",
+    "playable": true,
+    "interactive": true,
+    "notes": "两支飞镖从同一点出发，以不同初速度在同一墙面形成给定入射角。",
+    "params": {
+      "separation": {
+        "label": "弹痕间距",
+        "value": 1.4,
+        "min": 0.6,
+        "max": 2.5,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "平抛运动",
+    "末速度方向",
+    "墙面几何",
+    "位移反演"
+  ],
+  "steps": [
+    {
+      "title": "把墙角换成水平夹角",
+      "content": "飞镖 \\(A、B\\) 的末速度与水平方向夹角分别为 \\(37^\\circ、53^\\circ\\)。"
+    },
+    {
+      "title": "建立下落量与末速度角关系",
+      "content": "设墙距为 \\(L\\)、末速度与水平夹角为 \\(\\beta\\)。由 \\(y=\\frac12gt^2\\)、\\(L=v_0t\\) 和 \\(\\tan\\beta=gt/v_0\\)，得到 \\(y=\\frac L2\\tan\\beta\\)。"
+    },
+    {
+      "title": "写出两支飞镖的下落量",
+      "content": "\\(y_A=\\frac L2\\tan37^\\circ=3L/8\\)，\\(y_B=\\frac L2\\tan53^\\circ=2L/3\\)。"
+    },
+    {
+      "title": "利用间距求墙距",
+      "content": "\\(d=y_B-y_A=7L/24\\)，所以 \\(L=24d/7\\)，答案为 A。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "用两次下落量作差",
+      "thinking": "先把插入墙面的姿态解释为撞墙瞬间速度方向。",
+      "formula": "\\[d=\\frac L2(\\tan53^\\circ-\\tan37^\\circ)=\\frac{7L}{24}\\]",
+      "judgment": "解得 \\(L=24d/7\\)，A 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "检查角度基准",
+      "thinking": "题目给的是与竖直墙面的夹角，不可直接当作与水平的夹角。",
+      "formula": "\\[\\beta_A=37^\\circ,\\qquad \\beta_B=53^\\circ\\]",
+      "judgment": "正确换角后不可能得到 \\(23d/5\\)，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "下落量不是 \\(L\\tan\\beta\\)",
+      "thinking": "平抛的平均竖直速度是末竖直速度的一半。",
+      "formula": "\\[y=\\frac12v_yt=\\frac L2\\tan\\beta\\]",
+      "judgment": "遗漏因子 \\(1/2\\) 会导致错误结果，C 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "两支飞镖初速度不同",
+      "thinking": "不能把两支飞镖的飞行时间设为相同。",
+      "formula": "\\[t=\\frac{L}{v_0}\\]",
+      "judgment": "角度不同意味着 \\(v_0\\) 与时间不同，D 不成立。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：三支飞镖确定墙距",
+    "question": "三支飞镖从同一点水平射出，撞到同一竖直墙时，末速度与水平方向的夹角分别为 \\(30^\\circ、45^\\circ、60^\\circ\\)。第一、第三支飞镖的弹痕竖直间距为 \\(D\\)。求墙距 \\(L\\)，并求中间弹痕到第一弹痕的距离。",
+    "answer": "**墙距**\n\n\\[D=\\frac L2(\\tan60^\\circ-\\tan30^\\circ)=\\frac{L}{\\sqrt3},\\]\n\n所以 \\(L=\\sqrt3D\\)。\n\n**中间间距**\n\n\\[D_{12}=\\frac L2(1-\\frac1{\\sqrt3})=\\frac{\\sqrt3-1}{2}D.\\]",
+    "thinking": "**思路**\n\n对每支飞镖统一使用 \\(y=(L/2)\\tan\\beta\\)，墙距相同使不同弹痕间距只由两个末速度角的正切差决定。"
+  }
+}

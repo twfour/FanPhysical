@@ -1,0 +1,124 @@
+{
+  "id": "curve_training_12_pulley_linkage",
+  "originalNumber": "题12",
+  "chapter": "曲线运动",
+  "title": "第12题：滑轮连接体关联速度",
+  "question": "质量分别为 \\(2\\,\\mathrm{kg}\\) 和 \\(3\\,\\mathrm{kg}\\) 的物体 \\(A\\)、\\(B\\) 通过轻绳跨过轻质定滑轮相连接。在水平力 \\(F\\) 作用下，\\(B\\) 沿水平地面向右运动，\\(A\\) 恰以 \\(3\\,\\mathrm{m/s}\\) 匀速上升。已知 \\(B\\) 与地面间的动摩擦因数为 \\(0.2\\)，\\(g=10\\,\\mathrm{m/s^2}\\)。当斜绳与水平方向成 \\(\\alpha=53^\\circ\\) 时（\\(\\sin53^\\circ=0.8\\)，\\(\\cos53^\\circ=0.6\\)），下列选项正确的是（多选）。",
+  "options": [
+    "A. \\(B\\) 所受摩擦力为 \\(2.8\\,\\mathrm N\\)",
+    "B. \\(B\\) 所受摩擦力为 \\(6\\,\\mathrm N\\)",
+    "C. \\(B\\) 的速度大小为 \\(5\\,\\mathrm{m/s}\\)",
+    "D. \\(F\\) 小于 \\(14.8\\,\\mathrm N\\)"
+  ],
+  "answer": "A、C、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "curve_training_model",
+    "variant": "curve_training_12_pulley_linkage",
+    "playable": true,
+    "interactive": true,
+    "notes": "绳长约束把 A 的匀速运动映射为 B 的变速运动，并同步显示受力分解。",
+    "params": {
+      "alpha": {
+        "label": "斜绳角度",
+        "value": 53,
+        "min": 35,
+        "max": 70,
+        "step": 1,
+        "unit": "deg"
+      },
+      "speedA": {
+        "label": "A上升速度",
+        "value": 3,
+        "min": 1,
+        "max": 5,
+        "step": 0.2,
+        "unit": "m/s"
+      },
+      "mu": {
+        "label": "动摩擦因数",
+        "value": 0.2,
+        "min": 0.1,
+        "max": 0.5,
+        "step": 0.01,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "关联速度",
+    "绳长约束",
+    "摩擦力",
+    "连接体受力"
+  ],
+  "steps": [
+    {
+      "title": "由 A 匀速求张力",
+      "content": "\\(A\\) 匀速上升，故 \\(T=m_Ag=20\\,\\mathrm N\\)。"
+    },
+    {
+      "title": "用绳长约束求 B 速度",
+      "content": "斜绳长度增加率等于 A 端绳长减少率，故 \\(v_B\\cos\\alpha=v_A\\)，得到 \\(v_B=3/0.6=5\\,\\mathrm{m/s}\\)。"
+    },
+    {
+      "title": "求支持力和摩擦力",
+      "content": "竖直方向 \\(N+T\\sin\\alpha=m_Bg\\)，得 \\(N=14\\,\\mathrm N\\)，所以 \\(f=\\mu N=2.8\\,\\mathrm N\\)。"
+    },
+    {
+      "title": "判断水平力范围",
+      "content": "随着 \\(B\\) 右移，\\(\\cos\\alpha\\) 增大；为保持 \\(v_B\\cos\\alpha=v_A\\) 恒定，\\(B\\) 必须减速。因此 \\(F-T\\cos\\alpha-f=m_Ba_B\\lt0\\)，得 \\(F\\lt14.8\\,\\mathrm N\\)。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "摩擦力 \\(2.8\\,\\mathrm N\\)",
+      "thinking": "先由 A 匀速求张力，再用 B 的竖直平衡求支持力。",
+      "formula": "\\[f=\\mu(m_Bg-T\\sin\\alpha)\\]",
+      "judgment": "代入得到 \\(f=0.2(30-16)=2.8\\,\\mathrm N\\)，A 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "摩擦力 \\(6\\,\\mathrm N\\)",
+      "thinking": "不能直接取 \\(f=\\mu m_Bg\\)，因为斜绳有向上的分量。",
+      "formula": "\\[N=m_Bg-T\\sin\\alpha\\]",
+      "judgment": "支持力小于 \\(m_Bg\\)，摩擦力不是 \\(6\\,\\mathrm N\\)，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "B 的速度",
+      "thinking": "对不可伸长绳求长度变化率，比较两端沿绳方向的速度。",
+      "formula": "\\[v_B\\cos\\alpha=v_A\\]",
+      "judgment": "得到 \\(v_B=5\\,\\mathrm{m/s}\\)，C 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "水平力上限",
+      "thinking": "先由几何变化判断 B 正在减速，再列水平牛顿第二定律。",
+      "formula": "\\[F-T\\cos\\alpha-f=m_Ba_B\\lt0\\]",
+      "judgment": "因此 \\(F\\lt12+2.8=14.8\\,\\mathrm N\\)，D 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：关联速度与力的符号判断",
+    "question": "将原模型推广为 \\(A\\) 质量 \\(m_A\\)、\\(B\\) 质量 \\(m_B\\)，A 以恒速 \\(u\\) 上升，斜绳与水平夹角为 \\(\\alpha\\)，动摩擦因数为 \\(\\mu\\)。求 \\(v_B\\)、支持力和摩擦力，并在 B 向右移动时判断其加速度方向及水平力 \\(F\\) 与 \\(T\\cos\\alpha+f\\) 的大小关系。",
+    "answer": "**关联速度**\n\n\\(v_B\\cos\\alpha=u\\)，所以 \\(v_B=u/\\cos\\alpha\\)。\n\n**竖直受力**\n\nA 匀速给出 \\(T=m_Ag\\)。对 B 有 \\(N=m_Bg-T\\sin\\alpha\\)，故 \\(f=\\mu(m_Bg-m_Ag\\sin\\alpha)\\)。\n\n**加速度方向**\n\nB 右移时斜绳更趋水平，\\(\\cos\\alpha\\) 增大；为保持乘积 \\(v_B\\cos\\alpha=u\\)，\\(v_B\\) 减小，所以 \\(a_B\\lt0\\)。\n\n**力的比较**\n\n由 \\(F-T\\cos\\alpha-f=m_Ba_B\\lt0\\)，得 \\(F\\lt T\\cos\\alpha+f\\)。",
+    "thinking": "**思路**\n\n先做绳长的一阶导数得到速度，再用角度变化判断速度增减；力的大小关系只需要加速度符号，不需要知道滑轮高度。"
+  }
+}

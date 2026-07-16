@@ -11,17 +11,134 @@
     "D. 在轨道 3 经过 Q 点的加速度小于轨道 2 经过 Q 点的加速度"
   ],
   "answer": "C",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_tianzhou_transfer", "playable": true, "interactive": true, "notes": "天舟八号依次经历轨道1、转移椭圆2、圆轨道3和再次升轨对接；右图标出三次速度变化。", "params": { "orbit3Ratio": { "label": "轨道3半径", "value": 1.5, "min": 1.3, "max": 2.0, "step": 0.1, "unit": "r₁" }, "targetRatio": { "label": "目标轨道半径", "value": 1.8, "min": 1.6, "max": 2.4, "step": 0.1, "unit": "r₁" } }, "timeline": { "duration": 10, "loop": false } },
-  "knowledge": ["卫星变轨", "交会对接", "引力加速度"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_tianzhou_transfer",
+    "playable": true,
+    "interactive": true,
+    "notes": "天舟八号依次经历轨道1、转移椭圆2、圆轨道3和再次升轨对接；右图标出三次速度变化。",
+    "params": {
+      "orbit3Ratio": {
+        "label": "轨道3半径",
+        "value": 1.5,
+        "min": 1.3,
+        "max": 2,
+        "step": 0.1,
+        "unit": "r₁"
+      },
+      "targetRatio": {
+        "label": "目标轨道半径",
+        "value": 1.8,
+        "min": 1.6,
+        "max": 2.4,
+        "step": 0.1,
+        "unit": "r₁"
+      }
+    },
+    "timeline": {
+      "duration": 10,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "卫星变轨",
+    "交会对接",
+    "引力加速度"
+  ],
   "steps": [
-    { "stepId": 1, "title": "第一次点火", "content": "从圆轨道 1 进入远地点更高的椭圆轨道 2，必须在 P 点沿运动方向加速，因此 \\(v_{2P}>v_1\\)，A 错误。", "knowledge": ["升轨加速"], "commonMistakes": [] },
-    { "stepId": 2, "title": "判断椭圆轨道速度", "content": "\\(7.9\\,\\mathrm{km/s}\\) 是地表附近第一宇宙速度。椭圆轨道近地点速度可能大于同半径圆轨道速度，不能断言任一点都小于 \\(7.9\\,\\mathrm{km/s}\\)，B 错误。", "knowledge": ["椭圆速度"], "commonMistakes": [] },
-    { "stepId": 3, "title": "对接与加速度", "content": "目标位于更高轨道，飞船需再次加速升轨，C 正确。同一 Q 点的引力加速度都为 \\(GM/r_Q^2\\)，与轨道形状无关，D 错误。", "knowledge": ["同位置加速度"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "第一次点火",
+      "content": "从圆轨道 1 进入远地点更高的椭圆轨道 2，必须在 P 点沿运动方向加速，因此 \\(v_{2P}>v_1\\)，A 错误。",
+      "knowledge": [
+        "升轨加速"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "判断椭圆轨道速度",
+      "content": "\\(7.9\\,\\mathrm{km/s}\\) 是地表附近第一宇宙速度。椭圆轨道近地点速度可能大于同半径圆轨道速度，不能断言任一点都小于 \\(7.9\\,\\mathrm{km/s}\\)，B 错误。",
+      "knowledge": [
+        "椭圆速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "对接与加速度",
+      "content": "目标位于更高轨道，飞船需再次加速升轨，C 正确。同一 Q 点的引力加速度都为 \\(GM/r_Q^2\\)，与轨道形状无关，D 错误。",
+      "knowledge": [
+        "同位置加速度"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：低轨追赶高轨目标",
-    "question": "追踪飞船在目标飞船后下方的较低圆轨道运行。要进入目标所在的更高轨道，第一次点火应加速还是减速？",
-    "answer": "应沿运动方向加速，使原位置成为转移椭圆的近地点并抬高远地点。",
-    "thinking": "升高轨道的第一步是在低轨切点增加机械能。"
+    "title": "进阶近似题：低轨追赶高轨目标",
+    "question": "**基础设问**\n\n追踪飞船在目标飞船后下方的较低圆轨道运行。要进入目标所在的更高轨道，第一次点火应加速还是减速？\n\n**综合提升**\n\n中心天体质量为 \\(M\\)，用霍曼转移从半径 \\(r_1\\) 的圆轨道升至 \\(r_2>r_1\\)。（1）求转移椭圆半长轴和飞行时间；（2）分别写出转移轨道近、远点速度；（3）比较它们与对应圆轨道速度；（4）说明两次点火为什么都要沿速度方向加速。",
+    "answer": "**1. 基础设问**\n\n应沿运动方向加速，使原位置成为转移椭圆的近地点并抬高远地点。\n\n**2. 综合提升**\n\n转移椭圆半长轴 \\(a_t=(r_1+r_2)/2\\)，半个周期为\n\n\\[t_t=\\pi\\sqrt{\\frac{a_t^3}{GM}}.\\]\n\n由活力公式\n\n\\[v_p=\\sqrt{GM\\left(\\frac2{r_1}-\\frac1{a_t}\\right)},\\qquad v_a=\\sqrt{GM\\left(\\frac2{r_2}-\\frac1{a_t}\\right)}.\\]\n\n有 \\(v_p>\\sqrt{GM/r_1}\\)、\\(v_a<\\sqrt{GM/r_2}\\)。第一次加速进入更高远地点的椭圆，第二次在远点加速使轨道圆化。",
+    "thinking": "**基础思路**\n\n升高轨道的第一步是在低轨切点增加机械能。\n\n**进阶思路**\n\n每次点火只改变速度，不瞬间改变位置和引力加速度；用活力公式比较同一点属于不同轨道的速度。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "在圆轨道 1 的速度大于椭圆轨道 2 在 P 点的速度",
+      "thinking": "先第一次点火，再判断椭圆轨道速度，最后对接与加速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v^2=GM\\left(\\frac2r-\\frac1a\\right),\\qquad T=2\\pi\\sqrt{\\frac{a^3}{GM}}\\]",
+      "judgment": "该结论没有同时满足“同一点的引力加速度只由位置决定，但速度、周期和机械能取决于所属轨道”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "卫星变轨",
+        "交会对接",
+        "引力加速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "在椭圆轨道 2 上任一点速度一定小于 \\(7.9\\,\\mathrm{km/s}\\)",
+      "thinking": "先第一次点火，再判断椭圆轨道速度，最后对接与加速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v^2=GM\\left(\\frac2r-\\frac1a\\right),\\qquad T=2\\pi\\sqrt{\\frac{a^3}{GM}}\\]",
+      "judgment": "该结论没有同时满足“同一点的引力加速度只由位置决定，但速度、周期和机械能取决于所属轨道”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "卫星变轨",
+        "交会对接",
+        "引力加速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "需在轨道 3 再次加速，才能到达更高的目标轨道并与之对接",
+      "thinking": "先第一次点火，再判断椭圆轨道速度，最后对接与加速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v^2=GM\\left(\\frac2r-\\frac1a\\right),\\qquad T=2\\pi\\sqrt{\\frac{a^3}{GM}}\\]",
+      "judgment": "该结论与主方程推导结果及“同一点的引力加速度只由位置决定，但速度、周期和机械能取决于所属轨道”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "卫星变轨",
+        "交会对接",
+        "引力加速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "在轨道 3 经过 Q 点的加速度小于轨道 2 经过 Q 点的加速度",
+      "thinking": "先第一次点火，再判断椭圆轨道速度，最后对接与加速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v^2=GM\\left(\\frac2r-\\frac1a\\right),\\qquad T=2\\pi\\sqrt{\\frac{a^3}{GM}}\\]",
+      "judgment": "该结论没有同时满足“同一点的引力加速度只由位置决定，但速度、周期和机械能取决于所属轨道”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "卫星变轨",
+        "交会对接",
+        "引力加速度"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

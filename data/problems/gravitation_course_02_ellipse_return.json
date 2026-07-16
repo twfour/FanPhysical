@@ -5,17 +5,88 @@
   "title": "例2：椭圆变轨返回",
   "question": "神舟六号沿半径为 \\(r\\) 的圆周绕地球运动，周期为 \\(T\\)。飞船在轨道上的 \\(A\\) 点降低速率后，沿以地心为焦点的椭圆轨道运动，椭圆与地球表面在 \\(B\\) 点相切。若地球半径为 \\(R\\)，求飞船从 \\(A\\) 点到 \\(B\\) 点所需的时间。",
   "answer": "\\(t_{AB}=\\dfrac{T}{2}\\left(\\dfrac{r+R}{2r}\\right)^{3/2}\\)",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "ellipse_return", "playable": true, "interactive": true, "notes": "飞船从圆轨道远地点 A 降速，沿转移椭圆运行半周并在地表 B 点相切。", "params": { "orbitRadius": { "label": "原轨道半径", "value": 4, "min": 2, "max": 7, "step": 0.2, "unit": "R" }, "earthRadius": { "label": "地球半径", "value": 1, "min": 0.8, "max": 1.5, "step": 0.1, "unit": "R" }, "period": { "label": "原轨道周期", "value": 16, "min": 8, "max": 30, "step": 1, "unit": "h" } }, "timeline": { "duration": 7, "loop": false } },
-  "knowledge": ["开普勒第三定律", "椭圆变轨", "半长轴"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "ellipse_return",
+    "playable": true,
+    "interactive": true,
+    "notes": "飞船从圆轨道远地点 A 降速，沿转移椭圆运行半周并在地表 B 点相切。",
+    "params": {
+      "orbitRadius": {
+        "label": "原轨道半径",
+        "value": 4,
+        "min": 2,
+        "max": 7,
+        "step": 0.2,
+        "unit": "R"
+      },
+      "earthRadius": {
+        "label": "地球半径",
+        "value": 1,
+        "min": 0.8,
+        "max": 1.5,
+        "step": 0.1,
+        "unit": "R"
+      },
+      "period": {
+        "label": "原轨道周期",
+        "value": 16,
+        "min": 8,
+        "max": 30,
+        "step": 1,
+        "unit": "h"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "开普勒第三定律",
+    "椭圆变轨",
+    "半长轴"
+  ],
   "steps": [
-    { "stepId": 1, "title": "条件提取", "content": "转移椭圆的远地点半径为 \\(r\\)，近地点半径为 \\(R\\)，故半长轴 \\(a=\\dfrac{r+R}{2}\\)。", "knowledge": ["椭圆半长轴"], "commonMistakes": [] },
-    { "stepId": 2, "title": "周期关系", "content": "同绕地球运动，由开普勒第三定律 \\(\\dfrac{T'^2}{T^2}=\\dfrac{a^3}{r^3}\\)，所以 \\(T'=T\\left(\\dfrac{r+R}{2r}\\right)^{3/2}\\)。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] },
-    { "stepId": 3, "title": "结论", "content": "从远地点 \\(A\\) 到近地点 \\(B\\) 走过半个椭圆，故 \\(t_{AB}=\\dfrac{T'}2=\\dfrac{T}{2}\\left(\\dfrac{r+R}{2r}\\right)^{3/2}\\)。", "knowledge": ["半周期"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "转移椭圆的远地点半径为 \\(r\\)，近地点半径为 \\(R\\)，故半长轴 \\(a=\\dfrac{r+R}{2}\\)。",
+      "knowledge": [
+        "椭圆半长轴"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "周期关系",
+      "content": "同绕地球运动，由开普勒第三定律 \\(\\dfrac{T'^2}{T^2}=\\dfrac{a^3}{r^3}\\)，所以 \\(T'=T\\left(\\dfrac{r+R}{2r}\\right)^{3/2}\\)。",
+      "knowledge": [
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "从远地点 \\(A\\) 到近地点 \\(B\\) 走过半个椭圆，故 \\(t_{AB}=\\dfrac{T'}2=\\dfrac{T}{2}\\left(\\dfrac{r+R}{2r}\\right)^{3/2}\\)。",
+      "knowledge": [
+        "半周期"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：近地点为地表的转移轨道",
-    "question": "卫星原在半径 \\(4R\\) 的圆轨道上运行，周期为 \\(T\\)，变轨后椭圆近地点在地表。求从远地点到近地点的时间。",
-    "answer": "\\(t=\\dfrac{T}{2}\\left(\\dfrac{5}{8}\\right)^{3/2}\\)。",
-    "thinking": "先由远、近地点半径求半长轴 \\(a=5R/2\\)，再比较椭圆周期与原圆轨道周期。"
+    "title": "进阶近似题：近地点为地表的转移轨道",
+    "question": "**基础设问**\n\n卫星原在半径 \\(4R\\) 的圆轨道上运行，周期为 \\(T\\)，变轨后椭圆近地点在地表。求从远地点到近地点的时间。\n\n**综合提升**\n\n某天体沿椭圆轨道运动，近日点、远日点距离分别为 \\(r_p,r_a\\)。（1）推导两点速度比；（2）用 \\(r_p,r_a\\) 写出半长轴和周期；（3）由万有引力比较两点加速度；（4）若保持半长轴不变而增大偏心率，讨论速度比和周期怎样变化。",
+    "answer": "**1. 基础设问**\n\n\\(t=\\dfrac{T}{2}\\left(\\dfrac{5}{8}\\right)^{3/2}\\)。\n\n**2. 综合提升**\n\n近远点速度均与半径垂直，由角动量守恒\n\n\\[\\frac{v_p}{v_a}=\\frac{r_a}{r_p}.\\]\n\n半长轴 \\(a=(r_p+r_a)/2\\)，周期 \\(T=2\\pi\\sqrt{a^3/(GM)}\\)。加速度比 \\(g_p/g_a=(r_a/r_p)^2\\)。保持 \\(a\\) 不变时周期不变；偏心率增大使 \\(r_a/r_p\\) 增大，因此速度比增大。",
+    "thinking": "**基础思路**\n\n先由远、近地点半径求半长轴 \\(a=5R/2\\)，再比较椭圆周期与原圆轨道周期。\n\n**进阶思路**\n\n把局部比较与整轨道性质分开：角动量管近远点速度，半长轴管周期。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

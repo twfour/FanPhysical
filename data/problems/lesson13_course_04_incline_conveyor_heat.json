@@ -20,15 +20,57 @@
     "interactive": true,
     "notes": "带面向上运动且始终比物块快；右图比较相对位移、热量和电动机额外做功。",
     "params": {
-      "friction": { "label": "滑动摩擦力", "value": 6, "min": 1, "max": 15, "step": 0.5, "unit": "N" },
-      "length": { "label": "AB 长度", "value": 6, "min": 2, "max": 12, "step": 0.5, "unit": "m" },
-      "beltSpeed": { "label": "传送带速度", "value": 5, "min": 2, "max": 10, "step": 0.2, "unit": "m/s" },
-      "travelTime": { "label": "物块运动时间", "value": 2, "min": 1.3, "max": 4, "step": 0.1, "unit": "s" },
-      "angle": { "label": "倾角", "value": 30, "min": 15, "max": 45, "step": 1, "unit": "deg" }
+      "friction": {
+        "label": "滑动摩擦力",
+        "value": 6,
+        "min": 1,
+        "max": 15,
+        "step": 0.5,
+        "unit": "N"
+      },
+      "length": {
+        "label": "AB 长度",
+        "value": 6,
+        "min": 2,
+        "max": 12,
+        "step": 0.5,
+        "unit": "m"
+      },
+      "beltSpeed": {
+        "label": "传送带速度",
+        "value": 5,
+        "min": 2,
+        "max": 10,
+        "step": 0.2,
+        "unit": "m/s"
+      },
+      "travelTime": {
+        "label": "物块运动时间",
+        "value": 2,
+        "min": 1.3,
+        "max": 4,
+        "step": 0.1,
+        "unit": "s"
+      },
+      "angle": {
+        "label": "倾角",
+        "value": 30,
+        "min": 15,
+        "max": 45,
+        "step": 1,
+        "unit": "deg"
+      }
     },
-    "timeline": { "duration": 5, "loop": false }
+    "timeline": {
+      "duration": 5,
+      "loop": false
+    }
   },
-  "knowledge": ["摩擦生热", "传送带", "电动机做功"],
+  "knowledge": [
+    "摩擦生热",
+    "传送带",
+    "电动机做功"
+  ],
   "steps": [
     {
       "title": "判断相对运动",
@@ -48,9 +90,68 @@
     }
   ],
   "practice": {
-    "title": "近似题：斜带运送物块",
-    "question": "物体在倾斜传送带上向上滑行 \\(L=5\\,\\mathrm m\\)，用时 \\(t=2\\,\\mathrm s\\)，带速为 \\(4\\,\\mathrm{m/s}\\)，滑动摩擦力为 \\(3\\,\\mathrm N\\)，且全程带面比物体快。求热量和电动机额外做功。",
-    "answer": "\\(Q=f(vt-L)=3(8-5)=9\\,\\mathrm J\\)，\\(W=fvt=3\\times8=24\\,\\mathrm J\\)。",
-    "thinking": "热量乘相对路程，电动机额外做功乘带面对地路程；两种位移不能混用。"
+    "title": "进阶近似题：斜带运送物块",
+    "question": "**基础设问**\n\n物体在倾斜传送带上向上滑行 \\(L=5\\,\\mathrm m\\)，用时 \\(t=2\\,\\mathrm s\\)，带速为 \\(4\\,\\mathrm{m/s}\\)，滑动摩擦力为 \\(3\\,\\mathrm N\\)，且全程带面比物体快。求热量和电动机额外做功。\n\n**综合提升**\n\n在原传送带或板块模型中，把物块与带面组成系统。（1）列出外力功、系统动能变化和内能增加的关系；（2）用相对路程求热量；（3）若带速可调，找出相对滑动方向改变的临界；（4）说明电动机做功为何不等于物块动能增加。",
+    "answer": "**1. 基础设问**\n\n\\(Q=f(vt-L)=3(8-5)=9\\,\\mathrm J\\)，\\(W=fvt=3\\times8=24\\,\\mathrm J\\)。\n\n**2. 综合提升**\n\n系统能量关系为\n\n\\[W_{电}+W_{其他外}=\\Delta E_{k,系统}+\\Delta E_p+Q,\\qquad Q=f\\Delta s_{rel}.\\]\n\n相对速度为零是滑动方向可能改变的临界，应分段计算。电动机还要改变传送带自身能量并补偿摩擦生热，所以其功通常不等于物块动能增量。",
+    "thinking": "**基础思路**\n\n热量乘相对路程，电动机额外做功乘带面对地路程；两种位移不能混用。\n\n**进阶思路**\n\n先选系统再记账，把一对内摩擦的功合并为内能；速度匹配点决定是否需要分段。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(Q=fL\\)",
+      "thinking": "先判断相对运动，再计算摩擦生热，最后计算电动机额外做功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[Q=f\\Delta x_{\\text{相对}}=f(vt-L)\\]\n\n\\[W=fvt\\]\n\n\\[W=\\Delta E_k+\\Delta E_p+Q\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "摩擦生热",
+        "传送带",
+        "电动机做功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(Q=f(vt-L)\\)",
+      "thinking": "先判断相对运动，再计算摩擦生热，最后计算电动机额外做功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[Q=f\\Delta x_{\\text{相对}}=f(vt-L)\\]\n\n\\[W=fvt\\]\n\n\\[W=\\Delta E_k+\\Delta E_p+Q\\]",
+      "judgment": "该结论与主方程推导结果及“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "摩擦生热",
+        "传送带",
+        "电动机做功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(W=\\dfrac12mv^2+Q+mgL\\sin\\theta\\)",
+      "thinking": "先判断相对运动，再计算摩擦生热，最后计算电动机额外做功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[Q=f\\Delta x_{\\text{相对}}=f(vt-L)\\]\n\n\\[W=fvt\\]\n\n\\[W=\\Delta E_k+\\Delta E_p+Q\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "摩擦生热",
+        "传送带",
+        "电动机做功"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(W=fvt\\)",
+      "thinking": "先判断相对运动，再计算摩擦生热，最后计算电动机额外做功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[Q=f\\Delta x_{\\text{相对}}=f(vt-L)\\]\n\n\\[W=fvt\\]\n\n\\[W=\\Delta E_k+\\Delta E_p+Q\\]",
+      "judgment": "该结论与主方程推导结果及“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "摩擦生热",
+        "传送带",
+        "电动机做功"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

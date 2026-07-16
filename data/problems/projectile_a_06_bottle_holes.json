@@ -1,0 +1,124 @@
+{
+  "id": "projectile_a_06_bottle_holes",
+  "originalNumber": "A6",
+  "chapter": "平抛运动",
+  "title": "A组第6题：水瓶侧孔射流",
+  "question": "如图，装满水的圆柱形水瓶竖直放在水平地面上，在侧壁钻几个截面积一样的小孔。水流从小孔中水平射出的初速度满足 \\(v_0=\\sqrt{2gh}\\)，其中 \\(h\\) 为小孔距液面的高度。不计一切阻力，且不考虑水流引起的液面高度变化。下列说法正确的是（　　）。",
+  "options": [
+    "A. 水落地时的瞬时速率与小孔位置有关",
+    "B. 若小孔位置越高，则水的落地点越远",
+    "C. 若小孔位置越高，则在空中的水柱体积越大",
+    "D. 若水的落地点越远，则空中的水柱体积越大"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "projectile_training_model",
+    "variant": "projectile_a_06_bottle_holes",
+    "playable": true,
+    "interactive": true,
+    "notes": "改变孔深，同时显示射流轨迹、射程以及空中水柱体积的共同变化。",
+    "params": {
+      "tankHeight": {
+        "label": "水深",
+        "value": 4,
+        "min": 2.5,
+        "max": 6,
+        "step": 0.2,
+        "unit": "m"
+      },
+      "holeDepth": {
+        "label": "孔距液面",
+        "value": 2,
+        "min": 0.3,
+        "max": 3.7,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "平抛运动",
+    "托里拆利定律",
+    "射程最值",
+    "流量"
+  ],
+  "steps": [
+    {
+      "title": "建立孔深与孔高",
+      "content": "设总水深为 \\(H\\)，孔深为 \\(h\\)，则小孔离地高度为 \\(H-h\\)。"
+    },
+    {
+      "title": "求射程",
+      "content": "出水速度 \\(v_0=\\sqrt{2gh}\\)，落地时间 \\(t=\\sqrt{2(H-h)/g}\\)，故射程 \\(x=2\\sqrt{h(H-h)}\\)。"
+    },
+    {
+      "title": "求落地速率",
+      "content": "\\(v^2=v_0^2+2g(H-h)=2gh+2g(H-h)=2gH\\)，与小孔位置无关。"
+    },
+    {
+      "title": "比较空中水柱体积",
+      "content": "单位时间流量 \\(Q=S_0v_0\\)，空中水柱体积 \\(V=Qt=2S_0\\sqrt{h(H-h)}=S_0x\\)。射程越远，体积越大，答案为 D。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "总水头决定落地速率",
+      "thinking": "把出水动能与落地前重力势能统一相加。",
+      "formula": "\\[v^2=2gh+2g(H-h)=2gH\\]",
+      "judgment": "落地速率与孔位无关，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "射程关于中点对称",
+      "thinking": "孔越高时孔深减小，但下落时间增大，两种影响相反。",
+      "formula": "\\[x=2\\sqrt{h(H-h)}\\]",
+      "judgment": "射程在中部最大，不能单调判断“越高越远”，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "空中体积也不是单调函数",
+      "thinking": "体积等于流量乘飞行时间。",
+      "formula": "\\[V=S_0v_0t=2S_0\\sqrt{h(H-h)}\\]",
+      "judgment": "孔位越高不保证体积越大，C 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "体积与射程成正比",
+      "thinking": "相同孔面积下比较 \\(V\\) 与 \\(x\\) 的表达式。",
+      "formula": "\\[V=S_0x\\]",
+      "judgment": "射程越远，空中水柱体积越大，D 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：两孔同射程与最大流柱",
+    "question": "高为 \\(H\\) 的水箱侧壁有两个等面积小孔，孔深分别为 \\(h_1、h_2\\)。若两股水流落在同一点，证明 \\(h_1+h_2=H\\)，并求使空中水柱体积最大的孔位。",
+    "answer": "**同射程条件**\n\n\\[h_1(H-h_1)=h_2(H-h_2).\\]\n\n若两孔不同，整理得 \\(h_1+h_2=H\\)。\n\n**最大体积**\n\n由于 \\(V=2S_0\\sqrt{h(H-h)}\\)，乘积在 \\(h=H/2\\) 时最大，所以最优孔位位于液面与地面的中点。",
+    "thinking": "**思路**\n\n射程和空中体积都由同一个乘积 \\(h(H-h)\\) 控制。先利用二次函数的对称性处理同射程，再利用均值不等式求最大值。"
+  }
+}

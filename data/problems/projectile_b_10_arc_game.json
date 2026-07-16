@@ -1,0 +1,124 @@
+{
+  "id": "projectile_b_10_arc_game",
+  "originalNumber": "B10",
+  "chapter": "平抛运动",
+  "title": "B组第10题：半圆小孔通关",
+  "question": "图中为某通关游戏的示意图。竖直面内半圆弧 \\(BCD\\) 的直径 \\(BD\\) 水平，且与竖直轨道 \\(AB\\) 处在同一竖直面内。小孔 \\(P\\) 和圆心 \\(O\\) 的连线与水平方向夹角为 \\(37^\\circ\\)。安装在轨道 \\(AB\\) 上的弹射器可上下移动，能水平射出速度大小可调的弹丸，弹丸射出口在 \\(B\\) 点正上方。若弹丸垂直于 \\(P\\) 点圆弧切线方向射入小孔 \\(P\\) 即通关。某次弹射器从离 \\(B\\) 点 \\(0.15\\mathrm m\\) 的高度将弹丸射出，正好通关。不计空气阻力，取 \\(\\sin37^\\circ=0.6\\)、\\(\\cos37^\\circ=0.8\\)、\\(g=10\\mathrm{m/s^2}\\)。圆弧半径和弹丸初速度分别为（　　）。",
+  "options": [
+    "A. \\(2\\mathrm m，4\\sqrt3\\mathrm{m/s}\\)",
+    "B. \\(1.5\\mathrm m，4\\sqrt3\\mathrm{m/s}\\)",
+    "C. \\(2\\mathrm m，2\\sqrt6\\mathrm{m/s}\\)",
+    "D. \\(1.5\\mathrm m，2\\sqrt6\\mathrm{m/s}\\)"
+  ],
+  "answer": "A",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "projectile_training_model",
+    "variant": "projectile_b_10_arc_game",
+    "playable": true,
+    "interactive": true,
+    "notes": "弹丸从 B 上方水平射出，在 P 点沿半径方向进入半圆小孔。",
+    "params": {
+      "launchHeight": {
+        "label": "射口高于 B",
+        "value": 0.15,
+        "min": 0.08,
+        "max": 0.3,
+        "step": 0.01,
+        "unit": "m"
+      },
+      "angle": {
+        "label": "OP 与水平夹角",
+        "value": 37,
+        "min": 25,
+        "max": 50,
+        "step": 1,
+        "unit": "°"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "平抛运动",
+    "圆弧几何",
+    "径向入孔",
+    "参数反演"
+  ],
+  "steps": [
+    {
+      "title": "写出 \\(P\\) 点几何坐标",
+      "content": "以 \\(B\\) 为水平基准，\\(P\\) 相对 \\(B\\) 的水平距离为 \\(x=R(1+\\cos37^\\circ)=1.8R\\)，向下距离为 \\(0.6R\\)。从射口到 \\(P\\) 的总下落量为 \\(0.15+0.6R\\)。"
+    },
+    {
+      "title": "使用径向入孔条件",
+      "content": "速度垂直圆弧切线，说明末速度沿 \\(OP\\)，故 \\(v_y/v_x=\\tan37^\\circ=3/4\\)。平抛又满足 \\(y=\\frac12x(v_y/v_x)\\)。"
+    },
+    {
+      "title": "求半径",
+      "content": "代入得 \\(0.15+0.6R=\\frac12\\times1.8R\\times0.75=0.675R\\)，所以 \\(R=2\\mathrm m\\)。"
+    },
+    {
+      "title": "求初速度",
+      "content": "此时 \\(x=3.6\\mathrm m\\)、下落量 \\(1.35\\mathrm m\\)。由 \\(y=gx^2/(2v_0^2)\\)，得 \\(v_0=4\\sqrt3\\mathrm{m/s}\\)。答案为 A。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "几何和速度方向共同定半径",
+      "thinking": "先用径向入孔条件消去飞行时间。",
+      "formula": "\\[h+R\\sin\\phi=\\frac12R(1+\\cos\\phi)\\tan\\phi\\]",
+      "judgment": "代入 \\(h=0.15\\mathrm m、\\phi=37^\\circ\\) 得 \\(R=2\\mathrm m\\)，再得 \\(v_0=4\\sqrt3\\mathrm{m/s}\\)，A 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "半径不满足下落量方程",
+      "thinking": "检验射口到 \\(P\\) 的总下落量。",
+      "formula": "\\[y=h+R\\sin37^\\circ\\]",
+      "judgment": "取 \\(R=1.5\\mathrm m\\) 时，几何下落量与径向速度条件不一致，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "初速度过小",
+      "thinking": "在正确半径下使用平抛轨迹方程。",
+      "formula": "\\[v_0=x\\sqrt{\\frac{g}{2y}}=4\\sqrt3\\,\\mathrm{m/s}\\]",
+      "judgment": "\\(2\\sqrt6\\mathrm{m/s}\\) 不能到达给定小孔，C 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "两个参数均不满足",
+      "thinking": "半径先由几何与方向唯一确定，初速度再由轨迹唯一确定。",
+      "formula": "\\[(R,v_0)=(2,4\\sqrt3)\\]",
+      "judgment": "D 的半径和速度均错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：任意圆弧角的小孔通关",
+    "question": "把原题中射口高于 \\(B\\) 的距离记为 \\(h\\)，\\(OP\\) 与水平夹角记为 \\(\\phi\\)。弹丸仍从 \\(B\\) 正上方水平射出并沿 \\(OP\\) 方向进入小孔。推导圆弧半径 \\(R\\) 和初速度 \\(v_0\\) 的一般表达式。",
+    "answer": "**半径**\n\n水平位移 \\(x=R(1+\\cos\\phi)\\)，下落量 \\(y=h+R\\sin\\phi\\)，且径向入孔给出 \\(v_y/v_x=\\tan\\phi\\)。由 \\(y=x\\tan\\phi/2\\) 得\n\n\\[R=\\frac{2h\\cos\\phi}{\\sin\\phi(1-\\cos\\phi)}.\\]\n\n**初速度**\n\n\\[v_0=x\\sqrt{\\frac{g}{2y}}=\\sqrt{\\frac{gx}{\\tan\\phi}}.\\]\n\n把上式的 \\(R\\) 与 \\(x=R(1+\\cos\\phi)\\) 代入即可得到只含 \\(h、\\phi、g\\) 的表达式。",
+    "thinking": "**思路**\n\n圆几何提供 \\(P\\) 点坐标，径向入孔提供末速度角。平抛恒等式 \\(y=(x/2)(v_y/v_x)\\) 能直接消去时间和初速度，先求 \\(R\\) 最省力。"
+  }
+}

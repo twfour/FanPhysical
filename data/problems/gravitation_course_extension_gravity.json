@@ -5,17 +5,88 @@
   "title": "拓展例题：地表上下重力",
   "question": "求距地表 \\(h\\) 高度处的重力加速度；再求地球上深度为 \\(h\\) 的矿井里的重力加速度。已知地球表面重力加速度为 \\(g\\)，并把地球视为质量分布均匀、半径为 \\(R\\) 的球体。",
   "answer": "\\(g_{高}=gR^2/(R+h)^2\\)，\\(g_{深}=g(R-h)/R\\)",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "gravity_profile", "playable": true, "interactive": true, "notes": "观察点从矿井深处移动到地表上空，右图显示球内线性规律与球外平方反比规律。", "params": { "surfaceGravity": { "label": "表面重力", "value": 10, "min": 5, "max": 15, "step": 0.5, "unit": "m/s²" }, "heightRatio": { "label": "最大高度", "value": 0.6, "min": 0.2, "max": 1, "step": 0.1, "unit": "R" }, "depthRatio": { "label": "最大深度", "value": 0.6, "min": 0.2, "max": 0.9, "step": 0.1, "unit": "R" } }, "timeline": { "duration": 7, "loop": false } },
-  "knowledge": ["球外重力", "球内重力", "球壳定理"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "gravity_profile",
+    "playable": true,
+    "interactive": true,
+    "notes": "观察点从矿井深处移动到地表上空，右图显示球内线性规律与球外平方反比规律。",
+    "params": {
+      "surfaceGravity": {
+        "label": "表面重力",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.5,
+        "unit": "m/s²"
+      },
+      "heightRatio": {
+        "label": "最大高度",
+        "value": 0.6,
+        "min": 0.2,
+        "max": 1,
+        "step": 0.1,
+        "unit": "R"
+      },
+      "depthRatio": {
+        "label": "最大深度",
+        "value": 0.6,
+        "min": 0.2,
+        "max": 0.9,
+        "step": 0.1,
+        "unit": "R"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "球外重力",
+    "球内重力",
+    "球壳定理"
+  ],
   "steps": [
-    { "stepId": 1, "title": "地表上方", "content": "由 \\(g=GM/R^2\\)，高度 \\(h\\) 处到地心距离为 \\(R+h\\)，故 \\(g_{高}=GM/(R+h)^2=gR^2/(R+h)^2\\)。", "knowledge": ["平方反比"], "commonMistakes": [] },
-    { "stepId": 2, "title": "地表下方", "content": "矿井处到地心距离为 \\(r=R-h\\)。均匀球体内部 \\(g(r)=g\\,r/R\\)。", "knowledge": ["球内引力"], "commonMistakes": [] },
-    { "stepId": 3, "title": "结论", "content": "因此 \\(g_{深}=g(R-h)/R\\)。地表外按距离平方反比减小，地球内部按距地心距离线性减小。", "knowledge": ["分段规律"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "地表上方",
+      "content": "由 \\(g=GM/R^2\\)，高度 \\(h\\) 处到地心距离为 \\(R+h\\)，故 \\(g_{高}=GM/(R+h)^2=gR^2/(R+h)^2\\)。",
+      "knowledge": [
+        "平方反比"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "地表下方",
+      "content": "矿井处到地心距离为 \\(r=R-h\\)。均匀球体内部 \\(g(r)=g\\,r/R\\)。",
+      "knowledge": [
+        "球内引力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "因此 \\(g_{深}=g(R-h)/R\\)。地表外按距离平方反比减小，地球内部按距地心距离线性减小。",
+      "knowledge": [
+        "分段规律"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：等高与等深比较",
-    "question": "取 \\(h=R/2\\)，分别求距地表 \\(R/2\\) 高处和地下 \\(R/2\\) 深处的重力加速度。",
-    "answer": "高处 \\(g_{高}=4g/9\\)，深处 \\(g_{深}=g/2\\)。",
-    "thinking": "高处使用平方反比公式，深处使用均匀球体内部的线性公式。"
+    "title": "进阶近似题：等高与等深比较",
+    "question": "**基础设问**\n\n取 \\(h=R/2\\)，分别求距地表 \\(R/2\\) 高处和地下 \\(R/2\\) 深处的重力加速度。\n\n**综合提升**\n\n在密度为 \\(\\rho\\) 的均匀实心球内挖去一个半径为 \\(b\\) 的球形空腔，空腔球心相对原球心的位移矢量为 \\(\\vec a\\)，且空腔完全位于大球内部。（1）用叠加法求空腔内任意点的引力场；（2）说明场是否随点的位置变化；（3）求小质点在腔内所受引力；（4）比较同心空腔与偏心空腔。",
+    "answer": "**1. 基础设问**\n\n高处 \\(g_{高}=4g/9\\)，深处 \\(g_{深}=g/2\\)。\n\n**2. 综合提升**\n\n把挖腔等效为“完整均匀球 + 密度为 \\(-\\rho\\) 的小球”。均匀球内部 \\(\\vec g=-(4\\pi G\\rho/3)\\vec r\\)，叠加后空腔内\n\n\\[\\vec g_{腔}=-\\frac{4\\pi G\\rho}{3}\\vec a,\\]\n\n与腔内位置无关，是匀强引力场。质量为 \\(m\\) 的质点受力 \\(m\\vec g_{腔}\\)。同心空腔 \\(\\vec a=0\\) 时场为零；偏心时场非零且均匀。",
+    "thinking": "**基础思路**\n\n高处使用平方反比公式，深处使用均匀球体内部的线性公式。\n\n**进阶思路**\n\n把几何缺失转化为负密度球叠加，利用两个线性场相减，位置矢量项自动消去。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

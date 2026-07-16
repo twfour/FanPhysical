@@ -20,14 +20,49 @@
     "interactive": true,
     "notes": "圆环先从 A 下滑到 C，再以给定初速度返回 A；右图对比上下行机械能和累计热量。",
     "params": {
-      "mass": { "label": "圆环质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
-      "height": { "label": "AC 高度", "value": 2, "min": 1, "max": 4, "step": 0.1, "unit": "m" },
-      "launchSpeed": { "label": "C 点上滑速度", "value": 6, "min": 3, "max": 9, "step": 0.2, "unit": "m/s" },
-      "g": { "label": "重力加速度", "value": 10, "min": 9.8, "max": 10, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "圆环质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "height": {
+        "label": "AC 高度",
+        "value": 2,
+        "min": 1,
+        "max": 4,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "launchSpeed": {
+        "label": "C 点上滑速度",
+        "value": 6,
+        "min": 3,
+        "max": 9,
+        "step": 0.2,
+        "unit": "m/s"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 7, "loop": false }
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
   },
-  "knowledge": ["往返摩擦", "弹性势能", "能量比较"],
+  "knowledge": [
+    "往返摩擦",
+    "弹性势能",
+    "能量比较"
+  ],
   "steps": [
     {
       "title": "判断下滑加速度",
@@ -47,9 +82,68 @@
     }
   ],
   "practice": {
-    "title": "近似题：同一路径往返摩擦",
-    "question": "物体从 \\(A\\) 静止滑到 \\(C\\) 又以速度 \\(v\\) 从 \\(C\\) 恰好返回 \\(A\\)。若往返路径相同且摩擦力只与位置有关，求单程产生的热量与 \\(v\\) 的关系。",
-    "answer": "两程热量相等。将下行和上行能量方程相减，得 \\(2Q=\\frac12mv^2\\)，即 \\(Q=\\frac14mv^2\\)。",
-    "thinking": "不要分别求位置相关的摩擦力；利用同一路径往返热量相等，直接联立两次能量关系。"
+    "title": "进阶近似题：同一路径往返摩擦",
+    "question": "**基础设问**\n\n物体从 \\(A\\) 静止滑到 \\(C\\) 又以速度 \\(v\\) 从 \\(C\\) 恰好返回 \\(A\\)。若往返路径相同且摩擦力只与位置有关，求单程产生的热量与 \\(v\\) 的关系。\n\n**综合提升**\n\n在原弹簧能量模型中加入粗糙段和可移动支座。（1）分别以“物块”和“物块—弹簧—支座”为系统列能量方程；（2）指出弹簧力在两个系统中的身份；（3）求摩擦生热；（4）说明何时可以使用机械能守恒，何时必须使用功能关系。",
+    "answer": "**1. 基础设问**\n\n两程热量相等。将下行和上行能量方程相减，得 \\(2Q=\\frac12mv^2\\)，即 \\(Q=\\frac14mv^2\\)。\n\n**2. 综合提升**\n\n只研究物块时，弹簧力是外力并做功；把弹簧纳入系统后，它对应系统内部弹性势能变化。统一关系可写成\n\n\\[W_{外,非保守}=\\Delta(E_k+E_{pg}+E_{ps})+Q.\\]\n\n摩擦生热仍为 \\(Q=f\\Delta s_{rel}\\)。只有系统没有非保守外功且没有耗散时，机械能才守恒。",
+    "thinking": "**基础思路**\n\n不要分别求位置相关的摩擦力；利用同一路径往返热量相等，直接联立两次能量关系。\n\n**进阶思路**\n\n同一个力在不同系统边界下可能是外功，也可能是势能变化；先选系统可避免重复计算弹簧功。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "下滑过程中，加速度一直减小",
+      "thinking": "先判断下滑加速度，再比较往返热量，最后比较 B 点上下行速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[mgh=E_{pe,C}+Q\\]\n\n\\[\\frac12mv^2+E_{pe,C}=mgh+Q\\]\n\n\\[Q=\\frac14mv^2\\]\n\n\\[E_{pe,C}=mgh-\\frac14mv^2\\]",
+      "judgment": "该结论与主方程推导结果及“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "往返摩擦",
+        "弹性势能",
+        "能量比较"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "下滑过程中，因摩擦力产生的热量小于 \\(\\dfrac14mv^2\\)",
+      "thinking": "先判断下滑加速度，再比较往返热量，最后比较 B 点上下行速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[mgh=E_{pe,C}+Q\\]\n\n\\[\\frac12mv^2+E_{pe,C}=mgh+Q\\]\n\n\\[Q=\\frac14mv^2\\]\n\n\\[E_{pe,C}=mgh-\\frac14mv^2\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "往返摩擦",
+        "弹性势能",
+        "能量比较"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "下滑经过 \\(B\\) 的速度小于上滑经过 \\(B\\) 的速度",
+      "thinking": "先判断下滑加速度，再比较往返热量，最后比较 B 点上下行速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[mgh=E_{pe,C}+Q\\]\n\n\\[\\frac12mv^2+E_{pe,C}=mgh+Q\\]\n\n\\[Q=\\frac14mv^2\\]\n\n\\[E_{pe,C}=mgh-\\frac14mv^2\\]",
+      "judgment": "该结论与主方程推导结果及“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "往返摩擦",
+        "弹性势能",
+        "能量比较"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "在 \\(C\\) 处，弹簧的弹性势能为 \\(\\dfrac14mv^2-mgh\\)",
+      "thinking": "先判断下滑加速度，再比较往返热量，最后比较 B 点上下行速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[mgh=E_{pe,C}+Q\\]\n\n\\[\\frac12mv^2+E_{pe,C}=mgh+Q\\]\n\n\\[Q=\\frac14mv^2\\]\n\n\\[E_{pe,C}=mgh-\\frac14mv^2\\]",
+      "judgment": "该结论没有同时满足“系统边界、外功、机械能变化和摩擦生热不能重复或遗漏”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "往返摩擦",
+        "弹性势能",
+        "能量比较"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

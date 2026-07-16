@@ -11,17 +11,134 @@
     "D. \\(a_1/a_2=r_2^2/r_1^2\\)"
   ],
   "answer": "A、D",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "halley_comet", "playable": true, "interactive": true, "notes": "哈雷彗星沿高偏心率椭圆运动，近日点速度和加速度均显著大于远日点。", "params": { "periapsis": { "label": "近日距离", "value": 1, "min": 0.5, "max": 2, "step": 0.1, "unit": "a.u." }, "apoapsis": { "label": "远日距离", "value": 6, "min": 3, "max": 10, "step": 0.5, "unit": "a.u." } }, "timeline": { "duration": 8, "loop": false } },
-  "knowledge": ["椭圆轨道", "万有引力加速度", "面积速度"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "halley_comet",
+    "playable": true,
+    "interactive": true,
+    "notes": "哈雷彗星沿高偏心率椭圆运动，近日点速度和加速度均显著大于远日点。",
+    "params": {
+      "periapsis": {
+        "label": "近日距离",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "a.u."
+      },
+      "apoapsis": {
+        "label": "远日距离",
+        "value": 6,
+        "min": 3,
+        "max": 10,
+        "step": 0.5,
+        "unit": "a.u."
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "椭圆轨道",
+    "万有引力加速度",
+    "面积速度"
+  ],
   "steps": [
-    { "stepId": 1, "title": "速度比较", "content": "近日点距离较小，由面积速度守恒 \\(r_1v_1=r_2v_2\\)，且 \\(r_1\\lt r_2\\)，所以 \\(v_1>v_2\\)。", "knowledge": ["开普勒第二定律"], "commonMistakes": [] },
-    { "stepId": 2, "title": "加速度比较", "content": "彗星加速度由太阳引力产生，\\(a=GM_\\odot/r^2\\)。", "knowledge": ["万有引力"], "commonMistakes": [] },
-    { "stepId": 3, "title": "结论", "content": "\\(a_1/a_2=r_2^2/r_1^2\\)，故选 A、D。", "knowledge": ["平方反比"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "速度比较",
+      "content": "近日点距离较小，由面积速度守恒 \\(r_1v_1=r_2v_2\\)，且 \\(r_1\\lt r_2\\)，所以 \\(v_1>v_2\\)。",
+      "knowledge": [
+        "开普勒第二定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "加速度比较",
+      "content": "彗星加速度由太阳引力产生，\\(a=GM_\\odot/r^2\\)。",
+      "knowledge": [
+        "万有引力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "\\(a_1/a_2=r_2^2/r_1^2\\)，故选 A、D。",
+      "knowledge": [
+        "平方反比"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：彗星两端点物理量",
-    "question": "彗星远日点距离是近日点距离的 \\(3\\) 倍，求两处速率比与加速度比。",
-    "answer": "\\(v_{近}:v_{远}=3:1\\)，\\(a_{近}:a_{远}=9:1\\)。",
-    "thinking": "速率比用面积速度守恒，加速度比用 \\(a\\propto1/r^2\\)。"
+    "title": "进阶近似题：彗星两端点物理量",
+    "question": "**基础设问**\n\n彗星远日点距离是近日点距离的 \\(3\\) 倍，求两处速率比与加速度比。\n\n**综合提升**\n\n某天体沿椭圆轨道运动，近日点、远日点距离分别为 \\(r_p,r_a\\)。（1）推导两点速度比；（2）用 \\(r_p,r_a\\) 写出半长轴和周期；（3）由万有引力比较两点加速度；（4）若保持半长轴不变而增大偏心率，讨论速度比和周期怎样变化。",
+    "answer": "**1. 基础设问**\n\n\\(v_{近}:v_{远}=3:1\\)，\\(a_{近}:a_{远}=9:1\\)。\n\n**2. 综合提升**\n\n近远点速度均与半径垂直，由角动量守恒\n\n\\[\\frac{v_p}{v_a}=\\frac{r_a}{r_p}.\\]\n\n半长轴 \\(a=(r_p+r_a)/2\\)，周期 \\(T=2\\pi\\sqrt{a^3/(GM)}\\)。加速度比 \\(g_p/g_a=(r_a/r_p)^2\\)。保持 \\(a\\) 不变时周期不变；偏心率增大使 \\(r_a/r_p\\) 增大，因此速度比增大。",
+    "thinking": "**基础思路**\n\n速率比用面积速度守恒，加速度比用 \\(a\\propto1/r^2\\)。\n\n**进阶思路**\n\n把局部比较与整轨道性质分开：角动量管近远点速度，半长轴管周期。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(v_1>v_2\\)",
+      "thinking": "先速度比较，再加速度比较，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_1v_1=r_2v_2\\]\n\n\\[a=GM_\\odot/r^2\\]\n\n\\[a_1/a_2=r_2^2/r_1^2\\]",
+      "judgment": "该结论与主方程推导结果及“近远点的角动量关系与半长轴决定周期的关系必须区分”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "椭圆轨道",
+        "万有引力加速度",
+        "面积速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(v_1\\lt v_2\\)",
+      "thinking": "先速度比较，再加速度比较，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_1v_1=r_2v_2\\]\n\n\\[a=GM_\\odot/r^2\\]\n\n\\[a_1/a_2=r_2^2/r_1^2\\]",
+      "judgment": "该结论没有同时满足“近远点的角动量关系与半长轴决定周期的关系必须区分”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "椭圆轨道",
+        "万有引力加速度",
+        "面积速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(a_1/a_2=r_1^2/r_2^2\\)",
+      "thinking": "先速度比较，再加速度比较，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_1v_1=r_2v_2\\]\n\n\\[a=GM_\\odot/r^2\\]\n\n\\[a_1/a_2=r_2^2/r_1^2\\]",
+      "judgment": "该结论没有同时满足“近远点的角动量关系与半长轴决定周期的关系必须区分”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "椭圆轨道",
+        "万有引力加速度",
+        "面积速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(a_1/a_2=r_2^2/r_1^2\\)",
+      "thinking": "先速度比较，再加速度比较，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_1v_1=r_2v_2\\]\n\n\\[a=GM_\\odot/r^2\\]\n\n\\[a_1/a_2=r_2^2/r_1^2\\]",
+      "judgment": "该结论与主方程推导结果及“近远点的角动量关系与半长轴决定周期的关系必须区分”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "椭圆轨道",
+        "万有引力加速度",
+        "面积速度"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

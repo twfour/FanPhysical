@@ -20,40 +20,136 @@
     "interactive": true,
     "notes": "物体先向右减速至零，再在恒力方向上反向加速；右图重现分段 \\(v-t\\) 图像。",
     "params": {
-      "mass": { "label": "物体质量", "value": 20, "min": 10, "max": 40, "step": 1, "unit": "kg" },
-      "force": { "label": "恒定外力", "value": 60, "min": 30, "max": 100, "step": 5, "unit": "N" },
-      "friction": { "label": "滑动摩擦力", "value": 40, "min": 10, "max": 70, "step": 5, "unit": "N" }
+      "mass": {
+        "label": "物体质量",
+        "value": 20,
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "unit": "kg"
+      },
+      "force": {
+        "label": "恒定外力",
+        "value": 60,
+        "min": 30,
+        "max": 100,
+        "step": 5,
+        "unit": "N"
+      },
+      "friction": {
+        "label": "滑动摩擦力",
+        "value": 40,
+        "min": 10,
+        "max": 70,
+        "step": 5,
+        "unit": "N"
+      }
     },
-    "timeline": { "duration": 4, "loop": false }
+    "timeline": {
+      "duration": 4,
+      "loop": false
+    }
   },
-  "knowledge": ["速度图像", "变向运动", "瞬时功率"],
+  "knowledge": [
+    "速度图像",
+    "变向运动",
+    "瞬时功率"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "由图像求两段加速度",
       "content": "\\(0\\sim2\\,\\mathrm s\\) 内 \\(a_1=(0-10)/2=-5\\,\\mathrm{m/s^2}\\)；\\(2\\sim4\\,\\mathrm s\\) 内 \\(a_2=(-2-0)/2=-1\\,\\mathrm{m/s^2}\\)。",
-      "knowledge": ["速度图像斜率"],
+      "knowledge": [
+        "速度图像斜率"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "联立求恒力与摩擦力",
       "content": "取向右为正，外力始终向左。前段外力和摩擦力同向，有 \\(F+f=20\\times5=100\\,\\mathrm N\\)；后段摩擦力反向，有 \\(F-f=20\\times1=20\\,\\mathrm N\\)。解得 \\(F=60\\,\\mathrm N\\)、\\(f=40\\,\\mathrm N\\)。",
-      "knowledge": ["分段受力"],
-      "commonMistakes": ["物体反向后仍把摩擦力画向左"]
+      "knowledge": [
+        "分段受力"
+      ],
+      "commonMistakes": [
+        "物体反向后仍把摩擦力画向左"
+      ]
     },
     {
       "stepId": 3,
       "title": "判断功和功率",
       "content": "\\(4\\,\\mathrm s\\) 时 \\(F\\) 与速度同向，瞬时功率 \\(P=F|v|=120\\,\\mathrm W\\)，B 对。两段路程分别为 \\(10\\,\\mathrm m\\) 与 \\(2\\,\\mathrm m\\)，克服摩擦做功 \\(f(10+2)=480\\,\\mathrm J\\)，平均功率为 \\(480/4=120\\,\\mathrm W\\)，D 对。外力总位移为向右 \\(8\\,\\mathrm m\\)，其功为 \\(-480\\,\\mathrm J\\)，C 错。",
-      "knowledge": ["正负功", "平均功率"],
+      "knowledge": [
+        "正负功",
+        "平均功率"
+      ],
       "commonMistakes": []
     }
   ],
   "practice": {
-    "title": "近似题：先减速后反向",
-    "question": "质量 \\(10\\,\\mathrm{kg}\\) 的物块初速度为 \\(6\\,\\mathrm{m/s}\\)，受到恒定向左外力 \\(F=40\\,\\mathrm N\\) 和大小 \\(20\\,\\mathrm N\\) 的滑动摩擦力。求物块停止前的时间，以及反向后速度达到 \\(2\\,\\mathrm{m/s}\\) 时外力的瞬时功率。",
-    "answer": "停止前合力为 \\(60\\,\\mathrm N\\)，减速度 \\(6\\,\\mathrm{m/s^2}\\)，故 \\(t=1\\,\\mathrm s\\)。反向后外力与速度同向，瞬时功率 \\(P=Fv=80\\,\\mathrm W\\)。",
-    "thinking": "变向前后摩擦力方向相反，要分段重新列牛顿第二定律；瞬时功率使用当前力与当前速度。"
+    "title": "进阶近似题：先减速后反向",
+    "question": "**基础设问**\n\n质量 \\(10\\,\\mathrm{kg}\\) 的物块初速度为 \\(6\\,\\mathrm{m/s}\\)，受到恒定向左外力 \\(F=40\\,\\mathrm N\\) 和大小 \\(20\\,\\mathrm N\\) 的滑动摩擦力。求物块停止前的时间，以及反向后速度达到 \\(2\\,\\mathrm{m/s}\\) 时外力的瞬时功率。\n\n**综合提升**\n\n质量为 \\(m\\) 的车辆在恒定阻力 \\(f\\) 下以恒功率 \\(P\\) 加速。（1）写出牵引力和加速度关于速度的函数；（2）求极限速度；（3）若从速度 \\(v_1\\) 加速到 \\(v_2\\)，写出时间积分式；（4）解释为什么接近极限速度时继续提速越来越慢。",
+    "answer": "**1. 基础设问**\n\n停止前合力为 \\(60\\,\\mathrm N\\)，减速度 \\(6\\,\\mathrm{m/s^2}\\)，故 \\(t=1\\,\\mathrm s\\)。反向后外力与速度同向，瞬时功率 \\(P=Fv=80\\,\\mathrm W\\)。\n\n**2. 综合提升**\n\n恒功率阶段\n\n\\[F=\\frac Pv,\\qquad a(v)=\\frac1m\\left(\\frac Pv-f\\right),\\qquad v_m=\\frac Pf.\\]\n\n时间满足\n\n\\[t=\\int_{v_1}^{v_2}\\frac{m\\,dv}{P/v-f}=m\\int_{v_1}^{v_2}\\frac{v\\,dv}{P-fv}.\\]\n\n当 \\(v\\to v_m\\) 时牵引力趋近阻力，合力与加速度趋近零，所以达到极限速度只是一种渐近过程。",
+    "thinking": "**基础思路**\n\n变向前后摩擦力方向相反，要分段重新列牛顿第二定律；瞬时功率使用当前力与当前速度。\n\n**进阶思路**\n\n由 \\(P=Fv\\) 把恒功率转成随速度减小的牵引力，再进入牛顿第二定律；这比只算某一时刻多了函数与极限。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "拉力 \\(F\\) 的大小为 \\(100\\,\\mathrm N\\)",
+      "thinking": "先由图像求两段加速度，再联立求恒力与摩擦力，最后判断功和功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a_1=(0-10)/2\\]\n\n\\[a_2=(-2-0)/2\\]\n\n\\[P=F|v|\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "速度图像",
+        "变向运动",
+        "瞬时功率"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "在 \\(4\\,\\mathrm s\\) 时拉力的瞬时功率为 \\(120\\,\\mathrm W\\)",
+      "thinking": "先由图像求两段加速度，再联立求恒力与摩擦力，最后判断功和功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a_1=(0-10)/2\\]\n\n\\[a_2=(-2-0)/2\\]\n\n\\[P=F|v|\\]",
+      "judgment": "该结论与主方程推导结果及“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "速度图像",
+        "变向运动",
+        "瞬时功率"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(4\\,\\mathrm s\\) 内拉力所做的功为 \\(480\\,\\mathrm J\\)",
+      "thinking": "先由图像求两段加速度，再联立求恒力与摩擦力，最后判断功和功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a_1=(0-10)/2\\]\n\n\\[a_2=(-2-0)/2\\]\n\n\\[P=F|v|\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "速度图像",
+        "变向运动",
+        "瞬时功率"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(4\\,\\mathrm s\\) 内物体克服摩擦力做功的平均功率为 \\(120\\,\\mathrm W\\)",
+      "thinking": "先由图像求两段加速度，再联立求恒力与摩擦力，最后判断功和功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[a_1=(0-10)/2\\]\n\n\\[a_2=(-2-0)/2\\]\n\n\\[P=F|v|\\]",
+      "judgment": "该结论与主方程推导结果及“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "速度图像",
+        "变向运动",
+        "瞬时功率"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

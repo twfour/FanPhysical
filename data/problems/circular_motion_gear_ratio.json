@@ -87,10 +87,77 @@
   },
   "images": [],
   "practice": {
-    "title": "近似题：齿轮水车比例",
-    "question": "齿轮 \\(A\\) 与齿轮 \\(B\\) 啮合，半径比 \\(R_A:R_B=4:2\\)，\\(B\\) 与 \\(C\\) 同轴。求 \\(\\omega_A:\\omega_B\\)。",
-    "answer": "啮合齿轮边缘线速度相等，\\(\\omega_A R_A=\\omega_B R_B\\)。所以 \\(\\omega_A:\\omega_B=R_B:R_A=2:4=1:2\\)。",
-    "thinking": "啮合用边缘线速度相等；同轴再用角速度相等。"
+    "title": "进阶近似题：齿轮水车比例",
+    "question": "**基础设问**\n\n齿轮 \\(A\\) 与齿轮 \\(B\\) 啮合，半径比 \\(R_A:R_B=4:2\\)，\\(B\\) 与 \\(C\\) 同轴。求 \\(\\omega_A:\\omega_B\\)。\n\n**综合提升**\n\n在原输出轴上同轴加装半径为 \\(r\\) 的主动轮，再用无滑动皮带带动半径为 \\(\\lambda r\\) 的从动轮。（1）用原输出角速度 \\(\\omega_0\\) 表示新轮角速度；（2）比较两轮边缘线速度；（3）求两轮边缘向心加速度之比；（4）反求使新轮边缘向心加速度为主动轮一半时的 \\(\\lambda\\)。",
+    "answer": "**1. 基础设问**\n\n啮合齿轮边缘线速度相等，\\(\\omega_A R_A=\\omega_B R_B\\)。所以 \\(\\omega_A:\\omega_B=R_B:R_A=2:4=1:2\\)。\n\n**2. 综合提升**\n\n无滑动给出 \\(\\omega_0r=\\omega_1\\lambda r\\)，故 \\(\\omega_1=\\omega_0/\\lambda\\)，两接触边缘线速度相等。向心加速度满足\n\n\\[a_0=\\omega_0^2r,\\qquad a_1=\\left(\\frac{\\omega_0}{\\lambda}\\right)^2\\lambda r=\\frac{a_0}{\\lambda}.\\]\n\n所以 \\(a_1:a_0=1:\\lambda\\)；若 \\(a_1=a_0/2\\)，则 \\(\\lambda=2\\)。",
+    "thinking": "**基础思路**\n\n啮合用边缘线速度相等；同轴再用角速度相等。\n\n**进阶思路**\n\n新增一层传动后不能只连乘转速比，还要回到每个实际半径计算向心加速度。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
   },
-  "analysisText": "啮合齿轮边缘线速度相等，故 \\(\\omega_A R_A=\\omega_B R_B\\)，得到 \\(\\omega_A:\\omega_B=R_B:R_A=3:5\\)。\\(B,C\\) 同轴，\\(\\omega_B=\\omega_C\\)。周期与角速度成反比，边缘线速度用 \\(v=\\omega r\\)，向心加速度用 \\(a=\\omega^2r\\) 分别比较。"
+  "analysisText": "啮合齿轮边缘线速度相等，故 \\(\\omega_A R_A=\\omega_B R_B\\)，得到 \\(\\omega_A:\\omega_B=R_B:R_A=3:5\\)。\\(B,C\\) 同轴，\\(\\omega_B=\\omega_C\\)。周期与角速度成反比，边缘线速度用 \\(v=\\omega r\\)，向心加速度用 \\(a=\\omega^2r\\) 分别比较。",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "齿轮 \\(A,B,C\\) 的周期之比为 \\(5:5:3\\)",
+      "thinking": "先啮合齿轮，再同轴齿轮，最后比较各量；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega_A R_A=\\omega_B R_B\\]\n\n\\[\\omega_A:\\omega_B=R_B:R_A=3:5\\]\n\n\\[\\omega_B=\\omega_C\\]\n\n\\[v=\\omega r\\]\n\n\\[a=\\omega^2r\\]",
+      "judgment": "该结论没有同时满足“同轴处角速度相同、无滑动接触处边缘线速度相同”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "齿轮传动",
+        "同轴传动",
+        "线速度与角速度关系",
+        "周期与角速度关系",
+        "向心加速度公式"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "齿轮 \\(A,B,C\\) 的角速度之比为 \\(3:5:5\\)",
+      "thinking": "先啮合齿轮，再同轴齿轮，最后比较各量；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega_A R_A=\\omega_B R_B\\]\n\n\\[\\omega_A:\\omega_B=R_B:R_A=3:5\\]\n\n\\[\\omega_B=\\omega_C\\]\n\n\\[v=\\omega r\\]\n\n\\[a=\\omega^2r\\]",
+      "judgment": "该结论与主方程推导结果及“同轴处角速度相同、无滑动接触处边缘线速度相同”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "齿轮传动",
+        "同轴传动",
+        "线速度与角速度关系",
+        "周期与角速度关系",
+        "向心加速度公式"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "齿轮 \\(A,B,C\\) 边缘的线速度大小之比为 \\(3:2:1\\)",
+      "thinking": "先啮合齿轮，再同轴齿轮，最后比较各量；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega_A R_A=\\omega_B R_B\\]\n\n\\[\\omega_A:\\omega_B=R_B:R_A=3:5\\]\n\n\\[\\omega_B=\\omega_C\\]\n\n\\[v=\\omega r\\]\n\n\\[a=\\omega^2r\\]",
+      "judgment": "该结论没有同时满足“同轴处角速度相同、无滑动接触处边缘线速度相同”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "齿轮传动",
+        "同轴传动",
+        "线速度与角速度关系",
+        "周期与角速度关系",
+        "向心加速度公式"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "齿轮 \\(A,B,C\\) 边缘的向心加速度大小之比为 \\(9:15:5\\)",
+      "thinking": "先啮合齿轮，再同轴齿轮，最后比较各量；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega_A R_A=\\omega_B R_B\\]\n\n\\[\\omega_A:\\omega_B=R_B:R_A=3:5\\]\n\n\\[\\omega_B=\\omega_C\\]\n\n\\[v=\\omega r\\]\n\n\\[a=\\omega^2r\\]",
+      "judgment": "该结论与主方程推导结果及“同轴处角速度相同、无滑动接触处边缘线速度相同”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "齿轮传动",
+        "同轴传动",
+        "线速度与角速度关系",
+        "周期与角速度关系",
+        "向心加速度公式"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
 }

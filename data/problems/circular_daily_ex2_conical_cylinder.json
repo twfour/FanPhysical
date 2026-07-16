@@ -74,10 +74,12 @@
   },
   "images": [],
   "practice": {
-    "title": "近似题：圆锥面上无摩擦转动",
-    "question": "物块在半径为 \\(r\\) 的圆锥面上随筒转动，圆锥母线与竖直方向夹角为 \\(\\theta\\)，若摩擦力为零，求角速度 \\(\\omega\\)。",
-    "answer": "由支持力分解得 \\(N\\sin\\theta=mg\\)，\\(N\\cos\\theta=m\\omega^2r\\)，所以 \\(\\omega=\\sqrt{\\frac{g\\cot\\theta}{r}}\\)。",
-    "thinking": "无摩擦时只有重力和支持力，支持力一个分量平衡重力，另一个分量提供向心力。"
+    "title": "进阶近似题：圆锥面上无摩擦转动",
+    "question": "**基础设问**\n\n物块在半径为 \\(r\\) 的圆锥面上随筒转动，圆锥母线与竖直方向夹角为 \\(\\theta\\)，若摩擦力为零，求角速度 \\(\\omega\\)。\n\n**综合提升**\n\n把原约束改为“只能拉、不能推”的轻绳，小球在竖直圆周内运动，半径为 \\(r\\)。（1）求恰能通过最高点的最小最高点速度；（2）若全过程只有重力做功，求对应的最小最低点速度；（3）求该临界状态最低点绳张力；（4）若半径改为 \\(\\lambda r\\)，给出三者的缩放关系。",
+    "answer": "**1. 基础设问**\n\n由支持力分解得 \\(N\\sin\\theta=mg\\)，\\(N\\cos\\theta=m\\omega^2r\\)，所以 \\(\\omega=\\sqrt{\\frac{g\\cot\\theta}{r}}\\)。\n\n**2. 综合提升**\n\n最高点临界张力为零：\n\n\\[mg=m\\frac{v_t^2}{r}\\Rightarrow v_{t,\\min}=\\sqrt{gr}.\\]\n\n由最低点到最高点上升 \\(2r\\)：\\(v_b^2=v_t^2+4gr=5gr\\)，故 \\(v_{b,\\min}=\\sqrt{5gr}\\)。最低点\n\n\\[T_b-mg=m\\frac{v_b^2}{r}\\Rightarrow T_b=6mg.\\]\n\n半径乘 \\(\\lambda\\) 后两临界速度均乘 \\(\\sqrt\\lambda\\)，临界张力仍为 \\(6mg\\)。",
+    "thinking": "**基础思路**\n\n无摩擦时只有重力和支持力，支持力一个分量平衡重力，另一个分量提供向心力。\n\n**进阶思路**\n\n先用约束力为零确定最高点临界，再用能量把临界状态传到最低点；这比只比较某一位置多了一层全过程联系。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
   },
   "analysisText": "圆锥母线与竖直方向夹角记为 \\(\\theta\\)，由 \\(\\tan\\theta=\\frac{R}{H}=\\frac{4}{3}\\)，得 \\(\\sin\\theta=\\frac45\\)，\\(\\cos\\theta=\\frac35\\)。筒不转动时，重力沿筒壁方向的分量由静摩擦平衡，故 \\(f=mg\\cos\\theta=\\frac35mg\\)，支持力 \\(N=mg\\sin\\theta=\\frac45mg\\)。摩擦力为零且半径 \\(r=\\frac R2\\) 时，支持力的竖直分量平衡重力，水平分量提供向心力，得 \\(\\omega^2=\\frac{g\\cot\\theta}{r}=\\frac{3g}{2R}\\)。最大角速度时静摩擦取最大值，按径向和竖直方向列平衡与向心方程即可求临界。",
   "steps": [
@@ -117,5 +119,8 @@
       ],
       "commonMistakes": []
     }
-  ]
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
 }

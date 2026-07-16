@@ -1,0 +1,124 @@
+{
+  "id": "projectile_b_11_ski_slope",
+  "originalNumber": "B11",
+  "chapter": "平抛运动",
+  "title": "B组第11题：跳台滑雪斜面",
+  "question": "2022 年北京冬奥会跳台滑雪项目的比赛场地别具一格，形似“如意”。运动员由赛道上一定高度处滑下，由 \\(O\\) 点沿水平方向飞出，经过时间 \\(t\\) 后落在倾角为 \\(\\alpha\\) 的倾斜轨道上的 \\(A\\) 点。假设运动员可视为质点，\\(O、A\\) 间视为直道，空气阻力不计，重力加速度为 \\(g\\)。下列说法正确的是（　　）。",
+  "options": [
+    "A. 运动员在 \\(A\\) 点时的速度与水平方向的夹角为 \\(2\\alpha\\)",
+    "B. 如果离开 \\(O\\) 点的速度减半，则运动员落在 \\(OA\\) 的中点",
+    "C. 运动员落在 \\(A\\) 点时的速度为 \\(\\frac{gt}{2\\tan\\alpha}\\sqrt{1+4\\tan^2\\alpha}\\)",
+    "D. 整个过程中，运动员距倾斜轨道的最大距离为 \\(\\frac{gt^2\\cos\\alpha}{8}\\)"
+  ],
+  "answer": "C、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "projectile_training_model",
+    "variant": "projectile_b_11_ski_slope",
+    "playable": true,
+    "interactive": true,
+    "notes": "运动员水平飞出并落到斜面，图示末速度角与到斜面的法向距离。",
+    "params": {
+      "angle": {
+        "label": "斜面倾角",
+        "value": 32,
+        "min": 20,
+        "max": 45,
+        "step": 1,
+        "unit": "°"
+      },
+      "v0": {
+        "label": "离台速度",
+        "value": 10,
+        "min": 6,
+        "max": 15,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "平抛运动",
+    "落斜面",
+    "末速度",
+    "最大法向距离"
+  ],
+  "steps": [
+    {
+      "title": "用斜面落点条件求时间关系",
+      "content": "落点满足 \\(\\frac12gt^2=v_0t\\tan\\alpha\\)，所以 \\(v_0=gt/(2\\tan\\alpha)\\)。"
+    },
+    {
+      "title": "求末速度",
+      "content": "\\(v_x=v_0\\)、\\(v_y=gt\\)，故 \\(v_A=\\sqrt{v_0^2+g^2t^2}=\\frac{gt}{2\\tan\\alpha}\\sqrt{1+4\\tan^2\\alpha}\\)。"
+    },
+    {
+      "title": "分析速度减半后的落点",
+      "content": "落斜面水平距离 \\(x=2v_0^2\\tan\\alpha/g\\)，与 \\(v_0^2\\) 成正比。速度减半后落点水平距离变为原来的 \\(1/4\\)，不是中点。"
+    },
+    {
+      "title": "求最大法向距离",
+      "content": "到斜面的垂直距离为 \\(d=v_0\\tau\\sin\\alpha-\\frac12g\\tau^2\\cos\\alpha\\)。该二次函数在 \\(\\tau=t/2\\) 最大，代入得 \\(d_{\\max}=gt^2\\cos\\alpha/8\\)。答案为 C、D。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "末速度角不是斜面角的两倍",
+      "thinking": "由落点条件先求 \\(gt/v_0\\)。",
+      "formula": "\\[\\tan\\beta=\\frac{gt}{v_0}=2\\tan\\alpha\\]",
+      "judgment": "一般有 \\(\\beta=\\arctan(2\\tan\\alpha)\\)，不等于 \\(2\\alpha\\)，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "落点距离与初速度平方成正比",
+      "thinking": "联立轨迹和斜面方程。",
+      "formula": "\\[x=\\frac{2v_0^2\\tan\\alpha}{g}\\]",
+      "judgment": "速度减半时 \\(x\\) 变为 \\(x/4\\)，不是 \\(x/2\\)，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "合成两个末速度分量",
+      "thinking": "把 \\(v_0=gt/(2\\tan\\alpha)\\) 代入速度合成式。",
+      "formula": "\\[v_A=\\sqrt{v_0^2+(gt)^2}=\\frac{gt}{2\\tan\\alpha}\\sqrt{1+4\\tan^2\\alpha}\\]",
+      "judgment": "C 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "法向距离是开口向下二次函数",
+      "thinking": "用点到斜面距离的法向投影表达式求最大值。",
+      "formula": "\\[d(\\tau)=v_0\\tau\\sin\\alpha-\\frac12g\\tau^2\\cos\\alpha\\]",
+      "judgment": "顶点在 \\(\\tau=t/2\\)，最大值为 \\(gt^2\\cos\\alpha/8\\)，D 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：任意时刻法向间距",
+    "question": "质点从斜面顶端以水平速度 \\(v_0\\) 抛出并重新落到倾角为 \\(\\alpha\\) 的无限长斜面。求飞行时间、沿斜面的落点距离、距斜面的最大法向距离，并证明最大距离发生在飞行时间中点。",
+    "answer": "**飞行时间与落点**\n\n\\[T=\\frac{2v_0\\tan\\alpha}{g},\\qquad s=\\frac{x}{\\cos\\alpha}=\\frac{2v_0^2\\sin\\alpha}{g\\cos^2\\alpha}.\\]\n\n**最大法向距离**\n\n\\[d(\\tau)=v_0\\tau\\sin\\alpha-\\frac12g\\tau^2\\cos\\alpha.\\]\n\n令导数为零得 \\(\\tau=v_0\\tan\\alpha/g=T/2\\)，并有\n\n\\[d_{\\max}=\\frac{v_0^2\\sin^2\\alpha}{2g\\cos\\alpha}=\\frac{gT^2\\cos\\alpha}{8}.\\]",
+    "thinking": "**思路**\n\n不要把“距斜面”误作竖直高度。把位置矢量投影到斜面法向，得到一个关于时间的二次函数；落地的两个零点是 \\(0、T\\)，因此顶点自然位于 \\(T/2\\)。"
+  }
+}

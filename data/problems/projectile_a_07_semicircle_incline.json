@@ -1,0 +1,124 @@
+{
+  "id": "projectile_a_07_semicircle_incline",
+  "originalNumber": "A7",
+  "chapter": "平抛运动",
+  "title": "A组第7题：半圆轨道与斜面",
+  "question": "如图，\\(a、b\\) 两小球分别从半圆轨道顶端和斜面顶端以大小相等的初速度 \\(v_0\\) 同时水平抛出。半圆轨道的半径与斜面竖直高度相等且在同一竖直面内，斜面底边长是其竖直高度的 \\(2\\) 倍。若小球 \\(b\\) 能落到斜面上，下列说法正确的是（　　）。",
+  "options": [
+    "A. \\(a、b\\) 两球不可能同时落在半圆轨道和斜面上",
+    "B. 改变初速度的大小，\\(b\\) 球可能垂直撞在斜面上",
+    "C. 改变初速度的大小，\\(a\\) 球可能垂直撞在半圆轨道上",
+    "D. 改变初速度的大小，\\(b\\) 球速度方向和斜面的夹角保持不变"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "projectile_training_model",
+    "variant": "projectile_a_07_semicircle_incline",
+    "playable": true,
+    "interactive": true,
+    "notes": "同速双球分别飞向半圆轨道和斜面，显示各自落点与末速度方向。",
+    "params": {
+      "radius": {
+        "label": "半径/斜面高",
+        "value": 4,
+        "min": 2.5,
+        "max": 6,
+        "step": 0.2,
+        "unit": "m"
+      },
+      "v0": {
+        "label": "水平初速度",
+        "value": 5.7,
+        "min": 3,
+        "max": 8,
+        "step": 0.1,
+        "unit": "m/s"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "平抛运动",
+    "圆轨道交点",
+    "斜面交点",
+    "速度方向不变量"
+  ],
+  "steps": [
+    {
+      "title": "分析斜面球的落点",
+      "content": "以斜面顶端为原点，斜面方程为 \\(y=x/2\\)。与 \\(y=gx^2/(2v_0^2)\\) 联立，得非零落点 \\(x_b=v_0^2/g\\)。"
+    },
+    {
+      "title": "求斜面球的末速度方向",
+      "content": "落点时 \\(t=x_b/v_0=v_0/g\\)，故 \\(v_y=gt=v_0=v_x\\)，末速度始终与水平成 \\(45^\\circ\\)，与斜面夹角不随 \\(v_0\\) 改变。"
+    },
+    {
+      "title": "判断两个垂直碰撞选项",
+      "content": "斜面倾角为 \\(\\arctan(1/2)\\)，末速度固定为 \\(45^\\circ\\)，不可能垂直撞斜面。对半圆球联立圆方程与径向速度条件，只得到退化的端点条件，运动中也不可能垂直撞轨道。"
+    },
+    {
+      "title": "判断同时落下",
+      "content": "存在适当 \\(v_0\\) 使两球在同一下落高度分别与圆和斜面相交，因此“不可能同时”错误。只有 D 正确。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "存在同时落下的速度",
+      "thinking": "同初速度、同时抛出时，只需寻找两个几何边界具有相同 \\((x,y)\\) 绝对位移的情形。",
+      "formula": "\\[x=\\frac{8R}{5},\\qquad y=\\frac{4R}{5},\\qquad v_0^2=\\frac{8gR}{5}\\]",
+      "judgment": "该速度下两球同时碰到各自边界，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "斜面球末速度角固定",
+      "thinking": "先由落点方程消去 \\(v_0\\)。",
+      "formula": "\\[\\frac{v_y}{v_x}=\\frac{gt}{v_0}=1\\]",
+      "judgment": "末速度与水平成 \\(45^\\circ\\)，而斜面倾角为 \\(\\arctan(1/2)\\)，不能垂直相撞，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "圆轨道的径向条件无非退化解",
+      "thinking": "垂直撞圆弧要求速度沿碰撞点半径。",
+      "formula": "\\[(x-R)^2+y^2=R^2,\\qquad \\frac{2y}{x}=\\frac{y}{x-R}\\]",
+      "judgment": "方程只导向圆弧另一端的退化位置，与非零下落轨迹矛盾，C 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "斜面撞击角是几何不变量",
+      "thinking": "斜面交点使末速度斜率恒定。",
+      "formula": "\\[\\beta=45^\\circ,\\qquad \\beta-\\arctan\\frac12=\\text{常量}\\]",
+      "judgment": "改变初速度只改变落点，不改变夹角，D 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：双边界同时碰撞",
+    "question": "把原题斜面底边与高度之比改为 \\(k:1\\)，半圆半径仍等于斜面高度 \\(R\\)。求两球同时碰到各自边界时的水平位移、下落高度和初速度，并讨论解存在的条件。",
+    "answer": "**共同位移**\n\n斜面方程为 \\(y=x/k\\)，圆弧满足 \\((x-R)^2+y^2=R^2\\)。联立得\n\n\\[x=\\frac{2Rk^2}{k^2+1},\\qquad y=\\frac{2Rk}{k^2+1}.\\]\n\n**初速度**\n\n由 \\(y=gx^2/(2v_0^2)\\)，\n\n\\[v_0^2=\\frac{gRk^3}{k^2+1}.\\]\n\n对任意 \\(k\\gt0\\) 均有几何解；还需检查落点位于给定有限斜面与下半圆弧范围内。",
+    "thinking": "**思路**\n\n同时抛出且初速度大小相同，若同时碰撞，则两球的水平位移大小和竖直下落量都相同。于是先联立两个边界的几何方程，再用平抛轨迹反求初速度。"
+  }
+}

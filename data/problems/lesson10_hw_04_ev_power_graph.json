@@ -20,40 +20,135 @@
     "interactive": true,
     "notes": "前 5 秒功率与速度同比例增长，牵引力恒定；右侧用上下两幅图对应原题的 \\(P-t\\) 与 \\(v-t\\) 关系。",
     "params": {
-      "ratedPower": { "label": "恒功率值", "value": 15, "min": 8, "max": 30, "step": 1, "unit": "kW" },
-      "rampTime": { "label": "线性增长时间", "value": 5, "min": 3, "max": 8, "step": 0.5, "unit": "s" },
-      "switchSpeed": { "label": "切换速度", "value": 5, "min": 3, "max": 10, "step": 0.5, "unit": "m/s" }
+      "ratedPower": {
+        "label": "恒功率值",
+        "value": 15,
+        "min": 8,
+        "max": 30,
+        "step": 1,
+        "unit": "kW"
+      },
+      "rampTime": {
+        "label": "线性增长时间",
+        "value": 5,
+        "min": 3,
+        "max": 8,
+        "step": 0.5,
+        "unit": "s"
+      },
+      "switchSpeed": {
+        "label": "切换速度",
+        "value": 5,
+        "min": 3,
+        "max": 10,
+        "step": 0.5,
+        "unit": "m/s"
+      }
     },
-    "timeline": { "duration": 15, "loop": false }
+    "timeline": {
+      "duration": 15,
+      "loop": false
+    }
   },
-  "knowledge": ["功率时间图像", "速度时间图像", "图像面积"],
+  "knowledge": [
+    "功率时间图像",
+    "速度时间图像",
+    "图像面积"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "分析前 5 秒",
       "content": "前 \\(5\\,\\mathrm s\\) 内 \\(P\\) 与 \\(v\\) 都从零线性增加，故 \\(F=P/v=15000/5=3000\\,\\mathrm N\\) 为常量；加速度 \\(a=5/5=1\\,\\mathrm{m/s^2}\\)。",
-      "knowledge": ["比例图像"],
+      "knowledge": [
+        "比例图像"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "判断质量与位移",
       "content": "由 \\(F-\\frac15mg=ma\\) 得 \\(3000-2m=m\\)，所以 \\(m=1000\\,\\mathrm{kg}\\)，A 错。前 \\(5\\,\\mathrm s\\) 位移为 \\(s=\\frac12\\times5\\times5=12.5\\,\\mathrm m\\)，B 错。",
-      "knowledge": ["牛顿第二定律"],
-      "commonMistakes": ["把速度图像矩形面积当成位移"]
+      "knowledge": [
+        "牛顿第二定律"
+      ],
+      "commonMistakes": [
+        "把速度图像矩形面积当成位移"
+      ]
     },
     {
       "stepId": 3,
       "title": "用功率图像面积求功",
       "content": "前 \\(5\\,\\mathrm s\\) 牵引力做功等于 \\(P-t\\) 图像面积：\\(W=\\frac12\\times5\\times15\\,\\mathrm{kW}=3.75\\times10^4\\,\\mathrm J\\)，D 对。进入恒功率阶段后 \\(F=P/v\\) 随速度增大而减小，C 错。",
-      "knowledge": ["功率图像面积"],
+      "knowledge": [
+        "功率图像面积"
+      ],
       "commonMistakes": []
     }
   ],
   "practice": {
-    "title": "近似题：线性升功率启动",
-    "question": "某车前 \\(4\\,\\mathrm s\\) 的牵引功率由 \\(0\\) 线性增至 \\(24\\,\\mathrm{kW}\\)，速度由 \\(0\\) 线性增至 \\(8\\,\\mathrm{m/s}\\)。求这段时间牵引力、位移和牵引力做功。",
-    "answer": "\\(F=P/v=3000\\,\\mathrm N\\)，\\(s=\\frac12\\times4\\times8=16\\,\\mathrm m\\)，\\(W=\\frac12\\times4\\times24\\,\\mathrm{kW}=4.8\\times10^4\\,\\mathrm J\\)。",
-    "thinking": "当 \\(P\\) 与 \\(v\\) 同比例增长时，\\(P/v\\) 为恒定牵引力；功也可由 \\(P-t\\) 图像面积直接得到。"
+    "title": "进阶近似题：线性升功率启动",
+    "question": "**基础设问**\n\n某车前 \\(4\\,\\mathrm s\\) 的牵引功率由 \\(0\\) 线性增至 \\(24\\,\\mathrm{kW}\\)，速度由 \\(0\\) 线性增至 \\(8\\,\\mathrm{m/s}\\)。求这段时间牵引力、位移和牵引力做功。\n\n**综合提升**\n\n质量为 \\(m\\) 的车辆在恒定阻力 \\(f\\) 下以恒功率 \\(P\\) 加速。（1）写出牵引力和加速度关于速度的函数；（2）求极限速度；（3）若从速度 \\(v_1\\) 加速到 \\(v_2\\)，写出时间积分式；（4）解释为什么接近极限速度时继续提速越来越慢。",
+    "answer": "**1. 基础设问**\n\n\\(F=P/v=3000\\,\\mathrm N\\)，\\(s=\\frac12\\times4\\times8=16\\,\\mathrm m\\)，\\(W=\\frac12\\times4\\times24\\,\\mathrm{kW}=4.8\\times10^4\\,\\mathrm J\\)。\n\n**2. 综合提升**\n\n恒功率阶段\n\n\\[F=\\frac Pv,\\qquad a(v)=\\frac1m\\left(\\frac Pv-f\\right),\\qquad v_m=\\frac Pf.\\]\n\n时间满足\n\n\\[t=\\int_{v_1}^{v_2}\\frac{m\\,dv}{P/v-f}=m\\int_{v_1}^{v_2}\\frac{v\\,dv}{P-fv}.\\]\n\n当 \\(v\\to v_m\\) 时牵引力趋近阻力，合力与加速度趋近零，所以达到极限速度只是一种渐近过程。",
+    "thinking": "**基础思路**\n\n当 \\(P\\) 与 \\(v\\) 同比例增长时，\\(P/v\\) 为恒定牵引力；功也可由 \\(P-t\\) 图像面积直接得到。\n\n**进阶思路**\n\n由 \\(P=Fv\\) 把恒功率转成随速度减小的牵引力，再进入牛顿第二定律；这比只算某一时刻多了函数与极限。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "该汽车的质量为 \\(2.0\\times10^3\\,\\mathrm{kg}\\)",
+      "thinking": "先分析前 5 秒，再判断质量与位移，最后用功率图像面积求功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F=P/v=15000/5\\]\n\n\\[a=5/5\\]\n\n\\[F-\\frac15mg=ma\\]\n\n\\[3000-2m=m\\]\n\n\\[F=P/v\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "功率时间图像",
+        "速度时间图像",
+        "图像面积"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "在前 \\(5\\,\\mathrm s\\) 内，汽车前进位移大小为 \\(25\\,\\mathrm m\\)",
+      "thinking": "先分析前 5 秒，再判断质量与位移，最后用功率图像面积求功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F=P/v=15000/5\\]\n\n\\[a=5/5\\]\n\n\\[F-\\frac15mg=ma\\]\n\n\\[3000-2m=m\\]\n\n\\[F=P/v\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "功率时间图像",
+        "速度时间图像",
+        "图像面积"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "整个过程中汽车的牵引力大小保持不变",
+      "thinking": "先分析前 5 秒，再判断质量与位移，最后用功率图像面积求功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F=P/v=15000/5\\]\n\n\\[a=5/5\\]\n\n\\[F-\\frac15mg=ma\\]\n\n\\[3000-2m=m\\]\n\n\\[F=P/v\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "功率时间图像",
+        "速度时间图像",
+        "图像面积"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "在前 \\(5\\,\\mathrm s\\) 内，汽车牵引力做功为 \\(3.75\\times10^4\\,\\mathrm J\\)",
+      "thinking": "先分析前 5 秒，再判断质量与位移，最后用功率图像面积求功；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F=P/v=15000/5\\]\n\n\\[a=5/5\\]\n\n\\[F-\\frac15mg=ma\\]\n\n\\[3000-2m=m\\]\n\n\\[F=P/v\\]",
+      "judgment": "该结论与主方程推导结果及“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "功率时间图像",
+        "速度时间图像",
+        "图像面积"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

@@ -11,17 +11,134 @@
     "D. FZ01 不可以记录北极点的气候变化"
   ],
   "answer": "D",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_ground_track", "playable": true, "interactive": true, "notes": "左侧显示倾斜轨道与移动星下点，右图绘制全球经度范围内的三波瓣纬度轨迹。", "params": { "inclination": { "label": "轨道倾角", "value": 30, "min": 10, "max": 70, "step": 1, "unit": "deg" }, "periodHours": { "label": "卫星周期", "value": 8, "min": 4, "max": 12, "step": 0.5, "unit": "h" } }, "timeline": { "duration": 8, "loop": false } },
-  "knowledge": ["星下点", "轨道倾角", "周期与半径"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_ground_track",
+    "playable": true,
+    "interactive": true,
+    "notes": "左侧显示倾斜轨道与移动星下点，右图绘制全球经度范围内的三波瓣纬度轨迹。",
+    "params": {
+      "inclination": {
+        "label": "轨道倾角",
+        "value": 30,
+        "min": 10,
+        "max": 70,
+        "step": 1,
+        "unit": "deg"
+      },
+      "periodHours": {
+        "label": "卫星周期",
+        "value": 8,
+        "min": 4,
+        "max": 12,
+        "step": 0.5,
+        "unit": "h"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "星下点",
+    "轨道倾角",
+    "周期与半径"
+  ],
   "steps": [
-    { "stepId": 1, "title": "读取轨道倾角", "content": "星下点能达到的最大纬度等于轨道倾角。图中最大纬度为 \\(30^\\circ\\)，故 FZ01 只能覆盖南北纬 \\(30^\\circ\\) 之间的区域，南北极均不能到达。", "knowledge": ["轨道倾角"], "commonMistakes": [] },
-    { "stepId": 2, "title": "读取周期关系", "content": "三个等间隔波瓣表明相邻同向过赤道点在经度上相差约 \\(120^\\circ\\)，对应地球在一个卫星周期内自转 \\(120^\\circ\\)，故 \\(T_F\\approx24/3=8\\,\\mathrm h\\)。", "knowledge": ["星下点重复周期"], "commonMistakes": [] },
-    { "stepId": 3, "title": "检查半径选项", "content": "由 \\(r_F/r=(T_F/24)^{2/3}=(1/3)^{2/3}=1/\\sqrt[3]{9}\\)，既不是 \\(1/3\\) 也不是 \\(1/5\\)。因此 A、B、C 错误，D 正确。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "读取轨道倾角",
+      "content": "星下点能达到的最大纬度等于轨道倾角。图中最大纬度为 \\(30^\\circ\\)，故 FZ01 只能覆盖南北纬 \\(30^\\circ\\) 之间的区域，南北极均不能到达。",
+      "knowledge": [
+        "轨道倾角"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "读取周期关系",
+      "content": "三个等间隔波瓣表明相邻同向过赤道点在经度上相差约 \\(120^\\circ\\)，对应地球在一个卫星周期内自转 \\(120^\\circ\\)，故 \\(T_F\\approx24/3=8\\,\\mathrm h\\)。",
+      "knowledge": [
+        "星下点重复周期"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "检查半径选项",
+      "content": "由 \\(r_F/r=(T_F/24)^{2/3}=(1/3)^{2/3}=1/\\sqrt[3]{9}\\)，既不是 \\(1/3\\) 也不是 \\(1/5\\)。因此 A、B、C 错误，D 正确。",
+      "knowledge": [
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：轨迹纬度范围",
-    "question": "某卫星星下点轨迹的最高、最低纬度分别为 \\(45^\\circ\\mathrm N\\) 和 \\(45^\\circ\\mathrm S\\)。求轨道倾角，并判断能否经过北极点。",
-    "answer": "轨道倾角为 \\(45^\\circ\\)，不能经过北极点。",
-    "thinking": "星下点极限纬度直接给出轨道倾角；只有极轨卫星倾角为 \\(90^\\circ\\) 才能覆盖两极。"
+    "title": "进阶近似题：轨迹纬度范围",
+    "question": "**基础设问**\n\n某卫星星下点轨迹的最高、最低纬度分别为 \\(45^\\circ\\mathrm N\\) 和 \\(45^\\circ\\mathrm S\\)。求轨道倾角，并判断能否经过北极点。\n\n**综合提升**\n\n两颗卫星绕同一中心天体同向做圆周运动，半径为 \\(r_1<r_2\\)。（1）求相对角速度和会合周期；（2）若初始相差角 \\(\\Delta\\theta_0\\)，求首次会合时间；（3）若改为反向运动重新作答；（4）说明距离图像的极大、极小时刻与相对相位的关系。",
+    "answer": "**1. 基础设问**\n\n轨道倾角为 \\(45^\\circ\\)，不能经过北极点。\n\n**2. 综合提升**\n\n\\(\\omega_i=\\sqrt{GM/r_i^3}\\)。同向时\n\n\\[\\omega_{rel}=|\\omega_1-\\omega_2|,\\qquad T_{syn}=\\frac{2\\pi}{\\omega_{rel}},\\]\n\n首次会合时间由 \\(\\Delta\\theta_0+\\omega_{rel}t=2n\\pi\\) 取最小正解。反向时相对角速度变为 \\(\\omega_1+\\omega_2\\)。相位差为 \\(0\\) 时距离极小，为 \\(\\pi\\) 时距离极大。",
+    "thinking": "**基础思路**\n\n星下点极限纬度直接给出轨道倾角；只有极轨卫星倾角为 \\(90^\\circ\\) 才能覆盖两极。\n\n**进阶思路**\n\n先把各自轨道动力学转成角速度，再单独做相对运动；相对周期不是任一卫星自身周期。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "FZ01 的轨道半径约为 \\(r/3\\)",
+      "thinking": "先读取轨道倾角，再读取周期关系，最后检查半径选项；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_F/r=(T_F/24)^{2/3}=(1/3)^{2/3}=1/\\sqrt[3]{9}\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "星下点",
+        "轨道倾角",
+        "周期与半径"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "FZ01 的轨道半径约为 \\(r/5\\)",
+      "thinking": "先读取轨道倾角，再读取周期关系，最后检查半径选项；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_F/r=(T_F/24)^{2/3}=(1/3)^{2/3}=1/\\sqrt[3]{9}\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "星下点",
+        "轨道倾角",
+        "周期与半径"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "FZ01 可以记录南极点的气候变化",
+      "thinking": "先读取轨道倾角，再读取周期关系，最后检查半径选项；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_F/r=(T_F/24)^{2/3}=(1/3)^{2/3}=1/\\sqrt[3]{9}\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "星下点",
+        "轨道倾角",
+        "周期与半径"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "FZ01 不可以记录北极点的气候变化",
+      "thinking": "先读取轨道倾角，再读取周期关系，最后检查半径选项；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_F/r=(T_F/24)^{2/3}=(1/3)^{2/3}=1/\\sqrt[3]{9}\\]",
+      "judgment": "该结论与主方程推导结果及“动力学比例和相对运动几何必须分别建立后再联立”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "星下点",
+        "轨道倾角",
+        "周期与半径"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

@@ -56,5 +56,64 @@
     "title": "力学基础",
     "text": "第 5 题",
     "page": "第 5 题"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(\\frac{k_a k_b}{k_a + k_b}\\)",
+      "thinking": "先隔离研究对象，判断弹簧处于拉伸还是压缩，再用平衡条件把弹力与形变量联系起来。最后检查接触力和张力的非负约束。",
+      "formula": "\\[\\frac{1}{k}=\\frac{1}{k_a}+\\frac{1}{k_b}\\]\n\n\\[k=\\frac{k_a k_b}{k_a + k_b}\\]\n\n\\[x=x_a+x_b\\]\n\n\\[F=k_a x_a=k_b x_b\\]\n\n\\[x_a=F/k_a\\]",
+      "judgment": "所以A正确。",
+      "knowledge": [
+        "胡克定律",
+        "弹簧串联"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(k_a + k_b\\)",
+      "thinking": "先隔离研究对象，判断弹簧处于拉伸还是压缩，再用平衡条件把弹力与形变量联系起来。最后检查接触力和张力的非负约束。",
+      "formula": "\\[\\frac{1}{k}=\\frac{1}{k_a}+\\frac{1}{k_b}\\]\n\n\\[k=\\frac{k_a k_b}{k_a + k_b}\\]\n\n\\[x=x_a+x_b\\]\n\n\\[F=k_a x_a=k_b x_b\\]\n\n\\[x_a=F/k_a\\]",
+      "judgment": "该结论没有同时满足“胡克定律、受力方向和平衡条件必须同时成立”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "胡克定律",
+        "弹簧串联"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(\\frac{k_a + k_b}{k_a k_b}\\)",
+      "thinking": "先隔离研究对象，判断弹簧处于拉伸还是压缩，再用平衡条件把弹力与形变量联系起来。最后检查接触力和张力的非负约束。",
+      "formula": "\\[\\frac{1}{k}=\\frac{1}{k_a}+\\frac{1}{k_b}\\]\n\n\\[k=\\frac{k_a k_b}{k_a + k_b}\\]\n\n\\[x=x_a+x_b\\]\n\n\\[F=k_a x_a=k_b x_b\\]\n\n\\[x_a=F/k_a\\]",
+      "judgment": "该结论没有同时满足“胡克定律、受力方向和平衡条件必须同时成立”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "胡克定律",
+        "弹簧串联"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(\\frac{k_a k_b}{|k_a - k_b|}\\)",
+      "thinking": "先隔离研究对象，判断弹簧处于拉伸还是压缩，再用平衡条件把弹力与形变量联系起来。最后检查接触力和张力的非负约束。",
+      "formula": "\\[\\frac{1}{k}=\\frac{1}{k_a}+\\frac{1}{k_b}\\]\n\n\\[k=\\frac{k_a k_b}{k_a + k_b}\\]\n\n\\[x=x_a+x_b\\]\n\n\\[F=k_a x_a=k_b x_b\\]\n\n\\[x_a=F/k_a\\]",
+      "judgment": "该结论没有同时满足“胡克定律、受力方向和平衡条件必须同时成立”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "胡克定律",
+        "弹簧串联"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：三弹簧串联与形变量分配",
+    "question": "三根轻弹簧劲度系数分别为 \\(k_1,k_2,k_3\\)，串联后悬挂重物并保持在弹性限度内。（1）推导等效劲度系数；（2）求总形变量中每根弹簧所占比例；（3）若保持 \\(k_1+k_2+k_3=K\\)，证明三者怎样取值可使等效劲度系数最大；（4）比较串联与把三弹簧并联时的等效劲度。",
+    "answer": "串联时各弹簧受力同为 \\(F\\)，总伸长为\n\n\\[x=F\\left(\\frac1{k_1}+\\frac1{k_2}+\\frac1{k_3}\\right),\\]\n\n所以\n\n\\[\\frac1{k_{\\mathrm{eq}}}=\\frac1{k_1}+\\frac1{k_2}+\\frac1{k_3},\\qquad x_1:x_2:x_3=\\frac1{k_1}:\\frac1{k_2}:\\frac1{k_3}.\\]\n\n在和为 \\(K\\) 时，由调和平均不等式，\\(k_1=k_2=k_3=K/3\\) 时串联等效劲度最大，且 \\(k_{\\mathrm{eq,max}}=K/9\\)。并联时 \\(k_{\\parallel}=K\\)，明显更大。",
+    "thinking": "**考点迁移**\n\n串联先抓“力相等、形变量相加”，并联先抓“形变量相等、力相加”。进阶部分把公式推导延伸到形变量分配与结构优化。"
   }
 }

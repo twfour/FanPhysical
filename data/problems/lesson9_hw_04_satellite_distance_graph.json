@@ -11,17 +11,134 @@
     "D. 地球第一宇宙速度为 \\(\\dfrac{\\sqrt5\\pi r}{T}\\)"
   ],
   "answer": "C",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_satellite_distance_graph", "playable": true, "interactive": true, "notes": "两颗卫星分别在 r 和 4r 轨道同向运行；右图实时重现距离在 3r 与 5r 之间周期变化。", "params": { "innerRadius": { "label": "内轨半径", "value": 1, "min": 0.8, "max": 1.5, "step": 0.1, "unit": "r" }, "outerRatio": { "label": "外内半径比", "value": 4, "min": 2.5, "max": 5.0, "step": 0.1, "unit": "" } }, "timeline": { "duration": 8, "loop": false } },
-  "knowledge": ["双卫星追及", "距离图像", "中心天体质量"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_satellite_distance_graph",
+    "playable": true,
+    "interactive": true,
+    "notes": "两颗卫星分别在 r 和 4r 轨道同向运行；右图实时重现距离在 3r 与 5r 之间周期变化。",
+    "params": {
+      "innerRadius": {
+        "label": "内轨半径",
+        "value": 1,
+        "min": 0.8,
+        "max": 1.5,
+        "step": 0.1,
+        "unit": "r"
+      },
+      "outerRatio": {
+        "label": "外内半径比",
+        "value": 4,
+        "min": 2.5,
+        "max": 5,
+        "step": 0.1,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "双卫星追及",
+    "距离图像",
+    "中心天体质量"
+  ],
   "steps": [
-    { "stepId": 1, "title": "由极值求轨道半径", "content": "同侧时距离最小、异侧时距离最大。设内外轨道半径为 \\(r_A、r_B\\)，则 \\(r_B-r_A=3r\\)、\\(r_A+r_B=5r\\)，解得 \\(r_A=r\\)、\\(r_B=4r\\)。", "knowledge": ["几何极值"], "commonMistakes": [] },
-    { "stepId": 2, "title": "求角速度关系", "content": "由 \\(\\omega\\propto r^{-3/2}\\)，\\(\\omega_A:\\omega_B=8:1\\)，故 \\(T_A:T_B=1:8\\)。相邻距离最小值间隔是会合周期，满足 \\(\\omega_A-\\omega_B=2\\pi/T\\)。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] },
-    { "stepId": 3, "title": "反求地球质量", "content": "由 \\(\\omega_B=\\omega_A/8\\) 得 \\(7\\omega_A/8=2\\pi/T\\)，所以 \\(\\omega_A=16\\pi/(7T)\\)。再用 \\(GM=\\omega_A^2r^3\\)，得到 \\(M=256\\pi^2r^3/(49GT^2)\\)，选 C。", "knowledge": ["质量反演"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "由极值求轨道半径",
+      "content": "同侧时距离最小、异侧时距离最大。设内外轨道半径为 \\(r_A、r_B\\)，则 \\(r_B-r_A=3r\\)、\\(r_A+r_B=5r\\)，解得 \\(r_A=r\\)、\\(r_B=4r\\)。",
+      "knowledge": [
+        "几何极值"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "求角速度关系",
+      "content": "由 \\(\\omega\\propto r^{-3/2}\\)，\\(\\omega_A:\\omega_B=8:1\\)，故 \\(T_A:T_B=1:8\\)。相邻距离最小值间隔是会合周期，满足 \\(\\omega_A-\\omega_B=2\\pi/T\\)。",
+      "knowledge": [
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "反求地球质量",
+      "content": "由 \\(\\omega_B=\\omega_A/8\\) 得 \\(7\\omega_A/8=2\\pi/T\\)，所以 \\(\\omega_A=16\\pi/(7T)\\)。再用 \\(GM=\\omega_A^2r^3\\)，得到 \\(M=256\\pi^2r^3/(49GT^2)\\)，选 C。",
+      "knowledge": [
+        "质量反演"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：距离极值反求半径",
-    "question": "两颗同心圆轨道卫星间距最小为 \\(2R\\)、最大为 \\(8R\\)。求两轨道半径。",
-    "answer": "由 \\(r_外-r_内=2R\\)、\\(r_外+r_内=8R\\)，得 \\(r_内=3R\\)、\\(r_外=5R\\)。",
-    "thinking": "同侧取差、异侧取和，联立两个极值方程。"
+    "title": "进阶近似题：距离极值反求半径",
+    "question": "**基础设问**\n\n两颗同心圆轨道卫星间距最小为 \\(2R\\)、最大为 \\(8R\\)。求两轨道半径。\n\n**综合提升**\n\n两颗卫星绕同一中心天体同向做圆周运动，半径为 \\(r_1<r_2\\)。（1）求相对角速度和会合周期；（2）若初始相差角 \\(\\Delta\\theta_0\\)，求首次会合时间；（3）若改为反向运动重新作答；（4）说明距离图像的极大、极小时刻与相对相位的关系。",
+    "answer": "**1. 基础设问**\n\n由 \\(r_外-r_内=2R\\)、\\(r_外+r_内=8R\\)，得 \\(r_内=3R\\)、\\(r_外=5R\\)。\n\n**2. 综合提升**\n\n\\(\\omega_i=\\sqrt{GM/r_i^3}\\)。同向时\n\n\\[\\omega_{rel}=|\\omega_1-\\omega_2|,\\qquad T_{syn}=\\frac{2\\pi}{\\omega_{rel}},\\]\n\n首次会合时间由 \\(\\Delta\\theta_0+\\omega_{rel}t=2n\\pi\\) 取最小正解。反向时相对角速度变为 \\(\\omega_1+\\omega_2\\)。相位差为 \\(0\\) 时距离极小，为 \\(\\pi\\) 时距离极大。",
+    "thinking": "**基础思路**\n\n同侧取差、异侧取和，联立两个极值方程。\n\n**进阶思路**\n\n先把各自轨道动力学转成角速度，再单独做相对运动；相对周期不是任一卫星自身周期。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "卫星 A 的加速度小于卫星 B 的加速度",
+      "thinking": "先由极值求轨道半径，再求角速度关系，最后反求地球质量；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_B-r_A=3r\\]\n\n\\[r_A+r_B=5r\\]\n\n\\[r_A=r\\]\n\n\\[r_B=4r\\]\n\n\\[\\omega_A:\\omega_B=8:1\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "双卫星追及",
+        "距离图像",
+        "中心天体质量"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "卫星 A 与 B 的周期之比为 \\(1:4\\)",
+      "thinking": "先由极值求轨道半径，再求角速度关系，最后反求地球质量；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_B-r_A=3r\\]\n\n\\[r_A+r_B=5r\\]\n\n\\[r_A=r\\]\n\n\\[r_B=4r\\]\n\n\\[\\omega_A:\\omega_B=8:1\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "双卫星追及",
+        "距离图像",
+        "中心天体质量"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "地球质量为 \\(\\dfrac{256\\pi^2r^3}{49GT^2}\\)",
+      "thinking": "先由极值求轨道半径，再求角速度关系，最后反求地球质量；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_B-r_A=3r\\]\n\n\\[r_A+r_B=5r\\]\n\n\\[r_A=r\\]\n\n\\[r_B=4r\\]\n\n\\[\\omega_A:\\omega_B=8:1\\]",
+      "judgment": "该结论与主方程推导结果及“动力学比例和相对运动几何必须分别建立后再联立”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "双卫星追及",
+        "距离图像",
+        "中心天体质量"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "地球第一宇宙速度为 \\(\\dfrac{\\sqrt5\\pi r}{T}\\)",
+      "thinking": "先由极值求轨道半径，再求角速度关系，最后反求地球质量；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[r_B-r_A=3r\\]\n\n\\[r_A+r_B=5r\\]\n\n\\[r_A=r\\]\n\n\\[r_B=4r\\]\n\n\\[\\omega_A:\\omega_B=8:1\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "双卫星追及",
+        "距离图像",
+        "中心天体质量"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

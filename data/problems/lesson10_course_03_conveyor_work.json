@@ -14,41 +14,89 @@
     "interactive": true,
     "notes": "行李先相对传送带滑动再达到共同速度；右图分别显示两个接触面的摩擦功。",
     "params": {
-      "mass": { "label": "行李质量", "value": 10, "min": 2, "max": 20, "step": 1, "unit": "kg" },
-      "mu": { "label": "动摩擦因数", "value": 0.2, "min": 0.05, "max": 0.5, "step": 0.01, "unit": "" },
-      "beltSpeed": { "label": "传送带速度", "value": 2, "min": 0.5, "max": 5, "step": 0.1, "unit": "m/s" },
-      "g": { "label": "重力加速度", "value": 10, "min": 8, "max": 12, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "行李质量",
+        "value": 10,
+        "min": 2,
+        "max": 20,
+        "step": 1,
+        "unit": "kg"
+      },
+      "mu": {
+        "label": "动摩擦因数",
+        "value": 0.2,
+        "min": 0.05,
+        "max": 0.5,
+        "step": 0.01,
+        "unit": ""
+      },
+      "beltSpeed": {
+        "label": "传送带速度",
+        "value": 2,
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1,
+        "unit": "m/s"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 8,
+        "max": 12,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 1, "loop": false }
+    "timeline": {
+      "duration": 1,
+      "loop": false
+    }
   },
-  "knowledge": ["传送带", "摩擦力做功", "功能关系"],
+  "knowledge": [
+    "传送带",
+    "摩擦力做功",
+    "功能关系"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "确定相对滑动时间",
       "content": "滑动摩擦力 \\(f=\\mu mg=20\\,\\mathrm N\\)，行李加速度 \\(a=f/m=\\mu g=2\\,\\mathrm{m/s^2}\\)。达到带速所需时间 \\(t=v/a=1\\,\\mathrm s\\)。",
-      "knowledge": ["滑动摩擦力"],
+      "knowledge": [
+        "滑动摩擦力"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "分别求两者位移",
       "content": "行李位移 \\(s_1=\\frac12at^2=1\\,\\mathrm m\\)，传送带位移 \\(s_2=vt=2\\,\\mathrm m\\)。两个位移不能混用。",
-      "knowledge": ["相对运动"],
-      "commonMistakes": ["用同一个位移计算两个摩擦功"]
+      "knowledge": [
+        "相对运动"
+      ],
+      "commonMistakes": [
+        "用同一个位移计算两个摩擦功"
+      ]
     },
     {
       "stepId": 3,
       "title": "计算摩擦功",
       "content": "摩擦力对行李做正功 \\(W_1=fs_1=20\\,\\mathrm J\\)；行李对传送带的摩擦力向左，故 \\(W_2=-fs_2=-40\\,\\mathrm J\\)。总功 \\(W_{\\mathrm{总}}=-20\\,\\mathrm J\\)，等于系统机械能损失。",
-      "knowledge": ["摩擦生热"],
+      "knowledge": [
+        "摩擦生热"
+      ],
       "commonMistakes": []
     }
   ],
   "practice": {
-    "title": "近似题：更快的传送带",
-    "question": "质量 \\(m=5\\,\\mathrm{kg}\\) 的物块轻放在速度 \\(v=3\\,\\mathrm{m/s}\\) 的水平传送带上，\\(\\mu=0.3\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求相对滑动阶段摩擦力对物块和传送带所做的功。",
-    "answer": "\\(a=3\\,\\mathrm{m/s^2}\\)、\\(t=1\\,\\mathrm s\\)、\\(s_{\\mathrm{物}}=1.5\\,\\mathrm m\\)、\\(s_{\\mathrm{带}}=3\\,\\mathrm m\\)。故 \\(W_{\\mathrm{物}}=22.5\\,\\mathrm J\\)，\\(W_{\\mathrm{带}}=-45\\,\\mathrm J\\)。",
-    "thinking": "先求达到共同速度的时间，再分别计算物块和传送带相对地面的位移。"
+    "title": "进阶近似题：更快的传送带",
+    "question": "**基础设问**\n\n质量 \\(m=5\\,\\mathrm{kg}\\) 的物块轻放在速度 \\(v=3\\,\\mathrm{m/s}\\) 的水平传送带上，\\(\\mu=0.3\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求相对滑动阶段摩擦力对物块和传送带所做的功。\n\n**综合提升**\n\n在原传送带模型中，把物块和传送带作为一个系统。（1）分别写出摩擦力对物块、传送带做的功；（2）证明两者之和等于 \\(-Q\\)；（3）用相对位移表示摩擦生热；（4）若带速可调，讨论怎样从能量角度寻找电动机额外做功的最小值。",
+    "answer": "**1. 基础设问**\n\n\\(a=3\\,\\mathrm{m/s^2}\\)、\\(t=1\\,\\mathrm s\\)、\\(s_{\\mathrm{物}}=1.5\\,\\mathrm m\\)、\\(s_{\\mathrm{带}}=3\\,\\mathrm m\\)。故 \\(W_{\\mathrm{物}}=22.5\\,\\mathrm J\\)，\\(W_{\\mathrm{带}}=-45\\,\\mathrm J\\)。\n\n**2. 综合提升**\n\n若摩擦力大小为 \\(f\\)，两接触点相对地位移分别为 \\(s_b,s_c\\)，则\n\n\\[W_{f,b}=fs_b,\\qquad W_{f,c}=-fs_c,\\qquad W_{f,b}+W_{f,c}=-f(s_c-s_b)=-Q.\\]\n\n因此 \\(Q=f\\Delta s_{rel}\\)。调节带速时应分段求相对运动，电动机额外功等于传送带机械能变化与克服摩擦损失之和；临界通常出现在刚好不发生多余反向相对滑动的速度匹配处。",
+    "thinking": "**基础思路**\n\n先求达到共同速度的时间，再分别计算物块和传送带相对地面的位移。\n\n**进阶思路**\n\n同一对摩擦力对两个物体的功不互相抵消，差额转化为内能；必须使用接触点的相对位移。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

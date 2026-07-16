@@ -19,23 +19,142 @@
     "interactive": true,
     "notes": "小球按原题给出的初速度与最大高度完成月面竖直上抛；圆周运动示意同步给出最高点临界速度。",
     "params": {
-      "v0": { "label": "初速度", "value": 8, "min": 2, "max": 20, "step": 0.5, "unit": "m/s" },
-      "height": { "label": "最大高度", "value": 20, "min": 2, "max": 80, "step": 1, "unit": "m" },
-      "moonRadius": { "label": "月球半径", "value": 1737, "min": 1000, "max": 3000, "step": 1, "unit": "km" },
-      "ropeLength": { "label": "细线长度", "value": 5, "min": 1, "max": 15, "step": 0.5, "unit": "m" }
+      "v0": {
+        "label": "初速度",
+        "value": 8,
+        "min": 2,
+        "max": 20,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "height": {
+        "label": "最大高度",
+        "value": 20,
+        "min": 2,
+        "max": 80,
+        "step": 1,
+        "unit": "m"
+      },
+      "moonRadius": {
+        "label": "月球半径",
+        "value": 1737,
+        "min": 1000,
+        "max": 3000,
+        "step": 1,
+        "unit": "km"
+      },
+      "ropeLength": {
+        "label": "细线长度",
+        "value": 5,
+        "min": 1,
+        "max": 15,
+        "step": 0.5,
+        "unit": "m"
+      }
     },
-    "timeline": { "duration": 10, "loop": false }
+    "timeline": {
+      "duration": 10,
+      "loop": false
+    }
   },
-  "knowledge": ["竖直上抛", "近地重力", "天体质量与密度"],
+  "knowledge": [
+    "竖直上抛",
+    "近地重力",
+    "天体质量与密度"
+  ],
   "steps": [
-    { "stepId": 1, "title": "由上抛求重力", "content": "由 \\(v_0^2=2gh\\)，得 \\(g=v_0^2/(2h)\\)，故 A 错。", "knowledge": ["竖直上抛"], "commonMistakes": [] },
-    { "stepId": 2, "title": "圆周运动与天体质量", "content": "绳球恰过最高点时 \\(v_{\\min}=\\sqrt{gL}=v_0\\sqrt{L/(2h)}\\)；又由 \\(g=GM/R^2\\)，得 \\(M=v_0^2R^2/(2Gh)\\)。B、C 正确。", "knowledge": ["竖直圆周", "万有引力"], "commonMistakes": [] },
-    { "stepId": 3, "title": "密度结论", "content": "\\(\\rho=M/(4\\pi R^3/3)=3v_0^2/(8\\pi GRh)\\)，D 正确。故选 B、C、D。", "knowledge": ["平均密度"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "由上抛求重力",
+      "content": "由 \\(v_0^2=2gh\\)，得 \\(g=v_0^2/(2h)\\)，故 A 错。",
+      "knowledge": [
+        "竖直上抛"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "圆周运动与天体质量",
+      "content": "绳球恰过最高点时 \\(v_{\\min}=\\sqrt{gL}=v_0\\sqrt{L/(2h)}\\)；又由 \\(g=GM/R^2\\)，得 \\(M=v_0^2R^2/(2Gh)\\)。B、C 正确。",
+      "knowledge": [
+        "竖直圆周",
+        "万有引力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "密度结论",
+      "content": "\\(\\rho=M/(4\\pi R^3/3)=3v_0^2/(8\\pi GRh)\\)，D 正确。故选 B、C、D。",
+      "knowledge": [
+        "平均密度"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：上抛实验测星球密度",
-    "question": "在半径为 \\(R\\) 的星球表面，以初速度 \\(u\\) 竖直上抛小球，最大高度为 \\(H\\)。求星球平均密度。",
-    "answer": "\\(\\rho=\\dfrac{3u^2}{8\\pi GRH}\\)。",
-    "thinking": "先由上抛运动求 \\(g=u^2/(2H)\\)，再联立 \\(g=GM/R^2\\) 与 \\(M=4\\pi R^3\\rho/3\\)。"
+    "title": "进阶近似题：上抛实验测星球密度",
+    "question": "**基础设问**\n\n在半径为 \\(R\\) 的星球表面，以初速度 \\(u\\) 竖直上抛小球，最大高度为 \\(H\\)。求星球平均密度。\n\n**综合提升**\n\n设天体为密度均匀、半径 \\(R\\) 的球体。（1）推导内部距球心 \\(r\\) 处的重力加速度；（2）证明贯穿球心的真空隧道内运动为简谐运动；（3）求振动周期并用平均密度表示；（4）比较该周期与贴近表面的圆轨道周期。",
+    "answer": "**1. 基础设问**\n\n\\(\\rho=\\dfrac{3u^2}{8\\pi GRH}\\)。\n\n**2. 综合提升**\n\n球内有效质量 \\(M(r)=4\\pi\\rho r^3/3\\)，故\n\n\\[g(r)=\\frac{GM(r)}{r^2}=\\frac{4\\pi G\\rho}{3}r.\\]\n\n沿隧道有 \\(a=-\\omega^2r\\)，其中 \\(\\omega^2=4\\pi G\\rho/3\\)，所以\n\n\\[T=2\\pi\\sqrt{\\frac{3}{4\\pi G\\rho}}.\\]\n\n贴地圆轨道满足同一 \\(GM/R^3=4\\pi G\\rho/3\\)，周期相同。",
+    "thinking": "**基础思路**\n\n先由上抛运动求 \\(g=u^2/(2H)\\)，再联立 \\(g=GM/R^2\\) 与 \\(M=4\\pi R^3\\rho/3\\)。\n\n**进阶思路**\n\n关键升级是把表面重力推广到球内有效质量，再识别加速度与位移成正比的简谐结构。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "月球表面的重力加速度大小为 \\(v_0^2/h\\)",
+      "thinking": "先由上抛求重力，再圆周运动与天体质量，最后密度结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v_0^2=2gh\\]\n\n\\[g=v_0^2/(2h)\\]\n\n\\[v_{\\min}=\\sqrt{gL}=v_0\\sqrt{L/(2h)}\\]\n\n\\[g=GM/R^2\\]\n\n\\[M=v_0^2R^2/(2Gh)\\]",
+      "judgment": "该结论没有同时满足“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "竖直上抛",
+        "近地重力",
+        "天体质量与密度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "月球表面上，长为 \\(L\\) 的细线牵引小球在竖直面内做圆周运动，小球到达最高点的速度至少为 \\(v_0\\sqrt{L/(2h)}\\)",
+      "thinking": "先由上抛求重力，再圆周运动与天体质量，最后密度结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v_0^2=2gh\\]\n\n\\[g=v_0^2/(2h)\\]\n\n\\[v_{\\min}=\\sqrt{gL}=v_0\\sqrt{L/(2h)}\\]\n\n\\[g=GM/R^2\\]\n\n\\[M=v_0^2R^2/(2Gh)\\]",
+      "judgment": "该结论与主方程推导结果及“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "竖直上抛",
+        "近地重力",
+        "天体质量与密度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "月球的质量为 \\(v_0^2R^2/(2Gh)\\)",
+      "thinking": "先由上抛求重力，再圆周运动与天体质量，最后密度结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v_0^2=2gh\\]\n\n\\[g=v_0^2/(2h)\\]\n\n\\[v_{\\min}=\\sqrt{gL}=v_0\\sqrt{L/(2h)}\\]\n\n\\[g=GM/R^2\\]\n\n\\[M=v_0^2R^2/(2Gh)\\]",
+      "judgment": "该结论与主方程推导结果及“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "竖直上抛",
+        "近地重力",
+        "天体质量与密度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "月球的密度为 \\(3v_0^2/(8\\pi GRh)\\)",
+      "thinking": "先由上抛求重力，再圆周运动与天体质量，最后密度结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[v_0^2=2gh\\]\n\n\\[g=v_0^2/(2h)\\]\n\n\\[v_{\\min}=\\sqrt{gL}=v_0\\sqrt{L/(2h)}\\]\n\n\\[g=GM/R^2\\]\n\n\\[M=v_0^2R^2/(2Gh)\\]",
+      "judgment": "该结论与主方程推导结果及“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "竖直上抛",
+        "近地重力",
+        "天体质量与密度"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

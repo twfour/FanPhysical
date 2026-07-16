@@ -20,41 +20,141 @@
     "interactive": true,
     "notes": "低速段牵引力恒定，高速段功率恒定；右图按原题坐标展示 \\(F-1/v\\) 关系。",
     "params": {
-      "power": { "label": "额定功率", "value": 60, "min": 30, "max": 120, "step": 5, "unit": "kW" },
-      "maxForce": { "label": "最大牵引力", "value": 6000, "min": 3000, "max": 10000, "step": 500, "unit": "N" },
-      "resistance": { "label": "恒定阻力", "value": 2000, "min": 1000, "max": 4000, "step": 250, "unit": "N" },
-      "mass": { "label": "汽车质量", "value": 2000, "min": 1000, "max": 4000, "step": 250, "unit": "kg" }
+      "power": {
+        "label": "额定功率",
+        "value": 60,
+        "min": 30,
+        "max": 120,
+        "step": 5,
+        "unit": "kW"
+      },
+      "maxForce": {
+        "label": "最大牵引力",
+        "value": 6000,
+        "min": 3000,
+        "max": 10000,
+        "step": 500,
+        "unit": "N"
+      },
+      "resistance": {
+        "label": "恒定阻力",
+        "value": 2000,
+        "min": 1000,
+        "max": 4000,
+        "step": 250,
+        "unit": "N"
+      },
+      "mass": {
+        "label": "汽车质量",
+        "value": 2000,
+        "min": 1000,
+        "max": 4000,
+        "step": 250,
+        "unit": "kg"
+      }
     },
-    "timeline": { "duration": 8, "loop": false }
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
   },
-  "knowledge": ["图像转换", "恒牵引力", "恒功率"],
+  "knowledge": [
+    "图像转换",
+    "恒牵引力",
+    "恒功率"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "识别两段运动",
       "content": "低速时牵引力达到上限 \\(F_{\\max}=6000\\,\\mathrm N\\)，汽车做匀加速运动；当 \\(v=10\\,\\mathrm{m/s}\\) 后进入恒功率阶段，图线满足 \\(F=P(1/v)\\)。",
-      "knowledge": ["机车启动图像"],
+      "knowledge": [
+        "机车启动图像"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "由图求功率和阻力",
       "content": "恒功率为 \\(P=Fv=6000\\times10=6\\times10^4\\,\\mathrm W\\)。最大速度 \\(30\\,\\mathrm{m/s}\\) 时牵引力等于阻力，故 \\(f=P/v_{\\max}=2000\\,\\mathrm N\\)。A、B 正确。",
-      "knowledge": ["图像斜率"],
+      "knowledge": [
+        "图像斜率"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "求匀加速阶段",
       "content": "\\(a=(F_{\\max}-f)/m=(6000-2000)/2000=2\\,\\mathrm{m/s^2}\\)，所以 C 错。由静止加速到 \\(10\\,\\mathrm{m/s}\\) 需 \\(t=10/2=5\\,\\mathrm s\\)，D 正确。",
-      "knowledge": ["匀加速阶段"],
+      "knowledge": [
+        "匀加速阶段"
+      ],
       "commonMistakes": []
     }
   ],
   "practice": {
-    "title": "近似题：读 \\(F-1/v\\) 图像",
-    "question": "某汽车最大牵引力为 \\(8.0\\times10^3\\,\\mathrm N\\)，恒功率段图线经过 \\(v=20\\,\\mathrm{m/s}\\)、\\(F=4.0\\times10^3\\,\\mathrm N\\)。若阻力为 \\(2.0\\times10^3\\,\\mathrm N\\)，求额定功率、切换速度和最大速度。",
-    "answer": "\\(P=Fv=80\\,\\mathrm{kW}\\)，切换速度 \\(v_1=P/F_{\\max}=10\\,\\mathrm{m/s}\\)，最大速度 \\(v_{\\max}=P/f=40\\,\\mathrm{m/s}\\)。",
-    "thinking": "恒功率段的 \\(F-1/v\\) 图线斜率就是功率；再分别令 \\(F=F_{\\max}\\) 和 \\(F=f\\) 找两个特征速度。"
+    "title": "进阶近似题：读 \\(F-1/v\\) 图像",
+    "question": "**基础设问**\n\n某汽车最大牵引力为 \\(8.0\\times10^3\\,\\mathrm N\\)，恒功率段图线经过 \\(v=20\\,\\mathrm{m/s}\\)、\\(F=4.0\\times10^3\\,\\mathrm N\\)。若阻力为 \\(2.0\\times10^3\\,\\mathrm N\\)，求额定功率、切换速度和最大速度。\n\n**综合提升**\n\n质量为 \\(m\\) 的车辆在恒定阻力 \\(f\\) 下以恒功率 \\(P\\) 加速。（1）写出牵引力和加速度关于速度的函数；（2）求极限速度；（3）若从速度 \\(v_1\\) 加速到 \\(v_2\\)，写出时间积分式；（4）解释为什么接近极限速度时继续提速越来越慢。",
+    "answer": "**1. 基础设问**\n\n\\(P=Fv=80\\,\\mathrm{kW}\\)，切换速度 \\(v_1=P/F_{\\max}=10\\,\\mathrm{m/s}\\)，最大速度 \\(v_{\\max}=P/f=40\\,\\mathrm{m/s}\\)。\n\n**2. 综合提升**\n\n恒功率阶段\n\n\\[F=\\frac Pv,\\qquad a(v)=\\frac1m\\left(\\frac Pv-f\\right),\\qquad v_m=\\frac Pf.\\]\n\n时间满足\n\n\\[t=\\int_{v_1}^{v_2}\\frac{m\\,dv}{P/v-f}=m\\int_{v_1}^{v_2}\\frac{v\\,dv}{P-fv}.\\]\n\n当 \\(v\\to v_m\\) 时牵引力趋近阻力，合力与加速度趋近零，所以达到极限速度只是一种渐近过程。",
+    "thinking": "**基础思路**\n\n恒功率段的 \\(F-1/v\\) 图线斜率就是功率；再分别令 \\(F=F_{\\max}\\) 和 \\(F=f\\) 找两个特征速度。\n\n**进阶思路**\n\n由 \\(P=Fv\\) 把恒功率转成随速度减小的牵引力，再进入牛顿第二定律；这比只算某一时刻多了函数与极限。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "汽车所受阻力为 \\(2\\times10^3\\,\\mathrm N\\)",
+      "thinking": "先识别两段运动，再由图求功率和阻力，最后求匀加速阶段；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F=P(1/v)\\]\n\n\\[P=Fv\\]\n\n\\[f=P/v_{\\max}\\]\n\n\\[a=(F_{\\max}-f)/m=(6000-2000)/2000\\]\n\n\\[t=10/2\\]",
+      "judgment": "该结论与主方程推导结果及“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "图像转换",
+        "恒牵引力",
+        "恒功率"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "汽车在车速为 \\(15\\,\\mathrm{m/s}\\) 时，功率为 \\(6\\times10^4\\,\\mathrm W\\)",
+      "thinking": "先识别两段运动，再由图求功率和阻力，最后求匀加速阶段；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F=P(1/v)\\]\n\n\\[P=Fv\\]\n\n\\[f=P/v_{\\max}\\]\n\n\\[a=(F_{\\max}-f)/m=(6000-2000)/2000\\]\n\n\\[t=10/2\\]",
+      "judgment": "该结论与主方程推导结果及“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "图像转换",
+        "恒牵引力",
+        "恒功率"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "汽车匀加速运动的加速度为 \\(3\\,\\mathrm{m/s^2}\\)",
+      "thinking": "先识别两段运动，再由图求功率和阻力，最后求匀加速阶段；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F=P(1/v)\\]\n\n\\[P=Fv\\]\n\n\\[f=P/v_{\\max}\\]\n\n\\[a=(F_{\\max}-f)/m=(6000-2000)/2000\\]\n\n\\[t=10/2\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "图像转换",
+        "恒牵引力",
+        "恒功率"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "汽车匀加速运动所需时间为 \\(5\\,\\mathrm s\\)",
+      "thinking": "先识别两段运动，再由图求功率和阻力，最后求匀加速阶段；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[F=P(1/v)\\]\n\n\\[P=Fv\\]\n\n\\[f=P/v_{\\max}\\]\n\n\\[a=(F_{\\max}-f)/m=(6000-2000)/2000\\]\n\n\\[t=10/2\\]",
+      "judgment": "该结论与主方程推导结果及“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "图像转换",
+        "恒牵引力",
+        "恒功率"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

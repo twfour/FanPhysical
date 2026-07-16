@@ -1,0 +1,124 @@
+{
+  "id": "curve_training_13_banked_railway",
+  "originalNumber": "题13",
+  "chapter": "曲线运动",
+  "title": "第13题：铁路弯道侧倾",
+  "question": "铁路拐弯处内、外轨有一定高度差。质量为 \\(M_0\\) 的火车以设计速率 \\(v_0\\) 在水平面内转弯时，内、外轨对车轮均无侧向压力，轨道支持力为 \\(N_0\\)。当火车以实际速率 \\(v\ne v_0\\) 通过此弯道时，轨道将施加一个与枕木平行的侧向压力 \\(F\\)。已知重力加速度为 \\(g\\)，轨道与水平面夹角为 \\(\\theta\\)。下列说法正确的是（多选）。",
+  "options": [
+    "A. 若 \\(v\\gt v_0\\)，侧向压力 \\(F\\) 方向由内轨指向外轨",
+    "B. 若 \\(v\\gt v_0\\)，轨道对车轮的支持力大于 \\(N_0\\)",
+    "C. 春运期间乘客较多，使火车总质量大于 \\(M_0\\)，为保证安全行驶速率应该小于 \\(v_0\\)",
+    "D. 该弯道半径 \\(r=\\dfrac{v_0^2}{g\\tan\\theta}\\)"
+  ],
+  "answer": "B、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "curve_training_model",
+    "variant": "curve_training_13_banked_railway",
+    "playable": true,
+    "interactive": true,
+    "notes": "用倾斜轨道截面显示支持力、侧向压力与向心力，并绘制 \\(N-v\\) 关系。",
+    "params": {
+      "designSpeed": {
+        "label": "设计速度",
+        "value": 20,
+        "min": 12,
+        "max": 28,
+        "step": 1,
+        "unit": "m/s"
+      },
+      "speed": {
+        "label": "实际速度",
+        "value": 24,
+        "min": 8,
+        "max": 34,
+        "step": 1,
+        "unit": "m/s"
+      },
+      "theta": {
+        "label": "轨道倾角",
+        "value": 12,
+        "min": 6,
+        "max": 22,
+        "step": 1,
+        "unit": "deg"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "倾斜弯道",
+    "向心力",
+    "侧向压力",
+    "设计速度"
+  ],
+  "steps": [
+    {
+      "title": "建立设计速度条件",
+      "content": "无侧向压力时只有重力和支持力，满足 \\(N_0\\cos\\theta=M_0g\\)、\\(N_0\\sin\\theta=M_0v_0^2/r\\)。"
+    },
+    {
+      "title": "求弯道半径",
+      "content": "两式相除得 \\(\\tan\\theta=v_0^2/(rg)\\)，所以 \\(r=v_0^2/(g\\tan\\theta)\\)。"
+    },
+    {
+      "title": "分析实际速度偏大",
+      "content": "当 \\(v>v_0\\) 时需要更大的向心力，外轨应对车轮施加指向内轨的侧向压力；联立分量方程可知支持力也增大。"
+    },
+    {
+      "title": "判断质量影响",
+      "content": "设计速度条件中质量约去，增加乘客不会改变无侧向压力的设计速率。故 B、D 正确。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "侧向压力方向",
+      "thinking": "速度偏大时比较现有支持力水平分量与所需向心力。",
+      "formula": "\\[m\\frac{v^2}{r}>m\\frac{v_0^2}{r}\\]",
+      "judgment": "需要额外指向弯道内侧的力，应由外轨指向内轨，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "支持力变化",
+      "thinking": "把支持力和沿轨道侧向力同时分解到竖直、水平向心方向。",
+      "formula": "\\[N=m\\left(g\\cos\\theta+\\frac{v^2}{r}\\sin\\theta\\right)\\]",
+      "judgment": "\\(v>v_0\\) 时 \\(N>N_0\\)，B 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "质量对设计速度的影响",
+      "thinking": "检查无侧向压力条件中质量是否保留。",
+      "formula": "\\[\\tan\\theta=\\frac{v_0^2}{rg}\\]",
+      "judgment": "质量完全约去，乘客增多不要求把设计速度改小，C 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "弯道半径",
+      "thinking": "由支持力的竖直分量平衡和水平分量提供向心力。",
+      "formula": "\\[r=\\frac{v_0^2}{g\\tan\\theta}\\]",
+      "judgment": "表达式正确，D 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：侧向压力限值对应的安全速度区间",
+    "question": "质量为 \\(m\\) 的列车通过倾角 \\(\\theta\\)、半径 \\(r\\) 的倾斜弯道。轨道允许沿枕木方向的侧向压力大小不超过 \\(F_{\\max}\\)。推导列车安全速度 \\(v\\) 的取值区间。",
+    "answer": "**分量方程**\n\n令沿轨道向内下方的侧向力为正，有 \\(N\\sin\\theta+F\\cos\\theta=mv^2/r\\)，\\(N\\cos\\theta-F\\sin\\theta=mg\\)。\n\n**消去支持力**\n\n得到 \\(F=m(v^2\\cos\\theta/r-g\\sin\\theta)\\)。\n\n**施加限值**\n\n要求 \\(|F|\\le F_{\\max}\\)，即 \\(-F_{\\max}\\le m(v^2\\cos\\theta/r-g\\sin\\theta)\\le F_{\\max}\\)。\n\n**速度区间**\n\n\\[\\max\\left(0,\\frac r{\\cos\\theta}\\left(g\\sin\\theta-\\frac{F_{\\max}}m\\right)\\right)\\le v^2\\le\\frac r{\\cos\\theta}\\left(g\\sin\\theta+\\frac{F_{\\max}}m\\right).\\]",
+    "thinking": "**思路**\n\n不再把侧向压力设为零，而是保留其正负号并消去支持力；最后把双边力限值转化为 \\(v^2\\) 的区间。"
+  }
+}

@@ -74,10 +74,15 @@
   },
   "images": [],
   "practice": {
-    "title": "近似题：转盘小球圆锥摆",
-    "question": "小球随转盘做匀速圆周运动，绳与竖直方向夹角为 \\(30^\\circ\\)，圆周半径为 \\(0.60\\,\\mathrm{m}\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求小球速度。",
-    "answer": "由 \\(\\tan\\theta=\\frac{a_c}{g}=\\frac{v^2}{rg}\\)，得 \\(v=\\sqrt{rg\\tan\\theta}=\\sqrt{0.60\\times10\\times\\tan30^\\circ}\\approx1.86\\,\\mathrm{m/s}\\)。",
-    "thinking": "圆锥摆先由受力得到 \\(a_c=g\\tan\\theta\\)，再接 \\(a_c=\\frac{v^2}{r}\\)。"
+    "title": "进阶近似题：转盘小球圆锥摆",
+    "question": "**基础设问**\n\n小球随转盘做匀速圆周运动，绳与竖直方向夹角为 \\(30^\\circ\\)，圆周半径为 \\(0.60\\,\\mathrm{m}\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求小球速度。\n\n**综合提升**\n\n把原约束改为“只能拉、不能推”的轻绳，小球在竖直圆周内运动，半径为 \\(r\\)。（1）求恰能通过最高点的最小最高点速度；（2）若全过程只有重力做功，求对应的最小最低点速度；（3）求该临界状态最低点绳张力；（4）若半径改为 \\(\\lambda r\\)，给出三者的缩放关系。",
+    "answer": "**1. 基础设问**\n\n由 \\(\\tan\\theta=\\frac{a_c}{g}=\\frac{v^2}{rg}\\)，得 \\(v=\\sqrt{rg\\tan\\theta}=\\sqrt{0.60\\times10\\times\\tan30^\\circ}\\approx1.86\\,\\mathrm{m/s}\\)。\n\n**2. 综合提升**\n\n最高点临界张力为零：\n\n\\[mg=m\\frac{v_t^2}{r}\\Rightarrow v_{t,\\min}=\\sqrt{gr}.\\]\n\n由最低点到最高点上升 \\(2r\\)：\\(v_b^2=v_t^2+4gr=5gr\\)，故 \\(v_{b,\\min}=\\sqrt{5gr}\\)。最低点\n\n\\[T_b-mg=m\\frac{v_b^2}{r}\\Rightarrow T_b=6mg.\\]\n\n半径乘 \\(\\lambda\\) 后两临界速度均乘 \\(\\sqrt\\lambda\\)，临界张力仍为 \\(6mg\\)。",
+    "thinking": "**基础思路**\n\n圆锥摆先由受力得到 \\(a_c=g\\tan\\theta\\)，再接 \\(a_c=\\frac{v^2}{r}\\)。\n\n**进阶思路**\n\n先用约束力为零确定最高点临界，再用能量把临界状态传到最低点；这比只比较某一位置多了一层全过程联系。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
   },
-  "analysisText": "小球受重力和绳拉力，竖直方向平衡，水平方向提供向心力。由 \\(T\\cos\\theta=mg\\)、\\(T\\sin\\theta=ma_c\\)，得 \\(a_c=g\\tan\\theta\\)。小球轨道半径 \\(r=R+L\\sin\\theta\\)，所以 \\(v=\\sqrt{g(R+L\\sin\\theta)\\tan\\theta}\\)。"
+  "analysisText": "小球受重力和绳拉力，竖直方向平衡，水平方向提供向心力。由 \\(T\\cos\\theta=mg\\)、\\(T\\sin\\theta=ma_c\\)，得 \\(a_c=g\\tan\\theta\\)。小球轨道半径 \\(r=R+L\\sin\\theta\\)，所以 \\(v=\\sqrt{g(R+L\\sin\\theta)\\tan\\theta}\\)。",
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
 }

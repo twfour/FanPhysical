@@ -11,18 +11,151 @@
     "D. 离星球表面高度为 \\(R_0\\) 的卫星周期 \\(T=4\\pi\\sqrt{\\dfrac{2RR_0}{b}}\\)"
   ],
   "answer": "BCD",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_rod_graph_planet", "playable": true, "interactive": true, "notes": "小球在竖直圆周最高点经过不同速度状态；右图实时落在原题 F-v² 直线上并标出横截距 b。", "params": { "rodRadius": { "label": "轻杆长度 R", "value": 1, "min": 0.5, "max": 2.0, "step": 0.1, "unit": "m" }, "gravity": { "label": "表面重力 g", "value": 10, "min": 5, "max": 15, "step": 0.5, "unit": "m/s²" }, "mass": { "label": "小球质量", "value": 1, "min": 0.5, "max": 2.0, "step": 0.1, "unit": "kg" } }, "timeline": { "duration": 8, "loop": false } },
-  "knowledge": ["竖直圆周运动", "图像截距", "星球参数"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_rod_graph_planet",
+    "playable": true,
+    "interactive": true,
+    "notes": "小球在竖直圆周最高点经过不同速度状态；右图实时落在原题 F-v² 直线上并标出横截距 b。",
+    "params": {
+      "rodRadius": {
+        "label": "轻杆长度 R",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "gravity": {
+        "label": "表面重力 g",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.5,
+        "unit": "m/s²"
+      },
+      "mass": {
+        "label": "小球质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "kg"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "竖直圆周运动",
+    "图像截距",
+    "星球参数"
+  ],
   "steps": [
-    { "stepId": 1, "title": "解释横轴截距", "content": "最高点取竖直向上的弹力为正，径向方程可写为 \\(mg-F=mv^2/R\\)，即 \\(F=mg-mv^2/R\\)。当 \\(F=0\\) 时 \\(v^2=gR\\)，由横轴截距得 \\(b=gR\\)，所以 \\(g=b/R\\)。", "knowledge": ["最高点受力"], "commonMistakes": [] },
-    { "stepId": 2, "title": "求质量与密度", "content": "由 \\(g=GM/R_0^2\\)，得 \\(M=bR_0^2/(GR)\\)。再由 \\(\\rho=3M/(4\\pi R_0^3)\\)，得 \\(\\rho=3b/(4\\pi GRR_0)\\)。B、C 正确。", "knowledge": ["地表重力"], "commonMistakes": [] },
-    { "stepId": 3, "title": "检查第一宇宙速度", "content": "\\(v_1=\\sqrt{gR_0}=\\sqrt{bR_0/R}\\)，一般不等于 \\(\\sqrt b\\)，A 错误。", "knowledge": ["第一宇宙速度"], "commonMistakes": [] },
-    { "stepId": 4, "title": "求高空卫星周期", "content": "卫星轨道半径为 \\(2R_0\\)。由 \\(T=2\\pi\\sqrt{(2R_0)^3/(GM)}\\) 并代入 \\(GM=bR_0^2/R\\)，得 \\(T=4\\pi\\sqrt{2RR_0/b}\\)，D 正确。故选 B、C、D。", "knowledge": ["圆轨道周期"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "解释横轴截距",
+      "content": "最高点取竖直向上的弹力为正，径向方程可写为 \\(mg-F=mv^2/R\\)，即 \\(F=mg-mv^2/R\\)。当 \\(F=0\\) 时 \\(v^2=gR\\)，由横轴截距得 \\(b=gR\\)，所以 \\(g=b/R\\)。",
+      "knowledge": [
+        "最高点受力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "求质量与密度",
+      "content": "由 \\(g=GM/R_0^2\\)，得 \\(M=bR_0^2/(GR)\\)。再由 \\(\\rho=3M/(4\\pi R_0^3)\\)，得 \\(\\rho=3b/(4\\pi GRR_0)\\)。B、C 正确。",
+      "knowledge": [
+        "地表重力"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "检查第一宇宙速度",
+      "content": "\\(v_1=\\sqrt{gR_0}=\\sqrt{bR_0/R}\\)，一般不等于 \\(\\sqrt b\\)，A 错误。",
+      "knowledge": [
+        "第一宇宙速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "求高空卫星周期",
+      "content": "卫星轨道半径为 \\(2R_0\\)。由 \\(T=2\\pi\\sqrt{(2R_0)^3/(GM)}\\) 并代入 \\(GM=bR_0^2/R\\)，得 \\(T=4\\pi\\sqrt{2RR_0/b}\\)，D 正确。故选 B、C、D。",
+      "knowledge": [
+        "圆轨道周期"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：弹力零点求重力",
-    "question": "长为 \\(L\\) 的轻杆带小球在某星球表面做竖直圆周运动。最高点弹力恰为零时 \\(v^2=c\\)。求该星球表面重力加速度。",
-    "answer": "由 \\(mg=mv^2/L\\)，得 \\(g=c/L\\)。",
-    "thinking": "把图像横轴截距还原为最高点弹力为零的临界状态。"
+    "title": "进阶近似题：弹力零点求重力",
+    "question": "**基础设问**\n\n长为 \\(L\\) 的轻杆带小球在某星球表面做竖直圆周运动。最高点弹力恰为零时 \\(v^2=c\\)。求该星球表面重力加速度。\n\n**综合提升**\n\n对同一中心天体的圆轨道，把半径从 \\(r\\) 连续调到 \\(\\lambda r\\)。（1）推导 \\(v,\\omega,T,E\\) 的比例；（2）若只测得周期比，反求半径比；（3）若卫星在原位置瞬时加速，说明它为何先进入椭圆而不是立即跳到新圆轨道；（4）比较点火瞬间加速度与速度的变化。",
+    "answer": "**1. 基础设问**\n\n由 \\(mg=mv^2/L\\)，得 \\(g=c/L\\)。\n\n**2. 综合提升**\n\n圆轨道比例为 \\(v\\propto r^{-1/2}\\)、\\(\\omega\\propto r^{-3/2}\\)、\\(T\\propto r^{3/2}\\)、\\(E=-GMm/(2r)\\)。因此 \\(r_2/r_1=(T_2/T_1)^{2/3}\\)。瞬时点火只能改变速度，位置仍为原半径；新速度通常不等于该处圆轨道速度，故先形成以该点为近点或远点的椭圆。点火瞬间引力加速度不变，速度突变。",
+    "thinking": "**基础思路**\n\n把图像横轴截距还原为最高点弹力为零的临界状态。\n\n**进阶思路**\n\n把‘圆轨道之间的比较’与‘瞬时变轨过程’分开，避免把目标圆轨道速度直接当成点火后的即时状态。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "X 星球第一宇宙速度 \\(v_1=\\sqrt b\\)",
+      "thinking": "先解释横轴截距，再求质量与密度，最后检查第一宇宙速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[mg-F=mv^2/R\\]\n\n\\[F=mg-mv^2/R\\]\n\n\\[F=0\\]\n\n\\[v^2=gR\\]\n\n\\[b=gR\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "竖直圆周运动",
+        "图像截距",
+        "星球参数"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "X 星球密度 \\(\\rho=\\dfrac{3b}{4\\pi GRR_0}\\)",
+      "thinking": "先解释横轴截距，再求质量与密度，最后检查第一宇宙速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[mg-F=mv^2/R\\]\n\n\\[F=mg-mv^2/R\\]\n\n\\[F=0\\]\n\n\\[v^2=gR\\]\n\n\\[b=gR\\]",
+      "judgment": "该结论与主方程推导结果及“动力学比例和相对运动几何必须分别建立后再联立”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "竖直圆周运动",
+        "图像截距",
+        "星球参数"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "X 星球质量 \\(M=\\dfrac{bR_0^2}{GR}\\)",
+      "thinking": "先解释横轴截距，再求质量与密度，最后检查第一宇宙速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[mg-F=mv^2/R\\]\n\n\\[F=mg-mv^2/R\\]\n\n\\[F=0\\]\n\n\\[v^2=gR\\]\n\n\\[b=gR\\]",
+      "judgment": "该结论与主方程推导结果及“动力学比例和相对运动几何必须分别建立后再联立”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "竖直圆周运动",
+        "图像截距",
+        "星球参数"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "离星球表面高度为 \\(R_0\\) 的卫星周期 \\(T=4\\pi\\sqrt{\\dfrac{2RR_0}{b}}\\)",
+      "thinking": "先解释横轴截距，再求质量与密度，最后检查第一宇宙速度；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[mg-F=mv^2/R\\]\n\n\\[F=mg-mv^2/R\\]\n\n\\[F=0\\]\n\n\\[v^2=gR\\]\n\n\\[b=gR\\]",
+      "judgment": "该结论与主方程推导结果及“动力学比例和相对运动几何必须分别建立后再联立”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "竖直圆周运动",
+        "图像截距",
+        "星球参数"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

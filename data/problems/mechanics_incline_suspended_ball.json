@@ -91,5 +91,72 @@
     "title": "力学基础",
     "text": "第 5 题",
     "page": "第 5 题"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "细绳对小球的拉力方向竖直向上",
+      "thinking": "先分析A选项，再分析B选项，最后分析C选项；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\sum\\vec F=0,\\qquad \\sum\\tau=0\\]",
+      "judgment": "该选项错误：拉力方向沿细绳向上（不是竖直向上）。",
+      "knowledge": [
+        "共点力平衡",
+        "弹力方向",
+        "重力方向",
+        "受力分析"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "斜面对小球的作用力不可能等于零",
+      "thinking": "先分析A选项，再分析B选项，最后分析C选项；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\sum\\vec F=0,\\qquad \\sum\\tau=0\\]",
+      "judgment": "该选项正确：斜面对小球有支持力（垂直于斜面向上），若为零则小球无法静止（因为重力与绳拉力不在同一直线），所以不可能为零。",
+      "knowledge": [
+        "共点力平衡",
+        "弹力方向",
+        "重力方向",
+        "受力分析"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "细绳对小球的拉力是由于小球发生形变产生的",
+      "thinking": "先分析A选项，再分析B选项，最后分析C选项；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\sum\\vec F=0,\\qquad \\sum\\tau=0\\]",
+      "judgment": "该选项错误：拉力是由细绳形变产生的。",
+      "knowledge": [
+        "共点力平衡",
+        "弹力方向",
+        "重力方向",
+        "受力分析"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "小球所受重力方向垂直斜面向下",
+      "thinking": "先分析A选项，再分析B选项，最后分析C选项；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\sum\\vec F=0,\\qquad \\sum\\tau=0\\]",
+      "judgment": "该选项错误：重力方向竖直向下，不是垂直斜面向下。",
+      "knowledge": [
+        "共点力平衡",
+        "弹力方向",
+        "重力方向",
+        "受力分析"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：斜面悬球的参数条件",
+    "question": "光滑斜面倾角为 \\(\\theta\\)，球由细绳牵引静止，细绳与水平面的夹角为 \\(\\varphi\\)，且球与斜面保持接触。（1）求绳张力 \\(T\\) 和斜面支持力 \\(N\\)；（2）写出两力均为非负的角度条件；（3）求球恰好离开斜面时的关系；（4）说明为什么不能只凭图形接触就断定 \\(N>0\\)。",
+    "answer": "水平、竖直方向平衡：\n\n\\[T\\cos\\varphi=N\\sin\\theta,\\qquad T\\sin\\varphi+N\\cos\\theta=mg.\\]\n\n解得\n\n\\[T=\\frac{mg\\sin\\theta}{\\cos(\\varphi-\\theta)},\\qquad N=\\frac{mg\\cos\\varphi}{\\cos(\\varphi-\\theta)}.\\]\n\n物理解要求 \\(T\\ge0\\)、\\(N\\ge0\\)。离面临界为 \\(N=0\\)，在给定方向约定下对应 \\(\\cos\\varphi=0\\) 或几何约束先发生改变。接触图只是候选模型，最终仍要由法向力非负来验证。",
+    "thinking": "**考点迁移**\n\n先按假定接触列三力平衡，再检查绳只能拉、斜面只能推的单向约束。参数题的重点是“表达式 + 可行域”，而不是只求一个力值。"
   }
 }

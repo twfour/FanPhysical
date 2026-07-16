@@ -20,41 +20,143 @@
     "interactive": true,
     "notes": "重心随步伐周期性升降，等红灯阶段累计功保持不变；右图显示全过程的累计克服重力做功。",
     "params": {
-      "mass": { "label": "人的质量", "value": 60, "min": 40, "max": 90, "step": 1, "unit": "kg" },
-      "distance": { "label": "总路程", "value": 2000, "min": 1000, "max": 4000, "step": 100, "unit": "m" },
-      "steps": { "label": "步数", "value": 2995, "min": 1500, "max": 5000, "step": 50, "unit": "" },
-      "minutes": { "label": "全过程时间", "value": 20, "min": 10, "max": 40, "step": 1, "unit": "min" }
+      "mass": {
+        "label": "人的质量",
+        "value": 60,
+        "min": 40,
+        "max": 90,
+        "step": 1,
+        "unit": "kg"
+      },
+      "distance": {
+        "label": "总路程",
+        "value": 2000,
+        "min": 1000,
+        "max": 4000,
+        "step": 100,
+        "unit": "m"
+      },
+      "steps": {
+        "label": "步数",
+        "value": 2995,
+        "min": 1500,
+        "max": 5000,
+        "step": 50,
+        "unit": ""
+      },
+      "minutes": {
+        "label": "全过程时间",
+        "value": 20,
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "unit": "min"
+      }
     },
-    "timeline": { "duration": 6, "loop": false }
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
-  "knowledge": ["克服重力做功", "平均功率", "生活估算"],
+  "knowledge": [
+    "克服重力做功",
+    "平均功率",
+    "生活估算"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "求一步距离与重心升高",
       "content": "平均一步距离 \\(l=2000/2995\\approx0.668\\,\\mathrm m\\)，重心一次升高约 \\(\\Delta h=0.1l\\approx0.0668\\,\\mathrm m\\)。原题印刷题面未列出人的质量；选项所对应的常用估算值为 \\(m\\approx60\\,\\mathrm{kg}\\)。",
-      "knowledge": ["数量级估算"],
+      "knowledge": [
+        "数量级估算"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 2,
       "title": "求每一步的功",
       "content": "按 \\(m=60\\,\\mathrm{kg}\\)、\\(g\\approx10\\,\\mathrm{m/s^2}\\) 估算，每一步克服重力做功 \\(W_1=mg\\Delta h\\approx40\\,\\mathrm J\\)。",
-      "knowledge": ["重力势能"],
+      "knowledge": [
+        "重力势能"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "求全过程平均功率",
       "content": "总功约 \\(W=40\\times2995\\approx1.20\\times10^5\\,\\mathrm J\\)。题目问全过程，时间应取包含红灯等待的 \\(20\\,\\mathrm{min}=1200\\,\\mathrm s\\)，故 \\(\\bar P\\approx100\\,\\mathrm W\\)。答案为 A。",
-      "knowledge": ["平均功率"],
-      "commonMistakes": ["把全过程时间误取为扣除等灯后的 \\(18\\,\\mathrm{min}\\)"]
+      "knowledge": [
+        "平均功率"
+      ],
+      "commonMistakes": [
+        "把全过程时间误取为扣除等灯后的 \\(18\\,\\mathrm{min}\\)"
+      ]
     }
   ],
   "practice": {
-    "title": "近似题：跑步重心升降",
-    "question": "质量 \\(m=50\\,\\mathrm{kg}\\) 的学生跑完 \\(1500\\,\\mathrm m\\) 用时 \\(6\\,\\mathrm{min}\\)，共跑 \\(1200\\) 步。若每步重心升高为步长的 \\(0.08\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)，估算克服重力做功的平均功率。",
-    "answer": "步长 \\(l=1500/1200=1.25\\,\\mathrm m\\)，每步升高 \\(0.10\\,\\mathrm m\\)，每步功 \\(50\\,\\mathrm J\\)。总功 \\(6.0\\times10^4\\,\\mathrm J\\)，平均功率约 \\(167\\,\\mathrm W\\)。",
-    "thinking": "用总距离除以步数求步长，再按给定比例求每步重心升高，最后用总功除以全过程时间。"
+    "title": "进阶近似题：跑步重心升降",
+    "question": "**基础设问**\n\n质量 \\(m=50\\,\\mathrm{kg}\\) 的学生跑完 \\(1500\\,\\mathrm m\\) 用时 \\(6\\,\\mathrm{min}\\)，共跑 \\(1200\\) 步。若每步重心升高为步长的 \\(0.08\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)，估算克服重力做功的平均功率。\n\n**综合提升**\n\n把原题中的恒力推广为方向或大小随路径参数 \\(s\\) 变化的力 \\(\\vec F(s)\\)。（1）写出总功的积分表达式；（2）给出瞬时功率；（3）说明同一始末位置沿不同路径做功何时相同；（4）设计一个由 \\(P-t\\) 图像反求总功的方法。",
+    "answer": "**1. 基础设问**\n\n步长 \\(l=1500/1200=1.25\\,\\mathrm m\\)，每步升高 \\(0.10\\,\\mathrm m\\)，每步功 \\(50\\,\\mathrm J\\)。总功 \\(6.0\\times10^4\\,\\mathrm J\\)，平均功率约 \\(167\\,\\mathrm W\\)。\n\n**2. 综合提升**\n\n总功和瞬时功率分别为\n\n\\[W=\\int_{s_1}^{s_2}\\vec F(s)\\cdot d\\vec s,\\qquad P=\\vec F\\cdot\\vec v=\\frac{dW}{dt}.\\]\n\n只有保守力的功才只由始末位置决定；一般外力功与路径有关。\\(P-t\\) 图像的有符号面积 \\(\\int Pdt\\) 就是总功。",
+    "thinking": "**基础思路**\n\n用总距离除以步数求步长，再按给定比例求每步重心升高，最后用总功除以全过程时间。\n\n**进阶思路**\n\n从定力公式升级到线积分与功率积分，可统一处理变大小、变方向和分段做功。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(40\\,\\mathrm J，100\\,\\mathrm W\\)",
+      "thinking": "先求一步距离与重心升高，再求每一步的功，最后求全过程平均功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[P=\\frac{W}{t}=Fv\\cos\\theta,\\qquad ma=\\frac{P}{v}-f\\]",
+      "judgment": "该结论与主方程推导结果及“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "克服重力做功",
+        "平均功率",
+        "生活估算"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(40\\,\\mathrm J，111\\,\\mathrm W\\)",
+      "thinking": "先求一步距离与重心升高，再求每一步的功，最后求全过程平均功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[P=\\frac{W}{t}=Fv\\cos\\theta,\\qquad ma=\\frac{P}{v}-f\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "克服重力做功",
+        "平均功率",
+        "生活估算"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(20\\,\\mathrm J，100\\,\\mathrm W\\)",
+      "thinking": "先求一步距离与重心升高，再求每一步的功，最后求全过程平均功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[P=\\frac{W}{t}=Fv\\cos\\theta,\\qquad ma=\\frac{P}{v}-f\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "克服重力做功",
+        "平均功率",
+        "生活估算"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(4\\,\\mathrm J，11\\,\\mathrm W\\)",
+      "thinking": "先求一步距离与重心升高，再求每一步的功，最后求全过程平均功率；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[P=\\frac{W}{t}=Fv\\cos\\theta,\\qquad ma=\\frac{P}{v}-f\\]",
+      "judgment": "该结论没有同时满足“功率、牵引力和速度必须对应同一时刻与同一运动阶段”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "克服重力做功",
+        "平均功率",
+        "生活估算"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

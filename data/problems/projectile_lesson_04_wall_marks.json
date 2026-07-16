@@ -1,0 +1,124 @@
+{
+  "id": "projectile_lesson_04_wall_marks",
+  "originalNumber": "课4",
+  "chapter": "平抛运动",
+  "title": "课上第4题：墙上弹痕比值",
+  "question": "从竖直墙的前方 \\(A\\) 处，沿 \\(AO\\) 方向水平发射三颗弹丸 \\(a、b、c\\)，在墙上留下的弹痕如图所示。已知 \\(Oa=ab=bc\\)，不计空气阻力，则三颗弹丸（　　）。",
+  "options": [
+    "A. 初速度之比是 \\(\\sqrt6:\\sqrt3:\\sqrt2\\)",
+    "B. 初速度之比是 \\(1:\\sqrt2:\\sqrt3\\)",
+    "C. 从射出至打到墙上过程速度增量之比是 \\(1:\\sqrt2:\\sqrt3\\)",
+    "D. 从射出至打到墙上过程速度增量之比是 \\(\\sqrt6:\\sqrt3:\\sqrt2\\)"
+  ],
+  "answer": "A、C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "projectile_training_model",
+    "variant": "projectile_lesson_04_wall_marks",
+    "playable": true,
+    "interactive": true,
+    "notes": "三颗弹丸越过同一墙距，按不同飞行时间落在等间距弹痕处。",
+    "params": {
+      "wallDistance": {
+        "label": "墙距",
+        "value": 12,
+        "min": 8,
+        "max": 18,
+        "step": 0.5,
+        "unit": "m"
+      },
+      "markGap": {
+        "label": "弹痕间距",
+        "value": 2,
+        "min": 1,
+        "max": 4,
+        "step": 0.2,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "平抛运动",
+    "等距弹痕",
+    "初速度比",
+    "速度增量"
+  ],
+  "steps": [
+    {
+      "title": "确定三段下落高度",
+      "content": "令相邻弹痕间距为 \\(d\\)，则三球下落高度依次为 \\(d、2d、3d\\)。"
+    },
+    {
+      "title": "比较飞行时间",
+      "content": "由 \\(y=\\frac12gt^2\\)，得 \\(t_a:t_b:t_c=1:\\sqrt2:\\sqrt3\\)。"
+    },
+    {
+      "title": "比较初速度",
+      "content": "墙距 \\(L\\) 相同，\\(v_0=L/t\\)，所以 \\(v_a:v_b:v_c=\\sqrt6:\\sqrt3:\\sqrt2\\)。"
+    },
+    {
+      "title": "比较速度增量",
+      "content": "三球均只有重力作用，\\(\\Delta v=gt\\)，故 \\(\\Delta v_a:\\Delta v_b:\\Delta v_c=1:\\sqrt2:\\sqrt3\\)，答案为 A、C。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "初速度反比于时间",
+      "thinking": "先由弹痕高度比较时间，再利用相同墙距。",
+      "formula": "\\[t\\propto\\sqrt y,\\qquad v_0=\\frac Lt\\]",
+      "judgment": "化为整洁根式比得到 \\(\\sqrt6:\\sqrt3:\\sqrt2\\)，A 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "误把初速度写成正比",
+      "thinking": "墙距固定时初速度与飞行时间成反比。",
+      "formula": "\\[v_a:v_b:v_c=1:\\frac1{\\sqrt2}:\\frac1{\\sqrt3}\\]",
+      "judgment": "选项给出的 \\(1:\\sqrt2:\\sqrt3\\) 是时间比，不是初速度比，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "速度增量只由重力决定",
+      "thinking": "平抛的速度增量等于竖直分速度增量。",
+      "formula": "\\[\\Delta\\vec v=\\vec g t\\]",
+      "judgment": "其大小比与时间比相同，为 \\(1:\\sqrt2:\\sqrt3\\)，C 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "区分初速度比和速度增量比",
+      "thinking": "速度增量与时间正比，不与初速度同序。",
+      "formula": "\\[\\Delta v_a:\\Delta v_b:\\Delta v_c=t_a:t_b:t_c\\]",
+      "judgment": "D 把初速度比误作速度增量比，错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：非等距弹痕反演",
+    "question": "从同一点水平发射三颗弹丸，它们越过相同水平距离后在墙上的下落高度分别为 \\(h、4h、9h\\)。求三球的初速度比、速度增量比，并证明三个撞墙速度方向的反向延长线经过同一固定点。",
+    "answer": "**比值**\n\n由 \\(t\\propto\\sqrt y\\)，得 \\(t_1:t_2:t_3=1:2:3\\)，故\n\n\\[v_{01}:v_{02}:v_{03}=6:3:2,\\qquad \\Delta v_1:\\Delta v_2:\\Delta v_3=1:2:3.\\]\n\n**固定点**\n\n撞墙切线斜率为 \\(k=v_y/v_x=2y/L\\)。切线反向延长到发射高度时均有 \\(x=L/2\\)，所以共同经过发射点与墙面之间的水平中点。",
+    "thinking": "**思路**\n\n先把墙上高度转成飞行时间，再分别使用 \\(v_0=L/t\\) 和 \\(\\Delta v=gt\\)。固定点部分使用“末速度斜率等于位移平均斜率的两倍”。"
+  }
+}

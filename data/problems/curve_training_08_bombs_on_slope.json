@@ -1,0 +1,124 @@
+{
+  "id": "curve_training_08_bombs_on_slope",
+  "originalNumber": "题8",
+  "chapter": "曲线运动",
+  "title": "第8题：匀速投弹落斜坡",
+  "question": "轰炸机在高空沿直线水平匀速飞行时先后投下三颗炸弹，炸弹依次落在山坡上的 \\(A\\)、\\(B\\)、\\(C\\) 三点，其中 \\(B\\) 为 \\(AC\\) 的中点，不计空气阻力。下列说法正确的是（　　）。",
+  "options": [
+    "A. 相邻两次投弹的时间间隔相等",
+    "B. 三颗炸弹可能同时落到山坡上",
+    "C. 炸弹先后落在 \\(A\\)、\\(B\\)、\\(C\\) 三点的时间间隔相等",
+    "D. 三颗炸弹落在 \\(A\\)、\\(B\\)、\\(C\\) 三点时的速度大小满足 \\(v_A+v_C=2v_B\\)"
+  ],
+  "answer": "C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "curve_training_model",
+    "variant": "curve_training_08_bombs_on_slope",
+    "playable": true,
+    "interactive": true,
+    "notes": "炸弹继承飞机水平速度，落地点的水平间距决定落地事件的时间间隔。",
+    "params": {
+      "planeSpeed": {
+        "label": "飞机速度",
+        "value": 18,
+        "min": 10,
+        "max": 28,
+        "step": 1,
+        "unit": "m/s"
+      },
+      "slope": {
+        "label": "山坡倾角",
+        "value": 24,
+        "min": 12,
+        "max": 38,
+        "step": 1,
+        "unit": "deg"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "平抛运动",
+    "匀速载体投弹",
+    "斜坡几何",
+    "事件间隔"
+  ],
+  "steps": [
+    {
+      "title": "抓住水平运动",
+      "content": "炸弹释放后保留飞机的水平速度 \\(v\\)，且水平方向无加速度，因此任一炸弹落地时的水平坐标等于飞机在同一时刻的水平坐标。"
+    },
+    {
+      "title": "比较落地时刻",
+      "content": "\\(B\\) 是 \\(AC\\) 的中点，故三点的水平坐标也满足 \\(x_B-x_A=x_C-x_B\\)。飞机匀速，所以相邻落地事件的时间间隔相等。"
+    },
+    {
+      "title": "区分投弹与落地间隔",
+      "content": "三点高度不同，各炸弹的下落时间不同，所以投弹时刻间隔一般不相等，也不可能在不同水平位置同时落地。"
+    },
+    {
+      "title": "比较末速度",
+      "content": "末速度 \\(v_i=\\sqrt{v^2+2gh_i}\\) 对高度不是线性函数，不能由中点条件推出算术平均关系。答案 C。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "投弹时间间隔",
+      "thinking": "投弹时刻等于落地时刻减去各自的下落时间。",
+      "formula": "\\[t_{投}=t_{落}-\\sqrt{\\frac{2h}{g}}\\]",
+      "judgment": "三点高度不同，飞行时间不同，投弹间隔不必相等，A 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "能否同时落地",
+      "thinking": "炸弹水平方向始终与飞机同速，落地横坐标对应飞机当时的位置。",
+      "formula": "\\[x_{弹}(t)=x_{机}(t)\\]",
+      "judgment": "同一时刻飞机只有一个水平坐标，不可能对应三个不同落点，B 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "落地事件间隔",
+      "thinking": "用 \\(B\\) 为线段中点得到相等的水平投影。",
+      "formula": "\\[\\Delta t=\\frac{\\Delta x}{v}\\]",
+      "judgment": "相邻水平距离相等且飞机速度不变，所以落地时间间隔相等，C 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "末速度算术平均",
+      "thinking": "速度大小是高度的平方根函数，不随高度线性变化。",
+      "formula": "\\[v_i=\\sqrt{v^2+2gh_i}\\]",
+      "judgment": "\\(h_B=(h_A+h_C)/2\\) 不能推出 \\(v_A+v_C=2v_B\\)，D 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：反求投弹时刻差",
+    "question": "飞机以速度 \\(v\\) 水平匀速飞行，三颗炸弹落在同一直线斜坡的等距点 \\(A,B,C\\)，相邻点水平投影均为 \\(s\\)，三点相对释放高度分别为 \\(h_A,h_B,h_C\\)。求相邻落地时刻差，并写出相邻两次投弹时刻差。",
+    "answer": "**落地时刻差**\n\n炸弹与飞机水平同速，故 \\(t_B-t_A=t_C-t_B=s/v\\)。\n\n**各自飞行时间**\n\n第 \\(i\\) 颗炸弹的飞行时间为 \\(\\tau_i=\\sqrt{2h_i/g}\\)。\n\n**投弹间隔**\n\n\\[t_{投,B}-t_{投,A}=\\frac sv-\\left(\\sqrt{\\frac{2h_B}{g}}-\\sqrt{\\frac{2h_A}{g}}\\right),\\]\n\n\\[t_{投,C}-t_{投,B}=\\frac sv-\\left(\\sqrt{\\frac{2h_C}{g}}-\\sqrt{\\frac{2h_B}{g}}\\right).\\]\n\n**结论**\n\n落地间隔一定相等，投弹间隔只有在两段飞行时间增量相等时才相等。",
+    "thinking": "**思路**\n\n把“投弹事件”和“落地事件”分开记时。水平匀速直接控制落地时刻差，而不同高度导致的飞行时间负责修正投弹时刻差。"
+  }
+}

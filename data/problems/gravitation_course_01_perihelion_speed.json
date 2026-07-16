@@ -11,17 +11,142 @@
     "D. \\(v_b=\\sqrt{\\dfrac{b}{a}}v_a\\)"
   ],
   "answer": "C",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "perihelion_speed", "playable": true, "interactive": true, "notes": "行星沿椭圆轨道由远日点运动到近日点，扫过面积相同时近日点速度更大。", "params": { "apoapsis": { "label": "远日距离", "value": 5, "min": 3, "max": 8, "step": 0.5, "unit": "a.u." }, "periapsis": { "label": "近日距离", "value": 2, "min": 1, "max": 3, "step": 0.2, "unit": "a.u." }, "farSpeed": { "label": "远日速度", "value": 4, "min": 1, "max": 10, "step": 0.5, "unit": "km/s" } }, "timeline": { "duration": 7, "loop": false } },
-  "knowledge": ["开普勒第二定律", "角动量守恒", "近日点与远日点"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "perihelion_speed",
+    "playable": true,
+    "interactive": true,
+    "notes": "行星沿椭圆轨道由远日点运动到近日点，扫过面积相同时近日点速度更大。",
+    "params": {
+      "apoapsis": {
+        "label": "远日距离",
+        "value": 5,
+        "min": 3,
+        "max": 8,
+        "step": 0.5,
+        "unit": "a.u."
+      },
+      "periapsis": {
+        "label": "近日距离",
+        "value": 2,
+        "min": 1,
+        "max": 3,
+        "step": 0.2,
+        "unit": "a.u."
+      },
+      "farSpeed": {
+        "label": "远日速度",
+        "value": 4,
+        "min": 1,
+        "max": 10,
+        "step": 0.5,
+        "unit": "km/s"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "开普勒第二定律",
+    "角动量守恒",
+    "近日点与远日点"
+  ],
   "steps": [
-    { "stepId": 1, "title": "条件提取", "content": "在远日点和近日点，速度都与太阳到行星的连线垂直。", "knowledge": ["椭圆轨道"], "commonMistakes": [] },
-    { "stepId": 2, "title": "建模", "content": "由开普勒第二定律，行星在相等时间内扫过的面积相等，因此有 \\(\\dfrac12 av_a\\Delta t=\\dfrac12 bv_b\\Delta t\\)。", "knowledge": ["面积速度"], "commonMistakes": [] },
-    { "stepId": 3, "title": "结论", "content": "解得 \\(v_b=\\dfrac{a}{b}v_a\\)，故选 C。", "knowledge": ["速率关系"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "在远日点和近日点，速度都与太阳到行星的连线垂直。",
+      "knowledge": [
+        "椭圆轨道"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "由开普勒第二定律，行星在相等时间内扫过的面积相等，因此有 \\(\\dfrac12 av_a\\Delta t=\\dfrac12 bv_b\\Delta t\\)。",
+      "knowledge": [
+        "面积速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "解得 \\(v_b=\\dfrac{a}{b}v_a\\)，故选 C。",
+      "knowledge": [
+        "速率关系"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：近日点与远日点速率",
-    "question": "某彗星远日点、近日点到太阳的距离之比为 \\(5:2\\)，远日点速率为 \\(4\\,\\mathrm{km/s}\\)，求近日点速率。",
-    "answer": "\\(v_{近}=10\\,\\mathrm{km/s}\\)。",
-    "thinking": "在两个端点使用面积速度守恒：\\(r_{远}v_{远}=r_{近}v_{近}\\)。"
+    "title": "进阶近似题：近日点与远日点速率",
+    "question": "**基础设问**\n\n某彗星远日点、近日点到太阳的距离之比为 \\(5:2\\)，远日点速率为 \\(4\\,\\mathrm{km/s}\\)，求近日点速率。\n\n**综合提升**\n\n某天体沿椭圆轨道运动，近日点、远日点距离分别为 \\(r_p,r_a\\)。（1）推导两点速度比；（2）用 \\(r_p,r_a\\) 写出半长轴和周期；（3）由万有引力比较两点加速度；（4）若保持半长轴不变而增大偏心率，讨论速度比和周期怎样变化。",
+    "answer": "**1. 基础设问**\n\n\\(v_{近}=10\\,\\mathrm{km/s}\\)。\n\n**2. 综合提升**\n\n近远点速度均与半径垂直，由角动量守恒\n\n\\[\\frac{v_p}{v_a}=\\frac{r_a}{r_p}.\\]\n\n半长轴 \\(a=(r_p+r_a)/2\\)，周期 \\(T=2\\pi\\sqrt{a^3/(GM)}\\)。加速度比 \\(g_p/g_a=(r_a/r_p)^2\\)。保持 \\(a\\) 不变时周期不变；偏心率增大使 \\(r_a/r_p\\) 增大，因此速度比增大。",
+    "thinking": "**基础思路**\n\n在两个端点使用面积速度守恒：\\(r_{远}v_{远}=r_{近}v_{近}\\)。\n\n**进阶思路**\n\n把局部比较与整轨道性质分开：角动量管近远点速度，半长轴管周期。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(v_b=\\dfrac{b}{a}v_a\\)",
+      "thinking": "先条件提取，再建模，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\dfrac12 av_a\\Delta t=\\dfrac12 bv_b\\Delta t\\]\n\n\\[v_b=\\dfrac{a}{b}v_a\\]",
+      "judgment": "该结论没有同时满足“近远点的角动量关系与半长轴决定周期的关系必须区分”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "开普勒第二定律",
+        "角动量守恒",
+        "近日点与远日点"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(v_b=\\sqrt{\\dfrac{a}{b}}v_a\\)",
+      "thinking": "先条件提取，再建模，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\dfrac12 av_a\\Delta t=\\dfrac12 bv_b\\Delta t\\]\n\n\\[v_b=\\dfrac{a}{b}v_a\\]",
+      "judgment": "该结论没有同时满足“近远点的角动量关系与半长轴决定周期的关系必须区分”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "开普勒第二定律",
+        "角动量守恒",
+        "近日点与远日点"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(v_b=\\dfrac{a}{b}v_a\\)",
+      "thinking": "先条件提取，再建模，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\dfrac12 av_a\\Delta t=\\dfrac12 bv_b\\Delta t\\]\n\n\\[v_b=\\dfrac{a}{b}v_a\\]",
+      "judgment": "该结论与主方程推导结果及“近远点的角动量关系与半长轴决定周期的关系必须区分”的判据一致，因此选项 C 正确。",
+      "knowledge": [
+        "开普勒第二定律",
+        "角动量守恒",
+        "近日点与远日点"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(v_b=\\sqrt{\\dfrac{b}{a}}v_a\\)",
+      "thinking": "先条件提取，再建模，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\dfrac12 av_a\\Delta t=\\dfrac12 bv_b\\Delta t\\]\n\n\\[v_b=\\dfrac{a}{b}v_a\\]",
+      "judgment": "该结论没有同时满足“近远点的角动量关系与半长轴决定周期的关系必须区分”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "开普勒第二定律",
+        "角动量守恒",
+        "近日点与远日点"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

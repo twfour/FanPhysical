@@ -11,17 +11,134 @@
     "D. 质量较大的星体的轨道半径增大"
   ],
   "answer": "AD",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_binary_mass_transfer", "playable": true, "interactive": true, "notes": "质量由大星流向小星且星距增大；右图显示角速度下降、大星轨道半径上升。", "params": { "initialMassRatio": { "label": "初始大小质量比", "value": 3, "min": 1.5, "max": 5.0, "step": 0.1, "unit": "" }, "separationGrowth": { "label": "星距增长", "value": 35, "min": 10, "max": 60, "step": 1, "unit": "%" } }, "timeline": { "duration": 9, "loop": false } },
-  "knowledge": ["双星模型", "质量转移", "角速度"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_binary_mass_transfer",
+    "playable": true,
+    "interactive": true,
+    "notes": "质量由大星流向小星且星距增大；右图显示角速度下降、大星轨道半径上升。",
+    "params": {
+      "initialMassRatio": {
+        "label": "初始大小质量比",
+        "value": 3,
+        "min": 1.5,
+        "max": 5,
+        "step": 0.1,
+        "unit": ""
+      },
+      "separationGrowth": {
+        "label": "星距增长",
+        "value": 35,
+        "min": 10,
+        "max": 60,
+        "step": 1,
+        "unit": "%"
+      }
+    },
+    "timeline": {
+      "duration": 9,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "双星模型",
+    "质量转移",
+    "角速度"
+  ],
   "steps": [
-    { "stepId": 1, "title": "判断角速度", "content": "双星满足 \\(\\omega^2=G(m_1+m_2)/L^3\\)。总质量不变而距离 \\(L\\) 增大，所以 \\(\\omega\\) 不断减小，A 正确、B 错误。", "knowledge": ["双星角速度"], "commonMistakes": [] },
-    { "stepId": 2, "title": "写出大星轨道半径", "content": "设大星质量为 \\(m_大\\)、小星为 \\(m_小\\)，则大星到质心距离 \\(r_大=m_小L/(m_大+m_小)\\)。", "knowledge": ["质心关系"], "commonMistakes": [] },
-    { "stepId": 3, "title": "判断半径变化", "content": "质量转移使 \\(m_小\\) 增大，同时 \\(L\\) 增大，而总质量不变，因此 \\(r_大\\) 增大。D 正确、C 错误，故选 A、D。", "knowledge": ["变化判断"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "判断角速度",
+      "content": "双星满足 \\(\\omega^2=G(m_1+m_2)/L^3\\)。总质量不变而距离 \\(L\\) 增大，所以 \\(\\omega\\) 不断减小，A 正确、B 错误。",
+      "knowledge": [
+        "双星角速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "写出大星轨道半径",
+      "content": "设大星质量为 \\(m_大\\)、小星为 \\(m_小\\)，则大星到质心距离 \\(r_大=m_小L/(m_大+m_小)\\)。",
+      "knowledge": [
+        "质心关系"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "判断半径变化",
+      "content": "质量转移使 \\(m_小\\) 增大，同时 \\(L\\) 增大，而总质量不变，因此 \\(r_大\\) 增大。D 正确、C 错误，故选 A、D。",
+      "knowledge": [
+        "变化判断"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：双星间距变化",
-    "question": "双星总质量保持不变，星间距变为原来的 \\(2\\) 倍。共同角速度变为原来的多少？",
-    "answer": "由 \\(\\omega\\propto L^{-3/2}\\)，得 \\(\\omega'=\\omega/(2\\sqrt2)\\)。",
-    "thinking": "总质量不变时只保留角速度对距离的幂律。"
+    "title": "进阶近似题：双星间距变化",
+    "question": "**基础设问**\n\n双星总质量保持不变，星间距变为原来的 \\(2\\) 倍。共同角速度变为原来的多少？\n\n**综合提升**\n\n质量为 \\(M,m\\) 的双星相距 \\(L\\)，绕共同质心做圆周运动。（1）求两星轨道半径；（2）推导共同角速度和周期；（3）在 \\(L\\) 不变、总质量不变时，把少量质量由 \\(M\\) 转移给 \\(m\\)，讨论周期是否改变；（4）讨论两星线速度之比怎样变化。",
+    "answer": "**1. 基础设问**\n\n由 \\(\\omega\\propto L^{-3/2}\\)，得 \\(\\omega'=\\omega/(2\\sqrt2)\\)。\n\n**2. 综合提升**\n\n质心关系给出\n\n\\[r_M=\\frac{m}{M+m}L,\\qquad r_m=\\frac{M}{M+m}L.\\]\n\n由万有引力提供向心力得\n\n\\[\\omega^2=\\frac{G(M+m)}{L^3},\\qquad T=2\\pi\\sqrt{\\frac{L^3}{G(M+m)}}.\\]\n\n若 \\(L\\) 与总质量均不变，周期不变；速度比 \\(v_M:v_m=r_M:r_m=m:M\\)，会随质量分配改变。",
+    "thinking": "**基础思路**\n\n总质量不变时只保留角速度对距离的幂律。\n\n**进阶思路**\n\n先由质心分配半径，再由总质量决定共同角速度；质量转移可能改变半径比，却不一定改变周期。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "双星做圆周运动的角速度不断减小",
+      "thinking": "先判断角速度，再写出大星轨道半径，最后判断半径变化；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega^2=G(m_1+m_2)/L^3\\]\n\n\\[r_大=m_小L/(m_大+m_小)\\]",
+      "judgment": "该结论与主方程推导结果及“同一点的引力加速度只由位置决定，但速度、周期和机械能取决于所属轨道”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "双星模型",
+        "质量转移",
+        "角速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "双星做圆周运动的角速度不断增大",
+      "thinking": "先判断角速度，再写出大星轨道半径，最后判断半径变化；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega^2=G(m_1+m_2)/L^3\\]\n\n\\[r_大=m_小L/(m_大+m_小)\\]",
+      "judgment": "该结论没有同时满足“同一点的引力加速度只由位置决定，但速度、周期和机械能取决于所属轨道”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "双星模型",
+        "质量转移",
+        "角速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "质量较大的星体的轨道半径减小",
+      "thinking": "先判断角速度，再写出大星轨道半径，最后判断半径变化；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega^2=G(m_1+m_2)/L^3\\]\n\n\\[r_大=m_小L/(m_大+m_小)\\]",
+      "judgment": "该结论没有同时满足“同一点的引力加速度只由位置决定，但速度、周期和机械能取决于所属轨道”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "双星模型",
+        "质量转移",
+        "角速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "质量较大的星体的轨道半径增大",
+      "thinking": "先判断角速度，再写出大星轨道半径，最后判断半径变化；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[\\omega^2=G(m_1+m_2)/L^3\\]\n\n\\[r_大=m_小L/(m_大+m_小)\\]",
+      "judgment": "该结论与主方程推导结果及“同一点的引力加速度只由位置决定，但速度、周期和机械能取决于所属轨道”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "双星模型",
+        "质量转移",
+        "角速度"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

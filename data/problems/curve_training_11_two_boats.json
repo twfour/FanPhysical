@@ -1,0 +1,124 @@
+{
+  "id": "curve_training_11_two_boats",
+  "originalNumber": "题11",
+  "chapter": "曲线运动",
+  "title": "第11题：两船渡河相遇",
+  "question": "甲、乙两船从同一河流的同一岸边同时开始渡河，河宽为 \\(d\\)，\\(M\\)、\\(N\\) 分别是甲、乙两船的出发点。两船船头与河岸均成 \\(\\alpha\\) 角，甲船船头恰好对准 \\(N\\) 点的正对岸 \\(P\\) 点；经过一段时间，乙船恰好到达 \\(P\\) 点。两船划船速度大小均为 \\(v_0\\)，相遇不影响各自航行。下列判断正确的是（多选）。",
+  "options": [
+    "A. 水流方向向左，大小为 \\(v_0\\cos\\alpha\\)",
+    "B. 两船同时到达河对岸，花费时间均为 \\(\\dfrac{d}{v_0\\sin\\alpha}\\)",
+    "C. 甲船水平位移为 \\(\\dfrac d{\\sin\\alpha}\\)",
+    "D. 甲、乙两船会在 \\(PN\\) 上某点相遇"
+  ],
+  "answer": "B、D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "curve_training_model",
+    "variant": "curve_training_11_two_boats",
+    "playable": true,
+    "interactive": true,
+    "notes": "两船垂直河岸分速度相同；乙的沿岸分量被水流抵消，甲横向分量则加倍。",
+    "params": {
+      "boatSpeed": {
+        "label": "划船速度",
+        "value": 5,
+        "min": 3,
+        "max": 8,
+        "step": 0.2,
+        "unit": "m/s"
+      },
+      "alpha": {
+        "label": "船头夹角",
+        "value": 55,
+        "min": 35,
+        "max": 70,
+        "step": 1,
+        "unit": "deg"
+      },
+      "width": {
+        "label": "河宽",
+        "value": 30,
+        "min": 20,
+        "max": 50,
+        "step": 1,
+        "unit": "m"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "速度合成",
+    "两船相遇",
+    "渡河时间",
+    "相对运动"
+  ],
+  "steps": [
+    {
+      "title": "由乙船轨迹确定水流",
+      "content": "乙船从 \\(N\\) 到正对岸 \\(P\\)，其沿岸合速度为零。因此水速方向与乙船沿岸分速度相反，大小为 \\(v_0\\cos\\alpha\\)。结合题图可知水流向右。"
+    },
+    {
+      "title": "比较渡河时间",
+      "content": "两船垂直河岸的分速度均为 \\(v_0\\sin\\alpha\\)，所以渡河时间均为 \\(d/(v_0\\sin\\alpha)\\)。"
+    },
+    {
+      "title": "分析甲船水平运动",
+      "content": "甲船的沿岸分速度与水流同向，故水平合速度为 \\(2v_0\\cos\\alpha\\)。又因 \\(MN=d\\cot\\alpha\\)，甲船走到 \\(PN\\) 所需时间恰为总渡河时间的一半。"
+    },
+    {
+      "title": "得出结论",
+      "content": "两船在 \\(PN\\) 的中点相遇，B、D 正确。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "水流方向",
+      "thinking": "乙船实际竖直到达 \\(P\\)，水流必须抵消乙船的沿岸分速度。",
+      "formula": "\\[\\vec v_{水,\\parallel}=-\\vec v_{乙/水,\\parallel}\\]",
+      "judgment": "由题图乙船头偏向左侧，水流应向右，A 的方向错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "两船渡河时间",
+      "thinking": "渡河时间只由垂直河岸的合速度决定。",
+      "formula": "\\[t=\\frac{d}{v_0\\sin\\alpha}\\]",
+      "judgment": "两船的垂直分速度相同，故同时到岸，B 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "甲船水平位移",
+      "thinking": "先求甲的沿岸合速度，再乘渡河时间。",
+      "formula": "\\[x_甲=2v_0\\cos\\alpha\\cdot\\frac d{v_0\\sin\\alpha}=2d\\cot\\alpha\\]",
+      "judgment": "并非 \\(d/\\sin\\alpha\\)，C 错误。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "相遇位置",
+      "thinking": "比较甲到达 \\(PN\\) 所需的横向位移与总水平位移。",
+      "formula": "\\[MN=d\\cot\\alpha=\\frac12x_甲\\]",
+      "judgment": "甲在半程时到达 \\(PN\\)，乙也在河宽中点，因此两船相遇，D 正确。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "进阶近似题：两船交会点的通式",
+    "question": "两船从相距 \\(L\\) 的同岸两点同时出发，船头分别以相同速率 \\(v_0\\) 向内偏转，与河岸均成 \\(\\alpha\\)。水流恰使右侧船垂直到达正对岸。求两船是否相遇；若相遇，求交会高度，并给出相遇发生在到岸前的条件。",
+    "answer": "**水流速度**\n\n右侧船垂直到岸要求水速大小为 \\(v_0\\cos\\alpha\\)，方向抵消其沿岸分量。\n\n**相对水平速度**\n\n左船沿岸合速度为 \\(2v_0\\cos\\alpha\\)，右船沿岸合速度为 \\(0\\)，故相对接近速度为 \\(2v_0\\cos\\alpha\\)。\n\n**相遇时刻与高度**\n\n\\(t_m=L/(2v_0\\cos\\alpha)\\)，交会高度 \\(y_m=v_0\\sin\\alpha\\,t_m=(L/2)\\tan\\alpha\\)。\n\n**到岸前条件**\n\n要求 \\(y_m\\le d\\)，即 \\(L\\tan\\alpha\\le2d\\)。",
+    "thinking": "**思路**\n\n把水流先由“右船竖直到岸”确定，再用两船沿岸方向的相对速度求相遇；垂直方向只负责把相遇时刻换算成高度。"
+  }
+}

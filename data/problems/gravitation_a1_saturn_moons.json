@@ -11,17 +11,121 @@
     "D. \\(M\\) 回到内轨道右侧，\\(E\\) 位于外轨道左上方"
   ],
   "answer": "D",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "saturn_moons", "playable": true, "interactive": true, "notes": "土卫一转过一周时，土卫二只转过约 127°；右图比较两颗卫星的角位置。", "params": { "radiusRatio": { "label": "轨道半径比", "value": 2, "min": 1.3, "max": 3, "step": 0.1, "unit": "" } }, "timeline": { "duration": 7, "loop": false } },
-  "knowledge": ["开普勒第三定律", "卫星相对位置"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "saturn_moons",
+    "playable": true,
+    "interactive": true,
+    "notes": "土卫一转过一周时，土卫二只转过约 127°；右图比较两颗卫星的角位置。",
+    "params": {
+      "radiusRatio": {
+        "label": "轨道半径比",
+        "value": 2,
+        "min": 1.3,
+        "max": 3,
+        "step": 0.1,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "开普勒第三定律",
+    "卫星相对位置"
+  ],
   "steps": [
-    { "stepId": 1, "title": "周期比较", "content": "由 \\(T^2\\propto r^3\\)，得 \\(T_E/T_M=2^{3/2}=2\\sqrt2\\)。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] },
-    { "stepId": 2, "title": "转角计算", "content": "在时间 \\(T_M\\) 内，土卫一转一周回到右侧；土卫二转角为 \\(2\\pi/(2\\sqrt2)=\\pi/\\sqrt2\\)，约为 \\(127^\\circ\\)。", "knowledge": ["角位移"], "commonMistakes": [] },
-    { "stepId": 3, "title": "结论", "content": "土卫二从右侧逆时针转到左上方，故选 D。", "knowledge": ["位置判断"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "周期比较",
+      "content": "由 \\(T^2\\propto r^3\\)，得 \\(T_E/T_M=2^{3/2}=2\\sqrt2\\)。",
+      "knowledge": [
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "转角计算",
+      "content": "在时间 \\(T_M\\) 内，土卫一转一周回到右侧；土卫二转角为 \\(2\\pi/(2\\sqrt2)=\\pi/\\sqrt2\\)，约为 \\(127^\\circ\\)。",
+      "knowledge": [
+        "角位移"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "结论",
+      "content": "土卫二从右侧逆时针转到左上方，故选 D。",
+      "knowledge": [
+        "位置判断"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：双卫星相对转角",
-    "question": "两卫星轨道半径之比为 \\(1:4\\)，初始位于同一射线上。当内卫星转一周时，外卫星转过多少角度？",
-    "answer": "外卫星周期是内卫星的 \\(8\\) 倍，转角为 \\(\\pi/4\\)。",
-    "thinking": "先由 \\(T\\propto r^{3/2}\\) 求周期比，再按相同时间求角位移。"
+    "title": "进阶近似题：双卫星相对转角",
+    "question": "**基础设问**\n\n两卫星轨道半径之比为 \\(1:4\\)，初始位于同一射线上。当内卫星转一周时，外卫星转过多少角度？\n\n**综合提升**\n\n把原圆轨道半径由 \\(r\\) 改为 \\(\\lambda r\\)，中心天体不变。（1）推导重力加速度、线速度、角速度、周期和单位质量机械能的变化比；（2）由任意两项观测量反求 \\(GM\\)；（3）讨论 \\(\\lambda>1\\) 时“速度变小但周期变大”的原因；（4）指出这些比例对椭圆轨道瞬时点为何不能直接使用。",
+    "answer": "**1. 基础设问**\n\n外卫星周期是内卫星的 \\(8\\) 倍，转角为 \\(\\pi/4\\)。\n\n**2. 综合提升**\n\n圆轨道有\n\n\\[g\\propto r^{-2},\\quad v\\propto r^{-1/2},\\quad \\omega\\propto r^{-3/2},\\quad T\\propto r^{3/2},\\quad \\varepsilon=-\\frac{GM}{2r}.\\]\n\n所以半径乘 \\(\\lambda\\) 后比例依次为 \\(\\lambda^{-2},\\lambda^{-1/2},\\lambda^{-3/2},\\lambda^{3/2},\\lambda^{-1}\\)。可由 \\(GM=v^2r=4\\pi^2r^3/T^2\\) 反求。椭圆轨道瞬时速度还取决于半长轴，不能只看当前 \\(r\\)。",
+    "thinking": "**基础思路**\n\n先由 \\(T\\propto r^{3/2}\\) 求周期比，再按相同时间求角位移。\n\n**进阶思路**\n\n所有比例都从同一个圆轨道主方程推出，再用适用条件区分圆轨道与椭圆轨道。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(M\\) 位于内轨道左侧，\\(E\\) 位于外轨道右上方",
+      "thinking": "先周期比较，再转角计算，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T_E/T_M=2^{3/2}=2\\sqrt2\\]\n\n\\[2\\pi/(2\\sqrt2)=\\pi/\\sqrt2\\]",
+      "judgment": "该结论没有同时满足“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "开普勒第三定律",
+        "卫星相对位置"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(M\\) 与 \\(E\\) 均位于各自轨道左侧",
+      "thinking": "先周期比较，再转角计算，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T_E/T_M=2^{3/2}=2\\sqrt2\\]\n\n\\[2\\pi/(2\\sqrt2)=\\pi/\\sqrt2\\]",
+      "judgment": "该结论没有同时满足“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据，因此选项 B 错误。",
+      "knowledge": [
+        "开普勒第三定律",
+        "卫星相对位置"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(M\\) 位于内轨道左侧，\\(E\\) 位于外轨道左下方",
+      "thinking": "先周期比较，再转角计算，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T_E/T_M=2^{3/2}=2\\sqrt2\\]\n\n\\[2\\pi/(2\\sqrt2)=\\pi/\\sqrt2\\]",
+      "judgment": "该结论没有同时满足“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "开普勒第三定律",
+        "卫星相对位置"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(M\\) 回到内轨道右侧，\\(E\\) 位于外轨道左上方",
+      "thinking": "先周期比较，再转角计算，最后结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[T_E/T_M=2^{3/2}=2\\sqrt2\\]\n\n\\[2\\pi/(2\\sqrt2)=\\pi/\\sqrt2\\]",
+      "judgment": "该结论与主方程推导结果及“轨道半径必须从中心量起，且各比较量都应由同一个主方程导出”的判据一致，因此选项 D 正确。",
+      "knowledge": [
+        "开普勒第三定律",
+        "卫星相对位置"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

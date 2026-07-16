@@ -11,17 +11,134 @@
     "D. 运行周期 \\(T=\\dfrac{2\\pi a\\sqrt b}{\\sqrt{GM}}\\)"
   ],
   "answer": "AB",
-  "animation": { "enabled": true, "level": "animated", "type": "gravitation_model", "variant": "lesson9_ellipse_energy", "playable": true, "interactive": true, "notes": "行星沿椭圆轨道从近点到远点速度降低；右图同步显示动能、引力势能和恒定总机械能。", "params": { "semiMajor": { "label": "半长轴 a", "value": 5, "min": 3, "max": 8, "step": 0.5, "unit": "R" }, "eccentricity": { "label": "偏心率 e", "value": 0.5, "min": 0.2, "max": 0.75, "step": 0.05, "unit": "" } }, "timeline": { "duration": 9, "loop": false } },
-  "knowledge": ["椭圆轨道", "角动量守恒", "机械能"],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "gravitation_model",
+    "variant": "lesson9_ellipse_energy",
+    "playable": true,
+    "interactive": true,
+    "notes": "行星沿椭圆轨道从近点到远点速度降低；右图同步显示动能、引力势能和恒定总机械能。",
+    "params": {
+      "semiMajor": {
+        "label": "半长轴 a",
+        "value": 5,
+        "min": 3,
+        "max": 8,
+        "step": 0.5,
+        "unit": "R"
+      },
+      "eccentricity": {
+        "label": "偏心率 e",
+        "value": 0.5,
+        "min": 0.2,
+        "max": 0.75,
+        "step": 0.05,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 9,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "椭圆轨道",
+    "角动量守恒",
+    "机械能"
+  ],
   "steps": [
-    { "stepId": 1, "title": "近远点速度关系", "content": "A、B 两点速度均垂直于焦点连线。由角动量守恒 \\(m(a-c)v_A=m(a+c)v_B\\)，得 \\(v_B=(a-c)v_A/(a+c)\\)，A 正确。", "knowledge": ["角动量守恒"], "commonMistakes": [] },
-    { "stepId": 2, "title": "椭圆轨道机械能", "content": "万有引力场中的椭圆轨道总机械能只由半长轴决定：\\(E=-GMm/(2a)\\)。因此 B 正确、C 错误。", "knowledge": ["轨道能量"], "commonMistakes": [] },
-    { "stepId": 3, "title": "检查周期", "content": "开普勒第三定律给出 \\(T=2\\pi\\sqrt{a^3/(GM)}=2\\pi a\\sqrt a/\\sqrt{GM}\\)，并非使用半短轴 \\(b\\)，D 错误。故选 A、B。", "knowledge": ["开普勒第三定律"], "commonMistakes": [] }
+    {
+      "stepId": 1,
+      "title": "近远点速度关系",
+      "content": "A、B 两点速度均垂直于焦点连线。由角动量守恒 \\(m(a-c)v_A=m(a+c)v_B\\)，得 \\(v_B=(a-c)v_A/(a+c)\\)，A 正确。",
+      "knowledge": [
+        "角动量守恒"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "椭圆轨道机械能",
+      "content": "万有引力场中的椭圆轨道总机械能只由半长轴决定：\\(E=-GMm/(2a)\\)。因此 B 正确、C 错误。",
+      "knowledge": [
+        "轨道能量"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "检查周期",
+      "content": "开普勒第三定律给出 \\(T=2\\pi\\sqrt{a^3/(GM)}=2\\pi a\\sqrt a/\\sqrt{GM}\\)，并非使用半短轴 \\(b\\)，D 错误。故选 A、B。",
+      "knowledge": [
+        "开普勒第三定律"
+      ],
+      "commonMistakes": []
+    }
   ],
   "practice": {
-    "title": "近似题：椭圆近远点速度比",
-    "question": "某椭圆轨道半长轴为 \\(5R\\)，焦距为 \\(3R\\)。求近地点速度与远地点速度之比。",
-    "answer": "近、远地点距离分别为 \\(2R\\)、\\(8R\\)。由角动量守恒，\\(v_近:v_远=8:2=4:1\\)。",
-    "thinking": "近远点速度都与半径垂直，可直接使用 \\(r_近v_近=r_远v_远\\)。"
+    "title": "进阶近似题：椭圆近远点速度比",
+    "question": "**基础设问**\n\n某椭圆轨道半长轴为 \\(5R\\)，焦距为 \\(3R\\)。求近地点速度与远地点速度之比。\n\n**综合提升**\n\n对同一中心天体的圆轨道，把半径从 \\(r\\) 连续调到 \\(\\lambda r\\)。（1）推导 \\(v,\\omega,T,E\\) 的比例；（2）若只测得周期比，反求半径比；（3）若卫星在原位置瞬时加速，说明它为何先进入椭圆而不是立即跳到新圆轨道；（4）比较点火瞬间加速度与速度的变化。",
+    "answer": "**1. 基础设问**\n\n近、远地点距离分别为 \\(2R\\)、\\(8R\\)。由角动量守恒，\\(v_近:v_远=8:2=4:1\\)。\n\n**2. 综合提升**\n\n圆轨道比例为 \\(v\\propto r^{-1/2}\\)、\\(\\omega\\propto r^{-3/2}\\)、\\(T\\propto r^{3/2}\\)、\\(E=-GMm/(2r)\\)。因此 \\(r_2/r_1=(T_2/T_1)^{2/3}\\)。瞬时点火只能改变速度，位置仍为原半径；新速度通常不等于该处圆轨道速度，故先形成以该点为近点或远点的椭圆。点火瞬间引力加速度不变，速度突变。",
+    "thinking": "**基础思路**\n\n近远点速度都与半径垂直，可直接使用 \\(r_近v_近=r_远v_远\\)。\n\n**进阶思路**\n\n把‘圆轨道之间的比较’与‘瞬时变轨过程’分开，避免把目标圆轨道速度直接当成点火后的即时状态。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(v_B=\\dfrac{a-c}{a+c}v_A\\)",
+      "thinking": "先近远点速度关系，再椭圆轨道机械能，最后检查周期；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[m(a-c)v_A=m(a+c)v_B\\]\n\n\\[v_B=(a-c)v_A/(a+c)\\]\n\n\\[E=-GMm/(2a)\\]\n\n\\[T=2\\pi\\sqrt{a^3/(GM)}=2\\pi a\\sqrt a/\\sqrt{GM}\\]",
+      "judgment": "该结论与主方程推导结果及“动力学比例和相对运动几何必须分别建立后再联立”的判据一致，因此选项 A 正确。",
+      "knowledge": [
+        "椭圆轨道",
+        "角动量守恒",
+        "机械能"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "椭圆轨道机械能 \\(E=-\\dfrac{GMm}{2a}\\)",
+      "thinking": "先近远点速度关系，再椭圆轨道机械能，最后检查周期；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[m(a-c)v_A=m(a+c)v_B\\]\n\n\\[v_B=(a-c)v_A/(a+c)\\]\n\n\\[E=-GMm/(2a)\\]\n\n\\[T=2\\pi\\sqrt{a^3/(GM)}=2\\pi a\\sqrt a/\\sqrt{GM}\\]",
+      "judgment": "该结论与主方程推导结果及“动力学比例和相对运动几何必须分别建立后再联立”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "椭圆轨道",
+        "角动量守恒",
+        "机械能"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "椭圆轨道机械能 \\(E=-\\dfrac{GMm}{2b}\\)",
+      "thinking": "先近远点速度关系，再椭圆轨道机械能，最后检查周期；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[m(a-c)v_A=m(a+c)v_B\\]\n\n\\[v_B=(a-c)v_A/(a+c)\\]\n\n\\[E=-GMm/(2a)\\]\n\n\\[T=2\\pi\\sqrt{a^3/(GM)}=2\\pi a\\sqrt a/\\sqrt{GM}\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "椭圆轨道",
+        "角动量守恒",
+        "机械能"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "运行周期 \\(T=\\dfrac{2\\pi a\\sqrt b}{\\sqrt{GM}}\\)",
+      "thinking": "先近远点速度关系，再椭圆轨道机械能，最后检查周期；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[m(a-c)v_A=m(a+c)v_B\\]\n\n\\[v_B=(a-c)v_A/(a+c)\\]\n\n\\[E=-GMm/(2a)\\]\n\n\\[T=2\\pi\\sqrt{a^3/(GM)}=2\\pi a\\sqrt a/\\sqrt{GM}\\]",
+      "judgment": "该结论没有同时满足“动力学比例和相对运动几何必须分别建立后再联立”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "椭圆轨道",
+        "角动量守恒",
+        "机械能"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }

@@ -20,41 +20,143 @@
     "interactive": true,
     "notes": "三个物块沿两条直斜面和一条凹曲面同步下滑；右图比较累计克服摩擦力做功。",
     "params": {
-      "mass": { "label": "物体质量", "value": 1, "min": 0.5, "max": 3, "step": 0.1, "unit": "kg" },
-      "mu": { "label": "动摩擦因数", "value": 0.2, "min": 0.05, "max": 0.5, "step": 0.01, "unit": "" },
-      "base": { "label": "共同水平底边", "value": 5, "min": 3, "max": 8, "step": 0.5, "unit": "m" },
-      "g": { "label": "重力加速度", "value": 10, "min": 8, "max": 12, "step": 0.1, "unit": "m/s²" }
+      "mass": {
+        "label": "物体质量",
+        "value": 1,
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "mu": {
+        "label": "动摩擦因数",
+        "value": 0.2,
+        "min": 0.05,
+        "max": 0.5,
+        "step": 0.01,
+        "unit": ""
+      },
+      "base": {
+        "label": "共同水平底边",
+        "value": 5,
+        "min": 3,
+        "max": 8,
+        "step": 0.5,
+        "unit": "m"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 8,
+        "max": 12,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
     },
-    "timeline": { "duration": 6, "loop": false }
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
   },
-  "knowledge": ["曲线运动支持力", "摩擦力做功", "微元法"],
+  "knowledge": [
+    "曲线运动支持力",
+    "摩擦力做功",
+    "微元法"
+  ],
   "steps": [
     {
       "stepId": 1,
       "title": "比较两条直斜面",
       "content": "直斜面上 \\(f=\\mu mg\\cos\\theta\\)，斜面长 \\(s=L/\\cos\\theta\\)，故克服摩擦力做功 \\(W=fs=\\mu mgL\\)，只由共同水平底边 \\(L\\) 决定。因此 \\(W_1=W_2\\)。",
-      "knowledge": ["斜面摩擦功"],
-      "commonMistakes": ["只比较斜面长度，不同时比较支持力"]
+      "knowledge": [
+        "斜面摩擦功"
+      ],
+      "commonMistakes": [
+        "只比较斜面长度，不同时比较支持力"
+      ]
     },
     {
       "stepId": 2,
       "title": "分析凹曲面支持力",
       "content": "物体沿凹曲面运动时，支持力除平衡重力法向分量外，还要提供指向曲率中心的法向加速度，因此 \\(N>mg\\cos\\theta\\)，相应滑动摩擦力更大。",
-      "knowledge": ["法向动力学"],
+      "knowledge": [
+        "法向动力学"
+      ],
       "commonMistakes": []
     },
     {
       "stepId": 3,
       "title": "得出结论",
       "content": "曲面上每个微元的摩擦功都包含额外的法向动力学贡献，所以 \\(W_3>\\mu mgL=W_1=W_2\\)。答案为 B。",
-      "knowledge": ["曲线摩擦功"],
+      "knowledge": [
+        "曲线摩擦功"
+      ],
       "commonMistakes": []
     }
   ],
   "practice": {
-    "title": "近似题：等底直斜面比较",
-    "question": "两个粗糙直斜面水平投影均为 \\(L\\)，倾角分别为 \\(30^\\circ\\) 和 \\(60^\\circ\\)，动摩擦因数均为 \\(\\mu\\)。同一物块分别从顶端滑到底端，求两次克服摩擦力做功之比。",
-    "answer": "两次均有 \\(W=\\mu mg\\cos\\theta\\cdot L/\\cos\\theta=\\mu mgL\\)，故比值为 \\(1:1\\)。",
-    "thinking": "把斜面长度写成水平投影除以 \\(\\cos\\theta\\)，与摩擦力中的 \\(\\cos\\theta\\) 抵消。"
+    "title": "进阶近似题：等底直斜面比较",
+    "question": "**基础设问**\n\n两个粗糙直斜面水平投影均为 \\(L\\)，倾角分别为 \\(30^\\circ\\) 和 \\(60^\\circ\\)，动摩擦因数均为 \\(\\mu\\)。同一物块分别从顶端滑到底端，求两次克服摩擦力做功之比。\n\n**综合提升**\n\n把原题中的恒力推广为方向或大小随路径参数 \\(s\\) 变化的力 \\(\\vec F(s)\\)。（1）写出总功的积分表达式；（2）给出瞬时功率；（3）说明同一始末位置沿不同路径做功何时相同；（4）设计一个由 \\(P-t\\) 图像反求总功的方法。",
+    "answer": "**1. 基础设问**\n\n两次均有 \\(W=\\mu mg\\cos\\theta\\cdot L/\\cos\\theta=\\mu mgL\\)，故比值为 \\(1:1\\)。\n\n**2. 综合提升**\n\n总功和瞬时功率分别为\n\n\\[W=\\int_{s_1}^{s_2}\\vec F(s)\\cdot d\\vec s,\\qquad P=\\vec F\\cdot\\vec v=\\frac{dW}{dt}.\\]\n\n只有保守力的功才只由始末位置决定；一般外力功与路径有关。\\(P-t\\) 图像的有符号面积 \\(\\int Pdt\\) 就是总功。",
+    "thinking": "**基础思路**\n\n把斜面长度写成水平投影除以 \\(\\cos\\theta\\)，与摩擦力中的 \\(\\cos\\theta\\) 抵消。\n\n**进阶思路**\n\n从定力公式升级到线积分与功率积分，可统一处理变大小、变方向和分段做功。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(W_1>W_2>W_3\\)",
+      "thinking": "先比较两条直斜面，再分析凹曲面支持力，最后得出结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f=\\mu mg\\cos\\theta\\]\n\n\\[s=L/\\cos\\theta\\]\n\n\\[W=fs=\\mu mgL\\]\n\n\\[W_1=W_2\\]\n\n\\[W_3>\\mu mgL=W_1=W_2\\]",
+      "judgment": "该结论没有同时满足“做功取决于力的作用点位移和沿位移方向的力分量”的判据，因此选项 A 错误。",
+      "knowledge": [
+        "曲线运动支持力",
+        "摩擦力做功",
+        "微元法"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(W_1=W_2\\lt W_3\\)",
+      "thinking": "先比较两条直斜面，再分析凹曲面支持力，最后得出结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f=\\mu mg\\cos\\theta\\]\n\n\\[s=L/\\cos\\theta\\]\n\n\\[W=fs=\\mu mgL\\]\n\n\\[W_1=W_2\\]\n\n\\[W_3>\\mu mgL=W_1=W_2\\]",
+      "judgment": "该结论与主方程推导结果及“做功取决于力的作用点位移和沿位移方向的力分量”的判据一致，因此选项 B 正确。",
+      "knowledge": [
+        "曲线运动支持力",
+        "摩擦力做功",
+        "微元法"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(W_1\\lt W_2\\lt W_3\\)",
+      "thinking": "先比较两条直斜面，再分析凹曲面支持力，最后得出结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f=\\mu mg\\cos\\theta\\]\n\n\\[s=L/\\cos\\theta\\]\n\n\\[W=fs=\\mu mgL\\]\n\n\\[W_1=W_2\\]\n\n\\[W_3>\\mu mgL=W_1=W_2\\]",
+      "judgment": "该结论没有同时满足“做功取决于力的作用点位移和沿位移方向的力分量”的判据，因此选项 C 错误。",
+      "knowledge": [
+        "曲线运动支持力",
+        "摩擦力做功",
+        "微元法"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(W_1=W_2=W_3\\)",
+      "thinking": "先比较两条直斜面，再分析凹曲面支持力，最后得出结论；随后用题设约束检查该选项是否成立，不先代入实际数据。",
+      "formula": "\\[f=\\mu mg\\cos\\theta\\]\n\n\\[s=L/\\cos\\theta\\]\n\n\\[W=fs=\\mu mgL\\]\n\n\\[W_1=W_2\\]\n\n\\[W_3>\\mu mgL=W_1=W_2\\]",
+      "judgment": "该结论没有同时满足“做功取决于力的作用点位移和沿位移方向的力分量”的判据，因此选项 D 错误。",
+      "knowledge": [
+        "曲线运动支持力",
+        "摩擦力做功",
+        "微元法"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
   }
 }
