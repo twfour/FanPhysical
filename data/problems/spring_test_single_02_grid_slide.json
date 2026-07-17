@@ -1,0 +1,111 @@
+{
+  "id": "spring_test_single_02_grid_slide",
+  "originalNumber": "单2",
+  "chapter": "必修一结业测试",
+  "title": "单选第2题：八格匀减速滑行",
+  "question": "地上有连续排列的 8 个等大格子。石块从第 1 个格子的前端踢出，沿直线滑动并恰好停在第 8 个格子的后端，总滑行时间为 \\(t_0\\)。石块不转动、不滚动，且与地面的动摩擦因数处处相同。下列说法正确的是（　　）。",
+  "options": [
+    "A. 石块到达第 6 个格子后端的速度，是到达第 1 个格子前端速度的一半",
+    "B. 石块通过第 1 个格子的时间为 \\(\\frac14t_0\\)",
+    "C. 石块通过前 2 个格子的时间为 \\((2-\\sqrt3)t_0\\)",
+    "D. 石块通过第 1 个格子与第 8 个格子的平均速度之比为 \\((3-\\sqrt8):1\\)"
+  ],
+  "answer": "A",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_one_test_model",
+    "variant": "spring_test_02_grid_slide",
+    "playable": true,
+    "interactive": true,
+    "notes": "石块在等长八格中匀减速至零，右图同步显示速度随时间下降。",
+    "params": {
+      "speed": {
+        "label": "初速度",
+        "value": 8,
+        "min": 4,
+        "max": 16,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "cells": {
+        "label": "格子数",
+        "value": 8,
+        "min": 4,
+        "max": 12,
+        "step": 1,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "匀减速直线运动",
+    "逆向思维",
+    "速度位移关系",
+    "平均速度"
+  ],
+  "steps": [
+    {
+      "title": "建立总过程",
+      "content": "设每格长度为 \\(l\\)，减速度大小为 \\(a\\)。末速度为零，所以 \\(v_0=at_0\\)，且 \\(8l=\\frac12at_0^2\\)。"
+    },
+    {
+      "title": "写出分界速度",
+      "content": "到达第 \\(k\\) 格后端时，剩余距离为 \\((8-k)l\\)。由 \\(v_k^2=2a(8-k)l\\)，得 \\(v_k=v_0\\sqrt{(8-k)/8}\\)。"
+    },
+    {
+      "title": "写出分段时间",
+      "content": "到达第 \\(k\\) 格后端的时刻为 \\(t_k=t_0\\bigl(1-\\sqrt{1-k/8}\\bigr)\\)。"
+    },
+    {
+      "title": "逐项比较",
+      "content": "代入 \\(k=6\\) 得 \\(v_6=v_0/2\\)。其余时间与平均速度关系均不符合上述通式，故选 A。"
+    }
+  ],
+  "analysis": {
+    "title": "单选第2题分项解析"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "石块到达第 6 个格子后端的速度，是到达第 1 个格子前端速度的一半",
+      "thinking": "利用末速度为零把过程倒看成由静止开始的匀加速，再用剩余距离求各分界速度和时间。",
+      "formula": "\\[v_k=v_0\\sqrt{\\frac{8-k}{8}},\\qquad t_k=t_0\\left(1-\\sqrt{1-\\frac{k}{8}}\\right)\\]",
+      "judgment": "\\(v_6/v_0=\\sqrt{2/8}=1/2\\)，A 正确。"
+    },
+    {
+      "option": "B",
+      "title": "石块通过第 1 个格子的时间为 \\(\\frac14t_0\\)",
+      "thinking": "利用末速度为零把过程倒看成由静止开始的匀加速，再用剩余距离求各分界速度和时间。",
+      "formula": "\\[v_k=v_0\\sqrt{\\frac{8-k}{8}},\\qquad t_k=t_0\\left(1-\\sqrt{1-\\frac{k}{8}}\\right)\\]",
+      "judgment": "\\(t_1/t_0=1-\\sqrt{7/8}\\ne1/4\\)，B 错误。"
+    },
+    {
+      "option": "C",
+      "title": "石块通过前 2 个格子的时间为 \\((2-\\sqrt3)t_0\\)",
+      "thinking": "利用末速度为零把过程倒看成由静止开始的匀加速，再用剩余距离求各分界速度和时间。",
+      "formula": "\\[v_k=v_0\\sqrt{\\frac{8-k}{8}},\\qquad t_k=t_0\\left(1-\\sqrt{1-\\frac{k}{8}}\\right)\\]",
+      "judgment": "\\(t_2/t_0=1-\\sqrt3/2=(2-\\sqrt3)/2\\)，题给结果多了 2 倍，C 错误。"
+    },
+    {
+      "option": "D",
+      "title": "石块通过第 1 个格子与第 8 个格子的平均速度之比为 \\((3-\\sqrt8):1\\)",
+      "thinking": "利用末速度为零把过程倒看成由静止开始的匀加速，再用剩余距离求各分界速度和时间。",
+      "formula": "\\[v_k=v_0\\sqrt{\\frac{8-k}{8}},\\qquad t_k=t_0\\left(1-\\sqrt{1-\\frac{k}{8}}\\right)\\]",
+      "judgment": "两段平均速度之比为 \\(\\sqrt8+\\sqrt7\\)，不等于 \\(3-\\sqrt8\\)，D 错误。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：N 等分匀减速的通式",
+    "question": "物块以初速度 \\(v_0\\) 滑入长度为 \\(L\\) 的粗糙水平面并恰在末端停止。把 \\(L\\) 等分为 \\(N\\) 段。求通过第 \\(k\\) 段起点时的速度、通过前 \\(k\\) 段的时间，以及第 1 段和第 \\(N\\) 段平均速度之比。",
+    "answer": "**分界速度**\n\n第 \\(k\\) 段起点前已走 \\((k-1)L/N\\)，故 \\(v_{k-1}=v_0\\sqrt{(N-k+1)/N}\\)。\n\n**累计时间**\n\n\\(t_k=t_0\\left(1-\\sqrt{1-k/N}\\right)\\)。\n\n**平均速度比**\n\n\\(\\bar v_1/\\bar v_N=(v_0+v_1)/v_{N-1}=\\sqrt N+\\sqrt{N-1}\\)。",
+    "thinking": "**解题思路**\n\n不要逐段重复列运动学方程。先用 \\(v^2=2a\\times\\)剩余距离得到任意分界速度，再由匀变速平均速度处理首尾两段。"
+  }
+}

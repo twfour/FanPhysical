@@ -1,0 +1,111 @@
+{
+  "id": "spring_test_single_07_incline_lift",
+  "originalNumber": "单7",
+  "chapter": "必修一结业测试",
+  "title": "单选第7题：定滑轮缓慢提升",
+  "question": "用固定在斜面上方的定滑轮和轻绳缓慢提升斜面上的重物。斜面体上表面光滑，滑轮位置如图示，重物沿斜面上移时绳与斜面的夹角逐渐增大。下列说法正确的是（　　）。",
+  "options": [
+    "A. 重物受到的支持力不变",
+    "B. 重物受到的支持力减小",
+    "C. 斜面受到地面的支持力不变",
+    "D. 斜面受到地面的支持力先增大后减小"
+  ],
+  "answer": "B",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_one_test_model",
+    "variant": "spring_test_07_incline_lift",
+    "playable": true,
+    "interactive": true,
+    "notes": "重物沿斜面接近固定滑轮，绳方向改变，支持力随绳法向分量增大而减小。",
+    "params": {
+      "angle": {
+        "label": "斜面角",
+        "value": 25,
+        "min": 15,
+        "max": 40,
+        "step": 1,
+        "unit": "deg"
+      },
+      "pulleyHeight": {
+        "label": "滑轮高度",
+        "value": 2.5,
+        "min": 1.5,
+        "max": 4,
+        "step": 0.1,
+        "unit": "m"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "动态平衡",
+    "光滑斜面",
+    "力的分解",
+    "整体与隔离"
+  ],
+  "steps": [
+    {
+      "title": "确定变化角",
+      "content": "设斜面角为 \\(\\theta\\)，绳与斜面的夹角为 \\(\\beta\\)。由图示固定滑轮位置，重物上移时 \\(\\beta\\) 增大。"
+    },
+    {
+      "title": "列切向平衡",
+      "content": "缓慢运动近似平衡，沿斜面有 \\(T\\cos\\beta=mg\\sin\\theta\\)，所以 \\(T=mg\\sin\\theta/\\cos\\beta\\)。"
+    },
+    {
+      "title": "列法向平衡",
+      "content": "绳在离开斜面的方向有分量 \\(T\\sin\\beta\\)，故 \\(N+T\\sin\\beta=mg\\cos\\theta\\)，即 \\(N=mg\\cos\\theta-mg\\sin\\theta\\tan\\beta\\)。"
+    },
+    {
+      "title": "判断单调性",
+      "content": "随 \\(\\beta\\) 增大，\\(\\tan\\beta\\) 增大，支持力 \\(N\\) 减小，因此 B 正确。"
+    }
+  ],
+  "analysis": {
+    "title": "单选第7题分项解析"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "重物受到的支持力不变",
+      "thinking": "把绳的方向变化明确为变量 \\(\\beta\\)，分别沿斜面和垂直斜面列准静态平衡方程。",
+      "formula": "\\[T\\cos\\beta=mg\\sin\\theta,\\qquad N=mg\\cos\\theta-T\\sin\\beta\\]",
+      "judgment": "绳的法向分量随位置改变，支持力不会保持不变，A 错误。"
+    },
+    {
+      "option": "B",
+      "title": "重物受到的支持力减小",
+      "thinking": "把绳的方向变化明确为变量 \\(\\beta\\)，分别沿斜面和垂直斜面列准静态平衡方程。",
+      "formula": "\\[T\\cos\\beta=mg\\sin\\theta,\\qquad N=mg\\cos\\theta-T\\sin\\beta\\]",
+      "judgment": "\\(N=mg\\cos\\theta-mg\\sin\\theta\\tan\\beta\\) 随 \\(\\beta\\) 增大而减小，B 正确。"
+    },
+    {
+      "option": "C",
+      "title": "斜面受到地面的支持力不变",
+      "thinking": "把绳的方向变化明确为变量 \\(\\beta\\)，分别沿斜面和垂直斜面列准静态平衡方程。",
+      "formula": "\\[T\\cos\\beta=mg\\sin\\theta,\\qquad N=mg\\cos\\theta-T\\sin\\beta\\]",
+      "judgment": "斜面受重物压力变化，地面支持力也随之改变，C 错误。"
+    },
+    {
+      "option": "D",
+      "title": "斜面受到地面的支持力先增大后减小",
+      "thinking": "把绳的方向变化明确为变量 \\(\\beta\\)，分别沿斜面和垂直斜面列准静态平衡方程。",
+      "formula": "\\[T\\cos\\beta=mg\\sin\\theta,\\qquad N=mg\\cos\\theta-T\\sin\\beta\\]",
+      "judgment": "在题图所示连续接近滑轮的区间内，法向压力单调减小，没有先增后减，D 错误。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：由固定滑轮坐标求支持力",
+    "question": "斜面倾角为 \\(\\theta\\)，重物沿斜面坐标为 \\(s\\)。固定滑轮相对斜面起点的水平、竖直坐标分别为 \\(X,Y\\)。重物由绳缓慢上拉，斜面光滑。写出绳角 \\(\\beta(s)\\)、张力 \\(T(s)\\) 和支持力 \\(N(s)\\)，并给出失去接触的临界方程。",
+    "answer": "**几何关系**\n\n重物坐标为 \\((s\\cos\\theta,s\\sin\\theta)\\)，故 \\(\\tan(\\theta+\\beta)=(Y-s\\sin\\theta)/(X-s\\cos\\theta)\\)。\n\n**动态平衡**\n\n\\(T=mg\\sin\\theta/\\cos\\beta\\)，\\(N=mg\\cos\\theta-mg\\sin\\theta\\tan\\beta\\)。\n\n**接触临界**\n\n令 \\(N=0\\)，得 \\(\\tan\\beta=\\cot\\theta\\)，再与几何关系联立即可求临界位置。",
+    "thinking": "**解题思路**\n\n先由坐标几何确定绳方向，再列力学方程；接触是否存在最后用 \\(N\\ge0\\) 检查。"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "id": "spring_test_single_04_curved_slope",
+  "originalNumber": "单4",
+  "chapter": "必修一结业测试",
+  "title": "单选第4题：弧形坡道准静态受力",
+  "question": "汽车沿弧形坡道缓慢下坡，先后经过坡度较大的 A 点和坡度较小的 B 点。关于汽车在 A、B 两点的受力，下列说法正确的是（　　）。",
+  "options": [
+    "A. 坡道对车的支持力在 A 点比 B 点小",
+    "B. 坡道对车的摩擦力在 A 点比 B 点小",
+    "C. 车受到的合外力在 A 点比 B 点小",
+    "D. 坡道对车的作用力在 A 点与 B 点等大"
+  ],
+  "answer": "A、D（按题面‘缓慢’作准静态理解，原题存在单选歧义）",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_one_test_model",
+    "variant": "spring_test_04_curved_slope",
+    "playable": true,
+    "interactive": true,
+    "notes": "汽车缓慢经过不同坡度位置，受力箭头与右侧分力曲线同步变化。",
+    "params": {
+      "maxAngle": {
+        "label": "最大坡角",
+        "value": 38,
+        "min": 15,
+        "max": 55,
+        "step": 1,
+        "unit": "deg"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "准静态平衡",
+    "斜面受力",
+    "支持力",
+    "静摩擦力"
+  ],
+  "steps": [
+    {
+      "title": "采用准静态近似",
+      "content": "‘缓慢下坡’表示速度和加速度都可忽略，汽车在每个位置近似满足 \\(\\sum\\vec F=0\\)。"
+    },
+    {
+      "title": "沿局部切线分解",
+      "content": "设局部坡角为 \\(\\theta\\)，有 \\(N=mg\\cos\\theta\\)，静摩擦力大小 \\(f=mg\\sin\\theta\\)。"
+    },
+    {
+      "title": "比较 A、B",
+      "content": "因 \\(\\theta_A\\gt\\theta_B\\)，故 \\(N_A\\lt N_B\\)，而 \\(f_A\\gt f_B\\)。两点合外力均近似为零。"
+    },
+    {
+      "title": "检查单选歧义",
+      "content": "支持力与摩擦力的矢量和始终与重力等大反向，故坡道对车的作用力大小均为 \\(mg\\)，D 也正确。按题面给出的‘缓慢’条件，A、D 同时成立；若命题人只希望保留一个答案，还需补充不能采用准静态近似等额外条件。"
+    }
+  ],
+  "analysis": {
+    "title": "单选第4题分项解析"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "坡道对车的支持力在 A 点比 B 点小",
+      "thinking": "把弧形坡道在每一点局部看成斜面，先比较支持力和摩擦力分量，再比较二者的矢量合力。",
+      "formula": "\\[N=mg\\cos\\theta,\\qquad f=mg\\sin\\theta,\\qquad \\vec N+\\vec f=-m\\vec g\\]",
+      "judgment": "A 点更陡，\\(N_A\\lt N_B\\)，A 正确。"
+    },
+    {
+      "option": "B",
+      "title": "坡道对车的摩擦力在 A 点比 B 点小",
+      "thinking": "把弧形坡道在每一点局部看成斜面，先比较支持力和摩擦力分量，再比较二者的矢量合力。",
+      "formula": "\\[N=mg\\cos\\theta,\\qquad f=mg\\sin\\theta,\\qquad \\vec N+\\vec f=-m\\vec g\\]",
+      "judgment": "更陡处所需摩擦力更大，故 \\(f_A\\gt f_B\\)，B 错误。"
+    },
+    {
+      "option": "C",
+      "title": "车受到的合外力在 A 点比 B 点小",
+      "thinking": "把弧形坡道在每一点局部看成斜面，先比较支持力和摩擦力分量，再比较二者的矢量合力。",
+      "formula": "\\[N=mg\\cos\\theta,\\qquad f=mg\\sin\\theta,\\qquad \\vec N+\\vec f=-m\\vec g\\]",
+      "judgment": "两点均近似平衡，合外力均为零，C 错误。"
+    },
+    {
+      "option": "D",
+      "title": "坡道对车的作用力在 A 点与 B 点等大",
+      "thinking": "把弧形坡道在每一点局部看成斜面，先比较支持力和摩擦力分量，再比较二者的矢量合力。",
+      "formula": "\\[N=mg\\cos\\theta,\\qquad f=mg\\sin\\theta,\\qquad \\vec N+\\vec f=-m\\vec g\\]",
+      "judgment": "坡道作用力是 \\(\\vec N+\\vec f\\)，其大小在两点均为 \\(mg\\)，D 也正确。因此原题按准静态模型不满足单选要求。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：变坡度上的匀速下放",
+    "question": "质量为 \\(m\\) 的小车在局部坡角为 \\(\\theta(x)\\) 的粗糙弯坡上，被沿坡向上的轻绳以张力 \\(T(x)\\) 匀速下放。求支持力和摩擦力；讨论何时摩擦方向改变，并求坡道对车总作用力的大小。",
+    "answer": "**法向平衡**\n\n\\(N=mg\\cos\\theta\\)。\n\n**切向平衡**\n\n取沿坡向下为正，\\(mg\\sin\\theta-T-f=0\\)，故 \\(f=mg\\sin\\theta-T\\)。正值表示摩擦向上，负值表示摩擦向下。\n\n**方向临界**\n\n当 \\(T=mg\\sin\\theta\\) 时摩擦为零并换向。\n\n**总作用力**\n\n坡道作用力大小为 \\(R=\\sqrt{N^2+f^2}\\)，此时不再恒等于 \\(mg\\)，因为绳张力也参与平衡。",
+    "thinking": "**解题思路**\n\n弯坡只改变局部切线方向。每个位置都建立切向—法向坐标，再用摩擦力的代数符号判断真实方向。"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "id": "spring_test_solution_16_police_chase",
+  "originalNumber": "解16",
+  "chapter": "必修一结业测试",
+  "title": "解答第16题：警车货车箱子追及",
+  "question": "在平直公路上，货车 B 以 \\(v_2=20\\,\\mathrm{m/s}\\) 匀速行驶，车尾悬挂着离地很近的箱子 C。警车 A 以 \\(v_1=30\\,\\mathrm{m/s}\\) 匀速追赶货车。当二者距离 \\(s_0=60\\,\\mathrm m\\) 时警车鸣笛示意其减速；货车经 \\(t_0=1\\,\\mathrm s\\) 后立即以 \\(a_2=2\\,\\mathrm{m/s^2}\\) 加速逃离，箱子同时脱落并以 \\(a_3=2\\,\\mathrm{m/s^2}\\) 做匀减速运动。警员看到箱子脱落立刻以 \\(a_1=4\\,\\mathrm{m/s^2}\\) 刹车。货车最大速度为 \\(v_m=30\\,\\mathrm{m/s}\\)。求：（1）箱子脱落时警车与箱子的距离；（2）判断警车是否撞上箱子；若不撞，求最小间距；（3）警车停下时与货车的距离。",
+  "answer": "（1）\\(50\\,\\mathrm m\\)；（2）不会相撞，最小间距 \\(25\\,\\mathrm m\\)；（3）\\(137.5\\,\\mathrm m\\)。",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_one_test_model",
+    "variant": "spring_test_16_police_chase",
+    "playable": true,
+    "interactive": true,
+    "notes": "按鸣笛等待、箱子脱落、警车刹车、货车达限速四个阶段同步显示三者位置。",
+    "params": {
+      "policeSpeed": {
+        "label": "警车初速度",
+        "value": 30,
+        "min": 20,
+        "max": 40,
+        "step": 1,
+        "unit": "m/s"
+      },
+      "truckSpeed": {
+        "label": "货车初速度",
+        "value": 20,
+        "min": 10,
+        "max": 28,
+        "step": 1,
+        "unit": "m/s"
+      },
+      "initialGap": {
+        "label": "初始车距",
+        "value": 60,
+        "min": 30,
+        "max": 100,
+        "step": 5,
+        "unit": "m"
+      }
+    },
+    "timeline": {
+      "duration": 8.5,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "分阶段追及",
+    "相对运动",
+    "刹车停止",
+    "速度上限"
+  ],
+  "steps": [
+    {
+      "title": "第一阶段：求脱落时距离",
+      "content": "鸣笛后 1 s 内警车和货车仍匀速。警车追近 \\((30-20)\\times1=10\\,\\mathrm m\\)，故箱子脱落时距离 \\(\\Delta s=60-10=50\\,\\mathrm m\\)。"
+    },
+    {
+      "title": "第二阶段：建立相对运动",
+      "content": "以箱子脱落为新零时刻 \\(\\tau=0\\)。警车相对箱子的初速度为 \\(10\\,\\mathrm{m/s}\\)，相对加速度为 \\(-4-(-2)=-2\\,\\mathrm{m/s^2}\\)。相对追近量为 \\(\\Delta x_{AC}=10\\tau-\\tau^2\\)。"
+    },
+    {
+      "title": "判断碰撞和最小间距",
+      "content": "当相对速度 \\(10-2\\tau=0\\) 时追近量最大，得 \\(\\tau=5\\,\\mathrm s\\)、最大追近量 \\(25\\,\\mathrm m\\)。它小于初距 50 m，所以不撞；最小间距为 \\(50-25=25\\,\\mathrm m\\)。"
+    },
+    {
+      "title": "第三阶段：警车停车时车距",
+      "content": "警车刹车 \\(7.5\\,\\mathrm s\\) 停下，鸣笛后总时间为 8.5 s。其位移为 \\(30\\times1+30^2/(2\\times4)=142.5\\,\\mathrm m\\)。货车先走 \\(20\\,\\mathrm m\\)，再用 5 s 加速到 30 m/s，走 \\(125\\,\\mathrm m\\)，最后匀速 2.5 s 走 75 m；加上初距 60 m，货车位置为 280 m。故车距 \\(280-142.5=137.5\\,\\mathrm m\\)。"
+    }
+  ],
+  "analysis": {
+    "title": "解答第16题分步解析"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：带延迟与限速的三车追及",
+    "question": "警车以 \\(28\\,\\mathrm{m/s}\\) 追赶初速 \\(18\\,\\mathrm{m/s}\\) 的货车，初距 \\(50\\,\\mathrm m\\)。货车延迟 1 s 后以 \\(2\\,\\mathrm{m/s^2}\\) 加速并掉落箱子，最高速度 28 m/s；箱子以 \\(2\\,\\mathrm{m/s^2}\\) 减速，警车同时以 \\(5\\,\\mathrm{m/s^2}\\) 刹车。求脱落时距离、警车与箱子的最小距离，以及警车停车时与货车的距离。",
+    "answer": "**脱落时**\n\n距离 \\(50-(28-18)\\times1=40\\,\\mathrm m\\)。\n\n**箱子最小距离**\n\n相对速度 10 m/s、相对减速度 3 m/s²，最大追近量 \\(10^2/(2\\times3)=50/3\\,\\mathrm m\\)，故最小距离 \\(70/3\\,\\mathrm m\\)。\n\n**停车时货车距离**\n\n警车总位移 \\(28\\times1+28^2/(2\\times5)=106.4\\,\\mathrm m\\)。货车到此时位移为 \\(18+115+16.8=149.8\\,\\mathrm m\\)，再计初距 50 m，车距为 \\(93.4\\,\\mathrm m\\)。",
+    "thinking": "**解题思路**\n\n每次状态突变都重新设时间零点。箱子问题优先用相对运动求最大追近量；货车问题必须先判断达到限速的时刻。"
+  }
+}

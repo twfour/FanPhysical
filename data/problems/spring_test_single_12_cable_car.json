@@ -1,0 +1,111 @@
+{
+  "id": "spring_test_single_12_cable_car",
+  "originalNumber": "单12",
+  "chapter": "必修一结业测试",
+  "title": "单选第12题：缆车加速摩擦判零",
+  "question": "缆车沿与水平方向成 \\(30^\\circ\\) 的绳缆向上做匀加速直线运动。车厢内 P、Q 两物体与车厢保持相对静止。四种图示中，P、Q 的接触面方向不同。P、Q 间摩擦力可能为零的是（　　）。上方动画区显示无摩擦时接触面法线与等效重力的关系。",
+  "options": [
+    "A. 图 A 所示",
+    "B. 图 B 所示",
+    "C. 图 C 所示",
+    "D. 图 D 所示"
+  ],
+  "answer": "C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_one_test_model",
+    "variant": "spring_test_12_cable_car",
+    "playable": true,
+    "interactive": true,
+    "notes": "缆车上行时显示 \\(m\\vec g-m\\vec a\\) 的等效方向；接触面垂直该方向时摩擦可为零。",
+    "params": {
+      "accel": {
+        "label": "缆车加速度",
+        "value": 3,
+        "min": 0.5,
+        "max": 8,
+        "step": 0.5,
+        "unit": "m/s^2"
+      },
+      "cableAngle": {
+        "label": "缆绳角度",
+        "value": 30,
+        "min": 15,
+        "max": 50,
+        "step": 1,
+        "unit": "deg"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "随体参考系",
+    "等效重力",
+    "接触面摩擦",
+    "共同加速度"
+  ],
+  "steps": [
+    {
+      "title": "转到缆车参考系",
+      "content": "在随缆车加速的参考系中，每个物体除重力外还受与缆车加速度反向的惯性力 \\(-m\\vec a\\)。"
+    },
+    {
+      "title": "构造等效重力",
+      "content": "定义 \\(\\vec g_\\text{eff}=\\vec g-\\vec a\\)。若 P、Q 间摩擦为零，则接触面对物体只能提供法向力。"
+    },
+    {
+      "title": "写出判零条件",
+      "content": "物体相对静止且只有重力、惯性力和法向力时，法向力必须与 \\(-m\\vec g_\\text{eff}\\) 同向，即接触面必须垂直 \\(\\vec g_\\text{eff}\\)。"
+    },
+    {
+      "title": "对照图示",
+      "content": "四个摆放中，只有图 C 的接触面法线与所需合力方向一致，因此 C 正确。"
+    }
+  ],
+  "analysis": {
+    "title": "单选第12题分项解析"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "图 A 所示",
+      "thinking": "不要先猜摩擦方向。先假设摩擦为零，求重力与惯性力的合力方向，再检查接触面法线能否单独提供它。",
+      "formula": "\\[\\vec g_\\text{eff}=\\vec g-\\vec a,\\qquad \\vec N=-m\\vec g_\\text{eff}\\quad(f=0)\\]",
+      "judgment": "图 A 的接触面法线与所需合力不共线，仍需摩擦，A 错误。"
+    },
+    {
+      "option": "B",
+      "title": "图 B 所示",
+      "thinking": "不要先猜摩擦方向。先假设摩擦为零，求重力与惯性力的合力方向，再检查接触面法线能否单独提供它。",
+      "formula": "\\[\\vec g_\\text{eff}=\\vec g-\\vec a,\\qquad \\vec N=-m\\vec g_\\text{eff}\\quad(f=0)\\]",
+      "judgment": "图 B 的法向力方向不能同时平衡重力与惯性力，B 错误。"
+    },
+    {
+      "option": "C",
+      "title": "图 C 所示",
+      "thinking": "不要先猜摩擦方向。先假设摩擦为零，求重力与惯性力的合力方向，再检查接触面法线能否单独提供它。",
+      "formula": "\\[\\vec g_\\text{eff}=\\vec g-\\vec a,\\qquad \\vec N=-m\\vec g_\\text{eff}\\quad(f=0)\\]",
+      "judgment": "图 C 的法线与 \\(-\\vec g_\\text{eff}\\) 同向，摩擦可以为零，C 正确。"
+    },
+    {
+      "option": "D",
+      "title": "图 D 所示",
+      "thinking": "不要先猜摩擦方向。先假设摩擦为零，求重力与惯性力的合力方向，再检查接触面法线能否单独提供它。",
+      "formula": "\\[\\vec g_\\text{eff}=\\vec g-\\vec a,\\qquad \\vec N=-m\\vec g_\\text{eff}\\quad(f=0)\\]",
+      "judgment": "图 D 的接触面角度与等效重力方向不匹配，D 错误。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：反求无摩擦接触面的方向",
+    "question": "车厢以加速度 \\(a\\) 沿与水平成 \\(\\alpha\\) 的方向向上运动。质量为 \\(m\\) 的物块要在车厢内某光滑固定面上保持相对静止。求该面的法线方向，并写出法向力大小。",
+    "answer": "**等效重力**\n\n取水平向右、竖直向上，\\(\\vec a=(a\\cos\\alpha,a\\sin\\alpha)\\)，故 \\(\\vec g_\\text{eff}=(-a\\cos\\alpha,-g-a\\sin\\alpha)\\)。\n\n**法线方向与大小**\n\n支持力应沿 \\(-\\vec g_\\text{eff}\\)，其与水平夹角满足 \\(\\tan\\phi=(g+a\\sin\\alpha)/(a\\cos\\alpha)\\)，大小 \\(N=m\\sqrt{a^2\\cos^2\\alpha+(g+a\\sin\\alpha)^2}\\)。接触面与该法线垂直。",
+    "thinking": "**解题思路**\n\n把非惯性系问题统一成等效重力问题。光滑面只允许一个法向力，所以法线方向由等效重力唯一确定。"
+  }
+}

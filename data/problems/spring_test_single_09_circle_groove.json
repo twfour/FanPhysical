@@ -1,0 +1,111 @@
+{
+  "id": "spring_test_single_09_circle_groove",
+  "originalNumber": "单9",
+  "chapter": "必修一结业测试",
+  "title": "单选第9题：斜面圆槽相对静止",
+  "question": "小球 C 置于光滑圆形槽 B 内，B 放在倾角为 \\(\\theta\\) 的足够长光滑斜面 A 上。B、C 一起沿斜面下滑，稳定后 C 与 B 相对静止。下列位置关系正确的是（　　）。上方动画区给出圆槽中的受力方向示意。",
+  "options": [
+    "A. C 偏在圆槽靠斜面上方的一侧",
+    "B. C 偏在圆槽沿斜面下方的一侧",
+    "C. C 位于圆槽相对斜面的槽底，槽心与 C 的连线垂直斜面",
+    "D. C 位于圆槽水平方向的最右侧"
+  ],
+  "answer": "C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_one_test_model",
+    "variant": "spring_test_09_circle_groove",
+    "playable": true,
+    "interactive": true,
+    "notes": "圆槽沿光滑斜面下滑，动画显示小球最终位于等效重力方向的最低点。",
+    "params": {
+      "angle": {
+        "label": "斜面角",
+        "value": 30,
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "deg"
+      },
+      "g": {
+        "label": "重力加速度",
+        "value": 10,
+        "min": 5,
+        "max": 15,
+        "step": 0.5,
+        "unit": "m/s^2"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "加速参考系",
+    "等效重力",
+    "斜面共同加速度",
+    "圆槽约束"
+  ],
+  "steps": [
+    {
+      "title": "求共同加速度",
+      "content": "B、C 系统沿光滑斜面下滑，其共同加速度为 \\(a=g\\sin\\theta\\)，方向沿斜面向下。"
+    },
+    {
+      "title": "转到圆槽参考系",
+      "content": "在随 B 加速的参考系中，小球除重力外还受沿斜面向上的惯性力 \\(ma\\)。"
+    },
+    {
+      "title": "求等效重力",
+      "content": "重力沿斜面的分量 \\(mg\\sin\\theta\\) 恰被惯性力抵消，只剩垂直斜面向下的分量 \\(mg\\cos\\theta\\)。"
+    },
+    {
+      "title": "确定平衡位置",
+      "content": "相对静止时圆槽支持力与等效重力反向，故小球位于相对斜面的槽底，槽心到 C 的半径垂直斜面，选 C。"
+    }
+  ],
+  "analysis": {
+    "title": "单选第9题分项解析"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "C 偏在圆槽靠斜面上方的一侧",
+      "thinking": "先求圆槽的平动加速度，再在随槽参考系中用 \\(\\vec g_\\text{eff}=\\vec g-\\vec a\\) 找到相对最低点。",
+      "formula": "\\[a=g\\sin\\theta,\\qquad \\vec g_\\text{eff}=\\vec g-\\vec a,\\qquad |\\vec g_\\text{eff}|=g\\cos\\theta\\]",
+      "judgment": "等效重力没有沿斜面向上的分量，小球不会停在该侧，A 错误。"
+    },
+    {
+      "option": "B",
+      "title": "C 偏在圆槽沿斜面下方的一侧",
+      "thinking": "先求圆槽的平动加速度，再在随槽参考系中用 \\(\\vec g_\\text{eff}=\\vec g-\\vec a\\) 找到相对最低点。",
+      "formula": "\\[a=g\\sin\\theta,\\qquad \\vec g_\\text{eff}=\\vec g-\\vec a,\\qquad |\\vec g_\\text{eff}|=g\\cos\\theta\\]",
+      "judgment": "重力沿斜面分量已被惯性力抵消，小球不会偏向斜面下方，B 错误。"
+    },
+    {
+      "option": "C",
+      "title": "C 位于圆槽相对斜面的槽底，槽心与 C 的连线垂直斜面",
+      "thinking": "先求圆槽的平动加速度，再在随槽参考系中用 \\(\\vec g_\\text{eff}=\\vec g-\\vec a\\) 找到相对最低点。",
+      "formula": "\\[a=g\\sin\\theta,\\qquad \\vec g_\\text{eff}=\\vec g-\\vec a,\\qquad |\\vec g_\\text{eff}|=g\\cos\\theta\\]",
+      "judgment": "等效重力垂直斜面，小球位于该方向的槽底，C 正确。"
+    },
+    {
+      "option": "D",
+      "title": "C 位于圆槽水平方向的最右侧",
+      "thinking": "先求圆槽的平动加速度，再在随槽参考系中用 \\(\\vec g_\\text{eff}=\\vec g-\\vec a\\) 找到相对最低点。",
+      "formula": "\\[a=g\\sin\\theta,\\qquad \\vec g_\\text{eff}=\\vec g-\\vec a,\\qquad |\\vec g_\\text{eff}|=g\\cos\\theta\\]",
+      "judgment": "平衡位置由等效重力而不是地面水平方向决定，D 错误。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：圆槽受外力时的平衡方位",
+    "question": "圆形槽沿倾角为 \\(\\theta\\) 的斜面以给定加速度 \\(A\\) 向下运动，槽内光滑小球相对槽静止。求等效重力沿斜面和垂直斜面的分量，并确定槽心到小球的半径与斜面法线的夹角。",
+    "answer": "**等效重力分量**\n\n沿斜面向下取正：\\(g_{\\parallel}=g\\sin\\theta-A\\)；垂直斜面向内：\\(g_\\perp=g\\cos\\theta\\)。\n\n**平衡方位**\n\n槽心到小球的半径沿 \\(\\vec g_\\text{eff}\\) 方向，故相对斜面法线的偏角满足 \\(\\tan\\varphi=(g\\sin\\theta-A)/(g\\cos\\theta)\\)。当 \\(A=g\\sin\\theta\\) 时退化为原题的 \\(\\varphi=0\\)。",
+    "thinking": "**解题思路**\n\n把圆槽参考系看成带有惯性力的静力学问题。先求等效重力矢量，再让圆槽法向支持力与它反向。"
+  }
+}

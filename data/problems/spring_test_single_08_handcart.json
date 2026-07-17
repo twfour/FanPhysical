@@ -1,0 +1,110 @@
+{
+  "id": "spring_test_single_08_handcart",
+  "originalNumber": "单8",
+  "chapter": "必修一结业测试",
+  "title": "单选第8题：倾斜小推车双支持力",
+  "question": "搬运小推车的中间支架与底板垂直。正方体货物放在底板上，初始底板水平，随后缓慢下压把手，直到底板与水平面的夹角为 \\(60^\\circ\\)。小推车位置不变，不计货物与支架、底板间摩擦。下列说法正确的是（　　）。",
+  "options": [
+    "A. 小推车对货物的作用力方向先水平向左、后竖直向上",
+    "B. 小推车对货物的作用力大小先增大后减小",
+    "C. 支架对货物的支持力一直增大",
+    "D. 底板对货物的支持力一直增大"
+  ],
+  "answer": "C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_one_test_model",
+    "variant": "spring_test_08_handcart",
+    "playable": true,
+    "interactive": true,
+    "notes": "推车缓慢倾斜，底板与支架两支持力按 \\(mg\\cos\\alpha\\)、\\(mg\\sin\\alpha\\) 变化。",
+    "params": {
+      "maxAngle": {
+        "label": "最大倾角",
+        "value": 60,
+        "min": 20,
+        "max": 75,
+        "step": 1,
+        "unit": "deg"
+      },
+      "mass": {
+        "label": "货物质量",
+        "value": 10,
+        "min": 2,
+        "max": 30,
+        "step": 1,
+        "unit": "kg"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "双接触面支持力",
+    "共点力平衡",
+    "力的正交分解"
+  ],
+  "steps": [
+    {
+      "title": "确定支持力方向",
+      "content": "底板支持力垂直底板，支架支持力垂直支架。因支架与底板垂直，两支持力也互相垂直。"
+    },
+    {
+      "title": "建立平衡方程",
+      "content": "设底板倾角为 \\(\\alpha\\)。沿底板和垂直底板分解重力，得 \\(N_\\text{支}=mg\\sin\\alpha\\)，\\(N_\\text{底}=mg\\cos\\alpha\\)。"
+    },
+    {
+      "title": "判断变化",
+      "content": "当 \\(\\alpha\\) 从 \\(0\\) 增至 \\(60^\\circ\\)，支架支持力增大，底板支持力减小。"
+    },
+    {
+      "title": "判断总作用力",
+      "content": "两支持力的矢量和始终与重力等大反向，方向竖直向上、大小恒为 \\(mg\\)。故选 C。"
+    }
+  ],
+  "analysis": {
+    "title": "单选第8题分项解析"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "小推车对货物的作用力方向先水平向左、后竖直向上",
+      "thinking": "支持力必须垂直接触面。把重力分解到随推车转动的两条正交方向，就能直接得到两个支持力。",
+      "formula": "\\[N_\\text{支}=mg\\sin\\alpha,\\qquad N_\\text{底}=mg\\cos\\alpha,\\qquad \\vec N_\\text{支}+\\vec N_\\text{底}=-m\\vec g\\]",
+      "judgment": "推车对货物的总作用力始终竖直向上，A 错误。"
+    },
+    {
+      "option": "B",
+      "title": "小推车对货物的作用力大小先增大后减小",
+      "thinking": "支持力必须垂直接触面。把重力分解到随推车转动的两条正交方向，就能直接得到两个支持力。",
+      "formula": "\\[N_\\text{支}=mg\\sin\\alpha,\\qquad N_\\text{底}=mg\\cos\\alpha,\\qquad \\vec N_\\text{支}+\\vec N_\\text{底}=-m\\vec g\\]",
+      "judgment": "总作用力大小始终为 \\(mg\\)，B 错误。"
+    },
+    {
+      "option": "C",
+      "title": "支架对货物的支持力一直增大",
+      "thinking": "支持力必须垂直接触面。把重力分解到随推车转动的两条正交方向，就能直接得到两个支持力。",
+      "formula": "\\[N_\\text{支}=mg\\sin\\alpha,\\qquad N_\\text{底}=mg\\cos\\alpha,\\qquad \\vec N_\\text{支}+\\vec N_\\text{底}=-m\\vec g\\]",
+      "judgment": "\\(\\sin\\alpha\\) 在该区间单调增大，C 正确。"
+    },
+    {
+      "option": "D",
+      "title": "底板对货物的支持力一直增大",
+      "thinking": "支持力必须垂直接触面。把重力分解到随推车转动的两条正交方向，就能直接得到两个支持力。",
+      "formula": "\\[N_\\text{支}=mg\\sin\\alpha,\\qquad N_\\text{底}=mg\\cos\\alpha,\\qquad \\vec N_\\text{支}+\\vec N_\\text{底}=-m\\vec g\\]",
+      "judgment": "\\(\\cos\\alpha\\) 单调减小，底板支持力减小，D 错误。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：双光滑接触的失效顺序",
+    "question": "质量为 \\(m\\) 的方块同时接触互相垂直的光滑底板与支架，底板倾角 \\(\\alpha\\) 从 \\(0\\) 缓慢增大到 \\(100^\\circ\\)。在假定两接触均存在时求两支持力，并用支持力非负条件判断哪一接触先失效及其临界角。",
+    "answer": "**假定接触存在**\n\n\\(N_\\text{支}=mg\\sin\\alpha\\)，\\(N_\\text{底}=mg\\cos\\alpha\\)。\n\n**非负条件**\n\n当 \\(0\\le\\alpha\\le90^\\circ\\) 时两力均非负；到 \\(\\alpha=90^\\circ\\) 时 \\(N_\\text{底}=0\\)。继续增大角度会要求底板提供拉力，不可能，因此方块先失去底板接触。",
+    "thinking": "**解题思路**\n\n先按约束存在列方程，再用法向力必须非负检验。接触临界就是对应支持力等于零。"
+  }
+}

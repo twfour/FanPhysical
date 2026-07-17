@@ -1,0 +1,111 @@
+{
+  "id": "spring_test_single_01_marathon",
+  "originalNumber": "单1",
+  "chapter": "必修一结业测试",
+  "title": "单选第1题：半程马拉松概念辨析",
+  "question": "男子半程马拉松新国家纪录在厦门诞生。2022 年 12 月 18 日早上 7 点 30 分鸣枪，选手彭建华以 1 小时 02 分 30 秒跑完 21 km 的赛程。下列说法正确的是（　　）。",
+  "options": [
+    "A. ‘7 点 30 分’表示的是时刻",
+    "B. ‘21 km’表示此次行程的位移大小",
+    "C. 彭建华全程的平均速度约为 21 km/h",
+    "D. ‘km’为国际单位制中的基本单位"
+  ],
+  "answer": "A",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_one_test_model",
+    "variant": "spring_test_01_marathon",
+    "playable": true,
+    "interactive": true,
+    "notes": "沿赛道显示路程随时间累积，并区分路程、位移与平均速度。",
+    "params": {
+      "distance": {
+        "label": "赛程",
+        "value": 21,
+        "min": 5,
+        "max": 42,
+        "step": 1,
+        "unit": "km"
+      },
+      "duration": {
+        "label": "用时",
+        "value": 62.5,
+        "min": 30,
+        "max": 150,
+        "step": 0.5,
+        "unit": "min"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "时刻与时间间隔",
+    "路程与位移",
+    "平均速度",
+    "国际单位制"
+  ],
+  "steps": [
+    {
+      "title": "辨认时刻",
+      "content": "‘7 点 30 分’对应时间轴上的一个点，是时刻；‘1 小时 02 分 30 秒’才是时间间隔。"
+    },
+    {
+      "title": "区分路程和位移",
+      "content": "题目给出的 \\(21\\,\\mathrm{km}\\) 是赛程长度，即路程。没有终点相对起点的位置，不能把它直接当作位移大小。"
+    },
+    {
+      "title": "检查平均速度",
+      "content": "平均速度定义为位移与时间之比：\\(\\bar{\\vec v}=\\Delta\\vec r/\\Delta t\\)。题目只能算平均速率，不能确定平均速度。"
+    },
+    {
+      "title": "核对单位制",
+      "content": "国际单位制的长度基本单位是 \\(\\mathrm m\\)，\\(\\mathrm{km}\\) 是带词头的长度单位。故只有 A 正确。"
+    }
+  ],
+  "analysis": {
+    "title": "单选第1题分项解析"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "‘7 点 30 分’表示的是时刻",
+      "thinking": "分别从时间轴、位移定义、平均速度定义和国际单位制四个概念核对，不把日常语言中的‘速度’混作物理量。",
+      "formula": "\\[t_\\text{时刻}=7{:}30\\]",
+      "judgment": "‘7 点 30 分’是时间轴上的瞬间，A 正确。"
+    },
+    {
+      "option": "B",
+      "title": "‘21 km’表示此次行程的位移大小",
+      "thinking": "分别从时间轴、位移定义、平均速度定义和国际单位制四个概念核对，不把日常语言中的‘速度’混作物理量。",
+      "formula": "\\[s\\ne |\\Delta\\vec r|\\quad\\text{（一般情况）}\\]",
+      "judgment": "21 km 是沿路线累计的路程，不是由起点直接指向终点的位移，B 错误。"
+    },
+    {
+      "option": "C",
+      "title": "彭建华全程的平均速度约为 21 km/h",
+      "thinking": "分别从时间轴、位移定义、平均速度定义和国际单位制四个概念核对，不把日常语言中的‘速度’混作物理量。",
+      "formula": "\\[\\bar{\\vec v}=\\frac{\\Delta\\vec r}{\\Delta t}\\]",
+      "judgment": "缺少位移信息，不能求平均速度；即使算平均速率也约为 \\(20.16\\,\\mathrm{km/h}\\)，C 错误。"
+    },
+    {
+      "option": "D",
+      "title": "‘km’为国际单位制中的基本单位",
+      "thinking": "分别从时间轴、位移定义、平均速度定义和国际单位制四个概念核对，不把日常语言中的‘速度’混作物理量。",
+      "formula": "\\[1\\,\\mathrm{km}=10^3\\,\\mathrm m\\]",
+      "judgment": "国际单位制长度基本单位为米，D 错误。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：圆形赛道上的路程与平均速度",
+    "question": "运动员沿半径为 \\(50\\,\\mathrm m\\) 的圆形跑道匀速跑完 \\(2.5\\) 圈，用时 \\(500\\,\\mathrm s\\)。求路程、位移大小、平均速率和平均速度大小，并说明平均速度方向。",
+    "answer": "**路程**\n\n\\(s=2.5\\times2\\pi R=250\\pi\\,\\mathrm m\\)。\n\n**位移**\n\n终点在起点对径处，故 \\(|\\Delta\\vec r|=2R=100\\,\\mathrm m\\)。\n\n**平均量**\n\n\\(\\bar v_s=s/t=\\pi/2\\,\\mathrm{m/s}\\)，\\(|\\bar{\\vec v}|=|\\Delta\\vec r|/t=0.20\\,\\mathrm{m/s}\\)，方向由起点指向终点。",
+    "thinking": "**解题思路**\n\n先用圈数计算轨迹长度，再根据终点位置画位移矢量。平均速率用路程，平均速度用位移，二者不能共用同一个分子。"
+  }
+}

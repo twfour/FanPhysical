@@ -1,0 +1,111 @@
+{
+  "id": "spring_test_single_14_spring_cases",
+  "originalNumber": "单14",
+  "chapter": "必修一结业测试",
+  "title": "单选第14题：弹簧连接体三种方向",
+  "question": "轻质弹簧连接物块 a、b。图 I 中两物块在水平轨道上，图 II 中两物块在固定斜面上，图 III 中两物块竖直放置。三种情形均沿图示方向用大小恒定的力 \\(F\\) 拉 a，使 a、b 一起做匀加速直线运动。加速度大小分别为 \\(a_1,a_2,a_3\\)，弹簧伸长量分别为 \\(x_1,x_2,x_3\\)，不计摩擦。下列关系正确的是（　　）。",
+  "options": [
+    "A. \\(a_1\\gt a_2\\gt a_3\\)，且 \\(x_1=x_2=x_3\\)",
+    "B. \\(a_1\\gt a_3\\gt a_2\\)，且 \\(x_1\\gt x_3\\gt x_2\\)",
+    "C. \\(a_2\\gt a_1\\gt a_3\\)，且 \\(x_1=x_2=x_3\\)",
+    "D. \\(a_3\\gt a_2\\gt a_1\\)，且 \\(x_1\\gt x_3\\gt x_2\\)"
+  ],
+  "answer": "A",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_one_test_model",
+    "variant": "spring_test_14_spring_cases",
+    "playable": true,
+    "interactive": true,
+    "notes": "并列显示水平、斜面、竖直三种连接体；加速度不同而弹簧伸长相同。",
+    "params": {
+      "force": {
+        "label": "拉力",
+        "value": 30,
+        "min": 15,
+        "max": 60,
+        "step": 1,
+        "unit": "N"
+      },
+      "slopeAngle": {
+        "label": "斜面角",
+        "value": 30,
+        "min": 15,
+        "max": 50,
+        "step": 1,
+        "unit": "deg"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "连接体整体法",
+    "弹簧隔离法",
+    "牛顿第二定律",
+    "重力分量"
+  ],
+  "steps": [
+    {
+      "title": "整体求加速度",
+      "content": "设两物块总质量为 \\(M\\)。水平时 \\(a_1=F/M\\)，斜面上拉时 \\(a_2=F/M-g\\sin\\theta\\)，竖直上拉时 \\(a_3=F/M-g\\)。"
+    },
+    {
+      "title": "比较加速度",
+      "content": "因 \\(0\\lt\\sin\\theta\\lt1\\)，故 \\(a_1\\gt a_2\\gt a_3\\)。"
+    },
+    {
+      "title": "隔离物块 b",
+      "content": "设 b 的质量为 \\(m_b\\)，运动方向上的重力分量为 \\(m_bg_\\parallel\\)。有 \\(kx-m_bg_\\parallel=m_ba\\)。"
+    },
+    {
+      "title": "代回整体结果",
+      "content": "而 \\(a=F/M-g_\\parallel\\)，故 \\(kx=m_bF/M\\)，与轨道方向无关，所以 \\(x_1=x_2=x_3\\)。选 A。"
+    }
+  ],
+  "analysis": {
+    "title": "单选第14题分项解析"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(a_1\\gt a_2\\gt a_3\\)，且 \\(x_1=x_2=x_3\\)",
+      "thinking": "加速度用整体法，弹簧伸长用隔离 b。把整体加速度代回隔离方程，重力分量会抵消。",
+      "formula": "\\[a=\\frac FM-g_\\parallel,\\qquad kx-m_bg_\\parallel=m_ba\\Rightarrow kx=\\frac{m_bF}{M}\\]",
+      "judgment": "加速度依次减小，而三种弹簧伸长相等，A 正确。"
+    },
+    {
+      "option": "B",
+      "title": "\\(a_1\\gt a_3\\gt a_2\\)，且 \\(x_1\\gt x_3\\gt x_2\\)",
+      "thinking": "加速度用整体法，弹簧伸长用隔离 b。把整体加速度代回隔离方程，重力分量会抵消。",
+      "formula": "\\[a=\\frac FM-g_\\parallel,\\qquad kx-m_bg_\\parallel=m_ba\\Rightarrow kx=\\frac{m_bF}{M}\\]",
+      "judgment": "斜面重力分量小于竖直重力分量，故 \\(a_2\\gt a_3\\)，且伸长量不分大小，B 错误。"
+    },
+    {
+      "option": "C",
+      "title": "\\(a_2\\gt a_1\\gt a_3\\)，且 \\(x_1=x_2=x_3\\)",
+      "thinking": "加速度用整体法，弹簧伸长用隔离 b。把整体加速度代回隔离方程，重力分量会抵消。",
+      "formula": "\\[a=\\frac FM-g_\\parallel,\\qquad kx-m_bg_\\parallel=m_ba\\Rightarrow kx=\\frac{m_bF}{M}\\]",
+      "judgment": "水平情形没有反向重力分量，应有最大加速度，C 错误。"
+    },
+    {
+      "option": "D",
+      "title": "\\(a_3\\gt a_2\\gt a_1\\)，且 \\(x_1\\gt x_3\\gt x_2\\)",
+      "thinking": "加速度用整体法，弹簧伸长用隔离 b。把整体加速度代回隔离方程，重力分量会抵消。",
+      "formula": "\\[a=\\frac FM-g_\\parallel,\\qquad kx-m_bg_\\parallel=m_ba\\Rightarrow kx=\\frac{m_bF}{M}\\]",
+      "judgment": "竖直上拉加速度最小，且伸长量相等，D 错误。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：任意方向连接体的伸长不变量",
+    "question": "质量分别为 \\(m_a,m_b\\) 的两物块由劲度系数为 \\(k\\) 的轻弹簧连接，在一条与重力方向成任意角度的光滑直轨上运动。沿轨道方向用恒力 \\(F\\) 拉 \\(a\\)。证明稳定匀加速阶段的弹簧伸长与轨道方向无关，并求其值。",
+    "answer": "**整体加速度**\n\n令重力沿运动反方向分量为 \\(g_\\parallel\\)，则 \\(a=F/(m_a+m_b)-g_\\parallel\\)。\n\n**隔离 b**\n\n\\(kx-m_bg_\\parallel=m_ba\\)。代入得 \\(kx=m_bF/(m_a+m_b)\\)，所以 \\(x=m_bF/[k(m_a+m_b)]\\)，与 \\(g_\\parallel\\) 无关。",
+    "thinking": "**解题思路**\n\n同一个重力分量既影响整体加速度，也直接作用在 b 上；代回后恰好抵消。这比逐个方向分别计算更能看出不变量。"
+  }
+}

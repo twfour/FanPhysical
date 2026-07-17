@@ -1,0 +1,111 @@
+{
+  "id": "spring_test_single_06_nail_basket",
+  "originalNumber": "单6",
+  "chapter": "必修一结业测试",
+  "title": "单选第6题：双钉悬篮调节",
+  "question": "竖直墙面上有不等高的固定钉 A、B，一根轻绳依次绕过 A、B 后，两端悬挂同一吊篮。现把 B 竖直下移到 C，使 A、C 等高且 C 在 B 的正下方，再用原绳重新悬挂。细绳始终在同一竖直平面内，不计绳与钉间摩擦。下列说法正确的是（　　）。",
+  "options": [
+    "A. 调整后细绳张力比调整前小",
+    "B. 调整后细绳张力比调整前大",
+    "C. 调整后细绳对两个钉子的总作用力大小比调整前小",
+    "D. 调整后细绳对两个钉子的总作用力大小比调整前大"
+  ],
+  "answer": "A",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_one_test_model",
+    "variant": "spring_test_06_nail_basket",
+    "playable": true,
+    "interactive": true,
+    "notes": "并列显示调节前后绳路：上段缩短会使两条悬挂支路变长并更接近竖直。",
+    "params": {
+      "heightDiff": {
+        "label": "钉高差",
+        "value": 1.2,
+        "min": 0,
+        "max": 2.5,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "span": {
+        "label": "水平间距",
+        "value": 3,
+        "min": 2,
+        "max": 5,
+        "step": 0.1,
+        "unit": "m"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "同绳张力",
+    "几何约束",
+    "共点力平衡",
+    "整体法"
+  ],
+  "steps": [
+    {
+      "title": "比较上方绳段",
+      "content": "A、B 水平距离不变。调整前 \\(AB=\\sqrt{d^2+h^2}\\)，调整后 \\(AC=d\\)，故上方绳段缩短。"
+    },
+    {
+      "title": "利用绳长不变",
+      "content": "原绳总长不变，所以上方绳段缩短的长度转移到两条悬挂支路，使 V 形支路总长增加。"
+    },
+    {
+      "title": "比较支路角度和张力",
+      "content": "两支路张力相等，吊篮平衡要求它们与竖直方向夹角相同。水平跨度固定而支路变长，夹角 \\(\\alpha\\) 变小。由 \\(2T\\cos\\alpha=Mg\\)，张力减小。"
+    },
+    {
+      "title": "检查钉子总受力",
+      "content": "把整根轻绳作为研究对象，吊篮对绳的合力与两钉对绳的合力始终平衡，因此两个钉子所受绳的总作用力矢量大小不变。故选 A。"
+    }
+  ],
+  "analysis": {
+    "title": "单选第6题分项解析"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "调整后细绳张力比调整前小",
+      "thinking": "先用总绳长判断悬挂支路的长度和角度，再由吊篮竖直平衡比较张力；总作用力要对整根绳使用整体法。",
+      "formula": "\\[AB=\\sqrt{d^2+h^2}\\gt d=AC,\\qquad 2T\\cos\\alpha=Mg\\]",
+      "judgment": "调节后 \\(\\alpha\\) 变小、\\(\\cos\\alpha\\) 变大，故 \\(T\\) 变小，A 正确。"
+    },
+    {
+      "option": "B",
+      "title": "调整后细绳张力比调整前大",
+      "thinking": "先用总绳长判断悬挂支路的长度和角度，再由吊篮竖直平衡比较张力；总作用力要对整根绳使用整体法。",
+      "formula": "\\[AB=\\sqrt{d^2+h^2}\\gt d=AC,\\qquad 2T\\cos\\alpha=Mg\\]",
+      "judgment": "张力实际减小，B 错误。"
+    },
+    {
+      "option": "C",
+      "title": "调整后细绳对两个钉子的总作用力大小比调整前小",
+      "thinking": "先用总绳长判断悬挂支路的长度和角度，再由吊篮竖直平衡比较张力；总作用力要对整根绳使用整体法。",
+      "formula": "\\[AB=\\sqrt{d^2+h^2}\\gt d=AC,\\qquad 2T\\cos\\alpha=Mg\\]",
+      "judgment": "两钉所受绳的总作用力矢量仍与吊篮重力等大，C 错误。"
+    },
+    {
+      "option": "D",
+      "title": "调整后细绳对两个钉子的总作用力大小比调整前大",
+      "thinking": "先用总绳长判断悬挂支路的长度和角度，再由吊篮竖直平衡比较张力；总作用力要对整根绳使用整体法。",
+      "formula": "\\[AB=\\sqrt{d^2+h^2}\\gt d=AC,\\qquad 2T\\cos\\alpha=Mg\\]",
+      "judgment": "总作用力矢量大小不变，并不增大，D 错误。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：可移动支点与绳长约束",
+    "question": "两固定支点水平间距为 \\(d\\)、初始高差为 \\(h\\)，轻绳依次绕过两点且两端共同悬挂质量为 \\(M\\) 的重物。设重物两侧绳与竖直夹角均为 \\(\\alpha\\)，总绳长为 \\(L\\)。写出 \\(\\alpha\\) 与 \\(d,h,L\\) 的关系；求张力，并讨论支点高差连续减小时张力的单调性。",
+    "answer": "**绳长约束**\n\n上方绳段为 \\(\\sqrt{d^2+h^2}\\)，两悬挂支路总长 \\(S=L-\\sqrt{d^2+h^2}\\)。由水平投影得 \\(S\\sin\\alpha=d\\)，故 \\(\\sin\\alpha=d/S\\)。\n\n**张力**\n\n\\(T=Mg/(2\\cos\\alpha)\\)。\n\n**单调性**\n\n当 \\(h\\) 减小时，上方绳段缩短，\\(S\\) 增大，\\(\\sin\\alpha\\) 减小，因此 \\(T\\) 单调减小。",
+    "thinking": "**解题思路**\n\n把复杂绳路拆成‘支点间绳段’和‘两条悬挂支路’，先守恒总绳长，再用水平投影连接角度。"
+  }
+}

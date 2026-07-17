@@ -1,0 +1,119 @@
+{
+  "id": "spring_test_single_10_steel_coil",
+  "originalNumber": "单10",
+  "chapter": "必修一结业测试",
+  "title": "单选第10题：钢卷刹车离地临界",
+  "question": "半径为 \\(R\\) 的圆形钢卷放在货车水平车面上，未采用其他固定方式，只由前、后两个三角尖楔顶住下端。尖楔与钢卷接触点距车面高度为 \\(h\\)，尖楔相对车面不滑动，钢卷与尖楔间摩擦不计。货车急刹时，为保证钢卷不离开车面，刹车加速度大小不能超过（　　）。",
+  "options": [
+    "A. \\(\\frac{g\\sqrt{2Rh-h^2}}{R-h}\\)",
+    "B. \\(\\frac{g(R-h)}{R}\\)",
+    "C. \\(\\frac{g\\sqrt{2Rh-h^2}}{R}\\)",
+    "D. \\(\\frac{g\\sqrt{R^2-h^2}}{R-h}\\)"
+  ],
+  "answer": "A",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_one_test_model",
+    "variant": "spring_test_10_steel_coil",
+    "playable": true,
+    "interactive": true,
+    "notes": "用惯性力、重力和尖楔支持力显示钢卷离开车面的临界。",
+    "params": {
+      "radius": {
+        "label": "钢卷半径",
+        "value": 1,
+        "min": 0.6,
+        "max": 2,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "contactHeight": {
+        "label": "接触点高度比",
+        "value": 0.4,
+        "min": 0.15,
+        "max": 0.8,
+        "step": 0.05,
+        "unit": "R"
+      },
+      "accel": {
+        "label": "刹车加速度",
+        "value": 6,
+        "min": 0,
+        "max": 15,
+        "step": 0.5,
+        "unit": "m/s^2"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "加速参考系",
+    "临界离地",
+    "圆几何",
+    "共点力平衡"
+  ],
+  "steps": [
+    {
+      "title": "作接触几何",
+      "content": "钢卷圆心高为 \\(R\\)。接触点与圆心的竖直距离为 \\(R-h\\)，水平距离为 \\(x=\\sqrt{R^2-(R-h)^2}=\\sqrt{2Rh-h^2}\\)。"
+    },
+    {
+      "title": "确定临界状态",
+      "content": "刹车参考系中钢卷受向前的惯性力 \\(ma\\)。刚要离开车面时，车面对钢卷的支持力为零。"
+    },
+    {
+      "title": "分解尖楔支持力",
+      "content": "尖楔支持力通过圆心。由水平、竖直平衡，有 \\(N x/R=ma\\)，\\(N(R-h)/R=mg\\)。"
+    },
+    {
+      "title": "求加速度上限",
+      "content": "两式相除得 \\(a/g=x/(R-h)\\)，故 \\(a_{\\max}=g\\sqrt{2Rh-h^2}/(R-h)\\)，选 A。"
+    }
+  ],
+  "analysis": {
+    "title": "单选第10题分项解析"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(\\frac{g\\sqrt{2Rh-h^2}}{R-h}\\)",
+      "thinking": "先由圆几何求接触法线的水平、竖直投影，再在刹车参考系中令车面支持力恰为零。",
+      "formula": "\\[x=\\sqrt{2Rh-h^2},\\qquad \\frac{a_{\\max}}g=\\frac{x}{R-h}\\]",
+      "judgment": "该式同时包含接触法线的水平投影和竖直投影，A 正确。"
+    },
+    {
+      "option": "B",
+      "title": "\\(\\frac{g(R-h)}{R}\\)",
+      "thinking": "先由圆几何求接触法线的水平、竖直投影，再在刹车参考系中令车面支持力恰为零。",
+      "formula": "\\[x=\\sqrt{2Rh-h^2},\\qquad \\frac{a_{\\max}}g=\\frac{x}{R-h}\\]",
+      "judgment": "只保留了竖直距离比例，遗漏圆周几何的水平投影，B 错误。"
+    },
+    {
+      "option": "C",
+      "title": "\\(\\frac{g\\sqrt{2Rh-h^2}}{R}\\)",
+      "thinking": "先由圆几何求接触法线的水平、竖直投影，再在刹车参考系中令车面支持力恰为零。",
+      "formula": "\\[x=\\sqrt{2Rh-h^2},\\qquad \\frac{a_{\\max}}g=\\frac{x}{R-h}\\]",
+      "judgment": "分母应为接触点到圆心的竖直距离 \\(R-h\\)，C 错误。"
+    },
+    {
+      "option": "D",
+      "title": "\\(\\frac{g\\sqrt{R^2-h^2}}{R-h}\\)",
+      "thinking": "先由圆几何求接触法线的水平、竖直投影，再在刹车参考系中令车面支持力恰为零。",
+      "formula": "\\[x=\\sqrt{2Rh-h^2},\\qquad \\frac{a_{\\max}}g=\\frac{x}{R-h}\\]",
+      "judgment": "水平距离应由 \\(R^2-(R-h)^2\\) 得到，而不是 \\(R^2-h^2\\)，D 错误。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：由接触角统一钢卷临界",
+    "question": "圆柱形货物由水平车面和前方光滑挡块共同约束。挡块支持力方向与竖直方向夹角为 \\(\\varphi\\)。货车刹车时，求货物不离开车面的最大减速度；再把 \\(\\varphi\\) 用圆半径 \\(R\\) 和接触点高度 \\(h\\) 表示。",
+    "answer": "**力学临界**\n\n离地临界时挡块支持力的竖直分量平衡重力、水平分量平衡惯性力，因此 \\(a_{\\max}=g\\tan\\varphi\\)。\n\n**圆几何**\n\n\\(\\tan\\varphi=\\sqrt{2Rh-h^2}/(R-h)\\)，代回即得原题通式。",
+    "thinking": "**解题思路**\n\n先把几何信息压缩成支持力方向角，再做两力分解。这样同一结论可直接迁移到不同形状的挡块。"
+  }
+}

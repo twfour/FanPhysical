@@ -1,0 +1,111 @@
+{
+  "id": "spring_test_single_05_light_chain",
+  "originalNumber": "单5",
+  "chapter": "必修一结业测试",
+  "title": "单选第5题：五彩灯绳系平衡",
+  "question": "五个质量均为 \\(m\\) 的小彩灯由轻绳依次连接并静止。天花板与彩灯 1 间的细绳同竖直方向夹角 \\(\\theta_1=30^\\circ\\)，连接彩灯 2、3 的细绳同水平方向夹角为 \\(\\theta_2\\)，彩灯 5 右侧受水平恒力 \\(F\\)。下列说法错误的是（　　）。",
+  "options": [
+    "A. 连接天花板和彩灯 1 的细绳拉力为 \\(\\frac{10\\sqrt3}{3}mg\\)",
+    "B. \\(\\theta_2=45^\\circ\\)",
+    "C. 水平恒力 \\(F=\\frac{5\\sqrt3}{3}mg\\)",
+    "D. 保持 \\(F\\) 方向不变并缓慢增大 \\(\\theta_1\\)，则 \\(F\\) 持续增大"
+  ],
+  "answer": "B",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_one_test_model",
+    "variant": "spring_test_05_light_chain",
+    "playable": true,
+    "interactive": true,
+    "notes": "用整体法显示顶部拉力分量，并用截取后三盏灯的方法求中段绳角。",
+    "params": {
+      "theta": {
+        "label": "顶部夹角",
+        "value": 30,
+        "min": 10,
+        "max": 55,
+        "step": 1,
+        "unit": "deg"
+      },
+      "count": {
+        "label": "彩灯数",
+        "value": 5,
+        "min": 3,
+        "max": 8,
+        "step": 1,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "多结点平衡",
+    "整体法",
+    "隔离法",
+    "绳张力"
+  ],
+  "steps": [
+    {
+      "title": "整体法",
+      "content": "把五盏灯整体作为研究对象，外力只有总重力 \\(5mg\\)、顶部绳拉力 \\(T_1\\) 和水平力 \\(F\\)。"
+    },
+    {
+      "title": "求顶部拉力与水平力",
+      "content": "竖直、水平平衡分别给出 \\(T_1\\cos30^\\circ=5mg\\)、\\(F=T_1\\sin30^\\circ\\)，故 \\(T_1=10\\sqrt3mg/3\\)，\\(F=5\\sqrt3mg/3\\)。"
+    },
+    {
+      "title": "隔离后三盏灯",
+      "content": "截取彩灯 3、4、5，有 \\(T_{23}\\sin\\theta_2=3mg\\)、\\(T_{23}\\cos\\theta_2=F\\)，所以 \\(\\tan\\theta_2=3\\sqrt3/5\\)，并非 \\(45^\\circ\\)。"
+    },
+    {
+      "title": "讨论角度变化",
+      "content": "一般有 \\(F=5mg\\tan\\theta_1\\)，在 \\(0\\lt\\theta_1\\lt90^\\circ\\) 内随角度单调增大。故错误项为 B。"
+    }
+  ],
+  "analysis": {
+    "title": "单选第5题分项解析"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "连接天花板和彩灯 1 的细绳拉力为 \\(\\frac{10\\sqrt3}{3}mg\\)",
+      "thinking": "先对全部彩灯用整体法求顶部张力和外力，再截取绳链右端若干盏灯求中段绳的方向。",
+      "formula": "\\[T_1\\cos\\theta_1=5mg,\\quad F=T_1\\sin\\theta_1,\\quad \\tan\\theta_2=\\frac{3mg}{F}\\]",
+      "judgment": "由竖直平衡可得题给拉力，A 正确。"
+    },
+    {
+      "option": "B",
+      "title": "\\(\\theta_2=45^\\circ\\)",
+      "thinking": "先对全部彩灯用整体法求顶部张力和外力，再截取绳链右端若干盏灯求中段绳的方向。",
+      "formula": "\\[T_1\\cos\\theta_1=5mg,\\quad F=T_1\\sin\\theta_1,\\quad \\tan\\theta_2=\\frac{3mg}{F}\\]",
+      "judgment": "\\(\\tan\\theta_2=3\\sqrt3/5\\ne1\\)，故 \\(\\theta_2\\ne45^\\circ\\)，B 错误，符合题问。"
+    },
+    {
+      "option": "C",
+      "title": "水平恒力 \\(F=\\frac{5\\sqrt3}{3}mg\\)",
+      "thinking": "先对全部彩灯用整体法求顶部张力和外力，再截取绳链右端若干盏灯求中段绳的方向。",
+      "formula": "\\[T_1\\cos\\theta_1=5mg,\\quad F=T_1\\sin\\theta_1,\\quad \\tan\\theta_2=\\frac{3mg}{F}\\]",
+      "judgment": "由整体水平平衡得 \\(F=5\\sqrt3mg/3\\)，C 正确。"
+    },
+    {
+      "option": "D",
+      "title": "保持 \\(F\\) 方向不变并缓慢增大 \\(\\theta_1\\)，则 \\(F\\) 持续增大",
+      "thinking": "先对全部彩灯用整体法求顶部张力和外力，再截取绳链右端若干盏灯求中段绳的方向。",
+      "formula": "\\[T_1\\cos\\theta_1=5mg,\\quad F=T_1\\sin\\theta_1,\\quad \\tan\\theta_2=\\frac{3mg}{F}\\]",
+      "judgment": "\\(F=5mg\\tan\\theta_1\\) 随 \\(\\theta_1\\) 增大，D 正确。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：N 盏灯绳链的任意截面",
+    "question": "\\(N\\) 盏质量均为 \\(m\\) 的灯由轻绳串联静止，最右端受水平力 \\(F\\)。顶部绳与竖直夹角为 \\(\\alpha\\)。求 \\(F\\) 和顶部张力；再求连接第 \\(q\\) 与第 \\(q+1\\) 盏灯的绳同水平方向夹角 \\(\\beta_q\\)。",
+    "answer": "**整体平衡**\n\n\\(T_0\\cos\\alpha=Nmg\\)，\\(F=T_0\\sin\\alpha\\)，故 \\(T_0=Nmg/\\cos\\alpha\\)，\\(F=Nmg\\tan\\alpha\\)。\n\n**截取右端**\n\n第 \\(q+1\\) 至第 \\(N\\) 盏共有 \\(N-q\\) 盏，故 \\(\\tan\\beta_q=(N-q)mg/F=(N-q)/(N\\tan\\alpha)\\)。",
+    "thinking": "**解题思路**\n\n求外力优先用整体法，求某段绳方向则在该处切开并隔离右端。这样方程数最少，也不会在多个结点间重复传递张力。"
+  }
+}

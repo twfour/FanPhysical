@@ -134,6 +134,7 @@ var knowledgePointMap = {
 var problemDataMap = {};
 var problemDataList = [];
 var promotedProblemChapterMap = {
+  "必修一结业测试": true,
   "曲线运动": true,
   "平抛运动": true,
   "圆周运动": true,
@@ -2264,6 +2265,9 @@ function drawJsonAnimationScene() {
   } else if (animation.type === "functional_relation_model") {
     drawAnimScene(drawFunctionalRelationModelScene);
     drawFunctionalRelationModelGraph();
+  } else if (animation.type === "required_one_test_model") {
+    drawAnimScene(drawRequiredOneTestScene);
+    drawRequiredOneTestGraph();
   } else {
     drawAnimScene(drawJsonPlaceholderScene);
     drawJsonPlaceholderGraph();

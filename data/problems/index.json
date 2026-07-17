@@ -118,6 +118,74 @@
       "file": "projectile_basic.json"
     },
     {
+      "id": "spring_test_single_01_marathon",
+      "file": "spring_test_single_01_marathon.json"
+    },
+    {
+      "id": "spring_test_single_02_grid_slide",
+      "file": "spring_test_single_02_grid_slide.json"
+    },
+    {
+      "id": "spring_test_single_04_curved_slope",
+      "file": "spring_test_single_04_curved_slope.json"
+    },
+    {
+      "id": "spring_test_single_05_light_chain",
+      "file": "spring_test_single_05_light_chain.json"
+    },
+    {
+      "id": "spring_test_single_06_nail_basket",
+      "file": "spring_test_single_06_nail_basket.json"
+    },
+    {
+      "id": "spring_test_single_07_incline_lift",
+      "file": "spring_test_single_07_incline_lift.json"
+    },
+    {
+      "id": "spring_test_single_08_handcart",
+      "file": "spring_test_single_08_handcart.json"
+    },
+    {
+      "id": "spring_test_single_09_circle_groove",
+      "file": "spring_test_single_09_circle_groove.json"
+    },
+    {
+      "id": "spring_test_single_10_steel_coil",
+      "file": "spring_test_single_10_steel_coil.json"
+    },
+    {
+      "id": "spring_test_single_11_force_sensor",
+      "file": "spring_test_single_11_force_sensor.json"
+    },
+    {
+      "id": "spring_test_single_12_cable_car",
+      "file": "spring_test_single_12_cable_car.json"
+    },
+    {
+      "id": "spring_test_single_13_stacked_plates",
+      "file": "spring_test_single_13_stacked_plates.json"
+    },
+    {
+      "id": "spring_test_single_14_spring_cases",
+      "file": "spring_test_single_14_spring_cases.json"
+    },
+    {
+      "id": "spring_test_single_15_braking_graph",
+      "file": "spring_test_single_15_braking_graph.json"
+    },
+    {
+      "id": "spring_test_solution_16_police_chase",
+      "file": "spring_test_solution_16_police_chase.json"
+    },
+    {
+      "id": "spring_test_solution_17_rocket",
+      "file": "spring_test_solution_17_rocket.json"
+    },
+    {
+      "id": "spring_test_solution_18_unloading",
+      "file": "spring_test_solution_18_unloading.json"
+    },
+    {
       "id": "mechanics_three_stacked_bodies",
       "file": "mechanics_three_stacked_bodies.json"
     },

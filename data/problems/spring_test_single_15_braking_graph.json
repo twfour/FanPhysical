@@ -1,0 +1,119 @@
+{
+  "id": "spring_test_single_15_braking_graph",
+  "originalNumber": "单15",
+  "chapter": "必修一结业测试",
+  "title": "单选第15题：刹车变换图像",
+  "question": "汽车匀速行驶时，驾驶员发现车头前方 \\(30\\,\\mathrm m\\) 处有动物横穿公路，经过 \\(0.2\\,\\mathrm s\\) 反应时间后刹车。刹车过程中汽车的 \\(x/t^2\\)-\\(1/t\\) 图像是一条直线，其纵轴截距为 \\(-1\\,\\mathrm{m/s^2}\\)，横轴截距为 \\(0.1\\,\\mathrm{s^{-1}}\\)。下列说法正确的是（　　）。",
+  "options": [
+    "A. 汽车刹车的加速度大小为 \\(1\\,\\mathrm{m/s^2}\\)",
+    "B. 汽车刹车后在 \\(10\\,\\mathrm s\\) 时停下来",
+    "C. 汽车最终没有撞上动物",
+    "D. 汽车刹车后 \\(6\\,\\mathrm s\\) 内行驶的位移大小为 \\(36\\,\\mathrm m\\)"
+  ],
+  "answer": "C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_one_test_model",
+    "variant": "spring_test_15_braking_graph",
+    "playable": true,
+    "interactive": true,
+    "notes": "汽车先按反应时间匀速，再匀减速；右图绘制 \\(x/t^2\\) 对 \\(1/t\\) 的直线。",
+    "params": {
+      "speed": {
+        "label": "初速度",
+        "value": 10,
+        "min": 5,
+        "max": 20,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "decel": {
+        "label": "刹车减速度",
+        "value": 2,
+        "min": 1,
+        "max": 5,
+        "step": 0.25,
+        "unit": "m/s^2"
+      },
+      "reaction": {
+        "label": "反应时间",
+        "value": 0.2,
+        "min": 0,
+        "max": 1,
+        "step": 0.05,
+        "unit": "s"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "匀变速图像变换",
+    "反应距离",
+    "刹车停止",
+    "安全距离"
+  ],
+  "steps": [
+    {
+      "title": "变换运动方程",
+      "content": "刹车位移满足 \\(x=v_0t+\\frac12at^2\\)。两边除以 \\(t^2\\)，得 \\(x/t^2=v_0(1/t)+a/2\\)。"
+    },
+    {
+      "title": "读出初速度和加速度",
+      "content": "纵截距 \\(a/2=-1\\)，故 \\(a=-2\\,\\mathrm{m/s^2}\\)。横截距满足 \\(0=0.1v_0-1\\)，故 \\(v_0=10\\,\\mathrm{m/s}\\)。"
+    },
+    {
+      "title": "求停车时间和距离",
+      "content": "刹车时间 \\(t_s=v_0/|a|=5\\,\\mathrm s\\)，刹车距离 \\(s_b=v_0^2/(2|a|)=25\\,\\mathrm m\\)。反应距离为 \\(s_r=v_0\\times0.2=2\\,\\mathrm m\\)。"
+    },
+    {
+      "title": "判断碰撞",
+      "content": "总停车距离 \\(27\\,\\mathrm m\\lt30\\,\\mathrm m\\)，汽车在动物前 \\(3\\,\\mathrm m\\) 停下，故 C 正确。"
+    }
+  ],
+  "analysis": {
+    "title": "单选第15题分项解析"
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "汽车刹车的加速度大小为 \\(1\\,\\mathrm{m/s^2}\\)",
+      "thinking": "先把图像的斜率、截距还原成 \\(v_0,a\\)，再检查物理停止时刻，不能把匀减速公式延伸到停车之后。",
+      "formula": "\\[\\frac{x}{t^2}=v_0\\frac1t+\\frac a2,\\qquad t_s=\\frac{v_0}{|a|},\\qquad s_b=\\frac{v_0^2}{2|a|}\\]",
+      "judgment": "纵截距是 \\(a/2\\)，故减速度大小为 \\(2\\,\\mathrm{m/s^2}\\)，A 错误。"
+    },
+    {
+      "option": "B",
+      "title": "汽车刹车后在 \\(10\\,\\mathrm s\\) 时停下来",
+      "thinking": "先把图像的斜率、截距还原成 \\(v_0,a\\)，再检查物理停止时刻，不能把匀减速公式延伸到停车之后。",
+      "formula": "\\[\\frac{x}{t^2}=v_0\\frac1t+\\frac a2,\\qquad t_s=\\frac{v_0}{|a|},\\qquad s_b=\\frac{v_0^2}{2|a|}\\]",
+      "judgment": "横轴截距不是停车时间；实际停车时间为 5 s，B 错误。"
+    },
+    {
+      "option": "C",
+      "title": "汽车最终没有撞上动物",
+      "thinking": "先把图像的斜率、截距还原成 \\(v_0,a\\)，再检查物理停止时刻，不能把匀减速公式延伸到停车之后。",
+      "formula": "\\[\\frac{x}{t^2}=v_0\\frac1t+\\frac a2,\\qquad t_s=\\frac{v_0}{|a|},\\qquad s_b=\\frac{v_0^2}{2|a|}\\]",
+      "judgment": "反应距离与刹车距离之和为 27 m，小于 30 m，C 正确。"
+    },
+    {
+      "option": "D",
+      "title": "汽车刹车后 \\(6\\,\\mathrm s\\) 内行驶的位移大小为 \\(36\\,\\mathrm m\\)",
+      "thinking": "先把图像的斜率、截距还原成 \\(v_0,a\\)，再检查物理停止时刻，不能把匀减速公式延伸到停车之后。",
+      "formula": "\\[\\frac{x}{t^2}=v_0\\frac1t+\\frac a2,\\qquad t_s=\\frac{v_0}{|a|},\\qquad s_b=\\frac{v_0^2}{2|a|}\\]",
+      "judgment": "刹车 5 s 后已停车，6 s 内刹车位移仍为 25 m，D 错误。"
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：由截距反推安全余量",
+    "question": "某车刹车阶段的 \\(x/t^2\\)-\\(1/t\\) 图像纵截距为 \\(-2\\,\\mathrm{m/s^2}\\)，横截距为 \\(0.20\\,\\mathrm{s^{-1}}\\)。驾驶员反应时间为 \\(0.30\\,\\mathrm s\\)，障碍物初距 \\(16.5\\,\\mathrm m\\)。求初速度、刹车加速度、总停车距离及安全余量。",
+    "answer": "**图像参数**\n\n\\(a/2=-2\\Rightarrow a=-4\\,\\mathrm{m/s^2}\\)。横截距给出 \\(0=0.20v_0-2\\)，故 \\(v_0=10\\,\\mathrm{m/s}\\)。\n\n**停车距离**\n\n反应距离 \\(3.0\\,\\mathrm m\\)，刹车距离 \\(v_0^2/(2|a|)=12.5\\,\\mathrm m\\)，总计 \\(15.5\\,\\mathrm m\\)。安全余量为 \\(1.0\\,\\mathrm m\\)。",
+    "thinking": "**解题思路**\n\n纵截距先乘 2 得加速度，横截距再反求初速度。最后把反应段和制动段分开计算。"
+  }
+}
