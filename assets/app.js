@@ -589,6 +589,7 @@ function renderProblemDataNotes(problem) {
     note.dataset.problemJson = "1";
     if (problem.notesHtml) {
       note.innerHTML = problem.notesHtml;
+      simplifyLegacySharedAnswerAnalysis(note, problem);
       return note;
     }
     note.innerHTML = "";
@@ -674,16 +675,114 @@ function appendProblemImages(block, images) {
   }
 }
 
+function getProblemOptionText(option) {
+  if (option && typeof option === "object") {
+    return String(option.text || option.label || option.title || "");
+  }
+  return String(option || "");
+}
+
+function getProblemOptionAnalysisMode(problem) {
+  var presentation = (problem && problem.analysisPresentation) || {};
+  var explicitMode = presentation.optionMode || presentation.optionAnalysisMode || "";
+  if (explicitMode === "shared-solution" || explicitMode === "independent-statements") {
+    return explicitMode;
+  }
+  var optionAnalyses = problem && Array.isArray(problem.optionAnalyses) ? problem.optionAnalyses : [];
+  var hasLegacyOptionAnalysis = Boolean(problem && problem.notesHtml && /分选项解析/.test(problem.notesHtml));
+  if (!optionAnalyses.length && !hasLegacyOptionAnalysis) {
+    return "shared-solution";
+  }
+  var question = String(problem.question || "");
+  var independentStem = /下列(?:说法|叙述|判断|选项)|(?:说法|叙述)中|关于[^。；]{0,40}(?:说法|叙述)|判断下列/i;
+  if (independentStem.test(question)) {
+    return "independent-statements";
+  }
+  var options = Array.isArray(problem.options) ? problem.options : [];
+  var compactAnswerCount = options.filter(function (option) {
+    var text = getProblemOptionText(option).replace(/^\s*[A-H][.．、:：]?\s*/i, "");
+    var chineseCount = (text.match(/[\u3400-\u9fff]/g) || []).length;
+    return chineseCount <= 6;
+  }).length;
+  if (options.length && compactAnswerCount / options.length >= 0.75) {
+    return "shared-solution";
+  }
+  var directAnswerStem = /(?:求|计算|确定)[^。；]{0,80}(?:值|大小|比值|范围|表达式|速度|时间|高度|距离|功率|功|加速度|角速度)|(?:判断|确定)[^。；]{0,100}(?:之间的关系|方向及关系)|(?:分别为|关系为|关系是)\s*[？?]?\s*$|(?:为|是|等于|不能超过|至少为|至多为|可能为)\s*[（(][^）)]*[）)]/i;
+  if (directAnswerStem.test(question)) {
+    return "shared-solution";
+  }
+  return "independent-statements";
+}
+
+function shouldUseProblemOptionAnalyses(problem) {
+  return Boolean(
+    problem &&
+    Array.isArray(problem.optionAnalyses) &&
+    problem.optionAnalyses.length &&
+    getProblemOptionAnalysisMode(problem) === "independent-statements"
+  );
+}
+
+function getProblemAnalysisItems(problem) {
+  if (!problem) {
+    return [];
+  }
+  if (shouldUseProblemOptionAnalyses(problem)) {
+    return problem.optionAnalyses.map(normalizeProblemOptionAnalysis);
+  }
+  return Array.isArray(problem.steps) ? problem.steps : [];
+}
+
+function getProblemAnalysisTitle(problem) {
+  var title = (problem.analysis && problem.analysis.title) || "分步解析";
+  if (!shouldUseProblemOptionAnalyses(problem)) {
+    title = title.replace(/分选项解析|逐选项解析|逐项解析|分项解析/g, "分步解析");
+  }
+  return title;
+}
+
+function simplifyLegacySharedAnswerAnalysis(note, problem) {
+  if (!note || getProblemOptionAnalysisMode(problem) !== "shared-solution") {
+    return;
+  }
+  var analysisBlock = note.querySelector('[data-analysis-block="1"]');
+  if (!analysisBlock) {
+    return;
+  }
+  var details = Array.prototype.slice.call(analysisBlock.querySelectorAll("details.analysis-step"));
+  var completeStep = details.find(function (item) {
+    var summary = item.querySelector("summary");
+    return summary && /完整(?:推导|解析|解题步骤)/.test(summary.innerText);
+  });
+  if (!completeStep) {
+    return;
+  }
+  details.forEach(function (item) {
+    if (item !== completeStep) {
+      item.remove();
+    }
+  });
+  var heading = analysisBlock.querySelector("h2");
+  if (heading) {
+    heading.innerText = "解题步骤";
+  }
+  var summary = completeStep.querySelector("summary");
+  if (summary) {
+    summary.innerText = "完整解题步骤";
+  }
+}
+
 function createProblemAnalysisBlock(problem) {
-  var block = createProblemNoteBlock("解析", (problem.analysis && problem.analysis.title) || "分步解析", "");
+  var useOptionAnalyses = shouldUseProblemOptionAnalyses(problem);
+  var block = createProblemNoteBlock("解析", getProblemAnalysisTitle(problem), "");
   var steps = Array.isArray(problem.steps) ? problem.steps : [];
   var optionAnalyses = Array.isArray(problem.optionAnalyses) ? problem.optionAnalyses : [];
   var presentation = problem.analysisPresentation || {};
   var content = problem.analysis && problem.analysis.content ? problem.analysis.content.trim() : "";
-  var analysisItems = optionAnalyses.length
+  var analysisItems = useOptionAnalyses
     ? optionAnalyses.map(normalizeProblemOptionAnalysis)
     : steps;
-  var collapseEachStep = presentation.collapseEachStep === true || optionAnalyses.length > 0;
+  var collapseEachStep = presentation.collapseEachStep === true || useOptionAnalyses;
   if (content && !analysisItems.length) {
     appendMarkdownChildren(block, content);
     return block;
@@ -697,7 +796,7 @@ function createProblemAnalysisBlock(problem) {
         stepWrap.dataset.collapsibleStep = "1";
         var summary = document.createElement("summary");
         summary.className = "analysis-step-summary";
-        summary.innerText = optionAnalyses.length
+        summary.innerText = useOptionAnalyses
           ? (step.title || "选项 " + (index + 1))
           : "步骤 " + (index + 1) + "：" + (step.title || "分析");
         stepWrap.appendChild(summary);
@@ -1576,12 +1675,7 @@ function getStepContext(paragraph, prompt, intent, fallbackStepIndex) {
     : (blockIndex > 0 ? blockIndex - 1 : (paragraph ? paragraphs.indexOf(paragraph) : fallbackStepIndex));
   var source = modelSourceMap[currentScene] || {};
   var problemData = problemDataMap[currentScene];
-  var optionAnalysisItems = problemData && Array.isArray(problemData.optionAnalyses)
-    ? problemData.optionAnalyses.map(normalizeProblemOptionAnalysis)
-    : [];
-  var problemAnalysisSteps = optionAnalysisItems.length
-    ? optionAnalysisItems
-    : (problemData && Array.isArray(problemData.steps) ? problemData.steps : []);
+  var problemAnalysisSteps = getProblemAnalysisItems(problemData);
   var heading = block ? block.querySelector("h2") : null;
   var kicker = block ? block.querySelector(".problem-note-kicker") : null;
   var isAnalysisOverview = problemData && problemData.analysis && block && block.dataset.analysisBlock === "1" && !analysisStep;
