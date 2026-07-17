@@ -1,3 +1,47 @@
+var riverWidth = 220;
+var riverBoatSpeed = 6;
+var riverWaterSpeed = 3;
+var riverTheta = 90;
+var riverT = 0;
+
+var waterfallWidth = 30;
+var waterfallDownstream = 40;
+var waterfallWaterSpeed = 10;
+var waterfallBoatSpeed = 6;
+var waterfallTheta = 126.9;
+var waterfallT = 0;
+
+var rainTrainV = 18;
+var rainDropV = 24;
+var rainDensity = 10;
+
+var forceNormal = 55;
+var forceTangential = 28;
+var forcePoint = 0.45;
+
+var composeVx0 = 24;
+var composeVy0 = 12;
+var composeAx = 3;
+var composeAy = -8;
+var composeT = 0;
+var composeMaxT = 8;
+
+var advRiverWidth = 200;
+var advBoatSpeed = 2;
+var advWaterSpeed = 4;
+var advRiverTheta = 120;
+var advRiverT = 0;
+
+var rodAlpha = 38;
+var rodVB = 24;
+
+var dualOmega = 1;
+var dualT = 0;
+
+var handAlpha = 45;
+var handLengthRatio = 3;
+var handT = 0;
+
 function riverVX() {
   return riverWaterSpeed + riverBoatSpeed * Math.cos(riverTheta * Math.PI / 180);
 }
@@ -20,26 +64,6 @@ function riverMinDisplacementAngle() {
     return null;
   }
   return Math.acos(-riverWaterSpeed / riverBoatSpeed) * 180 / Math.PI;
-}
-
-function toggleRiverPlay() {
-  if (!riverPlaying && riverT >= riverArriveTime() - 0.02) {
-    riverT = 0;
-  }
-  riverPlaying = !riverPlaying;
-  updateLabels();
-}
-
-
-function updateRiver(dt) {
-  if (riverPlaying) {
-    riverT += dt * 4;
-    if (riverT >= riverArriveTime()) {
-      riverT = 0;
-      riverPlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function drawRiverScene() {
@@ -243,25 +267,6 @@ function waterfallMinBoatSpeed() {
 
 function waterfallBestTheta() {
   return (waterfallBoundaryAngle() + Math.PI / 2) * 180 / Math.PI;
-}
-
-function toggleWaterfallPlay() {
-  if (!waterfallPlaying && waterfallT >= waterfallArriveTime() - 0.02) {
-    waterfallT = 0;
-  }
-  waterfallPlaying = !waterfallPlaying;
-  updateLabels();
-}
-
-function updateWaterfall(dt) {
-  if (waterfallPlaying) {
-    waterfallT += dt * 1.8;
-    if (waterfallT >= waterfallArriveTime()) {
-      waterfallT = 0;
-      waterfallPlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function drawWaterfallScene() {
@@ -587,26 +592,6 @@ function composeY(t) {
   return composeVy0 * t + 0.5 * composeAy * t * t;
 }
 
-function toggleComposePlay() {
-  if (!composePlaying && composeT >= composeMaxT - 0.02) {
-    composeT = 0;
-  }
-  composePlaying = !composePlaying;
-  updateLabels();
-}
-
-
-function updateCompose(dt) {
-  if (composePlaying) {
-    composeT += dt;
-    if (composeT >= composeMaxT) {
-      composeT = 0;
-      composePlaying = false;
-    }
-    updateLabels();
-  }
-}
-
 function drawComposeScene() {
   var minX = 0;
   var maxX = 1;
@@ -720,26 +705,6 @@ function advRiverBestTheta() {
     return Math.acos(-advWaterSpeed / advBoatSpeed) * 180 / Math.PI;
   }
   return Math.acos(-advBoatSpeed / advWaterSpeed) * 180 / Math.PI;
-}
-
-function toggleAdvRiverPlay() {
-  if (!advRiverPlaying && advRiverT >= advRiverArriveTime() - 0.02) {
-    advRiverT = 0;
-  }
-  advRiverPlaying = !advRiverPlaying;
-  updateLabels();
-}
-
-
-function updateAdvRiver(dt) {
-  if (advRiverPlaying) {
-    advRiverT += dt * 4;
-    if (advRiverT >= advRiverArriveTime()) {
-      advRiverT = 0;
-      advRiverPlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function drawAdvRiverScene() {
@@ -925,25 +890,6 @@ function dualCycleTime() {
   return 2 * Math.PI / Math.max(0.18, dualOmega);
 }
 
-function toggleDualConstraintPlay() {
-  if (!dualPlaying && dualT >= dualCycleTime() - 0.02) {
-    dualT = 0;
-  }
-  dualPlaying = !dualPlaying;
-  updateLabels();
-}
-
-function updateDualConstraint(dt) {
-  if (dualPlaying) {
-    dualT += dt * 1.2;
-    if (dualT >= dualCycleTime()) {
-      dualT = 0;
-      dualPlaying = false;
-    }
-    updateLabels();
-  }
-}
-
 function dualConstraintForces(omegaRatio) {
   var s1 = Math.sin(Math.PI / 6);
   var c1 = Math.cos(Math.PI / 6);
@@ -1077,25 +1023,6 @@ function handBreakFallTime() {
 
 function handSceneDuration() {
   return handConeCycleTime() + handBreakFallTime();
-}
-
-function toggleHandRopePlay() {
-  if (!handPlaying && handT >= handSceneDuration() - 0.02) {
-    handT = 0;
-  }
-  handPlaying = !handPlaying;
-  updateLabels();
-}
-
-function updateHandRope(dt) {
-  if (handPlaying) {
-    handT += dt * 1.2;
-    if (handT >= handSceneDuration()) {
-      handT = 0;
-      handPlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function drawHandRopeScene() {

@@ -4,6 +4,13 @@
 
 本记录用于保存 FanPhysical 题库可视化教学 demo 的当前状态，作为后续继续开发题库可视化的上下文。
 
+## 2026-07-17 结构升级
+
+- 已删除弹簧振子、单摆、布朗运动三个 Sample 演示及其专用代码。
+- 原先 25 个硬编码模型已统一改为 JSON 驱动：24 个模型保存在 `data/problems/visual-models.json`，平抛运动基础沿用 `data/problems/projectile_basic.json`。
+- JSON 负责题目内容、参数、播放状态和动画元数据；`assets/scenes/fanphysics-models.js` 将 JSON 状态接入各章节现有的题目专属绘图函数。
+- 主 HTML 不再保存这 25 个模型的独立控制区或题目块，页面加载后统一动态生成。
+
 ## Demo 文件
 
 主要产物是单文件 HTML：
@@ -21,7 +28,9 @@
 - Canvas 虚线使用 `drawingContext.setLineDash([4,4])`，不使用 SVG 的 `strokeDasharray/strokeDashoffset`
 - 绘制文字前注意 `noStroke()`，避免文字被残留 stroke 描边
 
-## 当前目录结构
+## 初始目录结构（历史记录）
+
+以下为 2026-06-14 的初始结构。`Sample` 下的弹簧振子、单摆和布朗运动演示已于 2026-07-17 从当前项目代码中移除。
 
 - `Sample`
   - 弹簧振子

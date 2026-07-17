@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PROBLEM_DIR = ROOT / "data" / "problems"
 INDEX_PATH = PROBLEM_DIR / "index.json"
+VISUAL_MODELS_PATH = PROBLEM_DIR / "visual-models.json"
 REQUIRED_PROBLEM_FIELDS = ["id", "chapter", "title", "question", "steps", "knowledge"]
 REQUIRED_STEP_FIELDS = ["title", "content"]
 
@@ -61,11 +62,34 @@ def main():
       if entry.get("id") and entry["id"] != problem_id:
           all_errors.append(f"index.json: id {entry['id']} does not match {file_name} id {problem_id}")
 
+    visual_model_count = 0
+    if VISUAL_MODELS_PATH.exists():
+        catalog = load_json(VISUAL_MODELS_PATH)
+        models = catalog.get("models", [])
+        if not isinstance(models, list):
+            all_errors.append("visual-models.json: models must be a list")
+        else:
+            visual_model_count = len(models)
+            for index, model in enumerate(models, start=1):
+                label = model.get("id") or f"item {index}"
+                for field in REQUIRED_PROBLEM_FIELDS:
+                    if field not in model:
+                        all_errors.append(f"visual-models.json: {label} missing field {field}")
+                if not model.get("notesHtml"):
+                    all_errors.append(f"visual-models.json: {label} missing notesHtml")
+                animation = model.get("animation", {})
+                if animation.get("type") != "fanphysics_model" or animation.get("enabled") is not True:
+                    all_errors.append(f"visual-models.json: {label} needs an enabled fanphysics_model animation")
+                model_id = model.get("id")
+                if model_id in seen_ids:
+                    all_errors.append(f"visual-models.json: duplicate id {model_id}")
+                seen_ids.add(model_id)
+
     if all_errors:
         for error in all_errors:
             print(error, file=sys.stderr)
         return 1
-    print(f"OK: {len(entries)} problem file(s) validated")
+    print(f"OK: {len(entries)} problem file(s) + {visual_model_count} visual model(s) validated")
     return 0
 
 

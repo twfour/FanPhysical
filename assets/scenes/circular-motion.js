@@ -1,3 +1,27 @@
+var bulletD = 150;
+var bulletOmega = 3;
+var bulletPhi = 65;
+var bulletT = 0;
+
+var bikeSpeed = 4;
+var bikeWheelD = 0.66;
+var bikeChainTeeth = 48;
+var bikeFlyTeeth = 15;
+var bikeGearT = 0;
+
+var pileM = 6;
+var pilem = 2;
+var pileL = 1.2;
+var pileOmega = 4;
+var pileG = 10;
+var pileT = 0;
+
+var bowlR = 0.10;
+var bowlThetaA = 53;
+var bowlThetaB = 37;
+var bowlG = 10;
+var bowlT = 0;
+
 function bulletPhiRad() {
   return bulletPhi * Math.PI / 180;
 }
@@ -12,23 +36,6 @@ function bulletTransitTime() {
 
 function bulletSpeed() {
   return bulletD / bulletTransitTime();
-}
-
-function toggleBulletPlay() {
-  bulletPlaying = !bulletPlaying;
-  updateLabels();
-}
-
-
-function updateBullet(dt) {
-  if (bulletPlaying) {
-    bulletT += dt;
-    if (bulletT >= bulletTransitTime()) {
-      bulletT = 0;
-      bulletPlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function drawBulletScene() {
@@ -163,23 +170,6 @@ function bikePedalOmega() {
 
 function bikeMinOmega() {
   return bikePedalOmegaFor(48, 15);
-}
-
-function toggleBikeGearPlay() {
-  bikeGearPlaying = !bikeGearPlaying;
-  updateLabels();
-}
-
-
-function updateBikeGear(dt) {
-  if (bikeGearPlaying) {
-    bikeGearT += dt;
-    if (bikeGearT >= 6) {
-      bikeGearT = 0;
-      bikeGearPlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function drawBikeGearWheel(cx, cy, r, angle, labelText, colorHex) {
@@ -354,23 +344,6 @@ function pileCurrentGroundForce() {
   return pileGroundForceAtAngle(pileAngle());
 }
 
-function togglePilePlay() {
-  pilePlaying = !pilePlaying;
-  updateLabels();
-}
-
-
-function updatePile(dt) {
-  if (pilePlaying) {
-    pileT += dt;
-    if (pileT >= pilePeriod()) {
-      pileT = 0;
-      pilePlaying = false;
-    }
-    updateLabels();
-  }
-}
-
 function drawPileScene() {
   var pivotX = 292;
   var pivotY = 205;
@@ -526,25 +499,6 @@ function bowlHorizontalForce(thetaDeg) {
 
 function bowlCycleTime() {
   return 2 * Math.PI / Math.max(0.1, Math.abs(bowlOmega(bowlThetaA) - bowlOmega(bowlThetaB)));
-}
-
-function toggleBowlPlay() {
-  if (!bowlPlaying && bowlT >= bowlCycleTime() - 0.02) {
-    bowlT = 0;
-  }
-  bowlPlaying = !bowlPlaying;
-  updateLabels();
-}
-
-function updateBowl(dt) {
-  if (bowlPlaying) {
-    bowlT += dt;
-    if (bowlT >= bowlCycleTime()) {
-      bowlT = 0;
-      bowlPlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function drawBowlBall(cx, cy, colorHex, labelText) {

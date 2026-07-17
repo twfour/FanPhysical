@@ -11,9 +11,6 @@
   --motion: #14b8a6;
   --warn: #f59e0b;
   --success: #22c55e;
-  --spring: #dc2626;
-  --pendulum: #2563eb;
-  --brownian: #0f766e;
   --gold: #d97706;
   --pipe: #0891b2;
 }
@@ -384,13 +381,13 @@ details.analysis-step[open] .analysis-step-summary {
 .control input[type="range"] {
   flex: 1;
   min-width: 80px;
-  accent-color: var(--brownian);
+  accent-color: var(--motion);
 }
 
 .value {
   width: 54px;
   text-align: right;
-  color: var(--pendulum);
+  color: var(--brand);
   font-weight: 800;
   font-variant-numeric: tabular-nums;
 }

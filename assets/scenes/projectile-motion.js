@@ -1,3 +1,48 @@
+var projHeight = 160;
+var projV0 = 28;
+var projG = 10;
+var projT = 0;
+
+var slopeAngle = 30;
+var slopeV0 = 32;
+var slopeG = 10;
+var slopeT = 0;
+
+var winL = 1.4;
+var winD = 0.4;
+var winH = 1.6;
+var winTopDrop = 0.2;
+var winV0 = 4;
+var winG = 10;
+var winT = 0;
+
+var volleyH1 = 180;
+var volleyH2 = 100;
+var volleyS = 180;
+var volleyV0 = 45;
+var volleyT = 0;
+
+var dartL = 180;
+var dartH = 120;
+var dartG = 10;
+var dartDeltaTheta = 10;
+var dartT = 0;
+
+var normalAngle = 37;
+var normalV0 = 28;
+var normalG = 10;
+var normalT = 0;
+
+var bounceH = 4;
+var bounceWallX = 6;
+var bounceD = 10;
+var bounceG = 10;
+var bounceT = 0;
+
+var semiR = 135;
+var semiAlpha = 38;
+var semiG = 10;
+
 function projectileFlightTime() {
   return Math.sqrt(2 * projHeight / projG);
 }
@@ -12,26 +57,6 @@ function projectileY(t) {
 
 function projectileVY(t) {
   return projG * t;
-}
-
-function toggleProjectilePlay() {
-  if (!projPlaying && projT >= projectileFlightTime() - 0.02) {
-    projT = 0;
-  }
-  projPlaying = !projPlaying;
-  updateLabels();
-}
-
-
-function updateProjectile(dt) {
-  if (projPlaying) {
-    projT += dt;
-    if (projT >= projectileFlightTime()) {
-      projT = 0;
-      projPlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function drawProjectileScene() {
@@ -210,26 +235,6 @@ function slopeMaxTime() {
   return slopeCaseTime(2);
 }
 
-function toggleSlopePlay() {
-  if (!slopePlaying && slopeT >= slopeMaxTime() - 0.02) {
-    slopeT = 0;
-  }
-  slopePlaying = !slopePlaying;
-  updateLabels();
-}
-
-
-function updateSlope(dt) {
-  if (slopePlaying) {
-    slopeT += dt;
-    if (slopeT >= slopeMaxTime()) {
-      slopeT = 0;
-      slopePlaying = false;
-    }
-    updateLabels();
-  }
-}
-
 function drawSlopeScene() {
   var startX = 86;
   var startY = 92;
@@ -396,26 +401,6 @@ function windowCanPass() {
   return dropIn >= winTopDrop && dropIn <= bottom && dropOut >= winTopDrop && dropOut <= bottom;
 }
 
-function toggleWindowPlay() {
-  if (!winPlaying && winT >= windowEndTime() - 0.02) {
-    winT = 0;
-  }
-  winPlaying = !winPlaying;
-  updateLabels();
-}
-
-
-function updateWindow(dt) {
-  if (winPlaying) {
-    winT += dt;
-    if (winT >= windowEndTime()) {
-      winT = 0;
-      winPlaying = false;
-    }
-    updateLabels();
-  }
-}
-
 function drawWindowScene() {
   var startX = 72;
   var startY = 130;
@@ -531,26 +516,6 @@ function volleyExactV0() {
 
 function volleyCanClearAndLand() {
   return volleyYAtX(volleyS) >= volleyH2 && volleyRange() > volleyS && volleyRange() <= 1.5 * volleyS;
-}
-
-function toggleVolleyPlay() {
-  if (!volleyPlaying && volleyT >= volleyFlightTime() - 0.02) {
-    volleyT = 0;
-  }
-  volleyPlaying = !volleyPlaying;
-  updateLabels();
-}
-
-
-function updateVolley(dt) {
-  if (volleyPlaying) {
-    volleyT += dt;
-    if (volleyT >= volleyFlightTime()) {
-      volleyT = 0;
-      volleyPlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function drawVolleyScene() {
@@ -728,26 +693,6 @@ function dartYAtTime(t) {
   return dartVY0() * t - 0.5 * dartG * t * t;
 }
 
-function toggleDartPlay() {
-  if (!dartPlaying && dartT >= dartFlightTime() - 0.02) {
-    dartT = 0;
-  }
-  dartPlaying = !dartPlaying;
-  updateLabels();
-}
-
-
-function updateDart(dt) {
-  if (dartPlaying) {
-    dartT += dt;
-    if (dartT >= dartFlightTime()) {
-      dartT = 0;
-      dartPlaying = false;
-    }
-    updateLabels();
-  }
-}
-
 function drawDartScene() {
   var startX = 105;
   var groundY = 392;
@@ -916,26 +861,6 @@ function normalYBC() {
 
 function normalHeightMN() {
   return 1.5 * normalYBC();
-}
-
-function toggleNormalPlay() {
-  if (!normalPlaying && normalT >= normalSceneMaxTime() - 0.02) {
-    normalT = 0;
-  }
-  normalPlaying = !normalPlaying;
-  updateLabels();
-}
-
-
-function updateNormal(dt) {
-  if (normalPlaying) {
-    normalT += dt;
-    if (normalT >= normalSceneMaxTime()) {
-      normalT = 0;
-      normalPlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function drawNormalScene() {
@@ -1146,26 +1071,6 @@ function bounceBoardHeight() {
 function bounceYDirectAtX(x) {
   var t = x / Math.max(0.1, bounceV2());
   return Math.max(0, bounceH - 0.5 * bounceG * t * t);
-}
-
-function toggleBouncePlay() {
-  if (!bouncePlaying && bounceT >= bounceTotalTime() - 0.02) {
-    bounceT = 0;
-  }
-  bouncePlaying = !bouncePlaying;
-  updateLabels();
-}
-
-
-function updateBounce(dt) {
-  if (bouncePlaying) {
-    bounceT += dt;
-    if (bounceT >= bounceTotalTime()) {
-      bounceT = 0;
-      bouncePlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function drawBounceScene() {

@@ -1,8 +1,33 @@
-function togglePipeDropPlay() {
-  pipePlaying = !pipePlaying;
-  updateLabels();
-}
+var pipeL = 80;
+var pipeH = 260;
+var pipeV0 = 70;
+var pipeG = 9.8;
+var pipeT = 0;
+var pipeMaxT = 16;
 
+var throwV0 = 30;
+var throwG = 10;
+var throwDelay = 7;
+var throwT = 0;
+var throwMaxT = 18;
+
+var carT = 0;
+var carMaxT = 8;
+var carVa0 = 6;
+var carVb0 = 8;
+var carVc0 = 9;
+var carGap0 = 5;
+var carAa = 1;
+var carAb = 7 / 5;
+var carAc = 189 / 130;
+
+var slotR = 160;
+var slotr = 100;
+var slotTheta1 = 30;
+var slotTheta2 = 45;
+var slotT = 0;
+var slotMaxT = 12;
+var slotG = 10;
 
 function pipeLandTime() {
   return 2 * pipeV0 / pipeG;
@@ -43,17 +68,6 @@ function getPipePassIntervals() {
     return [{ start: startT, end: endT }];
   }
   return [];
-}
-
-function updatePipeDrop(dt) {
-  if (pipePlaying) {
-    pipeT += dt;
-    if (pipeT >= pipeMaxT || pipeT >= pipeLandTime()) {
-      pipeT = 0;
-      pipePlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function drawPipeDropScene() {
@@ -280,12 +294,6 @@ function drawPipeCurve(gx, gy, gw, gh, tMax, yMin, yMax, kind) {
   endShape();
 }
 
-function toggleThreeCarPlay() {
-  carPlaying = !carPlaying;
-  updateLabels();
-}
-
-
 function carStopTime(v0, a) {
   return v0 / a;
 }
@@ -316,17 +324,6 @@ function threeCarGaps(t) {
     ab: pos.a - pos.b,
     bc: pos.b - pos.c
   };
-}
-
-function updateThreeCar(dt) {
-  if (carPlaying) {
-    carT += dt;
-    if (carT >= carMaxT) {
-      carT = 0;
-      carPlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function drawCarShape(x, y, colorHex, name, speedText) {
@@ -542,23 +539,6 @@ function drawThreeCarGapCurve(gx, gy, gw, gh, yMin, yMax, kind) {
     vertex(px, py);
   }
   endShape();
-}
-
-function toggleDoubleThrowPlay() {
-  throwPlaying = !throwPlaying;
-  updateLabels();
-}
-
-
-function updateDoubleThrow(dt) {
-  if (throwPlaying) {
-    throwT += dt;
-    if (throwT >= throwMaxT) {
-      throwT = 0;
-      throwPlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function throwYA(t) {
@@ -781,23 +761,6 @@ function drawThrowCurve(gx, gy, gw, gh, yMin, yMax, kind) {
     vertex(px, py);
   }
   endShape();
-}
-
-function toggleInclineSlotPlay() {
-  slotPlaying = !slotPlaying;
-  updateLabels();
-}
-
-
-function updateInclineSlot(dt) {
-  if (slotPlaying) {
-    slotT += dt;
-    if (slotT >= slotMaxT) {
-      slotT = 0;
-      slotPlaying = false;
-    }
-    updateLabels();
-  }
 }
 
 function slotAccel(thetaDeg) {
@@ -1035,4 +998,3 @@ function drawInclineSlotCurve(gx, gy, gw, gh, tMax, yMin, yMax, kind) {
   }
   endShape();
 }
-
