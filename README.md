@@ -23,6 +23,30 @@ http://127.0.0.1:8001/
 
 根路径会显示 `classical-mechanics-demo.html`。
 
+## NotebookLM 独立课例地址
+
+服务器会为题库中的每个课例生成一个不依赖 JavaScript 的独立讲义页面，便于直接作为 NotebookLM 的网站来源。
+
+课例总目录：
+
+```text
+http://127.0.0.1:8001/notebooklm/
+```
+
+单课地址格式：
+
+```text
+http://127.0.0.1:8001/notebooklm/<problem-id>
+```
+
+例如：
+
+```text
+http://127.0.0.1:8001/notebooklm/lesson9_course_01_satellite_comparison
+```
+
+部署后把域名替换为 `https://physics.qinyibin.com`。每个页面直接包含题干、选项、知识点、参考答案、整体解析、分步解析和变式练习，适合 NotebookLM 抓取。
+
 ## Step AI 后端
 
 前端每个解析步骤会调用：

@@ -7,9 +7,10 @@ import subprocess
 import time
 import urllib.error
 import urllib.request
+from html import escape
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import quote, unquote, urlparse
 
 
 ROOT = Path(__file__).resolve().parent
@@ -54,6 +55,144 @@ RETRYABLE_HTTP_STATUS = {429, 500, 502, 503, 504}
 MAX_BODY_BYTES = 120_000
 MAX_CONVERSATION_MESSAGES = 12
 MAX_CONVERSATION_MESSAGE_CHARS = 4_000
+PROBLEM_INDEX_PATH = ROOT / "data" / "problems" / "index.json"
+PROBLEM_DIR = PROBLEM_INDEX_PATH.parent
+
+
+def html_response(handler, status, html):
+    body = html.encode("utf-8")
+    handler.send_response(status)
+    handler.send_header("Content-Type", "text/html; charset=utf-8")
+    handler.send_header("Content-Length", str(len(body)))
+    handler.end_headers()
+    handler.wfile.write(body)
+
+
+def load_problem_catalog():
+    payload = json.loads(PROBLEM_INDEX_PATH.read_text(encoding="utf-8"))
+    catalog = []
+    for item in payload.get("problems", []):
+        problem_id = item.get("id")
+        filename = item.get("file")
+        if not isinstance(problem_id, str) or not isinstance(filename, str):
+            continue
+        path = (PROBLEM_DIR / filename).resolve()
+        if path.parent != PROBLEM_DIR.resolve() or not path.is_file():
+            continue
+        try:
+            problem = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if problem.get("skip"):
+            continue
+        catalog.append((problem_id, problem))
+    return catalog
+
+
+def request_origin(handler):
+    forwarded_proto = handler.headers.get("X-Forwarded-Proto", "").split(",", 1)[0].strip()
+    scheme = forwarded_proto or ("https" if APP_ENV == "production" else "http")
+    host = handler.headers.get("Host") or f"{HOST}:{PORT}"
+    return f"{scheme}://{host}"
+
+
+def notebooklm_styles():
+    return """
+    :root{--ink:#20231f;--muted:#686d64;--paper:#f7f3e8;--line:#d8d0bd;--accent:#a13d2d}
+    *{box-sizing:border-box}body{margin:0;background:#e8e2d3;color:var(--ink);font-family:"Songti SC","STSong",serif;line-height:1.82}
+    main{width:min(900px,calc(100% - 28px));margin:24px auto 64px;background:var(--paper);padding:clamp(28px,6vw,72px);box-shadow:0 18px 50px #342d1e22;border-top:6px solid var(--accent)}
+    header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:34px}.eyebrow{color:var(--accent);font-family:"Kaiti SC","STKaiti",serif;letter-spacing:.16em}
+    h1{font-size:clamp(2rem,6vw,3.7rem);line-height:1.12;margin:.35em 0 .2em}h2{font-size:1.35rem;margin:2.2em 0 .7em;border-left:4px solid var(--accent);padding-left:.7em}
+    h3{font-size:1.05rem;margin:1.5em 0 .35em}.meta,.quiet{color:var(--muted)}.formula,.answer,.step,.practice{border:1px solid var(--line);padding:16px 20px;margin:12px 0;background:#fffdf7}
+    .answer{border-color:#c69b70}.knowledge{display:flex;gap:8px;flex-wrap:wrap}.tag{border:1px solid var(--line);padding:2px 10px;border-radius:999px;font-size:.88rem}
+    ol,ul{padding-left:1.5em}a{color:#7b2f24;text-decoration-thickness:1px;text-underline-offset:3px}.directory{display:grid;gap:12px}.directory a{display:block;padding:14px 16px;border:1px solid var(--line);background:#fffdf7;text-decoration:none}.directory a:hover{border-color:var(--accent)}
+    nav{display:flex;justify-content:space-between;gap:16px;margin-top:42px;padding-top:22px;border-top:1px solid var(--line)}@media(max-width:600px){main{margin:0;width:100%;box-shadow:none;padding:25px 20px}nav{display:block}nav a{display:block;margin:.5em 0}}
+    """
+
+
+def text_block(value):
+    if value is None:
+        return ""
+    return escape(str(value)).replace("\n", "<br>")
+
+
+def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=None):
+    title = problem.get("title") or problem_id
+    chapter = problem.get("chapter") or "未分类"
+    canonical = f"{request_origin(handler)}/notebooklm/{quote(problem_id)}"
+    options = problem.get("options") if isinstance(problem.get("options"), list) else []
+    steps = problem.get("steps") if isinstance(problem.get("steps"), list) else []
+    knowledge = problem.get("knowledge") if isinstance(problem.get("knowledge"), list) else []
+    analysis = problem.get("analysis")
+    analysis_text = analysis.get("content") if isinstance(analysis, dict) else problem.get("analysisText")
+    practice = problem.get("practice") if isinstance(problem.get("practice"), dict) else None
+
+    options_html = ""
+    if options:
+        options_html = "<h2>选项</h2><ol>" + "".join(f"<li>{text_block(option)}</li>" for option in options) + "</ol>"
+    knowledge_html = ""
+    if knowledge:
+        knowledge_html = '<h2>核心知识点</h2><div class="knowledge">' + "".join(
+            f'<span class="tag">{text_block(item)}</span>' for item in knowledge
+        ) + "</div>"
+    steps_html = ""
+    if steps:
+        cards = []
+        for index, step in enumerate(steps, 1):
+            step_title = step.get("title") or f"步骤 {index}"
+            mistakes = step.get("commonMistakes") if isinstance(step.get("commonMistakes"), list) else []
+            mistake_html = ""
+            if mistakes:
+                mistake_html = "<h3>易错点</h3><ul>" + "".join(
+                    f"<li>{text_block(item)}</li>" for item in mistakes
+                ) + "</ul>"
+            cards.append(
+                f'<section class="step"><h3>{index}. {text_block(step_title)}</h3>'
+                f'<p>{text_block(step.get("content"))}</p>{mistake_html}</section>'
+            )
+        steps_html = "<h2>分步解析</h2>" + "".join(cards)
+    analysis_html = f'<h2>整体解析</h2><div class="formula">{text_block(analysis_text)}</div>' if analysis_text else ""
+    answer_html = f'<h2>参考答案</h2><div class="answer">{text_block(problem.get("answer"))}</div>' if problem.get("answer") else ""
+    practice_html = ""
+    if practice:
+        practice_html = (
+            '<h2>变式练习</h2><section class="practice">'
+            f'<h3>{text_block(practice.get("title") or "变式题")}</h3>'
+            f'<p>{text_block(practice.get("question"))}</p>'
+            f'<h3>变式答案</h3><p>{text_block(practice.get("answer"))}</p>'
+            f'<h3>思路提示</h3><p>{text_block(practice.get("thinking"))}</p></section>'
+        )
+    previous_link = f'<a rel="prev" href="/notebooklm/{quote(previous_id)}">← 上一课</a>' if previous_id else "<span></span>"
+    next_link = f'<a rel="next" href="/notebooklm/{quote(next_id)}">下一课 →</a>' if next_id else "<span></span>"
+
+    return f"""<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{escape(title)}｜FanPhysics NotebookLM 讲义</title><meta name="description" content="{escape(chapter)}：{escape(title)}的题目、答案和分步解析。">
+<link rel="canonical" href="{escape(canonical)}"><style>{notebooklm_styles()}</style></head>
+<body><main><header><div class="eyebrow">FANPHYSICS · NOTEBOOKLM 讲义</div><h1>{escape(title)}</h1>
+<div class="meta">章节：{escape(chapter)}　·　资料编号：{escape(problem_id)}</div></header>
+<article><h2>题目</h2><p>{text_block(problem.get("question"))}</p>{options_html}{knowledge_html}{answer_html}{analysis_html}{steps_html}{practice_html}</article>
+<nav>{previous_link}<a href="/notebooklm/">全部独立课例</a>{next_link}</nav></main></body></html>"""
+
+
+def render_notebooklm_index(handler, catalog):
+    grouped = {}
+    for problem_id, problem in catalog:
+        grouped.setdefault(problem.get("chapter") or "未分类", []).append((problem_id, problem))
+    sections = []
+    for chapter, items in grouped.items():
+        links = "".join(
+            f'<a href="/notebooklm/{quote(problem_id)}"><strong>{escape(problem.get("title") or problem_id)}</strong>'
+            f'<br><span class="quiet">{escape(problem_id)}</span></a>'
+            for problem_id, problem in items
+        )
+        sections.append(f'<section><h2>{escape(chapter)}</h2><div class="directory">{links}</div></section>')
+    canonical = f"{request_origin(handler)}/notebooklm/"
+    return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FanPhysics 独立课例地址</title><meta name="description" content="供 NotebookLM 导入的 FanPhysics 单课讲义目录。">
+<link rel="canonical" href="{escape(canonical)}"><style>{notebooklm_styles()}</style></head><body><main>
+<header><div class="eyebrow">NOTEBOOKLM SOURCE DIRECTORY</div><h1>独立课例地址</h1><p class="meta">每个链接都是服务端生成的完整讲义，不依赖 JavaScript，可直接复制到 NotebookLM。</p></header>
+{''.join(sections)}</main></body></html>"""
 
 
 def json_response(handler, status, payload):
@@ -257,6 +396,37 @@ class Handler(SimpleHTTPRequestHandler):
         parsed = urlparse(self.path)
         if parsed.path == "/api/health":
             json_response(self, 200, {"ok": True})
+            return
+        if parsed.path in {"/notebooklm", "/notebooklm/"}:
+            try:
+                catalog = load_problem_catalog()
+            except (OSError, json.JSONDecodeError):
+                html_response(self, 500, "<!doctype html><meta charset='utf-8'><h1>课例目录暂不可用</h1>")
+                return
+            html_response(self, 200, render_notebooklm_index(self, catalog))
+            return
+        if parsed.path.startswith("/notebooklm/"):
+            problem_id = unquote(parsed.path.removeprefix("/notebooklm/")).strip("/")
+            if problem_id.endswith(".html"):
+                problem_id = problem_id[:-5]
+            try:
+                catalog = load_problem_catalog()
+            except (OSError, json.JSONDecodeError):
+                html_response(self, 500, "<!doctype html><meta charset='utf-8'><h1>课例暂不可用</h1>")
+                return
+            problem_ids = [item_id for item_id, _ in catalog]
+            try:
+                index = problem_ids.index(problem_id)
+            except ValueError:
+                html_response(self, 404, "<!doctype html><meta charset='utf-8'><h1>没有找到这节课</h1><p><a href='/notebooklm/'>返回课例目录</a></p>")
+                return
+            previous_id = problem_ids[index - 1] if index > 0 else None
+            next_id = problem_ids[index + 1] if index + 1 < len(problem_ids) else None
+            html_response(
+                self,
+                200,
+                render_problem_page(self, problem_id, catalog[index][1], previous_id, next_id),
+            )
             return
         super().do_GET()
 
