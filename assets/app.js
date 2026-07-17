@@ -139,9 +139,10 @@ var problemCatalogReadyPromise = null;
 var sceneSwitchRequestId = 0;
 var runtimeScriptPromiseMap = {};
 var mathJaxLoadPromise = null;
-var runtimeAssetVersion = "20260717-structured-models";
+var runtimeAssetVersion = "20260717-required-two-test";
 var promotedProblemChapterMap = {
   "必修一结业测试": true,
+  "必修二结业测试": true,
   "曲线运动": true,
   "平抛运动": true,
   "圆周运动": true,
@@ -491,7 +492,8 @@ var problemRuntimeScriptMap = {
   kinetic_energy_model: ["/assets/scenes/kinetic-energy.js"],
   mechanical_energy_model: ["/assets/scenes/mechanical-energy.js"],
   functional_relation_model: ["/assets/scenes/functional-relations.js"],
-  required_one_test_model: ["/assets/scenes/required-one-test.js"]
+  required_one_test_model: ["/assets/scenes/required-one-test.js"],
+  required_two_test_model: ["/assets/scenes/required-two-test.js"]
 };
 
 function getProblemRuntimeScripts(problem) {
@@ -2641,7 +2643,8 @@ var jsonAnimationRendererMap = {
   kinetic_energy_model: { scene: "drawKineticEnergyModelScene", graph: "drawKineticEnergyModelGraph" },
   mechanical_energy_model: { scene: "drawMechanicalEnergyModelScene", graph: "drawMechanicalEnergyModelGraph" },
   functional_relation_model: { scene: "drawFunctionalRelationModelScene", graph: "drawFunctionalRelationModelGraph" },
-  required_one_test_model: { scene: "drawRequiredOneTestScene", graph: "drawRequiredOneTestGraph" }
+  required_one_test_model: { scene: "drawRequiredOneTestScene", graph: "drawRequiredOneTestGraph" },
+  required_two_test_model: { scene: "drawRequiredTwoTestScene", graph: "drawRequiredTwoTestGraph" }
 };
 
 function drawJsonAnimationScene() {

@@ -26,6 +26,7 @@ SUPPORTED_ANIMATION_TYPES = {
     "mechanical_energy_model",
     "functional_relation_model",
     "required_one_test_model",
+    "required_two_test_model",
 }
 
 

@@ -1,0 +1,52 @@
+{
+  "id": "required2_single_03_rope_constraint",
+  "originalNumber": "单3",
+  "chapter": "必修二结业测试",
+  "title": "单选第3题：斜绳关联速度与能量",
+  "question": "如图，一个质量为 \\(m_1\\) 的有孔小球套在竖直固定的光滑直杆上，通过一条跨过定滑轮的轻绳与质量为 \\(m_2\\) 的重物相连。定滑轮与直杆的水平距离为 \\(d\\)。将小球从与定滑轮等高的 A 处由静止释放，当小球沿直杆下滑 \\(\\dfrac34d\\) 到 B 处时，下列说法正确的是（　　）。",
+  "options": [
+    "A. 小球的速度与重物上升速度大小之比为 \\(5:4\\)",
+    "B. 小球的速度与重物上升速度大小之比为 \\(5:3\\)",
+    "C. 小球重力势能的减少量等于重物重力势能的增加量",
+    "D. 小球机械能的减少量大于重物机械能的增加量"
+  ],
+  "answer": "B",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_03_rope_constraint",
+    "playable": true,
+    "interactive": true,
+    "notes": "显示斜绳长度变化与竖直重物位移的非线性约束。",
+    "params": {
+      "distance": {"label": "水平距离", "value": 4, "min": 2, "max": 8, "step": 0.5, "unit": "m"},
+      "dropRatio": {"label": "下滑比例", "value": 0.75, "min": 0.2, "max": 1.2, "step": 0.05, "unit": "d"}
+    },
+    "timeline": {"duration": 6, "loop": false}
+  },
+  "knowledge": ["绳长约束", "速度投影", "机械能守恒", "内力做功"],
+  "steps": [
+    {"title": "写出绳长约束", "content": "设小球在滑轮下方的竖直距离为 \\(y\\)，斜绳长 \\(s=\\sqrt{d^2+y^2}\\)。轻绳总长不变，重物上升速度大小等于 \\(\\dot s\\)。"},
+    {"title": "求瞬时速度比", "content": "\\(v_2=\\dot s=\\dfrac{y}{\\sqrt{d^2+y^2}}v_1\\)。在 B 点 \\(y=3d/4\\)、\\(s=5d/4\\)，所以 \\(v_2=3v_1/5\\)，即 \\(v_1:v_2=5:3\\)。"},
+    {"title": "判断机械能转移", "content": "杆和定滑轮光滑，绳张力在两个物体间转移机械能。对两物体整体机械能守恒，所以小球机械能减少量等于重物机械能增加量；但重力势能变化还要同时转化为动能。答案为 B。"}
+  ],
+  "analysis": {
+    "title": "单选第3题逐项解析",
+    "sharedThinking": "先由绳长微分得到瞬时速度关系，再从两物体整体与单个物体两个层次判断能量。",
+    "sharedFormula": "\\[s=\\sqrt{d^2+y^2},\\qquad v_2=\\frac{y}{s}v_1\\]"
+  },
+  "optionAnalyses": [
+    {"option": "A", "title": "速度比 \\(5:4\\)", "judgment": "把 B 点几何代入得 \\(v_1:v_2=5:3\\)，A 错误。"},
+    {"option": "B", "title": "速度比 \\(5:3\\)", "judgment": "斜绳方向速度投影为 \\(3v_1/5\\)，B 正确。"},
+    {"option": "C", "title": "两者重力势能等量变化", "judgment": "系统还获得动能，两个重力势能的变化量不必相等，C 错误。"},
+    {"option": "D", "title": "机械能转移不等", "judgment": "张力对两端做功等量异号，因此小球机械能减少量等于重物机械能增加量，D 错误。"}
+  ],
+  "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：移动滑轮的二阶约束",
+    "question": "竖直杆与定滑轮水平距离为 \\(d\\)。杆上小球以恒定速度 \\(u\\) 向下运动，在小球距滑轮水平面 \\(y=d\\) 的瞬间，求绳另一端重物的速度和加速度；设此时小球仍保持匀速。",
+    "answer": "由 \\(s=\\sqrt{d^2+y^2}\\)，\\(v=\\dot s=yu/s\\)。在 \\(y=d\\) 时 \\(v=u/\\sqrt2\\)。再求导得 \\(a=u^2d^2/s^3\\)，所以 \\(a=u^2/(2\\sqrt2d)\\)，方向为绳端被拉动的方向。",
+    "thinking": "**解题思路**\n\n速度约束来自绳长的一次求导；加速度约束必须再求一次导数，不能把瞬时速度比直接当成恒定比例。"
+  }
+}

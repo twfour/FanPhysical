@@ -1,0 +1,52 @@
+{
+  "id": "required2_single_04_ski_jump",
+  "originalNumber": "单4",
+  "chapter": "必修二结业测试",
+  "title": "单选第4题：跳台滑雪功率",
+  "question": "跳台滑雪中，一位总质量为 \\(60\\,\\mathrm{kg}\\) 的运动员从起跳平台 A 点以 \\(20\\,\\mathrm{m/s}\\) 的速度沿水平方向飞出，在倾角为 \\(30^\\circ\\) 的斜坡 B 点着陆。取 \\(g=10\\,\\mathrm{m/s^2}\\)，不计空气阻力。下列说法正确的是（　　）。",
+  "options": [
+    "A. 从 A 点飞出到 B 点所用时间为 \\(4\\,\\mathrm s\\)",
+    "B. 从 A 到 B 的过程中重力做功为 \\(4000\\sqrt3\\,\\mathrm J\\)",
+    "C. 从 A 到 B 的过程中重力的平均功率为 \\(12000\\,\\mathrm W\\)",
+    "D. 落到 B 点时重力的瞬时功率为 \\(8000\\sqrt3\\,\\mathrm W\\)"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_04_ski_jump",
+    "playable": true,
+    "interactive": true,
+    "notes": "同步显示平抛轨迹、重力功和瞬时功率。",
+    "params": {
+      "launchSpeed": {"label": "起跳速度", "value": 20, "min": 10, "max": 30, "step": 1, "unit": "m/s"},
+      "slopeAngle": {"label": "斜坡角", "value": 30, "min": 15, "max": 45, "step": 1, "unit": "deg"}
+    },
+    "timeline": {"duration": 6, "loop": false}
+  },
+  "knowledge": ["平抛运动", "重力做功", "平均功率", "瞬时功率"],
+  "steps": [
+    {"title": "求落到斜坡的时间", "content": "取 A 为原点，\\(x=v_0t\\)、\\(y=gt^2/2\\)，落点满足 \\(y=x\\tan30^\\circ\\)。解得 \\(t=2v_0\\tan30^\\circ/g=4/\\sqrt3\\,\\mathrm s\\)。"},
+    {"title": "求重力功和平均功率", "content": "下降高度 \\(h=gt^2/2=80/3\\,\\mathrm m\\)，故 \\(W_G=mgh=1.60\\times10^4\\,\\mathrm J\\)，平均功率 \\(\\bar P=W_G/t=4000\\sqrt3\\,\\mathrm W\\)。"},
+    {"title": "求落地瞬时功率", "content": "落地时竖直速度 \\(v_y=gt=40/\\sqrt3\\,\\mathrm{m/s}\\)。重力瞬时功率 \\(P_G=mgv_y=8000\\sqrt3\\,\\mathrm W\\)，故选 D。"}
+  ],
+  "analysis": {
+    "title": "单选第4题逐项解析",
+    "sharedThinking": "先由平抛轨迹与斜面方程求交点，再分别使用功、平均功率和力的瞬时功率定义。",
+    "sharedFormula": "\\[y=\\frac12gt^2=x\\tan\\theta,\\quad W_G=mgy,\\quad \\bar P=\\frac{W_G}{t},\\quad P_G=\\vec G\\cdot\\vec v=mgv_y\\]"
+  },
+  "optionAnalyses": [
+    {"option": "A", "title": "飞行时间", "judgment": "实际时间为 \\(4/\\sqrt3\\,\\mathrm s\\)，A 错误。"},
+    {"option": "B", "title": "重力做功", "judgment": "重力功为 \\(16000\\,\\mathrm J\\)，B 错误。"},
+    {"option": "C", "title": "平均功率", "judgment": "平均功率为 \\(4000\\sqrt3\\,\\mathrm W\\)，C 错误。"},
+    {"option": "D", "title": "落地瞬时功率", "judgment": "\\(P_G=mgv_y=8000\\sqrt3\\,\\mathrm W\\)，D 正确。"}
+  ],
+  "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：斜面落点的功率最值",
+    "question": "质量为 \\(m\\) 的滑雪者以水平速度 \\(v_0\\) 从斜面顶端飞出，斜面倾角为 \\(\\theta\\)。忽略空气阻力，推导落地前重力平均功率与落地瞬时功率之比，并判断该比值是否依赖 \\(v_0\\)。",
+    "answer": "落地时间 \\(t=2v_0\\tan\\theta/g\\)，下降高度 \\(h=gt^2/2\\)。于是 \\(\\bar P=mgh/t=mg^2t/2\\)，而 \\(P_\\text{末}=mg(gt)=mg^2t\\)。故 \\(\\bar P:P_\\text{末}=1:2\\)，与 \\(v_0\\) 和 \\(\\theta\\) 均无关。",
+    "thinking": "**解题思路**\n\n不必先展开落点坐标。竖直速度从 0 线性增加到 \\(gt\\)，所以重力功率也线性增加，时间平均值必为末值的一半。"
+  }
+}

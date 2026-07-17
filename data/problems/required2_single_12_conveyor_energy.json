@@ -1,0 +1,38 @@
+{
+  "id": "required2_single_12_conveyor_energy",
+  "originalNumber": "单12",
+  "chapter": "必修二结业测试",
+  "title": "单选第12题：传送带能量分配",
+  "question": "将小物块轻放在以 \\(5\\,\\mathrm{m/s}\\) 匀速运动的足够长传送带上，一段时间内小物块从 \\(1\\,\\mathrm{m/s}\\) 匀加速至 \\(3\\,\\mathrm{m/s}\\)，不计空气阻力。这段时间内物块增加的动能、系统因摩擦产生的热量、传送带因传送物块而多消耗的电能之比为（　　）。",
+  "options": ["A. \\(2:5:8\\)", "B. \\(2:3:5\\)", "C. \\(1:2:3\\)", "D. \\(1:1:2\\)"],
+  "answer": "B",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_12_conveyor_energy",
+    "playable": true,
+    "interactive": true,
+    "notes": "显示物块、传送带和相对滑动距离对应的三种能量。",
+    "params": {
+      "beltSpeed": {"label": "带速", "value": 5, "min": 4, "max": 8, "step": 0.5, "unit": "m/s"},
+      "startSpeed": {"label": "初速度", "value": 1, "min": 0, "max": 2, "step": 0.5, "unit": "m/s"},
+      "endSpeed": {"label": "末速度", "value": 3, "min": 2.5, "max": 4, "step": 0.5, "unit": "m/s"}
+    },
+    "timeline": {"duration": 6, "loop": false}
+  },
+  "knowledge": ["传送带", "摩擦生热", "功能关系", "电能分配"],
+  "steps": [
+    {"title": "用冲量表示作用时间", "content": "设摩擦力为 \\(f\\)、作用时间为 \\(t\\)。有 \\(ft=m(3-1)=2m\\)。"},
+    {"title": "求三种能量", "content": "物块动能增加 \\(\\Delta E_k=m(3^2-1^2)/2=4m\\)。相对位移为 \\(5t-(1+3)t/2=3t\\)，故热量 \\(Q=f\\cdot3t=6m\\)。传送带多消耗电能 \\(E=f\\cdot5t=10m\\)。"},
+    {"title": "化简比值", "content": "\\(\\Delta E_k:Q:E=4:6:10=2:3:5\\)，故选 B。"}
+  ],
+  "analysis": {"title": "单选第12题分步解析"},
+  "analysisPresentation": {"optionMode": "shared-solution", "collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：传送带先滑动后同速",
+    "question": "水平传送带以速度 \\(V\\) 匀速运动，质量为 \\(m\\) 的物块以与传送带同向的初速度 \\(u\\) 放上，\\(0\\le u\\lt V\\)，最终与传送带同速。证明电动机多做的功、物块动能增量和摩擦热满足的关系，并求三者之比关于 \\(u/V\\) 的表达式。",
+    "answer": "由 \\(ft=m(V-u)\\)。电动机多做功 \\(W=fVt=mV(V-u)\\)；物块动能增量 \\(\\Delta K=m(V^2-u^2)/2\\)；热量 \\(Q=f[(V-(V+u)/2)t]=m(V-u)^2/2\\)。且 \\(W=\\Delta K+Q\\)。令 \\(\\lambda=u/V\\)，则 \\(\\Delta K:Q:W=(1-\\lambda^2):(1-\\lambda)^2:2(1-\\lambda)\\)。",
+    "thinking": "**解题思路**\n\n用同一个摩擦冲量 \\(ft\\) 消去未知的摩擦力和时间。摩擦热必须使用相对位移，而电动机功使用传送带位移。"
+  }
+}

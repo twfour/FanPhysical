@@ -1,0 +1,52 @@
+{
+  "id": "required2_multiple_15_gear_turntable",
+  "originalNumber": "多15",
+  "chapter": "必修二结业测试",
+  "title": "多选第15题：齿轮转台拉力图像",
+  "question": "主动齿轮 A 带动从动齿轮 B 及水平转台匀速转动。质量为 \\(m\\) 的滑块置于转台上，通过长为 \\(L\\) 的不可伸长细线连接力传感器，细线刚好伸直。A、B 齿数分别为 \\(n_1、n_2\\)，滑块与转台间动摩擦因数为 \\(\\mu\\)。改变 A 的角速度 \\(\\omega\\)，记录传感器示数 \\(F\\)，所得 \\(F-\\omega^2\\) 图像正向延长线与横轴交于 \\(a\\)，与纵轴交于 \\(-b\\)。下列说法正确的是（　　）。",
+  "options": [
+    "A. A、B 的角速度之比为 \\(n_2:n_1\\)",
+    "B. 图像中 \\(a=\\dfrac{\\mu g}{L}\\)",
+    "C. 当 \\(\\omega=\\sqrt{\\dfrac{3\\mu gn_2^2}{2n_1^2L}}\\) 时，\\(F=\\dfrac32\\mu mg\\)",
+    "D. 若增大滑块质量，则图像中 \\(b/a\\) 将变大"
+  ],
+  "answer": "AD",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_15_gear_turntable",
+    "playable": true,
+    "interactive": true,
+    "notes": "显示齿轮传动、滑块圆周运动与拉力—角速度平方直线。",
+    "params": {
+      "gearRatio": {"label": "齿数比 n2/n1", "value": 2, "min": 1, "max": 4, "step": 0.25, "unit": ""},
+      "friction": {"label": "动摩擦因数", "value": 0.3, "min": 0.1, "max": 0.6, "step": 0.05, "unit": ""}
+    },
+    "timeline": {"duration": 8, "loop": false}
+  },
+  "knowledge": ["齿轮传动", "向心力", "摩擦力", "函数图像"],
+  "steps": [
+    {"title": "建立传动关系", "content": "啮合点线速度相等：\\(\\omega_A n_1=\\omega_B n_2\\)，所以 \\(\\omega_A:\\omega_B=n_2:n_1\\)。"},
+    {"title": "写拉力函数", "content": "当细线和摩擦共同提供向心力时，\\(F+\\mu mg=m\\omega_B^2L\\)。代入 \\(\\omega_B=(n_1/n_2)\\omega\\)，得 \\(F=mL(n_1/n_2)^2\\omega^2-\\mu mg\\)。"},
+    {"title": "读取截距", "content": "\\(b=\\mu mg\\)，\\(a=\\mu g(n_2/n_1)^2/L\\)，故 \\(b/a=mL(n_1/n_2)^2\\)，随 \\(m\\) 增大。题给 C 的角速度对应 \\(F=\\mu mg/2\\)，不是 \\(3\\mu mg/2\\)。故 A、D 正确。"}
+  ],
+  "analysis": {
+    "title": "多选第15题逐项解析",
+    "sharedThinking": "先由齿轮接触处线速度相等换算转台角速度，再把向心力方程整理成关于 \\(\\omega^2\\) 的一次函数。",
+    "sharedFormula": "\\[\\omega_B=\\frac{n_1}{n_2}\\omega,\\qquad F=mL\\left(\\frac{n_1}{n_2}\\right)^2\\omega^2-\\mu mg\\]"
+  },
+  "optionAnalyses": [
+    {"option": "A", "title": "齿轮角速度比", "judgment": "角速度与齿数成反比，A 正确。"},
+    {"option": "B", "title": "横截距", "judgment": "横截距还含齿数比平方，B 错误。"},
+    {"option": "C", "title": "指定角速度下拉力", "judgment": "代入得 \\(F=\\mu mg/2\\)，C 错误。"},
+    {"option": "D", "title": "质量对截距比的影响", "judgment": "\\(b/a=mL(n_1/n_2)^2\\)，随质量增大，D 正确。"}
+  ],
+  "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：静摩擦与拉力的分段图像",
+    "question": "把原题中的动摩擦改为最大静摩擦因数 \\(\\mu_s\\)，细线初始松弛量可忽略但只能受拉。随主动齿轮角速度从 0 增大，画出传感器示数 \\(F\\) 关于 \\(\\omega^2\\) 的分段关系，并给出开始有示数的临界角速度。",
+    "answer": "低速时静摩擦独自提供向心力，\\(F=0\\)。当 \\(m\\omega_B^2L=\\mu_smg\\) 时达到临界，故 \\(\\omega_c=(n_2/n_1)\\sqrt{\\mu_sg/L}\\)。此后 \\(F=mL(n_1/n_2)^2\\omega^2-\\mu_smg\\)，图像先沿横轴，再接一条斜直线。",
+    "thinking": "**解题思路**\n\n先判断约束何时真正受力。细线不能推物体，因此数学直线的负值部分在物理上应被 \\(F=0\\) 的区段替代。"
+  }
+}

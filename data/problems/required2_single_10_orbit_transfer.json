@@ -1,0 +1,52 @@
+{
+  "id": "required2_single_10_orbit_transfer",
+  "originalNumber": "单10",
+  "chapter": "必修二结业测试",
+  "title": "单选第10题：圆轨道与转移椭圆",
+  "question": "航天器先进入近地圆轨道 1 做匀速圆周运动，再经椭圆轨道 2，最终进入圆轨道 3 做匀速圆周运动。轨道 2 分别与轨道 1、轨道 3 相切于 P、Q 两点。则航天器（　　）。",
+  "options": [
+    "A. 在轨道 3 上的机械能小于其在轨道 2 上的机械能",
+    "B. 在轨道 1 上的运行周期大于其在轨道 3 上的运行周期",
+    "C. 在轨道 2 上 Q 点的速度大于其在轨道 3 上 Q 点的速度",
+    "D. 正常运行时在轨道 1 上 P 点的加速度等于其在轨道 2 上 P 点的加速度"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_10_orbit_transfer",
+    "playable": true,
+    "interactive": true,
+    "notes": "显示内圆轨道、霍曼转移椭圆和外圆轨道上的速度变化。",
+    "params": {
+      "innerRadius": {"label": "内轨道半径", "value": 1, "min": 0.8, "max": 1.5, "step": 0.1, "unit": "R"},
+      "outerRadius": {"label": "外轨道半径", "value": 2, "min": 1.6, "max": 3, "step": 0.1, "unit": "R"}
+    },
+    "timeline": {"duration": 9, "loop": false}
+  },
+  "knowledge": ["卫星变轨", "机械能", "开普勒第三定律", "引力加速度"],
+  "steps": [
+    {"title": "比较轨道机械能", "content": "圆轨道比能为 \\(\\varepsilon=-GM/(2r)\\)，转移椭圆比能为 \\(-GM/(2a)\\)。轨道半长轴越大，机械能越高，因此外圆轨道 3 的机械能高于转移轨道 2。"},
+    {"title": "比较周期与切点速度", "content": "由 \\(T\\propto r^{3/2}\\)，内圆轨道周期更小。在远地点 Q，要从椭圆转入外圆轨道还需加速，故 \\(v_{2Q}\\lt v_{3Q}\\)。"},
+    {"title": "比较同一点加速度", "content": "引力加速度只由当前位置决定：\\(a=GM/r^2\\)。轨道 1 和轨道 2 在同一 P 点的加速度完全相同，故选 D。"}
+  ],
+  "analysis": {
+    "title": "单选第10题逐项解析",
+    "sharedThinking": "能量和周期由整条轨道的尺度决定；瞬时引力加速度只由当前位置到地心的距离决定。",
+    "sharedFormula": "\\[\\varepsilon=-\\frac{GM}{2a},\\qquad T^2\\propto a^3,\\qquad a_g=\\frac{GM}{r^2}\\]"
+  },
+  "optionAnalyses": [
+    {"option": "A", "title": "轨道机械能", "judgment": "轨道 3 的尺度更大，机械能更高，A 错误。"},
+    {"option": "B", "title": "圆轨道周期", "judgment": "轨道 1 半径更小，周期也更小，B 错误。"},
+    {"option": "C", "title": "Q 点速度", "judgment": "转移轨道在 Q 点速度小于外圆轨道速度，需再次加速，C 错误。"},
+    {"option": "D", "title": "P 点加速度", "judgment": "同一位置的万有引力相同，所以加速度相同，D 正确。"}
+  ],
+  "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：转移轨道两次点火量比较",
+    "question": "航天器从半径 \\(r\\) 的圆轨道经霍曼转移进入半径 \\(4r\\) 的圆轨道。分别求近地点和远地点点火前后的速度表达式，并比较两次速度增量 \\(\\Delta v_1、\\Delta v_2\\) 的大小。",
+    "answer": "令 \\(v_0=\\sqrt{GM/r}\\)。转移椭圆半长轴 \\(a=5r/2\\)。近地点转移速度 \\(v_p=v_0\\sqrt{8/5}\\)，故 \\(\\Delta v_1=v_0(\\sqrt{8/5}-1)\\)。远地点转移速度 \\(v_a=v_0\\sqrt{1/10}\\)，外圆速度 \\(v_3=v_0/2\\)，故 \\(\\Delta v_2=v_0(1/2-1/\\sqrt{10})\\)。数值上 \\(\\Delta v_1\\gt\\Delta v_2\\)。",
+    "thinking": "**解题思路**\n\n圆轨道用 \\(v=\\sqrt{GM/r}\\)，椭圆切点用活力公式 \\(v^2=GM(2/r-1/a)\\)。两次点火都比较同一点的前后速度。"
+  }
+}

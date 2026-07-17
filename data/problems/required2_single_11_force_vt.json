@@ -1,0 +1,52 @@
+{
+  "id": "required2_single_11_force_vt",
+  "originalNumber": "单11",
+  "chapter": "必修二结业测试",
+  "title": "单选第11题：恒力作用的速度图像",
+  "question": "质量相等的 A、B 两物体放在同一水平面上，分别受水平恒力 \\(F_1、F_2\\)，同时由静止从同一位置出发。经过 \\(t_0\\) 和 \\(4t_0\\)，速度分别达到 \\(2v_0\\) 和 \\(v_0\\) 时撤去对应恒力，随后两物体均匀减速直至停止。根据题给 \\(v-t\\) 图像，下列说法正确的是（　　）。",
+  "options": [
+    "A. \\(F_1\\) 与 \\(F_2\\) 的大小之比为 \\(8:1\\)",
+    "B. 在 \\(2t_0\\) 和 \\(3t_0\\) 间的某一时刻 B 追上 A",
+    "C. \\(F_1\\) 与 \\(F_2\\) 做功大小之比为 \\(5:6\\)",
+    "D. \\(F_1\\) 与 \\(F_2\\) 的冲量大小之比为 \\(3:5\\)"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_11_force_vt",
+    "playable": true,
+    "interactive": true,
+    "notes": "由速度图像同步还原两物体的位置、恒力和摩擦力。",
+    "params": {
+      "baseSpeed": {"label": "基准速度", "value": 4, "min": 2, "max": 8, "step": 0.5, "unit": "m/s"},
+      "baseTime": {"label": "基准时间", "value": 2, "min": 1, "max": 4, "step": 0.5, "unit": "s"}
+    },
+    "timeline": {"duration": 8, "loop": false}
+  },
+  "knowledge": ["速度时间图像", "摩擦力", "功与冲量", "追及问题"],
+  "steps": [
+    {"title": "由撤力后斜率求摩擦力", "content": "A 从 \\(2v_0\\) 经 \\(2t_0\\) 停下，B 从 \\(v_0\\) 经 \\(t_0\\) 停下，二者减速度均为 \\(v_0/t_0\\)，所以滑动摩擦力 \\(f=mv_0/t_0\\)。"},
+    {"title": "反求两个恒力", "content": "加速阶段有 \\(a_A=2v_0/t_0\\)、\\(a_B=v_0/(4t_0)\\)。因此 \\(F_1=ma_A+f=3mv_0/t_0\\)，\\(F_2=ma_B+f=5mv_0/(4t_0)\\)。"},
+    {"title": "比较位移、功和冲量", "content": "由图像面积，A 加速位移为 \\(v_0t_0\\)，B 加速位移为 \\(2v_0t_0\\)，故恒力做功比为 \\(6:5\\)。在 \\(2t_0\\) 到 \\(3t_0\\) 内 B 的累计位移仍小于 A。恒力冲量比为 \\(F_1t_0:F_2(4t_0)=3:5\\)，选 D。"}
+  ],
+  "analysis": {
+    "title": "单选第11题逐项解析",
+    "sharedThinking": "撤力后的共同斜率先给出摩擦力；再用加速段斜率恢复外力，图像面积恢复位移。",
+    "sharedFormula": "\\[f=m\\frac{v_0}{t_0},\\quad F_1=\\frac{3mv_0}{t_0},\\quad F_2=\\frac{5mv_0}{4t_0}\\]"
+  },
+  "optionAnalyses": [
+    {"option": "A", "title": "恒力之比", "judgment": "计入摩擦后 \\(F_1:F_2=12:5\\)，不是 \\(8:1\\)，A 错误。"},
+    {"option": "B", "title": "追及判断", "judgment": "比较 \\(v-t\\) 图像累计面积可知该时段 B 尚未追上 A，B 错误。"},
+    {"option": "C", "title": "恒力做功比", "judgment": "\\(W_1:W_2=6:5\\)，C 错误。"},
+    {"option": "D", "title": "恒力冲量比", "judgment": "\\(I_1:I_2=3:5\\)，D 正确。"}
+  ],
+  "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：由分段图像反演驱动力",
+    "question": "质量为 \\(m\\) 的物体在粗糙水平面上由静止出发。恒力作用 \\(2t_0\\) 后速度达到 \\(3v_0\\)，撤力后又经 \\(3t_0/2\\) 停止。求恒力、摩擦力、恒力冲量与摩擦力全程冲量，并验证总冲量等于动量变化。",
+    "answer": "撤力后减速度为 \\(2v_0/t_0\\)，故 \\(f=2mv_0/t_0\\)。加速时 \\(a=3v_0/(2t_0)\\)，所以 \\(F=ma+f=7mv_0/(2t_0)\\)。恒力冲量为 \\(7mv_0\\)，摩擦全程冲量为 \\(-2mv_0/t_0\\times(7t_0/2)=-7mv_0\\)，总冲量为 0，与初末动量均为 0 一致。",
+    "thinking": "**解题思路**\n\n撤力后的斜率只对应摩擦；受恒力阶段的合力还要减去摩擦。最后把摩擦作用时间覆盖整个运动过程。"
+  }
+}

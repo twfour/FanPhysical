@@ -1,0 +1,52 @@
+{
+  "id": "required2_multiple_13_geostationary",
+  "originalNumber": "多13",
+  "chapter": "必修二结业测试",
+  "title": "多选第13题：地球张角与卫星参数",
+  "question": "I 为北斗卫星导航系统中的静止轨道卫星，其对地张角为 \\(2\\theta\\)；II 为地球的近地卫星。已知地球自转周期为 \\(T_0\\)，万有引力常量为 \\(G\\)。根据题中条件，可求出（　　）。",
+  "options": [
+    "A. 地球平均密度为 \\(\\dfrac{3\\pi\\sin^3\\theta}{GT_0^2}\\)",
+    "B. 卫星 I 和卫星 II 的加速度之比为 \\(\\sin^2\\theta\\)",
+    "C. 卫星 II 的周期为 \\(T_0\\sqrt{\\sin^3\\theta}\\)",
+    "D. 卫星 II 一个周期内无法直接接收到卫星 I 电磁波信号的时间为 \\(\\dfrac{(\\pi+2\\theta)T_0}{2\\pi}\\sqrt{\\sin^3\\theta}\\)"
+  ],
+  "answer": "BCD",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_13_geostationary",
+    "playable": true,
+    "interactive": true,
+    "notes": "显示地球切线张角、两条轨道和近地卫星的信号遮挡弧段。",
+    "params": {
+      "viewAngle": {"label": "半张角", "value": 8.7, "min": 5, "max": 20, "step": 0.5, "unit": "deg"},
+      "earthPeriod": {"label": "自转周期", "value": 24, "min": 20, "max": 28, "step": 1, "unit": "h"}
+    },
+    "timeline": {"duration": 8, "loop": false}
+  },
+  "knowledge": ["地球同步卫星", "开普勒第三定律", "天体密度", "信号遮挡"],
+  "steps": [
+    {"title": "建立几何比例", "content": "从卫星 I 向地球作切线，设静止轨道半径为 \\(r\\)、地球半径为 \\(R\\)，则 \\(\\sin\\theta=R/r\\)。"},
+    {"title": "比较加速度和周期", "content": "\\(a_I/a_{II}=(R/r)^2=\\sin^2\\theta\\)。由开普勒第三定律，\\(T_{II}/T_0=(R/r)^{3/2}=\\sqrt{\\sin^3\\theta}\\)。"},
+    {"title": "求密度与遮挡时间", "content": "\\(\\rho=3\\pi/(GT_0^2\\sin^3\\theta)\\)，所以 A 少了倒数。近地卫星受遮挡的圆心角为 \\(\\pi+2\\theta\\)，遮挡时间为该角度占一周的比例乘 \\(T_{II}\\)。故 B、C、D 正确。"}
+  ],
+  "analysis": {
+    "title": "多选第13题逐项解析",
+    "sharedThinking": "先由切线直角三角形得到 \\(R/r\\)，再把这个无量纲比值代入引力、周期与圆周角比例。",
+    "sharedFormula": "\\[\\sin\\theta=\\frac Rr,\\quad \\frac{a_I}{a_{II}}=\\left(\\frac Rr\\right)^2,\\quad \\frac{T_{II}}{T_0}=\\left(\\frac Rr\\right)^{3/2}\\]"
+  },
+  "optionAnalyses": [
+    {"option": "A", "title": "地球平均密度", "judgment": "正确表达式为 \\(3\\pi/(GT_0^2\\sin^3\\theta)\\)，A 错误。"},
+    {"option": "B", "title": "两卫星加速度比", "judgment": "加速度按轨道半径平方反比，B 正确。"},
+    {"option": "C", "title": "近地卫星周期", "judgment": "周期按轨道半径的 \\(3/2\\) 次方变化，C 正确。"},
+    {"option": "D", "title": "信号遮挡时间", "judgment": "遮挡弧对应圆心角 \\(\\pi+2\\theta\\)，乘近地卫星周期即可，D 正确。"}
+  ],
+  "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：卫星之间的可视窗口",
+    "question": "同步卫星对地半张角为 \\(\\theta\\)，一颗轨道半径为 \\(kR\\) 的低轨卫星与其共面、同向运动。建立低轨卫星一个周期内被地球遮挡的时间比例，并求两卫星相对角速度决定的连续通信窗口周期。",
+    "answer": "同步卫星切线决定遮挡边界；在低轨圆上可进一步由几何求临界圆心角 \\(\\beta\\)。单个低轨周期的遮挡比例为遮挡圆心角除以 \\(2\\pi\\)。低轨角速度 \\(\\omega_L=\\sqrt{GM/(kR)^3}\\)，同步角速度 \\(\\omega_S=2\\pi/T_0\\)，相对构型重复周期为 \\(T_\\text{rel}=2\\pi/|\\omega_L-\\omega_S|\\)。",
+    "thinking": "**解题思路**\n\n原题把同步卫星近似固定在地球坐标系中；进阶题还要处理两卫星相对转动。先解几何边界，再用相对角速度组织时间窗口。"
+  }
+}

@@ -996,6 +996,86 @@
     {
       "id": "bowlDoubleBall",
       "file": "visual_model_bowl_double_ball.json"
+    },
+    {
+      "id": "required2_single_01_history",
+      "file": "required2_single_01_history.json"
+    },
+    {
+      "id": "required2_single_02_river_crossing",
+      "file": "required2_single_02_river_crossing.json"
+    },
+    {
+      "id": "required2_single_03_rope_constraint",
+      "file": "required2_single_03_rope_constraint.json"
+    },
+    {
+      "id": "required2_single_04_ski_jump",
+      "file": "required2_single_04_ski_jump.json"
+    },
+    {
+      "id": "required2_single_05_oblique_throw",
+      "file": "required2_single_05_oblique_throw.json"
+    },
+    {
+      "id": "required2_single_06_ferris_wheel",
+      "file": "required2_single_06_ferris_wheel.json"
+    },
+    {
+      "id": "required2_single_07_double_conical_pendulum",
+      "file": "required2_single_07_double_conical_pendulum.json"
+    },
+    {
+      "id": "required2_single_08_planet_gravity",
+      "file": "required2_single_08_planet_gravity.json"
+    },
+    {
+      "id": "required2_single_09_solar_density",
+      "file": "required2_single_09_solar_density.json"
+    },
+    {
+      "id": "required2_single_10_orbit_transfer",
+      "file": "required2_single_10_orbit_transfer.json"
+    },
+    {
+      "id": "required2_single_11_force_vt",
+      "file": "required2_single_11_force_vt.json"
+    },
+    {
+      "id": "required2_single_12_conveyor_energy",
+      "file": "required2_single_12_conveyor_energy.json"
+    },
+    {
+      "id": "required2_multiple_13_geostationary",
+      "file": "required2_multiple_13_geostationary.json"
+    },
+    {
+      "id": "required2_multiple_14_cross_conveyor",
+      "file": "required2_multiple_14_cross_conveyor.json"
+    },
+    {
+      "id": "required2_multiple_15_gear_turntable",
+      "file": "required2_multiple_15_gear_turntable.json"
+    },
+    {
+      "id": "required2_multiple_16_counterweight_spring",
+      "file": "required2_multiple_16_counterweight_spring.json"
+    },
+    {
+      "id": "required2_solution_17_semicircle_tube",
+      "file": "required2_solution_17_semicircle_tube.json"
+    },
+    {
+      "id": "required2_solution_18_rope_ball",
+      "file": "required2_solution_18_rope_ball.json"
+    },
+    {
+      "id": "required2_solution_19_toy_car_power",
+      "file": "required2_solution_19_toy_car_power.json"
+    },
+    {
+      "id": "required2_solution_20_arc_incline",
+      "file": "required2_solution_20_arc_incline.json"
     }
   ]
 }

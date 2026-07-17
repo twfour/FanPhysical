@@ -1,0 +1,42 @@
+{
+  "id": "required2_single_07_double_conical_pendulum",
+  "originalNumber": "单7",
+  "chapter": "必修二结业测试",
+  "title": "单选第7题：双球圆锥摆构型",
+  "question": "两个完全相同的小球由两根等长轻绳依次连接并固定于 O 点，以竖直线 \\(OO'\\) 为轴分别在水平面内做匀速圆周运动，两小球始终处于同一竖直平面内。下列图示构型可能正确的是（　　）。",
+  "options": [
+    "A. 下段绳相对竖直方向的倾角大于上段绳的倾角",
+    "B. 两段绳位于同一直线上",
+    "C. 下段绳相对竖直方向的倾角小于上段绳的倾角",
+    "D. 下段绳保持竖直"
+  ],
+  "answer": "A",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_07_double_conical_pendulum",
+    "playable": true,
+    "interactive": true,
+    "notes": "用旋转投影显示上下两段绳的不同倾角与半径。",
+    "params": {
+      "ropeLength": {"label": "绳长", "value": 1.2, "min": 0.6, "max": 2, "step": 0.1, "unit": "m"},
+      "omega": {"label": "角速度", "value": 3, "min": 1.5, "max": 5, "step": 0.1, "unit": "rad/s"}
+    },
+    "timeline": {"duration": 7, "loop": false}
+  },
+  "knowledge": ["圆锥摆", "连接体受力", "向心力", "构型判断"],
+  "steps": [
+    {"title": "设定两个倾角", "content": "设上段绳、下段绳与竖直方向的夹角分别为 \\(\\alpha、\\beta\\)，两球转动半径分别为 \\(r_1、r_2\\)，且 \\(r_2=r_1+l\\sin\\beta\\)。"},
+    {"title": "分析下球", "content": "下球满足 \\(T_2\\cos\\beta=mg\\)、\\(T_2\\sin\\beta=m\\omega^2r_2\\)，即 \\(\\tan\\beta=\\omega^2r_2/g\\)。"},
+    {"title": "分析整体", "content": "把两球看作整体，上段绳的水平分量要提供两球的总向心力，而竖直分量平衡 \\(2mg\\)。联立可知稳定的同侧构型中 \\(\\beta\\gt\\alpha\\)，两绳不共线，故 A 图可能正确。"}
+  ],
+  "analysis": {"title": "单选第7题分步解析"},
+  "analysisPresentation": {"optionMode": "shared-solution", "collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：不等质量双球圆锥摆",
+    "question": "上、下两球质量分别为 \\(m\\) 和 \\(2m\\)，两根绳长均为 \\(l\\)，以同一角速度 \\(\\omega\\) 绕竖直轴转动。建立决定两绳倾角 \\(\\alpha、\\beta\\) 的方程组，并说明改变下球质量后哪一段绳张力变化更直接。",
+    "answer": "下球：\\(T_2\\cos\\beta=2mg\\)、\\(T_2\\sin\\beta=2m\\omega^2r_2\\)。上球：\\(T_1\\cos\\alpha-T_2\\cos\\beta=mg\\)、\\(T_1\\sin\\alpha-T_2\\sin\\beta=m\\omega^2r_1\\)，其中 \\(r_1=l\\sin\\alpha\\)、\\(r_2=r_1+l\\sin\\beta\\)。下球质量首先直接成比例改变 \\(T_2\\)，并通过上球方程继续影响 \\(T_1\\)。",
+    "thinking": "**解题思路**\n\n先隔离末端球求下段张力，再隔离上球或把两球视为整体。不要假定两段绳张力相等，也不要把两球的转动半径写成同一个量。"
+  }
+}

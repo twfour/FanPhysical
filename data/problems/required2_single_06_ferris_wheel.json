@@ -1,0 +1,42 @@
+{
+  "id": "required2_single_06_ferris_wheel",
+  "originalNumber": "单6",
+  "chapter": "必修二结业测试",
+  "title": "单选第6题：摩天轮轿厢摩擦力",
+  "question": "某摩天轮在竖直面内绕 O 点做匀速圆周运动，半径为 \\(R\\)，角速度为 \\(\\omega\\)，转动过程中轿厢地板始终保持水平。质量为 \\(m\\) 的物体放在地板上，当物体转到 O 点左下方、半径与水平方向夹角为 \\(\\theta\\) 的位置时，物体受到的摩擦力大小为（　　）。",
+  "options": [
+    "A. \\(m\\omega^2R\\sin\\theta\\)",
+    "B. \\(m\\omega^2R\\cos\\theta\\)",
+    "C. \\(m\\omega^2R\\tan\\theta\\)",
+    "D. \\(\\dfrac{m\\omega^2R}{\\tan\\theta}\\)"
+  ],
+  "answer": "B",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_06_ferris_wheel",
+    "playable": true,
+    "interactive": true,
+    "notes": "轿厢保持水平，摩擦力提供向心加速度的水平分量。",
+    "params": {
+      "radius": {"label": "转动半径", "value": 4, "min": 2, "max": 8, "step": 0.5, "unit": "m"},
+      "omega": {"label": "角速度", "value": 0.8, "min": 0.3, "max": 1.5, "step": 0.1, "unit": "rad/s"}
+    },
+    "timeline": {"duration": 7, "loop": false}
+  },
+  "knowledge": ["匀速圆周运动", "向心加速度", "摩擦力", "力的分解"],
+  "steps": [
+    {"title": "确定加速度方向", "content": "物体随轿厢绕 O 做圆周运动，加速度指向圆心，大小为 \\(a_n=\\omega^2R\\)。"},
+    {"title": "分解水平方向", "content": "轿厢地板水平，重力和支持力均竖直，只有静摩擦力能提供水平合力。向心加速度的水平分量为 \\(a_x=\\omega^2R\\cos\\theta\\)。"},
+    {"title": "得到摩擦力", "content": "由水平方向牛顿第二定律，\\(f=ma_x=m\\omega^2R\\cos\\theta\\)，故选 B。"}
+  ],
+  "analysis": {"title": "单选第6题分步解析"},
+  "analysisPresentation": {"optionMode": "shared-solution", "collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：轿厢内临界不滑动",
+    "question": "摩天轮半径为 \\(R\\)，轿厢地板水平，物体与地板间静摩擦因数为 \\(\\mu\\)。推导物体在任意位置都不滑动时角速度 \\(\\omega\\) 应满足的条件，并考虑支持力随位置变化对最大静摩擦力的影响。",
+    "answer": "设半径与竖直向下方向夹角为 \\(\\phi\\)。有 \\(f=m\\omega^2R|\\sin\\phi|\\)，\\(N=mg-m\\omega^2R\\cos\\phi\\)。需对所有 \\(\\phi\\) 满足 \\(\\omega^2R|\\sin\\phi|\\le\\mu(g-\\omega^2R\\cos\\phi)\\)。其最不利条件等价于 \\(\\omega^2R\\sqrt{1+\\mu^2}\\le\\mu g\\)，即 \\(\\omega^2R\\le\\mu g/\\sqrt{1+\\mu^2}\\)。",
+    "thinking": "**解题思路**\n\n不能只用 \\(f\\le\\mu mg\\)，因为支持力也随竖直向心分量变化。先写出 \\(f(\\phi)\\) 与 \\(N(\\phi)\\)，再对整周寻找最严格条件。"
+  }
+}

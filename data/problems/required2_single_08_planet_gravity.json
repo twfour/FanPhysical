@@ -1,0 +1,42 @@
+{
+  "id": "required2_single_08_planet_gravity",
+  "originalNumber": "单8",
+  "chapter": "必修二结业测试",
+  "title": "单选第8题：星球表面重力",
+  "question": "某星球的质量为地球质量的一半，半径为地球半径的一半。已知地球表面的重力加速度大小为 \\(g_0\\)，忽略天体自转。该星球表面的重力加速度大小为（　　）。",
+  "options": [
+    "A. \\(\\dfrac14g_0\\)",
+    "B. \\(\\dfrac12g_0\\)",
+    "C. \\(g_0\\)",
+    "D. \\(2g_0\\)"
+  ],
+  "answer": "D",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_08_planet_gravity",
+    "playable": true,
+    "interactive": true,
+    "notes": "比较质量与半径缩放对表面重力的共同影响。",
+    "params": {
+      "massRatio": {"label": "质量比", "value": 0.5, "min": 0.2, "max": 2, "step": 0.1, "unit": "M地"},
+      "radiusRatio": {"label": "半径比", "value": 0.5, "min": 0.3, "max": 1.5, "step": 0.1, "unit": "R地"}
+    },
+    "timeline": {"duration": 6, "loop": false}
+  },
+  "knowledge": ["万有引力", "表面重力", "比例法", "天体参数"],
+  "steps": [
+    {"title": "写表面重力公式", "content": "忽略自转时，星球表面物体满足 \\(mg=GMm/R^2\\)，所以 \\(g=GM/R^2\\)。"},
+    {"title": "使用比例法", "content": "\\(\\dfrac{g'}{g_0}=\\dfrac{M'/M_\\oplus}{(R'/R_\\oplus)^2}=\\dfrac{1/2}{(1/2)^2}=2\\)。"},
+    {"title": "结论", "content": "该星球表面重力加速度为 \\(2g_0\\)，选 D。"}
+  ],
+  "analysis": {"title": "单选第8题分步解析"},
+  "analysisPresentation": {"optionMode": "shared-solution", "collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：由密度和逃逸速度反推半径",
+    "question": "一颗均匀星球的平均密度为地球的 \\(2\\) 倍，表面重力加速度与地球相同。求其半径、质量和第一宇宙速度分别为地球对应量的多少倍。",
+    "answer": "由 \\(g=(4\\pi G/3)\\rho R\\)，得 \\(R'/R_\\oplus=1/2\\)。质量比为 \\(M'/M_\\oplus=(\\rho'/\\rho_\\oplus)(R'/R_\\oplus)^3=1/4\\)。第一宇宙速度 \\(v_1=\\sqrt{gR}\\)，故 \\(v_1'/v_{1\\oplus}=1/\\sqrt2\\)。",
+    "thinking": "**解题思路**\n\n先把 \\(M=4\\pi\\rho R^3/3\\) 代入表面重力公式消去质量，再分别恢复质量和第一宇宙速度。"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "required2_single_02_river_crossing",
+  "originalNumber": "单2",
+  "chapter": "必修二结业测试",
+  "title": "单选第2题：两种方式渡河时间比",
+  "question": "有一条两岸平直且平行的河流，河水流速恒定，大小为 \\(v_1\\)。一条小船在河上横渡，船在静水中的速度大小为 \\(v_2\\)。第一次过河时船头始终指向与河岸垂直的方向；第二次过河时行驶路线与河岸垂直。若 \\(v_1、v_2\\) 均不变，第一次与第二次过河所用时间的比值为（　　）。",
+  "options": [
+    "A. \\(\\dfrac{v_1}{\\sqrt{v_1^2-v_2^2}}\\)",
+    "B. \\(\\dfrac{\\sqrt{v_1^2-v_2^2}}{v_1}\\)",
+    "C. \\(\\dfrac{\\sqrt{v_2^2-v_1^2}}{v_2}\\)",
+    "D. \\(\\dfrac{\\sqrt{v_2^2+v_1^2}}{v_2}\\)"
+  ],
+  "answer": "C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_02_river_crossing",
+    "playable": true,
+    "interactive": true,
+    "notes": "同步比较船头垂直与航迹垂直两种渡河过程。",
+    "params": {
+      "waterSpeed": {"label": "水速", "value": 3, "min": 0.5, "max": 4.5, "step": 0.5, "unit": "m/s"},
+      "boatSpeed": {"label": "船速", "value": 5, "min": 5, "max": 10, "step": 0.5, "unit": "m/s"}
+    },
+    "timeline": {"duration": 7, "loop": false}
+  },
+  "knowledge": ["运动合成", "小船渡河", "最短时间", "矢量分解"],
+  "steps": [
+    {"title": "设定河宽", "content": "设河宽为 \\(L\\)。第一次船头垂直河岸，垂岸分速度就是 \\(v_2\\)，所以 \\(t_1=L/v_2\\)。"},
+    {"title": "构造垂直航迹", "content": "第二次要让合速度垂直河岸，船速的沿岸分量必须抵消水速。垂岸分速度为 \\(v_\\perp=\\sqrt{v_2^2-v_1^2}\\)，要求 \\(v_2\\gt v_1\\)。"},
+    {"title": "计算时间比", "content": "\\(t_2=L/\\sqrt{v_2^2-v_1^2}\\)，故 \\(\\dfrac{t_1}{t_2}=\\dfrac{\\sqrt{v_2^2-v_1^2}}{v_2}\\)。答案为 C。"}
+  ],
+  "analysis": {"title": "单选第2题分步解析"},
+  "analysisPresentation": {"optionMode": "shared-solution", "collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：限时到达对岸指定点",
+    "question": "河宽为 \\(120\\,\\mathrm m\\)，水速为 \\(3\\,\\mathrm{m/s}\\)，船在静水中的速度为 \\(5\\,\\mathrm{m/s}\\)。船要在 \\(30\\,\\mathrm s\\) 内到达正对岸上游 \\(30\\,\\mathrm m\\) 处，判断是否可行；若可行，求船头相对垂直河岸方向的偏角。",
+    "answer": "目标合速度分量为 \\(v_\\perp=120/30=4\\,\\mathrm{m/s}\\)、\\(v_\\parallel=-30/30=-1\\,\\mathrm{m/s}\\)。船对水速度沿岸分量应为 \\(-1-3=-4\\,\\mathrm{m/s}\\)，与垂岸分量组成 \\(\\sqrt{4^2+4^2}=4\\sqrt2\\,\\mathrm{m/s}\\gt5\\,\\mathrm{m/s}\\)，因此不可行。",
+    "thinking": "**解题思路**\n\n先由目标位移和规定时间反求合速度，再减去水流速度得到所需船速；最后与船在静水中的最大速度比较。"
+  }
+}

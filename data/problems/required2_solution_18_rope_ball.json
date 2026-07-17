@@ -1,0 +1,38 @@
+{
+  "id": "required2_solution_18_rope_ball",
+  "originalNumber": "解18",
+  "chapter": "必修二结业测试",
+  "title": "解答第18题：圆锥摆、松绳与断绳抛体",
+  "question": "手握不可伸长轻绳一端，另一端系质量 \\(m=0.2\\,\\mathrm{kg}\\) 的小球，绳长 \\(l=0.5\\,\\mathrm m\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求：（1）小球做圆锥摆且绳与竖直方向夹角为 \\(37^\\circ\\) 时的周期；（2）手不动，把小球提到手的正上方，绳竖直伸直且无张力，再以水平速度 \\(1\\,\\mathrm{m/s}\\) 抛出，绳再次伸直的时间；（3）绳最大拉力为 \\(12\\,\\mathrm N\\)，手离地 \\(h=1.6\\,\\mathrm m\\)。改变绳长，使小球在竖直面内做圆周运动并在最低点刚好断绳，求最大水平距离。已知 \\(\\sin37^\\circ=0.6、\\cos37^\\circ=0.8、\\pi=3.14\\)。",
+  "answer": "（1）\\(T=2\\pi/5\\,\\mathrm s\\approx1.26\\,\\mathrm s\\)；（2）\\(t=0.40\\,\\mathrm s\\)；（3）\\(x_{\\max}=4\\sqrt{10}/5\\,\\mathrm m\\approx2.53\\,\\mathrm m\\)。",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_18_rope_ball",
+    "playable": true,
+    "interactive": true,
+    "notes": "三阶段依次展示圆锥摆、松绳抛体重新绷紧和最低点断绳。",
+    "params": {
+      "ropeLength": {"label": "绳长", "value": 0.5, "min": 0.3, "max": 1.2, "step": 0.05, "unit": "m"},
+      "handHeight": {"label": "手离地高度", "value": 1.6, "min": 1.2, "max": 2.4, "step": 0.1, "unit": "m"},
+      "maxTension": {"label": "最大拉力", "value": 12, "min": 8, "max": 20, "step": 1, "unit": "N"}
+    },
+    "timeline": {"duration": 10, "loop": false}
+  },
+  "knowledge": ["圆锥摆", "松绳约束", "竖直圆周运动", "平抛最值"],
+  "steps": [
+    {"title": "第（1）问：圆锥摆周期", "content": "竖直方向 \\(T_s\\cos37^\\circ=mg\\)，水平方向 \\(T_s\\sin37^\\circ=m\\omega^2(l\\sin37^\\circ)\\)。消去张力得 \\(\\omega^2=g/(l\\cos37^\\circ)=25\\)，故 \\(T=2\\pi/\\omega=2\\pi/5\\,\\mathrm s\\approx1.26\\,\\mathrm s\\)。"},
+    {"title": "第（2）问：绳再次伸直", "content": "以手为原点，向下为正。小球初始在手的正上方，位置为 \\((0,-l)\\)，抛出后 \\(x=vt、y=-l+gt^2/2\\)。绳再次伸直满足 \\(x^2+y^2=l^2\\)，除去 \\(t=0\\) 后有 \\(t=2\\sqrt{lg-v^2}/g=0.40\\,\\mathrm s\\)。"},
+    {"title": "第（3）问：最低点断绳速度", "content": "最低点有 \\(T_{\\max}-mg=mv^2/l\\)。代入 \\(12-2=0.2v^2/l\\)，得 \\(v^2=50l\\)。该条件还使最高点速度满足临界圆周条件。"},
+    {"title": "第（3）问：优化水平射程", "content": "断绳点离地高度为 \\(h-l\\)，射程平方 \\(x^2=v^2\\cdot2(h-l)/g=10l(1.6-l)\\)。二次函数在 \\(l=0.8\\,\\mathrm m\\) 取最大值，故 \\(x_{\\max}=\\sqrt{6.4}=4\\sqrt{10}/5\\,\\mathrm m\\)。"}
+  ],
+  "analysis": {"title": "解答第18题分步解析"},
+  "analysisPresentation": {"collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：断绳点可调的二维优化",
+    "question": "质量为 \\(m\\) 的小球在竖直圆周上运动，绳长为 \\(l\\)，手离地高度为 \\(h\\)。若绳在圆周最低点后转过角 \\(\\phi\\) 时断裂，断裂速度由机械能守恒确定。建立水平射程关于 \\(l、\\phi\\) 的表达式，并说明求最大值时必须同时满足哪些约束。",
+    "answer": "断裂点坐标和速度分量由圆周几何给出，设最低点速度为 \\(v_0\\)，则 \\(v^2=v_0^2-2gl(1-\\cos\\phi)\\)。断裂高度为 \\(y=h-l\\cos\\phi\\)，速度分量为 \\(v_x=v\\cos\\phi、v_y=v\\sin\\phi\\)。飞行时间取 \\(y+v_yt-gt^2/2=0\\) 的正根，射程 \\(X=v_xt\\)。优化时还需满足绳张力非负、断裂前不断绳、断裂点高于地面和 \\(v_x\\ge0\\)。",
+    "thinking": "**解题思路**\n\n原题只优化绳长；进阶题把断裂角也作为变量。先用圆周能量得到速度，再接抛体运动，最后在物理可行域内做双变量优化。"
+  }
+}

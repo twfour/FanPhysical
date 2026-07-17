@@ -1,0 +1,53 @@
+{
+  "id": "required2_single_05_oblique_throw",
+  "originalNumber": "单5",
+  "chapter": "必修二结业测试",
+  "title": "单选第5题：斜抛机械能与参考面",
+  "question": "将质量为 \\(m\\) 的石块从离地面 \\(h\\) 高处以初速度 \\(v_0\\) 斜向上抛出，最后落回地面。最高点距地面高度为 \\(H\\)。以抛出点为重力势能参考平面，不计空气阻力。下列说法正确的是（　　）。",
+  "options": [
+    "A. 石块到达地面时的动能为 \\(\\dfrac12mv_0^2-mgH\\)",
+    "B. 石块到达地面时的重力势能为 \\(mgh\\)",
+    "C. 石块在最高点的机械能为 \\(\\dfrac12mv_0^2\\)",
+    "D. 石块在整个运动过程中重力势能一直在减小"
+  ],
+  "answer": "C",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_05_oblique_throw",
+    "playable": true,
+    "interactive": true,
+    "notes": "显示斜抛轨迹及动能、势能、机械能的同步变化。",
+    "params": {
+      "launchSpeed": {"label": "初速度", "value": 16, "min": 8, "max": 24, "step": 1, "unit": "m/s"},
+      "launchAngle": {"label": "抛射角", "value": 50, "min": 20, "max": 75, "step": 1, "unit": "deg"},
+      "launchHeight": {"label": "离地高度", "value": 6, "min": 2, "max": 12, "step": 1, "unit": "m"}
+    },
+    "timeline": {"duration": 7, "loop": false}
+  },
+  "knowledge": ["斜抛运动", "机械能守恒", "势能参考面", "功率与能量"],
+  "steps": [
+    {"title": "确定总机械能", "content": "参考面取在抛出点，初态重力势能为 0，因此系统机械能为 \\(E=mv_0^2/2\\)。只有重力做功，所以全过程机械能守恒。"},
+    {"title": "检查地面状态", "content": "地面位于参考面下方 \\(h\\)，故 \\(E_{p,\\text{地}}=-mgh\\)，落地动能为 \\(E_{k,\\text{地}}=mv_0^2/2+mgh\\)。"},
+    {"title": "检查最高点和变化趋势", "content": "最高点机械能仍为 \\(mv_0^2/2\\)。上升阶段势能增大，下降阶段势能减小，因此只有 C 正确。"}
+  ],
+  "analysis": {
+    "title": "单选第5题逐项解析",
+    "sharedThinking": "先固定重力势能零点，再用机械能守恒把各位置的动能和势能联系起来。",
+    "sharedFormula": "\\[E=E_k+E_p=\\frac12mv_0^2,\\qquad E_{p,\\text{地}}=-mgh\\]"
+  },
+  "optionAnalyses": [
+    {"option": "A", "title": "落地动能", "judgment": "落地动能应为 \\(mv_0^2/2+mgh\\)，与最高高度 \\(H\\) 无直接关系，A 错误。"},
+    {"option": "B", "title": "落地势能", "judgment": "地面低于参考面，势能是 \\(-mgh\\)，B 错误。"},
+    {"option": "C", "title": "最高点机械能", "judgment": "无阻力时机械能守恒，最高点仍为 \\(mv_0^2/2\\)，C 正确。"},
+    {"option": "D", "title": "势能变化", "judgment": "石块先上升后下降，势能先增大后减小，D 错误。"}
+  ],
+  "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：改变势能零点后的同一运动",
+    "question": "同一斜抛过程分别以地面和最高点为重力势能零面。写出抛出点、最高点和落地点的机械能表达式，并证明任意两种参考面下动能计算结果相同。",
+    "answer": "若以地面为零面，机械能为 \\(E_1=mv_0^2/2+mgh\\)。若以最高点为零面，机械能为 \\(E_2=mv_0^2/2-mg(H-h)\\)。势能零点改变只使所有势能和机械能同时平移同一常量，\\(E_k=E-E_p\\) 不变。",
+    "thinking": "**解题思路**\n\n把“机械能的数值依赖参考面”和“机械能守恒不依赖参考面”分开。比较同一位置的 \\(E-E_p\\)，即可证明动能不受零点选择影响。"
+  }
+}

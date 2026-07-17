@@ -1,0 +1,52 @@
+{
+  "id": "required2_multiple_14_cross_conveyor",
+  "originalNumber": "多14",
+  "chapter": "必修二结业测试",
+  "title": "多选第14题：垂直滑上传送带",
+  "question": "倾斜滑道高 \\(h=0.6\\,\\mathrm m\\)、水平底边长 \\(L=0.8\\,\\mathrm m\\)，与水平传送带平滑连接，传送带沿垂直于滑道的方向以 \\(v=1\\,\\mathrm{m/s}\\) 匀速运行。质量为 \\(2\\,\\mathrm{kg}\\) 的工件从滑道顶端由静止释放，工件与滑道及传送带间动摩擦因数均为 \\(0.5\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)，忽略连接处能量损失。下列说法正确的是（　　）。",
+  "options": [
+    "A. 工件滑上传送带时的速度大小为 \\(2\\,\\mathrm{m/s}\\)",
+    "B. 工件在传送带上受到的摩擦力方向与传送带运动方向夹角为 \\(45^\\circ\\)",
+    "C. 为防止工件从传送带侧边滑落，传送带的最小宽度 \\(d\\) 为 \\(0.4\\,\\mathrm m\\)",
+    "D. 工件在传送带上滑动过程中摩擦生热为 \\(5\\,\\mathrm J\\)"
+  ],
+  "answer": "AD",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_14_cross_conveyor",
+    "playable": true,
+    "interactive": true,
+    "notes": "先显示斜面下滑，再俯视显示二维相对速度衰减。",
+    "params": {
+      "beltSpeed": {"label": "传送带速度", "value": 1, "min": 0.5, "max": 2, "step": 0.1, "unit": "m/s"},
+      "friction": {"label": "动摩擦因数", "value": 0.5, "min": 0.2, "max": 0.8, "step": 0.05, "unit": ""}
+    },
+    "timeline": {"duration": 8, "loop": false}
+  },
+  "knowledge": ["动能定理", "二维相对运动", "摩擦生热", "传送带"],
+  "steps": [
+    {"title": "求进入传送带的速度", "content": "斜面长为 \\(1\\,\\mathrm m\\)，\\(\\sin\\theta=0.6、\\cos\\theta=0.8\\)。由动能定理 \\(mgh-\\mu mg\\cos\\theta\\,s=mv_0^2/2\\)，得 \\(v_0=2\\,\\mathrm{m/s}\\)。"},
+    {"title": "分析二维相对速度", "content": "取传送带方向为 \\(y\\) 轴、滑道方向为 \\(x\\) 轴，初始相对速度为 \\(\\vec v_r=(2,-1)\\)，大小为 \\(\\sqrt5\\)。摩擦方向与传送带方向夹角满足 \\(\\tan\\phi=2\\)，并非 \\(45^\\circ\\)。"},
+    {"title": "求宽度和热量", "content": "相对滑动距离为 \\(s_r=v_r^2/(2\\mu g)=0.5\\,\\mathrm m\\)，故热量 \\(Q=\\mu mgs_r=5\\,\\mathrm J\\)。工件横向位移为 \\(1/\\sqrt5\\,\\mathrm m\\approx0.447\\,\\mathrm m\\)，不是 \\(0.4\\,\\mathrm m\\)。故 A、D 正确。"}
+  ],
+  "analysis": {
+    "title": "多选第14题逐项解析",
+    "sharedThinking": "斜面段用动能定理；传送带段必须在二维中先求物块相对传送带的速度，摩擦始终与该相对速度反向。",
+    "sharedFormula": "\\[\\vec v_r=\\vec v_\\text{物}-\\vec v_\\text{带},\\quad s_r=\\frac{v_r^2}{2\\mu g},\\quad Q=\\mu mgs_r\\]"
+  },
+  "optionAnalyses": [
+    {"option": "A", "title": "入带速度", "judgment": "动能定理给出 \\(v_0=2\\,\\mathrm{m/s}\\)，A 正确。"},
+    {"option": "B", "title": "摩擦方向", "judgment": "相对速度两分量为 2 和 1，夹角不是 \\(45^\\circ\\)，B 错误。"},
+    {"option": "C", "title": "最小带宽", "judgment": "横向位移为 \\(1/\\sqrt5\\,\\mathrm m\\)，约 \\(0.447\\,\\mathrm m\\)，C 错误。"},
+    {"option": "D", "title": "摩擦热", "judgment": "相对路程为 \\(0.5\\,\\mathrm m\\)，摩擦热为 \\(5\\,\\mathrm J\\)，D 正确。"}
+  ],
+  "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：任意入射方向的传送带",
+    "question": "物块以速度 \\(u\\) 沿与传送带方向成 \\(\\beta\\) 的方向滑上传送带，带速为 \\(V\\)，动摩擦因数为 \\(\\mu\\)。在物块最终与带同速前，求相对滑动时间、摩擦热以及垂直于带方向的最大位移。",
+    "answer": "初始相对速度大小 \\(w=\\sqrt{u^2+V^2-2uV\\cos\\beta}\\)。相对加速度大小为 \\(\\mu g\\)，故 \\(t=w/(\\mu g)\\)、相对路程 \\(s_r=w^2/(2\\mu g)\\)、热量 \\(Q=mw^2/2\\)。垂带方向初速度为 \\(u\\sin\\beta\\)，摩擦加速度该分量为 \\(-\\mu g\\,u\\sin\\beta/w\\)，所以最大横向位移为 \\(u\\sin\\beta\\,w/(2\\mu g)\\)。",
+    "thinking": "**解题思路**\n\n在传送带参考系中，相对速度矢量只缩短、不转向，问题化为沿固定方向的匀减速；最后把相对位移投影回带宽方向。"
+  }
+}

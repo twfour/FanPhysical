@@ -1,0 +1,53 @@
+{
+  "id": "required2_multiple_16_counterweight_spring",
+  "originalNumber": "多16",
+  "chapter": "必修二结业测试",
+  "title": "多选第16题：配重球绳长约束与弹簧",
+  "question": "质量为 \\(m\\) 的配重球甲穿在竖直光滑导向杆上并挂在缓冲弹簧上端，质量为 \\(4m\\) 的吊篮乙通过轻绳跨过定滑轮 O 与甲连接。初始甲在 P 点，滑轮左侧绳竖直，右侧绳与水平方向夹角 \\(53^\\circ\\)，轻绳刚好伸直但无拉力。由静止释放乙，随后甲运动到 Q 点，O、Q 连线水平且 \\(OQ=d\\)。甲在 P、Q 两点处弹簧弹力大小相等。已知 \\(E_p=kx^2/2\\)，\\(\\sin53^\\circ=0.8\\)、\\(\\cos53^\\circ=0.6\\)。下列说法正确的是（　　）。",
+  "options": [
+    "A. 配重球甲在 Q 点的加速度小于 \\(g\\)",
+    "B. 配重球甲位于 Q 点时的速度大小 \\(v\\gt\\sqrt{\\dfrac83gd}\\)",
+    "C. 配重球甲从 P 点上升到 Q 点的过程中，甲和乙总机械能先增加后减小",
+    "D. 配重球甲上升到 PQ 中点时，甲和乙总机械能增加量为 \\(\\dfrac{mgd}{3}\\)"
+  ],
+  "answer": "CD",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_16_counterweight_spring",
+    "playable": true,
+    "interactive": true,
+    "notes": "展示非线性绳长约束、弹簧形变与两物体机械能转移。",
+    "params": {
+      "distance": {"label": "OQ 距离", "value": 3, "min": 1.5, "max": 5, "step": 0.25, "unit": "m"},
+      "mass": {"label": "配重球质量", "value": 1, "min": 0.5, "max": 3, "step": 0.5, "unit": "kg"}
+    },
+    "timeline": {"duration": 8, "loop": false}
+  },
+  "knowledge": ["绳长约束", "弹簧势能", "机械能转移", "瞬时加速度"],
+  "steps": [
+    {"title": "还原 P、Q 几何", "content": "初始斜绳长 \\(OP=d/\\cos53^\\circ=5d/3\\)，P 比 Q 低 \\(d\\tan53^\\circ=4d/3\\)。甲从 P 到 Q 上升 \\(4d/3\\)，乙下降 \\(OP-OQ=2d/3\\)。"},
+    {"title": "确定弹簧状态", "content": "P、Q 弹力等大且甲在 P 点静止、绳无拉力，故 P、Q 位于弹簧原长位置两侧，形变量分别为 \\(-2d/3、+2d/3\\)。在 P 点有 \\(k(2d/3)=mg\\)，即 \\(k=3mg/(2d)\\)。"},
+    {"title": "求 Q 点速度和加速度", "content": "P、Q 弹簧势能相等。两物体重力势能净减少 \\(4mgd/3\\)，而 Q 点绳长变化率为 0，乙瞬时速度为 0，所以 \\(mv_Q^2/2=4mgd/3\\)，得 \\(v_Q=\\sqrt{8gd/3}\\)。Q 点弹簧与重力均向下，甲加速度大于 \\(g\\)。"},
+    {"title": "判断总机械能变化", "content": "甲、乙总机械能的增加量等于弹簧势能的减少量。弹簧势能从 P 到中点降为 0，再增回 Q 点原值，所以先增加后减小。中点增加量为 \\(k(2d/3)^2/2=mgd/3\\)。故 C、D 正确。"}
+  ],
+  "analysis": {
+    "title": "多选第16题逐项解析",
+    "sharedThinking": "几何先给位移和绳端速度关系；弹簧两端等力给出关于原长的对称性；最后用系统能量处理速度与机械能变化。",
+    "sharedFormula": "\\[OP=\\frac{5d}{3},\\quad \\Delta y_\\text{甲}=\\frac{4d}{3},\\quad \\Delta y_\\text{乙}=\\frac{2d}{3},\\quad k=\\frac{3mg}{2d}\\]"
+  },
+  "optionAnalyses": [
+    {"option": "A", "title": "Q 点加速度", "judgment": "Q 点绳张力水平，重力和弹簧力都向下，故甲加速度大于 \\(g\\)，A 错误。"},
+    {"option": "B", "title": "Q 点速度", "judgment": "能量守恒给出恰好 \\(v_Q=\\sqrt{8gd/3}\\)，不是大于，B 错误。"},
+    {"option": "C", "title": "两物体总机械能", "judgment": "弹簧势能先减后增，所以甲、乙总机械能先增后减，C 正确。"},
+    {"option": "D", "title": "中点机械能增量", "judgment": "中点弹簧势能为 0，减少量为 \\(mgd/3\\)，D 正确。"}
+  ],
+  "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：一般初始角的弹簧配重系统",
+    "question": "将原题初始右侧绳与水平方向夹角改为 \\(\\alpha\\)，仍有 \\(OQ=d\\)，且甲在初、末位置弹簧弹力等大。吊篮质量为 \\(\\lambda m\\)。推导甲从初位置到 Q 的上升高度、吊篮下降高度和 Q 点甲的速度，并指出哪些结果依赖弹簧劲度系数。",
+    "answer": "初始甲低于 Q 的高度 \\(h=d\\tan\\alpha\\)，斜绳长为 \\(d/\\cos\\alpha\\)，故吊篮下降 \\(s=d(\\sec\\alpha-1)\\)。端点弹簧势能相等，Q 点吊篮瞬时速度为 0，所以 \\(mv_Q^2/2=\\lambda mgd(\\sec\\alpha-1)-mgd\\tan\\alpha\\)。即 \\(v_Q^2=2gd[\\lambda(\\sec\\alpha-1)-\\tan\\alpha]\\)。端点速度不依赖 \\(k\\)，但过程中的能量分配和加速度依赖 \\(k\\)。",
+    "thinking": "**解题思路**\n\n把 53° 的特殊三角形换成一般三角函数。端点弹簧能相等会把 \\(k\\) 从速度公式中消去，但不能据此认为整个运动都与弹簧无关。"
+  }
+}

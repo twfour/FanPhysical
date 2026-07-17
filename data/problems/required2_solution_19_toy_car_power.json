@@ -1,0 +1,38 @@
+{
+  "id": "required2_solution_19_toy_car_power",
+  "originalNumber": "解19",
+  "chapter": "必修二结业测试",
+  "title": "解答第19题：玩具车恒力与恒功率启动",
+  "question": "质量 \\(m=1\\,\\mathrm{kg}\\) 的遥控玩具车在水平路面由静止启动，前 \\(2\\,\\mathrm s\\) 做匀加速直线运动，\\(2\\,\\mathrm s\\) 末达到额定功率；\\(10\\,\\mathrm s\\) 至 \\(14\\,\\mathrm s\\) 以 \\(6\\,\\mathrm{m/s}\\) 匀速；\\(14\\,\\mathrm s\\) 末停止遥控后自由滑行，并在 \\(18\\,\\mathrm s\\) 停止。全过程阻力大小不变。求：（1）阻力 \\(F\\)；（2）\\(2\\,\\mathrm s\\) 末速度 \\(v_x\\)；（3）\\(2\\,\\mathrm s\\) 至 \\(18\\,\\mathrm s\\) 的路程 \\(L\\)。",
+  "answer": "（1）\\(F=1.5\\,\\mathrm N\\)；（2）\\(v_x=3.0\\,\\mathrm{m/s}\\)；（3）\\(L=75\\,\\mathrm m\\)。",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "required_two_test_model",
+    "variant": "required2_19_toy_car_power",
+    "playable": true,
+    "interactive": true,
+    "notes": "按匀加速、恒功率、匀速和自由滑行四阶段展示运动。",
+    "params": {
+      "mass": {"label": "玩具车质量", "value": 1, "min": 0.5, "max": 2, "step": 0.25, "unit": "kg"},
+      "cruiseSpeed": {"label": "最高速度", "value": 6, "min": 4, "max": 10, "step": 0.5, "unit": "m/s"},
+      "coastTime": {"label": "滑行时间", "value": 4, "min": 2, "max": 6, "step": 0.5, "unit": "s"}
+    },
+    "timeline": {"duration": 10, "loop": false}
+  },
+  "knowledge": ["恒功率启动", "速度时间图像", "动能定理", "分段运动"],
+  "steps": [
+    {"title": "第（1）问：由滑行段求阻力", "content": "停止遥控后，玩具车从 \\(6\\,\\mathrm{m/s}\\) 经 \\(4\\,\\mathrm s\\) 匀减速到 0，减速度大小 \\(a=1.5\\,\\mathrm{m/s^2}\\)，所以阻力 \\(F=ma=1.5\\,\\mathrm N\\)。"},
+    {"title": "确定额定功率", "content": "在 \\(10\\) 至 \\(14\\,\\mathrm s\\) 匀速时，牵引力等于阻力，额定功率 \\(P=Fv=1.5\\times6=9\\,\\mathrm W\\)。"},
+    {"title": "第（2）问：求 \\(v_x\\)", "content": "前 2 s 匀加速，牵引力恒定，并在 2 s 末刚达到额定功率，所以牵引力 \\(F_t=P/v_x\\)。由 \\(P/v_x-F=mv_x/2\\)，得 \\(v_x^2+3v_x-18=0\\)，取正根 \\(v_x=3\\,\\mathrm{m/s}\\)。"},
+    {"title": "第（3）问：分段求路程", "content": "2 至 10 s 为恒功率阶段，动能定理给出 \\(P\\times8-Fs_{2-10}=m(6^2-3^2)/2\\)，得 \\(s_{2-10}=39\\,\\mathrm m\\)。10 至 14 s 路程为 24 m，14 至 18 s 路程为速度图像三角形面积 12 m，故总路程 \\(L=75\\,\\mathrm m\\)。"}
+  ],
+  "analysis": {"title": "解答第19题分步解析"},
+  "analysisPresentation": {"collapseEachStep": true},
+  "practice": {
+    "title": "进阶近似题：带坡度的恒功率启动",
+    "question": "质量为 \\(m\\) 的汽车在倾角为 \\(\\theta\\) 的长斜坡上向上启动，阻力恒为 \\(f\\)。前一阶段以恒定牵引力加速，在速度 \\(v_1\\) 时达到额定功率 \\(P\\)，此后保持恒功率，最终匀速。求前段牵引力、最终速度，并建立恒功率阶段速度随时间变化的隐式关系。",
+    "answer": "达到额定功率瞬间牵引力为 \\(F_0=P/v_1\\)。最终匀速满足 \\(P/v_m=f+mg\\sin\\theta\\)，故 \\(v_m=P/(f+mg\\sin\\theta)\\)。恒功率阶段有 \\(m\\dot v=P/v-(f+mg\\sin\\theta)\\)。积分可得 \\(t-t_1=m\\int_{v_1}^{v}\\dfrac{u\\,du}{P-(f+mg\\sin\\theta)u}\\)，它给出 \\(v(t)\\) 的隐式关系。",
+    "thinking": "**解题思路**\n\n把坡向恒定阻力合并为 \\(f+mg\\sin\\theta\\)。恒功率阶段牵引力随速度变化，不能继续使用匀加速公式。"
+  }
+}
