@@ -2,20 +2,10 @@
   "id": "riverCrossing",
   "chapter": "曲线运动",
   "title": "课上第8题：小船渡河",
-  "question": "河宽为 \\(d\\)，船在静水中的速度为 \\(v_{\\text{船}}\\)，水流速度为 \\(v_{\\text{水}}\\)。船速方向与河岸的夹角为 \\(\\theta\\)，且 \\(v_{\\text{船}}>v_{\\text{水}}\\)。求船渡河所用时间、沿河岸方向的横向位移，并判断船头怎样指向时时间最短；若要使船的合位移最小，应怎样渡河，对船速大小有什么要求？",
-  "options": [],
-  "steps": [
-    {
-      "title": "完整解析",
-      "content": "展开取课上第8题：先分解船速，再合成对地速度1. 建立速度合成。 船对地速度满足 \\(\\vec v_{\\text{船对地}}=\\vec v_{\\text{船对水}}+\\vec v_{\\text{水对地}}\\)。把 \\(v_{\\text{船}}\\) 分解为垂直河岸分量和沿河岸分量。2. 求渡河时间。 垂直河岸分量为 \\(v_{\\perp}=v_{\\text{船}}\\sin\\theta\\)，只有它负责跨过河宽 \\(d\\)，所以 \\(t=\\frac{d}{v_{\\text{船}}\\sin\\theta}\\)。3. 求横向位移。 若水流方向与船沿河岸分量同向，则沿河岸合速度为 \\(v_{\\parallel}=v_{\\text{船}}\\cos\\theta+v_{\\text{水}}\\)，横向位移为 \\(s=(v_{\\text{船}}\\cos\\theta+v_{\\text{水}})t\\)。代入时间得 \\(s=(v_{\\text{船}}\\cos\\theta+v_{\\text{水}})\\frac{d}{v_{\\text{船}}\\sin\\theta}\\)。4. 判断最短时间。 \\(t=\\frac{d}{v_{\\text{船}}\\sin\\theta}\\)，要使 \\(t\\) 最小，就要让 \\(\\sin\\theta\\) 最大，因此 \\(\\theta=90^\\circ\\)。答案：船头垂直河岸时渡河时间最短。5. 判断合位移最小。 合位移最小时，希望船实际到达正对岸，即沿河岸合速度为 \\(0\\)。这要求船头偏向上游，使船速沿岸分量抵消水流：\\(v_{\\text{船}}\\cos\\alpha=v_{\\text{水}}\\)。能做到这一点的条件是 \\(v_{\\text{船}}>v_{\\text{水}}\\)。答案：船头偏向上游并刚好抵消水流时，合位移最小，最小合位移为河宽 \\(d\\)。"
-    }
-  ],
-  "knowledge": [
-    "速度合成",
-    "渡河模型",
-    "分运动"
-  ],
-  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n        <div class=\"note-body\"><h2>课上第8题：小船渡河</h2><p>河宽为 \\(d\\)，船在静水中的速度为 \\(v_{\\text{船}}\\)，水流速度为 \\(v_{\\text{水}}\\)。船速方向与河岸的夹角为 \\(\\theta\\)，且 \\(v_{\\text{船}}&gt;v_{\\text{水}}\\)。</p><p>求船渡河所用时间、沿河岸方向的横向位移，并判断船头怎样指向时时间最短；若要使船的合位移最小，应怎样渡河，对船速大小有什么要求？</p></div></section>\n        <section class=\"problem-note-block is-collapsed\">\n          <p class=\"problem-note-kicker\">解析</p>\n          \n          \n          \n          \n          \n          \n        <button type=\"button\" class=\"note-toggle\">展开</button><div class=\"note-body\"><h2>取课上第8题：先分解船速，再合成对地速度</h2><p><strong>1. 建立速度合成。</strong> 船对地速度满足 <span class=\"formula-line\">\\(\\vec v_{\\text{船对地}}=\\vec v_{\\text{船对水}}+\\vec v_{\\text{水对地}}\\)</span>。把 \\(v_{\\text{船}}\\) 分解为垂直河岸分量和沿河岸分量。</p><p><strong>2. 求渡河时间。</strong> 垂直河岸分量为 \\(v_{\\perp}=v_{\\text{船}}\\sin\\theta\\)，只有它负责跨过河宽 \\(d\\)，所以 <span class=\"formula-line\">\\(t=\\frac{d}{v_{\\text{船}}\\sin\\theta}\\)</span>。</p><p><strong>3. 求横向位移。</strong> 若水流方向与船沿河岸分量同向，则沿河岸合速度为 \\(v_{\\parallel}=v_{\\text{船}}\\cos\\theta+v_{\\text{水}}\\)，横向位移为 <span class=\"formula-line\">\\(s=(v_{\\text{船}}\\cos\\theta+v_{\\text{水}})t\\)</span>。代入时间得 <span class=\"formula-line\">\\(s=(v_{\\text{船}}\\cos\\theta+v_{\\text{水}})\\frac{d}{v_{\\text{船}}\\sin\\theta}\\)</span>。</p><p><strong>4. 判断最短时间。</strong> \\(t=\\frac{d}{v_{\\text{船}}\\sin\\theta}\\)，要使 \\(t\\) 最小，就要让 \\(\\sin\\theta\\) 最大，因此 <span class=\"formula-line\">\\(\\theta=90^\\circ\\)</span>。答案：船头垂直河岸时渡河时间最短。</p><p><strong>5. 判断合位移最小。</strong> 合位移最小时，希望船实际到达正对岸，即沿河岸合速度为 \\(0\\)。这要求船头偏向上游，使船速沿岸分量抵消水流：<span class=\"formula-line\">\\(v_{\\text{船}}\\cos\\alpha=v_{\\text{水}}\\)</span>。能做到这一点的条件是 <span class=\"formula-line\">\\(v_{\\text{船}}&gt;v_{\\text{水}}\\)</span>。答案：船头偏向上游并刚好抵消水流时，合位移最小，最小合位移为河宽 \\(d\\)。</p></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：非均匀水流中的渡河轨迹</h2><h3>基础设问</h3><p>河宽 \\(d=120\\,\\mathrm{m}\\)，船在静水中的速度 \\(v_{\\text{船}}=5\\,\\mathrm{m/s}\\)，水流速度 \\(v_{\\text{水}}=3\\,\\mathrm{m/s}\\)。若船头与河岸夹角为 \\(60^\\circ\\)，求渡河时间和沿河岸方向的横向位移；若要合位移最小，应如何调整船头方向？</p><h3>综合提升</h3><p>河宽为 \\(d\\)，船对水速度大小恒为 \\(v_b\\) 且始终垂直河岸；水速随离岸距离 \\(y\\) 变化为 \\(u(y)=u_0+ky\\)。（1）求渡河时间；（2）推导轨迹 \\(x(y)\\)；（3）求到岸漂移量；（4）若允许调节船头方向，说明怎样建立正对岸到达的控制方程。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>当 \\(\\theta=60^\\circ\\) 时，垂直河岸分速度为 \\(5\\sin60^\\circ=\\frac{5\\sqrt3}{2}\\,\\mathrm{m/s}\\)，所以 \\(t=\\frac{120}{5\\sin60^\\circ}\\approx27.7\\,\\mathrm{s}\\)。沿河岸合速度为 \\(5\\cos60^\\circ+3=5.5\\,\\mathrm{m/s}\\)，横向位移 \\(s\\approx5.5\\times27.7=152.4\\,\\mathrm{m}\\)。若合位移最小，应使 \\(5\\cos\\alpha=3\\)，故 \\(\\alpha=\\arccos\\frac35\\approx53.1^\\circ\\)。</p>\n          <h3>2. 综合提升</h3><p>垂直分速度恒为 \\(v_b\\)，所以 \\(t=d/v_b\\)。又</p><p>\\[\\frac{dx}{dy}=\\frac{u(y)}{v_b}=\\frac{u_0+ky}{v_b},\\]</p><p>积分得</p><p>\\[x(y)=\\frac{u_0y+ky^2/2}{v_b},\\qquad x(d)=\\frac{u_0d+kd^2/2}{v_b}.\\]</p><p>若船头可调，应令船速沿岸分量与 \\(u(y)\\) 的合速度积分满足总漂移为零，同时保证垂直分量为正。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>渡河时间只看垂直河岸分量，沿河岸偏移看“船速沿岸分量 + 水速”。合位移最小时，目标是让沿岸合速度为 \\(0\\)，前提是 \\(v_{\\text{船}}&gt;v_{\\text{水}}\\)。</p>\n          <h3>2. 进阶思路</h3><p>水速随位置变时不能再用一个平均速度直接乘时间；把轨迹微分写成两个分速度之比后积分。</p></details></div></section>\n      </div>\n    ",
+  "question": "河宽为 \\(d\\)，船在静水中的速度为 \\(v_{\\text{船}}\\)，水流速度为 \\(v_{\\text{水}}\\)。船速方向与河岸的夹角为 \\(\\theta\\)，且 \\(v_{\\text{船}}>v_{\\text{水}}\\)。\n\n求船渡河所用时间、沿河岸方向的横向位移，并判断船头怎样指向时时间最短；若要使船的合位移最小，应怎样渡河，对船速大小有什么要求？",
+  "analysis": {
+    "title": "取课上第8题：先分解船速，再合成对地速度"
+  },
   "animation": {
     "enabled": true,
     "level": "animated",
@@ -62,5 +52,77 @@
       "loop": false
     },
     "notes": "船对水速度与水流速度合成实际航迹"
+  },
+  "knowledge": [
+    "速度合成",
+    "渡河模型",
+    "分运动"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "建立速度合成",
+      "content": "船对地速度满足 \\(\\vec v_{\\text{船对地}}=\\vec v_{\\text{船对水}}+\\vec v_{\\text{水对地}}\\)。把 \\(v_{\\text{船}}\\) 分解为垂直河岸分量和沿河岸分量。",
+      "knowledge": [
+        "速度合成",
+        "渡河模型",
+        "分运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "求渡河时间",
+      "content": "垂直河岸分量为 \\(v_{\\perp}=v_{\\text{船}}\\sin\\theta\\)，只有它负责跨过河宽 \\(d\\)，所以 \\(t=\\frac{d}{v_{\\text{船}}\\sin\\theta}\\)。",
+      "knowledge": [
+        "速度合成",
+        "渡河模型",
+        "分运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求横向位移",
+      "content": "若水流方向与船沿河岸分量同向，则沿河岸合速度为 \\(v_{\\parallel}=v_{\\text{船}}\\cos\\theta+v_{\\text{水}}\\)，横向位移为 \\(s=(v_{\\text{船}}\\cos\\theta+v_{\\text{水}})t\\)。代入时间得 \\(s=(v_{\\text{船}}\\cos\\theta+v_{\\text{水}})\\frac{d}{v_{\\text{船}}\\sin\\theta}\\)。",
+      "knowledge": [
+        "速度合成",
+        "渡河模型",
+        "分运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "判断最短时间",
+      "content": "\\(t=\\frac{d}{v_{\\text{船}}\\sin\\theta}\\)，要使 \\(t\\) 最小，就要让 \\(\\sin\\theta\\) 最大，因此 \\(\\theta=90^\\circ\\)。答案：船头垂直河岸时渡河时间最短。",
+      "knowledge": [
+        "速度合成",
+        "渡河模型",
+        "分运动"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 5,
+      "title": "判断合位移最小",
+      "content": "合位移最小时，希望船实际到达正对岸，即沿河岸合速度为 \\(0\\)。这要求船头偏向上游，使船速沿岸分量抵消水流：\\(v_{\\text{船}}\\cos\\alpha=v_{\\text{水}}\\)。能做到这一点的条件是 \\(v_{\\text{船}}>v_{\\text{水}}\\)。答案：船头偏向上游并刚好抵消水流时，合位移最小，最小合位移为河宽 \\(d\\)。",
+      "knowledge": [
+        "速度合成",
+        "渡河模型",
+        "分运动"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：非均匀水流中的渡河轨迹",
+    "question": "### 基础设问\n\n河宽 \\(d=120\\,\\mathrm{m}\\)，船在静水中的速度 \\(v_{\\text{船}}=5\\,\\mathrm{m/s}\\)，水流速度 \\(v_{\\text{水}}=3\\,\\mathrm{m/s}\\)。若船头与河岸夹角为 \\(60^\\circ\\)，求渡河时间和沿河岸方向的横向位移；若要合位移最小，应如何调整船头方向？\n\n### 综合提升\n\n河宽为 \\(d\\)，船对水速度大小恒为 \\(v_b\\) 且始终垂直河岸；水速随离岸距离 \\(y\\) 变化为 \\(u(y)=u_0+ky\\)。（1）求渡河时间；（2）推导轨迹 \\(x(y)\\)；（3）求到岸漂移量；（4）若允许调节船头方向，说明怎样建立正对岸到达的控制方程。",
+    "answer": "### 1. 基础设问\n\n当 \\(\\theta=60^\\circ\\) 时，垂直河岸分速度为 \\(5\\sin60^\\circ=\\frac{5\\sqrt3}{2}\\,\\mathrm{m/s}\\)，所以 \\(t=\\frac{120}{5\\sin60^\\circ}\\approx27.7\\,\\mathrm{s}\\)。沿河岸合速度为 \\(5\\cos60^\\circ+3=5.5\\,\\mathrm{m/s}\\)，横向位移 \\(s\\approx5.5\\times27.7=152.4\\,\\mathrm{m}\\)。若合位移最小，应使 \\(5\\cos\\alpha=3\\)，故 \\(\\alpha=\\arccos\\frac35\\approx53.1^\\circ\\)。\n\n### 2. 综合提升\n\n垂直分速度恒为 \\(v_b\\)，所以 \\(t=d/v_b\\)。又\n\n\\[\\frac{dx}{dy}=\\frac{u(y)}{v_b}=\\frac{u_0+ky}{v_b},\\]\n\n积分得\n\n\\[x(y)=\\frac{u_0y+ky^2/2}{v_b},\\qquad x(d)=\\frac{u_0d+kd^2/2}{v_b}.\\]\n\n若船头可调，应令船速沿岸分量与 \\(u(y)\\) 的合速度积分满足总漂移为零，同时保证垂直分量为正。",
+    "thinking": "### 1. 基础思路\n\n渡河时间只看垂直河岸分量，沿河岸偏移看“船速沿岸分量 + 水速”。合位移最小时，目标是让沿岸合速度为 \\(0\\)，前提是 \\(v_{\\text{船}}>v_{\\text{水}}\\)。\n\n### 2. 进阶思路\n\n水速随位置变时不能再用一个平均速度直接乘时间；把轨迹微分写成两个分速度之比后积分。",
+    "difficulty": "equal-or-higher"
   }
 }

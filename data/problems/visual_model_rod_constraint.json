@@ -2,20 +2,11 @@
   "id": "rodConstraint",
   "chapter": "曲线运动",
   "title": "课上第13题：杆约束速度",
-  "question": "如图所示，均匀直杆上连着两个小球 \\(A\\)、\\(B\\)，不计一切摩擦。当杆滑到图示位置时，\\(B\\) 球的水平速度为 \\(v_B\\)，杆与竖直方向夹角为 \\(\\alpha\\)。求此时 \\(A\\) 球的速度大小。",
-  "options": [],
-  "steps": [
-    {
-      "title": "完整解析",
-      "content": "展开取课上第13题：刚性杆沿杆方向速度分量相等1. 抓住杆长不变。 刚性杆不能被拉长或压短，所以 \\(A\\)、\\(B\\) 两端沿杆方向的速度分量必须相等。2. 分别投影到杆方向。 图中 \\(A\\) 球沿竖直方向运动，\\(A\\) 的速度与杆方向夹角为 \\(\\alpha\\)，沿杆分量为 \\(v_A\\cos\\alpha\\)。\\(B\\) 球沿水平方向运动，\\(B\\) 的速度与杆方向夹角为 \\(90^\\circ-\\alpha\\)，沿杆分量为 \\(v_B\\sin\\alpha\\)。3. 列约束方程。 \\(v_A\\cos\\alpha=v_B\\sin\\alpha\\)，解得 \\(v_A=v_B\\tan\\alpha\\)。答案：\\(v_A=v_B\\tan\\alpha\\)。"
-    }
-  ],
-  "knowledge": [
-    "杆约束",
-    "速度投影",
-    "关联速度"
-  ],
-  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n        <div class=\"note-body\"><h2>课上第13题：杆约束速度</h2><p>如图所示，均匀直杆上连着两个小球 \\(A\\)、\\(B\\)，不计一切摩擦。当杆滑到图示位置时，\\(B\\) 球的水平速度为 \\(v_B\\)，杆与竖直方向夹角为 \\(\\alpha\\)。</p><p>求此时 \\(A\\) 球的速度大小。</p></div></section>\n        <section class=\"problem-note-block is-collapsed\">\n          <p class=\"problem-note-kicker\">解析</p>\n          \n          \n          \n          \n          \n        <button type=\"button\" class=\"note-toggle\">展开</button><div class=\"note-body\"><h2>取课上第13题：刚性杆沿杆方向速度分量相等</h2><p><strong>1. 抓住杆长不变。</strong> 刚性杆不能被拉长或压短，所以 \\(A\\)、\\(B\\) 两端沿杆方向的速度分量必须相等。</p><p><strong>2. 分别投影到杆方向。</strong> 图中 \\(A\\) 球沿竖直方向运动，\\(A\\) 的速度与杆方向夹角为 \\(\\alpha\\)，沿杆分量为 \\(v_A\\cos\\alpha\\)。\\(B\\) 球沿水平方向运动，\\(B\\) 的速度与杆方向夹角为 \\(90^\\circ-\\alpha\\)，沿杆分量为 \\(v_B\\sin\\alpha\\)。</p><p><strong>3. 列约束方程。</strong> <span class=\"formula-line\">\\(v_A\\cos\\alpha=v_B\\sin\\alpha\\)</span>，解得 <span class=\"formula-line\">\\(v_A=v_B\\tan\\alpha\\)</span>。</p><p><strong>答案：</strong>\\(v_A=v_B\\tan\\alpha\\)。</p></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：杆约束的速度与加速度关系</h2><h3>基础设问</h3><p>杆两端分别沿竖直墙和水平地面滑动，杆与竖直方向夹角为 \\(45^\\circ\\)，水平端速度为 \\(10\\,\\mathrm{m/s}\\)。求竖直端速度大小。</p><h3>综合提升</h3><p>长为 \\(L\\) 的杆两端坐标为 \\((x,0)\\)、\\((0,y)\\)，满足 \\(x^2+y^2=L^2\\)。（1）推导两端速度关系；（2）继续求导得到加速度关系；（3）解释为什么加速度不能只把速度公式中的 \\(v\\) 换成 \\(a\\)；（4）讨论一端接近墙角时另一端速度和加速度的变化。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>刚性杆两端沿杆方向的速度分量相等，可得 \\(v_A\\cos45^\\circ=v_B\\sin45^\\circ\\)，所以 \\(v_A=v_B=10\\,\\mathrm{m/s}\\)。</p>\n          <h3>2. 综合提升</h3><p>一次求导得</p><p>\\[x\\dot x+y\\dot y=0.\\]</p><p>二次求导得</p><p>\\[\\dot x^2+x\\ddot x+\\dot y^2+y\\ddot y=0.\\]</p><p>加速度关系比速度关系多出 \\(\\dot x^2+\\dot y^2\\) 项，来源是杆方向本身在转动。端点接近墙角时几何投影因子可能趋零，另一端的速度或加速度会迅速增大，必须检查理想刚杆模型的适用性。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>杆长不变意味着沿杆方向不能相互靠近或远离，因此两端速度先投影到杆上再相等。</p>\n          <h3>2. 进阶思路</h3><p>杆长不变是原始约束；速度、加速度关系都应从同一个几何方程逐次求导，而不是类比替换。</p></details></div></section>\n      </div>\n    ",
+  "question": "如图所示，均匀直杆上连着两个小球 \\(A\\)、\\(B\\)，不计一切摩擦。当杆滑到图示位置时，\\(B\\) 球的水平速度为 \\(v_B\\)，杆与竖直方向夹角为 \\(\\alpha\\)。\n\n求此时 \\(A\\) 球的速度大小。",
+  "answer": "\\(v_A=v_B\\tan\\alpha\\)。",
+  "analysis": {
+    "title": "取课上第13题：刚性杆沿杆方向速度分量相等"
+  },
   "animation": {
     "enabled": true,
     "level": "interactive_diagram",
@@ -46,5 +37,55 @@
       "loop": false
     },
     "notes": "沿杆方向投影速度，展示刚杆约束关系"
+  },
+  "knowledge": [
+    "杆约束",
+    "速度投影",
+    "关联速度"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "抓住杆长不变",
+      "content": "刚性杆不能被拉长或压短，所以 \\(A\\)、\\(B\\) 两端沿杆方向的速度分量必须相等。",
+      "knowledge": [
+        "杆约束",
+        "速度投影",
+        "关联速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "分别投影到杆方向",
+      "content": "图中 \\(A\\) 球沿竖直方向运动，\\(A\\) 的速度与杆方向夹角为 \\(\\alpha\\)，沿杆分量为 \\(v_A\\cos\\alpha\\)。\\(B\\) 球沿水平方向运动，\\(B\\) 的速度与杆方向夹角为 \\(90^\\circ-\\alpha\\)，沿杆分量为 \\(v_B\\sin\\alpha\\)。",
+      "knowledge": [
+        "杆约束",
+        "速度投影",
+        "关联速度"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "列约束方程",
+      "content": "\\(v_A\\cos\\alpha=v_B\\sin\\alpha\\)，解得 \\(v_A=v_B\\tan\\alpha\\)。",
+      "knowledge": [
+        "杆约束",
+        "速度投影",
+        "关联速度"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：杆约束的速度与加速度关系",
+    "question": "### 基础设问\n\n杆两端分别沿竖直墙和水平地面滑动，杆与竖直方向夹角为 \\(45^\\circ\\)，水平端速度为 \\(10\\,\\mathrm{m/s}\\)。求竖直端速度大小。\n\n### 综合提升\n\n长为 \\(L\\) 的杆两端坐标为 \\((x,0)\\)、\\((0,y)\\)，满足 \\(x^2+y^2=L^2\\)。（1）推导两端速度关系；（2）继续求导得到加速度关系；（3）解释为什么加速度不能只把速度公式中的 \\(v\\) 换成 \\(a\\)；（4）讨论一端接近墙角时另一端速度和加速度的变化。",
+    "answer": "### 1. 基础设问\n\n刚性杆两端沿杆方向的速度分量相等，可得 \\(v_A\\cos45^\\circ=v_B\\sin45^\\circ\\)，所以 \\(v_A=v_B=10\\,\\mathrm{m/s}\\)。\n\n### 2. 综合提升\n\n一次求导得\n\n\\[x\\dot x+y\\dot y=0.\\]\n\n二次求导得\n\n\\[\\dot x^2+x\\ddot x+\\dot y^2+y\\ddot y=0.\\]\n\n加速度关系比速度关系多出 \\(\\dot x^2+\\dot y^2\\) 项，来源是杆方向本身在转动。端点接近墙角时几何投影因子可能趋零，另一端的速度或加速度会迅速增大，必须检查理想刚杆模型的适用性。",
+    "thinking": "### 1. 基础思路\n\n杆长不变意味着沿杆方向不能相互靠近或远离，因此两端速度先投影到杆上再相等。\n\n### 2. 进阶思路\n\n杆长不变是原始约束；速度、加速度关系都应从同一个几何方程逐次求导，而不是类比替换。",
+    "difficulty": "equal-or-higher"
   }
 }

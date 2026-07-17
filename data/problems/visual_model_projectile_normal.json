@@ -2,25 +2,19 @@
   "id": "projectileNormal",
   "chapter": "平抛运动",
   "title": "课上第3题：垂直打到斜面",
-  "question": "固定斜面 \\(PO\\)、\\(QO\\) 与水平面 \\(MN\\) 的夹角均为 \\(45^\\circ\\)。由 \\(A\\) 点分别以 \\(v_1\\)、\\(v_2\\) 先后沿水平方向抛出两个小球，不计空气阻力。以 \\(v_1\\) 抛出的小球恰能垂直于 \\(QO\\) 落于 \\(C\\) 点，飞行时间为 \\(t\\)；以 \\(v_2\\) 抛出的小球落在 \\(PO\\) 斜面上的 \\(B\\) 点，且 \\(B\\)、\\(C\\) 在同一水平面上。判断：A. 落于 \\(B\\) 点的小球飞行时间为 \\(t\\)B. \\(v_2=gt\\)C. 落于 \\(C\\) 点的小球的水平位移为 \\(gt^2\\)D. \\(A\\) 点距水平面 \\(MN\\) 的高度为 \\(\\frac{3}{4}gt^2\\)",
+  "question": "固定斜面 \\(PO\\)、\\(QO\\) 与水平面 \\(MN\\) 的夹角均为 \\(45^\\circ\\)。由 \\(A\\) 点分别以 \\(v_1\\)、\\(v_2\\) 先后沿水平方向抛出两个小球，不计空气阻力。\n\n以 \\(v_1\\) 抛出的小球恰能垂直于 \\(QO\\) 落于 \\(C\\) 点，飞行时间为 \\(t\\)；以 \\(v_2\\) 抛出的小球落在 \\(PO\\) 斜面上的 \\(B\\) 点，且 \\(B\\)、\\(C\\) 在同一水平面上。\n\n**判断：**",
   "options": [
     "A. 落于 \\(B\\) 点的小球飞行时间为 \\(t\\)",
     "B. \\(v_2=gt\\)",
     "C. 落于 \\(C\\) 点的小球的水平位移为 \\(gt^2\\)",
     "D. \\(A\\) 点距水平面 \\(MN\\) 的高度为 \\(\\frac{3}{4}gt^2\\)"
   ],
-  "steps": [
-    {
-      "title": "完整解析",
-      "content": "分选项解析选项 A：落于 \\(B\\) 点的小球飞行时间为 \\(t\\)解题思路对落到 \\(C\\) 的球先用末速度垂直斜面确定分速度关系；两球落点等高，再用竖直分运动判断时间是否相同。对应公式\\[v_y=gt,\\qquad \\frac{v_y}{v_x}=\\tan45^\\circ,\\qquad y=\\frac12gt^2\\]选项判断两球竖直下落高度相同，竖直初速度又都为零，所以飞行时间相同，A 正确。选项 B：\\(v_2=gt\\)解题思路对落到 \\(C\\) 的球先用末速度垂直斜面确定分速度关系；两球落点等高，再用竖直分运动判断时间是否相同。对应公式\\[v_y=gt,\\qquad \\frac{v_y}{v_x}=\\tan45^\\circ,\\qquad y=\\frac12gt^2\\]选项判断由 \\(45^\\circ\\) 斜面位置关系应得 \\(v_2=\\frac12gt\\)，不是 \\(gt\\)，因此 B 错误。选项 C：落于 \\(C\\) 点的小球的水平位移为 \\(gt^2\\)解题思路对落到 \\(C\\) 的球先用末速度垂直斜面确定分速度关系；两球落点等高，再用竖直分运动判断时间是否相同。对应公式\\[v_y=gt,\\qquad \\frac{v_y}{v_x}=\\tan45^\\circ,\\qquad y=\\frac12gt^2\\]选项判断垂直命中 \\(45^\\circ\\) 斜面给出 \\(v_1=gt\\)，故水平位移 \\(x_C=v_1t=gt^2\\)，C 正确。选项 D：\\(A\\) 点距水平面 \\(MN\\) 的高度为 \\(\\frac{3}{4}gt^2\\)解题思路对落到 \\(C\\) 的球先用末速度垂直斜面确定分速度关系；两球落点等高，再用竖直分运动判断时间是否相同。对应公式\\[v_y=gt,\\qquad \\frac{v_y}{v_x}=\\tan45^\\circ,\\qquad y=\\frac12gt^2\\]选项判断结合两条 \\(45^\\circ\\) 斜面的几何关系可得题设高度为 \\(\\frac34gt^2\\)，D 正确。完整推导取平抛课上第3题：一个球看速度方向，另一个球看斜面位置1. 先看落于 \\(C\\) 的小球。 末速度垂直 \\(QO\\)，而 \\(QO\\) 与水平面夹角为 \\(45^\\circ\\)，所以末速度方向满足 \\(\\frac{v_y}{v_x}=1\\)。又 \\(v_y=gt\\)、\\(v_x=v_1\\)，得 \\(v_1=gt\\)。因此 \\(C\\) 点水平位移 \\(x_C=v_1t=gt^2\\)，C 正确。2. 再看落于 \\(B\\) 的小球。 \\(B\\)、\\(C\\) 在同一水平面上，两球竖直下落高度相同，所以飞行时间相同，都是 \\(t\\)，A 正确。\\(B\\) 点在 \\(PO\\) 上，且 \\(PO\\) 为 \\(45^\\circ\\) 斜面，因此 \\(x_B=y_B\\)。竖直方向 \\(y_B=\\frac{1}{2}gt^2\\)，所以 \\(v_2=\\frac{x_B}{t}=\\frac{1}{2}gt\\)，B 错误。3. 最后看高度。 由图中 \\(45^\\circ\\) 几何关系，\\(O\\) 点相对 \\(A\\) 的水平、竖直距离均为 \\(\\frac{3}{4}gt^2\\)，所以 \\(A\\) 点距水平面 \\(MN\\) 的高度为 \\(\\frac{3}{4}gt^2\\)，D 正确。答案：A、C、D。"
-    }
-  ],
-  "knowledge": [
-    "平抛运动",
-    "垂直斜面",
-    "速度分解"
-  ],
-  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n          \n          \n          \n          \n          \n        <div class=\"note-body\"><h2>课上第3题：垂直打到斜面</h2><p>固定斜面 \\(PO\\)、\\(QO\\) 与水平面 \\(MN\\) 的夹角均为 \\(45^\\circ\\)。由 \\(A\\) 点分别以 \\(v_1\\)、\\(v_2\\) 先后沿水平方向抛出两个小球，不计空气阻力。</p><p>以 \\(v_1\\) 抛出的小球恰能垂直于 \\(QO\\) 落于 \\(C\\) 点，飞行时间为 \\(t\\)；以 \\(v_2\\) 抛出的小球落在 \\(PO\\) 斜面上的 \\(B\\) 点，且 \\(B\\)、\\(C\\) 在同一水平面上。</p><p><strong>判断：</strong></p><p>A. 落于 \\(B\\) 点的小球飞行时间为 \\(t\\)</p><p>B. \\(v_2=gt\\)</p><p>C. 落于 \\(C\\) 点的小球的水平位移为 \\(gt^2\\)</p><p>D. \\(A\\) 点距水平面 \\(MN\\) 的高度为 \\(\\frac{3}{4}gt^2\\)</p></div></section>\n        <section class=\"problem-note-block\" data-analysis-block=\"1\"><p class=\"problem-note-kicker\">解析</p><div class=\"note-body\"><h2>分选项解析</h2><p></p><details class=\"analysis-step\" data-step-index=\"0\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 A：落于 \\(B\\) 点的小球飞行时间为 \\(t\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>对落到 \\(C\\) 的球先用末速度垂直斜面确定分速度关系；两球落点等高，再用竖直分运动判断时间是否相同。</p><p><strong>对应公式</strong></p><p>\\[v_y=gt,\\qquad \\frac{v_y}{v_x}=\\tan45^\\circ,\\qquad y=\\frac12gt^2\\]</p><p><strong>选项判断</strong></p><p>两球竖直下落高度相同，竖直初速度又都为零，所以飞行时间相同，A 正确。</p></div></details><details class=\"analysis-step\" data-step-index=\"1\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 B：\\(v_2=gt\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>对落到 \\(C\\) 的球先用末速度垂直斜面确定分速度关系；两球落点等高，再用竖直分运动判断时间是否相同。</p><p><strong>对应公式</strong></p><p>\\[v_y=gt,\\qquad \\frac{v_y}{v_x}=\\tan45^\\circ,\\qquad y=\\frac12gt^2\\]</p><p><strong>选项判断</strong></p><p>由 \\(45^\\circ\\) 斜面位置关系应得 \\(v_2=\\frac12gt\\)，不是 \\(gt\\)，因此 B 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"2\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 C：落于 \\(C\\) 点的小球的水平位移为 \\(gt^2\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>对落到 \\(C\\) 的球先用末速度垂直斜面确定分速度关系；两球落点等高，再用竖直分运动判断时间是否相同。</p><p><strong>对应公式</strong></p><p>\\[v_y=gt,\\qquad \\frac{v_y}{v_x}=\\tan45^\\circ,\\qquad y=\\frac12gt^2\\]</p><p><strong>选项判断</strong></p><p>垂直命中 \\(45^\\circ\\) 斜面给出 \\(v_1=gt\\)，故水平位移 \\(x_C=v_1t=gt^2\\)，C 正确。</p></div></details><details class=\"analysis-step\" data-step-index=\"3\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 D：\\(A\\) 点距水平面 \\(MN\\) 的高度为 \\(\\frac{3}{4}gt^2\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>对落到 \\(C\\) 的球先用末速度垂直斜面确定分速度关系；两球落点等高，再用竖直分运动判断时间是否相同。</p><p><strong>对应公式</strong></p><p>\\[v_y=gt,\\qquad \\frac{v_y}{v_x}=\\tan45^\\circ,\\qquad y=\\frac12gt^2\\]</p><p><strong>选项判断</strong></p><p>结合两条 \\(45^\\circ\\) 斜面的几何关系可得题设高度为 \\(\\frac34gt^2\\)，D 正确。</p></div></details><details class=\"analysis-step\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">完整推导</summary><div class=\"analysis-step-content\"><h2>取平抛课上第3题：一个球看速度方向，另一个球看斜面位置</h2><p><strong>1. 先看落于 \\(C\\) 的小球。</strong> 末速度垂直 \\(QO\\)，而 \\(QO\\) 与水平面夹角为 \\(45^\\circ\\)，所以末速度方向满足 <span class=\"formula-line\">\\(\\frac{v_y}{v_x}=1\\)</span>。又 \\(v_y=gt\\)、\\(v_x=v_1\\)，得 \\(v_1=gt\\)。因此 \\(C\\) 点水平位移 <span class=\"formula-line\">\\(x_C=v_1t=gt^2\\)</span>，C 正确。</p><p><strong>2. 再看落于 \\(B\\) 的小球。</strong> \\(B\\)、\\(C\\) 在同一水平面上，两球竖直下落高度相同，所以飞行时间相同，都是 \\(t\\)，A 正确。</p><p>\\(B\\) 点在 \\(PO\\) 上，且 \\(PO\\) 为 \\(45^\\circ\\) 斜面，因此 \\(x_B=y_B\\)。竖直方向 \\(y_B=\\frac{1}{2}gt^2\\)，所以 <span class=\"formula-line\">\\(v_2=\\frac{x_B}{t}=\\frac{1}{2}gt\\)</span>，B 错误。</p><p><strong>3. 最后看高度。</strong> 由图中 \\(45^\\circ\\) 几何关系，\\(O\\) 点相对 \\(A\\) 的水平、竖直距离均为 \\(\\frac{3}{4}gt^2\\)，所以 \\(A\\) 点距水平面 \\(MN\\) 的高度为 <span class=\"formula-line\">\\(\\frac{3}{4}gt^2\\)</span>，D 正确。</p><p><strong>答案：</strong>A、C、D。</p></div></details></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：任意斜面角的垂直命中</h2><h3>基础设问</h3><p>小球水平抛出后落到倾角为 \\(30^\\circ\\) 的斜面上，落点速度方向与斜面垂直。求落点时 \\(v_y/v_x\\)。</p><h3>综合提升</h3><p>小球水平抛出，经过时间 \\(t\\) 垂直撞上与水平夹角为 \\(\\theta\\) 的斜面。（1）求水平初速度；（2）求撞击点的水平、竖直位移；（3）若另一球落到同一高度的另一斜面，证明两球飞行时间关系；（4）讨论 \\(\\theta\\to0\\) 与 \\(\\theta\\to90^\\circ\\) 的极限。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>斜面方向与水平夹角为 \\(30^\\circ\\)，垂直斜面的速度方向与水平夹角为 \\(60^\\circ\\)，所以 \\(\\frac{v_y}{v_x}=\\tan60^\\circ=\\sqrt3\\)。</p>\n          <h3>2. 综合提升</h3><p>垂直斜面意味着速度方向与水平夹角为 \\(90^\\circ-\\theta\\)，所以</p><p>\\[\\frac{gt}{v_0}=\\cot\\theta,\\qquad v_0=gt\\tan\\theta.\\]</p><p>位移为 \\(x=v_0t=gt^2\\tan\\theta\\)、\\(y=gt^2/2\\)。水平抛出的两球只要竖直下落高度相同，飞行时间就相同，与水平运动无关。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>垂直打斜面不是只看落点在斜面上，还要让速度方向与斜面法线一致。</p>\n          <h3>2. 进阶思路</h3><p>把法线方向先转成速度分量比，再用竖直分运动锁定时间；等高条件只由竖直方向决定。</p></details></div></section>\n      </div>\n    ",
+  "answer": "A、C、D。",
+  "analysis": {
+    "title": "分选项解析",
+    "sharedThinking": "对落到 \\(C\\) 的球先用末速度垂直斜面确定分速度关系；两球落点等高，再用竖直分运动判断时间是否相同。",
+    "sharedFormula": "\\[v_y=gt,\\qquad \\frac{v_y}{v_x}=\\tan45^\\circ,\\qquad y=\\frac12gt^2\\]"
+  },
   "animation": {
     "enabled": true,
     "level": "animated",
@@ -59,5 +53,113 @@
       "loop": false
     },
     "notes": "两个小球分别落到斜面上的不同点并比较末速度方向"
+  },
+  "knowledge": [
+    "平抛运动",
+    "垂直斜面",
+    "速度分解"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "先看落于 \\(C\\) 的小球",
+      "content": "末速度垂直 \\(QO\\)，而 \\(QO\\) 与水平面夹角为 \\(45^\\circ\\)，所以末速度方向满足 \\(\\frac{v_y}{v_x}=1\\)。又 \\(v_y=gt\\)、\\(v_x=v_1\\)，得 \\(v_1=gt\\)。因此 \\(C\\) 点水平位移 \\(x_C=v_1t=gt^2\\)，C 正确。",
+      "knowledge": [
+        "平抛运动",
+        "垂直斜面",
+        "速度分解"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "再看落于 \\(B\\) 的小球",
+      "content": "\\(B\\)、\\(C\\) 在同一水平面上，两球竖直下落高度相同，所以飞行时间相同，都是 \\(t\\)，A 正确。",
+      "knowledge": [
+        "平抛运动",
+        "垂直斜面",
+        "速度分解"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求落于 B 点小球的初速度",
+      "content": "\\(B\\) 点在 \\(PO\\) 上，且 \\(PO\\) 为 \\(45^\\circ\\) 斜面，因此 \\(x_B=y_B\\)。竖直方向 \\(y_B=\\frac{1}{2}gt^2\\)，所以 \\(v_2=\\frac{x_B}{t}=\\frac{1}{2}gt\\)，B 错误。",
+      "knowledge": [
+        "平抛运动",
+        "垂直斜面",
+        "速度分解"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "最后看高度",
+      "content": "由图中 \\(45^\\circ\\) 几何关系，\\(O\\) 点相对 \\(A\\) 的水平、竖直距离均为 \\(\\frac{3}{4}gt^2\\)，所以 \\(A\\) 点距水平面 \\(MN\\) 的高度为 \\(\\frac{3}{4}gt^2\\)，D 正确。",
+      "knowledge": [
+        "平抛运动",
+        "垂直斜面",
+        "速度分解"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "落于 \\(B\\) 点的小球飞行时间为 \\(t\\)",
+      "judgment": "两球竖直下落高度相同，竖直初速度又都为零，所以飞行时间相同，A 正确。",
+      "knowledge": [
+        "平抛运动",
+        "垂直斜面",
+        "速度分解"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "\\(v_2=gt\\)",
+      "judgment": "由 \\(45^\\circ\\) 斜面位置关系应得 \\(v_2=\\frac12gt\\)，不是 \\(gt\\)，因此 B 错误。",
+      "knowledge": [
+        "平抛运动",
+        "垂直斜面",
+        "速度分解"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "落于 \\(C\\) 点的小球的水平位移为 \\(gt^2\\)",
+      "judgment": "垂直命中 \\(45^\\circ\\) 斜面给出 \\(v_1=gt\\)，故水平位移 \\(x_C=v_1t=gt^2\\)，C 正确。",
+      "knowledge": [
+        "平抛运动",
+        "垂直斜面",
+        "速度分解"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "\\(A\\) 点距水平面 \\(MN\\) 的高度为 \\(\\frac{3}{4}gt^2\\)",
+      "judgment": "结合两条 \\(45^\\circ\\) 斜面的几何关系可得题设高度为 \\(\\frac34gt^2\\)，D 正确。",
+      "knowledge": [
+        "平抛运动",
+        "垂直斜面",
+        "速度分解"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "practice": {
+    "title": "进阶近似题：任意斜面角的垂直命中",
+    "question": "### 基础设问\n\n小球水平抛出后落到倾角为 \\(30^\\circ\\) 的斜面上，落点速度方向与斜面垂直。求落点时 \\(v_y/v_x\\)。\n\n### 综合提升\n\n小球水平抛出，经过时间 \\(t\\) 垂直撞上与水平夹角为 \\(\\theta\\) 的斜面。（1）求水平初速度；（2）求撞击点的水平、竖直位移；（3）若另一球落到同一高度的另一斜面，证明两球飞行时间关系；（4）讨论 \\(\\theta\\to0\\) 与 \\(\\theta\\to90^\\circ\\) 的极限。",
+    "answer": "### 1. 基础设问\n\n斜面方向与水平夹角为 \\(30^\\circ\\)，垂直斜面的速度方向与水平夹角为 \\(60^\\circ\\)，所以 \\(\\frac{v_y}{v_x}=\\tan60^\\circ=\\sqrt3\\)。\n\n### 2. 综合提升\n\n垂直斜面意味着速度方向与水平夹角为 \\(90^\\circ-\\theta\\)，所以\n\n\\[\\frac{gt}{v_0}=\\cot\\theta,\\qquad v_0=gt\\tan\\theta.\\]\n\n位移为 \\(x=v_0t=gt^2\\tan\\theta\\)、\\(y=gt^2/2\\)。水平抛出的两球只要竖直下落高度相同，飞行时间就相同，与水平运动无关。",
+    "thinking": "### 1. 基础思路\n\n垂直打斜面不是只看落点在斜面上，还要让速度方向与斜面法线一致。\n\n### 2. 进阶思路\n\n把法线方向先转成速度分量比，再用竖直分运动锁定时间；等高条件只由竖直方向决定。",
+    "difficulty": "equal-or-higher"
   }
 }

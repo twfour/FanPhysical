@@ -2,20 +2,17 @@
   "id": "semiCircleThrow",
   "chapter": "平抛运动",
   "title": "课上第5题：平抛落圆弧",
-  "question": "如图所示，在竖直放置的半圆形容器的中心 \\(O\\) 点，分别以水平速度 \\(v_1\\)、\\(v_2\\) 抛出两个小球。小球可视为质点，最终它们分别落在圆弧上的 \\(A\\) 点和 \\(B\\) 点。已知 \\(OA\\perp OB\\)，且 \\(OA\\) 与竖直方向成 \\(\\alpha\\) 角，求两小球初速度之比 \\(\\frac{v_1}{v_2}\\)。选项：A. \\(\\tan\\alpha\\)　B. \\(\\cos\\alpha\\)　C. \\(\\tan\\alpha\\sqrt{\\tan\\alpha}\\)　D. \\(\\cos\\alpha\\sqrt{\\cos\\alpha}\\)",
-  "options": [],
-  "steps": [
-    {
-      "title": "完整解析",
-      "content": "分选项解析选项 A：\\(\\tan\\alpha\\)解题思路先把圆弧上的两个落点写成相对圆心的坐标，再分别用竖直位移求时间、用水平位移求初速度。对应公式\\[t_i=\\sqrt{\\frac{2y_i}{g}},\\qquad v_i=\\frac{|x_i|}{t_i},\\qquad \\frac{v_1}{v_2}=\\frac{|x_1|}{|x_2|}\\sqrt{\\frac{y_2}{y_1}}\\]选项判断只取水平位移之比，漏掉两个落点飞行时间不同，因此 A 错误。选项 B：\\(\\cos\\alpha\\)解题思路先把圆弧上的两个落点写成相对圆心的坐标，再分别用竖直位移求时间、用水平位移求初速度。对应公式\\[t_i=\\sqrt{\\frac{2y_i}{g}},\\qquad v_i=\\frac{|x_i|}{t_i},\\qquad \\frac{v_1}{v_2}=\\frac{|x_1|}{|x_2|}\\sqrt{\\frac{y_2}{y_1}}\\]选项判断该关系没有同时包含水平位移和竖直下落时间的影响，因此 B 错误。选项 C：\\(\\tan\\alpha\\sqrt{\\tan\\alpha}\\)解题思路先把圆弧上的两个落点写成相对圆心的坐标，再分别用竖直位移求时间、用水平位移求初速度。对应公式\\[t_i=\\sqrt{\\frac{2y_i}{g}},\\qquad v_i=\\frac{|x_i|}{t_i},\\qquad \\frac{v_1}{v_2}=\\frac{|x_1|}{|x_2|}\\sqrt{\\frac{y_2}{y_1}}\\]选项判断代入互相垂直的两条半径所对应坐标后，得到 \\(\\tan\\alpha\\sqrt{\\tan\\alpha}\\)，因此 C 正确。选项 D：\\(\\cos\\alpha\\sqrt{\\cos\\alpha}\\)解题思路先把圆弧上的两个落点写成相对圆心的坐标，再分别用竖直位移求时间、用水平位移求初速度。对应公式\\[t_i=\\sqrt{\\frac{2y_i}{g}},\\qquad v_i=\\frac{|x_i|}{t_i},\\qquad \\frac{v_1}{v_2}=\\frac{|x_1|}{|x_2|}\\sqrt{\\frac{y_2}{y_1}}\\]选项判断余弦形式与两点坐标及飞行时间比不符，因此 D 错误。完整推导取平抛课上第5题：两点坐标分别代入平抛1. 建立坐标。 以 \\(O\\) 为原点，向右为 \\(x\\) 正方向、向下为 \\(y\\) 正方向，设半圆半径为 \\(R\\)。2. 读出 \\(A\\)、\\(B\\) 坐标。 原题给出 \\(OA\\) 与竖直方向夹角为 \\(\\alpha\\)，且 \\(OA\\perp OB\\)。按题图方向，\\(A\\) 点在左下方，坐标为 \\(A(-R\\sin\\alpha,\\;R\\cos\\alpha)\\)；\\(B\\) 点在右下方，坐标为 \\(B(R\\cos\\alpha,\\;R\\sin\\alpha)\\)。3. 由竖直方向求时间。 平抛竖直方向满足 \\(y=\\frac{1}{2}gt^2\\)，所以 \\(t_A=\\sqrt{\\frac{2R\\cos\\alpha}{g}}\\)，\\(t_B=\\sqrt{\\frac{2R\\sin\\alpha}{g}}\\)。4. 由水平方向求初速度。 水平方向满足 \\(x=vt\\)，求速度大小时用水平位移的绝对值，所以 \\(v_1=\\frac{R\\sin\\alpha}{t_A}\\)，\\(v_2=\\frac{R\\cos\\alpha}{t_B}\\)。5. 求比值。 两式相除：\\(\\frac{v_1}{v_2}=\\frac{\\sin\\alpha}{\\cos\\alpha}\\sqrt{\\frac{\\sin\\alpha}{\\cos\\alpha}}=\\tan\\alpha\\sqrt{\\tan\\alpha}\\)。答案：C. \\(\\tan\\alpha\\sqrt{\\tan\\alpha}\\)。"
-    }
+  "question": "如图所示，在竖直放置的半圆形容器的中心 \\(O\\) 点，分别以水平速度 \\(v_1\\)、\\(v_2\\) 抛出两个小球。小球可视为质点，最终它们分别落在圆弧上的 \\(A\\) 点和 \\(B\\) 点。\n\n已知 \\(OA\\perp OB\\)，且 \\(OA\\) 与竖直方向成 \\(\\alpha\\) 角，求两小球初速度之比 \\(\\frac{v_1}{v_2}\\)。",
+  "options": [
+    "A. \\(\\tan\\alpha\\)",
+    "B. \\(\\cos\\alpha\\)",
+    "C. \\(\\tan\\alpha\\sqrt{\\tan\\alpha}\\)",
+    "D. \\(\\cos\\alpha\\sqrt{\\cos\\alpha}\\)"
   ],
-  "knowledge": [
-    "平抛运动",
-    "圆弧坐标",
-    "速度比"
-  ],
-  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>课上第5题：平抛落圆弧</h2><p>如图所示，在竖直放置的半圆形容器的中心 \\(O\\) 点，分别以水平速度 \\(v_1\\)、\\(v_2\\) 抛出两个小球。小球可视为质点，最终它们分别落在圆弧上的 \\(A\\) 点和 \\(B\\) 点。</p><p>已知 \\(OA\\perp OB\\)，且 \\(OA\\) 与竖直方向成 \\(\\alpha\\) 角，求两小球初速度之比 \\(\\frac{v_1}{v_2}\\)。</p><p><strong>选项：</strong>A. \\(\\tan\\alpha\\)　B. \\(\\cos\\alpha\\)　C. \\(\\tan\\alpha\\sqrt{\\tan\\alpha}\\)　D. \\(\\cos\\alpha\\sqrt{\\cos\\alpha}\\)</p></div></section>\n        <section class=\"problem-note-block\" data-analysis-block=\"1\"><p class=\"problem-note-kicker\">解析</p><div class=\"note-body\"><h2>分选项解析</h2><p></p><details class=\"analysis-step\" data-step-index=\"0\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 A：\\(\\tan\\alpha\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先把圆弧上的两个落点写成相对圆心的坐标，再分别用竖直位移求时间、用水平位移求初速度。</p><p><strong>对应公式</strong></p><p>\\[t_i=\\sqrt{\\frac{2y_i}{g}},\\qquad v_i=\\frac{|x_i|}{t_i},\\qquad \\frac{v_1}{v_2}=\\frac{|x_1|}{|x_2|}\\sqrt{\\frac{y_2}{y_1}}\\]</p><p><strong>选项判断</strong></p><p>只取水平位移之比，漏掉两个落点飞行时间不同，因此 A 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"1\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 B：\\(\\cos\\alpha\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先把圆弧上的两个落点写成相对圆心的坐标，再分别用竖直位移求时间、用水平位移求初速度。</p><p><strong>对应公式</strong></p><p>\\[t_i=\\sqrt{\\frac{2y_i}{g}},\\qquad v_i=\\frac{|x_i|}{t_i},\\qquad \\frac{v_1}{v_2}=\\frac{|x_1|}{|x_2|}\\sqrt{\\frac{y_2}{y_1}}\\]</p><p><strong>选项判断</strong></p><p>该关系没有同时包含水平位移和竖直下落时间的影响，因此 B 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"2\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 C：\\(\\tan\\alpha\\sqrt{\\tan\\alpha}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先把圆弧上的两个落点写成相对圆心的坐标，再分别用竖直位移求时间、用水平位移求初速度。</p><p><strong>对应公式</strong></p><p>\\[t_i=\\sqrt{\\frac{2y_i}{g}},\\qquad v_i=\\frac{|x_i|}{t_i},\\qquad \\frac{v_1}{v_2}=\\frac{|x_1|}{|x_2|}\\sqrt{\\frac{y_2}{y_1}}\\]</p><p><strong>选项判断</strong></p><p>代入互相垂直的两条半径所对应坐标后，得到 \\(\\tan\\alpha\\sqrt{\\tan\\alpha}\\)，因此 C 正确。</p></div></details><details class=\"analysis-step\" data-step-index=\"3\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 D：\\(\\cos\\alpha\\sqrt{\\cos\\alpha}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先把圆弧上的两个落点写成相对圆心的坐标，再分别用竖直位移求时间、用水平位移求初速度。</p><p><strong>对应公式</strong></p><p>\\[t_i=\\sqrt{\\frac{2y_i}{g}},\\qquad v_i=\\frac{|x_i|}{t_i},\\qquad \\frac{v_1}{v_2}=\\frac{|x_1|}{|x_2|}\\sqrt{\\frac{y_2}{y_1}}\\]</p><p><strong>选项判断</strong></p><p>余弦形式与两点坐标及飞行时间比不符，因此 D 错误。</p></div></details><details class=\"analysis-step\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">完整推导</summary><div class=\"analysis-step-content\"><h2>取平抛课上第5题：两点坐标分别代入平抛</h2><p><strong>1. 建立坐标。</strong> 以 \\(O\\) 为原点，向右为 \\(x\\) 正方向、向下为 \\(y\\) 正方向，设半圆半径为 \\(R\\)。</p><p><strong>2. 读出 \\(A\\)、\\(B\\) 坐标。</strong> 原题给出 \\(OA\\) 与竖直方向夹角为 \\(\\alpha\\)，且 \\(OA\\perp OB\\)。按题图方向，\\(A\\) 点在左下方，坐标为 <span class=\"formula-line\">\\(A(-R\\sin\\alpha,\\;R\\cos\\alpha)\\)</span>；\\(B\\) 点在右下方，坐标为 <span class=\"formula-line\">\\(B(R\\cos\\alpha,\\;R\\sin\\alpha)\\)</span>。</p><p><strong>3. 由竖直方向求时间。</strong> 平抛竖直方向满足 \\(y=\\frac{1}{2}gt^2\\)，所以 <span class=\"formula-line\">\\(t_A=\\sqrt{\\frac{2R\\cos\\alpha}{g}}\\)</span>，<span class=\"formula-line\">\\(t_B=\\sqrt{\\frac{2R\\sin\\alpha}{g}}\\)</span>。</p><p><strong>4. 由水平方向求初速度。</strong> 水平方向满足 \\(x=vt\\)，求速度大小时用水平位移的绝对值，所以 <span class=\"formula-line\">\\(v_1=\\frac{R\\sin\\alpha}{t_A}\\)</span>，<span class=\"formula-line\">\\(v_2=\\frac{R\\cos\\alpha}{t_B}\\)</span>。</p><p><strong>5. 求比值。</strong> 两式相除：<span class=\"formula-line\">\\(\\frac{v_1}{v_2}=\\frac{\\sin\\alpha}{\\cos\\alpha}\\sqrt{\\frac{\\sin\\alpha}{\\cos\\alpha}}=\\tan\\alpha\\sqrt{\\tan\\alpha}\\)</span>。</p><p><strong>答案：</strong>C. \\(\\tan\\alpha\\sqrt{\\tan\\alpha}\\)。</p></div></details></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：圆弧任意两点的平抛速度比</h2><h3>基础设问</h3><p>小球从半圆容器边缘水平抛出，落到圆弧上一点。已知该点相对抛出点的水平位移和竖直下落量，求初速度。</p><h3>综合提升</h3><p>从圆心水平抛出两球，分别落在圆弧上坐标为 \\((x_1,y_1)\\)、\\((x_2,y_2)\\) 的两点，取竖直向下为正。（1）推导初速度比的一般式；（2）把坐标改写成圆心角参数；（3）讨论两半径互相垂直时的化简；（4）由测得的速度比反求角度。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>由圆几何先读出落点坐标 \\((x,y)\\)，平抛满足 \\(y=\\frac12gt^2\\)、\\(x=v_0t\\)，所以 \\(t=\\sqrt{2y/g}\\)，\\(v_0=x/t\\)。</p>\n          <h3>2. 综合提升</h3><p>每个落点满足</p><p>\\[t_i=\\sqrt{\\frac{2y_i}{g}},\\qquad v_i=\\frac{|x_i|}{t_i}.\\]</p><p>因此</p><p>\\[\\frac{v_1}{v_2}=\\frac{|x_1|}{|x_2|}\\sqrt{\\frac{y_2}{y_1}}.\\]</p><p>再用 \\(x_i=R\\sin\\theta_i\\)、\\(y_i=R\\cos\\theta_i\\) 代入即可得到角度式；互相垂直时加入 \\(\\theta_1+\\theta_2=90^\\circ\\) 化简。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>圆弧题先把几何点转成坐标，再套平抛分轴方程。</p>\n          <h3>2. 进阶思路</h3><p>先保留一般坐标公式，再施加圆几何约束；这样同一方法能覆盖任意角距，而不是只记一个特殊比值。</p></details></div></section>\n      </div>\n    ",
+  "answer": "C. \\(\\tan\\alpha\\sqrt{\\tan\\alpha}\\)。",
+  "analysis": {
+    "title": "取平抛课上第5题：两点坐标分别代入平抛"
+  },
   "animation": {
     "enabled": true,
     "level": "interactive_diagram",
@@ -54,5 +51,78 @@
       "loop": false
     },
     "notes": "用圆弧落点坐标反推两次平抛的初速度关系"
+  },
+  "knowledge": [
+    "平抛运动",
+    "圆弧坐标",
+    "速度比"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "建立坐标",
+      "content": "以 \\(O\\) 为原点，向右为 \\(x\\) 正方向、向下为 \\(y\\) 正方向，设半圆半径为 \\(R\\)。",
+      "knowledge": [
+        "平抛运动",
+        "圆弧坐标",
+        "速度比"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "读出 \\(A\\)、\\(B\\) 坐标",
+      "content": "原题给出 \\(OA\\) 与竖直方向夹角为 \\(\\alpha\\)，且 \\(OA\\perp OB\\)。按题图方向，\\(A\\) 点在左下方，坐标为 \\(A(-R\\sin\\alpha,\\;R\\cos\\alpha)\\)；\\(B\\) 点在右下方，坐标为 \\(B(R\\cos\\alpha,\\;R\\sin\\alpha)\\)。",
+      "knowledge": [
+        "平抛运动",
+        "圆弧坐标",
+        "速度比"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "由竖直方向求时间",
+      "content": "平抛竖直方向满足 \\(y=\\frac{1}{2}gt^2\\)，所以 \\(t_A=\\sqrt{\\frac{2R\\cos\\alpha}{g}}\\)，\\(t_B=\\sqrt{\\frac{2R\\sin\\alpha}{g}}\\)。",
+      "knowledge": [
+        "平抛运动",
+        "圆弧坐标",
+        "速度比"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "由水平方向求初速度",
+      "content": "水平方向满足 \\(x=vt\\)，求速度大小时用水平位移的绝对值，所以 \\(v_1=\\frac{R\\sin\\alpha}{t_A}\\)，\\(v_2=\\frac{R\\cos\\alpha}{t_B}\\)。",
+      "knowledge": [
+        "平抛运动",
+        "圆弧坐标",
+        "速度比"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 5,
+      "title": "求比值",
+      "content": "两式相除：\\(\\frac{v_1}{v_2}=\\frac{\\sin\\alpha}{\\cos\\alpha}\\sqrt{\\frac{\\sin\\alpha}{\\cos\\alpha}}=\\tan\\alpha\\sqrt{\\tan\\alpha}\\)。",
+      "knowledge": [
+        "平抛运动",
+        "圆弧坐标",
+        "速度比"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "shared-solution"
+  },
+  "practice": {
+    "title": "进阶近似题：圆弧任意两点的平抛速度比",
+    "question": "### 基础设问\n\n小球从半圆容器边缘水平抛出，落到圆弧上一点。已知该点相对抛出点的水平位移和竖直下落量，求初速度。\n\n### 综合提升\n\n从圆心水平抛出两球，分别落在圆弧上坐标为 \\((x_1,y_1)\\)、\\((x_2,y_2)\\) 的两点，取竖直向下为正。（1）推导初速度比的一般式；（2）把坐标改写成圆心角参数；（3）讨论两半径互相垂直时的化简；（4）由测得的速度比反求角度。",
+    "answer": "### 1. 基础设问\n\n由圆几何先读出落点坐标 \\((x,y)\\)，平抛满足 \\(y=\\frac12gt^2\\)、\\(x=v_0t\\)，所以 \\(t=\\sqrt{2y/g}\\)，\\(v_0=x/t\\)。\n\n### 2. 综合提升\n\n每个落点满足\n\n\\[t_i=\\sqrt{\\frac{2y_i}{g}},\\qquad v_i=\\frac{|x_i|}{t_i}.\\]\n\n因此\n\n\\[\\frac{v_1}{v_2}=\\frac{|x_1|}{|x_2|}\\sqrt{\\frac{y_2}{y_1}}.\\]\n\n再用 \\(x_i=R\\sin\\theta_i\\)、\\(y_i=R\\cos\\theta_i\\) 代入即可得到角度式；互相垂直时加入 \\(\\theta_1+\\theta_2=90^\\circ\\) 化简。",
+    "thinking": "### 1. 基础思路\n\n圆弧题先把几何点转成坐标，再套平抛分轴方程。\n\n### 2. 进阶思路\n\n先保留一般坐标公式，再施加圆几何约束；这样同一方法能覆盖任意角距，而不是只记一个特殊比值。",
+    "difficulty": "equal-or-higher"
   }
 }

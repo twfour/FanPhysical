@@ -139,7 +139,7 @@ var problemCatalogReadyPromise = null;
 var sceneSwitchRequestId = 0;
 var runtimeScriptPromiseMap = {};
 var mathJaxLoadPromise = null;
-var runtimeAssetVersion = "20260717-shared-option-method";
+var runtimeAssetVersion = "20260717-structured-models";
 var promotedProblemChapterMap = {
   "必修一结业测试": true,
   "曲线运动": true,
@@ -587,12 +587,6 @@ function renderProblemDataNotes(problem) {
     note.className = "problem-notes";
     host.appendChild(note);
     note.dataset.problemJson = "1";
-    if (problem.notesHtml) {
-      note.innerHTML = problem.notesHtml;
-      simplifyLegacySharedAnswerAnalysis(note, problem);
-      promoteLegacyOptionMethod(note, problem);
-      return note;
-    }
     note.innerHTML = "";
     var grid = document.createElement("div");
     grid.className = "problem-notes-grid";
@@ -690,8 +684,7 @@ function getProblemOptionAnalysisMode(problem) {
     return explicitMode;
   }
   var optionAnalyses = problem && Array.isArray(problem.optionAnalyses) ? problem.optionAnalyses : [];
-  var hasLegacyOptionAnalysis = Boolean(problem && problem.notesHtml && /分选项解析/.test(problem.notesHtml));
-  if (!optionAnalyses.length && !hasLegacyOptionAnalysis) {
+  if (!optionAnalyses.length) {
     return "shared-solution";
   }
   var question = String(problem.question || "");
@@ -775,95 +768,6 @@ function getProblemAnalysisTitle(problem) {
     title = title.replace(/分选项解析|逐选项解析|逐项解析|分项解析/g, "分步解析");
   }
   return title;
-}
-
-function simplifyLegacySharedAnswerAnalysis(note, problem) {
-  if (!note || getProblemOptionAnalysisMode(problem) !== "shared-solution") {
-    return;
-  }
-  var analysisBlock = note.querySelector('[data-analysis-block="1"]');
-  if (!analysisBlock) {
-    return;
-  }
-  var details = Array.prototype.slice.call(analysisBlock.querySelectorAll("details.analysis-step"));
-  var completeStep = details.find(function (item) {
-    var summary = item.querySelector("summary");
-    return summary && /完整(?:推导|解析|解题步骤)/.test(summary.innerText);
-  });
-  if (!completeStep) {
-    return;
-  }
-  details.forEach(function (item) {
-    if (item !== completeStep) {
-      item.remove();
-    }
-  });
-  var heading = analysisBlock.querySelector("h2");
-  if (heading) {
-    heading.innerText = "解题步骤";
-  }
-  var summary = completeStep.querySelector("summary");
-  if (summary) {
-    summary.innerText = "完整解题步骤";
-  }
-}
-
-function getLegacyAnalysisLabelNode(content, label) {
-  if (!content) {
-    return null;
-  }
-  return Array.prototype.slice.call(content.children).find(function (child) {
-    var strong = child.querySelector && child.querySelector("strong");
-    return strong && strong.innerText.trim() === label;
-  }) || null;
-}
-
-function promoteLegacyOptionMethod(note, problem) {
-  if (!note || getProblemOptionAnalysisMode(problem) !== "independent-statements") {
-    return;
-  }
-  var analysisBlock = note.querySelector('[data-analysis-block="1"]');
-  if (!analysisBlock) {
-    return;
-  }
-  var optionDetails = Array.prototype.slice.call(analysisBlock.querySelectorAll("details.analysis-step")).filter(function (item) {
-    var summary = item.querySelector("summary");
-    return summary && /^选项\s*[A-H]/.test(summary.innerText.trim());
-  });
-  if (!optionDetails.length) {
-    return;
-  }
-  var firstContent = optionDetails[0].querySelector(".analysis-step-content");
-  var thinkingLabel = getLegacyAnalysisLabelNode(firstContent, "解题思路");
-  var judgmentLabel = getLegacyAnalysisLabelNode(firstContent, "选项判断");
-  if (!thinkingLabel || !judgmentLabel) {
-    return;
-  }
-  var firstChildren = Array.prototype.slice.call(firstContent.children);
-  var thinkingIndex = firstChildren.indexOf(thinkingLabel);
-  var judgmentIndex = firstChildren.indexOf(judgmentLabel);
-  if (thinkingIndex < 0 || judgmentIndex <= thinkingIndex) {
-    return;
-  }
-  var sharedMethod = document.createElement("div");
-  sharedMethod.className = "analysis-step analysis-shared-method";
-  sharedMethod.dataset.stepIndex = "0";
-  firstChildren.slice(thinkingIndex, judgmentIndex).forEach(function (child) {
-    sharedMethod.appendChild(child.cloneNode(true));
-  });
-  optionDetails[0].parentNode.insertBefore(sharedMethod, optionDetails[0]);
-  optionDetails.forEach(function (details, index) {
-    var content = details.querySelector(".analysis-step-content");
-    var optionJudgment = getLegacyAnalysisLabelNode(content, "选项判断");
-    if (content && optionJudgment) {
-      var contentChildren = Array.prototype.slice.call(content.children);
-      var optionJudgmentIndex = contentChildren.indexOf(optionJudgment);
-      contentChildren.slice(0, optionJudgmentIndex).forEach(function (child) {
-        child.remove();
-      });
-    }
-    details.dataset.stepIndex = String(index + 1);
-  });
 }
 
 function createProblemAnalysisBlock(problem) {
@@ -1273,10 +1177,6 @@ function enhanceProblemNotes(root) {
     var grid = note.querySelector(".problem-notes-grid");
     if (!grid) {
       return;
-    }
-
-    if (typeof enhanceLegacyProblemNote === "function") {
-      enhanceLegacyProblemNote(note, sceneName);
     }
 
     var blocks = grid.querySelectorAll(".problem-note-block");

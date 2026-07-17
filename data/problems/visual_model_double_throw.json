@@ -3,19 +3,9 @@
   "chapter": "竖直上抛运动",
   "title": "第7题：双球上抛相遇",
   "question": "\\(A\\) 球先从地面以初速度 \\(2v_0\\) 竖直上抛；经过时间 \\(\\Delta t\\) 后，\\(B\\) 球再从地面以初速度 \\(v_0\\) 竖直上抛。判断两球能否在空中相遇，并用高度-时间图像理解相遇条件。",
-  "options": [],
-  "steps": [
-    {
-      "title": "完整解析",
-      "content": "展开用相对运动找相遇区间设 \\(A\\) 抛出后经过 \\(\\Delta t\\) 再抛 \\(B\\)。\\(B\\) 抛出时，\\(A\\) 还在空中的条件是 \\(0<\\Delta t<\\frac{4v_0}{g}\\)。从 \\(B\\) 抛出后计时 \\(\\tau\\)，两球加速度相同，相对加速度为 \\(0\\)，相对速度 \\(v_{BA}=v_0-(2v_0-g\\Delta t)=g\\Delta t-v_0\\)。要追上 \\(A\\)，需 \\(v_{BA}>0\\)，且追上时 \\(A\\) 未落地，整理得 \\(\\frac{2v_0}{g}<\\Delta t<\\frac{4v_0}{g}\\)。答案：时间间隔必须在这个开区间内。"
-    }
-  ],
-  "knowledge": [
-    "竖直上抛",
-    "相对运动",
-    "相遇条件"
-  ],
-  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n        <div class=\"note-body\"><h2>第7题：双球上抛相遇</h2><p>\\(A\\) 球先从地面以初速度 \\(2v_0\\) 竖直上抛；经过时间 \\(\\Delta t\\) 后，\\(B\\) 球再从地面以初速度 \\(v_0\\) 竖直上抛。判断两球能否在空中相遇，并用高度-时间图像理解相遇条件。</p></div></section>\n        <section class=\"problem-note-block is-collapsed\">\n          <p class=\"problem-note-kicker\">解析</p>\n          \n          \n        <button type=\"button\" class=\"note-toggle\">展开</button><div class=\"note-body\"><h2>用相对运动找相遇区间</h2><p>设 \\(A\\) 抛出后经过 \\(\\Delta t\\) 再抛 \\(B\\)。\\(B\\) 抛出时，\\(A\\) 还在空中的条件是 \\(0&lt;\\Delta t&lt;\\frac{4v_0}{g}\\)。从 \\(B\\) 抛出后计时 \\(\\tau\\)，两球加速度相同，相对加速度为 \\(0\\)，相对速度 \\(v_{BA}=v_0-(2v_0-g\\Delta t)=g\\Delta t-v_0\\)。要追上 \\(A\\)，需 \\(v_{BA}&gt;0\\)，且追上时 \\(A\\) 未落地，整理得 <span class=\"formula-line\">\\(\\frac{2v_0}{g}&lt;\\Delta t&lt;\\frac{4v_0}{g}\\)</span>。答案：时间间隔必须在这个开区间内。</p></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：双球延迟上抛的参数域</h2><h3>基础设问</h3><p>甲球以速度 \\(3v_0\\) 从地面竖直上抛，乙球在 \\(\\Delta t\\) 后以速度 \\(v_0\\) 从同一点竖直上抛。若两球在空中相遇，写出相遇时间表达式，并判断 \\(\\Delta t\\) 应满足的基本条件。</p><h3>综合提升</h3><p>甲、乙从同一点先后竖直上抛，初速度分别为 \\(kv_0\\) 与 \\(v_0\\)，乙延迟 \\(\\Delta t\\) 抛出，其中 \\(k&gt;1\\)。（1）推导乙抛出后的相遇时间；（2）求能在空中相遇的 \\(\\Delta t\\) 参数范围；（3）写出相遇高度；（4）讨论相遇高度随 \\(\\Delta t\\) 的极值。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>相对运动中，两球加速度相同，甲相对乙做匀速运动。设乙抛出后经过 \\(\\tau\\) 相遇，则甲已运动 \\(\\Delta t+\\tau\\)，由 \\(3v_0(\\Delta t+\\tau)-\\frac12g(\\Delta t+\\tau)^2=v_0\\tau-\\frac12g\\tau^2\\) 求 \\(\\tau\\)，并要求相遇高度大于 \\(0\\)。</p>\n          <h3>2. 综合提升</h3><p>乙抛出后计时 \\(\\tau\\)，令两球高度相等：</p><p>\\[kv_0(\\Delta t+\\tau)-\\frac12g(\\Delta t+\\tau)^2=v_0\\tau-\\frac12g\\tau^2.\\]</p><p>整理得</p><p>\\[\\tau=\\frac{\\Delta t(2kv_0-g\\Delta t)}{2[g\\Delta t-(k-1)v_0]}.\\]</p><p>再联立 \\(\\tau&gt;0\\)、甲乙相遇时高度 \\(y&gt;0\\) 和两球均未落地，即可得到 \\(\\Delta t\\) 的可行域。把 \\(\\tau(\\Delta t)\\) 代回 \\(y=v_0\\tau-g\\tau^2/2\\)，再对 \\(\\Delta t\\) 求导可讨论最高相遇点。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>先分别写出两球高度函数，再令高度相等。由于两球加速度同为 \\(g\\)，二次项只剩与 \\(\\Delta t\\) 有关的项，本质仍是相对运动追及。</p>\n          <h3>2. 进阶思路</h3><p>先用相对加速度为零化简相遇，再把时间正值、空中相遇和落地时刻作为三个独立约束；参数题不能只解高度相等方程。</p></details></div></section>\n      </div>\n    ",
+  "analysis": {
+    "title": "用相对运动找相遇区间"
+  },
   "animation": {
     "enabled": true,
     "level": "animated",
@@ -54,5 +44,33 @@
       "loop": false
     },
     "notes": "两球高度与高度-时间图像由同一组上抛方程驱动"
+  },
+  "knowledge": [
+    "竖直上抛",
+    "相对运动",
+    "相遇条件"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "用相对运动找相遇区间",
+      "content": "设 \\(A\\) 抛出后经过 \\(\\Delta t\\) 再抛 \\(B\\)。\\(B\\) 抛出时，\\(A\\) 还在空中的条件是 \\(0<\\Delta t<\\frac{4v_0}{g}\\)。从 \\(B\\) 抛出后计时 \\(\\tau\\)，两球加速度相同，相对加速度为 \\(0\\)，相对速度 \\(v_{BA}=v_0-(2v_0-g\\Delta t)=g\\Delta t-v_0\\)。要追上 \\(A\\)，需 \\(v_{BA}>0\\)，且追上时 \\(A\\) 未落地，整理得 \\(\\frac{2v_0}{g}<\\Delta t<\\frac{4v_0}{g}\\)。答案：时间间隔必须在这个开区间内。",
+      "knowledge": [
+        "竖直上抛",
+        "相对运动",
+        "相遇条件"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：双球延迟上抛的参数域",
+    "question": "### 基础设问\n\n甲球以速度 \\(3v_0\\) 从地面竖直上抛，乙球在 \\(\\Delta t\\) 后以速度 \\(v_0\\) 从同一点竖直上抛。若两球在空中相遇，写出相遇时间表达式，并判断 \\(\\Delta t\\) 应满足的基本条件。\n\n### 综合提升\n\n甲、乙从同一点先后竖直上抛，初速度分别为 \\(kv_0\\) 与 \\(v_0\\)，乙延迟 \\(\\Delta t\\) 抛出，其中 \\(k>1\\)。（1）推导乙抛出后的相遇时间；（2）求能在空中相遇的 \\(\\Delta t\\) 参数范围；（3）写出相遇高度；（4）讨论相遇高度随 \\(\\Delta t\\) 的极值。",
+    "answer": "### 1. 基础设问\n\n相对运动中，两球加速度相同，甲相对乙做匀速运动。设乙抛出后经过 \\(\\tau\\) 相遇，则甲已运动 \\(\\Delta t+\\tau\\)，由 \\(3v_0(\\Delta t+\\tau)-\\frac12g(\\Delta t+\\tau)^2=v_0\\tau-\\frac12g\\tau^2\\) 求 \\(\\tau\\)，并要求相遇高度大于 \\(0\\)。\n\n### 2. 综合提升\n\n乙抛出后计时 \\(\\tau\\)，令两球高度相等：\n\n\\[kv_0(\\Delta t+\\tau)-\\frac12g(\\Delta t+\\tau)^2=v_0\\tau-\\frac12g\\tau^2.\\]\n\n整理得\n\n\\[\\tau=\\frac{\\Delta t(2kv_0-g\\Delta t)}{2[g\\Delta t-(k-1)v_0]}.\\]\n\n再联立 \\(\\tau>0\\)、甲乙相遇时高度 \\(y>0\\) 和两球均未落地，即可得到 \\(\\Delta t\\) 的可行域。把 \\(\\tau(\\Delta t)\\) 代回 \\(y=v_0\\tau-g\\tau^2/2\\)，再对 \\(\\Delta t\\) 求导可讨论最高相遇点。",
+    "thinking": "### 1. 基础思路\n\n先分别写出两球高度函数，再令高度相等。由于两球加速度同为 \\(g\\)，二次项只剩与 \\(\\Delta t\\) 有关的项，本质仍是相对运动追及。\n\n### 2. 进阶思路\n\n先用相对加速度为零化简相遇，再把时间正值、空中相遇和落地时刻作为三个独立约束；参数题不能只解高度相等方程。",
+    "difficulty": "equal-or-higher"
   }
 }

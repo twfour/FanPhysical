@@ -37,6 +37,8 @@ def load_json(path):
 def validate_problem(path):
     problem = load_json(path)
     errors = []
+    if problem.get("notesHtml"):
+        errors.append(f"{path.name}: legacy notesHtml is not allowed")
     for field in REQUIRED_PROBLEM_FIELDS:
         if field not in problem:
             errors.append(f"{path.name}: missing field {field}")

@@ -2,20 +2,11 @@
   "id": "riverAdvanced",
   "chapter": "曲线运动",
   "title": "课上第9题：小船渡河进阶",
-  "question": "小船在宽 \\(d=200\\,\\mathrm{m}\\) 的河水中行驶，船在静水中的速度 \\(v_{\\text{船}}=2\\,\\mathrm{m/s}\\)，水流速度 \\(v_{\\text{水}}=4\\,\\mathrm{m/s}\\)。若要使船能在最短距离内渡河，船应向什么方向划船？",
-  "options": [],
-  "steps": [
-    {
-      "title": "完整解析",
-      "content": "展开取课上第9题：船速小于水速，用速度圆切线1. 先判断能否正对岸到达。 若要合速度垂直河岸，需要船速在沿河方向上完全抵消水流速度。但 \\(v_{\\text{船}}=2\\,\\mathrm{m/s}<v_{\\text{水}}=4\\,\\mathrm{m/s}\\)，无法抵消水流，所以不能到达正对岸。2. 最短距离对应速度圆切线。 在速度矢量图中，以水流速度矢量末端为圆心、\\(v_{\\text{船}}\\) 为半径作速度圆。船速小于水速时，合速度方向能取得的最靠近垂直河岸的方向，是从出发点向速度圆作切线的方向。3. 求角度。 设最短位移时船头方向与上游河岸方向的夹角为 \\(\\alpha\\)，由切线直角三角形得 \\(\\cos\\alpha=\\frac{v_{\\text{船}}}{v_{\\text{水}}}=\\frac{2}{4}=\\frac{1}{2}\\)，所以 \\(\\alpha=60^\\circ\\)。答案：船头应偏向上游，取速度圆切线对应方向，即与上游河岸方向约成 \\(60^\\circ\\)。"
-    }
-  ],
-  "knowledge": [
-    "速度圆",
-    "最短位移",
-    "矢量合成"
-  ],
-  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n        <div class=\"note-body\"><h2>课上第9题：小船渡河进阶</h2><p>小船在宽 \\(d=200\\,\\mathrm{m}\\) 的河水中行驶，船在静水中的速度 \\(v_{\\text{船}}=2\\,\\mathrm{m/s}\\)，水流速度 \\(v_{\\text{水}}=4\\,\\mathrm{m/s}\\)。</p><p>若要使船能在最短距离内渡河，船应向什么方向划船？</p></div></section>\n        <section class=\"problem-note-block is-collapsed\">\n          <p class=\"problem-note-kicker\">解析</p>\n          \n          \n          \n          \n          \n        <button type=\"button\" class=\"note-toggle\">展开</button><div class=\"note-body\"><h2>取课上第9题：船速小于水速，用速度圆切线</h2><p><strong>1. 先判断能否正对岸到达。</strong> 若要合速度垂直河岸，需要船速在沿河方向上完全抵消水流速度。但 \\(v_{\\text{船}}=2\\,\\mathrm{m/s}&lt;v_{\\text{水}}=4\\,\\mathrm{m/s}\\)，无法抵消水流，所以不能到达正对岸。</p><p><strong>2. 最短距离对应速度圆切线。</strong> 在速度矢量图中，以水流速度矢量末端为圆心、\\(v_{\\text{船}}\\) 为半径作速度圆。船速小于水速时，合速度方向能取得的最靠近垂直河岸的方向，是从出发点向速度圆作切线的方向。</p><p><strong>3. 求角度。</strong> 设最短位移时船头方向与上游河岸方向的夹角为 \\(\\alpha\\)，由切线直角三角形得 <span class=\"formula-line\">\\(\\cos\\alpha=\\frac{v_{\\text{船}}}{v_{\\text{水}}}=\\frac{2}{4}=\\frac{1}{2}\\)</span>，所以 <span class=\"formula-line\">\\(\\alpha=60^\\circ\\)</span>。</p><p><strong>答案：</strong>船头应偏向上游，取速度圆切线对应方向，即与上游河岸方向约成 \\(60^\\circ\\)。</p></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：船速小于水速时的最短航程</h2><h3>基础设问</h3><p>河宽一定，船速 \\(3\\,\\mathrm{m/s}\\)，水速 \\(6\\,\\mathrm{m/s}\\)。求最短位移渡河时的速度圆临界角。</p><h3>综合提升</h3><p>河宽为 \\(d\\)，船速 \\(v_b<u\\)。（1）用速度圆切线推导最短航程时的船头方向；（2）求合速度与垂直河岸方向的夹角；（3）求最短实际航程；（4）讨论 \\(v_b=\"\" u\\to1^-\\)=\"\" 与=\"\" u\\to0^+\\)=\"\" 两个极限。<=\"\" p=\"\"></u\\)。（1）用速度圆切线推导最短航程时的船头方向；（2）求合速度与垂直河岸方向的夹角；（3）求最短实际航程；（4）讨论></p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>船速小于水速，不能抵消水流。速度圆切线给出最短位移方向，若 \\(\\cos\\alpha=\\frac{v_{\\text{船}}}{v_{\\text{水}}}=\\frac12\\)，则 \\(\\alpha=60^\\circ\\)。</p>\n          <h3>2. 综合提升</h3><p>速度圆切线给出船头与上游河岸方向夹角 \\(\\alpha\\) 满足</p><p>\\[\\cos\\alpha=\\frac{v_b}{u}.\\]</p><p>临界合速度方向与水流方向夹角 \\(\\beta\\) 满足 \\(\\sin\\beta=v_b/u\\)。实际航程</p><p>\\[S_{\\min}=\\frac{d}{\\sin\\beta}=\\frac{du}{v_b}.\\]</p><p>当 \\(v_b/u\\to1^-\\) 时 \\(S_{\\min}\\to d\\)；当比值趋零时最短航程发散。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>先判断 \\(v_{\\text{船}}\\lt v_{\\text{水}}\\)，再用速度圆切线，而不是硬套正对岸到达。</p>\n          <h3>2. 进阶思路</h3><p>船速不足以抵消水流时，目标从‘正对岸’切换为‘位移方向最靠近法线’，切线条件直接给出极值。</p></details></div></section>\n      </div>\n    ",
+  "question": "小船在宽 \\(d=200\\,\\mathrm{m}\\) 的河水中行驶，船在静水中的速度 \\(v_{\\text{船}}=2\\,\\mathrm{m/s}\\)，水流速度 \\(v_{\\text{水}}=4\\,\\mathrm{m/s}\\)。\n\n若要使船能在最短距离内渡河，船应向什么方向划船？",
+  "answer": "船头应偏向上游，取速度圆切线对应方向，即与上游河岸方向约成 \\(60^\\circ\\)。",
+  "analysis": {
+    "title": "取课上第9题：船速小于水速，用速度圆切线"
+  },
   "animation": {
     "enabled": true,
     "level": "animated",
@@ -62,5 +53,55 @@
       "loop": false
     },
     "notes": "在船速小于水速时比较最短时间与最小位移策略"
+  },
+  "knowledge": [
+    "速度圆",
+    "最短位移",
+    "矢量合成"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "先判断能否正对岸到达",
+      "content": "若要合速度垂直河岸，需要船速在沿河方向上完全抵消水流速度。但 \\(v_{\\text{船}}=2\\,\\mathrm{m/s}<v_{\\text{水}}=4\\,\\mathrm{m/s}\\)，无法抵消水流，所以不能到达正对岸。",
+      "knowledge": [
+        "速度圆",
+        "最短位移",
+        "矢量合成"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "最短距离对应速度圆切线",
+      "content": "在速度矢量图中，以水流速度矢量末端为圆心、\\(v_{\\text{船}}\\) 为半径作速度圆。船速小于水速时，合速度方向能取得的最靠近垂直河岸的方向，是从出发点向速度圆作切线的方向。",
+      "knowledge": [
+        "速度圆",
+        "最短位移",
+        "矢量合成"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求角度",
+      "content": "设最短位移时船头方向与上游河岸方向的夹角为 \\(\\alpha\\)，由切线直角三角形得 \\(\\cos\\alpha=\\frac{v_{\\text{船}}}{v_{\\text{水}}}=\\frac{2}{4}=\\frac{1}{2}\\)，所以 \\(\\alpha=60^\\circ\\)。",
+      "knowledge": [
+        "速度圆",
+        "最短位移",
+        "矢量合成"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：船速小于水速时的最短航程",
+    "question": "### 基础设问\n\n河宽一定，船速 \\(3\\,\\mathrm{m/s}\\)，水速 \\(6\\,\\mathrm{m/s}\\)。求最短位移渡河时的速度圆临界角。\n\n### 综合提升\n\n河宽为 \\(d\\)，船速 \\(v_b",
+    "answer": "### 1. 基础设问\n\n船速小于水速，不能抵消水流。速度圆切线给出最短位移方向，若 \\(\\cos\\alpha=\\frac{v_{\\text{船}}}{v_{\\text{水}}}=\\frac12\\)，则 \\(\\alpha=60^\\circ\\)。\n\n### 2. 综合提升\n\n速度圆切线给出船头与上游河岸方向夹角 \\(\\alpha\\) 满足\n\n\\[\\cos\\alpha=\\frac{v_b}{u}.\\]\n\n临界合速度方向与水流方向夹角 \\(\\beta\\) 满足 \\(\\sin\\beta=v_b/u\\)。实际航程\n\n\\[S_{\\min}=\\frac{d}{\\sin\\beta}=\\frac{du}{v_b}.\\]\n\n当 \\(v_b/u\\to1^-\\) 时 \\(S_{\\min}\\to d\\)；当比值趋零时最短航程发散。",
+    "thinking": "### 1. 基础思路\n\n先判断 \\(v_{\\text{船}}\\lt v_{\\text{水}}\\)，再用速度圆切线，而不是硬套正对岸到达。\n\n### 2. 进阶思路\n\n船速不足以抵消水流时，目标从‘正对岸’切换为‘位移方向最靠近法线’，切线条件直接给出极值。",
+    "difficulty": "equal-or-higher"
   }
 }

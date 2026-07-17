@@ -2,20 +2,10 @@
   "id": "handRopeBreak",
   "chapter": "曲线运动",
   "title": "第18题：手绳圆周断裂抛体",
-  "question": "如图 1，某人站在水平地面上，手握不可伸长的轻绳一端，绳的另一端系有质量为 \\(m\\) 的小球，甩动手腕，使球运动起来，最终在水平面内做匀速圆周运动。已知轻绳能承受的最大拉力为 \\(2mg\\)，握绳的手离地面高度为 \\(6l\\)，手与球之间的绳长为 \\(l\\)，重力加速度为 \\(g\\)，忽略空气阻力。（1）当绳与竖直方向的夹角为 \\(\\alpha\\)，且绳子的拉力小于最大值，求小球运动的周期。（2）当小球的速度大小为 \\(v_1\\) 时，轻绳刚好断掉，求此时小球速度大小 \\(v_1\\) 和这种情况下小球落地前瞬间的速度大小 \\(v_2\\)。（3）如图 2，保持手的高度不变，改变绳长，使小球在竖直平面内做圆周运动，小球运动到最低点时绳子刚好拉断。要使小球抛出的水平距离最大，最大水平距离为多少？",
-  "options": [],
-  "steps": [
-    {
-      "title": "完整解析",
-      "content": "展开第18题：圆锥摆求断绳速度，断后按平抛处理1. 圆锥摆周期。 小球做水平圆周运动时，半径 \\(r=l\\sin\\alpha\\)。竖直方向平衡：\\(T\\cos\\alpha=mg\\)；水平方向向心：\\(T\\sin\\alpha=m\\omega^2l\\sin\\alpha\\)。消去 \\(T\\) 得 \\(\\omega^2=\\frac{g}{l\\cos\\alpha}\\)，所以周期 \\(T_0=2\\pi\\sqrt{\\frac{l\\cos\\alpha}{g}}\\)。2. 刚断时的夹角。 轻绳最大拉力为 \\(2mg\\)。由 \\(T=\\frac{mg}{\\cos\\alpha}\\)，刚断时 \\(\\frac{mg}{\\cos\\alpha}=2mg\\)，故 \\(\\cos\\alpha=\\frac12\\)，即 \\(\\alpha=60^\\circ\\)。3. 刚断速度 \\(v_1\\)。 圆锥摆中 \\(v^2=rg\\tan\\alpha=l\\sin\\alpha\\cdot g\\tan\\alpha\\)。代入 \\(\\alpha=60^\\circ\\)，得 \\(v_1^2=\\frac32gl\\)，所以 \\(v_1=\\sqrt{\\frac32gl}\\)。4. 落地前速度 \\(v_2\\)。 刚断时小球高度为 \\(h=6l-l\\cos60^\\circ=\\frac{11}{2}l\\)。断后做平抛，机械能或速度合成给出 \\(v_2^2=v_1^2+2gh=\\frac32gl+11gl=\\frac{25}{2}gl\\)，所以 \\(v_2=5\\sqrt{\\frac{gl}{2}}\\)。5. 最低点断绳的最大水平距离。 若改用绳长 \\(L\\)，最低点刚断时满足 \\(T-mg=m\\frac{v^2}{L}\\)，且 \\(T=2mg\\)，所以 \\(v^2=gL\\)。最低点高度为 \\(6l-L\\)，平抛射程 \\(x=\\sqrt{gL}\\sqrt{\\frac{2(6l-L)}{g}}=\\sqrt{2L(6l-L)}\\)。当 \\(L=3l\\) 时最大，最大水平距离 \\(x_{\\max}=3\\sqrt2\\,l\\)。"
-    }
-  ],
-  "knowledge": [
-    "圆锥摆",
-    "断绳抛体",
-    "最值"
-  ],
-  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n          \n          \n        <div class=\"note-body\"><h2>第18题：手绳圆周断裂抛体</h2><p>如图 1，某人站在水平地面上，手握不可伸长的轻绳一端，绳的另一端系有质量为 \\(m\\) 的小球，甩动手腕，使球运动起来，最终在水平面内做匀速圆周运动。已知轻绳能承受的最大拉力为 \\(2mg\\)，握绳的手离地面高度为 \\(6l\\)，手与球之间的绳长为 \\(l\\)，重力加速度为 \\(g\\)，忽略空气阻力。</p><p>（1）当绳与竖直方向的夹角为 \\(\\alpha\\)，且绳子的拉力小于最大值，求小球运动的周期。</p><p>（2）当小球的速度大小为 \\(v_1\\) 时，轻绳刚好断掉，求此时小球速度大小 \\(v_1\\) 和这种情况下小球落地前瞬间的速度大小 \\(v_2\\)。</p><p>（3）如图 2，保持手的高度不变，改变绳长，使小球在竖直平面内做圆周运动，小球运动到最低点时绳子刚好拉断。要使小球抛出的水平距离最大，最大水平距离为多少？</p></div></section>\n        <section class=\"problem-note-block is-collapsed\">\n          <p class=\"problem-note-kicker\">解析</p>\n          \n          \n          \n          \n          \n          \n        <button type=\"button\" class=\"note-toggle\">展开</button><div class=\"note-body\"><h2>第18题：圆锥摆求断绳速度，断后按平抛处理</h2><p><strong>1. 圆锥摆周期。</strong> 小球做水平圆周运动时，半径 \\(r=l\\sin\\alpha\\)。竖直方向平衡：<span class=\"formula-line\">\\(T\\cos\\alpha=mg\\)</span>；水平方向向心：<span class=\"formula-line\">\\(T\\sin\\alpha=m\\omega^2l\\sin\\alpha\\)</span>。消去 \\(T\\) 得 <span class=\"formula-line\">\\(\\omega^2=\\frac{g}{l\\cos\\alpha}\\)</span>，所以周期 <span class=\"formula-line\">\\(T_0=2\\pi\\sqrt{\\frac{l\\cos\\alpha}{g}}\\)</span>。</p><p><strong>2. 刚断时的夹角。</strong> 轻绳最大拉力为 \\(2mg\\)。由 \\(T=\\frac{mg}{\\cos\\alpha}\\)，刚断时 <span class=\"formula-line\">\\(\\frac{mg}{\\cos\\alpha}=2mg\\)</span>，故 <span class=\"formula-line\">\\(\\cos\\alpha=\\frac12\\)</span>，即 \\(\\alpha=60^\\circ\\)。</p><p><strong>3. 刚断速度 \\(v_1\\)。</strong> 圆锥摆中 \\(v^2=rg\\tan\\alpha=l\\sin\\alpha\\cdot g\\tan\\alpha\\)。代入 \\(\\alpha=60^\\circ\\)，得 <span class=\"formula-line\">\\(v_1^2=\\frac32gl\\)</span>，所以 <span class=\"formula-line\">\\(v_1=\\sqrt{\\frac32gl}\\)</span>。</p><p><strong>4. 落地前速度 \\(v_2\\)。</strong> 刚断时小球高度为 <span class=\"formula-line\">\\(h=6l-l\\cos60^\\circ=\\frac{11}{2}l\\)</span>。断后做平抛，机械能或速度合成给出 <span class=\"formula-line\">\\(v_2^2=v_1^2+2gh=\\frac32gl+11gl=\\frac{25}{2}gl\\)</span>，所以 <span class=\"formula-line\">\\(v_2=5\\sqrt{\\frac{gl}{2}}\\)</span>。</p><p><strong>5. 最低点断绳的最大水平距离。</strong> 若改用绳长 \\(L\\)，最低点刚断时满足 <span class=\"formula-line\">\\(T-mg=m\\frac{v^2}{L}\\)</span>，且 \\(T=2mg\\)，所以 <span class=\"formula-line\">\\(v^2=gL\\)</span>。最低点高度为 \\(6l-L\\)，平抛射程 <span class=\"formula-line\">\\(x=\\sqrt{gL}\\sqrt{\\frac{2(6l-L)}{g}}=\\sqrt{2L(6l-L)}\\)</span>。当 \\(L=3l\\) 时最大，最大水平距离 <span class=\"formula-line\">\\(x_{\\max}=3\\sqrt2\\,l\\)</span>。</p></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：一般最大拉力下的断绳最值</h2><h3>基础设问</h3><p>长为 \\(l\\) 的轻绳系小球做圆锥摆，绳最大拉力为 \\(3mg\\)。若刚断后小球水平飞出，求刚断时 \\(\\cos\\alpha\\) 与速度表达式。</p><h3>综合提升</h3><p>轻绳最大拉力为 \\(\\kappa mg\\)，手离地高度为 \\(H\\)。（1）求圆锥摆断绳时的夹角和速度；（2）求断后落地速度；（3）若改为长 \\(L\\) 的绳在竖直圆周最低点断裂，求水平射程 \\(x(L)\\)；（4）优化 \\(L\\) 并求最大射程。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>由 \\(T\\cos\\alpha=mg\\)、\\(T=3mg\\)，得 \\(\\cos\\alpha=\\frac13\\)。再由 \\(v^2=l\\sin\\alpha\\cdot g\\tan\\alpha\\)，可求刚断速度。</p>\n          <h3>2. 综合提升</h3><p>圆锥摆断绳时</p><p>\\[\\cos\\alpha=\\frac1\\kappa,\\qquad v_1^2=gl\\left(\\kappa-\\frac1\\kappa\\right).\\]</p><p>断点高度为 \\(H-l/\\kappa\\)，故 \\(v_2^2=v_1^2+2g(H-l/\\kappa)\\)。最低点断绳时 \\(v^2=(\\kappa-1)gL\\)，射程</p><p>\\[x(L)=\\sqrt{2(\\kappa-1)L(H-L)}.\\]</p><p>乘积在 \\(L=H/2\\) 时最大，得到</p><p>\\[x_{\\max}=H\\sqrt{\\frac{\\kappa-1}{2}}.\\]</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>圆锥摆断绳题先用最大拉力确定夹角，再用水平向心方程求速度，断后才进入平抛。</p>\n          <h3>2. 进阶思路</h3><p>先把最大拉力写成无量纲参数 (kappa)，再把断绳临界、平抛射程和二次函数最值串成同一条推导链。</p></details></div></section>\n      </div>\n    ",
+  "question": "如图 1，某人站在水平地面上，手握不可伸长的轻绳一端，绳的另一端系有质量为 \\(m\\) 的小球，甩动手腕，使球运动起来，最终在水平面内做匀速圆周运动。已知轻绳能承受的最大拉力为 \\(2mg\\)，握绳的手离地面高度为 \\(6l\\)，手与球之间的绳长为 \\(l\\)，重力加速度为 \\(g\\)，忽略空气阻力。\n\n（1）当绳与竖直方向的夹角为 \\(\\alpha\\)，且绳子的拉力小于最大值，求小球运动的周期。\n\n（2）当小球的速度大小为 \\(v_1\\) 时，轻绳刚好断掉，求此时小球速度大小 \\(v_1\\) 和这种情况下小球落地前瞬间的速度大小 \\(v_2\\)。\n\n（3）如图 2，保持手的高度不变，改变绳长，使小球在竖直平面内做圆周运动，小球运动到最低点时绳子刚好拉断。要使小球抛出的水平距离最大，最大水平距离为多少？",
+  "analysis": {
+    "title": "第18题：圆锥摆求断绳速度，断后按平抛处理"
+  },
   "animation": {
     "enabled": true,
     "level": "animated",
@@ -46,5 +36,77 @@
       "loop": false
     },
     "notes": "先做圆周运动，断绳后按切线方向进入抛体运动"
+  },
+  "knowledge": [
+    "圆锥摆",
+    "断绳抛体",
+    "最值"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "圆锥摆周期",
+      "content": "小球做水平圆周运动时，半径 \\(r=l\\sin\\alpha\\)。竖直方向平衡：\\(T\\cos\\alpha=mg\\)；水平方向向心：\\(T\\sin\\alpha=m\\omega^2l\\sin\\alpha\\)。消去 \\(T\\) 得 \\(\\omega^2=\\frac{g}{l\\cos\\alpha}\\)，所以周期 \\(T_0=2\\pi\\sqrt{\\frac{l\\cos\\alpha}{g}}\\)。",
+      "knowledge": [
+        "圆锥摆",
+        "断绳抛体",
+        "最值"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "刚断时的夹角",
+      "content": "轻绳最大拉力为 \\(2mg\\)。由 \\(T=\\frac{mg}{\\cos\\alpha}\\)，刚断时 \\(\\frac{mg}{\\cos\\alpha}=2mg\\)，故 \\(\\cos\\alpha=\\frac12\\)，即 \\(\\alpha=60^\\circ\\)。",
+      "knowledge": [
+        "圆锥摆",
+        "断绳抛体",
+        "最值"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "刚断速度 \\(v_1\\)",
+      "content": "圆锥摆中 \\(v^2=rg\\tan\\alpha=l\\sin\\alpha\\cdot g\\tan\\alpha\\)。代入 \\(\\alpha=60^\\circ\\)，得 \\(v_1^2=\\frac32gl\\)，所以 \\(v_1=\\sqrt{\\frac32gl}\\)。",
+      "knowledge": [
+        "圆锥摆",
+        "断绳抛体",
+        "最值"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "落地前速度 \\(v_2\\)",
+      "content": "刚断时小球高度为 \\(h=6l-l\\cos60^\\circ=\\frac{11}{2}l\\)。断后做平抛，机械能或速度合成给出 \\(v_2^2=v_1^2+2gh=\\frac32gl+11gl=\\frac{25}{2}gl\\)，所以 \\(v_2=5\\sqrt{\\frac{gl}{2}}\\)。",
+      "knowledge": [
+        "圆锥摆",
+        "断绳抛体",
+        "最值"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 5,
+      "title": "最低点断绳的最大水平距离",
+      "content": "若改用绳长 \\(L\\)，最低点刚断时满足 \\(T-mg=m\\frac{v^2}{L}\\)，且 \\(T=2mg\\)，所以 \\(v^2=gL\\)。最低点高度为 \\(6l-L\\)，平抛射程 \\(x=\\sqrt{gL}\\sqrt{\\frac{2(6l-L)}{g}}=\\sqrt{2L(6l-L)}\\)。当 \\(L=3l\\) 时最大，最大水平距离 \\(x_{\\max}=3\\sqrt2\\,l\\)。",
+      "knowledge": [
+        "圆锥摆",
+        "断绳抛体",
+        "最值"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true
+  },
+  "practice": {
+    "title": "进阶近似题：一般最大拉力下的断绳最值",
+    "question": "### 基础设问\n\n长为 \\(l\\) 的轻绳系小球做圆锥摆，绳最大拉力为 \\(3mg\\)。若刚断后小球水平飞出，求刚断时 \\(\\cos\\alpha\\) 与速度表达式。\n\n### 综合提升\n\n轻绳最大拉力为 \\(\\kappa mg\\)，手离地高度为 \\(H\\)。（1）求圆锥摆断绳时的夹角和速度；（2）求断后落地速度；（3）若改为长 \\(L\\) 的绳在竖直圆周最低点断裂，求水平射程 \\(x(L)\\)；（4）优化 \\(L\\) 并求最大射程。",
+    "answer": "### 1. 基础设问\n\n由 \\(T\\cos\\alpha=mg\\)、\\(T=3mg\\)，得 \\(\\cos\\alpha=\\frac13\\)。再由 \\(v^2=l\\sin\\alpha\\cdot g\\tan\\alpha\\)，可求刚断速度。\n\n### 2. 综合提升\n\n圆锥摆断绳时\n\n\\[\\cos\\alpha=\\frac1\\kappa,\\qquad v_1^2=gl\\left(\\kappa-\\frac1\\kappa\\right).\\]\n\n断点高度为 \\(H-l/\\kappa\\)，故 \\(v_2^2=v_1^2+2g(H-l/\\kappa)\\)。最低点断绳时 \\(v^2=(\\kappa-1)gL\\)，射程\n\n\\[x(L)=\\sqrt{2(\\kappa-1)L(H-L)}.\\]\n\n乘积在 \\(L=H/2\\) 时最大，得到\n\n\\[x_{\\max}=H\\sqrt{\\frac{\\kappa-1}{2}}.\\]",
+    "thinking": "### 1. 基础思路\n\n圆锥摆断绳题先用最大拉力确定夹角，再用水平向心方程求速度，断后才进入平抛。\n\n### 2. 进阶思路\n\n先把最大拉力写成无量纲参数 (kappa)，再把断绳临界、平抛射程和二次函数最值串成同一条推导链。",
+    "difficulty": "equal-or-higher"
   }
 }

@@ -2,22 +2,19 @@
   "id": "motionCompose",
   "chapter": "曲线运动",
   "title": "课上第4题：二维运动合成",
-  "question": "一个质量为 \\(4\\,\\mathrm{kg}\\) 的质点在 \\(xOy\\) 平面内运动。题图分别给出 \\(x\\) 方向的速度图像和 \\(y\\) 方向的位移图像。图像信息为：\\(v_x\\) 在 \\(0\\sim2\\,\\mathrm{s}\\) 内由 \\(3\\,\\mathrm{m/s}\\) 匀增至 \\(6\\,\\mathrm{m/s}\\)；\\(y\\) 在 \\(0\\sim2\\,\\mathrm{s}\\) 内由 \\(8\\,\\mathrm{m}\\) 匀减至 \\(0\\)。判断下列说法正确的是哪一个。A. 质点做匀变速直线运动　B. 质点所受合外力为 \\(22\\,\\mathrm{N}\\)　C. \\(2\\,\\mathrm{s}\\) 时质点速度为 \\(6\\,\\mathrm{m/s}\\)　D. 零时刻质点速度为 \\(5\\,\\mathrm{m/s}\\)",
+  "question": "一个质量为 \\(4\\,\\mathrm{kg}\\) 的质点在 \\(xOy\\) 平面内运动。题图分别给出 \\(x\\) 方向的速度图像和 \\(y\\) 方向的位移图像。\n\n图像信息为：\\(v_x\\) 在 \\(0\\sim2\\,\\mathrm{s}\\) 内由 \\(3\\,\\mathrm{m/s}\\) 匀增至 \\(6\\,\\mathrm{m/s}\\)；\\(y\\) 在 \\(0\\sim2\\,\\mathrm{s}\\) 内由 \\(8\\,\\mathrm{m}\\) 匀减至 \\(0\\)。判断下列说法正确的是哪一个。",
   "options": [
-    "A. 质点做匀变速直线运动　B. 质点所受合外力为 \\(22\\,\\mathrm{N}\\)　C. \\(2\\,\\mathrm{s}\\) 时质点速度为 \\(6\\,\\mathrm{m/s}\\)　D. 零时刻质点速度为 \\(5\\,\\mathrm{m/s}\\)"
+    "A. 质点做匀变速直线运动",
+    "B. 质点所受合外力为 \\(22\\,\\mathrm{N}\\)",
+    "C. \\(2\\,\\mathrm{s}\\) 时质点速度为 \\(6\\,\\mathrm{m/s}\\)",
+    "D. 零时刻质点速度为 \\(5\\,\\mathrm{m/s}\\)"
   ],
-  "steps": [
-    {
-      "title": "完整解析",
-      "content": "分选项解析选项 A：质点做匀变速直线运动解题思路分别从 \\(v_x-t\\) 图和 \\(y-t\\) 图读取两个方向的速度与加速度，再合成矢量；运动类型由初速度与加速度是否共线判断。对应公式\\[\\vec v=(v_x,v_y),\\qquad \\vec a=\\left(\\frac{dv_x}{dt},\\frac{d^2y}{dt^2}\\right),\\qquad \\vec F=m\\vec a\\]选项判断初速度与恒加速度不共线，质点做匀变速曲线运动而非直线运动，因此 A 错误。选项 B：质点所受合外力为 \\(22\\,\\mathrm{N}\\)解题思路分别从 \\(v_x-t\\) 图和 \\(y-t\\) 图读取两个方向的速度与加速度，再合成矢量；运动类型由初速度与加速度是否共线判断。对应公式\\[\\vec v=(v_x,v_y),\\qquad \\vec a=\\left(\\frac{dv_x}{dt},\\frac{d^2y}{dt^2}\\right),\\qquad \\vec F=m\\vec a\\]选项判断合外力应由 \\(m|\\vec a|\\) 计算，与选项给出的数值不符，因此 B 错误。选项 C：\\(2\\,\\mathrm{s}\\) 时质点速度为 \\(6\\,\\mathrm{m/s}\\)解题思路分别从 \\(v_x-t\\) 图和 \\(y-t\\) 图读取两个方向的速度与加速度，再合成矢量；运动类型由初速度与加速度是否共线判断。对应公式\\[\\vec v=(v_x,v_y),\\qquad \\vec a=\\left(\\frac{dv_x}{dt},\\frac{d^2y}{dt^2}\\right),\\qquad \\vec F=m\\vec a\\]选项判断该时刻的 \\(6\\,\\mathrm{m/s}\\) 只是水平分速度，合速度还含竖直分量，因此 C 错误。选项 D：零时刻质点速度为 \\(5\\,\\mathrm{m/s}\\)解题思路分别从 \\(v_x-t\\) 图和 \\(y-t\\) 图读取两个方向的速度与加速度，再合成矢量；运动类型由初速度与加速度是否共线判断。对应公式\\[\\vec v=(v_x,v_y),\\qquad \\vec a=\\left(\\frac{dv_x}{dt},\\frac{d^2y}{dt^2}\\right),\\qquad \\vec F=m\\vec a\\]选项判断零时刻两分速度构成直角三角形，合速度大小为 \\(5\\,\\mathrm{m/s}\\)，因此 D 正确。完整推导取课上第4题：由图像分别读 \\(v_x\\)、\\(v_y\\)、\\(a_x\\)1. 读 \\(x\\) 方向。 由 \\(v_x-t\\) 图像斜率得 \\(a_x=\\frac{6-3}{2}=1.5\\,\\mathrm{m/s^2}\\)，且 \\(v_{x0}=3\\,\\mathrm{m/s}\\)。2. 读 \\(y\\) 方向。 \\(y-t\\) 图像为直线，说明 \\(y\\) 方向匀速运动，\\(v_y=\\frac{0-8}{2}=-4\\,\\mathrm{m/s}\\)，\\(a_y=0\\)。3. 判断运动性质和合力。 合加速度 \\(\\vec a=(1.5,0)\\)，初速度 \\(\\vec v_0=(3,-4)\\)，二者不共线，所以质点做匀变速曲线运动，A 错误。合外力 \\(F=ma=4\\times1.5=6\\,\\mathrm{N}\\)，B 错误。4. 比较速度大小。 \\(2\\,\\mathrm{s}\\) 时 \\(\\vec v=(6,-4)\\)，速度大小 \\(\\sqrt{6^2+4^2}=2\\sqrt{13}\\,\\mathrm{m/s}\\)，不是 \\(6\\,\\mathrm{m/s}\\)，C 错误。零时刻速度大小 \\(\\sqrt{3^2+4^2}=5\\,\\mathrm{m/s}\\)。答案：D。"
-    }
-  ],
-  "knowledge": [
-    "运动合成",
-    "图像读取",
-    "牛顿第二定律"
-  ],
-  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>课上第4题：二维运动合成</h2><p>一个质量为 \\(4\\,\\mathrm{kg}\\) 的质点在 \\(xOy\\) 平面内运动。题图分别给出 \\(x\\) 方向的速度图像和 \\(y\\) 方向的位移图像。</p><p>图像信息为：\\(v_x\\) 在 \\(0\\sim2\\,\\mathrm{s}\\) 内由 \\(3\\,\\mathrm{m/s}\\) 匀增至 \\(6\\,\\mathrm{m/s}\\)；\\(y\\) 在 \\(0\\sim2\\,\\mathrm{s}\\) 内由 \\(8\\,\\mathrm{m}\\) 匀减至 \\(0\\)。判断下列说法正确的是哪一个。</p><p>A. 质点做匀变速直线运动　B. 质点所受合外力为 \\(22\\,\\mathrm{N}\\)　C. \\(2\\,\\mathrm{s}\\) 时质点速度为 \\(6\\,\\mathrm{m/s}\\)　D. 零时刻质点速度为 \\(5\\,\\mathrm{m/s}\\)</p></div></section>\n        <section class=\"problem-note-block\" data-analysis-block=\"1\"><p class=\"problem-note-kicker\">解析</p><div class=\"note-body\"><h2>分选项解析</h2><p></p><details class=\"analysis-step\" data-step-index=\"0\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 A：质点做匀变速直线运动</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>分别从 \\(v_x-t\\) 图和 \\(y-t\\) 图读取两个方向的速度与加速度，再合成矢量；运动类型由初速度与加速度是否共线判断。</p><p><strong>对应公式</strong></p><p>\\[\\vec v=(v_x,v_y),\\qquad \\vec a=\\left(\\frac{dv_x}{dt},\\frac{d^2y}{dt^2}\\right),\\qquad \\vec F=m\\vec a\\]</p><p><strong>选项判断</strong></p><p>初速度与恒加速度不共线，质点做匀变速曲线运动而非直线运动，因此 A 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"1\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 B：质点所受合外力为 \\(22\\,\\mathrm{N}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>分别从 \\(v_x-t\\) 图和 \\(y-t\\) 图读取两个方向的速度与加速度，再合成矢量；运动类型由初速度与加速度是否共线判断。</p><p><strong>对应公式</strong></p><p>\\[\\vec v=(v_x,v_y),\\qquad \\vec a=\\left(\\frac{dv_x}{dt},\\frac{d^2y}{dt^2}\\right),\\qquad \\vec F=m\\vec a\\]</p><p><strong>选项判断</strong></p><p>合外力应由 \\(m|\\vec a|\\) 计算，与选项给出的数值不符，因此 B 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"2\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 C：\\(2\\,\\mathrm{s}\\) 时质点速度为 \\(6\\,\\mathrm{m/s}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>分别从 \\(v_x-t\\) 图和 \\(y-t\\) 图读取两个方向的速度与加速度，再合成矢量；运动类型由初速度与加速度是否共线判断。</p><p><strong>对应公式</strong></p><p>\\[\\vec v=(v_x,v_y),\\qquad \\vec a=\\left(\\frac{dv_x}{dt},\\frac{d^2y}{dt^2}\\right),\\qquad \\vec F=m\\vec a\\]</p><p><strong>选项判断</strong></p><p>该时刻的 \\(6\\,\\mathrm{m/s}\\) 只是水平分速度，合速度还含竖直分量，因此 C 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"3\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 D：零时刻质点速度为 \\(5\\,\\mathrm{m/s}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>分别从 \\(v_x-t\\) 图和 \\(y-t\\) 图读取两个方向的速度与加速度，再合成矢量；运动类型由初速度与加速度是否共线判断。</p><p><strong>对应公式</strong></p><p>\\[\\vec v=(v_x,v_y),\\qquad \\vec a=\\left(\\frac{dv_x}{dt},\\frac{d^2y}{dt^2}\\right),\\qquad \\vec F=m\\vec a\\]</p><p><strong>选项判断</strong></p><p>零时刻两分速度构成直角三角形，合速度大小为 \\(5\\,\\mathrm{m/s}\\)，因此 D 正确。</p></div></details><details class=\"analysis-step\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">完整推导</summary><div class=\"analysis-step-content\"><h2>取课上第4题：由图像分别读 \\(v_x\\)、\\(v_y\\)、\\(a_x\\)</h2><p><strong>1. 读 \\(x\\) 方向。</strong> 由 \\(v_x-t\\) 图像斜率得 <span class=\"formula-line\">\\(a_x=\\frac{6-3}{2}=1.5\\,\\mathrm{m/s^2}\\)</span>，且 \\(v_{x0}=3\\,\\mathrm{m/s}\\)。</p><p><strong>2. 读 \\(y\\) 方向。</strong> \\(y-t\\) 图像为直线，说明 \\(y\\) 方向匀速运动，<span class=\"formula-line\">\\(v_y=\\frac{0-8}{2}=-4\\,\\mathrm{m/s}\\)</span>，\\(a_y=0\\)。</p><p><strong>3. 判断运动性质和合力。</strong> 合加速度 \\(\\vec a=(1.5,0)\\)，初速度 \\(\\vec v_0=(3,-4)\\)，二者不共线，所以质点做匀变速曲线运动，A 错误。合外力 <span class=\"formula-line\">\\(F=ma=4\\times1.5=6\\,\\mathrm{N}\\)</span>，B 错误。</p><p><strong>4. 比较速度大小。</strong> \\(2\\,\\mathrm{s}\\) 时 \\(\\vec v=(6,-4)\\)，速度大小 <span class=\"formula-line\">\\(\\sqrt{6^2+4^2}=2\\sqrt{13}\\,\\mathrm{m/s}\\)</span>，不是 \\(6\\,\\mathrm{m/s}\\)，C 错误。零时刻速度大小 <span class=\"formula-line\">\\(\\sqrt{3^2+4^2}=5\\,\\mathrm{m/s}\\)</span>。</p><p><strong>答案：</strong>D。</p></div></details></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：二维分运动的轨迹反演</h2><h3>基础设问</h3><p>质点初速度 \\((4,3)\\,\\mathrm{m/s}\\)，加速度 \\((0,-2)\\,\\mathrm{m/s^2}\\)。判断运动类型，并写出 \\(x(t)\\)、\\(y(t)\\)。</p><h3>综合提升</h3><p>质点满足 \\(v_x=v_0+at\\)、\\(y=y_0-ut\\)，且 \\(x(0)=0\\)。（1）写出 \\(x(t)\\)；（2）消去 \\(t\\) 得轨迹方程 \\(x(y)\\)；（3）求速度最小时刻；（4）由观测到的轨迹二次项系数反求 \\(a/u^2\\)。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>水平方向匀速：\\(x=4t\\)；竖直方向匀变速：\\(y=3t-t^2\\)。初速度和加速度不共线，所以质点做匀变速曲线运动。</p>\n          <h3>2. 综合提升</h3><p>积分得 \\(x=v_0t+at^2/2\\)，而 \\(t=(y_0-y)/u\\)，所以</p><p>\\[x(y)=\\frac{v_0}{u}(y_0-y)+\\frac{a}{2u^2}(y_0-y)^2.\\]</p><p>速度平方 \\(v^2=(v_0+at)^2+u^2\\)，在允许时间内由 \\(v_0+at=0\\) 给出极小值候选。轨迹二次项系数就是 \\(a/(2u^2)\\)，可据此反演参数比。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>二维运动先分轴写方程，再看 \\(\\vec v_0\\) 与 \\(\\vec a\\) 是否共线判断直线还是曲线。</p>\n          <h3>2. 进阶思路</h3><p>先分轴积分，再消去时间；轨迹形状、速度极值和受力参数可以由同一组分运动方程互相反推。</p></details></div></section>\n      </div>\n    ",
+  "answer": "D。",
+  "analysis": {
+    "title": "分选项解析",
+    "sharedThinking": "分别从 \\(v_x-t\\) 图和 \\(y-t\\) 图读取两个方向的速度与加速度，再合成矢量；运动类型由初速度与加速度是否共线判断。",
+    "sharedFormula": "\\[\\vec v=(v_x,v_y),\\qquad \\vec a=\\left(\\frac{dv_x}{dt},\\frac{d^2y}{dt^2}\\right),\\qquad \\vec F=m\\vec a\\]"
+  },
   "animation": {
     "enabled": true,
     "level": "animated",
@@ -64,5 +61,113 @@
       "loop": false
     },
     "notes": "两个方向的分运动合成为二维曲线运动"
+  },
+  "knowledge": [
+    "运动合成",
+    "图像读取",
+    "牛顿第二定律"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "读 \\(x\\) 方向",
+      "content": "由 \\(v_x-t\\) 图像斜率得 \\(a_x=\\frac{6-3}{2}=1.5\\,\\mathrm{m/s^2}\\)，且 \\(v_{x0}=3\\,\\mathrm{m/s}\\)。",
+      "knowledge": [
+        "运动合成",
+        "图像读取",
+        "牛顿第二定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "读 \\(y\\) 方向",
+      "content": "\\(y-t\\) 图像为直线，说明 \\(y\\) 方向匀速运动，\\(v_y=\\frac{0-8}{2}=-4\\,\\mathrm{m/s}\\)，\\(a_y=0\\)。",
+      "knowledge": [
+        "运动合成",
+        "图像读取",
+        "牛顿第二定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "判断运动性质和合力",
+      "content": "合加速度 \\(\\vec a=(1.5,0)\\)，初速度 \\(\\vec v_0=(3,-4)\\)，二者不共线，所以质点做匀变速曲线运动，A 错误。合外力 \\(F=ma=4\\times1.5=6\\,\\mathrm{N}\\)，B 错误。",
+      "knowledge": [
+        "运动合成",
+        "图像读取",
+        "牛顿第二定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "比较速度大小",
+      "content": "\\(2\\,\\mathrm{s}\\) 时 \\(\\vec v=(6,-4)\\)，速度大小 \\(\\sqrt{6^2+4^2}=2\\sqrt{13}\\,\\mathrm{m/s}\\)，不是 \\(6\\,\\mathrm{m/s}\\)，C 错误。零时刻速度大小 \\(\\sqrt{3^2+4^2}=5\\,\\mathrm{m/s}\\)。",
+      "knowledge": [
+        "运动合成",
+        "图像读取",
+        "牛顿第二定律"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "质点做匀变速直线运动",
+      "judgment": "初速度与恒加速度不共线，质点做匀变速曲线运动而非直线运动，因此 A 错误。",
+      "knowledge": [
+        "运动合成",
+        "图像读取",
+        "牛顿第二定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "B",
+      "title": "质点所受合外力为 \\(22\\,\\mathrm{N}\\)",
+      "judgment": "合外力应由 \\(m|\\vec a|\\) 计算，与选项给出的数值不符，因此 B 错误。",
+      "knowledge": [
+        "运动合成",
+        "图像读取",
+        "牛顿第二定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "C",
+      "title": "\\(2\\,\\mathrm{s}\\) 时质点速度为 \\(6\\,\\mathrm{m/s}\\)",
+      "judgment": "该时刻的 \\(6\\,\\mathrm{m/s}\\) 只是水平分速度，合速度还含竖直分量，因此 C 错误。",
+      "knowledge": [
+        "运动合成",
+        "图像读取",
+        "牛顿第二定律"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "option": "D",
+      "title": "零时刻质点速度为 \\(5\\,\\mathrm{m/s}\\)",
+      "judgment": "零时刻两分速度构成直角三角形，合速度大小为 \\(5\\,\\mathrm{m/s}\\)，因此 D 正确。",
+      "knowledge": [
+        "运动合成",
+        "图像读取",
+        "牛顿第二定律"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "practice": {
+    "title": "进阶近似题：二维分运动的轨迹反演",
+    "question": "### 基础设问\n\n质点初速度 \\((4,3)\\,\\mathrm{m/s}\\)，加速度 \\((0,-2)\\,\\mathrm{m/s^2}\\)。判断运动类型，并写出 \\(x(t)\\)、\\(y(t)\\)。\n\n### 综合提升\n\n质点满足 \\(v_x=v_0+at\\)、\\(y=y_0-ut\\)，且 \\(x(0)=0\\)。（1）写出 \\(x(t)\\)；（2）消去 \\(t\\) 得轨迹方程 \\(x(y)\\)；（3）求速度最小时刻；（4）由观测到的轨迹二次项系数反求 \\(a/u^2\\)。",
+    "answer": "### 1. 基础设问\n\n水平方向匀速：\\(x=4t\\)；竖直方向匀变速：\\(y=3t-t^2\\)。初速度和加速度不共线，所以质点做匀变速曲线运动。\n\n### 2. 综合提升\n\n积分得 \\(x=v_0t+at^2/2\\)，而 \\(t=(y_0-y)/u\\)，所以\n\n\\[x(y)=\\frac{v_0}{u}(y_0-y)+\\frac{a}{2u^2}(y_0-y)^2.\\]\n\n速度平方 \\(v^2=(v_0+at)^2+u^2\\)，在允许时间内由 \\(v_0+at=0\\) 给出极小值候选。轨迹二次项系数就是 \\(a/(2u^2)\\)，可据此反演参数比。",
+    "thinking": "### 1. 基础思路\n\n二维运动先分轴写方程，再看 \\(\\vec v_0\\) 与 \\(\\vec a\\) 是否共线判断直线还是曲线。\n\n### 2. 进阶思路\n\n先分轴积分，再消去时间；轨迹形状、速度极值和受力参数可以由同一组分运动方程互相反推。",
+    "difficulty": "equal-or-higher"
   }
 }

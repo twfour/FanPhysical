@@ -2,20 +2,17 @@
   "id": "projectileWindow",
   "chapter": "平抛运动",
   "title": "课上第6题：平抛穿窗",
-  "question": "如图所示，窗子上下沿间的高度 \\(H=1.6\\,\\mathrm{m}\\)，墙的厚度 \\(d=0.4\\,\\mathrm{m}\\)。某人与离墙壁距离 \\(L=1.4\\,\\mathrm{m}\\)，在距窗子上沿 \\(h=0.2\\,\\mathrm{m}\\) 处的 \\(P\\) 点，将可视为质点的小物件以速度 \\(v\\) 水平抛出。要求小物件能直接穿过窗口并落在水平地面上，不计空气阻力，问可以实现上述要求的速度大小是哪一个？选项：A. \\(2\\,\\mathrm{m/s}\\)　B. \\(4\\,\\mathrm{m/s}\\)　C. \\(8\\,\\mathrm{m/s}\\)　D. \\(10\\,\\mathrm{m/s}\\)",
-  "options": [],
-  "steps": [
-    {
-      "title": "完整解析",
-      "content": "分选项解析选项 A：\\(2\\,\\mathrm{m/s}\\)解题思路先把厚墙前、后两个截面分别当作轨迹边界，写出小球到达两截面时的下落量，再同时检查上沿和下沿约束。对应公式\\[y(x)=\\frac{gx^2}{2v^2},\\qquad h\\le y(L),\\qquad y(L+d)\\le h+H\\]选项判断速度过小，飞到墙面时下落量过大，会碰到窗口下沿，因此 A 错误。选项 B：\\(4\\,\\mathrm{m/s}\\)解题思路先把厚墙前、后两个截面分别当作轨迹边界，写出小球到达两截面时的下落量，再同时检查上沿和下沿约束。对应公式\\[y(x)=\\frac{gx^2}{2v^2},\\qquad h\\le y(L),\\qquad y(L+d)\\le h+H\\]选项判断前、后表面的下落量都落在窗口允许区间内，因此 B 正确。选项 C：\\(8\\,\\mathrm{m/s}\\)解题思路先把厚墙前、后两个截面分别当作轨迹边界，写出小球到达两截面时的下落量，再同时检查上沿和下沿约束。对应公式\\[y(x)=\\frac{gx^2}{2v^2},\\qquad h\\le y(L),\\qquad y(L+d)\\le h+H\\]选项判断速度过大，飞到墙面时下落不足，会碰到窗口上沿，因此 C 错误。选项 D：\\(10\\,\\mathrm{m/s}\\)解题思路先把厚墙前、后两个截面分别当作轨迹边界，写出小球到达两截面时的下落量，再同时检查上沿和下沿约束。对应公式\\[y(x)=\\frac{gx^2}{2v^2},\\qquad h\\le y(L),\\qquad y(L+d)\\le h+H\\]选项判断速度进一步增大只会使下落量更小，仍不能通过窗口，因此 D 错误。完整推导取平抛课上第6题：厚墙要同时检查入口和出口1. 建立判断区间。 以 \\(P\\) 点为原点，水平向墙为 \\(x\\) 正方向，竖直向下为 \\(y\\) 正方向。窗户上沿比 \\(P\\) 点低 \\(h\\)，下沿比 \\(P\\) 点低 \\(h+H\\)，所以穿窗允许区间是 \\(h\\le y\\le h+H\\)，即 \\(0.2\\le y\\le1.8\\)。2. 写出平抛方程。 水平方向 \\(x=vt\\)，竖直方向 \\(y=\\frac{1}{2}gt^2\\)。因此到达墙前表面 \\(x=L\\) 时 \\(y_1=\\frac{1}{2}g\\left(\\frac{L}{v}\\right)^2\\)；到达墙后表面 \\(x=L+d\\) 时 \\(y_2=\\frac{1}{2}g\\left(\\frac{L+d}{v}\\right)^2\\)。3. 同时满足两端条件。 小物件要穿过有厚度的墙，必须满足 \\(0.2\\le y_1\\le1.8\\) 且 \\(0.2\\le y_2\\le1.8\\)。4. 代入选项。 取 \\(g=10\\,\\mathrm{m/s^2}\\)。当 \\(v=4\\,\\mathrm{m/s}\\) 时，\\(y_1=\\frac{1}{2}\\cdot10\\left(\\frac{1.4}{4}\\right)^2\\approx0.61\\,\\mathrm{m}\\)，\\(y_2=\\frac{1}{2}\\cdot10\\left(\\frac{1.8}{4}\\right)^2\\approx1.01\\,\\mathrm{m}\\)，都在 \\([0.2,1.8]\\) 内。5. 排除其它速度。 \\(v=2\\,\\mathrm{m/s}\\) 时下落过多，会低于窗口；\\(v=8\\,\\mathrm{m/s}\\)、\\(10\\,\\mathrm{m/s}\\) 时下落不足，会高于窗口。答案：B. \\(4\\,\\mathrm{m/s}\\)。"
-    }
+  "question": "如图所示，窗子上下沿间的高度 \\(H=1.6\\,\\mathrm{m}\\)，墙的厚度 \\(d=0.4\\,\\mathrm{m}\\)。某人与离墙壁距离 \\(L=1.4\\,\\mathrm{m}\\)，在距窗子上沿 \\(h=0.2\\,\\mathrm{m}\\) 处的 \\(P\\) 点，将可视为质点的小物件以速度 \\(v\\) 水平抛出。\n\n要求小物件能直接穿过窗口并落在水平地面上，不计空气阻力，问可以实现上述要求的速度大小是哪一个？",
+  "options": [
+    "A. \\(2\\,\\mathrm{m/s}\\)",
+    "B. \\(4\\,\\mathrm{m/s}\\)",
+    "C. \\(8\\,\\mathrm{m/s}\\)",
+    "D. \\(10\\,\\mathrm{m/s}\\)"
   ],
-  "knowledge": [
-    "平抛运动",
-    "区间判断",
-    "厚墙模型"
-  ],
-  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>课上第6题：平抛穿窗</h2><p>如图所示，窗子上下沿间的高度 \\(H=1.6\\,\\mathrm{m}\\)，墙的厚度 \\(d=0.4\\,\\mathrm{m}\\)。某人与离墙壁距离 \\(L=1.4\\,\\mathrm{m}\\)，在距窗子上沿 \\(h=0.2\\,\\mathrm{m}\\) 处的 \\(P\\) 点，将可视为质点的小物件以速度 \\(v\\) 水平抛出。</p><p>要求小物件能直接穿过窗口并落在水平地面上，不计空气阻力，问可以实现上述要求的速度大小是哪一个？</p><p><strong>选项：</strong>A. \\(2\\,\\mathrm{m/s}\\)　B. \\(4\\,\\mathrm{m/s}\\)　C. \\(8\\,\\mathrm{m/s}\\)　D. \\(10\\,\\mathrm{m/s}\\)</p></div></section>\n        <section class=\"problem-note-block\" data-analysis-block=\"1\"><p class=\"problem-note-kicker\">解析</p><div class=\"note-body\"><h2>分选项解析</h2><p></p><details class=\"analysis-step\" data-step-index=\"0\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 A：\\(2\\,\\mathrm{m/s}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先把厚墙前、后两个截面分别当作轨迹边界，写出小球到达两截面时的下落量，再同时检查上沿和下沿约束。</p><p><strong>对应公式</strong></p><p>\\[y(x)=\\frac{gx^2}{2v^2},\\qquad h\\le y(L),\\qquad y(L+d)\\le h+H\\]</p><p><strong>选项判断</strong></p><p>速度过小，飞到墙面时下落量过大，会碰到窗口下沿，因此 A 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"1\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 B：\\(4\\,\\mathrm{m/s}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先把厚墙前、后两个截面分别当作轨迹边界，写出小球到达两截面时的下落量，再同时检查上沿和下沿约束。</p><p><strong>对应公式</strong></p><p>\\[y(x)=\\frac{gx^2}{2v^2},\\qquad h\\le y(L),\\qquad y(L+d)\\le h+H\\]</p><p><strong>选项判断</strong></p><p>前、后表面的下落量都落在窗口允许区间内，因此 B 正确。</p></div></details><details class=\"analysis-step\" data-step-index=\"2\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 C：\\(8\\,\\mathrm{m/s}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先把厚墙前、后两个截面分别当作轨迹边界，写出小球到达两截面时的下落量，再同时检查上沿和下沿约束。</p><p><strong>对应公式</strong></p><p>\\[y(x)=\\frac{gx^2}{2v^2},\\qquad h\\le y(L),\\qquad y(L+d)\\le h+H\\]</p><p><strong>选项判断</strong></p><p>速度过大，飞到墙面时下落不足，会碰到窗口上沿，因此 C 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"3\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 D：\\(10\\,\\mathrm{m/s}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先把厚墙前、后两个截面分别当作轨迹边界，写出小球到达两截面时的下落量，再同时检查上沿和下沿约束。</p><p><strong>对应公式</strong></p><p>\\[y(x)=\\frac{gx^2}{2v^2},\\qquad h\\le y(L),\\qquad y(L+d)\\le h+H\\]</p><p><strong>选项判断</strong></p><p>速度进一步增大只会使下落量更小，仍不能通过窗口，因此 D 错误。</p></div></details><details class=\"analysis-step\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">完整推导</summary><div class=\"analysis-step-content\"><h2>取平抛课上第6题：厚墙要同时检查入口和出口</h2><p><strong>1. 建立判断区间。</strong> 以 \\(P\\) 点为原点，水平向墙为 \\(x\\) 正方向，竖直向下为 \\(y\\) 正方向。窗户上沿比 \\(P\\) 点低 \\(h\\)，下沿比 \\(P\\) 点低 \\(h+H\\)，所以穿窗允许区间是 <span class=\"formula-line\">\\(h\\le y\\le h+H\\)</span>，即 <span class=\"formula-line\">\\(0.2\\le y\\le1.8\\)</span>。</p><p><strong>2. 写出平抛方程。</strong> 水平方向 \\(x=vt\\)，竖直方向 \\(y=\\frac{1}{2}gt^2\\)。因此到达墙前表面 \\(x=L\\) 时 <span class=\"formula-line\">\\(y_1=\\frac{1}{2}g\\left(\\frac{L}{v}\\right)^2\\)</span>；到达墙后表面 \\(x=L+d\\) 时 <span class=\"formula-line\">\\(y_2=\\frac{1}{2}g\\left(\\frac{L+d}{v}\\right)^2\\)</span>。</p><p><strong>3. 同时满足两端条件。</strong> 小物件要穿过有厚度的墙，必须满足 <span class=\"formula-line\">\\(0.2\\le y_1\\le1.8\\)</span> 且 <span class=\"formula-line\">\\(0.2\\le y_2\\le1.8\\)</span>。</p><p><strong>4. 代入选项。</strong> 取 \\(g=10\\,\\mathrm{m/s^2}\\)。当 \\(v=4\\,\\mathrm{m/s}\\) 时，<span class=\"formula-line\">\\(y_1=\\frac{1}{2}\\cdot10\\left(\\frac{1.4}{4}\\right)^2\\approx0.61\\,\\mathrm{m}\\)</span>，<span class=\"formula-line\">\\(y_2=\\frac{1}{2}\\cdot10\\left(\\frac{1.8}{4}\\right)^2\\approx1.01\\,\\mathrm{m}\\)</span>，都在 \\([0.2,1.8]\\) 内。</p><p><strong>5. 排除其它速度。</strong> \\(v=2\\,\\mathrm{m/s}\\) 时下落过多，会低于窗口；\\(v=8\\,\\mathrm{m/s}\\)、\\(10\\,\\mathrm{m/s}\\) 时下落不足，会高于窗口。</p><p><strong>答案：</strong>B. \\(4\\,\\mathrm{m/s}\\)。</p></div></details></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：厚墙窗口的速度可行域</h2><h3>基础设问</h3><p>小球从距墙 \\(L=2.0\\,\\mathrm{m}\\) 处水平抛出，墙厚 \\(d=0.5\\,\\mathrm{m}\\)，窗口允许下落高度为 \\(0.3\\sim1.5\\,\\mathrm{m}\\)。判断速度 \\(v=5\\,\\mathrm{m/s}\\) 能否穿过窗口，取 \\(g=10\\,\\mathrm{m/s^2}\\)。</p><h3>综合提升</h3><p>抛出点距墙前表面 \\(L\\)，墙厚 \\(d\\)，窗口相对抛出点允许下落区间为 \\([h_1,h_2]\\)。（1）推导能穿过窗口的初速度区间；（2）加入安全余量 \\(\\delta\\) 后重新作答；（3）判断哪一个截面控制速度下限、哪一个控制上限；（4）讨论窗口无厚度时的退化结果。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>前表面下落 \\(y_1=\\frac12g\\left(\\frac{2.0}{5}\\right)^2=0.8\\,\\mathrm{m}\\)，后表面下落 \\(y_2=\\frac12g\\left(\\frac{2.5}{5}\\right)^2=1.25\\,\\mathrm{m}\\)，都在允许区间内，所以能穿过。</p>\n          <h3>2. 综合提升</h3><p>前、后表面下落量分别为 \\(gL^2/(2v^2)\\)、\\(g(L+d)^2/(2v^2)\\)。单调性给出最紧约束</p><p>\\[\\sqrt{\\frac{g(L+d)^2}{2h_2}}\\le v\\le\\sqrt{\\frac{gL^2}{2h_1}}.\\]</p><p>有安全余量时把允许区间改为 \\([h_1+\\delta,h_2-\\delta]\\)。后表面控制下限，前表面控制上限；令 \\(d=0\\) 即退化为薄墙窗口。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>厚墙问题要检查两个截面：入口和出口。只检查墙前表面，会漏掉出口处是否碰下沿。</p>\n          <h3>2. 进阶思路</h3><p>不逐个试速度，直接利用下落量随 (x) 增大、随 (v) 减小的单调性建立速度可行区间。</p></details></div></section>\n      </div>\n    ",
+  "answer": "B. \\(4\\,\\mathrm{m/s}\\)。",
+  "analysis": {
+    "title": "取平抛课上第6题：厚墙要同时检查入口和出口"
+  },
   "animation": {
     "enabled": true,
     "level": "animated",
@@ -70,5 +67,78 @@
       "loop": false
     },
     "notes": "轨迹在墙体前后截面同时满足窗口边界才算通过"
+  },
+  "knowledge": [
+    "平抛运动",
+    "区间判断",
+    "厚墙模型"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "建立判断区间",
+      "content": "以 \\(P\\) 点为原点，水平向墙为 \\(x\\) 正方向，竖直向下为 \\(y\\) 正方向。窗户上沿比 \\(P\\) 点低 \\(h\\)，下沿比 \\(P\\) 点低 \\(h+H\\)，所以穿窗允许区间是 \\(h\\le y\\le h+H\\)，即 \\(0.2\\le y\\le1.8\\)。",
+      "knowledge": [
+        "平抛运动",
+        "区间判断",
+        "厚墙模型"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "写出平抛方程",
+      "content": "水平方向 \\(x=vt\\)，竖直方向 \\(y=\\frac{1}{2}gt^2\\)。因此到达墙前表面 \\(x=L\\) 时 \\(y_1=\\frac{1}{2}g\\left(\\frac{L}{v}\\right)^2\\)；到达墙后表面 \\(x=L+d\\) 时 \\(y_2=\\frac{1}{2}g\\left(\\frac{L+d}{v}\\right)^2\\)。",
+      "knowledge": [
+        "平抛运动",
+        "区间判断",
+        "厚墙模型"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "同时满足两端条件",
+      "content": "小物件要穿过有厚度的墙，必须满足 \\(0.2\\le y_1\\le1.8\\) 且 \\(0.2\\le y_2\\le1.8\\)。",
+      "knowledge": [
+        "平抛运动",
+        "区间判断",
+        "厚墙模型"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "代入选项",
+      "content": "取 \\(g=10\\,\\mathrm{m/s^2}\\)。当 \\(v=4\\,\\mathrm{m/s}\\) 时，\\(y_1=\\frac{1}{2}\\cdot10\\left(\\frac{1.4}{4}\\right)^2\\approx0.61\\,\\mathrm{m}\\)，\\(y_2=\\frac{1}{2}\\cdot10\\left(\\frac{1.8}{4}\\right)^2\\approx1.01\\,\\mathrm{m}\\)，都在 \\([0.2,1.8]\\) 内。",
+      "knowledge": [
+        "平抛运动",
+        "区间判断",
+        "厚墙模型"
+      ],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 5,
+      "title": "排除其它速度",
+      "content": "\\(v=2\\,\\mathrm{m/s}\\) 时下落过多，会低于窗口；\\(v=8\\,\\mathrm{m/s}\\)、\\(10\\,\\mathrm{m/s}\\) 时下落不足，会高于窗口。",
+      "knowledge": [
+        "平抛运动",
+        "区间判断",
+        "厚墙模型"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "shared-solution"
+  },
+  "practice": {
+    "title": "进阶近似题：厚墙窗口的速度可行域",
+    "question": "### 基础设问\n\n小球从距墙 \\(L=2.0\\,\\mathrm{m}\\) 处水平抛出，墙厚 \\(d=0.5\\,\\mathrm{m}\\)，窗口允许下落高度为 \\(0.3\\sim1.5\\,\\mathrm{m}\\)。判断速度 \\(v=5\\,\\mathrm{m/s}\\) 能否穿过窗口，取 \\(g=10\\,\\mathrm{m/s^2}\\)。\n\n### 综合提升\n\n抛出点距墙前表面 \\(L\\)，墙厚 \\(d\\)，窗口相对抛出点允许下落区间为 \\([h_1,h_2]\\)。（1）推导能穿过窗口的初速度区间；（2）加入安全余量 \\(\\delta\\) 后重新作答；（3）判断哪一个截面控制速度下限、哪一个控制上限；（4）讨论窗口无厚度时的退化结果。",
+    "answer": "### 1. 基础设问\n\n前表面下落 \\(y_1=\\frac12g\\left(\\frac{2.0}{5}\\right)^2=0.8\\,\\mathrm{m}\\)，后表面下落 \\(y_2=\\frac12g\\left(\\frac{2.5}{5}\\right)^2=1.25\\,\\mathrm{m}\\)，都在允许区间内，所以能穿过。\n\n### 2. 综合提升\n\n前、后表面下落量分别为 \\(gL^2/(2v^2)\\)、\\(g(L+d)^2/(2v^2)\\)。单调性给出最紧约束\n\n\\[\\sqrt{\\frac{g(L+d)^2}{2h_2}}\\le v\\le\\sqrt{\\frac{gL^2}{2h_1}}.\\]\n\n有安全余量时把允许区间改为 \\([h_1+\\delta,h_2-\\delta]\\)。后表面控制下限，前表面控制上限；令 \\(d=0\\) 即退化为薄墙窗口。",
+    "thinking": "### 1. 基础思路\n\n厚墙问题要检查两个截面：入口和出口。只检查墙前表面，会漏掉出口处是否碰下沿。\n\n### 2. 进阶思路\n\n不逐个试速度，直接利用下落量随 (x) 增大、随 (v) 减小的单调性建立速度可行区间。",
+    "difficulty": "equal-or-higher"
   }
 }
