@@ -39,6 +39,14 @@ http://127.0.0.1:8001/notebooklm/
 http://127.0.0.1:8001/notebooklm/<problem-id>
 ```
 
+章节主页地址格式：
+
+```text
+http://127.0.0.1:8001/notebooklm/chapter/<章节名>
+```
+
+章节主页汇总本章题目、核心定理与公式，并显示已关联的 NotebookLM 笔记；未关联时会给出可直接添加到 NotebookLM 的本章来源地址。
+
 例如：
 
 ```text

@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PROBLEM_DIR = ROOT / "data" / "problems"
 INDEX_PATH = PROBLEM_DIR / "index.json"
 HTML_PATH = ROOT / "classical-mechanics-demo.html"
+CHAPTER_GUIDES_PATH = ROOT / "data" / "chapter-guides.json"
 REQUIRED_PROBLEM_FIELDS = ["id", "chapter", "title", "question", "steps", "knowledge"]
 REQUIRED_STEP_FIELDS = ["title", "content"]
 SUPPORTED_ANIMATION_TYPES = {
@@ -71,6 +72,52 @@ def validate_problem(path):
     return problem, animation_type, errors
 
 
+def validate_chapter_guides(problem_chapters):
+    errors = []
+    try:
+        payload = load_json(CHAPTER_GUIDES_PATH)
+    except (json.JSONDecodeError, OSError) as error:
+        return [f"chapter-guides.json: {error}"]
+    guides = payload.get("chapters")
+    if not isinstance(guides, dict):
+        return ["chapter-guides.json: chapters must be an object"]
+    guide_chapters = set(guides)
+    for chapter in sorted(problem_chapters.difference(guide_chapters)):
+        errors.append(f"chapter-guides.json: missing chapter {chapter}")
+    for chapter in sorted(guide_chapters.difference(problem_chapters)):
+        errors.append(f"chapter-guides.json: unknown chapter {chapter}")
+    for chapter, guide in guides.items():
+        if not isinstance(guide, dict):
+            errors.append(f"chapter-guides.json: {chapter} must be an object")
+            continue
+        if not isinstance(guide.get("overview"), str) or not guide["overview"].strip():
+            errors.append(f"chapter-guides.json: {chapter} needs overview")
+        laws = guide.get("laws")
+        if not isinstance(laws, list) or not laws or not all(isinstance(item, str) and item.strip() for item in laws):
+            errors.append(f"chapter-guides.json: {chapter} needs non-empty laws")
+        formulas = guide.get("formulas")
+        if not isinstance(formulas, list) or not formulas:
+            errors.append(f"chapter-guides.json: {chapter} needs formulas")
+        else:
+            for index, formula in enumerate(formulas, start=1):
+                if not isinstance(formula, dict):
+                    errors.append(f"chapter-guides.json: {chapter} formula {index} must be an object")
+                    continue
+                for field in ("title", "latex", "note"):
+                    if not isinstance(formula.get(field), str) or not formula[field].strip():
+                        errors.append(f"chapter-guides.json: {chapter} formula {index} needs {field}")
+                latex = formula.get("latex", "")
+                if "\\[" not in latex and "\\(" not in latex:
+                    errors.append(f"chapter-guides.json: {chapter} formula {index} needs LaTeX delimiters")
+        notebook_url = guide.get("notebooklmUrl")
+        if notebook_url is not None and not re.match(
+            r"^https://notebooklm\.google\.com/notebook/[^/?#]+$",
+            str(notebook_url),
+        ):
+            errors.append(f"chapter-guides.json: {chapter} has invalid notebooklmUrl")
+    return errors
+
+
 def main():
     index = load_json(INDEX_PATH)
     entries = index.get("problems", [])
@@ -80,6 +127,7 @@ def main():
 
     seen_ids = set()
     seen_files = set()
+    seen_chapters = set()
     animation_type_counts = Counter()
     all_errors = []
     for position, entry in enumerate(entries, start=1):
@@ -108,10 +156,13 @@ def main():
         if problem_id in seen_ids:
             all_errors.append(f"{file_name}: duplicate id {problem_id}")
         seen_ids.add(problem_id)
+        seen_chapters.add(problem.get("chapter") or "未分类")
         if entry.get("id") != problem_id:
             all_errors.append(
                 f"index.json: id {entry.get('id')} does not match {file_name} id {problem_id}"
             )
+
+    all_errors.extend(validate_chapter_guides(seen_chapters))
 
     html = HTML_PATH.read_text(encoding="utf-8")
     tree_scene_ids = [

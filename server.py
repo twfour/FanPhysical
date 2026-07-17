@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 import json
 import os
+import re
 import socket
 import ssl
 import subprocess
 import time
 import urllib.error
 import urllib.request
+from collections import Counter
 from html import escape
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -57,6 +59,7 @@ MAX_CONVERSATION_MESSAGES = 12
 MAX_CONVERSATION_MESSAGE_CHARS = 4_000
 PROBLEM_INDEX_PATH = ROOT / "data" / "problems" / "index.json"
 PROBLEM_DIR = PROBLEM_INDEX_PATH.parent
+CHAPTER_GUIDES_PATH = ROOT / "data" / "chapter-guides.json"
 
 
 def html_response(handler, status, html):
@@ -89,6 +92,23 @@ def load_problem_catalog():
     return catalog
 
 
+def load_chapter_guides():
+    payload = json.loads(CHAPTER_GUIDES_PATH.read_text(encoding="utf-8"))
+    guides = payload.get("chapters", {})
+    return guides if isinstance(guides, dict) else {}
+
+
+def group_problem_catalog(catalog):
+    grouped = {}
+    for problem_id, problem in catalog:
+        grouped.setdefault(problem.get("chapter") or "未分类", []).append((problem_id, problem))
+    return grouped
+
+
+def notebooklm_chapter_path(chapter):
+    return f"/notebooklm/chapter/{quote(chapter, safe='')}"
+
+
 def request_origin(handler):
     forwarded_proto = handler.headers.get("X-Forwarded-Proto", "").split(",", 1)[0].strip()
     scheme = forwarded_proto or ("https" if APP_ENV == "production" else "http")
@@ -106,6 +126,7 @@ def notebooklm_styles():
     .sidebar-kicker{margin:0;color:var(--accent);font-family:"Kaiti SC","STKaiti",serif;font-size:.78rem;letter-spacing:.14em}.notebook-sidebar h2{margin:.35em 0 1em;border:0;padding:0;font-size:1.15rem;line-height:1.35}
     .notebook-directory{display:grid;gap:5px}.notebook-directory a{display:block;border-left:3px solid transparent;padding:7px 9px;color:var(--muted);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.88rem;font-weight:650;line-height:1.45;text-decoration:none}.notebook-directory a:hover{border-left-color:#c69b70;background:#fffdf7;color:var(--ink)}.notebook-directory a.is-current{border-left-color:var(--accent);background:#fffdf7;color:var(--ink);font-weight:800}
     .sidebar-footer{display:block;margin-top:16px;border-top:1px solid var(--line);padding:13px 9px 0;color:#7b2f24;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.86rem;font-weight:800;text-decoration:none}
+    .sidebar-footer+.sidebar-footer{margin-top:6px;border-top:0;padding-top:5px}
     header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:34px}.eyebrow{color:var(--accent);font-family:"Kaiti SC","STKaiti",serif;letter-spacing:.16em}
     h1{font-size:clamp(2rem,6vw,3.7rem);line-height:1.12;margin:.35em 0 .2em}h2{font-size:1.35rem;margin:2.2em 0 .7em;border-left:4px solid var(--accent);padding-left:.7em}
     h3{font-size:1.05rem;margin:1.5em 0 .35em}.meta,.quiet{color:var(--muted)}.formula,.answer,.step,.practice{border:1px solid var(--line);padding:16px 20px;margin:12px 0;background:#fffdf7}
@@ -113,7 +134,13 @@ def notebooklm_styles():
     mjx-container{color:var(--ink);font-size:1.04em}mjx-container[display="true"]{max-width:100%;margin:1em 0!important;padding:.25em 0 .4em;overflow-x:auto;overflow-y:hidden;text-align:left!important}
     ol,ul{padding-left:1.5em}a{color:#7b2f24;text-decoration-thickness:1px;text-underline-offset:3px}.directory{display:grid;gap:12px}.directory a{display:block;padding:14px 16px;border:1px solid var(--line);background:#fffdf7;text-decoration:none}.directory a:hover{border-color:var(--accent)}
     .lesson-pager{display:flex;justify-content:space-between;gap:16px;margin-top:42px;padding-top:22px;border-top:1px solid var(--line)}.directory-section{scroll-margin-top:20px}
+    .chapter-heading-link{color:inherit;text-decoration:none}.chapter-heading-link:hover{color:var(--accent)}.chapter-meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.chapter-meta-row span{border:1px solid var(--line);border-radius:999px;background:#fffdf7;padding:3px 11px;color:var(--muted);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.85rem;font-weight:700}
+    .chapter-problem-list{display:grid;gap:10px;margin:0;padding:0;list-style:none}.chapter-problem-card{border:1px solid var(--line);background:#fffdf7;padding:14px 16px}.chapter-problem-card a{display:block;color:var(--ink);font-size:1rem;font-weight:800;text-decoration:none}.chapter-problem-card a:hover{color:var(--accent)}.chapter-problem-card p{margin:.4em 0 0;color:var(--muted);font-size:.92rem;line-height:1.65}
+    .chapter-law-list{display:grid;gap:10px;margin:0;padding:0;list-style:none;counter-reset:chapter-law}.chapter-law-list li{position:relative;border-left:3px solid #c69b70;background:#fffdf7;padding:12px 15px 12px 44px}.chapter-law-list li:before{position:absolute;left:14px;top:12px;counter-increment:chapter-law;content:counter(chapter-law);color:var(--accent);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-weight:900}
+    .chapter-formula-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.chapter-formula-card{min-width:0;border:1px solid var(--line);background:#fffdf7;padding:15px 17px}.chapter-formula-card h3{margin:0 0 .5em;color:var(--ink)}.chapter-formula-card p{margin:.4em 0 0;color:var(--muted);font-size:.9rem}.chapter-formula-card mjx-container[display="true"]{font-size:.96em}
+    .chapter-notebook-card{border:1px solid #c69b70;background:#fffdf7;padding:18px 20px}.chapter-notebook-card p{margin:0 0 12px;color:var(--muted)}.notebook-cta{display:inline-flex;align-items:center;min-height:42px;border-radius:7px;background:var(--accent);padding:0 16px;color:#fff;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.92rem;font-weight:800;text-decoration:none}.notebook-cta:hover{background:#7b2f24}.chapter-source-url{display:block;overflow-wrap:anywhere;border:1px dashed var(--line);background:var(--paper);padding:9px 11px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.5}
     @media(max-width:900px){.notebook-shell{width:min(900px,calc(100% - 28px));grid-template-columns:1fr}.notebook-shell>main{grid-column:1;grid-row:2}.notebook-sidebar{grid-column:1;grid-row:1;position:static;max-height:280px}.notebook-directory{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}}
+    @media(max-width:700px){.chapter-formula-grid{grid-template-columns:1fr}}
     @media(max-width:600px){.notebook-shell{width:100%;margin:0;gap:0}.notebook-shell>main{margin:0;width:100%;box-shadow:none;padding:25px 20px}.notebook-sidebar{border-right:0;border-left:0;padding:18px 20px}.notebook-directory{grid-template-columns:1fr}.lesson-pager{display:block}.lesson-pager a{display:block;margin:.5em 0}}
     """
 
@@ -146,6 +173,27 @@ def text_block(value):
     return escape(str(value)).replace("\n", "<br>")
 
 
+def summarize_problem_question(value, limit=155):
+    text = re.sub(r"\s+", " ", str(value or "")).strip()
+    text = text.replace("**", "")
+    if len(text) <= limit:
+        return text
+    return text[: limit - 1].rstrip("，,；;。.") + "…"
+
+
+def derive_notebooklm_notebook_url(chapter_items, guide):
+    configured = guide.get("notebooklmUrl") if isinstance(guide, dict) else None
+    candidates = [configured] if isinstance(configured, str) else []
+    for _, problem in chapter_items:
+        media = problem.get("notebooklm") if isinstance(problem.get("notebooklm"), list) else []
+        candidates.extend(item.get("url") for item in media if isinstance(item, dict))
+    for candidate in candidates:
+        match = re.match(r"^(https://notebooklm\.google\.com/notebook/[^/?#]+)", str(candidate or ""))
+        if match:
+            return match.group(1)
+    return ""
+
+
 def render_notebooklm_sidebar(kicker, title, links, current_href=None, footer=None):
     items = []
     for href, label in links:
@@ -157,10 +205,13 @@ def render_notebooklm_sidebar(kicker, title, links, current_href=None, footer=No
             f'{escape(label)}</a>'
         )
     footer_html = ""
+    footer_links = []
     if footer:
-        footer_html = (
-            f'<a class="sidebar-footer" href="{escape(footer[0], quote=True)}">'
-            f'{escape(footer[1])}</a>'
+        footer_links = footer if isinstance(footer, list) else [footer]
+    for footer_href, footer_label in footer_links:
+        footer_html += (
+            f'<a class="sidebar-footer" href="{escape(footer_href, quote=True)}">'
+            f'{escape(footer_label)}</a>'
         )
     return (
         f'<aside class="notebook-sidebar"><p class="sidebar-kicker">{escape(kicker)}</p>'
@@ -190,7 +241,10 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
         chapter,
         sidebar_links,
         current_href=current_href,
-        footer=("/notebooklm/", "查看全部章节"),
+        footer=[
+            (notebooklm_chapter_path(chapter), "本章概览与公式"),
+            ("/notebooklm/", "查看全部章节"),
+        ],
     )
 
     options_html = ""
@@ -241,21 +295,94 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
 <nav class="lesson-pager">{previous_link}<a href="/notebooklm/">全部独立课例</a>{next_link}</nav></main>{sidebar_html}</div></body></html>"""
 
 
+def render_notebooklm_chapter_page(handler, chapter, chapter_items, grouped, guide):
+    canonical = f"{request_origin(handler)}{notebooklm_chapter_path(chapter)}"
+    knowledge_counts = Counter()
+    for _, problem in chapter_items:
+        knowledge = problem.get("knowledge") if isinstance(problem.get("knowledge"), list) else []
+        knowledge_counts.update(str(item) for item in knowledge if item)
+    knowledge = [item for item, _ in knowledge_counts.most_common(18)]
+    laws = guide.get("laws") if isinstance(guide.get("laws"), list) else []
+    formulas = guide.get("formulas") if isinstance(guide.get("formulas"), list) else []
+
+    problem_cards = []
+    for problem_id, problem in chapter_items:
+        title = problem.get("title") or problem_id
+        summary = summarize_problem_question(problem.get("question"))
+        problem_cards.append(
+            '<li class="chapter-problem-card">'
+            f'<a href="/notebooklm/{quote(problem_id)}">{escape(title)}</a>'
+            f'<p>{text_block(summary)}</p></li>'
+        )
+    knowledge_html = "".join(f'<span class="tag">{escape(item)}</span>' for item in knowledge)
+    laws_html = "".join(f'<li>{text_block(item)}</li>' for item in laws)
+    formula_cards = []
+    for formula in formulas:
+        if not isinstance(formula, dict):
+            continue
+        formula_cards.append(
+            '<section class="chapter-formula-card">'
+            f'<h3>{escape(str(formula.get("title") or "公式"))}</h3>'
+            f'<div>{text_block(formula.get("latex"))}</div>'
+            f'<p>{text_block(formula.get("note"))}</p></section>'
+        )
+
+    notebook_url = derive_notebooklm_notebook_url(chapter_items, guide)
+    if notebook_url:
+        notebook_content = (
+            '<p>本章已经关联 NotebookLM 笔记，可继续查看音频、视频、问答和其他学习材料。</p>'
+            f'<a class="notebook-cta" href="{escape(notebook_url, quote=True)}" target="_blank" '
+            f'rel="noopener noreferrer">打开 {escape(chapter)} NotebookLM 笔记</a>'
+        )
+    else:
+        notebook_content = (
+            '<p>本章尚未关联 NotebookLM 笔记。下面的章节地址已经包含题目概括、核心规律和公式，可直接添加为 NotebookLM 网站来源。</p>'
+            f'<code class="chapter-source-url">{escape(canonical)}</code>'
+        )
+
+    chapter_links = [(notebooklm_chapter_path(item), item) for item in grouped]
+    current_href = notebooklm_chapter_path(chapter)
+    sidebar_html = render_notebooklm_sidebar(
+        "章节主页",
+        "全部章节",
+        chapter_links,
+        current_href=current_href,
+        footer=("/notebooklm/", "返回课例总目录"),
+    )
+    overview = guide.get("overview") or f"本章共收录 {len(chapter_items)} 道题。"
+
+    return f"""<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{escape(chapter)}｜FanPhysics 章节主页</title><meta name="description" content="{escape(chapter)}题目概括、核心定理、公式汇总与 NotebookLM 笔记入口。">
+<link rel="canonical" href="{escape(canonical)}"><style>{notebooklm_styles()}</style>{notebooklm_math_head()}</head>
+<body><div class="notebook-shell"><main><header><div class="eyebrow">FANPHYSICS · CHAPTER GUIDE</div><h1>{escape(chapter)}</h1>
+<p>{text_block(overview)}</p><div class="chapter-meta-row"><span>{len(chapter_items)} 道题</span><span>{len(knowledge)} 个核心知识点</span><span>{len(formulas)} 组公式</span></div></header>
+<article><h2>章节题目概括</h2><ol class="chapter-problem-list">{"".join(problem_cards)}</ol>
+<h2>章节定理、规律与公式汇总</h2><div class="knowledge">{knowledge_html}</div>
+<h3>核心定理与规律</h3><ol class="chapter-law-list">{laws_html}</ol>
+<h3>常用公式</h3><div class="chapter-formula-grid">{"".join(formula_cards)}</div>
+<h2>NotebookLM 笔记</h2><section class="chapter-notebook-card">{notebook_content}</section></article>
+<nav class="lesson-pager"><a href="/notebooklm/">课例总目录</a><a href="/classical-mechanics-demo.html">返回动态模型库</a></nav>
+</main>{sidebar_html}</div></body></html>"""
+
+
 def render_notebooklm_index(handler, catalog):
-    grouped = {}
-    for problem_id, problem in catalog:
-        grouped.setdefault(problem.get("chapter") or "未分类", []).append((problem_id, problem))
+    grouped = group_problem_catalog(catalog)
     sections = []
     sidebar_links = []
     for chapter_index, (chapter, items) in enumerate(grouped.items(), 1):
         anchor = f"chapter-{chapter_index}"
+        chapter_href = notebooklm_chapter_path(chapter)
         links = "".join(
             f'<a href="/notebooklm/{quote(problem_id)}"><strong>{escape(problem.get("title") or problem_id)}</strong>'
             f'<br><span class="quiet">{escape(problem_id)}</span></a>'
             for problem_id, problem in items
         )
-        sections.append(f'<section id="{anchor}" class="directory-section"><h2>{escape(chapter)}</h2><div class="directory">{links}</div></section>')
-        sidebar_links.append((f"#{anchor}", chapter))
+        sections.append(
+            f'<section id="{anchor}" class="directory-section"><h2><a class="chapter-heading-link" '
+            f'href="{escape(chapter_href, quote=True)}">{escape(chapter)}</a></h2><div class="directory">{links}</div></section>'
+        )
+        sidebar_links.append((chapter_href, chapter))
     sidebar_html = render_notebooklm_sidebar(
         "一级目录",
         "全部章节",
@@ -479,6 +606,31 @@ class Handler(SimpleHTTPRequestHandler):
                 html_response(self, 500, "<!doctype html><meta charset='utf-8'><h1>课例目录暂不可用</h1>")
                 return
             html_response(self, 200, render_notebooklm_index(self, catalog))
+            return
+        if parsed.path.startswith("/notebooklm/chapter/"):
+            chapter = unquote(parsed.path.removeprefix("/notebooklm/chapter/")).strip("/")
+            try:
+                catalog = load_problem_catalog()
+                guides = load_chapter_guides()
+            except (OSError, json.JSONDecodeError):
+                html_response(self, 500, "<!doctype html><meta charset='utf-8'><h1>章节主页暂不可用</h1>")
+                return
+            grouped = group_problem_catalog(catalog)
+            chapter_items = grouped.get(chapter)
+            if not chapter_items:
+                html_response(self, 404, "<!doctype html><meta charset='utf-8'><h1>没有找到这个章节</h1><p><a href='/notebooklm/'>返回课例目录</a></p>")
+                return
+            html_response(
+                self,
+                200,
+                render_notebooklm_chapter_page(
+                    self,
+                    chapter,
+                    chapter_items,
+                    grouped,
+                    guides.get(chapter, {}),
+                ),
+            )
             return
         if parsed.path.startswith("/notebooklm/"):
             problem_id = unquote(parsed.path.removeprefix("/notebooklm/")).strip("/")
