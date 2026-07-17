@@ -8,6 +8,7 @@ SSH_TARGET="${SSH_TARGET:-root@101.37.82.5}"
 SSH_KEY_FILE="${SSH_KEY_FILE:-$HOME/.ssh/flower_position_aliyun_ed25519}"
 ARCHIVE_REMOTE="${ARCHIVE_REMOTE:-/tmp/fanphysics.tar.gz}"
 DOMAIN="${DOMAIN:-physics.qinyibin.com}"
+ECS_IP="${ECS_IP:-101.37.82.5}"
 RELEASE_ID="${RELEASE_ID:-$(date +%Y%m%d%H%M%S)}"
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 TMP_ARCHIVE="$(mktemp -t fanphysics.XXXXXX.tar.gz)"
@@ -77,6 +78,9 @@ ls -1dt '$APP_BASE'/releases/* | tail -n +4 | xargs -r rm -rf"
 
 echo "==> Checking Nginx virtual host"
 curl --noproxy '*' --fail --silent --show-error \
-  --header "Host: $DOMAIN" "http://101.37.82.5/api/health"
+  --location \
+  --resolve "$DOMAIN:80:$ECS_IP" \
+  --resolve "$DOMAIN:443:$ECS_IP" \
+  "http://$DOMAIN/api/health"
 echo
 echo "Deploy complete."

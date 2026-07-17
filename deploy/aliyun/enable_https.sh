@@ -7,6 +7,7 @@ CERT_DIR="${CERT_DIR:-/etc/nginx/ssl/$DOMAIN}"
 NGINX_CONF="${NGINX_CONF:-/etc/nginx/conf.d/fanphysics.conf}"
 SSH_TARGET="${SSH_TARGET:-root@101.37.82.5}"
 SSH_KEY_FILE="${SSH_KEY_FILE:-$HOME/.ssh/flower_position_aliyun_ed25519}"
+ECS_IP="${ECS_IP:-101.37.82.5}"
 CURL_OPTS=(--noproxy '*' --connect-timeout 8 --max-time 15)
 TOKEN=""
 
@@ -49,6 +50,14 @@ nginx -t
 systemctl reload nginx"
 
 echo "==> Checking HTTPS"
-curl "${CURL_OPTS[@]}" -fsS "https://$DOMAIN/api/health"
+for attempt in 1 2 3 4 5 6 7 8 9 10; do
+  if curl "${CURL_OPTS[@]}" --resolve "$DOMAIN:443:$ECS_IP" -fsS \
+    "https://$DOMAIN/api/health" >/dev/null 2>&1; then
+    break
+  fi
+  sleep 1
+done
+curl "${CURL_OPTS[@]}" --resolve "$DOMAIN:443:$ECS_IP" -fsS \
+  "https://$DOMAIN/api/health"
 echo
 echo "HTTPS enabled."

@@ -94,4 +94,7 @@ jobs:
       - name: Check Nginx virtual host
         run: |
           curl --fail --silent --show-error \
-            --header "Host: $DOMAIN" "http://$ALIYUN_HOST/api/health"
+            --location \
+            --resolve "$DOMAIN:80:$ALIYUN_HOST" \
+            --resolve "$DOMAIN:443:$ALIYUN_HOST" \
+            "http://$DOMAIN/api/health"
