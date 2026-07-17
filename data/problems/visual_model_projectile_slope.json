@@ -1,0 +1,58 @@
+{
+  "id": "projectileSlope",
+  "chapter": "平抛运动",
+  "title": "课上第2题：平抛落斜面",
+  "question": "两个相同直角三角形斜面固定在水平面上，三个小球从左边斜面顶点以不同初速度水平抛出，分别落在同一斜面的 \\(a\\)、\\(b\\)、\\(c\\) 三点。比较三个小球的飞行时间、水平初速度、速度变化量以及落到斜面时的末速度方向。",
+  "options": [],
+  "steps": [
+    {
+      "title": "完整解析",
+      "content": "展开取平抛课上第2题：同一斜面上，越远越久也越快1. 先看时间。 三个球都做平抛，竖直方向满足 \\(y=\\frac{1}{2}gt^2\\)。落点越低，下落高度 \\(y\\) 越大，所以飞行时间越长。若图中 \\(a,b,c\\) 沿斜面从近到远排列，则 \\(t_a<t_b<t_c\\)。2. 再看初速度。 斜面倾角为 \\(\\theta\\)，落点在斜面上满足 \\(y=x\\tan\\theta\\)。代入 \\(x=v_0t\\)、\\(y=\\frac{1}{2}gt^2\\)，得 \\(v_0=\\frac{gt}{2\\tan\\theta}\\)。同一斜面上 \\(\\theta\\) 相同，所以 \\(v_0\\) 随 \\(t\\) 增大，故 \\(v_a<v_b<v_c\\)。3. 看速度变化量。 平抛过程中水平方向速度不变，速度变化量只来自竖直方向重力加速度：\\(\\Delta v=gt\\)。因此 \\(\\Delta v_a<\\Delta v_b<\\Delta v_c\\)。4. 看末速度方向。 落到同一斜面时，\\(\\frac{v_y}{v_x}=\\frac{gt}{v_0}=2\\tan\\theta\\)，只由斜面角 \\(\\theta\\) 决定，与落点远近无关，所以三个球末速度方向相同。答案：时间、水平初速度、速度变化量均按 \\(a,b,c\\) 依次增大；末速度方向相同。"
+    }
+  ],
+  "knowledge": [
+    "平抛运动",
+    "斜面几何",
+    "末速度方向"
+  ],
+  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n        <div class=\"note-body\"><h2>课上第2题：平抛落斜面</h2><p>两个相同直角三角形斜面固定在水平面上，三个小球从左边斜面顶点以不同初速度水平抛出，分别落在同一斜面的 \\(a\\)、\\(b\\)、\\(c\\) 三点。</p><p>比较三个小球的飞行时间、水平初速度、速度变化量以及落到斜面时的末速度方向。</p></div></section>\n        <section class=\"problem-note-block is-collapsed\">\n          <p class=\"problem-note-kicker\">解析</p>\n          \n          \n          \n          \n          \n          \n        <button type=\"button\" class=\"note-toggle\">展开</button><div class=\"note-body\"><h2>取平抛课上第2题：同一斜面上，越远越久也越快</h2><p><strong>1. 先看时间。</strong> 三个球都做平抛，竖直方向满足 <span class=\"formula-line\">\\(y=\\frac{1}{2}gt^2\\)</span>。落点越低，下落高度 \\(y\\) 越大，所以飞行时间越长。若图中 \\(a,b,c\\) 沿斜面从近到远排列，则 <span class=\"formula-line\">\\(t_a&lt;t_b&lt;t_c\\)</span>。</p><p><strong>2. 再看初速度。</strong> 斜面倾角为 \\(\\theta\\)，落点在斜面上满足 <span class=\"formula-line\">\\(y=x\\tan\\theta\\)</span>。代入 \\(x=v_0t\\)、\\(y=\\frac{1}{2}gt^2\\)，得 <span class=\"formula-line\">\\(v_0=\\frac{gt}{2\\tan\\theta}\\)</span>。同一斜面上 \\(\\theta\\) 相同，所以 \\(v_0\\) 随 \\(t\\) 增大，故 <span class=\"formula-line\">\\(v_a&lt;v_b&lt;v_c\\)</span>。</p><p><strong>3. 看速度变化量。</strong> 平抛过程中水平方向速度不变，速度变化量只来自竖直方向重力加速度：<span class=\"formula-line\">\\(\\Delta v=gt\\)</span>。因此 <span class=\"formula-line\">\\(\\Delta v_a&lt;\\Delta v_b&lt;\\Delta v_c\\)</span>。</p><p><strong>4. 看末速度方向。</strong> 落到同一斜面时，\\(\\frac{v_y}{v_x}=\\frac{gt}{v_0}=2\\tan\\theta\\)，只由斜面角 \\(\\theta\\) 决定，与落点远近无关，所以三个球末速度方向相同。</p><p><strong>答案：</strong>时间、水平初速度、速度变化量均按 \\(a,b,c\\) 依次增大；末速度方向相同。</p></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：任意倾角斜面上的平抛缩放</h2><h3>基础设问</h3><p>三个小球从同一高度水平抛出，分别落在同一斜面的近、中、远三点。比较飞行时间、水平初速度和落到斜面时速度方向。</p><h3>综合提升</h3><p>小球从斜面顶端水平抛出，斜面与水平夹角为 \\(\\theta\\)。（1）推导落回斜面的时间和沿水平、竖直方向位移；（2）求末速度方向；（3）若初速度乘 \\(\\lambda\\)，比较时间、落点距离和末速度各怎样缩放；（4）由一次落点测量反求 \\(v_0\\)。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>落点越远，下落高度越大，飞行时间越长；同一斜面满足 \\(y=x\\tan\\theta\\)，可得 \\(v_0=\\frac{gt}{2\\tan\\theta}\\)，所以初速度也越大。末速度方向由 \\(\\frac{v_y}{v_x}=2\\tan\\theta\\) 决定，相同。</p>\n          <h3>2. 综合提升</h3><p>落点满足 \\(y=x\\tan\\theta\\)。联立 \\(x=v_0t\\)、\\(y=gt^2/2\\)，得</p><p>\\[t=\\frac{2v_0\\tan\\theta}{g},\\qquad x=\\frac{2v_0^2\\tan\\theta}{g}.\\]</p><p>末速度满足 \\(v_y/v_x=gt/v_0=2\\tan\\theta\\)。当 \\(v_0\\) 乘 \\(\\lambda\\) 时，时间乘 \\(\\lambda\\)，位移乘 \\(\\lambda^2\\)，末速度各分量均乘 \\(\\lambda\\)。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>把斜面方程和平抛方程联立，能同时得到时间、初速度和末速度方向的关系。</p>\n          <h3>2. 进阶思路</h3><p>斜面方程与平抛分轴方程联立后，时间、位移和速度方向都能统一推出；缩放关系不是另记公式。</p></details></div></section>\n      </div>\n    ",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "fanphysics_model",
+    "variant": "projectileSlope",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "slopeAngle": {
+        "label": "斜面角 θ",
+        "value": 30,
+        "min": 10,
+        "max": 55,
+        "step": 1,
+        "unit": "deg"
+      },
+      "slopeV0": {
+        "label": "初速度 v₀",
+        "value": 32,
+        "min": 8,
+        "max": 60,
+        "step": 1,
+        "unit": "m/s"
+      },
+      "slopeG": {
+        "label": "重力 g",
+        "value": 10,
+        "min": 1,
+        "max": 20,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 10,
+      "loop": false
+    },
+    "notes": "多条平抛轨迹与斜面交点同步比较"
+  }
+}

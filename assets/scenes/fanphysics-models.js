@@ -23,31 +23,31 @@ var fanPhysicsModelTimeKeys = {
 };
 
 var fanPhysicsModelRenderers = {
-  doubleThrow: { scene: drawDoubleThrowScene, graph: drawDoubleThrowGraph },
-  pipeDrop: { scene: drawPipeDropScene, graph: drawPipeDropGraph },
-  threeCar: { scene: drawThreeCarScene, graph: drawThreeCarGraph },
-  inclineSlot: { scene: drawInclineSlotScene, graph: drawInclineSlotGraph },
-  motionCompose: { scene: drawComposeScene, graph: drawComposeGraph },
-  curveForce: { scene: drawCurveForceScene, graph: drawCurveForceGraph },
-  riverCrossing: { scene: drawRiverScene, graph: drawRiverGraph },
-  riverAdvanced: { scene: drawAdvRiverScene, graph: drawAdvRiverGraph },
-  waterfallCrossing: { scene: drawWaterfallScene, graph: drawWaterfallGraph },
-  rodConstraint: { scene: drawRodConstraintScene, graph: drawRodConstraintGraph },
-  dualConstraintCircle: { scene: drawDualConstraintScene, graph: drawDualConstraintGraph },
-  handRopeBreak: { scene: drawHandRopeScene, graph: drawHandRopeGraph },
-  rainWindow: { scene: drawRainScene, graph: drawRainGraph },
-  projectileBasic: { scene: drawProjectileScene, graph: drawProjectileGraph },
-  projectileSlope: { scene: drawSlopeScene, graph: drawSlopeGraph },
-  projectileNormal: { scene: drawNormalScene, graph: drawNormalGraph },
-  semiCircleThrow: { scene: drawSemiCircleScene, graph: drawSemiCircleGraph },
-  projectileWindow: { scene: drawWindowScene, graph: drawWindowGraph },
-  volleyballServe: { scene: drawVolleyScene, graph: drawVolleyGraph },
-  dartTarget: { scene: drawDartScene, graph: drawDartGraph },
-  projectileBounce: { scene: drawBounceScene, graph: drawBounceGraph },
-  bulletCylinder: { scene: drawBulletScene, graph: drawBulletGraph },
-  bikeGear: { scene: drawBikeGearScene, graph: drawBikeGearGraph },
-  pileDriver: { scene: drawPileScene, graph: drawPileGraph },
-  bowlDoubleBall: { scene: drawBowlScene, graph: drawBowlGraph }
+  doubleThrow: { scene: "drawDoubleThrowScene", graph: "drawDoubleThrowGraph" },
+  pipeDrop: { scene: "drawPipeDropScene", graph: "drawPipeDropGraph" },
+  threeCar: { scene: "drawThreeCarScene", graph: "drawThreeCarGraph" },
+  inclineSlot: { scene: "drawInclineSlotScene", graph: "drawInclineSlotGraph" },
+  motionCompose: { scene: "drawComposeScene", graph: "drawComposeGraph" },
+  curveForce: { scene: "drawCurveForceScene", graph: "drawCurveForceGraph" },
+  riverCrossing: { scene: "drawRiverScene", graph: "drawRiverGraph" },
+  riverAdvanced: { scene: "drawAdvRiverScene", graph: "drawAdvRiverGraph" },
+  waterfallCrossing: { scene: "drawWaterfallScene", graph: "drawWaterfallGraph" },
+  rodConstraint: { scene: "drawRodConstraintScene", graph: "drawRodConstraintGraph" },
+  dualConstraintCircle: { scene: "drawDualConstraintScene", graph: "drawDualConstraintGraph" },
+  handRopeBreak: { scene: "drawHandRopeScene", graph: "drawHandRopeGraph" },
+  rainWindow: { scene: "drawRainScene", graph: "drawRainGraph" },
+  projectileBasic: { scene: "drawProjectileScene", graph: "drawProjectileGraph" },
+  projectileSlope: { scene: "drawSlopeScene", graph: "drawSlopeGraph" },
+  projectileNormal: { scene: "drawNormalScene", graph: "drawNormalGraph" },
+  semiCircleThrow: { scene: "drawSemiCircleScene", graph: "drawSemiCircleGraph" },
+  projectileWindow: { scene: "drawWindowScene", graph: "drawWindowGraph" },
+  volleyballServe: { scene: "drawVolleyScene", graph: "drawVolleyGraph" },
+  dartTarget: { scene: "drawDartScene", graph: "drawDartGraph" },
+  projectileBounce: { scene: "drawBounceScene", graph: "drawBounceGraph" },
+  bulletCylinder: { scene: "drawBulletScene", graph: "drawBulletGraph" },
+  bikeGear: { scene: "drawBikeGearScene", graph: "drawBikeGearGraph" },
+  pileDriver: { scene: "drawPileScene", graph: "drawPileGraph" },
+  bowlDoubleBall: { scene: "drawBowlScene", graph: "drawBowlGraph" }
 };
 
 function syncFanPhysicsModelState(sceneName) {
@@ -105,14 +105,16 @@ function getFanPhysicsModelDuration(sceneName) {
 function drawFanPhysicsModelScene() {
   var renderer = fanPhysicsModelRenderers[currentScene];
   syncFanPhysicsModelState(currentScene);
-  if (renderer && renderer.scene) {
-    renderer.scene();
+  var sceneDrawer = renderer ? window[renderer.scene] : null;
+  if (sceneDrawer) {
+    sceneDrawer();
   }
 }
 
 function drawFanPhysicsModelGraph() {
   var renderer = fanPhysicsModelRenderers[currentScene];
-  if (renderer && renderer.graph) {
-    renderer.graph();
+  var graphDrawer = renderer ? window[renderer.graph] : null;
+  if (graphDrawer) {
+    graphDrawer();
   }
 }

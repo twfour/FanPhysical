@@ -7,19 +7,20 @@
 ## 2026-07-17 结构升级
 
 - 已删除弹簧振子、单摆、布朗运动三个 Sample 演示及其专用代码。
-- 原先 25 个硬编码模型已统一改为 JSON 驱动：24 个模型保存在 `data/problems/visual-models.json`，平抛运动基础沿用 `data/problems/projectile_basic.json`。
+- 原先 25 个硬编码模型已统一改为 JSON 驱动；24 个旧模型已拆为独立 JSON，与平抛运动基础一起登记在 `data/problems/index.json`。
 - JSON 负责题目内容、参数、播放状态和动画元数据；`assets/scenes/fanphysics-models.js` 将 JSON 状态接入各章节现有的题目专属绘图函数。
-- 主 HTML 不再保存这 25 个模型的独立控制区或题目块，页面加载后统一动态生成。
+- 主 HTML 不再保存模型的独立控制区或题目块。首屏只读取题目索引，点击模型时再加载单题 JSON、所属章节绘图脚本和 MathJax。
+- 页面只保留当前模型的一份题目 DOM；画布仅在动画播放时循环绘制，暂停、首页和后台标签页停止刷新。
 
 ## Demo 文件
 
-主要产物是单文件 HTML：
+主入口文件：
 
-`/Users/apple/Documents/Codex/2026-06-14/goal-demo-html-demo-tab-1/outputs/classical-mechanics-demo.html`
+`/Users/apple/Documents/FanPhysical/classical-mechanics-demo.html`
 
 ## 基础约束
 
-- 单文件 HTML，使用 p5.js CDN：`https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js`
+- 静态多文件应用，p5.js 固定在 `assets/vendor/p5.min.js`
 - 全中文 UI，白底深色界面，画布固定为 `1000x500`
 - 左侧树状目录，右侧工作区
 - 动画区为左侧 `0~570`，图表区为右侧 `574~1000`

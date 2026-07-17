@@ -1,0 +1,42 @@
+{
+  "id": "dualConstraintCircle",
+  "chapter": "曲线运动",
+  "title": "第17题：轻绳轻杆双约束圆周",
+  "question": "如图所示的玩具转盘半径为 \\(l\\)，角速度 \\(\\omega\\) 可以调节，转盘中心 \\(O\\) 点固定了一竖直杆。质量为 \\(m\\) 的小球用轻绳 \\(AC\\) 和轻杆 \\(BC\\) 一起连接在竖直杆上，轻绳 \\(AC\\) 长为 \\(l\\)，与竖直杆上 \\(A\\) 点相连；轻杆 \\(BC\\) 用铰链连接在竖直杆上的 \\(B\\) 点且可绕 \\(B\\) 点自由转动，\\(OB=\\frac32l\\)。圆盘静止时，轻绳 \\(AC\\) 与竖直方向夹角 \\(\\theta_1=30^\\circ\\)，轻杆 \\(BC\\) 与竖直方向夹角 \\(\\theta_2=45^\\circ\\)。不计摩擦阻力，重力加速度为 \\(g\\)。（1）要保持轻绳拉直，求 \\(\\omega\\) 的取值范围。（2）当 \\(\\omega=\\sqrt{\\frac{g}{l}}\\) 时，求轻绳 \\(AC\\)、轻杆 \\(BC\\) 所受的力的大小。（3）在转动过程中小球忽然脱离，要求小球不能碰到圆盘，求 \\(\\omega\\) 的取值范围。",
+  "options": [],
+  "steps": [
+    {
+      "title": "完整解析",
+      "content": "\\(T\\sin30^\\circ+F\\sin45^\\circ=m\\omega^2r\\)，\n            \\(T\\cos30^\\circ+F\\cos45^\\circ=mg\\)。3. 保持轻绳拉直。 解方程得到 \\(T\\ge0\\) 的条件。代入 \\(r=\\frac12l\\)、\\(\\theta_1=30^\\circ\\)、\\(\\theta_2=45^\\circ\\)，可得 \\(\\omega^2\\le \\frac{2g}{l}\\)，所以 \\(0\\le\\omega\\le\\sqrt{\\frac{2g}{l}}\\)。4. 代入 \\(\\omega=\\sqrt{\\frac{g}{l}}\\)。 此时 \\(m\\omega^2r=\\frac12mg\\)。联立两式得 \\(T=\\frac{1+\\sqrt3}{2}mg\\)，而 \\(F=\\frac{1-\\sqrt3}{2}mg\\)。负号表示轻杆对小球的作用方向与假设的 \\(CB\\) 方向相反，因此轻杆所受力的大小为 \\(\\frac{\\sqrt3-1}{2}mg\\)。5. 脱离后不碰圆盘。 小球脱离瞬间沿切线水平飞出，高度为 \\(h=l\\)，到圆盘面的下落时间 \\(t=\\sqrt{\\frac{2l}{g}}\\)。小球从半径 \\(r=\\frac12l\\) 处切向飞出，到圆盘边缘还需水平位移 \\(s=\\sqrt{l^2-r^2}=\\frac{\\sqrt3}{2}l\\)。要求 \\(\\omega r t\\ge s\\)，得 \\(\\omega\\ge\\sqrt{\\frac{3g}{2l}}\\)。结合轻绳拉直范围，得到 \\(\\sqrt{\\frac{3g}{2l}}\\le\\omega\\le\\sqrt{\\frac{2g}{l}}\\)。"
+    }
+  ],
+  "knowledge": [
+    "圆周运动",
+    "双约束",
+    "向心力"
+  ],
+  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n          \n          \n          \n        <div class=\"note-body\"><h2>第17题：轻绳轻杆双约束圆周</h2><p>如图所示的玩具转盘半径为 \\(l\\)，角速度 \\(\\omega\\) 可以调节，转盘中心 \\(O\\) 点固定了一竖直杆。质量为 \\(m\\) 的小球用轻绳 \\(AC\\) 和轻杆 \\(BC\\) 一起连接在竖直杆上，轻绳 \\(AC\\) 长为 \\(l\\)，与竖直杆上 \\(A\\) 点相连；轻杆 \\(BC\\) 用铰链连接在竖直杆上的 \\(B\\) 点且可绕 \\(B\\) 点自由转动，\\(OB=\\frac32l\\)。</p><p>圆盘静止时，轻绳 \\(AC\\) 与竖直方向夹角 \\(\\theta_1=30^\\circ\\)，轻杆 \\(BC\\) 与竖直方向夹角 \\(\\theta_2=45^\\circ\\)。不计摩擦阻力，重力加速度为 \\(g\\)。</p><p>（1）要保持轻绳拉直，求 \\(\\omega\\) 的取值范围。</p><p>（2）当 \\(\\omega=\\sqrt{\\frac{g}{l}}\\) 时，求轻绳 \\(AC\\)、轻杆 \\(BC\\) 所受的力的大小。</p><p>（3）在转动过程中小球忽然脱离，要求小球不能碰到圆盘，求 \\(\\omega\\) 的取值范围。</p></div></section>\n        <section class=\"problem-note-block is-collapsed\">\n          <p class=\"problem-note-kicker\">解析</p>\n          \n          \n          \n          \n          \n          \n        <button type=\"button\" class=\"note-toggle\">展开</button><div class=\"note-body\"><h2>第17题：先由几何定半径，再列水平向心和竖直平衡</h2><p><strong>1. 几何定半径和高度。</strong> 因为 \\(AC=l\\)，且 \\(AC\\) 与竖直方向夹角为 \\(30^\\circ\\)，小球到竖直杆的水平距离为 <span class=\"formula-line\">\\(r=l\\sin30^\\circ=\\frac12l\\)</span>。由题图 \\(OB=\\frac32l\\)、\\(\\theta_2=45^\\circ\\)，小球 \\(C\\) 离圆盘面的高度为 <span class=\"formula-line\">\\(h=OB-r\\cot45^\\circ=l\\)</span>。</p><p><strong>2. 建立受力方程。</strong> 设轻绳拉力为 \\(T\\)，轻杆对小球沿 \\(CB\\) 方向的作用力为 \\(F\\)，取水平方向指向杆为正、竖直向上为正。小球做水平圆周运动，满足\n            <span class=\"formula-line\">\\(T\\sin30^\\circ+F\\sin45^\\circ=m\\omega^2r\\)</span>，\n            <span class=\"formula-line\">\\(T\\cos30^\\circ+F\\cos45^\\circ=mg\\)</span>。</p><p><strong>3. 保持轻绳拉直。</strong> 解方程得到 \\(T\\ge0\\) 的条件。代入 \\(r=\\frac12l\\)、\\(\\theta_1=30^\\circ\\)、\\(\\theta_2=45^\\circ\\)，可得 <span class=\"formula-line\">\\(\\omega^2\\le \\frac{2g}{l}\\)</span>，所以 <span class=\"formula-line\">\\(0\\le\\omega\\le\\sqrt{\\frac{2g}{l}}\\)</span>。</p><p><strong>4. 代入 \\(\\omega=\\sqrt{\\frac{g}{l}}\\)。</strong> 此时 \\(m\\omega^2r=\\frac12mg\\)。联立两式得 <span class=\"formula-line\">\\(T=\\frac{1+\\sqrt3}{2}mg\\)</span>，而 <span class=\"formula-line\">\\(F=\\frac{1-\\sqrt3}{2}mg\\)</span>。负号表示轻杆对小球的作用方向与假设的 \\(CB\\) 方向相反，因此轻杆所受力的大小为 <span class=\"formula-line\">\\(\\frac{\\sqrt3-1}{2}mg\\)</span>。</p><p><strong>5. 脱离后不碰圆盘。</strong> 小球脱离瞬间沿切线水平飞出，高度为 \\(h=l\\)，到圆盘面的下落时间 <span class=\"formula-line\">\\(t=\\sqrt{\\frac{2l}{g}}\\)</span>。小球从半径 \\(r=\\frac12l\\) 处切向飞出，到圆盘边缘还需水平位移 <span class=\"formula-line\">\\(s=\\sqrt{l^2-r^2}=\\frac{\\sqrt3}{2}l\\)</span>。要求 \\(\\omega r t\\ge s\\)，得 <span class=\"formula-line\">\\(\\omega\\ge\\sqrt{\\frac{3g}{2l}}\\)</span>。结合轻绳拉直范围，得到 <span class=\"formula-line\">\\(\\sqrt{\\frac{3g}{2l}}\\le\\omega\\le\\sqrt{\\frac{2g}{l}}\\)</span>。</p></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：双约束力的参数域</h2><h3>基础设问</h3><p>小球用长为 \\(l\\) 的轻绳连接在竖直轴上，轻绳与竖直方向成 \\(60^\\circ\\)，小球做水平圆周运动。求角速度 \\(\\omega\\)。</p><h3>综合提升</h3><p>把轻绳、轻杆与竖直方向的夹角推广为 \\(\\theta_1,\\theta_2\\)，小球水平圆周半径为 \\(r\\)。（1）用 \\(\\omega\\) 表示绳张力与杆力；（2）由绳只能拉求角速度范围；（3）求杆力换向的临界角速度；（4）若小球脱离后从高度 \\(h\\) 切向飞出，写出不碰半径 \\(R\\) 圆盘的判据。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>由 \\(T\\cos60^\\circ=mg\\)、\\(T\\sin60^\\circ=m\\omega^2l\\sin60^\\circ\\)，得 \\(\\omega^2=\\frac{g}{l\\cos60^\\circ}=\\frac{2g}{l}\\)，所以 \\(\\omega=\\sqrt{\\frac{2g}{l}}\\)。</p>\n          <h3>2. 综合提升</h3><p>设绳力 \\(T\\)、杆沿假定方向的力 \\(F\\)，联立</p><p>\\[T\\sin\\theta_1+F\\sin\\theta_2=m\\omega^2r,\\qquad T\\cos\\theta_1+F\\cos\\theta_2=mg.\\]</p><p>解出 \\(T(\\omega),F(\\omega)\\) 后，\\(T\\ge0\\) 给绳保持拉直的范围，\\(F=0\\) 给杆由拉变压或由压变拉的临界。脱离后下落时间 \\(t=\\sqrt{2h/g}\\)，切向位移 \\(\\omega rt\\) 应不小于从当前半径到圆盘边缘所需的几何弦长。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>水平圆周题先用竖直方向平衡求约束力，再用水平方向合力提供向心力。</p>\n          <h3>2. 进阶思路</h3><p>先保留两种约束力的符号，负号只表示杆力换向；绳张力非负才是真正限制模型存在的单向条件。</p></details></div></section>\n      </div>\n    ",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "fanphysics_model",
+    "variant": "dualConstraintCircle",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "dualOmega": {
+        "label": "角速度 ω",
+        "value": 1,
+        "min": 0,
+        "max": 1.8,
+        "step": 0.01,
+        "unit": "√(g/l)"
+      }
+    },
+    "timeline": {
+      "duration": 6.28,
+      "loop": false
+    },
+    "notes": "双约束圆周运动与临界受力图像同步"
+  }
+}

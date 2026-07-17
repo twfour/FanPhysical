@@ -56,17 +56,28 @@ chmod 755 '$APP_BASE/releases/$RELEASE_ID/deploy/aliyun/'*.sh
 ln -sfn '$APP_BASE/releases/$RELEASE_ID' '$APP_BASE/current.next'
 mv -Tf '$APP_BASE/current.next' '$APP_BASE/current'
 cp '$APP_BASE/current/deploy/aliyun/fanphysics.service' /etc/systemd/system/
-if [[ ! -f '$NGINX_CONF' ]]; then
-  cp '$APP_BASE/current/deploy/aliyun/nginx.conf' '$NGINX_CONF'
-elif grep -q 'ssl_certificate' '$NGINX_CONF'; then
-  echo 'Keeping existing HTTPS nginx config'
+if [[ -f '$NGINX_CONF' ]]; then
+  cp '$NGINX_CONF' '${NGINX_CONF}.fanphysics-deploy-backup'
+fi
+if [[ -f '$NGINX_CONF' ]] && grep -q 'ssl_certificate' '$NGINX_CONF'; then
+  cp '$APP_BASE/current/deploy/aliyun/nginx-https.conf' '$NGINX_CONF'
+  echo 'Updated HTTPS nginx config'
 else
   cp '$APP_BASE/current/deploy/aliyun/nginx.conf' '$NGINX_CONF'
 fi
 systemctl daemon-reload
 systemctl enable --now fanphysics.service
 systemctl restart fanphysics.service
-nginx -t
+if ! nginx -t; then
+  if [[ -f '${NGINX_CONF}.fanphysics-deploy-backup' ]]; then
+    cp '${NGINX_CONF}.fanphysics-deploy-backup' '$NGINX_CONF'
+    nginx -t
+  else
+    rm -f '$NGINX_CONF'
+  fi
+  exit 1
+fi
+rm -f '${NGINX_CONF}.fanphysics-deploy-backup'
 systemctl reload nginx
 for attempt in 1 2 3 4 5 6 7 8 9 10; do
   curl -fsS http://127.0.0.1:8010/api/health >/dev/null 2>&1 && break

@@ -805,6 +805,28 @@ button.sound-action:disabled {
   margin-top: 18px;
 }
 
+#problemNotesHost {
+  width: 1000px;
+}
+
+.problem-load-status {
+  width: 100%;
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 22px 20px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.problem-load-status.is-error {
+  border-color: #fecaca;
+  background: #fff7f7;
+  color: #b91c1c;
+}
+
 .problem-notes-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1479,6 +1501,7 @@ button.sound-action:disabled {
   .workspace,
   .home-panel,
   .summer-exam-panel,
+  #problemNotesHost,
   .problem-notes,
   .model-source,
   .note,

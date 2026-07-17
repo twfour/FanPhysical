@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <title>FanPhysics动态模型库</title>
-  <script src="assets/vendor/p5.min.js?v=1.9.0"></script>
+  <script defer src="assets/vendor/p5.min.js?v=1.9.0"></script>
   <script>
     window.MathJax = {
       startup: {
@@ -15,8 +15,7 @@
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <link rel="stylesheet" href="assets/styles.css?v=20260717-summer-exam" />
+  <link rel="stylesheet" href="assets/styles.css?v=20260717-lazy-notes" />
 </head>
 
 <body>
@@ -418,6 +417,8 @@
 
     <div id="canvas-holder"></div>
 
+    <div id="problemNotesHost" aria-live="polite"></div>
+
     <div id="modelSource" class="model-source">
       <p class="problem-note-kicker">题目来源</p>
       <h2 id="modelSourceTitle">题目来源</h2>
@@ -429,22 +430,9 @@
 
   </main>
 
-  <script src="assets/summer-exam.js?v=20260717-summer-exam"></script>
-  <script src="assets/app.js?v=20260717-json-migration"></script>
-  <script src="assets/scenes/common.js?v=20260711-gravitation-all"></script>
-  <script src="assets/scenes/spring-2026.js?v=20260717-json-migration"></script>
-  <script src="assets/scenes/curve-motion.js?v=20260717-json-migration"></script>
-  <script src="assets/scenes/curve-training.js?v=20260716-curve-training-complete"></script>
-  <script src="assets/scenes/projectile-motion.js?v=20260717-json-migration"></script>
-  <script src="assets/scenes/projectile-training.js?v=20260716-projectile-complete"></script>
-  <script src="assets/scenes/circular-motion.js?v=20260717-json-migration"></script>
-  <script src="assets/scenes/fanphysics-models.js?v=20260717-json-migration"></script>
-  <script src="assets/scenes/gravitation.js?v=20260711-lesson9-models"></script>
-  <script src="assets/scenes/work-power.js?v=20260713-lesson10-models"></script>
-  <script src="assets/scenes/kinetic-energy.js?v=20260714-lesson11-models"></script>
-  <script src="assets/scenes/mechanical-energy.js?v=20260717-sound-profiles"></script>
-  <script src="assets/scenes/functional-relations.js?v=20260716-lesson13-models"></script>
-  <script src="assets/scenes/required-one-test.js?v=20260717-spring-test-complete"></script>
-  <script src="assets/scenes/physics-sound.js?v=20260717-json-migration"></script>
+  <script defer src="assets/summer-exam.js?v=20260717-summer-exam"></script>
+  <script defer src="assets/app.js?v=20260717-lazy-runtime"></script>
+  <script defer src="assets/scenes/common.js?v=20260711-gravitation-all"></script>
+  <script defer src="assets/scenes/physics-sound.js?v=20260717-json-migration"></script>
 </body>
 </html>

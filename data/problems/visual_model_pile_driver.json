@@ -1,0 +1,79 @@
+{
+  "id": "pileDriver",
+  "chapter": "圆周运动",
+  "title": "第9题：打夯机",
+  "question": "如图甲所示为建筑行业使用的一种小型打夯机，其原理可简化为一个质量为 \\(M\\) 的支架（含电动机）上由一根长为 \\(l\\) 的轻杆带动一个质量为 \\(m\\) 的铁球（铁球可视为质点），如图乙所示，重力加速度为 \\(g\\)。若在某次打夯过程中，铁球以角速度 \\(\\omega\\) 匀速转动，则（  ）选项：A. 铁球转动过程线速度不变B. 铁球做圆周运动的向心加速度大小是 \\(\\omega^2l+g\\)C. 铁球转动到最低点时，打夯机整体对地面压力最大D. 若铁球转动到最高点时，支架对地面的压力刚好为零，则 \\(\\omega=\\sqrt{\\frac{(M+m)g}{ml}}\\)",
+  "options": [
+    "A. 铁球转动过程线速度不变",
+    "B. 铁球做圆周运动的向心加速度大小是 \\(\\omega^2l+g\\)",
+    "C. 铁球转动到最低点时，打夯机整体对地面压力最大",
+    "D. 若铁球转动到最高点时，支架对地面的压力刚好为零，则 \\(\\omega=\\sqrt{\\frac{(M+m)g}{ml}}\\)"
+  ],
+  "steps": [
+    {
+      "title": "完整解析",
+      "content": "分选项解析选项 A：铁球转动过程线速度不变解题思路先区分速度矢量与速率，再对支架和铁球整体列竖直方向动力学方程；最低点与最高点分别给出压力极值和离地临界。对应公式\\[v=\\omega l,\\qquad a_c=\\omega^2l,\\qquad N=(M+m)g+m\\omega^2l\\cos\\theta\\]选项判断匀速圆周运动中速率不变，但速度方向持续改变，所以线速度并非不变，A 错误。选项 B：铁球做圆周运动的向心加速度大小是 \\(\\omega^2l+g\\)解题思路先区分速度矢量与速率，再对支架和铁球整体列竖直方向动力学方程；最低点与最高点分别给出压力极值和离地临界。对应公式\\[v=\\omega l,\\qquad a_c=\\omega^2l,\\qquad N=(M+m)g+m\\omega^2l\\cos\\theta\\]选项判断向心加速度大小只有 \\(\\omega^2l\\)，重力属于受力而不是额外的向心加速度，B 错误。选项 C：铁球转动到最低点时，打夯机整体对地面压力最大解题思路先区分速度矢量与速率，再对支架和铁球整体列竖直方向动力学方程；最低点与最高点分别给出压力极值和离地临界。对应公式\\[v=\\omega l,\\qquad a_c=\\omega^2l,\\qquad N=(M+m)g+m\\omega^2l\\cos\\theta\\]选项判断最低点整体质心具有向上的竖直加速度，地面支持力达到最大，因此 C 正确。选项 D：若铁球转动到最高点时，支架对地面的压力刚好为零，则 \\(\\omega=\\sqrt{\\frac{(M+m)g}{ml}}\\)解题思路先区分速度矢量与速率，再对支架和铁球整体列竖直方向动力学方程；最低点与最高点分别给出压力极值和离地临界。对应公式\\[v=\\omega l,\\qquad a_c=\\omega^2l,\\qquad N=(M+m)g+m\\omega^2l\\cos\\theta\\]选项判断令最高点地面支持力为零可得题给角速度关系，因此 D 正确。完整推导B9：打夯机：看速度方向、向心加速度和地面压力1. 线速度是矢量。 铁球匀速转动时速率大小为 \\(v=\\omega l\\)，但方向不断改变，所以线速度不变是错的，A 错。2. 向心加速度只指向圆心。 铁球做半径为 \\(l\\) 的匀速圆周运动，向心加速度大小为 \\(a_c=\\omega^2l\\)，不能再把 \\(g\\) 加进去，B 错。3. 地面压力随铁球位置变化。 对“支架 + 铁球”整体看，最低点铁球竖直加速度向上，地面对打夯机的支持力 \\(N_{\\text{低}}=(M+m)g+m\\omega^2l\\)；最高点铁球竖直加速度向下，支持力 \\(N_{\\text{高}}=(M+m)g-m\\omega^2l\\)。所以最低点压力最大，C 对。4. 最高点临界。 最高点 \\(\\sin\\theta=1\\)，若支架对地面压力刚好为零，则 \\(0=(M+m)g-m\\omega^2l\\)，解得 \\(\\omega=\\sqrt{\\frac{(M+m)g}{ml}}\\)，D 对。答案：C、D。"
+    }
+  ],
+  "knowledge": [
+    "圆周运动",
+    "向心力",
+    "超重与失重"
+  ],
+  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n          \n          \n          \n          \n        <div class=\"note-body\"><h2>第9题：打夯机</h2><p>如图甲所示为建筑行业使用的一种小型打夯机，其原理可简化为一个质量为 \\(M\\) 的支架（含电动机）上由一根长为 \\(l\\) 的轻杆带动一个质量为 \\(m\\) 的铁球（铁球可视为质点），如图乙所示，重力加速度为 \\(g\\)。若在某次打夯过程中，铁球以角速度 \\(\\omega\\) 匀速转动，则（  ）</p><p><strong>选项：</strong></p><p>A. 铁球转动过程线速度不变</p><p>B. 铁球做圆周运动的向心加速度大小是 <span class=\"formula-line\">\\(\\omega^2l+g\\)</span></p><p>C. 铁球转动到最低点时，打夯机整体对地面压力最大</p><p>D. 若铁球转动到最高点时，支架对地面的压力刚好为零，则 <span class=\"formula-line\">\\(\\omega=\\sqrt{\\frac{(M+m)g}{ml}}\\)</span></p></div></section>\n        <section class=\"problem-note-block\" data-analysis-block=\"1\"><p class=\"problem-note-kicker\">解析</p><div class=\"note-body\"><h2>分选项解析</h2><p></p><details class=\"analysis-step\" data-step-index=\"0\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 A：铁球转动过程线速度不变</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先区分速度矢量与速率，再对支架和铁球整体列竖直方向动力学方程；最低点与最高点分别给出压力极值和离地临界。</p><p><strong>对应公式</strong></p><p>\\[v=\\omega l,\\qquad a_c=\\omega^2l,\\qquad N=(M+m)g+m\\omega^2l\\cos\\theta\\]</p><p><strong>选项判断</strong></p><p>匀速圆周运动中速率不变，但速度方向持续改变，所以线速度并非不变，A 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"1\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 B：铁球做圆周运动的向心加速度大小是 \\(\\omega^2l+g\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先区分速度矢量与速率，再对支架和铁球整体列竖直方向动力学方程；最低点与最高点分别给出压力极值和离地临界。</p><p><strong>对应公式</strong></p><p>\\[v=\\omega l,\\qquad a_c=\\omega^2l,\\qquad N=(M+m)g+m\\omega^2l\\cos\\theta\\]</p><p><strong>选项判断</strong></p><p>向心加速度大小只有 \\(\\omega^2l\\)，重力属于受力而不是额外的向心加速度，B 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"2\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 C：铁球转动到最低点时，打夯机整体对地面压力最大</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先区分速度矢量与速率，再对支架和铁球整体列竖直方向动力学方程；最低点与最高点分别给出压力极值和离地临界。</p><p><strong>对应公式</strong></p><p>\\[v=\\omega l,\\qquad a_c=\\omega^2l,\\qquad N=(M+m)g+m\\omega^2l\\cos\\theta\\]</p><p><strong>选项判断</strong></p><p>最低点整体质心具有向上的竖直加速度，地面支持力达到最大，因此 C 正确。</p></div></details><details class=\"analysis-step\" data-step-index=\"3\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 D：若铁球转动到最高点时，支架对地面的压力刚好为零，则 \\(\\omega=\\sqrt{\\frac{(M+m)g}{ml}}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先区分速度矢量与速率，再对支架和铁球整体列竖直方向动力学方程；最低点与最高点分别给出压力极值和离地临界。</p><p><strong>对应公式</strong></p><p>\\[v=\\omega l,\\qquad a_c=\\omega^2l,\\qquad N=(M+m)g+m\\omega^2l\\cos\\theta\\]</p><p><strong>选项判断</strong></p><p>令最高点地面支持力为零可得题给角速度关系，因此 D 正确。</p></div></details><details class=\"analysis-step\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">完整推导</summary><div class=\"analysis-step-content\"><h2>B9：打夯机：看速度方向、向心加速度和地面压力</h2><p><strong>1. 线速度是矢量。</strong> 铁球匀速转动时速率大小为 <span class=\"formula-line\">\\(v=\\omega l\\)</span>，但方向不断改变，所以线速度不变是错的，A 错。</p><p><strong>2. 向心加速度只指向圆心。</strong> 铁球做半径为 \\(l\\) 的匀速圆周运动，向心加速度大小为 <span class=\"formula-line\">\\(a_c=\\omega^2l\\)</span>，不能再把 \\(g\\) 加进去，B 错。</p><p><strong>3. 地面压力随铁球位置变化。</strong> 对“支架 + 铁球”整体看，最低点铁球竖直加速度向上，地面对打夯机的支持力 <span class=\"formula-line\">\\(N_{\\text{低}}=(M+m)g+m\\omega^2l\\)</span>；最高点铁球竖直加速度向下，支持力 <span class=\"formula-line\">\\(N_{\\text{高}}=(M+m)g-m\\omega^2l\\)</span>。所以最低点压力最大，C 对。</p><p><strong>4. 最高点临界。</strong> 最高点 \\(\\sin\\theta=1\\)，若支架对地面压力刚好为零，则 <span class=\"formula-line\">\\(0=(M+m)g-m\\omega^2l\\)</span>，解得 <span class=\"formula-line\">\\(\\omega=\\sqrt{\\frac{(M+m)g}{ml}}\\)</span>，D 对。</p><p><strong>答案：</strong>C、D。</p></div></details></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：打夯机地面压力的全过程</h2><h3>基础设问</h3><p>打夯机内铁球做竖直平面圆周运动。若铁球在最高点向心加速度大小为 \\(a_c\\)，判断机器对地面的压力相对静止时如何变化。</p><h3>综合提升</h3><p>铁球以角速度 \\(\\omega\\) 在竖直平面内做半径 \\(l\\) 的匀速圆周运动，令 \\(\\theta\\) 从最低点量起。（1）写出地面对整机支持力 \\(N(\\theta)\\)；（2）求最大、最小值及平均值；（3）求不离地的角速度条件；（4）若角速度缓慢变化，说明临界最先出现在哪一位置。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>最高点铁球加速度向下，对铁球有 \\(mg+N=ma_c\\)。铁球对机器的作用力方向向上，机器对地面压力会小于总重；若在最低点，则作用力向下，地面压力增大。</p>\n          <h3>2. 综合提升</h3><p>整体竖直方向有</p><p>\\[N(\\theta)=(M+m)g+m\\omega^2l\\cos\\theta.\\]</p><p>因此 \\(N_{\\max}=(M+m)g+m\\omega^2l\\) 在最低点，\\(N_{\\min}=(M+m)g-m\\omega^2l\\) 在最高点；一周平均值为 \\((M+m)g\\)。不离地要求 \\(N_{\\min}\\ge0\\)，即</p><p>\\[\\omega^2\\le\\frac{(M+m)g}{ml}.\\]</p><p>角速度增大时最高点最先达到零压力临界。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>把铁球和机器分开受力，再用牛顿第三定律把铁球对机器的作用转回地面压力。</p>\n          <h3>2. 进阶思路</h3><p>把最低点、最高点两个特例统一成角度函数，再从函数直接读极值、平均值和接触条件。</p></details></div></section>\n      </div>\n    ",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "fanphysics_model",
+    "variant": "pileDriver",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "pileM": {
+        "label": "支架质量 M",
+        "value": 6,
+        "min": 2,
+        "max": 12,
+        "step": 0.5,
+        "unit": "kg"
+      },
+      "pilem": {
+        "label": "铁球质量 m",
+        "value": 2,
+        "min": 0.5,
+        "max": 6,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "pileL": {
+        "label": "杆长 l",
+        "value": 1.2,
+        "min": 0.5,
+        "max": 2.5,
+        "step": 0.1,
+        "unit": "m"
+      },
+      "pileOmega": {
+        "label": "角速度 ω",
+        "value": 4,
+        "min": 0.5,
+        "max": 10,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "pileG": {
+        "label": "重力 g",
+        "value": 10,
+        "min": 1,
+        "max": 20,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    },
+    "notes": "铁球圆周位置与机器对地压力图像同步"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "bulletCylinder",
+  "chapter": "圆周运动",
+  "title": "课上第2题：子弹穿旋转圆筒",
+  "question": "如图所示，直径为 \\(d\\) 的纸筒以角速度 \\(\\omega\\) 绕轴 \\(O\\) 匀速转动。从枪口发射的子弹沿直径穿过圆筒。若子弹在圆筒旋转不到半周时在圆筒上留下 \\(a\\)、\\(b\\) 两个弹孔，已知 \\(aO\\) 和 \\(bO\\) 的夹角为 \\(\\varphi\\)，求子弹的速度大小。",
+  "options": [],
+  "steps": [
+    {
+      "title": "完整解析",
+      "content": "展开取圆周运动课上第2题：用圆筒转过的角度反推穿筒时间1. 先找子弹运动时间。 子弹沿圆筒直径穿过，穿过圆筒的路程就是直径 \\(d\\)。若子弹速度为 \\(v\\)，则穿筒时间为 \\(t=\\frac{d}{v}\\)。2. 再找圆筒在这段时间内转过的角度。 子弹进入和射出对应圆筒上的两个弹孔 \\(a,b\\)。题图给的是 \\(aO\\) 与 \\(bO\\) 的夹角 \\(\\varphi\\)，由于子弹沿直径穿过，若圆筒不转，入孔和出孔应相隔 \\(\\pi\\)；实际只差 \\(\\varphi\\)，所以圆筒在穿筒时间内转过 \\(\\Delta\\theta=\\pi-\\varphi\\)。3. 用角速度求时间。 圆筒匀速转动，满足 \\(\\Delta\\theta=\\omega t\\)，因此 \\(t=\\frac{\\pi-\\varphi}{\\omega}\\)。4. 联立求速度。 \\(v=\\frac{d}{t}=\\frac{\\omega d}{\\pi-\\varphi}\\)。这里 \\(\\varphi\\) 要用弧度制代入。答案：\\(\\displaystyle v=\\frac{\\omega d}{\\pi-\\varphi}\\)。"
+    }
+  ],
+  "knowledge": [
+    "圆周运动",
+    "角速度",
+    "穿筒时间"
+  ],
+  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n        <div class=\"note-body\"><h2>课上第2题：子弹穿旋转圆筒</h2><p>如图所示，直径为 \\(d\\) 的纸筒以角速度 \\(\\omega\\) 绕轴 \\(O\\) 匀速转动。从枪口发射的子弹沿直径穿过圆筒。</p><p>若子弹在圆筒旋转不到半周时在圆筒上留下 \\(a\\)、\\(b\\) 两个弹孔，已知 \\(aO\\) 和 \\(bO\\) 的夹角为 \\(\\varphi\\)，求子弹的速度大小。</p></div></section>\n        <section class=\"problem-note-block is-collapsed\">\n          <p class=\"problem-note-kicker\">解析</p>\n          \n          \n          \n          \n          \n          \n        <button type=\"button\" class=\"note-toggle\">展开</button><div class=\"note-body\"><h2>取圆周运动课上第2题：用圆筒转过的角度反推穿筒时间</h2><p><strong>1. 先找子弹运动时间。</strong> 子弹沿圆筒直径穿过，穿过圆筒的路程就是直径 \\(d\\)。若子弹速度为 \\(v\\)，则穿筒时间为 <span class=\"formula-line\">\\(t=\\frac{d}{v}\\)</span>。</p><p><strong>2. 再找圆筒在这段时间内转过的角度。</strong> 子弹进入和射出对应圆筒上的两个弹孔 \\(a,b\\)。题图给的是 \\(aO\\) 与 \\(bO\\) 的夹角 \\(\\varphi\\)，由于子弹沿直径穿过，若圆筒不转，入孔和出孔应相隔 \\(\\pi\\)；实际只差 \\(\\varphi\\)，所以圆筒在穿筒时间内转过 <span class=\"formula-line\">\\(\\Delta\\theta=\\pi-\\varphi\\)</span>。</p><p><strong>3. 用角速度求时间。</strong> 圆筒匀速转动，满足 <span class=\"formula-line\">\\(\\Delta\\theta=\\omega t\\)</span>，因此 <span class=\"formula-line\">\\(t=\\frac{\\pi-\\varphi}{\\omega}\\)</span>。</p><p><strong>4. 联立求速度。</strong> <span class=\"formula-line\">\\(v=\\frac{d}{t}=\\frac{\\omega d}{\\pi-\\varphi}\\)</span>。这里 \\(\\varphi\\) 要用弧度制代入。</p><p><strong>答案：</strong>\\(\\displaystyle v=\\frac{\\omega d}{\\pi-\\varphi}\\)。</p></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：多圈转动下的弹孔相位</h2><h3>基础设问</h3><p>子弹沿直径穿过旋转圆筒，穿筒时间为 \\(0.02\\,\\mathrm{s}\\)，圆筒角速度为 \\(50\\,\\mathrm{rad/s}\\)。求子弹出入孔对应半径的夹角。</p><h3>综合提升</h3><p>子弹以速度 \\(v\\) 沿直径 \\(d\\) 穿过角速度为 \\(\\omega\\) 的圆筒，出入孔半径夹角的锐角为 \\(\\varphi\\)。（1）考虑圆筒可能多转若干圈，写出全部速度分支；（2）说明如何由速度范围确定整数圈数；（3）讨论 \\(\\varphi=0\\) 时一个孔与两个孔的条件；（4）分析测角误差对速度的影响。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>圆筒转角 \\(\\Delta\\theta=\\omega t=50\\times0.02=1\\,\\mathrm{rad}\\)。若题目要求锐角，可再换算为约 \\(57.3^\\circ\\)。</p>\n          <h3>2. 综合提升</h3><p>穿筒时间 \\(t=d/v\\)。按题图转向，实际相位可写成</p><p>\\[\\omega t=\\pi-\\varphi+2n\\pi,\\qquad n=0,1,2,\\ldots\\]</p><p>所以</p><p>\\[v_n=\\frac{\\omega d}{\\pi-\\varphi+2n\\pi}.\\]</p><p>由已知速度上下限筛选唯一 \\(n\\)。\\(\\varphi=0\\) 时还要区分出孔是否与入孔对应同一材料点；误差满足 \\(|\\delta v/v|\\approx|\\delta\\varphi|/(\\pi-\\varphi+2n\\pi)\\)。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>子弹穿筒期间近似直线匀速，圆筒转过的角度就是出入孔半径夹角的来源。</p>\n          <h3>2. 进阶思路</h3><p>观测到的锐角只给模 (2pi) 的相位，必须显式加入整数圈数，再用额外物理范围消除多解。</p></details></div></section>\n      </div>\n    ",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "fanphysics_model",
+    "variant": "bulletCylinder",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "bulletD": {
+        "label": "直径 d",
+        "value": 150,
+        "min": 80,
+        "max": 220,
+        "step": 5,
+        "unit": ""
+      },
+      "bulletOmega": {
+        "label": "角速度 ω",
+        "value": 3,
+        "min": 0.5,
+        "max": 8,
+        "step": 0.1,
+        "unit": "rad/s"
+      },
+      "bulletPhi": {
+        "label": "夹角 φ",
+        "value": 65,
+        "min": 10,
+        "max": 160,
+        "step": 1,
+        "unit": "deg"
+      }
+    },
+    "timeline": {
+      "duration": 4,
+      "loop": false
+    },
+    "notes": "子弹飞行时间与圆筒转角由同一时间轴连接"
+  }
+}

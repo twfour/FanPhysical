@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "problems": [
     {
       "id": "curve_training_01_concepts",
@@ -900,6 +900,102 @@
     {
       "id": "lesson13_b_09_game_track_range",
       "file": "lesson13_b_09_game_track_range.json"
+    },
+    {
+      "id": "doubleThrow",
+      "file": "visual_model_double_throw.json"
+    },
+    {
+      "id": "pipeDrop",
+      "file": "visual_model_pipe_drop.json"
+    },
+    {
+      "id": "threeCar",
+      "file": "visual_model_three_car.json"
+    },
+    {
+      "id": "inclineSlot",
+      "file": "visual_model_incline_slot.json"
+    },
+    {
+      "id": "motionCompose",
+      "file": "visual_model_motion_compose.json"
+    },
+    {
+      "id": "curveForce",
+      "file": "visual_model_curve_force.json"
+    },
+    {
+      "id": "riverCrossing",
+      "file": "visual_model_river_crossing.json"
+    },
+    {
+      "id": "riverAdvanced",
+      "file": "visual_model_river_advanced.json"
+    },
+    {
+      "id": "waterfallCrossing",
+      "file": "visual_model_waterfall_crossing.json"
+    },
+    {
+      "id": "rodConstraint",
+      "file": "visual_model_rod_constraint.json"
+    },
+    {
+      "id": "dualConstraintCircle",
+      "file": "visual_model_dual_constraint_circle.json"
+    },
+    {
+      "id": "handRopeBreak",
+      "file": "visual_model_hand_rope_break.json"
+    },
+    {
+      "id": "rainWindow",
+      "file": "visual_model_rain_window.json"
+    },
+    {
+      "id": "projectileSlope",
+      "file": "visual_model_projectile_slope.json"
+    },
+    {
+      "id": "projectileNormal",
+      "file": "visual_model_projectile_normal.json"
+    },
+    {
+      "id": "semiCircleThrow",
+      "file": "visual_model_semi_circle_throw.json"
+    },
+    {
+      "id": "projectileWindow",
+      "file": "visual_model_projectile_window.json"
+    },
+    {
+      "id": "volleyballServe",
+      "file": "visual_model_volleyball_serve.json"
+    },
+    {
+      "id": "dartTarget",
+      "file": "visual_model_dart_target.json"
+    },
+    {
+      "id": "projectileBounce",
+      "file": "visual_model_projectile_bounce.json"
+    },
+    {
+      "id": "bulletCylinder",
+      "file": "visual_model_bullet_cylinder.json"
+    },
+    {
+      "id": "bikeGear",
+      "file": "visual_model_bike_gear.json"
+    },
+    {
+      "id": "pileDriver",
+      "file": "visual_model_pile_driver.json"
+    },
+    {
+      "id": "bowlDoubleBall",
+      "file": "visual_model_bowl_double_ball.json"
     }
   ]
 }

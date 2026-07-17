@@ -1,0 +1,63 @@
+{
+  "id": "rainWindow",
+  "chapter": "曲线运动",
+  "title": "课后作业B组第10题：车窗雨滴相对速度",
+  "question": "如图所示，某人在沿直线匀速行驶的火车车厢中面对车窗观察到雨滴下落时与竖直方向的夹角为 \\(\\theta\\)。已知车窗外无风，火车速度为 \\(v_1\\)，雨滴对地速度为 \\(v_2\\)。判断火车速度方向、雨滴对地速度方向，以及 \\(v_1\\)、\\(v_2\\)、\\(\\theta\\) 之间的关系。A. \\(v_1\\) 水平向他的右手方向，\\(v_2\\) 竖直向下，且 \\(v_1=v_2\\tan\\theta\\)B. \\(v_1\\) 水平向他的左手方向，\\(v_2\\) 竖直向下，且 \\(v_1=v_2\\tan\\theta\\)C. \\(v_1\\) 水平向他的右手方向，\\(v_2\\) 与竖直方向成 \\(\\theta\\) 角向下，且 \\(v_1=v_2\\cos\\theta\\)D. \\(v_1\\) 水平向他的左手方向，\\(v_2\\) 与竖直方向成 \\(\\theta\\) 角向下，且 \\(v_1=v_2\\cos\\theta\\)",
+  "options": [
+    "A. \\(v_1\\) 水平向他的右手方向，\\(v_2\\) 竖直向下，且 \\(v_1=v_2\\tan\\theta\\)",
+    "B. \\(v_1\\) 水平向他的左手方向，\\(v_2\\) 竖直向下，且 \\(v_1=v_2\\tan\\theta\\)",
+    "C. \\(v_1\\) 水平向他的右手方向，\\(v_2\\) 与竖直方向成 \\(\\theta\\) 角向下，且 \\(v_1=v_2\\cos\\theta\\)",
+    "D. \\(v_1\\) 水平向他的左手方向，\\(v_2\\) 与竖直方向成 \\(\\theta\\) 角向下，且 \\(v_1=v_2\\cos\\theta\\)"
+  ],
+  "steps": [
+    {
+      "title": "完整解析",
+      "content": "分选项解析选项 A：\\(v_1\\) 水平向他的右手方向，\\(v_2\\) 竖直向下，且 \\(v_1=v_2\\tan\\theta\\)解题思路先确定无风时雨滴对地速度竖直向下，再用速度相减得到雨滴对车速度；观察到的雨线方向属于相对速度。对应公式\\[\\vec v_{雨/车}=\\vec v_{雨/地}-\\vec v_{车/地},\\qquad \\tan\\theta=\\frac{v_1}{v_2}\\]选项判断速度大小关系正确，但车速方向应与观察到的雨线水平偏向相反，因此 A 错误。选项 B：\\(v_1\\) 水平向他的左手方向，\\(v_2\\) 竖直向下，且 \\(v_1=v_2\\tan\\theta\\)解题思路先确定无风时雨滴对地速度竖直向下，再用速度相减得到雨滴对车速度；观察到的雨线方向属于相对速度。对应公式\\[\\vec v_{雨/车}=\\vec v_{雨/地}-\\vec v_{车/地},\\qquad \\tan\\theta=\\frac{v_1}{v_2}\\]选项判断雨滴对地竖直下落，车速与雨线水平偏向相反，且 \\(v_1=v_2\\tan\\theta\\)，因此 B 正确。选项 C：\\(v_1\\) 水平向他的右手方向，\\(v_2\\) 与竖直方向成 \\(\\theta\\) 角向下，且 \\(v_1=v_2\\cos\\theta\\)解题思路先确定无风时雨滴对地速度竖直向下，再用速度相减得到雨滴对车速度；观察到的雨线方向属于相对速度。对应公式\\[\\vec v_{雨/车}=\\vec v_{雨/地}-\\vec v_{车/地},\\qquad \\tan\\theta=\\frac{v_1}{v_2}\\]选项判断无风条件下雨滴对地速度不是斜向下，且余弦关系不符合速度三角形，因此 C 错误。选项 D：\\(v_1\\) 水平向他的左手方向，\\(v_2\\) 与竖直方向成 \\(\\theta\\) 角向下，且 \\(v_1=v_2\\cos\\theta\\)解题思路先确定无风时雨滴对地速度竖直向下，再用速度相减得到雨滴对车速度；观察到的雨线方向属于相对速度。对应公式\\[\\vec v_{雨/车}=\\vec v_{雨/地}-\\vec v_{车/地},\\qquad \\tan\\theta=\\frac{v_1}{v_2}\\]选项判断车速方向虽符合相对速度判断，但雨滴对地速度方向和大小关系均错误，因此 D 错误。完整推导取课后作业 B组第10题：车窗里看到的是相对速度1. 先确定真实雨速。 题中说明“车窗外无风”，所以雨滴对地速度 \\(\\vec v_2\\) 竖直向下，不会本身斜着落。2. 换到火车参考系。 乘客看到的是雨滴相对火车的速度：\\(\\vec v_{\\text{雨对车}}=\\vec v_{\\text{雨对地}}-\\vec v_{\\text{车对地}}\\)。因此相对速度的竖直分量大小为 \\(v_2\\)，水平分量大小为 \\(v_1\\)，方向与火车运动方向相反。3. 用夹角列式。 雨线与竖直方向夹角为 \\(\\theta\\)，所以 \\(\\tan\\theta=\\frac{\\text{水平分量}}{\\text{竖直分量}}=\\frac{v_1}{v_2}\\)。答案：B。雨滴对地竖直向下，车速方向与车窗中雨线的水平偏向相反，且 \\(v_1=v_2\\tan\\theta\\)。"
+    }
+  ],
+  "knowledge": [
+    "相对速度",
+    "参考系",
+    "速度分解"
+  ],
+  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n          \n          \n          \n          \n        <div class=\"note-body\"><h2>课后作业B组第10题：车窗雨滴相对速度</h2><p>如图所示，某人在沿直线匀速行驶的火车车厢中面对车窗观察到雨滴下落时与竖直方向的夹角为 \\(\\theta\\)。已知车窗外无风，火车速度为 \\(v_1\\)，雨滴对地速度为 \\(v_2\\)。</p><p>判断火车速度方向、雨滴对地速度方向，以及 \\(v_1\\)、\\(v_2\\)、\\(\\theta\\) 之间的关系。</p><p>A. \\(v_1\\) 水平向他的右手方向，\\(v_2\\) 竖直向下，且 \\(v_1=v_2\\tan\\theta\\)</p><p>B. \\(v_1\\) 水平向他的左手方向，\\(v_2\\) 竖直向下，且 \\(v_1=v_2\\tan\\theta\\)</p><p>C. \\(v_1\\) 水平向他的右手方向，\\(v_2\\) 与竖直方向成 \\(\\theta\\) 角向下，且 \\(v_1=v_2\\cos\\theta\\)</p><p>D. \\(v_1\\) 水平向他的左手方向，\\(v_2\\) 与竖直方向成 \\(\\theta\\) 角向下，且 \\(v_1=v_2\\cos\\theta\\)</p></div></section>\n        <section class=\"problem-note-block\" data-analysis-block=\"1\"><p class=\"problem-note-kicker\">解析</p><div class=\"note-body\"><h2>分选项解析</h2><p></p><details class=\"analysis-step\" data-step-index=\"0\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 A：\\(v_1\\) 水平向他的右手方向，\\(v_2\\) 竖直向下，且 \\(v_1=v_2\\tan\\theta\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先确定无风时雨滴对地速度竖直向下，再用速度相减得到雨滴对车速度；观察到的雨线方向属于相对速度。</p><p><strong>对应公式</strong></p><p>\\[\\vec v_{雨/车}=\\vec v_{雨/地}-\\vec v_{车/地},\\qquad \\tan\\theta=\\frac{v_1}{v_2}\\]</p><p><strong>选项判断</strong></p><p>速度大小关系正确，但车速方向应与观察到的雨线水平偏向相反，因此 A 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"1\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 B：\\(v_1\\) 水平向他的左手方向，\\(v_2\\) 竖直向下，且 \\(v_1=v_2\\tan\\theta\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先确定无风时雨滴对地速度竖直向下，再用速度相减得到雨滴对车速度；观察到的雨线方向属于相对速度。</p><p><strong>对应公式</strong></p><p>\\[\\vec v_{雨/车}=\\vec v_{雨/地}-\\vec v_{车/地},\\qquad \\tan\\theta=\\frac{v_1}{v_2}\\]</p><p><strong>选项判断</strong></p><p>雨滴对地竖直下落，车速与雨线水平偏向相反，且 \\(v_1=v_2\\tan\\theta\\)，因此 B 正确。</p></div></details><details class=\"analysis-step\" data-step-index=\"2\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 C：\\(v_1\\) 水平向他的右手方向，\\(v_2\\) 与竖直方向成 \\(\\theta\\) 角向下，且 \\(v_1=v_2\\cos\\theta\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先确定无风时雨滴对地速度竖直向下，再用速度相减得到雨滴对车速度；观察到的雨线方向属于相对速度。</p><p><strong>对应公式</strong></p><p>\\[\\vec v_{雨/车}=\\vec v_{雨/地}-\\vec v_{车/地},\\qquad \\tan\\theta=\\frac{v_1}{v_2}\\]</p><p><strong>选项判断</strong></p><p>无风条件下雨滴对地速度不是斜向下，且余弦关系不符合速度三角形，因此 C 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"3\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 D：\\(v_1\\) 水平向他的左手方向，\\(v_2\\) 与竖直方向成 \\(\\theta\\) 角向下，且 \\(v_1=v_2\\cos\\theta\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先确定无风时雨滴对地速度竖直向下，再用速度相减得到雨滴对车速度；观察到的雨线方向属于相对速度。</p><p><strong>对应公式</strong></p><p>\\[\\vec v_{雨/车}=\\vec v_{雨/地}-\\vec v_{车/地},\\qquad \\tan\\theta=\\frac{v_1}{v_2}\\]</p><p><strong>选项判断</strong></p><p>车速方向虽符合相对速度判断，但雨滴对地速度方向和大小关系均错误，因此 D 错误。</p></div></details><details class=\"analysis-step\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">完整推导</summary><div class=\"analysis-step-content\"><h2>取课后作业 B组第10题：车窗里看到的是相对速度</h2><p><strong>1. 先确定真实雨速。</strong> 题中说明“车窗外无风”，所以雨滴对地速度 \\(\\vec v_2\\) 竖直向下，不会本身斜着落。</p><p><strong>2. 换到火车参考系。</strong> 乘客看到的是雨滴相对火车的速度：<span class=\"formula-line\">\\(\\vec v_{\\text{雨对车}}=\\vec v_{\\text{雨对地}}-\\vec v_{\\text{车对地}}\\)</span>。因此相对速度的竖直分量大小为 \\(v_2\\)，水平分量大小为 \\(v_1\\)，方向与火车运动方向相反。</p><p><strong>3. 用夹角列式。</strong> 雨线与竖直方向夹角为 \\(\\theta\\)，所以 <span class=\"formula-line\">\\(\\tan\\theta=\\frac{\\text{水平分量}}{\\text{竖直分量}}=\\frac{v_1}{v_2}\\)</span>。</p><p><strong>答案：</strong>B。雨滴对地竖直向下，车速方向与车窗中雨线的水平偏向相反，且 <span class=\"formula-line\">\\(v_1=v_2\\tan\\theta\\)</span>。</p></div></details></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：含侧风的雨速反演</h2><h3>基础设问</h3><p>雨滴相对地面竖直下落速度为 \\(20\\,\\mathrm{m/s}\\)，汽车水平向右速度为 \\(15\\,\\mathrm{m/s}\\)。车内人看到雨线与竖直方向夹角多大？</p><h3>综合提升</h3><p>雨滴对空气竖直下落速度为 \\(v_r\\)，水平风速为 \\(u\\)。汽车以已知速度 \\(v_c\\) 行驶，车内观察到雨线与竖直夹角为 \\(\\theta\\)。（1）写出相对速度；（2）由一次观测得到 \\(u-v_c\\)；（3）用两种不同车速的观测反求 \\(u,v_r\\)；（4）说明方向符号怎样由雨线偏向确定。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>车内看雨滴的相对速度为水平向左 \\(15\\,\\mathrm{m/s}\\)、竖直向下 \\(20\\,\\mathrm{m/s}\\)。所以 \\(\\tan\\theta=\\frac{15}{20}=\\frac34\\)，\\(\\theta\\approx36.9^\\circ\\)。</p>\n          <h3>2. 综合提升</h3><p>取车行方向为正，雨滴对车的水平分速度为 \\(u-v_c\\)，竖直分速度为 \\(-v_r\\)，故</p><p>\\[\\tan\\theta=\\frac{|u-v_c|}{v_r}.\\]</p><p>两次观测给出两条带方向符号的线性方程 \\(u-v_{c,i}=\\sigma_i v_r\\tan\\theta_i\\)，联立即可反求 \\(u,v_r\\)。\\(\\sigma_i\\) 由雨线向车前还是车后倾确定。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>相对速度等于雨滴速度减去汽车速度。车越快，看到的雨线越向后倾。</p>\n          <h3>2. 进阶思路</h3><p>一次观测只给速度差，第二种车速提供独立方程；先保留方向符号，避免只用绝对值造成多解。</p></details></div></section>\n      </div>\n    ",
+  "animation": {
+    "enabled": true,
+    "level": "interactive_diagram",
+    "type": "fanphysics_model",
+    "variant": "rainWindow",
+    "playable": false,
+    "interactive": true,
+    "params": {
+      "rainTrainV": {
+        "label": "车速 v车",
+        "value": 18,
+        "min": 0,
+        "max": 40,
+        "step": 1,
+        "unit": ""
+      },
+      "rainDropV": {
+        "label": "雨速 v雨",
+        "value": 24,
+        "min": 5,
+        "max": 40,
+        "step": 1,
+        "unit": ""
+      },
+      "rainDensity": {
+        "label": "雨滴密度",
+        "value": 10,
+        "min": 4,
+        "max": 18,
+        "step": 1,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 0,
+      "loop": false
+    },
+    "notes": "调整车速和雨速，观察相对速度决定的雨线方向"
+  }
+}

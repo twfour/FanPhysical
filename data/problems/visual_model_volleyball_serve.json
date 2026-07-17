@@ -1,0 +1,71 @@
+{
+  "id": "volleyballServe",
+  "chapter": "平抛运动",
+  "title": "课上第7题：排球过网落点",
+  "question": "如图所示，一排球运动员将球在边界处正上方水平向右击出，球刚好过网并落在图中位置，不计空气阻力。已知击球点高度为 \\(h_1\\)，网高为 \\(h_2\\)，击球点到网的水平距离为 \\(s\\)，过网后到落点的水平距离为 \\(\\frac{s}{2}\\)。判断下列说法中正确的是哪些。选项：A. \\(h_1=1.8h_2\\)B. 保持击球高度不变，初速度 \\(v_0\\) 只要不大于某一上限，就一定落在对方界内。C. 任意降低击球高度但仍大于 \\(h_2\\)，只要击球初速度合适，球一定能落在对方界内。D. 任意增加击球高度，只要击球初速度合适，球一定能落在对方界内。E. 调整 \\(h_1\\) 与 \\(h_2\\) 的高度，若垂直底线水平向右击出的球能够擦网而过后直接落到对面底线上，则适当调整发射方向后，仍垂直底线，只要落到对面底线的球一定是擦网而过的。",
+  "options": [
+    "A. \\(h_1=1.8h_2\\)",
+    "B. 保持击球高度不变，初速度 \\(v_0\\) 只要不大于某一上限，就一定落在对方界内。",
+    "C. 任意降低击球高度但仍大于 \\(h_2\\)，只要击球初速度合适，球一定能落在对方界内。",
+    "D. 任意增加击球高度，只要击球初速度合适，球一定能落在对方界内。"
+  ],
+  "steps": [
+    {
+      "title": "完整解析",
+      "content": "分选项解析选项 A：\\(h_1=1.8h_2\\)解题思路先用同一个水平初速度连接过网点和落地点，再把‘能过网’与‘落在界内’分别写成不等式，不能只检查其中一处。对应公式\\[h_1=\\frac12g\\left(\\frac{3s}{2v_0}\\right)^2,\\qquad h_1-h_2=\\frac12g\\left(\\frac{s}{v_0}\\right)^2\\]选项判断两式相除得 \\(h_2=\\frac59h_1\\)，即 \\(h_1=1.8h_2\\)，因此 A 正确。选项 B：保持击球高度不变，初速度 \\(v_0\\) 只要不大于某一上限，就一定落在对方界内。解题思路先用同一个水平初速度连接过网点和落地点，再把‘能过网’与‘落在界内’分别写成不等式，不能只检查其中一处。对应公式\\[h_1=\\frac12g\\left(\\frac{3s}{2v_0}\\right)^2,\\qquad h_1-h_2=\\frac12g\\left(\\frac{s}{v_0}\\right)^2\\]选项判断速度太小时球会落在网前，速度太大时又会越过底线；只有上限没有下限的说法不成立，因此 B 错误。选项 C：任意降低击球高度但仍大于 \\(h_2\\)，只要击球初速度合适，球一定能落在对方界内。解题思路先用同一个水平初速度连接过网点和落地点，再把‘能过网’与‘落在界内’分别写成不等式，不能只检查其中一处。对应公式\\[h_1=\\frac12g\\left(\\frac{3s}{2v_0}\\right)^2,\\qquad h_1-h_2=\\frac12g\\left(\\frac{s}{v_0}\\right)^2\\]选项判断降低击球高度后，界内落点所能达到的最大网口高度可能低于 \\(h_2\\)，并非一定存在合适初速度，因此 C 错误。选项 D：任意增加击球高度，只要击球初速度合适，球一定能落在对方界内。解题思路先用同一个水平初速度连接过网点和落地点，再把‘能过网’与‘落在界内’分别写成不等式，不能只检查其中一处。对应公式\\[h_1=\\frac12g\\left(\\frac{3s}{2v_0}\\right)^2,\\qquad h_1-h_2=\\frac12g\\left(\\frac{s}{v_0}\\right)^2\\]选项判断增加击球高度会扩大既能过网又能落在界内的可行区间，可以选取合适初速度，因此 D 正确。选项 E：调整 \\(h_1\\) 与 \\(h_2\\) 的高度，若垂直底线水平向右击出的球能够擦网而过后直接落到对面底线上，则适当调整发射方向后，仍垂直底线，只要落到对面底线的球一定是擦网而过的。解题思路先用同一个水平初速度连接过网点和落地点，再把‘能过网’与‘落在界内’分别写成不等式，不能只检查其中一处。对应公式\\[h_1=\\frac12g\\left(\\frac{3s}{2v_0}\\right)^2,\\qquad h_1-h_2=\\frac12g\\left(\\frac{s}{v_0}\\right)^2\\]选项判断改变发射方向后轨迹条件随之改变，落到底线不能推出必然擦网，因此 E 错误。完整推导取平抛课上第7题：用同一个 \\(v_0\\) 比较过网点和落地点1. 写出两个关键位置。 球从高度 \\(h_1\\) 水平击出，落到底线时水平位移为 \\(x=\\frac{3s}{2}\\)，过网时水平位移为 \\(x=s\\)。2. 落地条件。 设初速度为 \\(v_0\\)，平抛满足 \\(x=v_0t\\)、\\(y=\\frac{1}{2}gt^2\\)。落地时下落高度为 \\(h_1\\)，所以 \\(h_1=\\frac{1}{2}g\\left(\\frac{3s}{2v_0}\\right)^2\\)。3. 过网条件。 球刚好过网，说明到 \\(x=s\\) 时下落高度为 \\(h_1-h_2\\)，所以 \\(h_1-h_2=\\frac{1}{2}g\\left(\\frac{s}{v_0}\\right)^2\\)。4. 消去 \\(v_0\\)。 两式相除：\\(\\frac{h_1-h_2}{h_1}=\\frac{s^2}{(3s/2)^2}=\\frac{4}{9}\\)，因此 \\(h_2=\\frac{5}{9}h_1\\)，即 \\(h_1=\\frac{9}{5}h_2=1.8h_2\\)，A 正确。5. 判断能否进界。 若球仍水平击出，设落点水平位移为 \\(R\\)。落在对方界内要求 \\(s\\lt R\\le\\frac{3s}{2}\\)，过网要求在 \\(x=s\\) 处高度不低于 \\(h_2\\)。在给定 \\(R\\le\\frac{3s}{2}\\) 时，网处最高也只有 \\(h_1\\left(1-\\frac{s^2}{R^2}\\right)\\le\\frac{5}{9}h_1\\)。6. 比较选项。 原题刚好满足 \\(\\frac{5}{9}h_1=h_2\\)，所以 A 正确。B 错：保持击球高度不变时，速度太小会落在网前，速度太大又会出界；不能只说不大于某一上限。C 错：若降低击球高度，则 \\(\\frac{5}{9}h_1\\lt h_2\\)，球即使落在底线处，也达不到网高，无法既过网又落在界内。D 对：若增加击球高度，则可以选取合适的落点 \\(R\\)，使 \\(s\\lt R\\le\\frac{3s}{2}\\)，从而既过网又落在界内。E 错：调整发射方向后，轨迹不再由同一个“擦网且落底线”的水平平抛条件唯一决定；落到对面底线不等于一定擦网。答案：A、D。"
+    }
+  ],
+  "knowledge": [
+    "平抛运动",
+    "临界过网",
+    "落点判断"
+  ],
+  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n          \n          \n          \n          \n          \n          \n        <div class=\"note-body\"><h2>课上第7题：排球过网落点</h2><p>如图所示，一排球运动员将球在边界处正上方水平向右击出，球刚好过网并落在图中位置，不计空气阻力。</p><p>已知击球点高度为 \\(h_1\\)，网高为 \\(h_2\\)，击球点到网的水平距离为 \\(s\\)，过网后到落点的水平距离为 \\(\\frac{s}{2}\\)。判断下列说法中正确的是哪些。</p><p><strong>选项：</strong></p><p>A. \\(h_1=1.8h_2\\)</p><p>B. 保持击球高度不变，初速度 <span class=\"formula-line\">\\(v_0\\)</span> 只要不大于某一上限，就一定落在对方界内。</p><p>C. 任意降低击球高度但仍大于 \\(h_2\\)，只要击球初速度合适，球一定能落在对方界内。</p><p>D. 任意增加击球高度，只要击球初速度合适，球一定能落在对方界内。</p><p>E. 调整 \\(h_1\\) 与 \\(h_2\\) 的高度，若垂直底线水平向右击出的球能够擦网而过后直接落到对面底线上，则适当调整发射方向后，仍垂直底线，只要落到对面底线的球一定是擦网而过的。</p></div></section>\n        <section class=\"problem-note-block\" data-analysis-block=\"1\"><p class=\"problem-note-kicker\">解析</p><div class=\"note-body\"><h2>分选项解析</h2><p></p><details class=\"analysis-step\" data-step-index=\"0\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 A：\\(h_1=1.8h_2\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先用同一个水平初速度连接过网点和落地点，再把‘能过网’与‘落在界内’分别写成不等式，不能只检查其中一处。</p><p><strong>对应公式</strong></p><p>\\[h_1=\\frac12g\\left(\\frac{3s}{2v_0}\\right)^2,\\qquad h_1-h_2=\\frac12g\\left(\\frac{s}{v_0}\\right)^2\\]</p><p><strong>选项判断</strong></p><p>两式相除得 \\(h_2=\\frac59h_1\\)，即 \\(h_1=1.8h_2\\)，因此 A 正确。</p></div></details><details class=\"analysis-step\" data-step-index=\"1\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 B：保持击球高度不变，初速度 \\(v_0\\) 只要不大于某一上限，就一定落在对方界内。</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先用同一个水平初速度连接过网点和落地点，再把‘能过网’与‘落在界内’分别写成不等式，不能只检查其中一处。</p><p><strong>对应公式</strong></p><p>\\[h_1=\\frac12g\\left(\\frac{3s}{2v_0}\\right)^2,\\qquad h_1-h_2=\\frac12g\\left(\\frac{s}{v_0}\\right)^2\\]</p><p><strong>选项判断</strong></p><p>速度太小时球会落在网前，速度太大时又会越过底线；只有上限没有下限的说法不成立，因此 B 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"2\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 C：任意降低击球高度但仍大于 \\(h_2\\)，只要击球初速度合适，球一定能落在对方界内。</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先用同一个水平初速度连接过网点和落地点，再把‘能过网’与‘落在界内’分别写成不等式，不能只检查其中一处。</p><p><strong>对应公式</strong></p><p>\\[h_1=\\frac12g\\left(\\frac{3s}{2v_0}\\right)^2,\\qquad h_1-h_2=\\frac12g\\left(\\frac{s}{v_0}\\right)^2\\]</p><p><strong>选项判断</strong></p><p>降低击球高度后，界内落点所能达到的最大网口高度可能低于 \\(h_2\\)，并非一定存在合适初速度，因此 C 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"3\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 D：任意增加击球高度，只要击球初速度合适，球一定能落在对方界内。</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先用同一个水平初速度连接过网点和落地点，再把‘能过网’与‘落在界内’分别写成不等式，不能只检查其中一处。</p><p><strong>对应公式</strong></p><p>\\[h_1=\\frac12g\\left(\\frac{3s}{2v_0}\\right)^2,\\qquad h_1-h_2=\\frac12g\\left(\\frac{s}{v_0}\\right)^2\\]</p><p><strong>选项判断</strong></p><p>增加击球高度会扩大既能过网又能落在界内的可行区间，可以选取合适初速度，因此 D 正确。</p></div></details><details class=\"analysis-step\" data-step-index=\"4\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 E：调整 \\(h_1\\) 与 \\(h_2\\) 的高度，若垂直底线水平向右击出的球能够擦网而过后直接落到对面底线上，则适当调整发射方向后，仍垂直底线，只要落到对面底线的球一定是擦网而过的。</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先用同一个水平初速度连接过网点和落地点，再把‘能过网’与‘落在界内’分别写成不等式，不能只检查其中一处。</p><p><strong>对应公式</strong></p><p>\\[h_1=\\frac12g\\left(\\frac{3s}{2v_0}\\right)^2,\\qquad h_1-h_2=\\frac12g\\left(\\frac{s}{v_0}\\right)^2\\]</p><p><strong>选项判断</strong></p><p>改变发射方向后轨迹条件随之改变，落到底线不能推出必然擦网，因此 E 错误。</p></div></details><details class=\"analysis-step\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">完整推导</summary><div class=\"analysis-step-content\"><h2>取平抛课上第7题：用同一个 \\(v_0\\) 比较过网点和落地点</h2><p><strong>1. 写出两个关键位置。</strong> 球从高度 \\(h_1\\) 水平击出，落到底线时水平位移为 <span class=\"formula-line\">\\(x=\\frac{3s}{2}\\)</span>，过网时水平位移为 <span class=\"formula-line\">\\(x=s\\)</span>。</p><p><strong>2. 落地条件。</strong> 设初速度为 \\(v_0\\)，平抛满足 \\(x=v_0t\\)、\\(y=\\frac{1}{2}gt^2\\)。落地时下落高度为 \\(h_1\\)，所以 <span class=\"formula-line\">\\(h_1=\\frac{1}{2}g\\left(\\frac{3s}{2v_0}\\right)^2\\)</span>。</p><p><strong>3. 过网条件。</strong> 球刚好过网，说明到 \\(x=s\\) 时下落高度为 \\(h_1-h_2\\)，所以 <span class=\"formula-line\">\\(h_1-h_2=\\frac{1}{2}g\\left(\\frac{s}{v_0}\\right)^2\\)</span>。</p><p><strong>4. 消去 \\(v_0\\)。</strong> 两式相除：<span class=\"formula-line\">\\(\\frac{h_1-h_2}{h_1}=\\frac{s^2}{(3s/2)^2}=\\frac{4}{9}\\)</span>，因此 <span class=\"formula-line\">\\(h_2=\\frac{5}{9}h_1\\)</span>，即 <span class=\"formula-line\">\\(h_1=\\frac{9}{5}h_2=1.8h_2\\)</span>，A 正确。</p><p><strong>5. 判断能否进界。</strong> 若球仍水平击出，设落点水平位移为 \\(R\\)。落在对方界内要求 <span class=\"formula-line\">\\(s\\lt R\\le\\frac{3s}{2}\\)</span>，过网要求在 \\(x=s\\) 处高度不低于 \\(h_2\\)。在给定 \\(R\\le\\frac{3s}{2}\\) 时，网处最高也只有 <span class=\"formula-line\">\\(h_1\\left(1-\\frac{s^2}{R^2}\\right)\\le\\frac{5}{9}h_1\\)</span>。</p><p><strong>6. 比较选项。</strong> 原题刚好满足 <span class=\"formula-line\">\\(\\frac{5}{9}h_1=h_2\\)</span>，所以 A 正确。</p><p>B 错：保持击球高度不变时，速度太小会落在网前，速度太大又会出界；不能只说不大于某一上限。</p><p>C 错：若降低击球高度，则 <span class=\"formula-line\">\\(\\frac{5}{9}h_1\\lt h_2\\)</span>，球即使落在底线处，也达不到网高，无法既过网又落在界内。</p><p>D 对：若增加击球高度，则可以选取合适的落点 <span class=\"formula-line\">\\(R\\)</span>，使 <span class=\"formula-line\">\\(s\\lt R\\le\\frac{3s}{2}\\)</span>，从而既过网又落在界内。</p><p>E 错：调整发射方向后，轨迹不再由同一个“擦网且落底线”的水平平抛条件唯一决定；落到对面底线不等于一定擦网。</p><p><strong>答案：</strong>A、D。</p></div></details></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：过网与界内落点的可行域</h2><h3>基础设问</h3><p>排球从高度 \\(h_1\\) 处水平击出，经过水平距离 \\(s\\) 时刚好擦网，落地点在网后 \\(s\\) 处。求网高 \\(h_2\\) 与 \\(h_1\\) 的关系。</p><h3>综合提升</h3><p>击球点高 \\(h\\)，网高 \\(h_n\\)，球网距击球点 \\(s\\)，对方底线距击球点 \\(S&gt;s\\)。（1）求水平击球能够过网且落在 \\([s,S]\\) 内的初速度区间；（2）求该区间非空的高度条件；（3）找出恰好擦网又落底线的临界；（4）讨论提高击球点对可行域的影响。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>落地总水平距离为 \\(2s\\)，擦网时距离为 \\(s\\)。竖直下落量与水平距离平方成正比，所以 \\(h_1-h_2=\\frac14h_1\\)，得 \\(h_2=\\frac34h_1\\)。</p>\n          <h3>2. 综合提升</h3><p>落地射程 \\(R=v_0\\sqrt{2h/g}\\)，界内要求 \\(s<r\\le s\\)。过网要求<=\"\" p=\"\"></r\\le></p><p>\\[h-\\frac{gs^2}{2v_0^2}\\ge h_n.\\]</p><p>因此速度下限取“过网下限”和“落过网后下限”的较大者，上限由底线给出。恰好擦网且落底线时</p><p>\\[h-h_n=\\frac{gs^2}{2v_0^2},\\qquad h=\\frac{gS^2}{2v_0^2},\\]</p><p>故 \\((h-h_n)/h=s^2/S^2\\)。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>同一条平抛轨迹上，竖直下落量 \\(y\\propto t^2\\propto x^2\\)。比较两个位置的水平距离平方即可。</p>\n          <h3>2. 进阶思路</h3><p>把过网和落点写成同一变量 (v_0) 的不等式，再求交集；可行域非空本身就是新的临界条件。</p></details></div></section>\n      </div>\n    ",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "fanphysics_model",
+    "variant": "volleyballServe",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "volleyH1": {
+        "label": "击球高度 h₁",
+        "value": 180,
+        "min": 80,
+        "max": 260,
+        "step": 5,
+        "unit": ""
+      },
+      "volleyH2": {
+        "label": "网高 h₂",
+        "value": 100,
+        "min": 40,
+        "max": 180,
+        "step": 5,
+        "unit": ""
+      },
+      "volleyS": {
+        "label": "到网距离 s",
+        "value": 180,
+        "min": 100,
+        "max": 260,
+        "step": 5,
+        "unit": ""
+      },
+      "volleyV0": {
+        "label": "初速度 v₀",
+        "value": 45,
+        "min": 10,
+        "max": 90,
+        "step": 1,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    },
+    "notes": "同一条平抛轨迹同时检查过网和界内落点"
+  }
+}

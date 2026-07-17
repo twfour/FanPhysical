@@ -1,0 +1,66 @@
+{
+  "id": "inclineSlot",
+  "chapter": "必修一结业测试",
+  "title": "第3题：光滑斜槽下滑",
+  "question": "\\(AB\\)、\\(CD\\) 是光滑斜槽，端点分别在半径为 \\(R\\) 和 \\(r\\) 的两个圆周上，延长线交于共同切点 \\(P\\)，\\(P\\) 为最低点。两个质量均为 \\(m\\) 的重物分别沿 \\(AB\\)、\\(CD\\) 由静止下滑；\\(AP\\)、\\(CP\\) 与竖直方向夹角分别为 \\(30^\\circ\\)、\\(45^\\circ\\)，比较加速度、下滑时间、粗糙影响和质量影响。",
+  "options": [],
+  "steps": [
+    {
+      "title": "完整解析",
+      "content": "展开从外圆到内圆，槽长和加速度同含 \\(\\cos\\theta\\)题目问的是 \\(A\\to B\\)、\\(C\\to D\\)，不是滑到 \\(P\\)。若槽与竖直方向夹角为 \\(\\theta\\)，沿槽加速度 \\(a=g\\cos\\theta\\)，所以 \\(a_{AB}=g\\cos30^\\circ\\)、\\(a_{CD}=g\\cos45^\\circ\\)，得 \\(a_{AB}>a_{CD}\\)。由圆几何，外圆到内圆的槽长 \\(s=2(R-r)\\cos\\theta\\)，于是 \\(t=\\sqrt{\\frac{2s}{a}}=2\\sqrt{\\frac{R-r}{g}}\\)，两槽时间相同。粗糙时摩擦做负功，时间变长；质量 \\(m\\) 不影响。答案：\\(a_{AB}>a_{CD}\\)，两段下滑时间相同，粗糙时耗时变长，质量不影响。"
+    }
+  ],
+  "knowledge": [
+    "斜面运动",
+    "圆几何",
+    "等时性"
+  ],
+  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n        <div class=\"note-body\"><h2>第3题：光滑斜槽下滑</h2><p>\\(AB\\)、\\(CD\\) 是光滑斜槽，端点分别在半径为 \\(R\\) 和 \\(r\\) 的两个圆周上，延长线交于共同切点 \\(P\\)，\\(P\\) 为最低点。两个质量均为 \\(m\\) 的重物分别沿 \\(AB\\)、\\(CD\\) 由静止下滑；\\(AP\\)、\\(CP\\) 与竖直方向夹角分别为 \\(30^\\circ\\)、\\(45^\\circ\\)，比较加速度、下滑时间、粗糙影响和质量影响。</p></div></section>\n        <section class=\"problem-note-block is-collapsed\">\n          <p class=\"problem-note-kicker\">解析</p>\n          \n          \n        <button type=\"button\" class=\"note-toggle\">展开</button><div class=\"note-body\"><h2>从外圆到内圆，槽长和加速度同含 \\(\\cos\\theta\\)</h2><p>题目问的是 \\(A\\to B\\)、\\(C\\to D\\)，不是滑到 \\(P\\)。若槽与竖直方向夹角为 \\(\\theta\\)，沿槽加速度 \\(a=g\\cos\\theta\\)，所以 \\(a_{AB}=g\\cos30^\\circ\\)、\\(a_{CD}=g\\cos45^\\circ\\)，得 \\(a_{AB}&gt;a_{CD}\\)。由圆几何，外圆到内圆的槽长 \\(s=2(R-r)\\cos\\theta\\)，于是 \\(t=\\sqrt{\\frac{2s}{a}}=2\\sqrt{\\frac{R-r}{g}}\\)，两槽时间相同。粗糙时摩擦做负功，时间变长；质量 \\(m\\) 不影响。答案：\\(a_{AB}&gt;a_{CD}\\)，两段下滑时间相同，粗糙时耗时变长，质量不影响。</p></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：粗糙斜槽的等时性破缺</h2><h3>基础设问</h3><p>两条光滑斜槽分别与竖直方向成 \\(20^\\circ\\)、\\(60^\\circ\\)，端点仍位于同心外圆和内圆之间。比较两物体从外圆滑到内圆的时间和加速度大小。</p><h3>综合提升</h3><p>同心圆之间的斜槽与竖直方向夹角为 \\(\\theta\\)，外、内半径差为 \\(\\Delta R\\)，物体与槽间动摩擦因数为 \\(\\mu\\)。（1）求沿槽加速度；（2）写出从外圆到内圆的时间；（3）判断光滑时角度为何抵消；（4）求可下滑的角度条件并讨论 \\(t(\\theta)\\) 的最小值。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>加速度分别为 \\(g\\cos20^\\circ\\)、\\(g\\cos60^\\circ\\)，所以前者更大。槽长正比于 \\(\\cos\\theta\\)，代入 \\(t=\\sqrt{2s/a}\\) 后角度抵消，同一组内外圆半径下时间相同。</p>\n          <h3>2. 综合提升</h3><p>槽长 \\(s=2\\Delta R\\cos\\theta\\)。重力沿槽分量为 \\(mg\\cos\\theta\\)，支持力为 \\(mg\\sin\\theta\\)，故</p><p>\\[a=g(\\cos\\theta-\\mu\\sin\\theta),\\qquad t=\\sqrt{\\frac{4\\Delta R\\cos\\theta}{g(\\cos\\theta-\\mu\\sin\\theta)}}.\\]</p><p>当 \\(\\mu=0\\) 时角度因子抵消；粗糙时不再等时。能由静止下滑要求 \\(\\cos\\theta&gt;\\mu\\sin\\theta\\)，即 \\(\\tan\\theta&lt;1/\\mu\\)。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>先用沿槽方向分解重力求加速度，再用圆几何求槽长。这里角度同时影响 \\(s\\) 和 \\(a\\)，最后在时间公式中抵消。</p>\n          <h3>2. 进阶思路</h3><p>圆几何给路程，受力分解给加速度；粗糙后两个角度因子不同，原来的等时结论自然失效。</p></details></div></section>\n      </div>\n    ",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "fanphysics_model",
+    "variant": "inclineSlot",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "slotR": {
+        "label": "外圆半径 R",
+        "value": 160,
+        "min": 60,
+        "max": 220,
+        "step": 1,
+        "unit": ""
+      },
+      "slotr": {
+        "label": "内圆半径 r",
+        "value": 100,
+        "min": 60,
+        "max": 220,
+        "step": 1,
+        "unit": ""
+      },
+      "slotTheta1": {
+        "label": "夹角 θ₁",
+        "value": 30,
+        "min": 10,
+        "max": 75,
+        "step": 1,
+        "unit": "deg"
+      },
+      "slotTheta2": {
+        "label": "夹角 θ₂",
+        "value": 45,
+        "min": 10,
+        "max": 75,
+        "step": 1,
+        "unit": "deg"
+      }
+    },
+    "timeline": {
+      "duration": 12,
+      "loop": false
+    },
+    "notes": "两条斜槽均从外圆滑向内圆，图像比较到达时刻"
+  }
+}

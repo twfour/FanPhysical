@@ -1,0 +1,71 @@
+{
+  "id": "bowlDoubleBall",
+  "chapter": "圆周运动",
+  "title": "补充第13题：半球碗双球圆周运动",
+  "question": "如图所示，质量均为 \\(m\\) 的 \\(a,b\\) 两个小球在光滑半球形碗内做圆周运动，碗的球心为 \\(O\\)，半径为 \\(0.1\\mathrm{m}\\)，\\(Oa,Ob\\) 与竖直方向的夹角分别为 \\(53^\\circ,37^\\circ\\)。两球运动过程中，碗始终静止在水平地面上。已知 \\(\\sin37^\\circ=0.6\\)，\\(g=10\\mathrm{m/s^2}\\)，则下列说法正确的是（  ）A. \\(a,b\\) 两球做圆周运动的线速度之比为 \\(8\\sqrt3:3\\)B. \\(a,b\\) 两球做圆周运动的角速度之比为 \\(2:\\sqrt3\\)C. \\(a,b\\) 两球相邻两次相距最近的时间间隔为 \\(\\frac{2\\sqrt{15}+3\\sqrt5}{10}\\pi\\mathrm{s}\\)D. \\(a,b\\) 两球运动过程中，碗对地面始终有摩擦力作用",
+  "options": [
+    "A. \\(a,b\\) 两球做圆周运动的线速度之比为 \\(8\\sqrt3:3\\)",
+    "B. \\(a,b\\) 两球做圆周运动的角速度之比为 \\(2:\\sqrt3\\)",
+    "C. \\(a,b\\) 两球相邻两次相距最近的时间间隔为 \\(\\frac{2\\sqrt{15}+3\\sqrt5}{10}\\pi\\mathrm{s}\\)",
+    "D. \\(a,b\\) 两球运动过程中，碗对地面始终有摩擦力作用"
+  ],
+  "steps": [
+    {
+      "title": "完整解析",
+      "content": "分选项解析选项 A：\\(a,b\\) 两球做圆周运动的线速度之比为 \\(8\\sqrt3:3\\)解题思路对每个球分别把碗的支持力分解为竖直平衡分量和水平向心分量，再由各自轨道半径比较角速度、线速度及相对相位。对应公式\\[N\\cos\\theta=mg,\\qquad \\omega^2=\\frac{g}{R\\cos\\theta},\\qquad v=\\omega R\\sin\\theta\\]选项判断按 \\(v=\\omega R\\sin\\theta\\) 计算得到的线速度比与该选项不符，因此 A 错误。选项 B：\\(a,b\\) 两球做圆周运动的角速度之比为 \\(2:\\sqrt3\\)解题思路对每个球分别把碗的支持力分解为竖直平衡分量和水平向心分量，再由各自轨道半径比较角速度、线速度及相对相位。对应公式\\[N\\cos\\theta=mg,\\qquad \\omega^2=\\frac{g}{R\\cos\\theta},\\qquad v=\\omega R\\sin\\theta\\]选项判断由 \\(\\omega^2=g/(R\\cos\\theta)\\) 得到选项所给角速度比，因此 B 正确。选项 C：\\(a,b\\) 两球相邻两次相距最近的时间间隔为 \\(\\frac{2\\sqrt{15}+3\\sqrt5}{10}\\pi\\mathrm{s}\\)解题思路对每个球分别把碗的支持力分解为竖直平衡分量和水平向心分量，再由各自轨道半径比较角速度、线速度及相对相位。对应公式\\[N\\cos\\theta=mg,\\qquad \\omega^2=\\frac{g}{R\\cos\\theta},\\qquad v=\\omega R\\sin\\theta\\]选项判断相邻两次最近应由相对角速度求周期，选项给出的时间与该关系不符，因此 C 错误。选项 D：\\(a,b\\) 两球运动过程中，碗对地面始终有摩擦力作用解题思路对每个球分别把碗的支持力分解为竖直平衡分量和水平向心分量，再由各自轨道半径比较角速度、线速度及相对相位。对应公式\\[N\\cos\\theta=mg,\\qquad \\omega^2=\\frac{g}{R\\cos\\theta},\\qquad v=\\omega R\\sin\\theta\\]选项判断两球对碗的水平作用一般不能始终抵消，地面需要提供静摩擦维持碗静止，因此 D 正确。完整推导取补充第13题：半球碗内的圆锥摆变式1. 单个小球先列受力。 小球受重力 \\(mg\\) 和碗的支持力 \\(N\\)。竖直方向平衡，水平方向提供向心力：\\(N\\cos\\theta=mg,\\quad N\\sin\\theta=m\\omega^2R\\sin\\theta\\)。2. 化简角速度。 由上式得 \\(\\omega^2=\\frac{g}{R\\cos\\theta}\\)。已知 \\(\\cos53^\\circ=0.6,\\cos37^\\circ=0.8\\)，所以 \\(\\frac{\\omega_a}{\\omega_b}=\\sqrt{\\frac{\\cos37^\\circ}{\\cos53^\\circ}}=\\sqrt{\\frac{4}{3}}=\\frac{2}{\\sqrt3}\\)，B 对。3. 比较线速度。 圆周半径 \\(r=R\\sin\\theta\\)，所以 \\(v=\\omega R\\sin\\theta\\)。代入 \\(\\sin53^\\circ=0.8,\\sin37^\\circ=0.6\\)：\\(\\frac{v_a}{v_b}=\\frac{0.8}{0.6}\\cdot\\frac{2}{\\sqrt3}=\\frac{8\\sqrt3}{9}\\)，不是 \\(8\\sqrt3:3\\)，A 错。4. 最近时间与摩擦。 两球相邻两次最近对应角位置再次对齐，时间由相对角速度决定；按上式代入可知与 C 给出的时间不符。两球对碗的水平作用力大小分别为 \\(mg\\tan53^\\circ\\) 与 \\(mg\\tan37^\\circ\\)，不相等，合水平力不能始终自行抵消，因此地面对碗有静摩擦力，D 对。答案：B、D。"
+    }
+  ],
+  "knowledge": [
+    "圆周运动",
+    "圆锥摆",
+    "半球碗约束"
+  ],
+  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n          \n          \n          \n        <div class=\"note-body\"><h2>补充第13题：半球碗双球圆周运动</h2><p>如图所示，质量均为 \\(m\\) 的 \\(a,b\\) 两个小球在光滑半球形碗内做圆周运动，碗的球心为 \\(O\\)，半径为 \\(0.1\\mathrm{m}\\)，\\(Oa,Ob\\) 与竖直方向的夹角分别为 \\(53^\\circ,37^\\circ\\)。两球运动过程中，碗始终静止在水平地面上。已知 \\(\\sin37^\\circ=0.6\\)，\\(g=10\\mathrm{m/s^2}\\)，则下列说法正确的是（  ）</p><p>A. \\(a,b\\) 两球做圆周运动的线速度之比为 \\(8\\sqrt3:3\\)</p><p>B. \\(a,b\\) 两球做圆周运动的角速度之比为 \\(2:\\sqrt3\\)</p><p>C. \\(a,b\\) 两球相邻两次相距最近的时间间隔为 \\(\\frac{2\\sqrt{15}+3\\sqrt5}{10}\\pi\\mathrm{s}\\)</p><p>D. \\(a,b\\) 两球运动过程中，碗对地面始终有摩擦力作用</p></div></section>\n        <section class=\"problem-note-block\" data-analysis-block=\"1\"><p class=\"problem-note-kicker\">解析</p><div class=\"note-body\"><h2>分选项解析</h2><p></p><details class=\"analysis-step\" data-step-index=\"0\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 A：\\(a,b\\) 两球做圆周运动的线速度之比为 \\(8\\sqrt3:3\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>对每个球分别把碗的支持力分解为竖直平衡分量和水平向心分量，再由各自轨道半径比较角速度、线速度及相对相位。</p><p><strong>对应公式</strong></p><p>\\[N\\cos\\theta=mg,\\qquad \\omega^2=\\frac{g}{R\\cos\\theta},\\qquad v=\\omega R\\sin\\theta\\]</p><p><strong>选项判断</strong></p><p>按 \\(v=\\omega R\\sin\\theta\\) 计算得到的线速度比与该选项不符，因此 A 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"1\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 B：\\(a,b\\) 两球做圆周运动的角速度之比为 \\(2:\\sqrt3\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>对每个球分别把碗的支持力分解为竖直平衡分量和水平向心分量，再由各自轨道半径比较角速度、线速度及相对相位。</p><p><strong>对应公式</strong></p><p>\\[N\\cos\\theta=mg,\\qquad \\omega^2=\\frac{g}{R\\cos\\theta},\\qquad v=\\omega R\\sin\\theta\\]</p><p><strong>选项判断</strong></p><p>由 \\(\\omega^2=g/(R\\cos\\theta)\\) 得到选项所给角速度比，因此 B 正确。</p></div></details><details class=\"analysis-step\" data-step-index=\"2\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 C：\\(a,b\\) 两球相邻两次相距最近的时间间隔为 \\(\\frac{2\\sqrt{15}+3\\sqrt5}{10}\\pi\\mathrm{s}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>对每个球分别把碗的支持力分解为竖直平衡分量和水平向心分量，再由各自轨道半径比较角速度、线速度及相对相位。</p><p><strong>对应公式</strong></p><p>\\[N\\cos\\theta=mg,\\qquad \\omega^2=\\frac{g}{R\\cos\\theta},\\qquad v=\\omega R\\sin\\theta\\]</p><p><strong>选项判断</strong></p><p>相邻两次最近应由相对角速度求周期，选项给出的时间与该关系不符，因此 C 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"3\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 D：\\(a,b\\) 两球运动过程中，碗对地面始终有摩擦力作用</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>对每个球分别把碗的支持力分解为竖直平衡分量和水平向心分量，再由各自轨道半径比较角速度、线速度及相对相位。</p><p><strong>对应公式</strong></p><p>\\[N\\cos\\theta=mg,\\qquad \\omega^2=\\frac{g}{R\\cos\\theta},\\qquad v=\\omega R\\sin\\theta\\]</p><p><strong>选项判断</strong></p><p>两球对碗的水平作用一般不能始终抵消，地面需要提供静摩擦维持碗静止，因此 D 正确。</p></div></details><details class=\"analysis-step\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">完整推导</summary><div class=\"analysis-step-content\"><h2>取补充第13题：半球碗内的圆锥摆变式</h2><p><strong>1. 单个小球先列受力。</strong> 小球受重力 \\(mg\\) 和碗的支持力 \\(N\\)。竖直方向平衡，水平方向提供向心力：<span class=\"formula-line\">\\(N\\cos\\theta=mg,\\quad N\\sin\\theta=m\\omega^2R\\sin\\theta\\)</span>。</p><p><strong>2. 化简角速度。</strong> 由上式得 <span class=\"formula-line\">\\(\\omega^2=\\frac{g}{R\\cos\\theta}\\)</span>。已知 \\(\\cos53^\\circ=0.6,\\cos37^\\circ=0.8\\)，所以 <span class=\"formula-line\">\\(\\frac{\\omega_a}{\\omega_b}=\\sqrt{\\frac{\\cos37^\\circ}{\\cos53^\\circ}}=\\sqrt{\\frac{4}{3}}=\\frac{2}{\\sqrt3}\\)</span>，B 对。</p><p><strong>3. 比较线速度。</strong> 圆周半径 \\(r=R\\sin\\theta\\)，所以 \\(v=\\omega R\\sin\\theta\\)。代入 \\(\\sin53^\\circ=0.8,\\sin37^\\circ=0.6\\)：<span class=\"formula-line\">\\(\\frac{v_a}{v_b}=\\frac{0.8}{0.6}\\cdot\\frac{2}{\\sqrt3}=\\frac{8\\sqrt3}{9}\\)</span>，不是 \\(8\\sqrt3:3\\)，A 错。</p><p><strong>4. 最近时间与摩擦。</strong> 两球相邻两次最近对应角位置再次对齐，时间由相对角速度决定；按上式代入可知与 C 给出的时间不符。两球对碗的水平作用力大小分别为 \\(mg\\tan53^\\circ\\) 与 \\(mg\\tan37^\\circ\\)，不相等，合水平力不能始终自行抵消，因此地面对碗有静摩擦力，D 对。</p><p><strong>答案：</strong>B、D。</p></div></details></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：半球碗双球的相对周期</h2><h3>基础设问</h3><p>两个质量均为 \\(m\\) 的小球 \\(A,B\\) 在同一光滑半球形碗内做水平圆周运动，碗半径为 \\(R=0.20\\,\\mathrm{m}\\)，\\(OA,OB\\) 与竖直方向夹角分别为 \\(60^\\circ,30^\\circ\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求两球的角速度之比 \\(\\omega_A:\\omega_B\\) 和线速度之比 \\(v_A:v_B\\)。</p><h3>综合提升</h3><p>两球在同一光滑半球碗内，半径为 \\(R\\)，各自半径与竖直方向夹角为 \\(\\theta_a,\\theta_b\\)。（1）推导两球角速度和线速度；（2）求同向运动时相邻两次角位置重合的时间；（3）改为反向运动重新作答；（4）写出碗所需地面水平摩擦的矢量表达式并讨论何时瞬时为零。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>\\(\\omega_A:\\omega_B=\\sqrt{\\frac{\\cos30^\\circ}{\\cos60^\\circ}}=\\sqrt[4]{3}:1\\)。线速度比为 \\(v_A:v_B=\\omega_A R\\sin60^\\circ:\\omega_B R\\sin30^\\circ=3^{3/4}:1\\)。</p>\n          <h3>2. 综合提升</h3><p>单球满足</p><p>\\[\\omega_i=\\sqrt{\\frac{g}{R\\cos\\theta_i}},\\qquad v_i=\\omega_iR\\sin\\theta_i.\\]</p><p>同向时相对周期</p><p>\\[T_{rel}=\\frac{2\\pi}{|\\omega_a-\\omega_b|},\\]</p><p>反向时把分母改为 \\(\\omega_a+\\omega_b\\)。碗受到两球水平作用力的矢量和，地面摩擦为其反向；只有两水平作用力等大且方向相反的瞬间才可能为零。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>先把半球碗约束看成圆锥摆：\\(N\\cos\\theta=mg\\)，\\(N\\sin\\theta=m\\omega^2R\\sin\\theta\\)，得到 \\(\\omega^2=\\frac{g}{R\\cos\\theta}\\)。角速度比只比较 \\(\\cos\\theta\\)，线速度还要乘轨道半径 \\(r=R\\sin\\theta\\)。</p>\n          <h3>2. 进阶思路</h3><p>先独立求每个球的角速度，再转入相对相位；碗的摩擦需要做矢量合成，不能只比较两个力的大小。</p></details></div></section>\n      </div>\n    ",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "fanphysics_model",
+    "variant": "bowlDoubleBall",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "bowlR": {
+        "label": "半径 R",
+        "value": 0.1,
+        "min": 0.05,
+        "max": 0.3,
+        "step": 0.01,
+        "unit": "m"
+      },
+      "bowlThetaA": {
+        "label": "a 球角 θa",
+        "value": 53,
+        "min": 15,
+        "max": 75,
+        "step": 1,
+        "unit": "deg"
+      },
+      "bowlThetaB": {
+        "label": "b 球角 θb",
+        "value": 37,
+        "min": 15,
+        "max": 75,
+        "step": 1,
+        "unit": "deg"
+      },
+      "bowlG": {
+        "label": "重力 g",
+        "value": 10,
+        "min": 1,
+        "max": 20,
+        "step": 0.1,
+        "unit": "m/s²"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    },
+    "notes": "半球碗内两球按各自圆锥摆角速度同步运动"
+  }
+}

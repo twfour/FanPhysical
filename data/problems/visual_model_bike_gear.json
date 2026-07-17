@@ -1,0 +1,72 @@
+{
+  "id": "bikeGear",
+  "chapter": "圆周运动",
+  "title": "课上第3题：变速自行车传动",
+  "question": "如图所示，某种变速自行车有五个飞轮和三个链轮。链轮和飞轮的齿数如下表所示，后轮直径为 \\(d=660\\mathrm{mm}\\)。链轮齿数为 \\(48,38,28\\)，飞轮齿数为 \\(15,18,21,24,28\\)。人骑该车行进的速度为 \\(v=4\\mathrm{m/s}\\) 时，求脚蹬踏板作匀速圆周运动的角速度最小值。选项：A. \\(1.9\\mathrm{rad/s}\\)　B. \\(3.8\\mathrm{rad/s}\\)　C. \\(6.5\\mathrm{rad/s}\\)　D. \\(7.1\\mathrm{rad/s}\\)",
+  "options": [],
+  "steps": [
+    {
+      "title": "完整解析",
+      "content": "分选项解析选项 A：\\(1.9\\mathrm{rad/s}\\)解题思路先由车速求后轮角速度；后轮与飞轮同轴，链条接触处线速度相等。最后在可选齿数组合中寻找踏板角速度的最小值。对应公式\\[\\omega_{轮}=\\frac{v}{r},\\qquad \\omega_{踏}N_{链}=\\omega_{轮}N_{飞}\\]选项判断该值低于由最大链轮与最小飞轮组合得到的可实现下限，因此 A 错误。选项 B：\\(3.8\\mathrm{rad/s}\\)解题思路先由车速求后轮角速度；后轮与飞轮同轴，链条接触处线速度相等。最后在可选齿数组合中寻找踏板角速度的最小值。对应公式\\[\\omega_{轮}=\\frac{v}{r},\\qquad \\omega_{踏}N_{链}=\\omega_{轮}N_{飞}\\]选项判断取最大链轮和最小飞轮后得到最小踏板角速度约为 \\(3.8\\,\\mathrm{rad/s}\\)，因此 B 正确。选项 C：\\(6.5\\mathrm{rad/s}\\)解题思路先由车速求后轮角速度；后轮与飞轮同轴，链条接触处线速度相等。最后在可选齿数组合中寻找踏板角速度的最小值。对应公式\\[\\omega_{轮}=\\frac{v}{r},\\qquad \\omega_{踏}N_{链}=\\omega_{轮}N_{飞}\\]选项判断该组合不是踏板角速度的最小值，因此 C 错误。选项 D：\\(7.1\\mathrm{rad/s}\\)解题思路先由车速求后轮角速度；后轮与飞轮同轴，链条接触处线速度相等。最后在可选齿数组合中寻找踏板角速度的最小值。对应公式\\[\\omega_{轮}=\\frac{v}{r},\\qquad \\omega_{踏}N_{链}=\\omega_{轮}N_{飞}\\]选项判断该值对应更不利的传动比，不满足求最小值的要求，因此 D 错误。完整推导取圆周运动课上第3题：链条速度相等，同轴角速度相等1. 先求后轮角速度。 后轮半径 \\(r=\\frac{d}{2}=0.330\\mathrm{m}\\)，自行车前进速度等于后轮边缘线速度，所以 \\(\\omega_{\\text{轮}}=\\frac{v}{r}=\\frac{4}{0.330}\\approx12.12\\mathrm{rad/s}\\)。2. 后轮与飞轮同轴。 飞轮固定在后轮轴上，所以 \\(\\omega_{\\text{飞}}=\\omega_{\\text{轮}}\\)。3. 链条传动看齿数比。 链条不打滑，飞轮边缘链速与链轮边缘链速相等。齿距相同，半径与齿数成正比，因此 \\(\\omega_{\\text{踏}}N_{\\text{链}}=\\omega_{\\text{飞}}N_{\\text{飞}}\\)，即 \\(\\omega_{\\text{踏}}=\\omega_{\\text{轮}}\\frac{N_{\\text{飞}}}{N_{\\text{链}}}\\)。4. 要踏板角速度最小。 取最小飞轮齿数 \\(N_{\\text{飞}}=15\\)，最大链轮齿数 \\(N_{\\text{链}}=48\\)：\\(\\omega_{\\min}=12.12\\times\\frac{15}{48}\\approx3.79\\mathrm{rad/s}\\)。答案：B. \\(3.8\\mathrm{rad/s}\\)。"
+    }
+  ],
+  "knowledge": [
+    "圆周运动",
+    "链传动",
+    "角速度"
+  ],
+  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>课上第3题：变速自行车传动</h2><p>如图所示，某种变速自行车有五个飞轮和三个链轮。链轮和飞轮的齿数如下表所示，后轮直径为 \\(d=660\\mathrm{mm}\\)。</p><p>链轮齿数为 \\(48,38,28\\)，飞轮齿数为 \\(15,18,21,24,28\\)。人骑该车行进的速度为 \\(v=4\\mathrm{m/s}\\) 时，求脚蹬踏板作匀速圆周运动的角速度最小值。</p><p><strong>选项：</strong>A. \\(1.9\\mathrm{rad/s}\\)　B. \\(3.8\\mathrm{rad/s}\\)　C. \\(6.5\\mathrm{rad/s}\\)　D. \\(7.1\\mathrm{rad/s}\\)</p></div></section>\n        <section class=\"problem-note-block\" data-analysis-block=\"1\"><p class=\"problem-note-kicker\">解析</p><div class=\"note-body\"><h2>分选项解析</h2><p></p><details class=\"analysis-step\" data-step-index=\"0\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 A：\\(1.9\\mathrm{rad/s}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先由车速求后轮角速度；后轮与飞轮同轴，链条接触处线速度相等。最后在可选齿数组合中寻找踏板角速度的最小值。</p><p><strong>对应公式</strong></p><p>\\[\\omega_{轮}=\\frac{v}{r},\\qquad \\omega_{踏}N_{链}=\\omega_{轮}N_{飞}\\]</p><p><strong>选项判断</strong></p><p>该值低于由最大链轮与最小飞轮组合得到的可实现下限，因此 A 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"1\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 B：\\(3.8\\mathrm{rad/s}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先由车速求后轮角速度；后轮与飞轮同轴，链条接触处线速度相等。最后在可选齿数组合中寻找踏板角速度的最小值。</p><p><strong>对应公式</strong></p><p>\\[\\omega_{轮}=\\frac{v}{r},\\qquad \\omega_{踏}N_{链}=\\omega_{轮}N_{飞}\\]</p><p><strong>选项判断</strong></p><p>取最大链轮和最小飞轮后得到最小踏板角速度约为 \\(3.8\\,\\mathrm{rad/s}\\)，因此 B 正确。</p></div></details><details class=\"analysis-step\" data-step-index=\"2\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 C：\\(6.5\\mathrm{rad/s}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先由车速求后轮角速度；后轮与飞轮同轴，链条接触处线速度相等。最后在可选齿数组合中寻找踏板角速度的最小值。</p><p><strong>对应公式</strong></p><p>\\[\\omega_{轮}=\\frac{v}{r},\\qquad \\omega_{踏}N_{链}=\\omega_{轮}N_{飞}\\]</p><p><strong>选项判断</strong></p><p>该组合不是踏板角速度的最小值，因此 C 错误。</p></div></details><details class=\"analysis-step\" data-step-index=\"3\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">选项 D：\\(7.1\\mathrm{rad/s}\\)</summary><div class=\"analysis-step-content\"><p><strong>解题思路</strong></p><p>先由车速求后轮角速度；后轮与飞轮同轴，链条接触处线速度相等。最后在可选齿数组合中寻找踏板角速度的最小值。</p><p><strong>对应公式</strong></p><p>\\[\\omega_{轮}=\\frac{v}{r},\\qquad \\omega_{踏}N_{链}=\\omega_{轮}N_{飞}\\]</p><p><strong>选项判断</strong></p><p>该值对应更不利的传动比，不满足求最小值的要求，因此 D 错误。</p></div></details><details class=\"analysis-step\" data-collapsible-step=\"1\" data-collapse-enhanced=\"1\"><summary class=\"analysis-step-summary\">完整推导</summary><div class=\"analysis-step-content\"><h2>取圆周运动课上第3题：链条速度相等，同轴角速度相等</h2><p><strong>1. 先求后轮角速度。</strong> 后轮半径 \\(r=\\frac{d}{2}=0.330\\mathrm{m}\\)，自行车前进速度等于后轮边缘线速度，所以 <span class=\"formula-line\">\\(\\omega_{\\text{轮}}=\\frac{v}{r}=\\frac{4}{0.330}\\approx12.12\\mathrm{rad/s}\\)</span>。</p><p><strong>2. 后轮与飞轮同轴。</strong> 飞轮固定在后轮轴上，所以 <span class=\"formula-line\">\\(\\omega_{\\text{飞}}=\\omega_{\\text{轮}}\\)</span>。</p><p><strong>3. 链条传动看齿数比。</strong> 链条不打滑，飞轮边缘链速与链轮边缘链速相等。齿距相同，半径与齿数成正比，因此 <span class=\"formula-line\">\\(\\omega_{\\text{踏}}N_{\\text{链}}=\\omega_{\\text{飞}}N_{\\text{飞}}\\)</span>，即 <span class=\"formula-line\">\\(\\omega_{\\text{踏}}=\\omega_{\\text{轮}}\\frac{N_{\\text{飞}}}{N_{\\text{链}}}\\)</span>。</p><p><strong>4. 要踏板角速度最小。</strong> 取最小飞轮齿数 \\(N_{\\text{飞}}=15\\)，最大链轮齿数 \\(N_{\\text{链}}=48\\)：<span class=\"formula-line\">\\(\\omega_{\\min}=12.12\\times\\frac{15}{48}\\approx3.79\\mathrm{rad/s}\\)</span>。</p><p><strong>答案：</strong>B. \\(3.8\\mathrm{rad/s}\\)。</p></div></details></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：复合变速系统的最优齿比</h2><h3>基础设问</h3><p>自行车前齿轮 \\(40\\) 齿，后齿轮 \\(20\\) 齿。若前齿轮角速度为 \\(2\\,\\mathrm{rad/s}\\)，求后齿轮角速度。</p><h3>综合提升</h3><p>自行车后轮半径为 \\(R\\)，车速为 \\(v\\)，前链轮齿数可在集合 \\(\\{N_i\\}\\) 中选择，后飞轮齿数可在 \\(\\{n_j\\}\\) 中选择。（1）推导踏频角速度；（2）求所有组合中的最小与最大值；（3）加入踏频舒适区间 \\([\\omega_1,\\omega_2]\\)，筛选可用档位；（4）讨论车速连续变化时的换挡边界。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>链条线速度相等，半径与齿数成正比，所以 \\(\\omega_1r_1=\\omega_2r_2\\)，\\(\\omega_2=\\omega_1\\frac{40}{20}=4\\,\\mathrm{rad/s}\\)。</p>\n          <h3>2. 综合提升</h3><p>后轮与飞轮同轴，链条无滑动，故</p><p>\\[\\omega_{踏}=\\frac{v}{R}\\frac{n_j}{N_i}.\\]</p><p>最小值取最小飞轮齿数与最大链轮齿数，最大值反之。舒适档位满足</p><p>\\[\\omega_1\\le\\frac{v}{R}\\frac{n_j}{N_i}\\le\\omega_2.\\]</p><p>对每个齿数组合把不等式反解成车速区间，其交界就是换挡边界。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>链传动看接触处线速度相等；同轴才是角速度相等。</p>\n          <h3>2. 进阶思路</h3><p>先得到离散档位的统一符号式，再做组合极值和可行区间筛选，比只算一个最小值更接近真实变速问题。</p></details></div></section>\n      </div>\n    ",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "fanphysics_model",
+    "variant": "bikeGear",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "bikeSpeed": {
+        "label": "车速 v",
+        "value": 4,
+        "min": 1,
+        "max": 10,
+        "step": 0.1,
+        "unit": "m/s"
+      },
+      "bikeWheelD": {
+        "label": "后轮直径 d",
+        "value": 0.66,
+        "min": 0.4,
+        "max": 0.9,
+        "step": 0.01,
+        "unit": "m"
+      },
+      "bikeChainTeeth": {
+        "label": "链轮齿数",
+        "value": 48,
+        "options": [
+          48,
+          38,
+          28
+        ],
+        "unit": ""
+      },
+      "bikeFlyTeeth": {
+        "label": "飞轮齿数",
+        "value": 15,
+        "options": [
+          15,
+          18,
+          21,
+          24,
+          28
+        ],
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    },
+    "notes": "车轮、飞轮和链轮按同轴及链速关系同步转动"
+  }
+}

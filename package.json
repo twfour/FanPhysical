@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "check:js": "node --check assets/app.js && node --check assets/scenes/*.js"
+    "check": "npm run check:js && npm run check:data",
+    "check:js": "node --check assets/app.js && node --check assets/scenes/*.js",
+    "check:data": "python3 -B scripts/validate_problems.py"
   },
   "devDependencies": {
     "playwright": "^1.61.1"

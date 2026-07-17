@@ -1,15 +1,32 @@
 #!/usr/bin/env python3
 import json
+import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBLEM_DIR = ROOT / "data" / "problems"
 INDEX_PATH = PROBLEM_DIR / "index.json"
-VISUAL_MODELS_PATH = PROBLEM_DIR / "visual-models.json"
+HTML_PATH = ROOT / "classical-mechanics-demo.html"
 REQUIRED_PROBLEM_FIELDS = ["id", "chapter", "title", "question", "steps", "knowledge"]
 REQUIRED_STEP_FIELDS = ["title", "content"]
+SUPPORTED_ANIMATION_TYPES = {
+    "none",
+    "fanphysics_model",
+    "curve_training_model",
+    "projectile_training_model",
+    "circular_concept",
+    "gravitation_model",
+    "gravitation_lunar_throw",
+    "gravitation_eclipse",
+    "work_power_model",
+    "kinetic_energy_model",
+    "mechanical_energy_model",
+    "functional_relation_model",
+    "required_one_test_model",
+}
 
 
 def load_json(path):
@@ -32,7 +49,10 @@ def validate_problem(path):
                     errors.append(f"{path.name}: step {index} missing field {field}")
     if not isinstance(problem.get("knowledge"), list):
         errors.append(f"{path.name}: knowledge must be a list")
-    return problem, errors
+    animation_type = problem.get("animation", {}).get("type", "none")
+    if animation_type not in SUPPORTED_ANIMATION_TYPES:
+        errors.append(f"{path.name}: unsupported animation type {animation_type}")
+    return problem, animation_type, errors
 
 
 def main():
@@ -43,53 +63,60 @@ def main():
         return 1
 
     seen_ids = set()
+    seen_files = set()
+    animation_type_counts = Counter()
     all_errors = []
-    for entry in entries:
-      file_name = entry.get("file")
-      if not file_name:
-          all_errors.append("index.json: every entry needs file")
-          continue
-      path = PROBLEM_DIR / file_name
-      if not path.exists():
-          all_errors.append(f"index.json: missing file {file_name}")
-          continue
-      problem, errors = validate_problem(path)
-      all_errors.extend(errors)
-      problem_id = problem.get("id")
-      if problem_id in seen_ids:
-          all_errors.append(f"{file_name}: duplicate id {problem_id}")
-      seen_ids.add(problem_id)
-      if entry.get("id") and entry["id"] != problem_id:
-          all_errors.append(f"index.json: id {entry['id']} does not match {file_name} id {problem_id}")
+    for position, entry in enumerate(entries, start=1):
+        if not isinstance(entry, dict):
+            all_errors.append(f"index.json: item {position} must be an object")
+            continue
+        file_name = entry.get("file")
+        if not file_name:
+            all_errors.append(f"index.json: item {position} needs file")
+            continue
+        if file_name in seen_files:
+            all_errors.append(f"index.json: duplicate file {file_name}")
+        seen_files.add(file_name)
+        path = PROBLEM_DIR / file_name
+        if not path.exists():
+            all_errors.append(f"index.json: missing file {file_name}")
+            continue
+        try:
+            problem, animation_type, errors = validate_problem(path)
+        except (json.JSONDecodeError, OSError) as error:
+            all_errors.append(f"{file_name}: {error}")
+            continue
+        all_errors.extend(errors)
+        animation_type_counts[animation_type] += 1
+        problem_id = problem.get("id")
+        if problem_id in seen_ids:
+            all_errors.append(f"{file_name}: duplicate id {problem_id}")
+        seen_ids.add(problem_id)
+        if entry.get("id") != problem_id:
+            all_errors.append(
+                f"index.json: id {entry.get('id')} does not match {file_name} id {problem_id}"
+            )
 
-    visual_model_count = 0
-    if VISUAL_MODELS_PATH.exists():
-        catalog = load_json(VISUAL_MODELS_PATH)
-        models = catalog.get("models", [])
-        if not isinstance(models, list):
-            all_errors.append("visual-models.json: models must be a list")
-        else:
-            visual_model_count = len(models)
-            for index, model in enumerate(models, start=1):
-                label = model.get("id") or f"item {index}"
-                for field in REQUIRED_PROBLEM_FIELDS:
-                    if field not in model:
-                        all_errors.append(f"visual-models.json: {label} missing field {field}")
-                if not model.get("notesHtml"):
-                    all_errors.append(f"visual-models.json: {label} missing notesHtml")
-                animation = model.get("animation", {})
-                if animation.get("type") != "fanphysics_model" or animation.get("enabled") is not True:
-                    all_errors.append(f"visual-models.json: {label} needs an enabled fanphysics_model animation")
-                model_id = model.get("id")
-                if model_id in seen_ids:
-                    all_errors.append(f"visual-models.json: duplicate id {model_id}")
-                seen_ids.add(model_id)
+    html = HTML_PATH.read_text(encoding="utf-8")
+    tree_scene_ids = [
+        scene_id
+        for scene_id in re.findall(r'data-scene="([^"]+)"', html)
+        if scene_id != "summerExam"
+    ]
+    for scene_id in tree_scene_ids:
+        if scene_id not in seen_ids:
+            all_errors.append(f"tree scene missing from problem index: {scene_id}")
 
     if all_errors:
         for error in all_errors:
             print(error, file=sys.stderr)
         return 1
-    print(f"OK: {len(entries)} problem file(s) + {visual_model_count} visual model(s) validated")
+
+    hidden_index_entries = seen_ids.difference(tree_scene_ids)
+    print(f"OK: {len(entries)} problem file(s) and {len(tree_scene_ids)} tree scene(s) validated")
+    print(f"Animation types: {dict(sorted(animation_type_counts.items()))}")
+    if hidden_index_entries:
+        print(f"Index-only historical problems retained: {len(hidden_index_entries)}")
     return 0
 
 

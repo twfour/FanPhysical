@@ -1,0 +1,74 @@
+{
+  "id": "waterfallCrossing",
+  "chapter": "曲线运动",
+  "title": "课上第10题：瀑布临界渡河",
+  "question": "一只船从河岸 \\(A\\) 处渡河，河宽 \\(d=30\\,\\mathrm{m}\\)，水速 \\(v_{\\text{水}}=10\\,\\mathrm{m/s}\\)，距 \\(A\\) 下游 \\(L=40\\,\\mathrm{m}\\) 处有瀑布。为使小船靠岸时不至于被冲进瀑布，求船相对静水的最小速度。",
+  "options": [],
+  "steps": [
+    {
+      "title": "完整解析",
+      "content": "展开让合速度方向刚好指向安全边界1. 找临界轨迹。 小船刚好安全时，应从 \\(A\\) 点到达对岸瀑布前的边界点，位移方向对应 \\((L,d)=(40,30)\\)。因此临界方向的斜边长度为 \\(\\sqrt{L^2+d^2}=\\sqrt{40^2+30^2}=50\\,\\mathrm{m}\\)。2. 把水速投到临界方向的垂直方向。 船对地的合速度必须沿临界方向或更偏上游。要让船速最小，船速矢量应恰好垂直于临界合速度方向。3. 代入最小值公式。 临界方向与水流方向夹角为 \\(\\alpha\\)，有 \\(\\sin\\alpha=\\frac{d}{\\sqrt{L^2+d^2}}=\\frac{30}{50}=\\frac35\\)。所以 \\(v_{\\min}=v_{\\text{水}}\\sin\\alpha=10\\times\\frac35=6\\,\\mathrm{m/s}\\)。答案：\\(6\\,\\mathrm{m/s}\\)。"
+    }
+  ],
+  "knowledge": [
+    "速度合成",
+    "临界轨迹",
+    "最小船速"
+  ],
+  "notesHtml": "\n      <div class=\"problem-notes-grid\">\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">题目</p>\n          \n          \n        <div class=\"note-body\"><h2>课上第10题：瀑布临界渡河</h2><p>一只船从河岸 \\(A\\) 处渡河，河宽 \\(d=30\\,\\mathrm{m}\\)，水速 \\(v_{\\text{水}}=10\\,\\mathrm{m/s}\\)，距 \\(A\\) 下游 \\(L=40\\,\\mathrm{m}\\) 处有瀑布。为使小船靠岸时不至于被冲进瀑布，求船相对静水的最小速度。</p></div></section>\n        <section class=\"problem-note-block is-collapsed\">\n          <p class=\"problem-note-kicker\">解析</p>\n          \n          \n          \n          \n          \n        <button type=\"button\" class=\"note-toggle\">展开</button><div class=\"note-body\"><h2>让合速度方向刚好指向安全边界</h2><p><strong>1. 找临界轨迹。</strong> 小船刚好安全时，应从 \\(A\\) 点到达对岸瀑布前的边界点，位移方向对应 \\((L,d)=(40,30)\\)。因此临界方向的斜边长度为 <span class=\"formula-line\">\\(\\sqrt{L^2+d^2}=\\sqrt{40^2+30^2}=50\\,\\mathrm{m}\\)</span>。</p><p><strong>2. 把水速投到临界方向的垂直方向。</strong> 船对地的合速度必须沿临界方向或更偏上游。要让船速最小，船速矢量应恰好垂直于临界合速度方向。</p><p><strong>3. 代入最小值公式。</strong> 临界方向与水流方向夹角为 \\(\\alpha\\)，有 <span class=\"formula-line\">\\(\\sin\\alpha=\\frac{d}{\\sqrt{L^2+d^2}}=\\frac{30}{50}=\\frac35\\)</span>。所以 <span class=\"formula-line\">\\(v_{\\min}=v_{\\text{水}}\\sin\\alpha=10\\times\\frac35=6\\,\\mathrm{m/s}\\)</span>。</p><p><strong>答案：</strong>\\(6\\,\\mathrm{m/s}\\)。</p></div></section>\n        <section class=\"problem-note-block\">\n          <p class=\"problem-note-kicker\">近似题</p>\n          \n          \n          \n          \n        <div class=\"note-body\"><h2>进阶近似题：危险边界与最小船速</h2><h3>基础设问</h3><p>一只船从河岸 \\(A\\) 处渡河，河宽 \\(d=24\\,\\mathrm{m}\\)，水速 \\(v_{\\text{水}}=8\\,\\mathrm{m/s}\\)，距 \\(A\\) 下游 \\(L=32\\,\\mathrm{m}\\) 处有危险区。为使小船靠岸时不被冲入危险区，船相对静水的最小速度是多少？</p><h3>综合提升</h3><p>河宽为 \\(d\\)，匀速水流为 \\(u\\)，对岸危险边界位于出发点下游 \\(L\\) 处。（1）用矢量几何推导安全渡河所需最小船速；（2）求最优船头方向；（3）若船启动前随水漂流时间 \\(\\tau\\)，重新写出最小速度；（4）讨论当可用船速低于该临界值时的最短安全距离。</p><details>\n            <summary>近似题答案</summary>\n            <h3>1. 基础设问</h3><p>\\(\\sqrt{L^2+d^2}=\\sqrt{32^2+24^2}=40\\,\\mathrm{m}\\)，所以 \\(v_{\\min}=8\\times\\frac{24}{40}=4.8\\,\\mathrm{m/s}\\)。</p>\n          <h3>2. 综合提升</h3><p>临界合速度沿 \\((L,d)\\) 方向，最小船速是水速对该方向法线的分量：</p><p>\\[v_{b,\\min}=u\\frac{d}{\\sqrt{L^2+d^2}}.\\]</p><p>船速矢量应垂直临界合速度。若先漂流 \\(\\tau\\)，剩余下游裕量变为 \\(L-u\\tau\\)，在其为正时将 \\(L\\) 替换为 \\(L-u\\tau\\)。若可用船速更小，速度圆与安全方向域无交点，必须改变出发点或接受更大的下游落点。</p></details><details>\n            <summary>近似题解题思路</summary>\n            <h3>1. 基础思路</h3><p>仍然取“刚好不进入危险区”的临界轨迹，把船对地合速度方向设为从出发点指向对岸危险区前边界点。最小船速等于水速在临界方向垂直方向上的分量。</p>\n          <h3>2. 进阶思路</h3><p>把安全要求画成允许的合速度方向扇区；最小船速对应水速矢量端点到边界射线的最短距离。</p></details></div></section>\n      </div>\n    ",
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "fanphysics_model",
+    "variant": "waterfallCrossing",
+    "playable": true,
+    "interactive": true,
+    "params": {
+      "waterfallWidth": {
+        "label": "河宽 d",
+        "value": 30,
+        "min": 10,
+        "max": 80,
+        "step": 1,
+        "unit": ""
+      },
+      "waterfallDownstream": {
+        "label": "瀑布距离 L",
+        "value": 40,
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": ""
+      },
+      "waterfallWaterSpeed": {
+        "label": "水速 v水",
+        "value": 10,
+        "min": 1,
+        "max": 20,
+        "step": 0.5,
+        "unit": ""
+      },
+      "waterfallBoatSpeed": {
+        "label": "船速 v船",
+        "value": 6,
+        "min": 1,
+        "max": 15,
+        "step": 0.1,
+        "unit": ""
+      },
+      "waterfallTheta": {
+        "label": "船头角 θ",
+        "value": 126.9,
+        "min": 90,
+        "max": 180,
+        "step": 0.1,
+        "unit": "deg"
+      }
+    },
+    "timeline": {
+      "duration": 12,
+      "loop": false
+    },
+    "notes": "合速度航迹与瀑布危险边界同步显示"
+  }
+}

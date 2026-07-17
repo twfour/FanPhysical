@@ -36,6 +36,7 @@ umask 077
 {
   printf 'HOST=127.0.0.1\n'
   printf 'PORT=8010\n'
+  printf 'FANPHYSICS_ENV=production\n'
   printf 'DEEPSEEK_API_KEY=%s\n' "$DEEPSEEK_API_KEY"
   printf 'DEEPSEEK_MODEL=%s\n' "${DEEPSEEK_MODEL:-deepseek-v4-flash}"
   printf 'DEEPSEEK_THINKING=disabled\n'

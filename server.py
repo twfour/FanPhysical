@@ -13,6 +13,7 @@ from urllib.parse import urlparse
 
 
 ROOT = Path(__file__).resolve().parent
+APP_ENV = os.environ.get("FANPHYSICS_ENV", "development").strip().lower()
 
 
 def load_env_file(path):
@@ -231,9 +232,19 @@ class Handler(SimpleHTTPRequestHandler):
         super().__init__(*args, directory=str(ROOT), **kwargs)
 
     def end_headers(self):
-        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
-        self.send_header("Pragma", "no-cache")
-        self.send_header("Expires", "0")
+        parsed = urlparse(self.path)
+        if parsed.path.startswith("/api/"):
+            self.send_header("Cache-Control", "no-store")
+        elif APP_ENV != "production":
+            self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+            self.send_header("Pragma", "no-cache")
+            self.send_header("Expires", "0")
+        elif parsed.path.startswith("/assets/") and "v=" in parsed.query:
+            self.send_header("Cache-Control", "public, max-age=31536000, immutable")
+        elif parsed.path.startswith("/assets/"):
+            self.send_header("Cache-Control", "public, max-age=3600")
+        else:
+            self.send_header("Cache-Control", "no-cache")
         super().end_headers()
 
     def translate_path(self, path):

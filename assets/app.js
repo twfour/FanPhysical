@@ -133,6 +133,13 @@ var knowledgePointMap = {
 
 var problemDataMap = {};
 var problemDataList = [];
+var problemIndexMap = {};
+var problemLoadPromiseMap = {};
+var problemCatalogReadyPromise = null;
+var sceneSwitchRequestId = 0;
+var runtimeScriptPromiseMap = {};
+var mathJaxLoadPromise = null;
+var runtimeAssetVersion = "20260717-lazy-runtime";
 var promotedProblemChapterMap = {
   "必修一结业测试": true,
   "曲线运动": true,
@@ -175,6 +182,39 @@ var originY = 250;
 
 var simTime = 0;
 var lastMillis = 0;
+var canvasVisibilityListenerReady = false;
+
+function shouldRunCanvasLoop(sceneName) {
+  if (document.hidden || !isJsonAnimationScene(sceneName)) {
+    return false;
+  }
+  var problem = problemDataMap[sceneName] || {};
+  var animation = problem.animation || {};
+  var state = getJsonAnimationState(sceneName);
+  return animation.playable !== false && state.playing === true;
+}
+
+function syncCanvasLoop() {
+  if (typeof noLoop !== "function" || typeof redraw !== "function") {
+    return;
+  }
+  if (shouldRunCanvasLoop(currentScene)) {
+    lastMillis = millis();
+    loop();
+    return;
+  }
+  noLoop();
+  redraw();
+}
+
+function handleCanvasVisibilityChange() {
+  if (document.hidden) {
+    noLoop();
+    silencePhysicsAudio();
+    return;
+  }
+  syncCanvasLoop();
+}
 
 function setup() {
   pixelDensity(Math.min(window.devicePixelRatio || 1, 2));
@@ -187,13 +227,16 @@ function setup() {
     drawingContext.fontKerning = "normal";
     drawingContext.textRendering = "geometricPrecision";
   }
-  loadProblemData().then(function () {
-    renderProblemDataNotes();
-    enhanceProblemNotes();
+  if (!canvasVisibilityListenerReady) {
+    document.addEventListener("visibilitychange", handleCanvasVisibilityChange);
+    canvasVisibilityListenerReady = true;
+  }
+  noLoop();
+  problemCatalogReadyPromise = loadProblemData();
+  problemCatalogReadyPromise.then(function () {
     renderFavoriteHome();
     switchScene(currentScene);
   });
-  enhanceProblemNotes();
   renderFavoriteHome();
   switchScene(currentScene);
   lastMillis = millis();
@@ -212,6 +255,9 @@ function draw() {
     updateJsonAnimation(dt);
     drawJsonAnimationScene();
   }
+  if (!shouldRunCanvasLoop(currentScene)) {
+    noLoop();
+  }
 }
 
 function drawAnimScene(sceneDrawer) {
@@ -225,18 +271,43 @@ function drawAnimScene(sceneDrawer) {
   pop();
 }
 
-function switchScene(sceneName) {
-  if (currentScene !== sceneName) {
-    stopStepVoiceRecognition(true);
-    silencePhysicsAudio();
-  }
-  currentScene = sceneName;
-
+function updateSceneTreeSelection(sceneName) {
   document.getElementById("treeHome").className = sceneName === "home" ? "tree-item active" : "tree-item";
   document.querySelectorAll(".tree-item[data-scene]").forEach(function (item) {
     item.className = item.dataset.scene === sceneName ? "tree-item indent active" : "tree-item indent";
   });
+}
 
+function clearProblemNotesHost() {
+  var host = document.getElementById("problemNotesHost");
+  if (!host) {
+    return;
+  }
+  var note = host.querySelector(".problem-notes");
+  if (note) {
+    var sceneName = note.id.replace(/Notes$/, "");
+    if (window.MathJax && window.MathJax.typesetClear) {
+      window.MathJax.typesetClear([note]);
+    }
+    delete mathRenderedSceneMap[sceneName];
+    delete mathRenderingSceneMap[sceneName];
+  }
+  host.innerHTML = "";
+}
+
+function showProblemLoadStatus(message, isError) {
+  clearProblemNotesHost();
+  var host = document.getElementById("problemNotesHost");
+  if (!host) {
+    return;
+  }
+  var status = document.createElement("div");
+  status.className = isError ? "problem-load-status is-error" : "problem-load-status";
+  status.innerText = message;
+  host.appendChild(status);
+}
+
+function applySceneView(sceneName) {
   document.getElementById("homePanel").style.display = sceneName === "home" ? "block" : "none";
   if (sceneName === "home") {
     renderFavoriteHome();
@@ -247,14 +318,78 @@ function switchScene(sceneName) {
   }
   if (sceneName === "summerExam" && typeof renderSummerExamMath === "function") {
     renderSummerExamMath();
+    ensureMathJaxReady().then(function () {
+      if (currentScene === "summerExam" && typeof renderSummerExamMath === "function") {
+        renderSummerExamMath();
+      }
+    }).catch(function (error) {
+      console.warn("Summer exam MathJax load failed", error);
+    });
   }
   document.getElementById("canvas-holder").style.display = shouldShowCanvas(sceneName) ? "block" : "none";
   renderJsonAnimationControls(sceneName);
-  document.querySelectorAll(".problem-notes").forEach(function (note) {
-    note.style.display = note.id === sceneName + "Notes" ? "block" : "none";
-  });
+  var note = document.getElementById(sceneName + "Notes");
+  if (note) {
+    note.style.display = "block";
+  }
   updateModelSource(sceneName);
   scheduleSceneMath(sceneName);
+  syncCanvasLoop();
+}
+
+function switchScene(sceneName) {
+  var requestId = ++sceneSwitchRequestId;
+  if (currentScene !== sceneName) {
+    if (isJsonAnimationScene(currentScene)) {
+      getJsonAnimationState(currentScene).playing = false;
+    }
+    stopStepVoiceRecognition(true);
+    silencePhysicsAudio();
+  }
+  currentScene = sceneName;
+  updateSceneTreeSelection(sceneName);
+
+  if (sceneName === "home" || sceneName === "summerExam") {
+    clearProblemNotesHost();
+    applySceneView(sceneName);
+    return Promise.resolve(null);
+  }
+
+  document.getElementById("homePanel").style.display = "none";
+  var summerExamPanel = document.getElementById("summerExamPanel");
+  if (summerExamPanel) {
+    summerExamPanel.style.display = "none";
+  }
+  document.getElementById("canvas-holder").style.display = "none";
+  renderJsonAnimationControls("");
+  updateModelSource("");
+  showProblemLoadStatus("正在加载题目…", false);
+  syncCanvasLoop();
+
+  return ensureProblemLoaded(sceneName).then(function (problem) {
+    if (requestId !== sceneSwitchRequestId) {
+      return null;
+    }
+    if (!problem) {
+      showProblemLoadStatus("题目加载失败，请稍后重试。", true);
+      return null;
+    }
+    return ensureProblemRuntime(problem).then(function () {
+      if (requestId !== sceneSwitchRequestId) {
+        return null;
+      }
+      var note = renderProblemDataNotes(problem);
+      enhanceProblemNotes(note);
+      applySceneView(sceneName);
+      return problem;
+    });
+  }).catch(function (error) {
+    if (requestId === sceneSwitchRequestId) {
+      console.warn("Problem runtime load failed", sceneName, error);
+      showProblemLoadStatus("动画组件加载失败，请刷新后重试。", true);
+    }
+    return null;
+  });
 }
 
 function waitForProblemLoad(ms) {
@@ -269,7 +404,7 @@ async function fetchProblemJson(path, attempts) {
   var lastError = null;
   for (attempt = 0; attempt < maxAttempts; attempt += 1) {
     try {
-      var response = await fetch(path, { cache: "no-store" });
+      var response = await fetch(path, { cache: "default" });
       if (response.ok) {
         return await response.json();
       }
@@ -285,6 +420,142 @@ async function fetchProblemJson(path, attempts) {
   return null;
 }
 
+function loadRuntimeScript(path) {
+  if (runtimeScriptPromiseMap[path]) {
+    return runtimeScriptPromiseMap[path];
+  }
+  runtimeScriptPromiseMap[path] = new Promise(function (resolve, reject) {
+    var script = document.createElement("script");
+    script.src = path + (path.indexOf("?") >= 0 ? "&" : "?") + "v=" + runtimeAssetVersion;
+    script.async = true;
+    script.dataset.runtimeScript = path;
+    script.onload = function () {
+      resolve(path);
+    };
+    script.onerror = function () {
+      delete runtimeScriptPromiseMap[path];
+      reject(new Error("Unable to load " + path));
+    };
+    document.head.appendChild(script);
+  });
+  return runtimeScriptPromiseMap[path];
+}
+
+function fanPhysicsSceneScript(variant) {
+  var springScenes = {
+    doubleThrow: true,
+    pipeDrop: true,
+    threeCar: true,
+    inclineSlot: true
+  };
+  var curveScenes = {
+    motionCompose: true,
+    curveForce: true,
+    riverCrossing: true,
+    riverAdvanced: true,
+    waterfallCrossing: true,
+    rodConstraint: true,
+    dualConstraintCircle: true,
+    handRopeBreak: true,
+    rainWindow: true
+  };
+  var projectileScenes = {
+    projectileBasic: true,
+    projectileSlope: true,
+    projectileNormal: true,
+    semiCircleThrow: true,
+    projectileWindow: true,
+    volleyballServe: true,
+    dartTarget: true,
+    projectileBounce: true
+  };
+  if (springScenes[variant]) {
+    return "/assets/scenes/spring-2026.js";
+  }
+  if (curveScenes[variant]) {
+    return "/assets/scenes/curve-motion.js";
+  }
+  if (projectileScenes[variant]) {
+    return "/assets/scenes/projectile-motion.js";
+  }
+  return "/assets/scenes/circular-motion.js";
+}
+
+var problemRuntimeScriptMap = {
+  curve_training_model: ["/assets/scenes/curve-training.js"],
+  projectile_training_model: ["/assets/scenes/projectile-training.js"],
+  gravitation_model: ["/assets/scenes/gravitation.js"],
+  gravitation_lunar_throw: ["/assets/scenes/projectile-motion.js"],
+  gravitation_eclipse: ["/assets/scenes/circular-motion.js"],
+  work_power_model: ["/assets/scenes/work-power.js"],
+  kinetic_energy_model: ["/assets/scenes/kinetic-energy.js"],
+  mechanical_energy_model: ["/assets/scenes/mechanical-energy.js"],
+  functional_relation_model: ["/assets/scenes/functional-relations.js"],
+  required_one_test_model: ["/assets/scenes/required-one-test.js"]
+};
+
+function getProblemRuntimeScripts(problem) {
+  var animation = (problem && problem.animation) || {};
+  var type = animation.type || "";
+  var scripts = (problemRuntimeScriptMap[type] || []).slice();
+  if (type === "fanphysics_model") {
+    scripts.push(fanPhysicsSceneScript(animation.variant || problem.id));
+    scripts.push("/assets/scenes/fanphysics-models.js");
+  }
+  if (getCodexAnimationKey(problem.id) === "bulletCylinder" && scripts.indexOf("/assets/scenes/circular-motion.js") < 0) {
+    scripts.unshift("/assets/scenes/circular-motion.js");
+  }
+  return scripts;
+}
+
+function ensureProblemRuntime(problem) {
+  var scripts = getProblemRuntimeScripts(problem);
+  return scripts.reduce(function (promise, path) {
+    return promise.then(function () {
+      return loadRuntimeScript(path);
+    });
+  }, Promise.resolve());
+}
+
+function registerProblemData(problem) {
+  if (!problem || !problem.id) {
+    return null;
+  }
+  var isNew = !problemDataMap[problem.id];
+  problem.animation = normalizeProblemAnimation(problem);
+  problemDataMap[problem.id] = problem;
+  if (isNew) {
+    problemDataList.push(problem);
+  }
+  if (problem.knowledge) {
+    knowledgePointMap[problem.id] = problem.knowledge;
+  }
+  if (!isPromotedProblem(problem)) {
+    modelSourceMap[problem.id] = normalizeProblemSource(problem);
+  }
+  return problem;
+}
+
+function ensureProblemLoaded(sceneName) {
+  if (problemDataMap[sceneName]) {
+    return Promise.resolve(problemDataMap[sceneName]);
+  }
+  if (problemLoadPromiseMap[sceneName]) {
+    return problemLoadPromiseMap[sceneName];
+  }
+  var catalogReady = problemCatalogReadyPromise || Promise.resolve();
+  problemLoadPromiseMap[sceneName] = catalogReady.then(function () {
+    var item = problemIndexMap[sceneName];
+    if (!item || !item.file) {
+      return null;
+    }
+    return fetchProblemJson("/data/problems/" + item.file, 3).then(registerProblemData);
+  }).finally(function () {
+    delete problemLoadPromiseMap[sceneName];
+  });
+  return problemLoadPromiseMap[sceneName];
+}
+
 async function loadProblemData() {
   try {
     var index = await fetchProblemJson("/data/problems/index.json", 3);
@@ -292,29 +563,9 @@ async function loadProblemData() {
       return;
     }
     var items = Array.isArray(index.problems) ? index.problems : [];
-    var loaded = [];
-    var batchSize = 12;
-    var offset;
-    for (offset = 0; offset < items.length; offset += batchSize) {
-      var batch = items.slice(offset, offset + batchSize);
-      var batchLoaded = await Promise.all(batch.map(function (item) {
-        return fetchProblemJson("/data/problems/" + item.file, 3);
-      }));
-      loaded = loaded.concat(batchLoaded);
-    }
-    var visualModelCatalog = await fetchProblemJson("/data/problems/visual-models.json", 3);
-    if (visualModelCatalog && Array.isArray(visualModelCatalog.models)) {
-      loaded = loaded.concat(visualModelCatalog.models);
-    }
-    problemDataList = loaded.filter(Boolean);
-    problemDataList.forEach(function (problem) {
-      problem.animation = normalizeProblemAnimation(problem);
-      problemDataMap[problem.id] = problem;
-      if (problem.knowledge) {
-        knowledgePointMap[problem.id] = problem.knowledge;
-      }
-      if (!isPromotedProblem(problem)) {
-        modelSourceMap[problem.id] = normalizeProblemSource(problem);
+    items.forEach(function (item) {
+      if (item && item.id && item.file) {
+        problemIndexMap[item.id] = item;
       }
     });
   } catch (error) {
@@ -322,25 +573,23 @@ async function loadProblemData() {
   }
 }
 
-function renderProblemDataNotes() {
-  problemDataList.forEach(function (problem) {
+function renderProblemDataNotes(problem) {
     if (!problem || !problem.id) {
-      return;
+      return null;
     }
-    var note = document.getElementById(problem.id + "Notes");
-    var modelSource = document.getElementById("modelSource");
-    if (!note) {
-      note = document.createElement("div");
-      note.id = problem.id + "Notes";
-      note.className = "problem-notes";
-      if (modelSource && modelSource.parentNode) {
-        modelSource.parentNode.insertBefore(note, modelSource);
-      }
+    clearProblemNotesHost();
+    var host = document.getElementById("problemNotesHost");
+    if (!host) {
+      return null;
     }
+    var note = document.createElement("div");
+    note.id = problem.id + "Notes";
+    note.className = "problem-notes";
+    host.appendChild(note);
     note.dataset.problemJson = "1";
     if (problem.notesHtml) {
       note.innerHTML = problem.notesHtml;
-      return;
+      return note;
     }
     note.innerHTML = "";
     var grid = document.createElement("div");
@@ -358,7 +607,7 @@ function renderProblemDataNotes() {
     if (problem.summary && !problem.analysis) {
       grid.appendChild(createProblemNoteBlock("一句话总结", problem.summary.title || "总结", problem.summary.content || ""));
     }
-  });
+    return note;
 }
 
 function createProblemQuestionBlock(problem) {
@@ -817,8 +1066,8 @@ function renderFavoriteHome() {
   });
 }
 
-function enhanceProblemNotes() {
-  var notes = document.querySelectorAll(".problem-notes");
+function enhanceProblemNotes(root) {
+  var notes = root ? [root] : document.querySelectorAll(".problem-notes");
   notes.forEach(function (note) {
     var sceneName = note.id.replace("Notes", "");
     var grid = note.querySelector(".problem-notes-grid");
@@ -2085,6 +2334,7 @@ function renderJsonAnimationControls(sceneName) {
       pausePhysicsSoundPlayback();
       value.innerText = formatParamValue(state.values[key], param.unit, param.step);
       syncJsonTimeControl(sceneName);
+      syncCanvasLoop();
     };
     if (hasOptions) {
       input.onchange = updateParam;
@@ -2118,6 +2368,7 @@ function renderJsonAnimationControls(sceneName) {
       state.playing = false;
       pausePhysicsSoundPlayback();
       syncJsonTimeControl(sceneName);
+      syncCanvasLoop();
     };
     timeControl.appendChild(timeLabel);
     timeControl.appendChild(timeInput);
@@ -2139,6 +2390,7 @@ function renderJsonAnimationControls(sceneName) {
         pausePhysicsSoundPlayback();
       }
       syncJsonTimeControl(sceneName);
+      syncCanvasLoop();
     };
     container.appendChild(play);
 
@@ -2278,65 +2530,47 @@ function updateJsonAnimation(dt) {
   syncJsonTimeControl(currentScene);
 }
 
+var jsonAnimationRendererMap = {
+  fanphysics_model: { scene: "drawFanPhysicsModelScene", graph: "drawFanPhysicsModelGraph" },
+  projectile: { scene: "drawJsonProjectileScene", graph: "drawJsonProjectileGraph" },
+  spring_balance: { scene: "drawJsonSpringScene", graph: "drawJsonSpringGraph" },
+  force_diagram: { scene: "drawJsonForceDiagramScene", graph: "drawJsonForceDiagramGraph" },
+  curve_training_model: { scene: "drawCurveTrainingModelScene", graph: "drawCurveTrainingModelGraph" },
+  projectile_training_model: { scene: "drawProjectileTrainingModelScene", graph: "drawProjectileTrainingModelGraph" },
+  bullet_cylinder: { scene: "drawJsonBulletCylinderScene", graph: "drawJsonBulletCylinderGraph" },
+  circular_concept: { scene: "drawJsonCircularConceptScene", graph: "drawJsonCircularConceptGraph" },
+  gravitation_eclipse: { scene: "drawGravitationEclipseScene", graph: "drawGravitationEclipseGraph" },
+  gravitation_lunar_throw: { scene: "drawGravitationLunarThrowScene", graph: "drawGravitationLunarThrowGraph" },
+  gravitation_model: { scene: "drawGravitationModelScene", graph: "drawGravitationModelGraph" },
+  work_power_model: { scene: "drawWorkPowerModelScene", graph: "drawWorkPowerModelGraph" },
+  kinetic_energy_model: { scene: "drawKineticEnergyModelScene", graph: "drawKineticEnergyModelGraph" },
+  mechanical_energy_model: { scene: "drawMechanicalEnergyModelScene", graph: "drawMechanicalEnergyModelGraph" },
+  functional_relation_model: { scene: "drawFunctionalRelationModelScene", graph: "drawFunctionalRelationModelGraph" },
+  required_one_test_model: { scene: "drawRequiredOneTestScene", graph: "drawRequiredOneTestGraph" }
+};
+
 function drawJsonAnimationScene() {
   var animation = problemDataMap[currentScene].animation;
   var codexKey = getCodexAnimationKey(currentScene);
-  if (animation.type === "fanphysics_model" && typeof drawFanPhysicsModelScene === "function") {
-    drawAnimScene(drawFanPhysicsModelScene);
-    drawFanPhysicsModelGraph();
-  } else if (codexKey === "bulletCylinder") {
+  var renderer = jsonAnimationRendererMap[animation.type];
+  var sceneDrawer;
+  var graphDrawer;
+  if (codexKey === "bulletCylinder") {
     syncCodexBulletCylinderScene(currentScene);
-    drawAnimScene(drawBulletScene);
-    drawBulletGraph();
+    sceneDrawer = window.drawBulletScene;
+    graphDrawer = window.drawBulletGraph;
+  } else if (renderer) {
+    sceneDrawer = window[renderer.scene];
+    graphDrawer = window[renderer.graph];
+  }
+  if (!sceneDrawer || !graphDrawer) {
+    sceneDrawer = drawJsonPlaceholderScene;
+    graphDrawer = drawJsonPlaceholderGraph;
+  }
+  drawAnimScene(sceneDrawer);
+  graphDrawer();
+  if (codexKey === "bulletCylinder") {
     drawCodexSceneBadge("Codex 动画模型：bulletCylinder");
-  } else if (animation.type === "projectile") {
-    drawAnimScene(drawJsonProjectileScene);
-    drawJsonProjectileGraph();
-  } else if (animation.type === "spring_balance") {
-    drawAnimScene(drawJsonSpringScene);
-    drawJsonSpringGraph();
-  } else if (animation.type === "force_diagram") {
-    drawAnimScene(drawJsonForceDiagramScene);
-    drawJsonForceDiagramGraph();
-  } else if (animation.type === "curve_training_model") {
-    drawAnimScene(drawCurveTrainingModelScene);
-    drawCurveTrainingModelGraph();
-  } else if (animation.type === "projectile_training_model") {
-    drawAnimScene(drawProjectileTrainingModelScene);
-    drawProjectileTrainingModelGraph();
-  } else if (animation.type === "bullet_cylinder") {
-    drawAnimScene(drawJsonBulletCylinderScene);
-    drawJsonBulletCylinderGraph();
-  } else if (animation.type === "circular_concept") {
-    drawAnimScene(drawJsonCircularConceptScene);
-    drawJsonCircularConceptGraph();
-  } else if (animation.type === "gravitation_eclipse") {
-    drawAnimScene(drawGravitationEclipseScene);
-    drawGravitationEclipseGraph();
-  } else if (animation.type === "gravitation_lunar_throw") {
-    drawAnimScene(drawGravitationLunarThrowScene);
-    drawGravitationLunarThrowGraph();
-  } else if (animation.type === "gravitation_model") {
-    drawAnimScene(drawGravitationModelScene);
-    drawGravitationModelGraph();
-  } else if (animation.type === "work_power_model") {
-    drawAnimScene(drawWorkPowerModelScene);
-    drawWorkPowerModelGraph();
-  } else if (animation.type === "kinetic_energy_model") {
-    drawAnimScene(drawKineticEnergyModelScene);
-    drawKineticEnergyModelGraph();
-  } else if (animation.type === "mechanical_energy_model") {
-    drawAnimScene(drawMechanicalEnergyModelScene);
-    drawMechanicalEnergyModelGraph();
-  } else if (animation.type === "functional_relation_model") {
-    drawAnimScene(drawFunctionalRelationModelScene);
-    drawFunctionalRelationModelGraph();
-  } else if (animation.type === "required_one_test_model") {
-    drawAnimScene(drawRequiredOneTestScene);
-    drawRequiredOneTestGraph();
-  } else {
-    drawAnimScene(drawJsonPlaceholderScene);
-    drawJsonPlaceholderGraph();
   }
 }
 
@@ -4633,15 +4867,43 @@ function markdownLiteToHtml(text) {
   }).join("");
 }
 
-function renderMath(root) {
+function ensureMathJaxReady() {
   if (window.MathJax && window.MathJax.typesetPromise) {
-    if (root) {
-      return window.MathJax.typesetPromise([root]);
-    } else {
-      return window.MathJax.typesetPromise();
-    }
+    return Promise.resolve(window.MathJax);
   }
-  return Promise.resolve();
+  if (mathJaxLoadPromise) {
+    return mathJaxLoadPromise;
+  }
+  mathJaxLoadPromise = new Promise(function (resolve, reject) {
+    var script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+    script.async = true;
+    script.onload = function () {
+      var startup = window.MathJax && window.MathJax.startup && window.MathJax.startup.promise;
+      Promise.resolve(startup).then(function () {
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          resolve(window.MathJax);
+        } else {
+          reject(new Error("MathJax loaded without typesetPromise"));
+        }
+      });
+    };
+    script.onerror = function () {
+      mathJaxLoadPromise = null;
+      reject(new Error("Unable to load MathJax"));
+    };
+    document.head.appendChild(script);
+  });
+  return mathJaxLoadPromise;
+}
+
+function renderMath(root) {
+  return ensureMathJaxReady().then(function (mathJax) {
+    if (root) {
+      return mathJax.typesetPromise([root]);
+    }
+    return mathJax.typesetPromise();
+  });
 }
 
 function scheduleSceneMath(sceneName) {
@@ -4669,7 +4931,9 @@ function renderSceneMath(sceneName) {
   }
   mathRenderingSceneMap[sceneName] = true;
   renderMath(root).then(function () {
-    mathRenderedSceneMap[sceneName] = true;
+    if (currentScene === sceneName && document.documentElement.contains(root)) {
+      mathRenderedSceneMap[sceneName] = true;
+    }
   }).catch(function (error) {
     console.warn("MathJax render failed", error);
   }).finally(function () {
