@@ -139,7 +139,7 @@ var problemCatalogReadyPromise = null;
 var sceneSwitchRequestId = 0;
 var runtimeScriptPromiseMap = {};
 var mathJaxLoadPromise = null;
-var runtimeAssetVersion = "20260717-lazy-runtime";
+var runtimeAssetVersion = "20260717-shared-option-method";
 var promotedProblemChapterMap = {
   "必修一结业测试": true,
   "曲线运动": true,
@@ -590,6 +590,7 @@ function renderProblemDataNotes(problem) {
     if (problem.notesHtml) {
       note.innerHTML = problem.notesHtml;
       simplifyLegacySharedAnswerAnalysis(note, problem);
+      promoteLegacyOptionMethod(note, problem);
       return note;
     }
     note.innerHTML = "";
@@ -728,9 +729,44 @@ function getProblemAnalysisItems(problem) {
     return [];
   }
   if (shouldUseProblemOptionAnalyses(problem)) {
-    return problem.optionAnalyses.map(normalizeProblemOptionAnalysis);
+    var optionItems = problem.optionAnalyses.map(function (item, index) {
+      return normalizeProblemOptionAnalysis(item, index, false);
+    });
+    var sharedMethod = getProblemOptionSharedMethod(problem);
+    return sharedMethod ? [sharedMethod].concat(optionItems) : optionItems;
   }
   return Array.isArray(problem.steps) ? problem.steps : [];
+}
+
+function getProblemOptionSharedMethod(problem) {
+  var analysis = (problem && problem.analysis) || {};
+  var presentation = (problem && problem.analysisPresentation) || {};
+  var optionAnalyses = problem && Array.isArray(problem.optionAnalyses) ? problem.optionAnalyses : [];
+  var firstThinking = optionAnalyses.find(function (item) {
+    return item && item.thinking;
+  });
+  var firstFormula = optionAnalyses.find(function (item) {
+    return item && item.formula;
+  });
+  var thinking = analysis.sharedThinking || presentation.sharedThinking || (firstThinking && firstThinking.thinking) || "";
+  var formula = analysis.sharedFormula || presentation.sharedFormula || (firstFormula && firstFormula.formula) || "";
+  var contentParts = [];
+  if (thinking) {
+    contentParts.push("**解题思路**", thinking);
+  }
+  if (formula) {
+    contentParts.push("**对应公式**", formula);
+  }
+  if (!contentParts.length) {
+    return null;
+  }
+  return {
+    title: "解题思路与对应公式",
+    content: contentParts.join("\n\n"),
+    knowledge: problem.knowledge || [],
+    commonMistakes: [],
+    isSharedMethod: true
+  };
 }
 
 function getProblemAnalysisTitle(problem) {
@@ -772,16 +808,71 @@ function simplifyLegacySharedAnswerAnalysis(note, problem) {
   }
 }
 
+function getLegacyAnalysisLabelNode(content, label) {
+  if (!content) {
+    return null;
+  }
+  return Array.prototype.slice.call(content.children).find(function (child) {
+    var strong = child.querySelector && child.querySelector("strong");
+    return strong && strong.innerText.trim() === label;
+  }) || null;
+}
+
+function promoteLegacyOptionMethod(note, problem) {
+  if (!note || getProblemOptionAnalysisMode(problem) !== "independent-statements") {
+    return;
+  }
+  var analysisBlock = note.querySelector('[data-analysis-block="1"]');
+  if (!analysisBlock) {
+    return;
+  }
+  var optionDetails = Array.prototype.slice.call(analysisBlock.querySelectorAll("details.analysis-step")).filter(function (item) {
+    var summary = item.querySelector("summary");
+    return summary && /^选项\s*[A-H]/.test(summary.innerText.trim());
+  });
+  if (!optionDetails.length) {
+    return;
+  }
+  var firstContent = optionDetails[0].querySelector(".analysis-step-content");
+  var thinkingLabel = getLegacyAnalysisLabelNode(firstContent, "解题思路");
+  var judgmentLabel = getLegacyAnalysisLabelNode(firstContent, "选项判断");
+  if (!thinkingLabel || !judgmentLabel) {
+    return;
+  }
+  var firstChildren = Array.prototype.slice.call(firstContent.children);
+  var thinkingIndex = firstChildren.indexOf(thinkingLabel);
+  var judgmentIndex = firstChildren.indexOf(judgmentLabel);
+  if (thinkingIndex < 0 || judgmentIndex <= thinkingIndex) {
+    return;
+  }
+  var sharedMethod = document.createElement("div");
+  sharedMethod.className = "analysis-step analysis-shared-method";
+  sharedMethod.dataset.stepIndex = "0";
+  firstChildren.slice(thinkingIndex, judgmentIndex).forEach(function (child) {
+    sharedMethod.appendChild(child.cloneNode(true));
+  });
+  optionDetails[0].parentNode.insertBefore(sharedMethod, optionDetails[0]);
+  optionDetails.forEach(function (details, index) {
+    var content = details.querySelector(".analysis-step-content");
+    var optionJudgment = getLegacyAnalysisLabelNode(content, "选项判断");
+    if (content && optionJudgment) {
+      var contentChildren = Array.prototype.slice.call(content.children);
+      var optionJudgmentIndex = contentChildren.indexOf(optionJudgment);
+      contentChildren.slice(0, optionJudgmentIndex).forEach(function (child) {
+        child.remove();
+      });
+    }
+    details.dataset.stepIndex = String(index + 1);
+  });
+}
+
 function createProblemAnalysisBlock(problem) {
   var useOptionAnalyses = shouldUseProblemOptionAnalyses(problem);
   var block = createProblemNoteBlock("解析", getProblemAnalysisTitle(problem), "");
   var steps = Array.isArray(problem.steps) ? problem.steps : [];
-  var optionAnalyses = Array.isArray(problem.optionAnalyses) ? problem.optionAnalyses : [];
   var presentation = problem.analysisPresentation || {};
   var content = problem.analysis && problem.analysis.content ? problem.analysis.content.trim() : "";
-  var analysisItems = useOptionAnalyses
-    ? optionAnalyses.map(normalizeProblemOptionAnalysis)
-    : steps;
+  var analysisItems = useOptionAnalyses ? getProblemAnalysisItems(problem) : steps;
   var collapseEachStep = presentation.collapseEachStep === true || useOptionAnalyses;
   if (content && !analysisItems.length) {
     appendMarkdownChildren(block, content);
@@ -789,10 +880,15 @@ function createProblemAnalysisBlock(problem) {
   }
   if (analysisItems.length) {
     analysisItems.forEach(function (step, index) {
-      var stepWrap = document.createElement(collapseEachStep ? "details" : "div");
+      var isSharedMethod = step.isSharedMethod === true;
+      var shouldCollapseStep = collapseEachStep && !isSharedMethod;
+      var stepWrap = document.createElement(shouldCollapseStep ? "details" : "div");
       stepWrap.className = "analysis-step";
+      if (isSharedMethod) {
+        stepWrap.classList.add("analysis-shared-method");
+      }
       stepWrap.dataset.stepIndex = String(index);
-      if (collapseEachStep) {
+      if (shouldCollapseStep) {
         stepWrap.dataset.collapsibleStep = "1";
         var summary = document.createElement("summary");
         summary.className = "analysis-step-summary";
@@ -804,6 +900,8 @@ function createProblemAnalysisBlock(problem) {
         stepBody.className = "analysis-step-content";
         appendMarkdownChildren(stepBody, step.content || "");
         stepWrap.appendChild(stepBody);
+      } else if (isSharedMethod) {
+        appendMarkdownChildren(stepWrap, step.content || "");
       } else {
         var title = document.createElement("h3");
         title.innerText = "步骤 " + (index + 1) + "：" + (step.title || "分析");
@@ -818,14 +916,17 @@ function createProblemAnalysisBlock(problem) {
   return block;
 }
 
-function normalizeProblemOptionAnalysis(item, index) {
+function normalizeProblemOptionAnalysis(item, index, includeMethod) {
   var optionLabel = String(item.option || item.label || index + 1).replace(/[．、.：:]+$/, "");
-  var contentParts = [
-    "**解题思路**",
-    item.thinking || "先判断该选项对应的物理过程与守恒条件。",
-    "**对应公式**",
-    item.formula || "根据题意选择相应的物理关系式。"
-  ];
+  var contentParts = [];
+  if (includeMethod !== false) {
+    contentParts.push(
+      "**解题思路**",
+      item.thinking || "先判断该选项对应的物理过程与守恒条件。",
+      "**对应公式**",
+      item.formula || "根据题意选择相应的物理关系式。"
+    );
+  }
   var judgment = item.judgment || item.content || "";
   if (judgment) {
     contentParts.push("**选项判断**", judgment);

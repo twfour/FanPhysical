@@ -363,6 +363,25 @@ details.analysis-step[open] .analysis-step-summary {
   margin-top: 0;
 }
 
+.analysis-shared-method {
+  margin: 12px 0 4px;
+  padding: 14px 16px;
+  border: 1px solid #bfdbfe;
+  border-left: 4px solid var(--brand);
+  border-radius: 7px;
+  background: #f8fbff;
+}
+
+.analysis-shared-method:first-of-type {
+  margin-top: 12px;
+  padding-top: 14px;
+  border-top: 1px solid #bfdbfe;
+}
+
+.analysis-shared-method p + p {
+  margin-top: 7px;
+}
+
 .control {
   display: flex;
   align-items: center;
