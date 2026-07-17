@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 import json
 import os
+import socket
 import ssl
 import subprocess
+import time
 import urllib.error
 import urllib.request
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -36,6 +38,18 @@ DEEPSEEK_API_URL = os.environ.get(
     "https://api.deepseek.com/chat/completions",
 )
 DEEPSEEK_MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash")
+DEEPSEEK_THINKING = os.environ.get("DEEPSEEK_THINKING", "disabled").strip().lower()
+if DEEPSEEK_THINKING not in {"enabled", "disabled"}:
+    DEEPSEEK_THINKING = "disabled"
+try:
+    DEEPSEEK_TIMEOUT_SECONDS = max(10.0, float(os.environ.get("DEEPSEEK_TIMEOUT_SECONDS", "90")))
+except ValueError:
+    DEEPSEEK_TIMEOUT_SECONDS = 90.0
+try:
+    DEEPSEEK_MAX_RETRIES = min(4, max(0, int(os.environ.get("DEEPSEEK_MAX_RETRIES", "2"))))
+except ValueError:
+    DEEPSEEK_MAX_RETRIES = 2
+RETRYABLE_HTTP_STATUS = {429, 500, 502, 503, 504}
 MAX_BODY_BYTES = 120_000
 MAX_CONVERSATION_MESSAGES = 12
 MAX_CONVERSATION_MESSAGE_CHARS = 4_000
@@ -141,24 +155,47 @@ def call_deepseek(payload):
         "stream": False,
         "temperature": 0.2,
         "max_tokens": 900,
+        "thinking": {"type": DEEPSEEK_THINKING},
     }
     data = json.dumps(body, ensure_ascii=False).encode("utf-8")
-    request = urllib.request.Request(
-        DEEPSEEK_API_URL,
-        data=data,
-        headers={
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {api_key}",
-        },
-        method="POST",
-    )
-    try:
-        with urllib.request.urlopen(request, timeout=45) as response:
-            result = json.loads(response.read().decode("utf-8"))
-    except urllib.error.URLError as error:
-        if not isinstance(error.reason, ssl.SSLCertVerificationError):
-            raise
-        result = call_deepseek_with_system_curl(data, api_key)
+    result = None
+    for attempt in range(DEEPSEEK_MAX_RETRIES + 1):
+        request = urllib.request.Request(
+            DEEPSEEK_API_URL,
+            data=data,
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {api_key}",
+            },
+            method="POST",
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=DEEPSEEK_TIMEOUT_SECONDS) as response:
+                result = json.loads(response.read().decode("utf-8"))
+            break
+        except urllib.error.HTTPError as error:
+            if error.code not in RETRYABLE_HTTP_STATUS or attempt >= DEEPSEEK_MAX_RETRIES:
+                raise
+            retry_after = error.headers.get("Retry-After")
+            try:
+                delay = min(10.0, max(0.0, float(retry_after)))
+            except (TypeError, ValueError):
+                delay = min(5.0, 2.0**attempt)
+            error.close()
+            time.sleep(delay)
+        except urllib.error.URLError as error:
+            if isinstance(error.reason, ssl.SSLCertVerificationError):
+                result = call_deepseek_with_system_curl(data, api_key)
+                break
+            if attempt >= DEEPSEEK_MAX_RETRIES:
+                raise
+            time.sleep(min(5.0, 2.0**attempt))
+        except (TimeoutError, socket.timeout):
+            if attempt >= DEEPSEEK_MAX_RETRIES:
+                raise
+            time.sleep(min(5.0, 2.0**attempt))
+    if result is None:
+        raise urllib.error.URLError("DeepSeek request ended without a response")
     return result["choices"][0]["message"]["content"]
 
 
@@ -169,7 +206,7 @@ def call_deepseek_with_system_curl(data, api_key):
         "--show-error",
         "--fail-with-body",
         "--max-time",
-        "45",
+        str(int(DEEPSEEK_TIMEOUT_SECONDS)),
         "--request",
         "POST",
         DEEPSEEK_API_URL,

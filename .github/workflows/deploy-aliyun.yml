@@ -1,0 +1,97 @@
+name: Deploy Aliyun ECS
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: fanphysics-aliyun-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      APP_BASE: /opt/fanphysics
+      ENV_FILE: /etc/fanphysics.env
+      NGINX_CONF: /etc/nginx/conf.d/fanphysics.conf
+      ARCHIVE_REMOTE: /tmp/fanphysics-${{ github.sha }}.tar.gz
+      RELEASE_ID: ${{ github.sha }}
+      DOMAIN: physics.qinyibin.com
+      ALIYUN_HOST: ${{ secrets.ALIYUN_HOST }}
+      ALIYUN_USER: ${{ secrets.ALIYUN_USER }}
+      ALIYUN_SSH_KEY: ${{ secrets.ALIYUN_SSH_KEY }}
+
+    steps:
+      - name: Check required secrets
+        run: |
+          test -n "$ALIYUN_HOST"
+          test -n "$ALIYUN_USER"
+          test -n "$ALIYUN_SSH_KEY"
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build runtime archive
+        run: |
+          tar -czf "/tmp/fanphysics-${GITHUB_SHA}.tar.gz" \
+            classical-mechanics-demo.html \
+            server.py \
+            assets \
+            data \
+            math \
+            deploy/aliyun
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$ALIYUN_SSH_KEY" > ~/.ssh/aliyun_deploy_key
+          chmod 600 ~/.ssh/aliyun_deploy_key
+          ssh-keyscan -H "$ALIYUN_HOST" >> ~/.ssh/known_hosts
+
+      - name: Upload release
+        run: |
+          scp -i ~/.ssh/aliyun_deploy_key "/tmp/fanphysics-${GITHUB_SHA}.tar.gz" \
+            "$ALIYUN_USER@$ALIYUN_HOST:$ARCHIVE_REMOTE"
+
+      - name: Activate release
+        run: |
+          ssh -i ~/.ssh/aliyun_deploy_key "$ALIYUN_USER@$ALIYUN_HOST" "set -e
+          if ! id -u fanphysics >/dev/null 2>&1; then
+            useradd --system --home-dir '$APP_BASE' --shell /sbin/nologin fanphysics
+          fi
+          test -f '$ENV_FILE'
+          mkdir -p '$APP_BASE/releases/$RELEASE_ID'
+          tar -xzf '$ARCHIVE_REMOTE' -C '$APP_BASE/releases/$RELEASE_ID'
+          rm -f '$ARCHIVE_REMOTE'
+          chown -R root:root '$APP_BASE/releases/$RELEASE_ID'
+          find '$APP_BASE/releases/$RELEASE_ID' -type d -exec chmod 755 {} +
+          find '$APP_BASE/releases/$RELEASE_ID' -type f -exec chmod 644 {} +
+          chmod 755 '$APP_BASE/releases/$RELEASE_ID/deploy/aliyun/'*.sh
+          ln -sfn '$APP_BASE/releases/$RELEASE_ID' '$APP_BASE/current.next'
+          mv -Tf '$APP_BASE/current.next' '$APP_BASE/current'
+          cp '$APP_BASE/current/deploy/aliyun/fanphysics.service' /etc/systemd/system/
+          if [ ! -f '$NGINX_CONF' ]; then
+            cp '$APP_BASE/current/deploy/aliyun/nginx.conf' '$NGINX_CONF'
+          elif grep -q 'ssl_certificate' '$NGINX_CONF'; then
+            echo 'Keeping existing HTTPS nginx config'
+          else
+            cp '$APP_BASE/current/deploy/aliyun/nginx.conf' '$NGINX_CONF'
+          fi
+          systemctl daemon-reload
+          systemctl enable --now fanphysics.service
+          systemctl restart fanphysics.service
+          nginx -t
+          systemctl reload nginx
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            curl -fsS http://127.0.0.1:8010/api/health >/dev/null 2>&1 && break
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:8010/api/health >/dev/null
+          systemctl --no-pager --lines=0 status fanphysics.service >/dev/null
+          ls -1dt '$APP_BASE'/releases/* | tail -n +4 | xargs -r rm -rf"
+
+      - name: Check Nginx virtual host
+        run: |
+          curl --fail --silent --show-error \
+            --header "Host: $DOMAIN" "http://$ALIYUN_HOST/api/health"

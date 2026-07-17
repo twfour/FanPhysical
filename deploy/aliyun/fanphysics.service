@@ -1,0 +1,22 @@
+[Unit]
+Description=FanPhysics Visual Model Library
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=fanphysics
+Group=fanphysics
+WorkingDirectory=/opt/fanphysics/current
+EnvironmentFile=/etc/fanphysics.env
+ExecStart=/usr/bin/python3 -B /opt/fanphysics/current/server.py
+Restart=always
+RestartSec=3
+TimeoutStopSec=10
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target

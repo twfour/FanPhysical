@@ -37,6 +37,17 @@ POST /api/step-ai
 
 - `DEEPSEEK_MODEL`：默认 `deepseek-v4-flash`
 - `DEEPSEEK_API_URL`：默认 `https://api.deepseek.com/chat/completions`
+- `DEEPSEEK_THINKING`：默认 `disabled`，步骤问答不启用耗时较长的思考模式
+- `DEEPSEEK_TIMEOUT_SECONDS`：默认 `90`
+- `DEEPSEEK_MAX_RETRIES`：默认 `2`，仅对网络错误和 `429/5xx` 临时错误重试
+
+## 阿里云 ECS 部署
+
+生产环境使用 `physics.qinyibin.com`，与识花定位共用 ECS，但采用独立服务、端口和发布目录。首次部署与 HTTPS 配置见：
+
+```text
+deploy/aliyun/README.md
+```
 
 ## 题目录入架构
 
