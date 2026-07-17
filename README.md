@@ -25,7 +25,7 @@ http://127.0.0.1:8001/
 
 ## NotebookLM 独立课例地址
 
-服务器会为题库中的每个课例生成一个不依赖 JavaScript 的独立讲义页面，便于直接作为 NotebookLM 的网站来源。
+服务器会为题库中的每个课例生成服务端独立讲义页面，便于直接作为 NotebookLM 的网站来源。题目正文和原始 LaTeX 公式都直接包含在 HTML 中，浏览器再通过 MathJax 增强公式排版；即使 MathJax 未加载，NotebookLM 仍可抓取完整公式文本。
 
 课例总目录：
 
