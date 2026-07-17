@@ -45,7 +45,7 @@ http://127.0.0.1:8001/notebooklm/<problem-id>
 http://127.0.0.1:8001/notebooklm/chapter/<章节名>
 ```
 
-章节主页汇总本章题目、核心定理与公式，并显示已关联的 NotebookLM 笔记；未关联时会给出可直接添加到 NotebookLM 的本章来源地址。
+章节主页汇总本章题目、核心定理与公式，并显示已关联的 NotebookLM 笔记；未关联时会给出可直接添加到 NotebookLM 的本章来源地址。每个章节页都可以在线添加或修改笔记网址，覆盖值保存在当前浏览器，不受网站重新部署影响。
 
 例如：
 
@@ -80,6 +80,14 @@ POST /api/step-ai
 ```text
 deploy/aliyun/README.md
 ```
+
+常规发布默认从本机通过 SSH 直接部署：
+
+```bash
+deploy/aliyun/deploy.sh
+```
+
+不触发 GitHub Actions 中的阿里云部署工作流；仓库的 `ALIYUN_HOST`、`ALIYUN_USER`、`ALIYUN_SSH_KEY` 三个 Secret 当前不作为部署依赖。
 
 ## 题目录入架构
 

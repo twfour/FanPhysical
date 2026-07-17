@@ -138,7 +138,8 @@ def notebooklm_styles():
     .chapter-problem-list{display:grid;gap:10px;margin:0;padding:0;list-style:none}.chapter-problem-card{border:1px solid var(--line);background:#fffdf7;padding:14px 16px}.chapter-problem-card a{display:block;color:var(--ink);font-size:1rem;font-weight:800;text-decoration:none}.chapter-problem-card a:hover{color:var(--accent)}.chapter-problem-card p{margin:.4em 0 0;color:var(--muted);font-size:.92rem;line-height:1.65}
     .chapter-law-list{display:grid;gap:10px;margin:0;padding:0;list-style:none;counter-reset:chapter-law}.chapter-law-list li{position:relative;border-left:3px solid #c69b70;background:#fffdf7;padding:12px 15px 12px 44px}.chapter-law-list li:before{position:absolute;left:14px;top:12px;counter-increment:chapter-law;content:counter(chapter-law);color:var(--accent);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-weight:900}
     .chapter-formula-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.chapter-formula-card{min-width:0;border:1px solid var(--line);background:#fffdf7;padding:15px 17px}.chapter-formula-card h3{margin:0 0 .5em;color:var(--ink)}.chapter-formula-card p{margin:.4em 0 0;color:var(--muted);font-size:.9rem}.chapter-formula-card mjx-container[display="true"]{font-size:.96em}
-    .chapter-notebook-card{border:1px solid #c69b70;background:#fffdf7;padding:18px 20px}.chapter-notebook-card p{margin:0 0 12px;color:var(--muted)}.notebook-cta{display:inline-flex;align-items:center;min-height:42px;border-radius:7px;background:var(--accent);padding:0 16px;color:#fff;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.92rem;font-weight:800;text-decoration:none}.notebook-cta:hover{background:#7b2f24}.chapter-source-url{display:block;overflow-wrap:anywhere;border:1px dashed var(--line);background:var(--paper);padding:9px 11px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.5}
+    .chapter-notebook-card{border:1px solid #c69b70;background:#fffdf7;padding:18px 20px}.chapter-notebook-card p{margin:0 0 12px;color:var(--muted)}.notebook-cta{display:inline-flex;align-items:center;min-height:42px;border-radius:7px;background:var(--accent);padding:0 16px;color:#fff;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.92rem;font-weight:800;text-decoration:none}.notebook-cta:hover{background:#7b2f24}.chapter-source-url{display:block;overflow-wrap:anywhere;border:1px dashed var(--line);background:var(--paper);padding:9px 11px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.5}.chapter-source-url[hidden]{display:none}
+    .chapter-notebook-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.notebook-edit-button,.notebook-reset-button,.notebook-save-button,.notebook-cancel-button{min-height:38px;border:1px solid var(--line);border-radius:6px;background:var(--paper);padding:0 13px;color:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.86rem;font-weight:800;cursor:pointer}.notebook-edit-button:hover,.notebook-reset-button:hover,.notebook-cancel-button:hover{border-color:var(--accent);color:var(--accent)}.notebook-save-button{border-color:var(--accent);background:var(--accent);color:#fff}.notebook-save-button:hover{background:#7b2f24}.notebook-reset-button[hidden],.notebook-edit-form[hidden]{display:none}.notebook-edit-form{margin-top:14px;border-top:1px solid var(--line);padding-top:14px}.notebook-edit-form label{display:block;margin-bottom:6px;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.88rem;font-weight:800}.notebook-edit-form input{width:100%;min-height:42px;border:1px solid var(--line);border-radius:6px;background:#fff;padding:8px 10px;color:var(--ink);font:inherit}.notebook-edit-form input:focus{border-color:var(--accent);outline:2px solid #a13d2d22}.notebook-edit-help{margin:8px 0 0!important;font-size:.82rem}.notebook-edit-status{min-height:1.5em;margin:8px 0 0!important;color:var(--accent)!important;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.84rem;font-weight:700}
     @media(max-width:900px){.notebook-shell{width:min(900px,calc(100% - 28px));grid-template-columns:1fr}.notebook-shell>main{grid-column:1;grid-row:2}.notebook-sidebar{grid-column:1;grid-row:1;position:static;max-height:280px}.notebook-directory{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}}
     @media(max-width:700px){.chapter-formula-grid{grid-template-columns:1fr}}
     @media(max-width:600px){.notebook-shell{width:100%;margin:0;gap:0}.notebook-shell>main{margin:0;width:100%;box-shadow:none;padding:25px 20px}.notebook-sidebar{border-right:0;border-left:0;padding:18px 20px}.notebook-directory{grid-template-columns:1fr}.lesson-pager{display:block}.lesson-pager a{display:block;margin:.5em 0}}
@@ -164,6 +165,126 @@ def notebooklm_math_head():
       };
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    """
+
+
+def notebooklm_chapter_editor_script():
+    return r"""
+    <script>
+      (function () {
+        var card = document.querySelector(".chapter-notebook-card[data-chapter]");
+        if (!card) return;
+
+        var chapter = card.getAttribute("data-chapter") || "";
+        var defaultUrl = card.getAttribute("data-default-url") || "";
+        var storageKey = "fanphysics.notebooklm.chapter." + chapter;
+        var description = card.querySelector(".notebook-status-copy");
+        var linkSlot = card.querySelector(".notebook-link-slot");
+        var sourceUrl = card.querySelector(".chapter-source-url");
+        var editButton = card.querySelector(".notebook-edit-button");
+        var resetButton = card.querySelector(".notebook-reset-button");
+        var form = card.querySelector(".notebook-edit-form");
+        var input = card.querySelector(".notebook-url-input");
+        var cancelButton = card.querySelector(".notebook-cancel-button");
+        var status = card.querySelector(".notebook-edit-status");
+        var overrideUrl = "";
+
+        function normalizeNotebookUrl(value) {
+          var text = String(value || "").trim();
+          if (!text) return "";
+          try {
+            var parsed = new URL(text);
+            var match = parsed.pathname.match(/^\/notebook\/([A-Za-z0-9_-]+)/);
+            if (parsed.protocol !== "https:" || parsed.hostname !== "notebooklm.google.com" || !match) return "";
+            return "https://notebooklm.google.com/notebook/" + match[1];
+          } catch (error) {
+            return "";
+          }
+        }
+
+        function clearLinkSlot() {
+          while (linkSlot.firstChild) linkSlot.removeChild(linkSlot.firstChild);
+        }
+
+        function renderLink() {
+          var currentUrl = overrideUrl || defaultUrl;
+          clearLinkSlot();
+          if (currentUrl) {
+            var link = document.createElement("a");
+            link.className = "notebook-cta";
+            link.href = currentUrl;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = "打开 " + chapter + " NotebookLM 笔记";
+            linkSlot.appendChild(link);
+            description.textContent = overrideUrl
+              ? "本章正在使用当前浏览器保存的 NotebookLM 笔记网址。"
+              : "本章已经关联 NotebookLM 笔记，可继续查看音频、视频、问答和其他学习材料。";
+            sourceUrl.hidden = true;
+            editButton.textContent = "修改笔记网址";
+          } else {
+            description.textContent = "本章尚未关联 NotebookLM 笔记。下面的章节地址可以直接添加为 NotebookLM 网站来源。";
+            sourceUrl.hidden = false;
+            editButton.textContent = "添加笔记网址";
+          }
+          resetButton.hidden = !overrideUrl;
+          input.value = currentUrl;
+        }
+
+        try {
+          overrideUrl = normalizeNotebookUrl(window.localStorage.getItem(storageKey));
+        } catch (error) {
+          overrideUrl = "";
+        }
+        renderLink();
+
+        editButton.addEventListener("click", function () {
+          form.hidden = !form.hidden;
+          status.textContent = "";
+          if (!form.hidden) {
+            input.value = overrideUrl || defaultUrl;
+            input.focus();
+          }
+        });
+
+        cancelButton.addEventListener("click", function () {
+          form.hidden = true;
+          status.textContent = "";
+        });
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          var normalized = normalizeNotebookUrl(input.value);
+          if (!normalized) {
+            status.textContent = "请输入以 https://notebooklm.google.com/notebook/ 开头的有效网址。";
+            return;
+          }
+          try {
+            window.localStorage.setItem(storageKey, normalized);
+          } catch (error) {
+            status.textContent = "当前浏览器无法保存网址，请检查隐私模式或存储权限。";
+            return;
+          }
+          overrideUrl = normalized;
+          renderLink();
+          form.hidden = true;
+          status.textContent = "NotebookLM 笔记网址已保存到当前浏览器。";
+        });
+
+        resetButton.addEventListener("click", function () {
+          try {
+            window.localStorage.removeItem(storageKey);
+          } catch (error) {
+            status.textContent = "当前浏览器无法恢复默认网址。";
+            return;
+          }
+          overrideUrl = "";
+          renderLink();
+          form.hidden = true;
+          status.textContent = defaultUrl ? "已恢复项目中的默认网址。" : "已移除当前浏览器保存的网址。";
+        });
+      }());
+    </script>
     """
 
 
@@ -329,16 +450,35 @@ def render_notebooklm_chapter_page(handler, chapter, chapter_items, grouped, gui
 
     notebook_url = derive_notebooklm_notebook_url(chapter_items, guide)
     if notebook_url:
-        notebook_content = (
-            '<p>本章已经关联 NotebookLM 笔记，可继续查看音频、视频、问答和其他学习材料。</p>'
+        notebook_description = "本章已经关联 NotebookLM 笔记，可继续查看音频、视频、问答和其他学习材料。"
+        notebook_link = (
             f'<a class="notebook-cta" href="{escape(notebook_url, quote=True)}" target="_blank" '
             f'rel="noopener noreferrer">打开 {escape(chapter)} NotebookLM 笔记</a>'
         )
+        source_hidden = " hidden"
+        edit_label = "修改笔记网址"
     else:
-        notebook_content = (
-            '<p>本章尚未关联 NotebookLM 笔记。下面的章节地址已经包含题目概括、核心规律和公式，可直接添加为 NotebookLM 网站来源。</p>'
-            f'<code class="chapter-source-url">{escape(canonical)}</code>'
-        )
+        notebook_description = "本章尚未关联 NotebookLM 笔记。下面的章节地址可以直接添加为 NotebookLM 网站来源。"
+        notebook_link = ""
+        source_hidden = ""
+        edit_label = "添加笔记网址"
+    notebook_content = (
+        f'<p class="notebook-status-copy">{escape(notebook_description)}</p>'
+        f'<div class="notebook-link-slot">{notebook_link}</div>'
+        f'<code class="chapter-source-url"{source_hidden}>{escape(canonical)}</code>'
+        '<div class="chapter-notebook-actions">'
+        f'<button class="notebook-edit-button" type="button">{edit_label}</button>'
+        '<button class="notebook-reset-button" type="button" hidden>恢复默认</button></div>'
+        '<form class="notebook-edit-form" hidden>'
+        '<label for="notebook-url-input">NotebookLM 笔记网址</label>'
+        '<input class="notebook-url-input" id="notebook-url-input" type="url" inputmode="url" '
+        'autocomplete="url" placeholder="https://notebooklm.google.com/notebook/..." required>'
+        '<div class="chapter-notebook-actions">'
+        '<button class="notebook-save-button" type="submit">保存</button>'
+        '<button class="notebook-cancel-button" type="button">取消</button></div>'
+        '<p class="notebook-edit-help">网址仅保存在当前浏览器中，刷新页面和重新部署网站都不会清除。</p>'
+        '</form><p class="notebook-edit-status" role="status" aria-live="polite"></p>'
+    )
 
     chapter_links = [(notebooklm_chapter_path(item), item) for item in grouped]
     current_href = notebooklm_chapter_path(chapter)
@@ -361,9 +501,9 @@ def render_notebooklm_chapter_page(handler, chapter, chapter_items, grouped, gui
 <h2>章节定理、规律与公式汇总</h2><div class="knowledge">{knowledge_html}</div>
 <h3>核心定理与规律</h3><ol class="chapter-law-list">{laws_html}</ol>
 <h3>常用公式</h3><div class="chapter-formula-grid">{"".join(formula_cards)}</div>
-<h2>NotebookLM 笔记</h2><section class="chapter-notebook-card">{notebook_content}</section></article>
+<h2>NotebookLM 笔记</h2><section class="chapter-notebook-card" data-chapter="{escape(chapter, quote=True)}" data-default-url="{escape(notebook_url, quote=True)}">{notebook_content}</section></article>
 <nav class="lesson-pager"><a href="/notebooklm/">课例总目录</a><a href="/classical-mechanics-demo.html">返回动态模型库</a></nav>
-</main>{sidebar_html}</div></body></html>"""
+</main>{sidebar_html}</div>{notebooklm_chapter_editor_script()}</body></html>"""
 
 
 def render_notebooklm_index(handler, catalog):
