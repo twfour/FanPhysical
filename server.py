@@ -101,13 +101,20 @@ def notebooklm_styles():
     :root{--ink:#20231f;--muted:#686d64;--paper:#f7f3e8;--line:#d8d0bd;--accent:#a13d2d}
     *{box-sizing:border-box}body{margin:0;background:#e8e2d3;color:var(--ink);font-family:"Songti SC","STSong",serif;line-height:1.82}
     main{width:min(900px,calc(100% - 28px));margin:24px auto 64px;background:var(--paper);padding:clamp(28px,6vw,72px);box-shadow:0 18px 50px #342d1e22;border-top:6px solid var(--accent)}
+    .notebook-shell{width:min(1200px,calc(100% - 28px));margin:24px auto 64px;display:grid;grid-template-columns:minmax(220px,260px) minmax(0,900px);gap:20px;align-items:start}
+    .notebook-shell>main{grid-column:2;grid-row:1;width:100%;margin:0}.notebook-sidebar{grid-column:1;grid-row:1;position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto;border:1px solid var(--line);border-top:6px solid var(--accent);background:var(--paper);padding:18px;box-shadow:0 12px 30px #342d1e18}
+    .sidebar-kicker{margin:0;color:var(--accent);font-family:"Kaiti SC","STKaiti",serif;font-size:.78rem;letter-spacing:.14em}.notebook-sidebar h2{margin:.35em 0 1em;border:0;padding:0;font-size:1.15rem;line-height:1.35}
+    .notebook-directory{display:grid;gap:5px}.notebook-directory a{display:block;border-left:3px solid transparent;padding:7px 9px;color:var(--muted);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.88rem;font-weight:650;line-height:1.45;text-decoration:none}.notebook-directory a:hover{border-left-color:#c69b70;background:#fffdf7;color:var(--ink)}.notebook-directory a.is-current{border-left-color:var(--accent);background:#fffdf7;color:var(--ink);font-weight:800}
+    .sidebar-footer{display:block;margin-top:16px;border-top:1px solid var(--line);padding:13px 9px 0;color:#7b2f24;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.86rem;font-weight:800;text-decoration:none}
     header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:34px}.eyebrow{color:var(--accent);font-family:"Kaiti SC","STKaiti",serif;letter-spacing:.16em}
     h1{font-size:clamp(2rem,6vw,3.7rem);line-height:1.12;margin:.35em 0 .2em}h2{font-size:1.35rem;margin:2.2em 0 .7em;border-left:4px solid var(--accent);padding-left:.7em}
     h3{font-size:1.05rem;margin:1.5em 0 .35em}.meta,.quiet{color:var(--muted)}.formula,.answer,.step,.practice{border:1px solid var(--line);padding:16px 20px;margin:12px 0;background:#fffdf7}
     .answer{border-color:#c69b70}.knowledge{display:flex;gap:8px;flex-wrap:wrap}.tag{border:1px solid var(--line);padding:2px 10px;border-radius:999px;font-size:.88rem}
     mjx-container{color:var(--ink);font-size:1.04em}mjx-container[display="true"]{max-width:100%;margin:1em 0!important;padding:.25em 0 .4em;overflow-x:auto;overflow-y:hidden;text-align:left!important}
     ol,ul{padding-left:1.5em}a{color:#7b2f24;text-decoration-thickness:1px;text-underline-offset:3px}.directory{display:grid;gap:12px}.directory a{display:block;padding:14px 16px;border:1px solid var(--line);background:#fffdf7;text-decoration:none}.directory a:hover{border-color:var(--accent)}
-    nav{display:flex;justify-content:space-between;gap:16px;margin-top:42px;padding-top:22px;border-top:1px solid var(--line)}@media(max-width:600px){main{margin:0;width:100%;box-shadow:none;padding:25px 20px}nav{display:block}nav a{display:block;margin:.5em 0}}
+    .lesson-pager{display:flex;justify-content:space-between;gap:16px;margin-top:42px;padding-top:22px;border-top:1px solid var(--line)}.directory-section{scroll-margin-top:20px}
+    @media(max-width:900px){.notebook-shell{width:min(900px,calc(100% - 28px));grid-template-columns:1fr}.notebook-shell>main{grid-column:1;grid-row:2}.notebook-sidebar{grid-column:1;grid-row:1;position:static;max-height:280px}.notebook-directory{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}}
+    @media(max-width:600px){.notebook-shell{width:100%;margin:0;gap:0}.notebook-shell>main{margin:0;width:100%;box-shadow:none;padding:25px 20px}.notebook-sidebar{border-right:0;border-left:0;padding:18px 20px}.notebook-directory{grid-template-columns:1fr}.lesson-pager{display:block}.lesson-pager a{display:block;margin:.5em 0}}
     """
 
 
@@ -139,7 +146,30 @@ def text_block(value):
     return escape(str(value)).replace("\n", "<br>")
 
 
-def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=None):
+def render_notebooklm_sidebar(kicker, title, links, current_href=None, footer=None):
+    items = []
+    for href, label in links:
+        is_current = href == current_href
+        current_class = " is-current" if is_current else ""
+        current_attr = ' aria-current="page"' if is_current else ""
+        items.append(
+            f'<a class="{current_class.strip()}" href="{escape(href, quote=True)}"{current_attr}>'
+            f'{escape(label)}</a>'
+        )
+    footer_html = ""
+    if footer:
+        footer_html = (
+            f'<a class="sidebar-footer" href="{escape(footer[0], quote=True)}">'
+            f'{escape(footer[1])}</a>'
+        )
+    return (
+        f'<aside class="notebook-sidebar"><p class="sidebar-kicker">{escape(kicker)}</p>'
+        f'<h2>{escape(title)}</h2><nav class="notebook-directory" aria-label="{escape(title, quote=True)}">'
+        f'{"".join(items)}</nav>{footer_html}</aside>'
+    )
+
+
+def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=None, chapter_items=None):
     title = problem.get("title") or problem_id
     chapter = problem.get("chapter") or "未分类"
     canonical = f"{request_origin(handler)}/notebooklm/{quote(problem_id)}"
@@ -149,6 +179,19 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
     analysis = problem.get("analysis")
     analysis_text = analysis.get("content") if isinstance(analysis, dict) else problem.get("analysisText")
     practice = problem.get("practice") if isinstance(problem.get("practice"), dict) else None
+    chapter_items = chapter_items or [(problem_id, problem)]
+    sidebar_links = [
+        (f"/notebooklm/{quote(item_id)}", item_problem.get("title") or item_id)
+        for item_id, item_problem in chapter_items
+    ]
+    current_href = f"/notebooklm/{quote(problem_id)}"
+    sidebar_html = render_notebooklm_sidebar(
+        "本章目录",
+        chapter,
+        sidebar_links,
+        current_href=current_href,
+        footer=("/notebooklm/", "查看全部章节"),
+    )
 
     options_html = ""
     if options:
@@ -192,10 +235,10 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{escape(title)}｜FanPhysics NotebookLM 讲义</title><meta name="description" content="{escape(chapter)}：{escape(title)}的题目、答案和分步解析。">
 <link rel="canonical" href="{escape(canonical)}"><style>{notebooklm_styles()}</style>{notebooklm_math_head()}</head>
-<body><main><header><div class="eyebrow">FANPHYSICS · NOTEBOOKLM 讲义</div><h1>{escape(title)}</h1>
+<body><div class="notebook-shell"><main><header><div class="eyebrow">FANPHYSICS · NOTEBOOKLM 讲义</div><h1>{escape(title)}</h1>
 <div class="meta">章节：{escape(chapter)}　·　资料编号：{escape(problem_id)}</div></header>
 <article><h2>题目</h2><p>{text_block(problem.get("question"))}</p>{options_html}{knowledge_html}{answer_html}{analysis_html}{steps_html}{practice_html}</article>
-<nav>{previous_link}<a href="/notebooklm/">全部独立课例</a>{next_link}</nav></main></body></html>"""
+<nav class="lesson-pager">{previous_link}<a href="/notebooklm/">全部独立课例</a>{next_link}</nav></main>{sidebar_html}</div></body></html>"""
 
 
 def render_notebooklm_index(handler, catalog):
@@ -203,19 +246,28 @@ def render_notebooklm_index(handler, catalog):
     for problem_id, problem in catalog:
         grouped.setdefault(problem.get("chapter") or "未分类", []).append((problem_id, problem))
     sections = []
-    for chapter, items in grouped.items():
+    sidebar_links = []
+    for chapter_index, (chapter, items) in enumerate(grouped.items(), 1):
+        anchor = f"chapter-{chapter_index}"
         links = "".join(
             f'<a href="/notebooklm/{quote(problem_id)}"><strong>{escape(problem.get("title") or problem_id)}</strong>'
             f'<br><span class="quiet">{escape(problem_id)}</span></a>'
             for problem_id, problem in items
         )
-        sections.append(f'<section><h2>{escape(chapter)}</h2><div class="directory">{links}</div></section>')
+        sections.append(f'<section id="{anchor}" class="directory-section"><h2>{escape(chapter)}</h2><div class="directory">{links}</div></section>')
+        sidebar_links.append((f"#{anchor}", chapter))
+    sidebar_html = render_notebooklm_sidebar(
+        "一级目录",
+        "全部章节",
+        sidebar_links,
+        footer=("/classical-mechanics-demo.html", "返回动态模型库"),
+    )
     canonical = f"{request_origin(handler)}/notebooklm/"
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FanPhysics 独立课例地址</title><meta name="description" content="供 NotebookLM 导入的 FanPhysics 单课讲义目录。">
-<link rel="canonical" href="{escape(canonical)}"><style>{notebooklm_styles()}</style></head><body><main>
-<header><div class="eyebrow">NOTEBOOKLM SOURCE DIRECTORY</div><h1>独立课例地址</h1><p class="meta">每个链接都是服务端生成的完整讲义，不依赖 JavaScript，可直接复制到 NotebookLM。</p></header>
-{''.join(sections)}</main></body></html>"""
+<link rel="canonical" href="{escape(canonical)}"><style>{notebooklm_styles()}</style></head><body><div class="notebook-shell"><main>
+<header><div class="eyebrow">NOTEBOOKLM SOURCE DIRECTORY</div><h1>独立课例地址</h1><p class="meta">每个链接都是服务端生成的完整讲义，可直接复制到 NotebookLM；浏览器端会增强公式排版。</p></header>
+{''.join(sections)}</main>{sidebar_html}</div></body></html>"""
 
 
 def json_response(handler, status, payload):
@@ -445,10 +497,24 @@ class Handler(SimpleHTTPRequestHandler):
                 return
             previous_id = problem_ids[index - 1] if index > 0 else None
             next_id = problem_ids[index + 1] if index + 1 < len(problem_ids) else None
+            current_problem = catalog[index][1]
+            current_chapter = current_problem.get("chapter") or "未分类"
+            chapter_items = [
+                (item_id, item_problem)
+                for item_id, item_problem in catalog
+                if (item_problem.get("chapter") or "未分类") == current_chapter
+            ]
             html_response(
                 self,
                 200,
-                render_problem_page(self, problem_id, catalog[index][1], previous_id, next_id),
+                render_problem_page(
+                    self,
+                    problem_id,
+                    current_problem,
+                    previous_id,
+                    next_id,
+                    chapter_items,
+                ),
             )
             return
         super().do_GET()
