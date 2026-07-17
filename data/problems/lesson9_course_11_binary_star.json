@@ -41,6 +41,18 @@
     "质心",
     "万有引力"
   ],
+  "notebooklm": [
+    {
+      "type": "audio",
+      "title": "音频讲解",
+      "url": "https://notebooklm.google.com/notebook/003f8707-f4b1-4859-aab4-7d51f3c064e7/artifact/d901a3ad-ada2-45c1-90ed-193872d84bba?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_"
+    },
+    {
+      "type": "video",
+      "title": "视频讲解",
+      "url": "https://notebooklm.google.com/notebook/003f8707-f4b1-4859-aab4-7d51f3c064e7/artifact/5d389215-1bf9-473c-a744-2e711d8da393?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_"
+    }
+  ],
   "steps": [
     {
       "stepId": 1,
