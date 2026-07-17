@@ -52,6 +52,19 @@ def validate_problem(path):
                     errors.append(f"{path.name}: step {index} missing field {field}")
     if not isinstance(problem.get("knowledge"), list):
         errors.append(f"{path.name}: knowledge must be a list")
+    notebooklm = problem.get("notebooklm")
+    if notebooklm is not None:
+        if not isinstance(notebooklm, list):
+            errors.append(f"{path.name}: notebooklm must be a list")
+        else:
+            for index, item in enumerate(notebooklm, start=1):
+                if not isinstance(item, dict):
+                    errors.append(f"{path.name}: notebooklm item {index} must be an object")
+                    continue
+                if item.get("type") not in {"audio", "video"}:
+                    errors.append(f"{path.name}: notebooklm item {index} has unsupported type")
+                if not re.match(r"^https://notebooklm\.google\.com/", str(item.get("url", ""))):
+                    errors.append(f"{path.name}: notebooklm item {index} needs a NotebookLM URL")
     animation_type = problem.get("animation", {}).get("type", "none")
     if animation_type not in SUPPORTED_ANIMATION_TYPES:
         errors.append(f"{path.name}: unsupported animation type {animation_type}")

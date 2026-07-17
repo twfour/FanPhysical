@@ -595,6 +595,10 @@ function renderProblemDataNotes(problem) {
     note.appendChild(grid);
 
     grid.appendChild(createProblemQuestionBlock(problem));
+    var notebookLmBlock = createProblemNotebookLmBlock(problem);
+    if (notebookLmBlock) {
+      grid.appendChild(notebookLmBlock);
+    }
     var analysisBlock = createProblemAnalysisBlock(problem);
     analysisBlock.dataset.analysisBlock = "1";
     grid.appendChild(analysisBlock);
@@ -613,6 +617,62 @@ function createProblemQuestionBlock(problem) {
   var block = createProblemNoteBlock("题目", problem.title, problem.question || "");
   appendProblemOptions(block, options);
   appendProblemImages(block, problem.images);
+  return block;
+}
+
+function createProblemNotebookLmBlock(problem) {
+  var media = problem && Array.isArray(problem.notebooklm) ? problem.notebooklm : [];
+  var validMedia = media.filter(function (item) {
+    return Boolean(
+      item &&
+      (item.type === "audio" || item.type === "video") &&
+      /^https:\/\/notebooklm\.google\.com\//i.test(String(item.url || ""))
+    );
+  });
+  if (!validMedia.length) {
+    return null;
+  }
+
+  var block = createProblemNoteBlock("NotebookLM", "音视频讲解", "");
+  block.classList.add("problem-notebooklm-block");
+  block.dataset.keepExpanded = "1";
+  var links = document.createElement("div");
+  links.className = "notebooklm-links";
+
+  validMedia.forEach(function (item) {
+    var typeLabel = item.type === "video" ? "视频" : "音频";
+    var link = document.createElement("a");
+    link.className = "notebooklm-link is-" + item.type;
+    link.href = item.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.setAttribute("aria-label", (item.title || typeLabel + "讲解") + "，在 NotebookLM 中打开");
+
+    var badge = document.createElement("span");
+    badge.className = "notebooklm-link-kind";
+    badge.innerText = typeLabel;
+
+    var copy = document.createElement("span");
+    copy.className = "notebooklm-link-copy";
+    var title = document.createElement("strong");
+    title.innerText = item.title || typeLabel + "讲解";
+    var hint = document.createElement("small");
+    hint.innerText = "使用 Google 账号在 NotebookLM 中打开";
+    copy.appendChild(title);
+    copy.appendChild(hint);
+
+    var action = document.createElement("span");
+    action.className = "notebooklm-link-action";
+    action.innerText = "打开";
+    action.setAttribute("aria-hidden", "true");
+
+    link.appendChild(badge);
+    link.appendChild(copy);
+    link.appendChild(action);
+    links.appendChild(link);
+  });
+
+  block.appendChild(links);
   return block;
 }
 
@@ -1220,7 +1280,7 @@ function enhanceProblemNotes(root) {
       var hasCollapsibleSteps = body.querySelector('details.analysis-step[data-collapsible-step="1"]');
       if (hasCollapsibleSteps && isAnalysisNoteBlock(block)) {
         wireCollapsedAnalysisSteps(body, sceneName);
-      } else if (index > 0 && kickerText !== "近似题") {
+      } else if (index > 0 && kickerText !== "近似题" && block.dataset.keepExpanded !== "1") {
         block.classList.add("is-collapsed");
         var toggle = document.createElement("button");
         toggle.type = "button";

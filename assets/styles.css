@@ -950,6 +950,83 @@ button.sound-action:disabled {
   font-weight: 900;
 }
 
+.notebooklm-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.notebooklm-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--soft);
+  padding: 12px 14px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 0.16s ease, background-color 0.16s ease, transform 0.16s ease;
+}
+
+.notebooklm-link:hover {
+  border-color: #93c5fd;
+  background: #eff6ff;
+  transform: translateY(-1px);
+}
+
+.notebooklm-link-kind {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 46px;
+  min-height: 32px;
+  border-radius: 7px;
+  background: #dbeafe;
+  color: var(--brand-deep);
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.notebooklm-link.is-video .notebooklm-link-kind {
+  background: #ccfbf1;
+  color: #0f766e;
+}
+
+.notebooklm-link-copy {
+  display: block;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.notebooklm-link-copy strong,
+.notebooklm-link-copy small {
+  display: block;
+}
+
+.notebooklm-link-copy strong {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.notebooklm-link-copy small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.notebooklm-link-action {
+  flex: 0 0 auto;
+  color: var(--brand-deep);
+  font-size: 14px;
+  font-weight: 900;
+}
+
 .problem-image-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

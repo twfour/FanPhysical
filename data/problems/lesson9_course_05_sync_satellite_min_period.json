@@ -39,6 +39,18 @@
     "覆盖几何",
     "开普勒第三定律"
   ],
+  "notebooklm": [
+    {
+      "type": "audio",
+      "title": "音频讲解",
+      "url": "https://notebooklm.google.com/notebook/003f8707-f4b1-4859-aab4-7d51f3c064e7/artifact/22586156-acf7-4020-8eed-f2280894b810?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_"
+    },
+    {
+      "type": "video",
+      "title": "视频讲解",
+      "url": "https://notebooklm.google.com/notebook/003f8707-f4b1-4859-aab4-7d51f3c064e7/artifact/195143e3-623e-447e-a8e1-d1193f45cf0d?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_"
+    }
+  ],
   "steps": [
     {
       "stepId": 1,
