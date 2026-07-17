@@ -410,6 +410,33 @@ button.action:hover {
   background: var(--brand-deep);
 }
 
+button.sound-action {
+  border: 1px solid #99f6e4;
+  background: #ffffff;
+  color: #0f766e;
+}
+
+button.sound-action:hover {
+  background: #ecfeff;
+}
+
+button.sound-action[aria-pressed="true"] {
+  border-color: #0f766e;
+  background: #0f766e;
+  color: #ffffff;
+}
+
+button.sound-action[aria-pressed="true"]:hover {
+  background: #115e59;
+}
+
+button.sound-action:disabled {
+  border-color: var(--line);
+  background: #f8fafc;
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
 #canvas-holder {
   width: min(100%, 1000px);
   aspect-ratio: 2 / 1;
