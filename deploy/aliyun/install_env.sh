@@ -31,6 +31,11 @@ if [[ -z "${DEEPSEEK_API_KEY:-}" ]]; then
   echo "DEEPSEEK_API_KEY is missing from $ENV_SOURCE" >&2
   exit 1
 fi
+NOTEBOOKLM_EDIT_PASSWORD="${NOTEBOOKLM_EDIT_PASSWORD:-}"
+if [[ ${#NOTEBOOKLM_EDIT_PASSWORD} -lt 12 ]]; then
+  echo "NOTEBOOKLM_EDIT_PASSWORD must contain at least 12 characters in $ENV_SOURCE" >&2
+  exit 1
+fi
 
 umask 077
 {
@@ -42,6 +47,8 @@ umask 077
   printf 'DEEPSEEK_THINKING=disabled\n'
   printf 'DEEPSEEK_TIMEOUT_SECONDS=90\n'
   printf 'DEEPSEEK_MAX_RETRIES=2\n'
+  printf 'NOTEBOOKLM_EDIT_PASSWORD=%s\n' "$NOTEBOOKLM_EDIT_PASSWORD"
+  printf 'NOTEBOOKLM_LINKS_PATH=/opt/fanphysics/shared/notebooklm-links.json\n'
 } > "$TMP_ENV"
 
 echo "==> Uploading protected environment file"

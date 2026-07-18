@@ -46,6 +46,9 @@ if ! id -u fanphysics >/dev/null 2>&1; then
   useradd --system --home-dir '$APP_BASE' --shell /sbin/nologin fanphysics
 fi
 test -f '$ENV_FILE' || { echo 'Missing $ENV_FILE; run deploy/aliyun/install_env.sh first.' >&2; exit 1; }
+mkdir -p '$APP_BASE/shared'
+chown fanphysics:fanphysics '$APP_BASE/shared'
+chmod 750 '$APP_BASE/shared'
 mkdir -p '$APP_BASE/releases/$RELEASE_ID'
 tar -xzf '$ARCHIVE_REMOTE' -C '$APP_BASE/releases/$RELEASE_ID'
 rm -f '$ARCHIVE_REMOTE'

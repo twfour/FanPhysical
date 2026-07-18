@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
+import hmac
 import json
 import os
 import re
 import socket
 import ssl
 import subprocess
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -60,6 +62,18 @@ MAX_CONVERSATION_MESSAGE_CHARS = 4_000
 PROBLEM_INDEX_PATH = ROOT / "data" / "problems" / "index.json"
 PROBLEM_DIR = PROBLEM_INDEX_PATH.parent
 CHAPTER_GUIDES_PATH = ROOT / "data" / "chapter-guides.json"
+NOTEBOOKLM_EDIT_PASSWORD = os.environ.get("NOTEBOOKLM_EDIT_PASSWORD", "")
+NOTEBOOKLM_EDIT_ENABLED = len(NOTEBOOKLM_EDIT_PASSWORD) >= 12
+NOTEBOOKLM_LINKS_PATH = Path(
+    os.environ.get("NOTEBOOKLM_LINKS_PATH", str(ROOT / "work" / "notebooklm-links.json"))
+).expanduser()
+if not NOTEBOOKLM_LINKS_PATH.is_absolute():
+    NOTEBOOKLM_LINKS_PATH = ROOT / NOTEBOOKLM_LINKS_PATH
+NOTEBOOKLM_LINKS_LOCK = threading.RLock()
+NOTEBOOKLM_AUTH_FAILURES = {}
+NOTEBOOKLM_AUTH_WINDOW_SECONDS = 10 * 60
+NOTEBOOKLM_AUTH_MAX_FAILURES = 6
+MAX_NOTEBOOKLM_EDIT_BODY_BYTES = 8_000
 
 
 def html_response(handler, status, html):
@@ -96,6 +110,97 @@ def load_chapter_guides():
     payload = json.loads(CHAPTER_GUIDES_PATH.read_text(encoding="utf-8"))
     guides = payload.get("chapters", {})
     return guides if isinstance(guides, dict) else {}
+
+
+def normalize_notebooklm_url(value):
+    text = str(value or "").strip()
+    if not text:
+        return ""
+    parsed = urlparse(text)
+    if parsed.scheme != "https" or parsed.hostname != "notebooklm.google.com":
+        return ""
+    match = re.match(r"^/notebook/([A-Za-z0-9_-]+)", parsed.path)
+    if not match:
+        return ""
+    return f"https://notebooklm.google.com/notebook/{match.group(1)}"
+
+
+def load_notebooklm_links_document():
+    try:
+        payload = json.loads(NOTEBOOKLM_LINKS_PATH.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return {"version": 1, "chapters": {}}
+    except (OSError, json.JSONDecodeError):
+        return {"version": 1, "chapters": {}}
+    chapters = payload.get("chapters")
+    if not isinstance(chapters, dict):
+        chapters = {}
+    return {"version": 1, "chapters": chapters}
+
+
+def load_notebooklm_link_overrides():
+    with NOTEBOOKLM_LINKS_LOCK:
+        document = load_notebooklm_links_document()
+    overrides = {}
+    for chapter, item in document["chapters"].items():
+        raw_url = item.get("url") if isinstance(item, dict) else item
+        normalized = normalize_notebooklm_url(raw_url)
+        if normalized:
+            overrides[str(chapter)] = normalized
+    return overrides
+
+
+def save_notebooklm_link_override(chapter, url):
+    with NOTEBOOKLM_LINKS_LOCK:
+        document = load_notebooklm_links_document()
+        chapters = document["chapters"]
+        if url:
+            chapters[chapter] = {"url": url, "updatedAt": int(time.time())}
+        else:
+            chapters.pop(chapter, None)
+        NOTEBOOKLM_LINKS_PATH.parent.mkdir(parents=True, exist_ok=True)
+        temporary_path = NOTEBOOKLM_LINKS_PATH.with_name(
+            f"{NOTEBOOKLM_LINKS_PATH.name}.tmp-{os.getpid()}-{threading.get_ident()}"
+        )
+        temporary_path.write_text(
+            json.dumps(document, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        os.chmod(temporary_path, 0o600)
+        os.replace(temporary_path, NOTEBOOKLM_LINKS_PATH)
+
+
+def notebooklm_edit_client_ip(handler):
+    forwarded = handler.headers.get("X-Real-IP", "").strip()
+    return forwarded or handler.client_address[0]
+
+
+def notebooklm_auth_is_limited(client_ip):
+    now = time.monotonic()
+    with NOTEBOOKLM_LINKS_LOCK:
+        attempts = [
+            timestamp
+            for timestamp in NOTEBOOKLM_AUTH_FAILURES.get(client_ip, [])
+            if now - timestamp < NOTEBOOKLM_AUTH_WINDOW_SECONDS
+        ]
+        NOTEBOOKLM_AUTH_FAILURES[client_ip] = attempts
+        return len(attempts) >= NOTEBOOKLM_AUTH_MAX_FAILURES
+
+
+def record_notebooklm_auth_failure(client_ip):
+    with NOTEBOOKLM_LINKS_LOCK:
+        NOTEBOOKLM_AUTH_FAILURES.setdefault(client_ip, []).append(time.monotonic())
+
+
+def clear_notebooklm_auth_failures(client_ip):
+    with NOTEBOOKLM_LINKS_LOCK:
+        NOTEBOOKLM_AUTH_FAILURES.pop(client_ip, None)
+
+
+def notebooklm_password_matches(candidate):
+    if not NOTEBOOKLM_EDIT_ENABLED or not isinstance(candidate, str):
+        return False
+    return hmac.compare_digest(candidate.encode("utf-8"), NOTEBOOKLM_EDIT_PASSWORD.encode("utf-8"))
 
 
 def group_problem_catalog(catalog):
@@ -139,7 +244,7 @@ def notebooklm_styles():
     .chapter-law-list{display:grid;gap:10px;margin:0;padding:0;list-style:none;counter-reset:chapter-law}.chapter-law-list li{position:relative;border-left:3px solid #c69b70;background:#fffdf7;padding:12px 15px 12px 44px}.chapter-law-list li:before{position:absolute;left:14px;top:12px;counter-increment:chapter-law;content:counter(chapter-law);color:var(--accent);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-weight:900}
     .chapter-formula-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.chapter-formula-card{min-width:0;border:1px solid var(--line);background:#fffdf7;padding:15px 17px}.chapter-formula-card h3{margin:0 0 .5em;color:var(--ink)}.chapter-formula-card p{margin:.4em 0 0;color:var(--muted);font-size:.9rem}.chapter-formula-card mjx-container[display="true"]{font-size:.96em}
     .chapter-notebook-card{border:1px solid #c69b70;background:#fffdf7;padding:18px 20px}.chapter-notebook-card p{margin:0 0 12px;color:var(--muted)}.notebook-cta{display:inline-flex;align-items:center;min-height:42px;border-radius:7px;background:var(--accent);padding:0 16px;color:#fff;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.92rem;font-weight:800;text-decoration:none}.notebook-cta:hover{background:#7b2f24}.chapter-source-url{display:block;overflow-wrap:anywhere;border:1px dashed var(--line);background:var(--paper);padding:9px 11px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.5}.chapter-source-url[hidden]{display:none}
-    .chapter-notebook-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.notebook-edit-button,.notebook-reset-button,.notebook-save-button,.notebook-cancel-button{min-height:38px;border:1px solid var(--line);border-radius:6px;background:var(--paper);padding:0 13px;color:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.86rem;font-weight:800;cursor:pointer}.notebook-edit-button:hover,.notebook-reset-button:hover,.notebook-cancel-button:hover{border-color:var(--accent);color:var(--accent)}.notebook-save-button{border-color:var(--accent);background:var(--accent);color:#fff}.notebook-save-button:hover{background:#7b2f24}.notebook-reset-button[hidden],.notebook-edit-form[hidden]{display:none}.notebook-edit-form{margin-top:14px;border-top:1px solid var(--line);padding-top:14px}.notebook-edit-form label{display:block;margin-bottom:6px;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.88rem;font-weight:800}.notebook-edit-form input{width:100%;min-height:42px;border:1px solid var(--line);border-radius:6px;background:#fff;padding:8px 10px;color:var(--ink);font:inherit}.notebook-edit-form input:focus{border-color:var(--accent);outline:2px solid #a13d2d22}.notebook-edit-help{margin:8px 0 0!important;font-size:.82rem}.notebook-edit-status{min-height:1.5em;margin:8px 0 0!important;color:var(--accent)!important;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.84rem;font-weight:700}
+    .chapter-notebook-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.notebook-edit-button,.notebook-reset-button,.notebook-save-button,.notebook-cancel-button{min-height:38px;border:1px solid var(--line);border-radius:6px;background:var(--paper);padding:0 13px;color:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.86rem;font-weight:800;cursor:pointer}.notebook-edit-button:hover,.notebook-reset-button:hover,.notebook-cancel-button:hover{border-color:var(--accent);color:var(--accent)}.notebook-save-button{border-color:var(--accent);background:var(--accent);color:#fff}.notebook-save-button:hover{background:#7b2f24}.notebook-edit-button:disabled,.notebook-reset-button:disabled,.notebook-save-button:disabled,.notebook-cancel-button:disabled{cursor:not-allowed;opacity:.55}.notebook-reset-button[hidden],.notebook-edit-form[hidden]{display:none}.notebook-edit-form{margin-top:14px;border-top:1px solid var(--line);padding-top:14px}.notebook-edit-form label{display:block;margin-bottom:6px;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.88rem;font-weight:800}.notebook-edit-form label:not(:first-child){margin-top:12px}.notebook-edit-form input{width:100%;min-height:42px;border:1px solid var(--line);border-radius:6px;background:#fff;padding:8px 10px;color:var(--ink);font:inherit}.notebook-edit-form input:focus{border-color:var(--accent);outline:2px solid #a13d2d22}.notebook-edit-help{margin:8px 0 0!important;font-size:.82rem}.notebook-edit-status{min-height:1.5em;margin:8px 0 0!important;color:var(--accent)!important;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.84rem;font-weight:700}
     @media(max-width:900px){.notebook-shell{width:min(900px,calc(100% - 28px));grid-template-columns:1fr}.notebook-shell>main{grid-column:1;grid-row:2}.notebook-sidebar{grid-column:1;grid-row:1;position:static;max-height:280px}.notebook-directory{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}}
     @media(max-width:700px){.chapter-formula-grid{grid-template-columns:1fr}}
     @media(max-width:600px){.notebook-shell{width:100%;margin:0;gap:0}.notebook-shell>main{margin:0;width:100%;box-shadow:none;padding:25px 20px}.notebook-sidebar{border-right:0;border-left:0;padding:18px 20px}.notebook-directory{grid-template-columns:1fr}.lesson-pager{display:block}.lesson-pager a{display:block;margin:.5em 0}}
@@ -177,7 +282,9 @@ def notebooklm_chapter_editor_script():
 
         var chapter = card.getAttribute("data-chapter") || "";
         var defaultUrl = card.getAttribute("data-default-url") || "";
-        var storageKey = "fanphysics.notebooklm.chapter." + chapter;
+        var currentUrl = card.getAttribute("data-current-url") || defaultUrl;
+        var hasOverride = card.getAttribute("data-has-override") === "1";
+        var editEnabled = card.getAttribute("data-edit-enabled") === "1";
         var description = card.querySelector(".notebook-status-copy");
         var linkSlot = card.querySelector(".notebook-link-slot");
         var sourceUrl = card.querySelector(".chapter-source-url");
@@ -185,9 +292,10 @@ def notebooklm_chapter_editor_script():
         var resetButton = card.querySelector(".notebook-reset-button");
         var form = card.querySelector(".notebook-edit-form");
         var input = card.querySelector(".notebook-url-input");
+        var passwordInput = card.querySelector(".notebook-password-input");
+        var saveButton = card.querySelector(".notebook-save-button");
         var cancelButton = card.querySelector(".notebook-cancel-button");
         var status = card.querySelector(".notebook-edit-status");
-        var overrideUrl = "";
 
         function normalizeNotebookUrl(value) {
           var text = String(value || "").trim();
@@ -207,7 +315,6 @@ def notebooklm_chapter_editor_script():
         }
 
         function renderLink() {
-          var currentUrl = overrideUrl || defaultUrl;
           clearLinkSlot();
           if (currentUrl) {
             var link = document.createElement("a");
@@ -217,8 +324,8 @@ def notebooklm_chapter_editor_script():
             link.rel = "noopener noreferrer";
             link.textContent = "打开 " + chapter + " NotebookLM 笔记";
             linkSlot.appendChild(link);
-            description.textContent = overrideUrl
-              ? "本章正在使用当前浏览器保存的 NotebookLM 笔记网址。"
+            description.textContent = hasOverride
+              ? "本章正在使用服务器保存的 NotebookLM 笔记网址，所有设备均可访问。"
               : "本章已经关联 NotebookLM 笔记，可继续查看音频、视频、问答和其他学习材料。";
             sourceUrl.hidden = true;
             editButton.textContent = "修改笔记网址";
@@ -227,22 +334,23 @@ def notebooklm_chapter_editor_script():
             sourceUrl.hidden = false;
             editButton.textContent = "添加笔记网址";
           }
-          resetButton.hidden = !overrideUrl;
+          resetButton.hidden = !hasOverride;
           input.value = currentUrl;
         }
 
-        try {
-          overrideUrl = normalizeNotebookUrl(window.localStorage.getItem(storageKey));
-        } catch (error) {
-          overrideUrl = "";
-        }
         renderLink();
+        if (!editEnabled) {
+          editButton.disabled = true;
+          editButton.textContent = "服务器端编辑未配置";
+          status.textContent = "当前环境没有配置管理密码，因此仅支持查看。";
+        }
 
         editButton.addEventListener("click", function () {
+          if (!editEnabled) return;
           form.hidden = !form.hidden;
           status.textContent = "";
           if (!form.hidden) {
-            input.value = overrideUrl || defaultUrl;
+            input.value = currentUrl;
             input.focus();
           }
         });
@@ -252,6 +360,56 @@ def notebooklm_chapter_editor_script():
           status.textContent = "";
         });
 
+        function setBusy(busy) {
+          saveButton.disabled = busy;
+          resetButton.disabled = busy;
+          cancelButton.disabled = busy;
+          input.disabled = busy;
+          passwordInput.disabled = busy;
+        }
+
+        function errorMessage(result, responseStatus) {
+          if (responseStatus === 401) return "管理密码不正确。";
+          if (responseStatus === 429) return "密码尝试次数过多，请十分钟后再试。";
+          if (responseStatus === 503) return "当前服务器尚未配置 NotebookLM 编辑密码。";
+          if (result && result.error === "invalid_notebooklm_url") return "请输入有效的 NotebookLM 笔记网址。";
+          return "保存失败，请稍后重试。";
+        }
+
+        async function saveOverride(url, restoring) {
+          var password = passwordInput.value;
+          if (!password) {
+            status.textContent = "请输入管理密码。";
+            passwordInput.focus();
+            return;
+          }
+          setBusy(true);
+          try {
+            var response = await fetch("/api/notebooklm-link", {
+              method: "POST",
+              headers: {"Content-Type": "application/json"},
+              body: JSON.stringify({chapter: chapter, url: url, password: password})
+            });
+            var result = await response.json();
+            if (!response.ok || !result.ok) {
+              status.textContent = errorMessage(result, response.status);
+              return;
+            }
+            currentUrl = result.url || defaultUrl;
+            hasOverride = Boolean(result.hasOverride);
+            renderLink();
+            form.hidden = true;
+            passwordInput.value = "";
+            status.textContent = restoring
+              ? (defaultUrl ? "已恢复项目中的默认网址，所有设备已同步。" : "已移除服务器网址，所有设备已同步。")
+              : "NotebookLM 笔记网址已保存到服务器，所有设备已同步。";
+          } catch (error) {
+            status.textContent = "无法连接服务器，请检查网络后重试。";
+          } finally {
+            setBusy(false);
+          }
+        }
+
         form.addEventListener("submit", function (event) {
           event.preventDefault();
           var normalized = normalizeNotebookUrl(input.value);
@@ -259,29 +417,11 @@ def notebooklm_chapter_editor_script():
             status.textContent = "请输入以 https://notebooklm.google.com/notebook/ 开头的有效网址。";
             return;
           }
-          try {
-            window.localStorage.setItem(storageKey, normalized);
-          } catch (error) {
-            status.textContent = "当前浏览器无法保存网址，请检查隐私模式或存储权限。";
-            return;
-          }
-          overrideUrl = normalized;
-          renderLink();
-          form.hidden = true;
-          status.textContent = "NotebookLM 笔记网址已保存到当前浏览器。";
+          saveOverride(normalized, false);
         });
 
         resetButton.addEventListener("click", function () {
-          try {
-            window.localStorage.removeItem(storageKey);
-          } catch (error) {
-            status.textContent = "当前浏览器无法恢复默认网址。";
-            return;
-          }
-          overrideUrl = "";
-          renderLink();
-          form.hidden = true;
-          status.textContent = defaultUrl ? "已恢复项目中的默认网址。" : "已移除当前浏览器保存的网址。";
+          saveOverride("", true);
         });
       }());
     </script>
@@ -309,9 +449,9 @@ def derive_notebooklm_notebook_url(chapter_items, guide):
         media = problem.get("notebooklm") if isinstance(problem.get("notebooklm"), list) else []
         candidates.extend(item.get("url") for item in media if isinstance(item, dict))
     for candidate in candidates:
-        match = re.match(r"^(https://notebooklm\.google\.com/notebook/[^/?#]+)", str(candidate or ""))
-        if match:
-            return match.group(1)
+        normalized = normalize_notebooklm_url(candidate)
+        if normalized:
+            return normalized
     return ""
 
 
@@ -416,7 +556,7 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
 <nav class="lesson-pager">{previous_link}<a href="/notebooklm/">全部独立课例</a>{next_link}</nav></main>{sidebar_html}</div></body></html>"""
 
 
-def render_notebooklm_chapter_page(handler, chapter, chapter_items, grouped, guide):
+def render_notebooklm_chapter_page(handler, chapter, chapter_items, grouped, guide, notebook_override=""):
     canonical = f"{request_origin(handler)}{notebooklm_chapter_path(chapter)}"
     knowledge_counts = Counter()
     for _, problem in chapter_items:
@@ -448,9 +588,16 @@ def render_notebooklm_chapter_page(handler, chapter, chapter_items, grouped, gui
             f'<p>{text_block(formula.get("note"))}</p></section>'
         )
 
-    notebook_url = derive_notebooklm_notebook_url(chapter_items, guide)
+    default_notebook_url = derive_notebooklm_notebook_url(chapter_items, guide)
+    notebook_override = normalize_notebooklm_url(notebook_override)
+    has_notebook_override = bool(notebook_override)
+    notebook_url = notebook_override or default_notebook_url
     if notebook_url:
-        notebook_description = "本章已经关联 NotebookLM 笔记，可继续查看音频、视频、问答和其他学习材料。"
+        notebook_description = (
+            "本章正在使用服务器保存的 NotebookLM 笔记网址，所有设备均可访问。"
+            if has_notebook_override
+            else "本章已经关联 NotebookLM 笔记，可继续查看音频、视频、问答和其他学习材料。"
+        )
         notebook_link = (
             f'<a class="notebook-cta" href="{escape(notebook_url, quote=True)}" target="_blank" '
             f'rel="noopener noreferrer">打开 {escape(chapter)} NotebookLM 笔记</a>'
@@ -462,22 +609,28 @@ def render_notebooklm_chapter_page(handler, chapter, chapter_items, grouped, gui
         notebook_link = ""
         source_hidden = ""
         edit_label = "添加笔记网址"
+    edit_disabled = "" if NOTEBOOKLM_EDIT_ENABLED else " disabled"
+    edit_status = "" if NOTEBOOKLM_EDIT_ENABLED else "当前环境没有配置管理密码，因此仅支持查看。"
+    reset_hidden = "" if has_notebook_override else " hidden"
     notebook_content = (
         f'<p class="notebook-status-copy">{escape(notebook_description)}</p>'
         f'<div class="notebook-link-slot">{notebook_link}</div>'
         f'<code class="chapter-source-url"{source_hidden}>{escape(canonical)}</code>'
         '<div class="chapter-notebook-actions">'
-        f'<button class="notebook-edit-button" type="button">{edit_label}</button>'
-        '<button class="notebook-reset-button" type="button" hidden>恢复默认</button></div>'
+        f'<button class="notebook-edit-button" type="button"{edit_disabled}>{edit_label}</button></div>'
         '<form class="notebook-edit-form" hidden>'
         '<label for="notebook-url-input">NotebookLM 笔记网址</label>'
         '<input class="notebook-url-input" id="notebook-url-input" type="url" inputmode="url" '
         'autocomplete="url" placeholder="https://notebooklm.google.com/notebook/..." required>'
+        '<label for="notebook-edit-password">管理密码</label>'
+        '<input class="notebook-password-input" id="notebook-edit-password" type="password" '
+        'autocomplete="current-password" minlength="12" required>'
         '<div class="chapter-notebook-actions">'
         '<button class="notebook-save-button" type="submit">保存</button>'
+        f'<button class="notebook-reset-button" type="button"{reset_hidden}>恢复默认</button>'
         '<button class="notebook-cancel-button" type="button">取消</button></div>'
-        '<p class="notebook-edit-help">网址仅保存在当前浏览器中，刷新页面和重新部署网站都不会清除。</p>'
-        '</form><p class="notebook-edit-status" role="status" aria-live="polite"></p>'
+        '<p class="notebook-edit-help">验证管理密码后保存到服务器，刷新、换浏览器或换设备都能看到。</p>'
+        f'</form><p class="notebook-edit-status" role="status" aria-live="polite">{escape(edit_status)}</p>'
     )
 
     chapter_links = [(notebooklm_chapter_path(item), item) for item in grouped]
@@ -501,7 +654,7 @@ def render_notebooklm_chapter_page(handler, chapter, chapter_items, grouped, gui
 <h2>章节定理、规律与公式汇总</h2><div class="knowledge">{knowledge_html}</div>
 <h3>核心定理与规律</h3><ol class="chapter-law-list">{laws_html}</ol>
 <h3>常用公式</h3><div class="chapter-formula-grid">{"".join(formula_cards)}</div>
-<h2>NotebookLM 笔记</h2><section class="chapter-notebook-card" data-chapter="{escape(chapter, quote=True)}" data-default-url="{escape(notebook_url, quote=True)}">{notebook_content}</section></article>
+<h2>NotebookLM 笔记</h2><section class="chapter-notebook-card" data-chapter="{escape(chapter, quote=True)}" data-default-url="{escape(default_notebook_url, quote=True)}" data-current-url="{escape(notebook_url, quote=True)}" data-has-override="{1 if has_notebook_override else 0}" data-edit-enabled="{1 if NOTEBOOKLM_EDIT_ENABLED else 0}">{notebook_content}</section></article>
 <nav class="lesson-pager"><a href="/notebooklm/">课例总目录</a><a href="/classical-mechanics-demo.html">返回动态模型库</a></nav>
 </main>{sidebar_html}</div>{notebooklm_chapter_editor_script()}</body></html>"""
 
@@ -544,6 +697,71 @@ def json_response(handler, status, payload):
     handler.send_header("Content-Length", str(len(body)))
     handler.end_headers()
     handler.wfile.write(body)
+
+
+def handle_notebooklm_link_update(handler):
+    if not NOTEBOOKLM_EDIT_ENABLED:
+        json_response(handler, 503, {"ok": False, "error": "editing_not_configured"})
+        return
+    try:
+        content_length = int(handler.headers.get("Content-Length", "0") or "0")
+    except ValueError:
+        content_length = 0
+    if content_length <= 0 or content_length > MAX_NOTEBOOKLM_EDIT_BODY_BYTES:
+        json_response(handler, 413, {"ok": False, "error": "invalid_body_size"})
+        return
+    try:
+        payload = json.loads(handler.rfile.read(content_length).decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError):
+        json_response(handler, 400, {"ok": False, "error": "invalid_json"})
+        return
+    if not isinstance(payload, dict):
+        json_response(handler, 400, {"ok": False, "error": "invalid_payload"})
+        return
+
+    client_ip = notebooklm_edit_client_ip(handler)
+    if notebooklm_auth_is_limited(client_ip):
+        json_response(handler, 429, {"ok": False, "error": "rate_limited"})
+        return
+    if not notebooklm_password_matches(payload.get("password")):
+        record_notebooklm_auth_failure(client_ip)
+        json_response(handler, 401, {"ok": False, "error": "authentication_failed"})
+        return
+    clear_notebooklm_auth_failures(client_ip)
+
+    chapter = payload.get("chapter")
+    raw_url = payload.get("url")
+    if not isinstance(chapter, str) or not isinstance(raw_url, str):
+        json_response(handler, 400, {"ok": False, "error": "invalid_payload"})
+        return
+    try:
+        grouped = group_problem_catalog(load_problem_catalog())
+    except (OSError, json.JSONDecodeError):
+        json_response(handler, 500, {"ok": False, "error": "catalog_unavailable"})
+        return
+    if chapter not in grouped:
+        json_response(handler, 404, {"ok": False, "error": "chapter_not_found"})
+        return
+
+    normalized_url = normalize_notebooklm_url(raw_url)
+    if raw_url.strip() and not normalized_url:
+        json_response(handler, 400, {"ok": False, "error": "invalid_notebooklm_url"})
+        return
+    try:
+        save_notebooklm_link_override(chapter, normalized_url)
+    except OSError:
+        json_response(handler, 500, {"ok": False, "error": "storage_unavailable"})
+        return
+    json_response(
+        handler,
+        200,
+        {
+            "ok": True,
+            "chapter": chapter,
+            "url": normalized_url,
+            "hasOverride": bool(normalized_url),
+        },
+    )
 
 
 def normalize_conversation_history(payload):
@@ -752,6 +970,7 @@ class Handler(SimpleHTTPRequestHandler):
             try:
                 catalog = load_problem_catalog()
                 guides = load_chapter_guides()
+                notebook_overrides = load_notebooklm_link_overrides()
             except (OSError, json.JSONDecodeError):
                 html_response(self, 500, "<!doctype html><meta charset='utf-8'><h1>章节主页暂不可用</h1>")
                 return
@@ -769,6 +988,7 @@ class Handler(SimpleHTTPRequestHandler):
                     chapter_items,
                     grouped,
                     guides.get(chapter, {}),
+                    notebook_overrides.get(chapter, ""),
                 ),
             )
             return
@@ -813,6 +1033,9 @@ class Handler(SimpleHTTPRequestHandler):
 
     def do_POST(self):
         parsed = urlparse(self.path)
+        if parsed.path == "/api/notebooklm-link":
+            handle_notebooklm_link_update(self)
+            return
         if parsed.path != "/api/step-ai":
             json_response(self, 404, {"ok": False, "error": "not_found"})
             return

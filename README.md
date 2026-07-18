@@ -45,7 +45,12 @@ http://127.0.0.1:8001/notebooklm/<problem-id>
 http://127.0.0.1:8001/notebooklm/chapter/<章节名>
 ```
 
-章节主页汇总本章题目、核心定理与公式，并显示已关联的 NotebookLM 笔记；未关联时会给出可直接添加到 NotebookLM 的本章来源地址。每个章节页都可以在线添加或修改笔记网址，覆盖值保存在当前浏览器，不受网站重新部署影响。
+章节主页汇总本章题目、核心定理与公式，并显示已关联的 NotebookLM 笔记；未关联时会给出可直接添加到 NotebookLM 的本章来源地址。每个章节页都可以在线添加或修改笔记网址；验证管理密码后保存到服务器，刷新、换浏览器或换设备均可同步。
+
+NotebookLM 编辑环境变量：
+
+- `NOTEBOOKLM_EDIT_PASSWORD`：章节笔记网址的管理密码，至少 12 个字符。
+- `NOTEBOOKLM_LINKS_PATH`：服务器覆盖值文件，本地默认为 `work/notebooklm-links.json`。
 
 例如：
 
