@@ -43,6 +43,14 @@
     {"option": "D", "title": "信号遮挡时间", "judgment": "遮挡弧对应圆心角 \\(\\pi+2\\theta\\)，乘近地卫星周期即可，D 正确。"}
   ],
   "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "studentExploration": {
+    "title": "多选卫星题，我把几何量翻译成轨道半径比",
+    "opening": "我先从切线图中提取唯一的无量纲量 \\(R/r\\)，再让每个选项都用它表示。",
+    "stages": [
+      {"title": "“张角越大，卫星一定越远？”", "thought": "我对图形方向没有把握，差点把 \\(r/R\\) 写反。", "check": "离地球越远，看到的地球应越小，半张角应减小。", "correction": "切线直角三角形给 \\(\\sin\\theta=R/r\\)，符合远则角小。", "takeaway": "几何公式写完后用远近趋势检查比例方向。"},
+      {"title": "同一个比例出现不同幂次", "thought": "我想把加速度比和周期比都写成 \\(R/r\\)。", "check": "引力加速度按半径平方反比，周期按半径 \\(3/2\\) 次方变化。", "correction": "分别得到 \\(a_I/a_{II}=(R/r)^2\\) 和 \\(T_{II}/T_0=(R/r)^{3/2}\\)。", "takeaway": "先写基本规律，再代共同几何比，不能凭相似形式猜幂次。"}
+    ]
+  },
   "realLifeCase": {
     "title": "导航卫星链路规划：地球遮挡决定通信窗口",
     "scene": "地面站或高轨卫星与低轨卫星通信时，地球会像屏障一样遮住无线电视线。工程师用轨道高度、地球张角和相对周期估算可见时间。",

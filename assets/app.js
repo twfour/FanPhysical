@@ -602,6 +602,10 @@ function renderProblemDataNotes(problem) {
     var analysisBlock = createProblemAnalysisBlock(problem);
     analysisBlock.dataset.analysisBlock = "1";
     grid.appendChild(analysisBlock);
+    var explorationBlock = createStudentExplorationBlock(problem);
+    if (explorationBlock) {
+      grid.appendChild(explorationBlock);
+    }
     var realLifeBlock = createRealLifeCaseBlock(problem);
     if (realLifeBlock) {
       grid.appendChild(realLifeBlock);
@@ -614,6 +618,34 @@ function renderProblemDataNotes(problem) {
       grid.appendChild(createProblemNoteBlock("一句话总结", problem.summary.title || "总结", problem.summary.content || ""));
     }
     return note;
+}
+
+function createStudentExplorationBlock(problem) {
+  var exploration = problem && problem.studentExploration;
+  var stages = exploration && Array.isArray(exploration.stages) ? exploration.stages : [];
+  if (!stages.length) {
+    return null;
+  }
+  var block = createProblemNoteBlock("初学者探索", exploration.title || "如果我第一次遇到这道题", exploration.opening || "");
+  stages.forEach(function (stage, index) {
+    var details = document.createElement("details");
+    details.className = "analysis-step";
+    var summary = document.createElement("summary");
+    summary.className = "analysis-step-summary";
+    summary.innerText = (index + 1) + "．" + (stage.title || "继续探索");
+    details.appendChild(summary);
+    var content = [];
+    if (stage.thought) content.push("**我先想到**", stage.thought);
+    if (stage.check) content.push("**检查这个想法**", stage.check);
+    if (stage.correction) content.push("**修正之后**", stage.correction);
+    if (stage.takeaway) content.push("**留下的方法**", stage.takeaway);
+    var body = document.createElement("div");
+    body.className = "analysis-step-content";
+    appendMarkdownChildren(body, content.join("\n\n"));
+    details.appendChild(body);
+    block.appendChild(details);
+  });
+  return block;
 }
 
 function createRealLifeCaseBlock(problem) {

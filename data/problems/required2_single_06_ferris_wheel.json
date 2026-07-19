@@ -33,6 +33,14 @@
   ],
   "analysis": {"title": "单选第6题分步解析"},
   "analysisPresentation": {"optionMode": "shared-solution", "collapseEachStep": true},
+  "studentExploration": {
+    "title": "向心力不是一种新力，我先画真实受力",
+    "opening": "我先画重力、支持力和摩擦力，再把它们的合力投影到指向圆心的方向。",
+    "stages": [
+      {"title": "“还要再画一个向心力？”", "thought": "我想在受力图上额外画 \\(m\\omega^2R\\) 指向圆心。", "check": "向心力是已有真实力沿半径方向的合力，不是新增相互作用。", "correction": "只画重力、支持力、摩擦力；它们的合力产生向心加速度。", "takeaway": "受力图只画施力物体真实存在的力。"},
+      {"title": "水平摩擦怎样确定", "thought": "我想直接写 \\(f=\\mu mg\\)。", "check": "物体没有滑动，静摩擦按需要取值；它是唯一的水平力。", "correction": "取向心加速度水平分量，得 \\(f=m\\omega^2R\\cos\\theta\\)。", "takeaway": "静摩擦先由牛顿第二定律求，再与最大值比较。"}
+    ]
+  },
   "realLifeCase": {
     "title": "摩天轮轿厢里的手机：水平摩擦提供横向加速度",
     "scene": "手机放在始终保持水平的摩天轮轿厢地板上。手机随轿厢绕轮轴运动时，虽然地板没有倾斜，它仍需要指向圆心的加速度。",

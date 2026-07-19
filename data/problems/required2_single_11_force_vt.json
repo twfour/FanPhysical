@@ -43,6 +43,14 @@
     {"option": "D", "title": "恒力冲量比", "judgment": "\\(I_1:I_2=3:5\\)，D 正确。"}
   ],
   "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "studentExploration": {
+    "title": "一张速度图，我分别从斜率和面积读信息",
+    "opening": "我先在图上标出加速段和撤力段，避免把图线斜率直接当外力。",
+    "stages": [
+      {"title": "“加速段斜率就是 F/m？”", "thought": "我想用 \\(F=ma\\) 直接从斜率求恒力。", "check": "水平面有摩擦，加速段合力是 \\(F-f\\)；只有撤力段才只剩摩擦。", "correction": "先用撤力段斜率求 \\(f\\)，再由 \\(F-f=ma\\) 反求恒力。", "takeaway": "图像给的是运动结果，求某个力前先还原完整受力。"},
+      {"title": "追及、功和冲量用什么", "thought": "四个选项都带图像，我差点只比较最高速度。", "check": "追及看位移即面积；恒力做功还要乘该力作用期间位移；冲量乘作用时间。", "correction": "把每个物理量翻译成图像操作后再逐项算。", "takeaway": "斜率—加速度，面积—位移，时间—冲量，位移—功。"}
+    ]
+  },
   "realLifeCase": {
     "title": "仓库搬运车测试：由速度曲线反推驱动力与阻力",
     "scene": "工程师让两台同质量搬运车在同一地面加速，随后切断动力并记录速度曲线。滑行段的斜率可估算滚动阻力，加速段斜率再用于反求电机牵引力。",

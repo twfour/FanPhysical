@@ -43,6 +43,14 @@
     {"option": "D", "title": "质量对截距比的影响", "judgment": "\\(b/a=mL(n_1/n_2)^2\\)，随质量增大，D 正确。"}
   ],
   "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "studentExploration": {
+    "title": "齿轮加图像题，我分两次建模",
+    "opening": "先把主动轮转速换成转台转速，再建立拉力与转速平方的关系。",
+    "stages": [
+      {"title": "“齿数越多，角速度越大？”", "thought": "我看到大齿轮周长更大，直觉上觉得它可能转得更快。", "check": "啮合点线速度相同，大齿轮每转一圈走过更多齿，所以角速度更小。", "correction": "由 \\(\\omega_An_1=\\omega_Bn_2\\) 得角速度与齿数成反比。", "takeaway": "齿轮传动先守住接触点线速度相等。"},
+      {"title": "负纵截距意味着什么", "thought": "直线延长出现负拉力，我怀疑方程错了。", "check": "数学直线描述“拉力加摩擦共同提供向心力”的区段；低速时摩擦可独自承担，绳不会产生负拉力。", "correction": "负截距用于读出摩擦项，不代表细线能推物体。", "takeaway": "图像延长线可提供参数，但要检查其区段是否物理可实现。"}
+    ]
+  },
   "realLifeCase": {
     "title": "旋转测试台：用拉力—转速图反推摩擦与传动比",
     "scene": "实验室用齿轮驱动旋转台，样品由拉力传感器限制在固定半径。改变电机转速并记录拉力，可判断摩擦力和齿轮减速比是否符合设计。",

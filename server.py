@@ -234,8 +234,9 @@ def notebooklm_styles():
     .sidebar-footer+.sidebar-footer{margin-top:6px;border-top:0;padding-top:5px}
     header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:34px}.eyebrow{color:var(--accent);font-family:"Kaiti SC","STKaiti",serif;letter-spacing:.16em}
     h1{font-size:clamp(2rem,6vw,3.7rem);line-height:1.12;margin:.35em 0 .2em}h2{font-size:1.35rem;margin:2.2em 0 .7em;border-left:4px solid var(--accent);padding-left:.7em}
-    h3{font-size:1.05rem;margin:1.5em 0 .35em}.meta,.quiet{color:var(--muted)}.formula,.answer,.step,.practice,.real-life{border:1px solid var(--line);padding:16px 20px;margin:12px 0;background:#fffdf7}
+    h3{font-size:1.05rem;margin:1.5em 0 .35em}.meta,.quiet{color:var(--muted)}.formula,.answer,.step,.practice,.real-life,.exploration{border:1px solid var(--line);padding:16px 20px;margin:12px 0;background:#fffdf7}
     .real-life{border-left:5px solid #507a67}.real-life h3:first-child{margin-top:0}.real-life .reality-note{color:var(--muted)}
+    .exploration{border-left:5px solid #b7791f}.exploration h3:first-child{margin-top:0}.exploration-stage{border-top:1px dashed var(--line);margin-top:14px;padding-top:4px}.exploration-stage p{margin:.45em 0}
     .answer{border-color:#c69b70}.knowledge{display:flex;gap:8px;flex-wrap:wrap}.tag{border:1px solid var(--line);padding:2px 10px;border-radius:999px;font-size:.88rem}
     mjx-container{color:var(--ink);font-size:1.04em}mjx-container[display="true"]{max-width:100%;margin:1em 0!important;padding:.25em 0 .4em;overflow-x:auto;overflow-y:hidden;text-align:left!important}
     ol,ul{padding-left:1.5em}a{color:#7b2f24;text-decoration-thickness:1px;text-underline-offset:3px}.directory{display:grid;gap:12px}.directory a{display:block;padding:14px 16px;border:1px solid var(--line);background:#fffdf7;text-decoration:none}.directory a:hover{border-color:var(--accent)}
@@ -493,6 +494,7 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
     analysis_text = analysis.get("content") if isinstance(analysis, dict) else problem.get("analysisText")
     practice = problem.get("practice") if isinstance(problem.get("practice"), dict) else None
     real_life = problem.get("realLifeCase") if isinstance(problem.get("realLifeCase"), dict) else None
+    exploration = problem.get("studentExploration") if isinstance(problem.get("studentExploration"), dict) else None
     chapter_items = chapter_items or [(problem_id, problem)]
     sidebar_links = [
         (f"/notebooklm/{quote(item_id)}", item_problem.get("title") or item_id)
@@ -561,6 +563,26 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
             f'<h3>不变的物理模型</h3><p>{text_block(real_life.get("sharedModel"))}</p>'
             f'{factors_html}<h3>带回原题想一想</h3><p>{text_block(real_life.get("question"))}</p></section>'
         )
+    exploration_html = ""
+    if exploration:
+        stages = exploration.get("stages") if isinstance(exploration.get("stages"), list) else []
+        stage_cards = []
+        for index, stage in enumerate(stages, 1):
+            if not isinstance(stage, dict):
+                continue
+            sections = []
+            for label, key in (("我先想到", "thought"), ("检查这个想法", "check"), ("修正之后", "correction"), ("留下的方法", "takeaway")):
+                if stage.get(key):
+                    sections.append(f'<p><strong>{label}：</strong>{text_block(stage.get(key))}</p>')
+            stage_cards.append(
+                f'<div class="exploration-stage"><h3>{index}. {text_block(stage.get("title") or "继续探索")}</h3>{"".join(sections)}</div>'
+            )
+        if stage_cards:
+            exploration_html = (
+                '<h2>初学者探索过程</h2><section class="exploration">'
+                f'<h3>{text_block(exploration.get("title") or "如果我第一次遇到这道题")}</h3>'
+                f'<p>{text_block(exploration.get("opening"))}</p>{"".join(stage_cards)}</section>'
+            )
     previous_link = f'<a rel="prev" href="/notebooklm/{quote(previous_id)}">← 上一课</a>' if previous_id else "<span></span>"
     next_link = f'<a rel="next" href="/notebooklm/{quote(next_id)}">下一课 →</a>' if next_id else "<span></span>"
 
@@ -570,7 +592,7 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
 <link rel="canonical" href="{escape(canonical)}"><style>{notebooklm_styles()}</style>{notebooklm_math_head()}</head>
 <body><div class="notebook-shell"><main><header><div class="eyebrow">FANPHYSICS · NOTEBOOKLM 讲义</div><h1>{escape(title)}</h1>
 <div class="meta">章节：{escape(chapter)}　·　资料编号：{escape(problem_id)}</div></header>
-<article><h2>题目</h2><p>{text_block(problem.get("question"))}</p>{options_html}{knowledge_html}{answer_html}{analysis_html}{steps_html}{real_life_html}{practice_html}</article>
+<article><h2>题目</h2><p>{text_block(problem.get("question"))}</p>{options_html}{knowledge_html}{answer_html}{analysis_html}{steps_html}{exploration_html}{real_life_html}{practice_html}</article>
 <nav class="lesson-pager">{previous_link}<a href="/notebooklm/">全部独立课例</a>{next_link}</nav></main>{sidebar_html}</div></body></html>"""
 
 
