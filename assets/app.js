@@ -602,6 +602,10 @@ function renderProblemDataNotes(problem) {
     var analysisBlock = createProblemAnalysisBlock(problem);
     analysisBlock.dataset.analysisBlock = "1";
     grid.appendChild(analysisBlock);
+    var realLifeBlock = createRealLifeCaseBlock(problem);
+    if (realLifeBlock) {
+      grid.appendChild(realLifeBlock);
+    }
     var practiceBlock = createProblemPracticeBlock(problem);
     if (practiceBlock) {
       grid.appendChild(practiceBlock);
@@ -610,6 +614,32 @@ function renderProblemDataNotes(problem) {
       grid.appendChild(createProblemNoteBlock("一句话总结", problem.summary.title || "总结", problem.summary.content || ""));
     }
     return note;
+}
+
+function createRealLifeCaseBlock(problem) {
+  var item = problem && problem.realLifeCase;
+  if (!item || typeof item !== "object") {
+    return null;
+  }
+  var parts = [];
+  if (item.scene) {
+    parts.push("**现实场景**", item.scene);
+  }
+  if (item.mapping) {
+    parts.push("**题目与现实如何对应**", item.mapping);
+  }
+  if (item.sharedModel) {
+    parts.push("**不变的物理模型**", item.sharedModel);
+  }
+  if (Array.isArray(item.realityFactors) && item.realityFactors.length) {
+    parts.push("**现实中还要补上的因素**", item.realityFactors.map(function (factor) {
+      return "- " + factor;
+    }).join("\n"));
+  }
+  if (item.question) {
+    parts.push("**带回原题想一想**", item.question);
+  }
+  return createProblemNoteBlock("现实同构案例", item.title || "现实中的同一物理模型", parts.join("\n\n"));
 }
 
 function createProblemQuestionBlock(problem) {

@@ -43,6 +43,14 @@
     {"option": "D", "title": "落地瞬时功率", "judgment": "\\(P_G=mgv_y=8000\\sqrt3\\,\\mathrm W\\)，D 正确。"}
   ],
   "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "realLifeCase": {
+    "title": "滑雪跳台落坡：用坡面条件确定飞行时间",
+    "scene": "跳台设计会让运动员的抛物线轨迹与着陆坡较平顺地相交。已知起跳速度和坡度时，落点不是先给定的，而由轨迹与斜坡的交点决定。",
+    "mapping": "起跳台对应水平抛出点，着陆区对应过原点的斜线。题中 \\(y=x\\tan\\theta\\) 是“落在坡上”的几何条件，随后才能求下降高度、重力功率。",
+    "sharedModel": "平抛满足 \\(x=v_0t\\)、\\(y=gt^2/2\\)。重力平均功率是 \\(mgh/t\\)，瞬时功率是 \\(\\vec F\\cdot\\vec v=mgv_y\\)；后者只取速度沿重力方向的分量。",
+    "realityFactors": ["空气阻力和升力会改变轨迹与速度。", "真实着陆还关注速度相对坡面的法向分量，以降低冲击。"],
+    "question": "为什么落地瞬间重力功率不用总速度，而只用竖直速度 \\(v_y\\)？"
+  },
   "practice": {
     "title": "进阶近似题：斜面落点的功率最值",
     "question": "质量为 \\(m\\) 的滑雪者以水平速度 \\(v_0\\) 从斜面顶端飞出，斜面倾角为 \\(\\theta\\)。忽略空气阻力，推导落地前重力平均功率与落地瞬时功率之比，并判断该比值是否依赖 \\(v_0\\)。",
