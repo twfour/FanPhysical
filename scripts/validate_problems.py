@@ -13,6 +13,8 @@ HTML_PATH = ROOT / "classical-mechanics-demo.html"
 CHAPTER_GUIDES_PATH = ROOT / "data" / "chapter-guides.json"
 REQUIRED_PROBLEM_FIELDS = ["id", "chapter", "title", "question", "steps", "knowledge"]
 REQUIRED_STEP_FIELDS = ["title", "content"]
+REQUIRED_EXPLORATION_STAGE_FIELDS = ["title", "thought", "check", "correction", "takeaway"]
+REQUIRED_REAL_LIFE_FIELDS = ["title", "scene", "mapping", "sharedModel", "question", "answer"]
 SUPPORTED_ANIMATION_TYPES = {
     "none",
     "fanphysics_model",
@@ -34,6 +36,87 @@ SUPPORTED_ANIMATION_TYPES = {
 def load_json(path):
     with path.open("r", encoding="utf-8") as file:
         return json.load(file)
+
+
+def is_non_empty_string(value):
+    return isinstance(value, str) and bool(value.strip())
+
+
+def validate_student_exploration(path, problem):
+    exploration = problem.get("studentExploration")
+    if exploration is None:
+        return []
+    errors = []
+    if not isinstance(exploration, dict):
+        return [f"{path.name}: studentExploration must be an object"]
+    for field in ("title", "opening"):
+        if not is_non_empty_string(exploration.get(field)):
+            errors.append(f"{path.name}: studentExploration needs {field}")
+    stages = exploration.get("stages")
+    if not isinstance(stages, list) or not stages:
+        errors.append(f"{path.name}: studentExploration stages must be a non-empty list")
+        return errors
+    animation_params = set(problem.get("animation", {}).get("params", {}))
+    for index, stage in enumerate(stages, start=1):
+        if not isinstance(stage, dict):
+            errors.append(f"{path.name}: studentExploration stage {index} must be an object")
+            continue
+        for field in REQUIRED_EXPLORATION_STAGE_FIELDS:
+            if not is_non_empty_string(stage.get(field)):
+                errors.append(f"{path.name}: studentExploration stage {index} needs {field}")
+        if stage.get("prompt") is not None and not is_non_empty_string(stage.get("prompt")):
+            errors.append(f"{path.name}: studentExploration stage {index} prompt must be non-empty")
+        preset = stage.get("animationPreset")
+        if preset is None:
+            continue
+        if not isinstance(preset, dict):
+            errors.append(f"{path.name}: studentExploration stage {index} animationPreset must be an object")
+            continue
+        params = preset.get("params", {})
+        if not isinstance(params, dict):
+            errors.append(f"{path.name}: studentExploration stage {index} animationPreset params must be an object")
+        else:
+            for key, value in params.items():
+                if key not in animation_params:
+                    errors.append(
+                        f"{path.name}: studentExploration stage {index} animationPreset has unknown param {key}"
+                    )
+                if isinstance(value, bool) or not isinstance(value, (int, float)):
+                    errors.append(
+                        f"{path.name}: studentExploration stage {index} animationPreset param {key} must be numeric"
+                    )
+        if "progress" in preset:
+            progress = preset["progress"]
+            if isinstance(progress, bool) or not isinstance(progress, (int, float)) or not 0 <= progress <= 1:
+                errors.append(
+                    f"{path.name}: studentExploration stage {index} animationPreset progress must be between 0 and 1"
+                )
+        if "time" in preset and (
+            isinstance(preset["time"], bool) or not isinstance(preset["time"], (int, float)) or preset["time"] < 0
+        ):
+            errors.append(f"{path.name}: studentExploration stage {index} animationPreset time must be non-negative")
+        if "play" in preset and not isinstance(preset["play"], bool):
+            errors.append(f"{path.name}: studentExploration stage {index} animationPreset play must be boolean")
+        if "caption" in preset and not is_non_empty_string(preset["caption"]):
+            errors.append(f"{path.name}: studentExploration stage {index} animationPreset caption must be non-empty")
+    return errors
+
+
+def validate_real_life_case(path, problem):
+    real_life = problem.get("realLifeCase")
+    if real_life is None:
+        return []
+    errors = []
+    if not isinstance(real_life, dict):
+        return [f"{path.name}: realLifeCase must be an object"]
+    for field in REQUIRED_REAL_LIFE_FIELDS:
+        if not is_non_empty_string(real_life.get(field)):
+            errors.append(f"{path.name}: realLifeCase needs {field}")
+    for field in ("realityFactors", "rubric"):
+        items = real_life.get(field)
+        if not isinstance(items, list) or not items or not all(is_non_empty_string(item) for item in items):
+            errors.append(f"{path.name}: realLifeCase {field} must be a non-empty string list")
+    return errors
 
 
 def validate_problem(path):
@@ -69,6 +152,8 @@ def validate_problem(path):
     animation_type = problem.get("animation", {}).get("type", "none")
     if animation_type not in SUPPORTED_ANIMATION_TYPES:
         errors.append(f"{path.name}: unsupported animation type {animation_type}")
+    errors.extend(validate_student_exploration(path, problem))
+    errors.extend(validate_real_life_case(path, problem))
     return problem, animation_type, errors
 
 

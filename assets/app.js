@@ -3,6 +3,8 @@ var mathRenderedSceneMap = {};
 var mathRenderingSceneMap = {};
 var favoriteProblemStorageKey = "fanphysics:favoritedProblems";
 var stepConversationStorageKey = "fanphysics:stepConversations:v1";
+var studentExplorationStorageKey = "fanphysics:studentExploration:v1";
+var realLifeResponseStorageKey = "fanphysics:realLifeResponses:v1";
 var stepConversationState = {};
 var stepConversationStateLoaded = false;
 var activeStepVoiceRecognition = null;
@@ -620,6 +622,97 @@ function renderProblemDataNotes(problem) {
     return note;
 }
 
+function readLearningResponseStore(storageKey) {
+  try {
+    return JSON.parse(localStorage.getItem(storageKey) || "{}") || {};
+  } catch (error) {
+    return {};
+  }
+}
+
+function writeLearningResponse(storageKey, responseKey, value) {
+  var responses = readLearningResponseStore(storageKey);
+  if (value) {
+    responses[responseKey] = value;
+  } else {
+    delete responses[responseKey];
+  }
+  try {
+    localStorage.setItem(storageKey, JSON.stringify(responses));
+  } catch (error) {
+    // Private browsing can reject storage; the current answer still remains on screen.
+  }
+}
+
+function getLearningResponse(storageKey, responseKey) {
+  return String(readLearningResponseStore(storageKey)[responseKey] || "");
+}
+
+function createLearningTextarea(label, value) {
+  var textarea = document.createElement("textarea");
+  textarea.className = "learning-response-input";
+  textarea.rows = 3;
+  textarea.value = value || "";
+  textarea.placeholder = "先写下你的判断或理由，再查看检验。";
+  textarea.setAttribute("aria-label", label);
+  return textarea;
+}
+
+function canVerifyStudentStageWithAnimation(problem) {
+  var animation = (problem && problem.animation) || {};
+  return animation.enabled !== false && animation.type && animation.type !== "none";
+}
+
+function applyStudentExplorationAnimation(problem, stage, status) {
+  if (!problem || currentScene !== problem.id || !canVerifyStudentStageWithAnimation(problem)) {
+    return;
+  }
+  var animation = problem.animation || {};
+  var preset = stage && stage.animationPreset && typeof stage.animationPreset === "object"
+    ? stage.animationPreset
+    : {};
+  var values = preset.params && typeof preset.params === "object" ? preset.params : {};
+  var state = getJsonAnimationState(problem.id);
+  Object.keys(values).forEach(function (key) {
+    var definition = (animation.params || {})[key];
+    var nextValue = Number(values[key]);
+    if (!definition || !Number.isFinite(nextValue)) {
+      return;
+    }
+    var minValue = Number(definition.min);
+    var maxValue = Number(definition.max);
+    if (Number.isFinite(minValue)) nextValue = Math.max(minValue, nextValue);
+    if (Number.isFinite(maxValue)) nextValue = Math.min(maxValue, nextValue);
+    state.values[key] = nextValue;
+  });
+  var duration = getJsonDuration(problem.id);
+  if (Number.isFinite(Number(preset.time))) {
+    state.time = Math.max(0, Math.min(duration, Number(preset.time)));
+  } else if (Number.isFinite(Number(preset.progress))) {
+    state.time = Math.max(0, Math.min(duration, Number(preset.progress) * duration));
+  } else {
+    state.time = 0;
+  }
+  state.playing = animation.playable !== false && preset.play !== false;
+  renderJsonAnimationControls(problem.id);
+  syncJsonTimeControl(problem.id);
+  if (isPhysicsSoundScene(problem.id)) {
+    if (state.playing && physicsSoundEnabled) {
+      beginPhysicsSoundPlayback(problem.id, duration > 0 ? state.time / duration : 0);
+    } else {
+      pausePhysicsSoundPlayback();
+    }
+  }
+  syncCanvasLoop();
+  var target = document.getElementById("jsonAnimationControls") || document.getElementById("canvas-holder");
+  if (target && target.scrollIntoView) {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  if (status) {
+    status.innerText = preset.caption || "已切换到验证状态，请观察动画和右侧图表。";
+  }
+}
+
 function createStudentExplorationBlock(problem) {
   var exploration = problem && problem.studentExploration;
   var stages = exploration && Array.isArray(exploration.stages) ? exploration.stages : [];
@@ -627,23 +720,93 @@ function createStudentExplorationBlock(problem) {
     return null;
   }
   var block = createProblemNoteBlock("初学者探索", exploration.title || "如果我第一次遇到这道题", exploration.opening || "");
+  block.classList.add("student-exploration-block");
   stages.forEach(function (stage, index) {
-    var details = document.createElement("details");
-    details.className = "analysis-step";
-    var summary = document.createElement("summary");
-    summary.className = "analysis-step-summary";
-    summary.innerText = (index + 1) + "．" + (stage.title || "继续探索");
-    details.appendChild(summary);
+    var responseKey = problem.id + ":stage:" + index;
+    var savedResponse = getLearningResponse(studentExplorationStorageKey, responseKey);
+    var stageCard = document.createElement("section");
+    stageCard.className = "exploration-stage-card";
+
+    var heading = document.createElement("h3");
+    heading.className = "exploration-stage-title";
+    heading.innerText = (index + 1) + "．" + (stage.title || "继续探索");
+    stageCard.appendChild(heading);
+
+    var prompt = document.createElement("p");
+    prompt.className = "exploration-stage-prompt";
+    prompt.innerText = stage.prompt || "面对这个判断，先写下你的结论和理由。";
+    stageCard.appendChild(prompt);
+
+    var textarea = createLearningTextarea((stage.title || "探索阶段") + "的回答", savedResponse);
+    stageCard.appendChild(textarea);
+
+    var actions = document.createElement("div");
+    actions.className = "learning-response-actions";
+    var revealButton = document.createElement("button");
+    revealButton.type = "button";
+    revealButton.className = "learning-primary-action";
+    revealButton.innerText = savedResponse ? "更新回答并查看检验" : "提交并查看检验";
+    revealButton.disabled = !savedResponse.trim();
+    var resetButton = document.createElement("button");
+    resetButton.type = "button";
+    resetButton.className = "learning-secondary-action";
+    resetButton.innerText = "重新作答";
+    resetButton.hidden = !savedResponse;
+    actions.appendChild(revealButton);
+    actions.appendChild(resetButton);
+    stageCard.appendChild(actions);
+
+    var feedback = document.createElement("div");
+    feedback.className = "exploration-feedback";
+    feedback.hidden = !savedResponse;
     var content = [];
-    if (stage.thought) content.push("**我先想到**", stage.thought);
+    if (stage.thought) content.push("**典型初始想法**", stage.thought);
     if (stage.check) content.push("**检查这个想法**", stage.check);
     if (stage.correction) content.push("**修正之后**", stage.correction);
     if (stage.takeaway) content.push("**留下的方法**", stage.takeaway);
-    var body = document.createElement("div");
-    body.className = "analysis-step-content";
-    appendMarkdownChildren(body, content.join("\n\n"));
-    details.appendChild(body);
-    block.appendChild(details);
+    appendMarkdownChildren(feedback, content.join("\n\n"));
+
+    var verifyStatus = document.createElement("p");
+    verifyStatus.className = "animation-verify-status";
+    verifyStatus.setAttribute("aria-live", "polite");
+    if (canVerifyStudentStageWithAnimation(problem)) {
+      var verifyButton = document.createElement("button");
+      verifyButton.type = "button";
+      verifyButton.className = "animation-verify-action";
+      verifyButton.innerText = "在动画中验证";
+      verifyButton.onclick = function () {
+        applyStudentExplorationAnimation(problem, stage, verifyStatus);
+      };
+      feedback.appendChild(verifyButton);
+      feedback.appendChild(verifyStatus);
+    }
+    stageCard.appendChild(feedback);
+
+    textarea.oninput = function () {
+      revealButton.disabled = !textarea.value.trim();
+    };
+    revealButton.onclick = function () {
+      var answer = textarea.value.trim();
+      if (!answer) {
+        textarea.focus();
+        return;
+      }
+      writeLearningResponse(studentExplorationStorageKey, responseKey, answer);
+      feedback.hidden = false;
+      resetButton.hidden = false;
+      revealButton.innerText = "更新回答并查看检验";
+      renderMath(feedback);
+    };
+    resetButton.onclick = function () {
+      writeLearningResponse(studentExplorationStorageKey, responseKey, "");
+      textarea.value = "";
+      feedback.hidden = true;
+      resetButton.hidden = true;
+      revealButton.disabled = true;
+      revealButton.innerText = "提交并查看检验";
+      textarea.focus();
+    };
+    block.appendChild(stageCard);
   });
   return block;
 }
@@ -668,10 +831,96 @@ function createRealLifeCaseBlock(problem) {
       return "- " + factor;
     }).join("\n"));
   }
-  if (item.question) {
-    parts.push("**带回原题想一想**", item.question);
+  var block = createProblemNoteBlock("现实同构案例", item.title || "现实中的同一物理模型", parts.join("\n\n"));
+  block.classList.add("real-life-case-block");
+  if (!item.question) {
+    return block;
   }
-  return createProblemNoteBlock("现实同构案例", item.title || "现实中的同一物理模型", parts.join("\n\n"));
+
+  var transfer = document.createElement("section");
+  transfer.className = "real-life-transfer";
+  var transferTitle = document.createElement("h3");
+  transferTitle.innerText = "带回原题想一想";
+  transfer.appendChild(transferTitle);
+  var question = document.createElement("div");
+  question.className = "real-life-transfer-question";
+  appendMarkdownChildren(question, item.question);
+  transfer.appendChild(question);
+
+  var responseKey = problem.id + ":real-life";
+  var savedResponse = getLearningResponse(realLifeResponseStorageKey, responseKey);
+  var textarea = createLearningTextarea("现实同构迁移题回答", savedResponse);
+  textarea.placeholder = "用物理量、约束或公式解释你的判断。";
+  transfer.appendChild(textarea);
+
+  var actions = document.createElement("div");
+  actions.className = "learning-response-actions";
+  var saveButton = document.createElement("button");
+  saveButton.type = "button";
+  saveButton.className = "learning-primary-action";
+  saveButton.innerText = savedResponse ? "更新我的回答" : "保存我的回答";
+  saveButton.disabled = !savedResponse.trim();
+  var clearButton = document.createElement("button");
+  clearButton.type = "button";
+  clearButton.className = "learning-secondary-action";
+  clearButton.innerText = "清除回答";
+  clearButton.hidden = !savedResponse;
+  var saveStatus = document.createElement("span");
+  saveStatus.className = "learning-save-status";
+  saveStatus.setAttribute("aria-live", "polite");
+  if (savedResponse) saveStatus.innerText = "已保存在当前浏览器";
+  actions.appendChild(saveButton);
+  actions.appendChild(clearButton);
+  actions.appendChild(saveStatus);
+  transfer.appendChild(actions);
+
+  var answerDetails = document.createElement("details");
+  answerDetails.className = "real-life-answer";
+  var answerSummary = document.createElement("summary");
+  answerSummary.innerText = "查看参考答案与评分要点";
+  answerDetails.appendChild(answerSummary);
+  var answerBody = document.createElement("div");
+  answerBody.className = "real-life-answer-body";
+  if (item.answer) {
+    appendMarkdownChildren(answerBody, "**参考答案**\n\n" + item.answer);
+  }
+  if (Array.isArray(item.rubric) && item.rubric.length) {
+    appendMarkdownChildren(answerBody, "**评分要点**\n\n" + item.rubric.map(function (point) {
+      return "- " + point;
+    }).join("\n"));
+  }
+  answerDetails.appendChild(answerBody);
+  answerDetails.addEventListener("toggle", function () {
+    if (answerDetails.open) renderMath(answerDetails);
+  });
+  transfer.appendChild(answerDetails);
+
+  textarea.oninput = function () {
+    saveButton.disabled = !textarea.value.trim();
+    saveStatus.innerText = "";
+  };
+  saveButton.onclick = function () {
+    var answer = textarea.value.trim();
+    if (!answer) {
+      textarea.focus();
+      return;
+    }
+    writeLearningResponse(realLifeResponseStorageKey, responseKey, answer);
+    saveButton.innerText = "更新我的回答";
+    clearButton.hidden = false;
+    saveStatus.innerText = "已保存在当前浏览器";
+  };
+  clearButton.onclick = function () {
+    writeLearningResponse(realLifeResponseStorageKey, responseKey, "");
+    textarea.value = "";
+    saveButton.disabled = true;
+    saveButton.innerText = "保存我的回答";
+    clearButton.hidden = true;
+    saveStatus.innerText = "回答已清除";
+    textarea.focus();
+  };
+  block.appendChild(transfer);
+  return block;
 }
 
 function createProblemQuestionBlock(problem) {

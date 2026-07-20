@@ -236,7 +236,8 @@ def notebooklm_styles():
     h1{font-size:clamp(2rem,6vw,3.7rem);line-height:1.12;margin:.35em 0 .2em}h2{font-size:1.35rem;margin:2.2em 0 .7em;border-left:4px solid var(--accent);padding-left:.7em}
     h3{font-size:1.05rem;margin:1.5em 0 .35em}.meta,.quiet{color:var(--muted)}.formula,.answer,.step,.practice,.real-life,.exploration{border:1px solid var(--line);padding:16px 20px;margin:12px 0;background:#fffdf7}
     .real-life{border-left:5px solid #507a67}.real-life h3:first-child{margin-top:0}.real-life .reality-note{color:var(--muted)}
-    .exploration{border-left:5px solid #b7791f}.exploration h3:first-child{margin-top:0}.exploration-stage{border-top:1px dashed var(--line);margin-top:14px;padding-top:4px}.exploration-stage p{margin:.45em 0}
+    .real-life-answer{margin-top:16px;border:1px solid var(--line);background:var(--paper)}.real-life-answer summary{padding:10px 13px;color:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-weight:800;cursor:pointer}.real-life-answer[open] summary{border-bottom:1px solid var(--line)}.real-life-answer-body{padding:4px 14px 14px}.real-life-answer-body h3:first-child{margin-top:.8em}
+    .exploration{border-left:5px solid #b7791f}.exploration h3:first-child{margin-top:0}.exploration-pause{border-left:3px solid #b7791f;background:var(--paper);padding:8px 11px;color:var(--muted)}.exploration-stage{border-top:1px dashed var(--line);margin-top:14px;padding-top:4px}.exploration-stage p{margin:.45em 0}
     .answer{border-color:#c69b70}.knowledge{display:flex;gap:8px;flex-wrap:wrap}.tag{border:1px solid var(--line);padding:2px 10px;border-radius:999px;font-size:.88rem}
     mjx-container{color:var(--ink);font-size:1.04em}mjx-container[display="true"]{max-width:100%;margin:1em 0!important;padding:.25em 0 .4em;overflow-x:auto;overflow-y:hidden;text-align:left!important}
     ol,ul{padding-left:1.5em}a{color:#7b2f24;text-decoration-thickness:1px;text-underline-offset:3px}.directory{display:grid;gap:12px}.directory a{display:block;padding:14px 16px;border:1px solid var(--line);background:#fffdf7;text-decoration:none}.directory a:hover{border-color:var(--accent)}
@@ -550,18 +551,32 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
     real_life_html = ""
     if real_life:
         factors = real_life.get("realityFactors") if isinstance(real_life.get("realityFactors"), list) else []
+        rubric = real_life.get("rubric") if isinstance(real_life.get("rubric"), list) else []
         factors_html = ""
         if factors:
             factors_html = '<h3>现实中还要补上的因素</h3><ul class="reality-note">' + "".join(
                 f"<li>{text_block(item)}</li>" for item in factors
             ) + "</ul>"
+        answer_html = ""
+        if real_life.get("answer") or rubric:
+            rubric_html = ""
+            if rubric:
+                rubric_html = "<h3>评分要点</h3><ul>" + "".join(
+                    f"<li>{text_block(item)}</li>" for item in rubric
+                ) + "</ul>"
+            answer_html = (
+                '<details class="real-life-answer"><summary>查看参考答案与评分要点</summary>'
+                '<div class="real-life-answer-body">'
+                f'<h3>参考答案</h3><p>{text_block(real_life.get("answer"))}</p>{rubric_html}</div></details>'
+            )
         real_life_html = (
             '<h2>现实同构案例</h2><section class="real-life">'
             f'<h3>{text_block(real_life.get("title") or "现实中的同一物理模型")}</h3>'
             f'<h3>现实场景</h3><p>{text_block(real_life.get("scene"))}</p>'
             f'<h3>题目与现实如何对应</h3><p>{text_block(real_life.get("mapping"))}</p>'
             f'<h3>不变的物理模型</h3><p>{text_block(real_life.get("sharedModel"))}</p>'
-            f'{factors_html}<h3>带回原题想一想</h3><p>{text_block(real_life.get("question"))}</p></section>'
+            f'{factors_html}<h3>带回原题想一想</h3><p>{text_block(real_life.get("question"))}</p>'
+            f'{answer_html}</section>'
         )
     exploration_html = ""
     if exploration:
@@ -581,7 +596,9 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
             exploration_html = (
                 '<h2>初学者探索过程</h2><section class="exploration">'
                 f'<h3>{text_block(exploration.get("title") or "如果我第一次遇到这道题")}</h3>'
-                f'<p>{text_block(exploration.get("opening"))}</p>{"".join(stage_cards)}</section>'
+                f'<p>{text_block(exploration.get("opening"))}</p>'
+                '<p class="exploration-pause">每个阶段先暂停并写下自己的判断，再对照后面的检查与修正。</p>'
+                f'{"".join(stage_cards)}</section>'
             )
     previous_link = f'<a rel="prev" href="/notebooklm/{quote(previous_id)}">← 上一课</a>' if previous_id else "<span></span>"
     next_link = f'<a rel="next" href="/notebooklm/{quote(next_id)}">下一课 →</a>' if next_id else "<span></span>"
