@@ -29,6 +29,7 @@ echo "==> Packaging runtime files"
   COPYFILE_DISABLE=1 LC_ALL=C LANG=C tar --no-xattrs -czf "$TMP_ARCHIVE" \
     classical-mechanics-demo.html \
     server.py \
+    learning_sync.py \
     assets \
     data \
     math \

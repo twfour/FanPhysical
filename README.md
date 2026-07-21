@@ -97,6 +97,14 @@ deploy/aliyun/deploy.sh
 
 不触发 GitHub Actions 中的阿里云部署工作流；仓库的 `ALIYUN_HOST`、`ALIYUN_USER`、`ALIYUN_SSH_KEY` 三个 Secret 当前不作为部署依赖。
 
+## 运行时代码结构
+
+- `assets/app.js`：页面导航、题目渲染、Canvas 与通用交互。
+- `assets/learning-sync.js`：学习记录的浏览器存储、服务器登录与跨设备合并。
+- `assets/learning-blocks.js`：初学者探索、动画验证和现实同构案例组件。
+- `assets/styles.css`：站点通用样式；`assets/learning.css`：学习组件样式。
+- `server.py`：HTTP 路由、NotebookLM 页面与 AI 接口；`learning_sync.py`：学习记录会话、校验、合并与持久化。
+
 ## 题目录入架构
 
 新增题目不再推荐直接改 HTML。推荐流程：

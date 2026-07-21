@@ -15,6 +15,7 @@ REQUIRED_PROBLEM_FIELDS = ["id", "chapter", "title", "question", "steps", "knowl
 REQUIRED_STEP_FIELDS = ["title", "content"]
 REQUIRED_EXPLORATION_STAGE_FIELDS = ["title", "prompt", "thought", "check", "correction", "takeaway"]
 REQUIRED_REAL_LIFE_FIELDS = ["title", "scene", "mapping", "sharedModel", "question", "answer"]
+REQUIRED_REAL_LIFE_VIDEO_FIELDS = ["platform", "title", "url", "watchFor", "matchReason"]
 SUPPORTED_ANIMATION_TYPES = {
     "none",
     "fanphysics_model",
@@ -123,6 +124,30 @@ def validate_real_life_case(path, problem):
             errors.append(f"{path.name}: realLifeCase {field} must be a non-empty string list")
     if isinstance(real_life.get("rubric"), list) and len(real_life["rubric"]) != 3:
         errors.append(f"{path.name}: realLifeCase rubric must contain exactly three scoring points")
+    videos = real_life.get("videos")
+    if videos is not None:
+        if not isinstance(videos, list) or not videos:
+            errors.append(f"{path.name}: realLifeCase videos must be a non-empty list")
+        else:
+            if len(videos) > 3:
+                errors.append(f"{path.name}: realLifeCase videos may contain at most three items")
+            for index, video in enumerate(videos, start=1):
+                if not isinstance(video, dict):
+                    errors.append(f"{path.name}: realLifeCase video {index} must be an object")
+                    continue
+                for field in REQUIRED_REAL_LIFE_VIDEO_FIELDS:
+                    if not is_non_empty_string(video.get(field)):
+                        errors.append(f"{path.name}: realLifeCase video {index} needs {field}")
+                if not re.match(r"^https://", str(video.get("url", ""))):
+                    errors.append(f"{path.name}: realLifeCase video {index} needs an HTTPS URL")
+                duration = video.get("duration")
+                if duration is not None and not is_non_empty_string(duration):
+                    errors.append(f"{path.name}: realLifeCase video {index} duration must be a string")
+                start_at = video.get("startAt")
+                if start_at is not None and (
+                    isinstance(start_at, bool) or not isinstance(start_at, (int, float)) or start_at < 0
+                ):
+                    errors.append(f"{path.name}: realLifeCase video {index} startAt must be non-negative")
     return errors
 
 

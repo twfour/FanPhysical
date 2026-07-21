@@ -1,0 +1,470 @@
+/* Learning exploration, transfer, and cross-device synchronization UI. */
+.exploration-stage-card {
+  margin-top: 16px;
+  padding: 18px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.exploration-stage-card:first-of-type {
+  margin-top: 18px;
+}
+
+.learning-sync-panel {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto;
+  align-items: center;
+  gap: 14px 18px;
+  border: 1px solid #bfdbfe;
+  border-left: 4px solid #2563eb;
+  border-radius: 8px;
+  background: #eff6ff;
+  padding: 14px 16px;
+}
+
+.learning-sync-copy {
+  display: grid;
+  gap: 3px;
+}
+
+.learning-sync-copy strong {
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.learning-sync-copy span {
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.learning-sync-form,
+.learning-sync-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.learning-sync-form[hidden],
+.learning-sync-actions[hidden] {
+  display: none;
+}
+
+.learning-sync-form input {
+  width: 160px;
+  min-height: 38px;
+  border: 1px solid #94a3b8;
+  border-radius: 7px;
+  background: #fff;
+  padding: 7px 10px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+
+.learning-sync-form input:focus {
+  border-color: #2563eb;
+  outline: 3px solid rgba(37, 99, 235, 0.16);
+}
+
+.exploration-stage-title,
+.real-life-transfer h3 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 900;
+}
+
+.problem-note-block .exploration-stage-prompt {
+  margin: 0 0 12px;
+  color: #334155;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.learning-response-input {
+  display: block;
+  width: 100%;
+  min-height: 92px;
+  resize: vertical;
+  border: 1px solid #94a3b8;
+  border-radius: 7px;
+  background: #fff;
+  padding: 11px 12px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.65;
+  box-sizing: border-box;
+}
+
+.learning-response-input::placeholder {
+  color: #64748b;
+}
+
+.learning-response-input:focus {
+  outline: 3px solid rgba(37, 99, 235, 0.16);
+  border-color: var(--brand);
+}
+
+.learning-response-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 10px;
+}
+
+.learning-primary-action,
+.learning-secondary-action,
+.animation-verify-action {
+  min-height: 38px;
+  border-radius: 7px;
+  padding: 8px 13px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.learning-primary-action,
+.animation-verify-action {
+  border: 1px solid #1d4ed8;
+  background: #2563eb;
+  color: #fff;
+}
+
+.learning-secondary-action {
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: #334155;
+}
+
+.learning-primary-action:hover,
+.animation-verify-action:hover {
+  background: #1d4ed8;
+}
+
+.learning-secondary-action:hover {
+  background: #f1f5f9;
+}
+
+.learning-primary-action:disabled {
+  border-color: #cbd5e1;
+  background: #e2e8f0;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+.exploration-feedback {
+  margin-top: 14px;
+  padding: 15px 16px;
+  border-left: 4px solid #0f766e;
+  border-radius: 0 7px 7px 0;
+  background: #f0fdfa;
+}
+
+.exploration-feedback[hidden],
+.learning-secondary-action[hidden] {
+  display: none;
+}
+
+.exploration-feedback > p + p {
+  margin-top: 8px;
+}
+
+.animation-verify-action {
+  margin-top: 13px;
+  border-color: #0f766e;
+  background: #0f766e;
+}
+
+.animation-verify-action:hover {
+  background: #115e59;
+}
+
+.problem-note-block .animation-verify-status {
+  margin-top: 7px;
+  color: #115e59;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.real-life-videos {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.real-life-videos-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.real-life-videos-heading h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 900;
+}
+
+.problem-note-block .real-life-videos-heading p {
+  margin: 0;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.real-life-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.real-life-video-card {
+  display: flex;
+  min-width: 0;
+  min-height: 190px;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid #475569;
+  border-radius: 8px;
+  background: #fff;
+  padding: 15px 16px;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.real-life-video-card.is-bilibili {
+  border-left-color: #e14b7b;
+}
+
+.real-life-video-card.is-youtube {
+  border-left-color: #dc2626;
+}
+
+.real-life-video-card:hover,
+.real-life-video-card:focus-visible {
+  border-color: #94a3b8;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.09);
+  transform: translateY(-1px);
+}
+
+.real-life-video-card:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.18);
+  outline-offset: 2px;
+}
+
+.real-life-video-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.real-life-video-platform {
+  border-radius: 999px;
+  background: #f1f5f9;
+  padding: 4px 9px;
+  color: #334155;
+  font-size: 13px;
+  line-height: 1.3;
+  font-weight: 900;
+}
+
+.is-bilibili .real-life-video-platform {
+  background: #fff1f5;
+  color: #be285b;
+}
+
+.is-youtube .real-life-video-platform {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.real-life-video-duration {
+  color: #64748b;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.real-life-video-title {
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.problem-note-block .real-life-video-watch,
+.problem-note-block .real-life-video-match {
+  margin: 0;
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.problem-note-block .real-life-video-watch {
+  display: grid;
+  gap: 4px;
+  border-radius: 7px;
+  background: #f8fafc;
+  padding: 9px 10px;
+}
+
+.real-life-video-watch b {
+  color: #0f766e;
+  font-size: 13px;
+}
+
+.problem-note-block .real-life-video-match {
+  color: #64748b;
+}
+
+.real-life-video-action {
+  margin-top: auto;
+  color: var(--brand);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.real-life-transfer {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.real-life-transfer-question {
+  margin-bottom: 12px;
+}
+
+.learning-save-status {
+  color: #0f766e;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.real-life-answer {
+  margin-top: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.real-life-answer > summary {
+  padding: 12px 14px;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.real-life-answer[open] > summary {
+  border-bottom: 1px solid var(--line);
+}
+
+.real-life-answer-body {
+  padding: 14px 16px 16px;
+}
+
+.real-life-answer-body > p + p {
+  margin-top: 8px;
+}
+
+.real-life-self-check {
+  margin-top: 14px;
+  border: 1px solid #99f6e4;
+  border-radius: 8px;
+  background: #f0fdfa;
+  padding: 14px 16px;
+}
+
+.real-life-self-check[hidden] {
+  display: none;
+}
+
+.real-life-self-check-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.real-life-self-check-heading strong {
+  color: #134e4a;
+  font-size: 16px;
+}
+
+.real-life-self-check-heading span {
+  border-radius: 999px;
+  background: #ccfbf1;
+  padding: 3px 9px;
+  color: #115e59;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.problem-note-block .real-life-self-check > p {
+  margin: 6px 0 10px;
+  color: #475569;
+  font-size: 14px;
+}
+
+.real-life-self-check-list {
+  display: grid;
+  gap: 8px;
+}
+
+.real-life-self-check-list label {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  align-items: start;
+  gap: 8px;
+  border-radius: 6px;
+  background: #fff;
+  padding: 9px 10px;
+  color: #1f2937;
+  font-size: 15px;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.real-life-self-check-list input {
+  width: 17px;
+  height: 17px;
+  margin: 4px 0 0;
+  accent-color: #0f766e;
+}
+
+@media (max-width: 720px) {
+  .learning-sync-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-sync-form,
+  .learning-sync-actions {
+    justify-content: flex-start;
+  }
+
+  .real-life-videos-heading {
+    display: block;
+  }
+
+  .problem-note-block .real-life-videos-heading p {
+    margin-top: 5px;
+  }
+
+  .real-life-video-grid {
+    grid-template-columns: 1fr;
+  }
+}
