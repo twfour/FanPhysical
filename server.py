@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
+import hashlib
 import hmac
 import json
 import os
 import re
+import secrets
 import socket
 import ssl
 import subprocess
@@ -12,6 +14,7 @@ import urllib.error
 import urllib.request
 from collections import Counter
 from html import escape
+from http.cookies import SimpleCookie
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import quote, unquote, urlparse
@@ -74,6 +77,22 @@ NOTEBOOKLM_AUTH_FAILURES = {}
 NOTEBOOKLM_AUTH_WINDOW_SECONDS = 10 * 60
 NOTEBOOKLM_AUTH_MAX_FAILURES = 6
 MAX_NOTEBOOKLM_EDIT_BODY_BYTES = 8_000
+LEARNING_STATE_PATH = Path(
+    os.environ.get("LEARNING_STATE_PATH", str(NOTEBOOKLM_LINKS_PATH.with_name("learning-state.json")))
+).expanduser()
+if not LEARNING_STATE_PATH.is_absolute():
+    LEARNING_STATE_PATH = ROOT / LEARNING_STATE_PATH
+LEARNING_STATE_LOCK = threading.RLock()
+LEARNING_SESSION_COOKIE = "fanphysics_learning_session"
+LEARNING_SESSION_SECONDS = 30 * 24 * 60 * 60
+MAX_LEARNING_STATE_BODY_BYTES = 400_000
+MAX_LEARNING_STORE_ENTRIES = 2_000
+MAX_LEARNING_RESPONSE_CHARS = 12_000
+LEARNING_STORE_TYPES = {
+    "exploration": "text",
+    "realLife": "text",
+    "realLifeChecks": "checks",
+}
 
 
 def html_response(handler, status, html):
@@ -201,6 +220,161 @@ def notebooklm_password_matches(candidate):
     if not NOTEBOOKLM_EDIT_ENABLED or not isinstance(candidate, str):
         return False
     return hmac.compare_digest(candidate.encode("utf-8"), NOTEBOOKLM_EDIT_PASSWORD.encode("utf-8"))
+
+
+def learning_session_signature(payload):
+    key = ("fanphysics-learning-session:" + NOTEBOOKLM_EDIT_PASSWORD).encode("utf-8")
+    return hmac.new(key, payload.encode("utf-8"), hashlib.sha256).hexdigest()
+
+
+def create_learning_session_token():
+    expires_at = int(time.time()) + LEARNING_SESSION_SECONDS
+    payload = f"{expires_at}.{secrets.token_urlsafe(18)}"
+    return f"{payload}.{learning_session_signature(payload)}"
+
+
+def learning_session_is_valid(handler):
+    raw_cookie = handler.headers.get("Cookie", "")
+    if not raw_cookie or not NOTEBOOKLM_EDIT_ENABLED:
+        return False
+    cookie = SimpleCookie()
+    try:
+        cookie.load(raw_cookie)
+    except Exception:
+        return False
+    morsel = cookie.get(LEARNING_SESSION_COOKIE)
+    if morsel is None:
+        return False
+    token = morsel.value
+    try:
+        expires_text, nonce, signature = token.split(".", 2)
+        expires_at = int(expires_text)
+    except (TypeError, ValueError):
+        return False
+    if not nonce or expires_at < int(time.time()):
+        return False
+    payload = f"{expires_text}.{nonce}"
+    return hmac.compare_digest(signature, learning_session_signature(payload))
+
+
+def learning_session_cookie(handler, token, max_age=LEARNING_SESSION_SECONDS):
+    parts = [
+        f"{LEARNING_SESSION_COOKIE}={token}",
+        "Path=/",
+        f"Max-Age={max_age}",
+        "HttpOnly",
+        "SameSite=Strict",
+    ]
+    forwarded_proto = handler.headers.get("X-Forwarded-Proto", "").split(",", 1)[0].strip()
+    if APP_ENV == "production" or forwarded_proto == "https":
+        parts.append("Secure")
+    return "; ".join(parts)
+
+
+def empty_learning_state():
+    return {
+        "version": 1,
+        "updatedAt": 0,
+        "stores": {name: {} for name in LEARNING_STORE_TYPES},
+    }
+
+
+def normalize_learning_record(record, store_type):
+    if store_type == "text" and isinstance(record, str):
+        return {"value": record[:MAX_LEARNING_RESPONSE_CHARS], "updatedAt": 0, "deleted": not bool(record)}
+    if not isinstance(record, dict):
+        return None
+    updated_at = record.get("updatedAt", 0)
+    if isinstance(updated_at, bool) or not isinstance(updated_at, (int, float)):
+        updated_at = 0
+    updated_at = max(0, min(int(updated_at), int(time.time() * 1000) + 5 * 60 * 1000))
+    deleted = bool(record.get("deleted"))
+    if store_type == "checks":
+        raw_value = record.get("value", [])
+        if not isinstance(raw_value, list):
+            return None
+        value = sorted({item for item in raw_value if isinstance(item, int) and not isinstance(item, bool) and 0 <= item < 20})
+        deleted = deleted or not value
+    else:
+        raw_value = record.get("value", "")
+        if not isinstance(raw_value, str):
+            return None
+        value = raw_value.strip()[:MAX_LEARNING_RESPONSE_CHARS]
+        deleted = deleted or not value
+    return {"value": value, "updatedAt": updated_at, "deleted": deleted}
+
+
+def normalize_learning_state(payload):
+    state = empty_learning_state()
+    raw_stores = payload.get("stores") if isinstance(payload, dict) else None
+    if not isinstance(raw_stores, dict):
+        return state
+    for store_name, store_type in LEARNING_STORE_TYPES.items():
+        raw_store = raw_stores.get(store_name)
+        if not isinstance(raw_store, dict):
+            continue
+        normalized_store = {}
+        for key, record in list(raw_store.items())[:MAX_LEARNING_STORE_ENTRIES]:
+            if not isinstance(key, str) or not key or len(key) > 240:
+                continue
+            normalized_record = normalize_learning_record(record, store_type)
+            if normalized_record is not None:
+                normalized_store[key] = normalized_record
+        state["stores"][store_name] = normalized_store
+    state["updatedAt"] = max(
+        (record["updatedAt"] for store in state["stores"].values() for record in store.values()),
+        default=0,
+    )
+    return state
+
+
+def merge_learning_states(current, incoming):
+    merged = empty_learning_state()
+    current = normalize_learning_state(current)
+    incoming = normalize_learning_state(incoming)
+    for store_name in LEARNING_STORE_TYPES:
+        keys = set(current["stores"][store_name]) | set(incoming["stores"][store_name])
+        for key in keys:
+            old_record = current["stores"][store_name].get(key)
+            new_record = incoming["stores"][store_name].get(key)
+            if old_record is None:
+                selected = new_record
+            elif new_record is None:
+                selected = old_record
+            elif new_record["updatedAt"] >= old_record["updatedAt"]:
+                selected = new_record
+            else:
+                selected = old_record
+            if selected is not None:
+                merged["stores"][store_name][key] = selected
+    merged["updatedAt"] = max(current.get("updatedAt", 0), incoming.get("updatedAt", 0))
+    return merged
+
+
+def load_learning_state():
+    try:
+        payload = json.loads(LEARNING_STATE_PATH.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return empty_learning_state()
+    except (OSError, json.JSONDecodeError):
+        return empty_learning_state()
+    return normalize_learning_state(payload)
+
+
+def save_learning_state(incoming):
+    with LEARNING_STATE_LOCK:
+        state = merge_learning_states(load_learning_state(), incoming)
+        LEARNING_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        temporary_path = LEARNING_STATE_PATH.with_name(
+            f"{LEARNING_STATE_PATH.name}.tmp-{os.getpid()}-{threading.get_ident()}"
+        )
+        temporary_path.write_text(
+            json.dumps(state, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        os.chmod(temporary_path, 0o600)
+        os.replace(temporary_path, LEARNING_STATE_PATH)
+    return state
 
 
 def group_problem_catalog(catalog):
@@ -557,14 +731,14 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
             factors_html = '<h3>现实中还要补上的因素</h3><ul class="reality-note">' + "".join(
                 f"<li>{text_block(item)}</li>" for item in factors
             ) + "</ul>"
-        answer_html = ""
+        real_life_answer_html = ""
         if real_life.get("answer") or rubric:
             rubric_html = ""
             if rubric:
                 rubric_html = "<h3>评分要点</h3><ul>" + "".join(
                     f"<li>{text_block(item)}</li>" for item in rubric
                 ) + "</ul>"
-            answer_html = (
+            real_life_answer_html = (
                 '<details class="real-life-answer"><summary>查看参考答案与评分要点</summary>'
                 '<div class="real-life-answer-body">'
                 f'<h3>参考答案</h3><p>{text_block(real_life.get("answer"))}</p>{rubric_html}</div></details>'
@@ -576,7 +750,7 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
             f'<h3>题目与现实如何对应</h3><p>{text_block(real_life.get("mapping"))}</p>'
             f'<h3>不变的物理模型</h3><p>{text_block(real_life.get("sharedModel"))}</p>'
             f'{factors_html}<h3>带回原题想一想</h3><p>{text_block(real_life.get("question"))}</p>'
-            f'{answer_html}</section>'
+            f'{real_life_answer_html}</section>'
         )
     exploration_html = ""
     if exploration:
@@ -586,6 +760,8 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
             if not isinstance(stage, dict):
                 continue
             sections = []
+            if stage.get("prompt"):
+                sections.append(f'<p><strong>先回答：</strong>{text_block(stage.get("prompt"))}</p>')
             for label, key in (("我先想到", "thought"), ("检查这个想法", "check"), ("修正之后", "correction"), ("留下的方法", "takeaway")):
                 if stage.get(key):
                     sections.append(f'<p><strong>{label}：</strong>{text_block(stage.get(key))}</p>')
@@ -747,13 +923,98 @@ def render_notebooklm_index(handler, catalog):
 {''.join(sections)}</main>{sidebar_html}</div></body></html>"""
 
 
-def json_response(handler, status, payload):
+def json_response(handler, status, payload, headers=None):
     body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
     handler.send_response(status)
     handler.send_header("Content-Type", "application/json; charset=utf-8")
     handler.send_header("Content-Length", str(len(body)))
+    for key, value in (headers or {}).items():
+        handler.send_header(key, value)
     handler.end_headers()
     handler.wfile.write(body)
+
+
+def read_json_request(handler, max_body_bytes):
+    try:
+        content_length = int(handler.headers.get("Content-Length", "0") or "0")
+    except ValueError:
+        content_length = 0
+    if content_length <= 0 or content_length > max_body_bytes:
+        return None, "invalid_body_size"
+    try:
+        payload = json.loads(handler.rfile.read(content_length).decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError):
+        return None, "invalid_json"
+    if not isinstance(payload, dict):
+        return None, "invalid_payload"
+    return payload, None
+
+
+def handle_learning_auth(handler):
+    if not NOTEBOOKLM_EDIT_ENABLED:
+        json_response(handler, 503, {"ok": False, "error": "sync_not_configured"})
+        return
+    payload, error = read_json_request(handler, MAX_NOTEBOOKLM_EDIT_BODY_BYTES)
+    if error:
+        status = 413 if error == "invalid_body_size" else 400
+        json_response(handler, status, {"ok": False, "error": error})
+        return
+    client_ip = notebooklm_edit_client_ip(handler)
+    if notebooklm_auth_is_limited(client_ip):
+        json_response(handler, 429, {"ok": False, "error": "rate_limited"})
+        return
+    if not notebooklm_password_matches(payload.get("password")):
+        record_notebooklm_auth_failure(client_ip)
+        json_response(handler, 401, {"ok": False, "error": "authentication_failed"})
+        return
+    clear_notebooklm_auth_failures(client_ip)
+    token = create_learning_session_token()
+    with LEARNING_STATE_LOCK:
+        state = load_learning_state()
+    json_response(
+        handler,
+        200,
+        {"ok": True, "state": state},
+        {"Set-Cookie": learning_session_cookie(handler, token)},
+    )
+
+
+def handle_learning_state_get(handler):
+    if not learning_session_is_valid(handler):
+        json_response(handler, 401, {"ok": False, "error": "authentication_required"})
+        return
+    with LEARNING_STATE_LOCK:
+        state = load_learning_state()
+    json_response(handler, 200, {"ok": True, "state": state})
+
+
+def handle_learning_state_update(handler):
+    if not learning_session_is_valid(handler):
+        json_response(handler, 401, {"ok": False, "error": "authentication_required"})
+        return
+    payload, error = read_json_request(handler, MAX_LEARNING_STATE_BODY_BYTES)
+    if error:
+        status = 413 if error == "invalid_body_size" else 400
+        json_response(handler, status, {"ok": False, "error": error})
+        return
+    if not isinstance(payload.get("state"), dict):
+        json_response(handler, 400, {"ok": False, "error": "invalid_payload"})
+        return
+    try:
+        state = save_learning_state(payload["state"])
+    except OSError:
+        json_response(handler, 500, {"ok": False, "error": "storage_unavailable"})
+        return
+    json_response(handler, 200, {"ok": True, "state": state})
+
+
+def handle_learning_logout(handler):
+    json_response(
+        handler,
+        200,
+        {"ok": True},
+        {"Set-Cookie": learning_session_cookie(handler, "", max_age=0)},
+    )
 
 
 def handle_notebooklm_link_update(handler):
@@ -1014,6 +1275,9 @@ class Handler(SimpleHTTPRequestHandler):
         if parsed.path == "/api/health":
             json_response(self, 200, {"ok": True})
             return
+        if parsed.path == "/api/learning-state":
+            handle_learning_state_get(self)
+            return
         if parsed.path in {"/notebooklm", "/notebooklm/"}:
             try:
                 catalog = load_problem_catalog()
@@ -1092,6 +1356,15 @@ class Handler(SimpleHTTPRequestHandler):
         parsed = urlparse(self.path)
         if parsed.path == "/api/notebooklm-link":
             handle_notebooklm_link_update(self)
+            return
+        if parsed.path == "/api/learning-auth":
+            handle_learning_auth(self)
+            return
+        if parsed.path == "/api/learning-state":
+            handle_learning_state_update(self)
+            return
+        if parsed.path == "/api/learning-logout":
+            handle_learning_logout(self)
             return
         if parsed.path != "/api/step-ai":
             json_response(self, 404, {"ok": False, "error": "not_found"})

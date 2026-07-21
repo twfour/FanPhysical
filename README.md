@@ -51,6 +51,9 @@ NotebookLM 编辑环境变量：
 
 - `NOTEBOOKLM_EDIT_PASSWORD`：章节笔记网址的管理密码，至少 12 个字符。
 - `NOTEBOOKLM_LINKS_PATH`：服务器覆盖值文件，本地默认为 `work/notebooklm-links.json`。
+- `LEARNING_STATE_PATH`：带身份验证的学习记录文件，默认与 NotebookLM 覆盖值保存在同一目录。
+
+动态模型页的“初学者探索”和“现实同构案例”会先保存到当前浏览器。使用同一个管理密码启用“学习记录”同步后，服务器签发 `HttpOnly` 会话 Cookie，并按记录时间戳合并不同设备上的作答与三点评分；浏览器不会保存管理密码。
 
 例如：
 

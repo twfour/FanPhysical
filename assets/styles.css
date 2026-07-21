@@ -375,6 +375,65 @@ details.analysis-step[open] .analysis-step-summary {
   margin-top: 18px;
 }
 
+.learning-sync-panel {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto;
+  align-items: center;
+  gap: 14px 18px;
+  border: 1px solid #bfdbfe;
+  border-left: 4px solid #2563eb;
+  border-radius: 8px;
+  background: #eff6ff;
+  padding: 14px 16px;
+}
+
+.learning-sync-copy {
+  display: grid;
+  gap: 3px;
+}
+
+.learning-sync-copy strong {
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.learning-sync-copy span {
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.learning-sync-form,
+.learning-sync-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.learning-sync-form[hidden],
+.learning-sync-actions[hidden] {
+  display: none;
+}
+
+.learning-sync-form input {
+  width: 160px;
+  min-height: 38px;
+  border: 1px solid #94a3b8;
+  border-radius: 7px;
+  background: #fff;
+  padding: 7px 10px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+
+.learning-sync-form input:focus {
+  border-color: #2563eb;
+  outline: 3px solid rgba(37, 99, 235, 0.16);
+}
+
 .exploration-stage-title,
 .real-life-transfer h3 {
   margin: 0 0 8px;
@@ -542,6 +601,82 @@ details.analysis-step[open] .analysis-step-summary {
 
 .real-life-answer-body > p + p {
   margin-top: 8px;
+}
+
+.real-life-self-check {
+  margin-top: 14px;
+  border: 1px solid #99f6e4;
+  border-radius: 8px;
+  background: #f0fdfa;
+  padding: 14px 16px;
+}
+
+.real-life-self-check[hidden] {
+  display: none;
+}
+
+.real-life-self-check-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.real-life-self-check-heading strong {
+  color: #134e4a;
+  font-size: 16px;
+}
+
+.real-life-self-check-heading span {
+  border-radius: 999px;
+  background: #ccfbf1;
+  padding: 3px 9px;
+  color: #115e59;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.problem-note-block .real-life-self-check > p {
+  margin: 6px 0 10px;
+  color: #475569;
+  font-size: 14px;
+}
+
+.real-life-self-check-list {
+  display: grid;
+  gap: 8px;
+}
+
+.real-life-self-check-list label {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  align-items: start;
+  gap: 8px;
+  border-radius: 6px;
+  background: #fff;
+  padding: 9px 10px;
+  color: #1f2937;
+  font-size: 15px;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.real-life-self-check-list input {
+  width: 17px;
+  height: 17px;
+  margin: 4px 0 0;
+  accent-color: #0f766e;
+}
+
+@media (max-width: 720px) {
+  .learning-sync-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-sync-form,
+  .learning-sync-actions {
+    justify-content: flex-start;
+  }
 }
 
 .analysis-shared-method {

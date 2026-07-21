@@ -49,6 +49,7 @@ umask 077
   printf 'DEEPSEEK_MAX_RETRIES=2\n'
   printf 'NOTEBOOKLM_EDIT_PASSWORD=%s\n' "$NOTEBOOKLM_EDIT_PASSWORD"
   printf 'NOTEBOOKLM_LINKS_PATH=/opt/fanphysics/shared/notebooklm-links.json\n'
+  printf 'LEARNING_STATE_PATH=/opt/fanphysics/shared/learning-state.json\n'
 } > "$TMP_ENV"
 
 echo "==> Uploading protected environment file"

@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "check": "npm run check:js && npm run check:data",
+    "check": "npm run check:js && npm run check:data && npm run check:server",
     "check:js": "node --check assets/app.js && node --check assets/scenes/*.js",
-    "check:data": "python3 -B scripts/validate_problems.py"
+    "check:data": "python3 -B scripts/validate_problems.py",
+    "check:server": "python3 -B scripts/test_learning_sync.py"
   },
   "devDependencies": {
     "playwright": "^1.61.1"

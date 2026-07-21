@@ -47,8 +47,8 @@
     "title": "落点未知时，我让轨迹和斜坡相交",
     "opening": "我先选起跳点为原点，把运动方程和坡面方程写在同一坐标系中。",
     "stages": [
-      {"title": "“没有水平距离，飞行时间算不了？”", "thought": "题目没给落点位置，我一开始觉得条件不足。", "check": "落点必须同时在抛物线上和斜坡上，斜坡方程本身就是缺少的条件。", "correction": "联立 \\(x=v_0t\\)、\\(y=gt^2/2\\) 与 \\(y=x\\tan30^\\circ\\) 求时间。", "takeaway": "落到斜面题，用轨迹与边界的交点条件补足未知落点。", "animationPreset": {"params": {"launchSpeed": 20, "slopeAngle": 45}, "progress": 0, "play": true, "caption": "坡角已调大。观察轨迹与坡面的交点如何自动确定飞行时间和落点。"}},
-      {"title": "瞬时功率为何不用总速度", "thought": "我想写 \\(P=mgv\\)。", "check": "功率是点积，水平方向速度与重力垂直，不贡献功率。", "correction": "写 \\(P_G=\\vec G\\cdot\\vec v=mgv_y\\)。", "takeaway": "瞬时功率先找力方向上的速度分量。"}
+      {"title": "“没有水平距离，飞行时间算不了？”", "prompt": "落点坐标未知，但它同时满足抛体轨迹和斜坡直线。请写出这两个位置条件，并指出可消去哪个未知量。", "thought": "题目没给落点位置，我一开始觉得条件不足。", "check": "落点必须同时在抛物线上和斜坡上，斜坡方程本身就是缺少的条件。", "correction": "联立 \\(x=v_0t\\)、\\(y=gt^2/2\\) 与 \\(y=x\\tan30^\\circ\\) 求时间。", "takeaway": "落到斜面题，用轨迹与边界的交点条件补足未知落点。", "animationPreset": {"params": {"launchSpeed": 20, "slopeAngle": 45}, "progress": 0, "play": true, "caption": "坡角已调大。观察轨迹与坡面的交点如何自动确定飞行时间和落点。"}},
+      {"title": "瞬时功率为何不用总速度", "prompt": "落地前速度同时有水平、竖直分量。重力的瞬时功率应与哪个分量有关？请用点积写出表达式。", "thought": "我想写 \\(P=mgv\\)。", "check": "功率是点积，水平方向速度与重力垂直，不贡献功率。", "correction": "写 \\(P_G=\\vec G\\cdot\\vec v=mgv_y\\)。", "takeaway": "瞬时功率先找力方向上的速度分量。", "animationPreset": {"params": {"launchSpeed": 30, "slopeAngle": 30}, "progress": 0.62, "play": false, "caption": "动画已停在下落段。比较总速度箭头与竖直分量，图表中的重力功率只跟 \\(v_y\\) 同步变化。"}}
     ]
   },
   "realLifeCase": {

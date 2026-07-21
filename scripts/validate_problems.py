@@ -13,7 +13,7 @@ HTML_PATH = ROOT / "classical-mechanics-demo.html"
 CHAPTER_GUIDES_PATH = ROOT / "data" / "chapter-guides.json"
 REQUIRED_PROBLEM_FIELDS = ["id", "chapter", "title", "question", "steps", "knowledge"]
 REQUIRED_STEP_FIELDS = ["title", "content"]
-REQUIRED_EXPLORATION_STAGE_FIELDS = ["title", "thought", "check", "correction", "takeaway"]
+REQUIRED_EXPLORATION_STAGE_FIELDS = ["title", "prompt", "thought", "check", "correction", "takeaway"]
 REQUIRED_REAL_LIFE_FIELDS = ["title", "scene", "mapping", "sharedModel", "question", "answer"]
 SUPPORTED_ANIMATION_TYPES = {
     "none",
@@ -64,10 +64,11 @@ def validate_student_exploration(path, problem):
         for field in REQUIRED_EXPLORATION_STAGE_FIELDS:
             if not is_non_empty_string(stage.get(field)):
                 errors.append(f"{path.name}: studentExploration stage {index} needs {field}")
-        if stage.get("prompt") is not None and not is_non_empty_string(stage.get("prompt")):
-            errors.append(f"{path.name}: studentExploration stage {index} prompt must be non-empty")
         preset = stage.get("animationPreset")
         if preset is None:
+            animation = problem.get("animation", {})
+            if animation.get("enabled") is not False and animation.get("type") not in {None, "none"}:
+                errors.append(f"{path.name}: studentExploration stage {index} needs animationPreset")
             continue
         if not isinstance(preset, dict):
             errors.append(f"{path.name}: studentExploration stage {index} animationPreset must be an object")
@@ -97,8 +98,12 @@ def validate_student_exploration(path, problem):
             errors.append(f"{path.name}: studentExploration stage {index} animationPreset time must be non-negative")
         if "play" in preset and not isinstance(preset["play"], bool):
             errors.append(f"{path.name}: studentExploration stage {index} animationPreset play must be boolean")
-        if "caption" in preset and not is_non_empty_string(preset["caption"]):
-            errors.append(f"{path.name}: studentExploration stage {index} animationPreset caption must be non-empty")
+        if "play" not in preset:
+            errors.append(f"{path.name}: studentExploration stage {index} animationPreset needs play")
+        if not any(field in preset for field in ("progress", "time")):
+            errors.append(f"{path.name}: studentExploration stage {index} animationPreset needs progress or time")
+        if not is_non_empty_string(preset.get("caption")):
+            errors.append(f"{path.name}: studentExploration stage {index} animationPreset needs caption")
     return errors
 
 
@@ -116,6 +121,8 @@ def validate_real_life_case(path, problem):
         items = real_life.get(field)
         if not isinstance(items, list) or not items or not all(is_non_empty_string(item) for item in items):
             errors.append(f"{path.name}: realLifeCase {field} must be a non-empty string list")
+    if isinstance(real_life.get("rubric"), list) and len(real_life["rubric"]) != 3:
+        errors.append(f"{path.name}: realLifeCase rubric must contain exactly three scoring points")
     return errors
 
 
