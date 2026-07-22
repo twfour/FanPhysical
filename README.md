@@ -99,7 +99,13 @@ deploy/aliyun/deploy.sh
 
 ## 运行时代码结构
 
-- `assets/app.js`：页面导航、题目渲染、Canvas 与通用交互。
+- `assets/app.js`：页面导航、题目加载、Canvas 生命周期、Markdown 与 MathJax 通用能力。
+- `assets/problem-content.js`：JSON 题干、选项、解析、NotebookLM 与近似题渲染。
+- `assets/problem-interactions.js`：收藏、解析折叠、多轮提问与语音输入。
+- `assets/json-animation-runtime.js`：JSON 动画推断、参数控件、时间轴与绘制分发。
+- `assets/physics-audio.js`：动画音效状态、Web Audio 通道与事件合成。
+- `assets/json-animation-scenes.js`：通用 JSON 动画与图表绘制。
+- `assets/circular-daily-scenes.js`：圆周运动日常题的动画与图表绘制。
 - `assets/learning-sync.js`：学习记录的浏览器存储、服务器登录与跨设备合并。
 - `assets/learning-blocks.js`：初学者探索、动画验证和现实同构案例组件。
 - `assets/styles.css`：站点通用样式；`assets/learning.css`：学习组件样式。

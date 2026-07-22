@@ -140,22 +140,6 @@ function drawRiverScene() {
 
 }
 
-function drawVectorArrow(x, y, dx, dy, colorHex, labelText) {
-  var len = Math.sqrt(dx * dx + dy * dy);
-  if (len < 1) {
-    return;
-  }
-  stroke(colorHex);
-  strokeWeight(2.5);
-  line(x, y, x + dx, y + dy);
-  drawArrow(x + dx * 0.72, y + dy * 0.72, x + dx, y + dy, colorHex);
-  noStroke();
-  fill(colorHex);
-  textAlign(LEFT, CENTER);
-  textSize(14);
-  text(labelText, x + dx + 6, y + dy);
-}
-
 function drawRiverGraph() {
   var gx = graphLeft + 50;
   var gy = 62;

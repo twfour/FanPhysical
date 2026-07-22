@@ -14,6 +14,22 @@ function drawArrow(x1, y1, x2, y2, colorHex) {
   pop();
 }
 
+function drawVectorArrow(x, y, dx, dy, colorHex, labelText) {
+  var len = Math.sqrt(dx * dx + dy * dy);
+  if (len < 1) {
+    return;
+  }
+  stroke(colorHex);
+  strokeWeight(2.5);
+  line(x, y, x + dx, y + dy);
+  drawArrow(x + dx * 0.72, y + dy * 0.72, x + dx, y + dy, colorHex);
+  noStroke();
+  fill(colorHex);
+  textAlign(LEFT, CENTER);
+  textSize(14);
+  text(labelText, x + dx + 6, y + dy);
+}
+
 
 function drawBasicGrid(gx, gy, gw, gh) {
   stroke("#cbd5e1");
