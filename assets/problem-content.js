@@ -20,6 +20,10 @@ function renderProblemDataNotes(problem) {
     note.appendChild(grid);
 
     grid.appendChild(createProblemQuestionBlock(problem));
+    var predictionBlock = createLearningCyclePredictionBlock(problem);
+    if (predictionBlock) {
+      grid.appendChild(predictionBlock);
+    }
     var notebookLmBlock = createProblemNotebookLmBlock(problem);
     if (notebookLmBlock) {
       grid.appendChild(notebookLmBlock);
@@ -29,7 +33,7 @@ function renderProblemDataNotes(problem) {
     grid.appendChild(analysisBlock);
     var explorationBlock = createStudentExplorationBlock(problem);
     var realLifeBlock = createRealLifeCaseBlock(problem);
-    if (explorationBlock || realLifeBlock) {
+    if (explorationBlock || realLifeBlock || predictionBlock) {
       grid.appendChild(createLearningSyncPanel());
     }
     if (explorationBlock) {
@@ -41,6 +45,10 @@ function renderProblemDataNotes(problem) {
     var practiceBlock = createProblemPracticeBlock(problem);
     if (practiceBlock) {
       grid.appendChild(practiceBlock);
+    }
+    var reviewBlock = createLearningCycleReviewBlock(problem);
+    if (reviewBlock) {
+      grid.appendChild(reviewBlock);
     }
     if (problem.summary && !problem.analysis) {
       grid.appendChild(createProblemNoteBlock("一句话总结", problem.summary.title || "总结", problem.summary.content || ""));

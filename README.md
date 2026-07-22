@@ -37,7 +37,13 @@ npm run check
 npm run check:browser
 ```
 
-提交前完整运行两组检查：
+全量动画冒烟测试会按场景类型从干净页面逐题打开所有动画题，检查 renderer 注册、左右绘图区非空、缓存上限，以及桌面和 iPad 横屏布局：
+
+```bash
+npm run check:animations
+```
+
+提交前完整运行三组检查：
 
 ```bash
 npm run check:full
@@ -122,15 +128,18 @@ deploy/aliyun/deploy.sh
 
 ## 运行时代码结构
 
-- `assets/app.js`：页面导航、题目加载、Canvas 生命周期、Markdown 与 MathJax 通用能力。
+- `assets/app.js`：页面导航、题目加载、Canvas 生命周期、DOM/图表 LRU 缓存、相邻题预取、Markdown 与 MathJax 通用能力。
 - `assets/problem-content.js`：JSON 题干、选项、解析、NotebookLM 与近似题渲染。
+- `assets/learning-cycle.js`：播放前预测、错误选项误区诊断、修正记录、间隔复习排期与首页“今日复习”。
 - `assets/problem-favorites.js`：收藏状态、收藏按钮与首页收藏卡片。
 - `assets/problem-note-interactions.js`：题目说明增强与解析步骤折叠。
 - `assets/step-conversation.js`：解析步骤的多轮提问与语音输入。
-- `assets/json-animation-runtime.js`：JSON 动画推断、参数控件、时间轴与绘制分发。
-- `assets/physics-audio.js`：动画音效状态、Web Audio 通道与事件合成。
-- `assets/json-animation-scenes.js`：通用 JSON 动画与图表绘制。
-- `assets/circular-daily-scenes.js`：圆周运动日常题的动画与图表绘制。
+- `assets/scene-registry.js`：动画类型与旧模型变体的 renderer 注册表，场景模块加载后自行登记。
+- `assets/json-animation-runtime.js`：JSON 动画推断、参数控件、时间轴与注册表绘制分发。
+- `assets/scenes/common.js`：动画/图表共享绘图工具；`training-scene-common.js` 保存曲线与平抛训练共用图表函数。
+- `assets/physics-audio.js`：动画音效状态、Web Audio 通道与事件合成；仅在首次打开动画题时加载。
+- `assets/json-animation-scenes.js`：通用 JSON 动画与图表绘制；与 p5.js 一样按动画题延迟加载。
+- `assets/circular-daily-scenes.js`：圆周运动日常题的动画与图表绘制，仅在进入对应题目时加载。
 - `assets/scenes/gravitation-core.js`：引力模型分发与共享绘图工具；`gravitation-foundations.js`、`gravitation-orbits.js` 按章节题组延迟加载。
 - `assets/scenes/work-power-*`、`kinetic-energy-*`、`mechanical-energy-*`：功与功率、动能定理、机械能的共享运行时及课堂/作业题组，按当前题目延迟加载。
 - `assets/scenes/projectile-*`：平抛的共享状态、基础题组、进阶题组与月面抛射场景，按当前题目延迟加载。
@@ -143,6 +152,10 @@ deploy/aliyun/deploy.sh
 - `notebooklm_service.py`：NotebookLM 目录、章节/题目页面与笔记链接存储。
 - `step_ai_service.py`：步骤级 AI 上下文构造、DeepSeek 请求与重试。
 - `learning_sync.py`：学习记录会话、校验、合并与持久化。
+
+首页不会创建 Canvas，也不会下载约 1 MB 的 p5.js、音效运行时或大场景脚本。首次进入动画题后，Canvas 以 30 FPS 为目标刷新，右侧图表在播放时按 15 FPS 更新并复用最近帧；暂停时仍会立即绘制精确状态。题目 DOM 最多缓存 8 份，图表帧最多缓存 6 份。
+
+机械能守恒定律课1、课2启用了学习闭环试点：学生先完成概念预测才能播放动画，完整播放后按错误选项显示针对性误区与修正问题，并按 `1、3、7、14、30` 天生成首页复习任务。预测、修正和复习记录会随学习记录账号同步。
 
 ## 题目录入架构
 

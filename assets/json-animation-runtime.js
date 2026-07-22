@@ -249,6 +249,9 @@ function renderJsonAnimationControls(sceneName) {
   container.innerHTML = "";
   if (!isJsonAnimationScene(sceneName)) {
     container.style.display = "none";
+    if (typeof applyAnimationPredictionGate === "function") {
+      applyAnimationPredictionGate(sceneName);
+    }
     return;
   }
   var problem = problemDataMap[sceneName];
@@ -365,6 +368,9 @@ function renderJsonAnimationControls(sceneName) {
     container.appendChild(meta);
   }
   container.style.display = "grid";
+  if (typeof applyAnimationPredictionGate === "function") {
+    applyAnimationPredictionGate(sceneName);
+  }
 }
 
 function formatParamValue(value, unit, step) {
@@ -447,7 +453,10 @@ function syncJsonTimeControl(sceneName) {
     value.innerText = state.time.toFixed(2) + "s";
   }
   if (play) {
-    play.innerText = state.playing ? "暂停" : "播放";
+    var predictionLocked = typeof isLearningCyclePredictionComplete === "function" &&
+      !isLearningCyclePredictionComplete(sceneName);
+    play.disabled = predictionLocked;
+    play.innerText = predictionLocked ? "先完成预测" : (state.playing ? "暂停" : "播放");
   }
   if (isPhysicsSoundScene(sceneName)) {
     syncPhysicsSoundButton();
@@ -470,6 +479,9 @@ function updateJsonAnimation(dt) {
     updatePhysicsSoundPlayback(currentScene, duration > 0 ? Math.min(state.time, duration) / duration : 0, true, reachedEnd);
   }
   if (reachedEnd) {
+    if (typeof completeLearningCycleAnimation === "function") {
+      completeLearningCycleAnimation(currentScene);
+    }
     if ((animation.timeline || {}).loop) {
       state.time = 0;
       resetPhysicsSoundPlayback();
@@ -482,46 +494,27 @@ function updateJsonAnimation(dt) {
   syncJsonTimeControl(currentScene);
 }
 
-var jsonAnimationRendererMap = {
-  fanphysics_model: { scene: "drawFanPhysicsModelScene", graph: "drawFanPhysicsModelGraph" },
-  projectile: { scene: "drawJsonProjectileScene", graph: "drawJsonProjectileGraph" },
-  spring_balance: { scene: "drawJsonSpringScene", graph: "drawJsonSpringGraph" },
-  force_diagram: { scene: "drawJsonForceDiagramScene", graph: "drawJsonForceDiagramGraph" },
-  curve_training_model: { scene: "drawCurveTrainingModelScene", graph: "drawCurveTrainingModelGraph" },
-  projectile_training_model: { scene: "drawProjectileTrainingModelScene", graph: "drawProjectileTrainingModelGraph" },
-  bullet_cylinder: { scene: "drawJsonBulletCylinderScene", graph: "drawJsonBulletCylinderGraph" },
-  circular_concept: { scene: "drawJsonCircularConceptScene", graph: "drawJsonCircularConceptGraph" },
-  gravitation_eclipse: { scene: "drawGravitationEclipseScene", graph: "drawGravitationEclipseGraph" },
-  gravitation_lunar_throw: { scene: "drawGravitationLunarThrowScene", graph: "drawGravitationLunarThrowGraph" },
-  gravitation_model: { scene: "drawGravitationModelScene", graph: "drawGravitationModelGraph" },
-  work_power_model: { scene: "drawWorkPowerModelScene", graph: "drawWorkPowerModelGraph" },
-  kinetic_energy_model: { scene: "drawKineticEnergyModelScene", graph: "drawKineticEnergyModelGraph" },
-  mechanical_energy_model: { scene: "drawMechanicalEnergyModelScene", graph: "drawMechanicalEnergyModelGraph" },
-  functional_relation_model: { scene: "drawFunctionalRelationModelScene", graph: "drawFunctionalRelationModelGraph" },
-  required_one_test_model: { scene: "drawRequiredOneTestScene", graph: "drawRequiredOneTestGraph" },
-  required_two_test_model: { scene: "drawRequiredTwoTestScene", graph: "drawRequiredTwoTestGraph" }
-};
-
 function drawJsonAnimationScene() {
   var animation = problemDataMap[currentScene].animation;
   var codexKey = getCodexAnimationKey(currentScene);
-  var renderer = jsonAnimationRendererMap[animation.type];
+  var renderer = getSceneRenderer(animation.type);
   var sceneDrawer;
   var graphDrawer;
   if (codexKey === "bulletCylinder") {
     syncCodexBulletCylinderScene(currentScene);
-    sceneDrawer = window.drawBulletScene;
-    graphDrawer = window.drawBulletGraph;
+    var codexRenderer = getFanPhysicsRenderer(codexKey);
+    sceneDrawer = codexRenderer && codexRenderer.scene;
+    graphDrawer = codexRenderer && codexRenderer.graph;
   } else if (renderer) {
-    sceneDrawer = window[renderer.scene];
-    graphDrawer = window[renderer.graph];
+    sceneDrawer = renderer.scene;
+    graphDrawer = renderer.graph;
   }
   if (!sceneDrawer || !graphDrawer) {
     sceneDrawer = drawJsonPlaceholderScene;
     graphDrawer = drawJsonPlaceholderGraph;
   }
   drawAnimScene(sceneDrawer);
-  graphDrawer();
+  drawGraphWithFrameCache(graphDrawer);
   if (codexKey === "bulletCylinder") {
     drawCodexSceneBadge("Codex 动画模型：bulletCylinder");
   }

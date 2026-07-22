@@ -170,6 +170,8 @@ function drawProjectileLesson04Graph() {
   curveTrainingGraphEnd();
 }
 
+registerSceneRenderer("projectile_training_model", drawProjectileTrainingModelScene, drawProjectileTrainingModelGraph);
+
 function drawProjectileLesson09Scene() {
   var height = getJsonParam(currentScene, "height", 8);
   var angle = getJsonParam(currentScene, "angle", 35) * Math.PI / 180;

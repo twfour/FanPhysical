@@ -19,10 +19,12 @@ var WORK_HOMEWORK_ID = "lesson10_hw_01_tilting_truck";
 var KINETIC_COURSE_ID = "lesson11_course_01_jet_takeoff";
 var KINETIC_HOMEWORK_ID = "lesson11_a_01_spring_compression";
 var MECHANICAL_COURSE_ID = "lesson12_course_01_reference_plane";
+var MECHANICAL_COURSE_2_ID = "lesson12_course_02_well_throw";
 var MECHANICAL_HOMEWORK_ID = "lesson12_a_01_projectile_sea";
-var PROJECTILE_BASIC_ID = "projectileSlope";
+var PROJECTILE_BASIC_ID = "projectileBasic";
 var PROJECTILE_ADVANCED_ID = "projectileBounce";
 var PROJECTILE_LUNAR_ID = "gravitation_course_08_lunar_throw";
+var PREFETCH_PROBLEM_ID = "curve_training_16_rope_wrap_prism";
 var LEARNING_SYNC_TEST_PASSWORD = "fanphysics-learning-browser-test";
 var NOTEBOOKLM_TEST_PASSWORD = "fanphysics-notebook-browser-test";
 var EXPLORATION_ANSWER = "轨道数据只能确定规律，测量引力常量还需要独立实验。";
@@ -124,13 +126,13 @@ async function expandLearningBlocks(page) {
 }
 
 async function openRegressionProblem(page) {
-  await page.locator("#canvas-holder canvas").waitFor({ state: "attached", timeout: 10000 });
   await ensureTreeBranchOpen(page, "2026暑假班");
   await ensureTreeBranchOpen(page, "必修二结业测试");
   var item = page.locator('button[data-scene="' + PROBLEM_ID + '"]');
   await requireOne(item, "regression problem tree item");
   await item.click();
   await page.locator("#" + PROBLEM_ID + "Notes").waitFor({ state: "visible", timeout: 10000 });
+  await page.locator("#canvas-holder canvas").waitFor({ state: "visible", timeout: 10000 });
   await page.locator(".student-exploration-block").waitFor({ state: "visible", timeout: 10000 });
   await page.locator(".real-life-case-block").waitFor({ state: "visible", timeout: 10000 });
   await expandLearningBlocks(page);
@@ -225,6 +227,20 @@ async function main() {
   });
   await page.goto(baseUrl + "/classical-mechanics-demo.html", { waitUntil: "domcontentloaded" });
 
+  await runCheck("首页轻量启动", async function () {
+    await waitUntil(async function () {
+      return await page.evaluate(function () {
+        return Object.keys(window.problemIndexMap || {}).length > 0;
+      });
+    }, "the problem catalog to load");
+    assert.equal(await page.locator("#canvas-holder canvas").count(), 0, "home should not create a canvas");
+    assert.equal(await page.locator('script[data-runtime-script^="/assets/vendor/p5.min.js"]').count(), 0);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/physics-audio.js"]').count(), 0);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/json-animation-scenes.js"]').count(), 0);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/circular-daily-scenes.js"]').count(), 0);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/summer-exam.js"]').count(), 0);
+  });
+
   await runCheck("独立同步密码与登录恢复", async function () {
     await openRegressionProblem(page);
     var wrongCredentialStatus = await page.evaluate(async function (password) {
@@ -299,6 +315,38 @@ async function main() {
     assert.equal(await page.locator("#jsonAnimPlayBtn").innerText(), "暂停");
   });
 
+  await runCheck("场景注册、缓存与预取", async function () {
+    var originalNote = page.locator("#" + PROBLEM_ID + "Notes");
+    await originalNote.evaluate(function (element) {
+      element.dataset.lruRegressionMarker = "preserved";
+    });
+    await openSceneDirectly(page, PROJECTILE_BASIC_ID);
+    await openSceneDirectly(page, PROBLEM_ID);
+    assert.equal(await page.locator("#" + PROBLEM_ID + "Notes").getAttribute("data-lru-regression-marker"), "preserved");
+    var runtimeState = await page.evaluate(function () {
+      return {
+        registered: Boolean(window.getSceneRenderer && getSceneRenderer("required_two_test_model")),
+        targetFrameRate: typeof getTargetFrameRate === "function" ? getTargetFrameRate() : 0,
+        graphCacheSize: Object.keys(window.graphFrameCacheMap || {}).length,
+        noteCacheSize: Object.keys(window.problemNoteCacheMap || {}).length
+      };
+    });
+    assert.equal(runtimeState.registered, true, "required-two renderer should be registered");
+    assert.equal(runtimeState.targetFrameRate, 30, "p5 should target 30 FPS");
+    assert.equal(runtimeState.graphCacheSize > 0 && runtimeState.graphCacheSize <= 6, true);
+    assert.equal(runtimeState.noteCacheSize > 0 && runtimeState.noteCacheSize <= 8, true);
+
+    await page.evaluate(function (sceneName) {
+      var item = document.querySelector('.tree-item[data-scene="' + sceneName + '"]');
+      item.dispatchEvent(new PointerEvent("pointerover", { bubbles: true }));
+    }, PREFETCH_PROBLEM_ID);
+    await waitUntil(async function () {
+      return page.evaluate(function (sceneName) {
+        return Boolean(window.problemDataMap && problemDataMap[sceneName]);
+      }, PREFETCH_PROBLEM_ID);
+    }, "hovered problem prefetch", 10000);
+  });
+
   await runCheck("三点评分保存", async function () {
     var transfer = page.locator(".real-life-case-block .real-life-transfer");
     var textarea = transfer.locator("textarea");
@@ -355,37 +403,123 @@ async function main() {
   });
 
   await runCheck("其余场景题组按需加载", async function () {
-    await openSceneDirectly(page, WORK_COURSE_ID);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/work-power-core.js"]').count(), 1);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/work-power-course.js"]').count(), 1);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/work-power-homework.js"]').count(), 0);
-    await openSceneDirectly(page, WORK_HOMEWORK_ID);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/work-power-homework.js"]').count(), 1);
+    var runtimePage = await context.newPage();
+    runtimePage.on("pageerror", function (error) {
+      pageErrors.push(error.message);
+    });
+    await runtimePage.goto(baseUrl + "/classical-mechanics-demo.html", { waitUntil: "domcontentloaded" });
 
-    await openSceneDirectly(page, KINETIC_COURSE_ID);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/kinetic-energy-core.js"]').count(), 1);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/kinetic-energy-course.js"]').count(), 1);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/kinetic-energy-homework.js"]').count(), 0);
-    await openSceneDirectly(page, KINETIC_HOMEWORK_ID);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/kinetic-energy-homework.js"]').count(), 1);
+    await openSceneDirectly(runtimePage, WORK_COURSE_ID);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/work-power-core.js"]').count(), 1);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/work-power-course.js"]').count(), 1);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/work-power-homework.js"]').count(), 0);
+    await openSceneDirectly(runtimePage, WORK_HOMEWORK_ID);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/work-power-homework.js"]').count(), 1);
 
-    await openSceneDirectly(page, MECHANICAL_COURSE_ID);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-core.js"]').count(), 1);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-audio.js"]').count(), 1);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-course.js"]').count(), 1);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-homework.js"]').count(), 0);
-    await openSceneDirectly(page, MECHANICAL_HOMEWORK_ID);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-homework.js"]').count(), 1);
+    await openSceneDirectly(runtimePage, KINETIC_COURSE_ID);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/kinetic-energy-core.js"]').count(), 1);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/kinetic-energy-course.js"]').count(), 1);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/kinetic-energy-homework.js"]').count(), 0);
+    await openSceneDirectly(runtimePage, KINETIC_HOMEWORK_ID);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/kinetic-energy-homework.js"]').count(), 1);
 
-    await openSceneDirectly(page, PROJECTILE_BASIC_ID);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/projectile-core.js"]').count(), 1);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/projectile-basic-scenes.js"]').count(), 1);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/projectile-advanced-scenes.js"]').count(), 0);
-    await openSceneDirectly(page, PROJECTILE_ADVANCED_ID);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/projectile-advanced-scenes.js"]').count(), 1);
-    await openSceneDirectly(page, PROJECTILE_LUNAR_ID);
-    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/projectile-lunar-scene.js"]').count(), 1);
-    assert.equal(await countCanvasInkPixels(page) > 100, true, "split scene canvas should not be blank");
+    await openSceneDirectly(runtimePage, MECHANICAL_COURSE_ID);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-core.js"]').count(), 1);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-audio.js"]').count(), 1);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-course.js"]').count(), 1);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-homework.js"]').count(), 0);
+    await openSceneDirectly(runtimePage, MECHANICAL_HOMEWORK_ID);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-homework.js"]').count(), 1);
+
+    await openSceneDirectly(runtimePage, PROJECTILE_BASIC_ID);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/projectile-core.js"]').count(), 1);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/projectile-basic-scenes.js"]').count(), 1);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/projectile-advanced-scenes.js"]').count(), 0);
+    await openSceneDirectly(runtimePage, PROJECTILE_ADVANCED_ID);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/projectile-advanced-scenes.js"]').count(), 1);
+    await openSceneDirectly(runtimePage, PROJECTILE_LUNAR_ID);
+    assert.equal(await runtimePage.locator('script[data-runtime-script="/assets/scenes/projectile-lunar-scene.js"]').count(), 1);
+    assert.equal(await countCanvasInkPixels(runtimePage) > 100, true, "split scene canvas should not be blank");
+    await runtimePage.close();
+  });
+
+  await runCheck("预测、误区诊断与延时复习闭环", async function () {
+    var learningPage = await context.newPage();
+    learningPage.on("pageerror", function (error) {
+      pageErrors.push(error.message);
+    });
+    await learningPage.goto(baseUrl + "/classical-mechanics-demo.html", { waitUntil: "domcontentloaded" });
+    await openSceneDirectly(learningPage, MECHANICAL_COURSE_ID);
+
+    var prediction = learningPage.locator('.learning-cycle-prediction-block[data-scene="' + MECHANICAL_COURSE_ID + '"]');
+    await requireOne(prediction, "mechanical-energy prediction block");
+    assert.equal(await learningPage.locator("#learningCycleCanvasGate").isVisible(), true);
+    assert.equal(await learningPage.locator("#jsonAnimPlayBtn").isDisabled(), true);
+    assert.equal(await learningPage.locator("#jsonAnimPlayBtn").innerText(), "先完成预测");
+
+    await prediction.locator('input[type="radio"][value="A"]').check();
+    await prediction.locator('.learning-cycle-confidence input[value="3"]').check();
+    await prediction.getByRole("button", { name: "提交预测并解锁动画", exact: true }).click();
+    await waitUntil(async function () {
+      return await learningPage.locator("#learningCycleCanvasGate").isHidden();
+    }, "prediction gate to unlock");
+    assert.equal(await learningPage.locator("#jsonAnimPlayBtn").isEnabled(), true);
+
+    await learningPage.evaluate(function (sceneName) {
+      var state = getJsonAnimationState(sceneName);
+      state.time = getJsonDuration(sceneName) - 0.02;
+      state.playing = true;
+      syncCanvasLoop();
+    }, MECHANICAL_COURSE_ID);
+    var predictionFeedback = prediction.locator(".learning-cycle-prediction-feedback");
+    await predictionFeedback.waitFor({ state: "visible", timeout: 10000 });
+    assert.match(await predictionFeedback.innerText(), /把势能值与势能差混在一起/);
+    assert.match(await predictionFeedback.innerText(), /发现一个可修正的误区/);
+
+    var repair = predictionFeedback.locator(".learning-cycle-repair textarea");
+    await repair.fill("势能零点改变会给两个位置同时加上同一公共项，势能差与重力做功不变。");
+    await predictionFeedback.getByRole("button", { name: "保存修正说明", exact: true }).click();
+    assert.match(await predictionFeedback.locator(".learning-save-status").innerText(), /已保存/);
+
+    var review = learningPage.locator('.learning-cycle-review-block[data-scene="' + MECHANICAL_COURSE_ID + '"]');
+    await requireOne(review, "mechanical-energy review block");
+    await expandNoteBlock(review, "mechanical-energy review");
+    assert.match(await review.innerText(), /下次复习/);
+    await learningPage.evaluate(function (sceneName) {
+      var problem = problemDataMap[sceneName];
+      var state = getLearningCycleState(sceneName);
+      state.review.dueAt = Date.now() - 1000;
+      saveLearningCycleState(problem, state);
+    }, MECHANICAL_COURSE_ID);
+    await learningPage.locator("#treeHome").click();
+    await waitUntil(async function () {
+      return (await learningPage.locator("#learningReviewCount").innerText()) === "1 项到期";
+    }, "one due review on the homepage");
+    var reviewCard = learningPage.locator(".learning-review-card").filter({ hasText: "例1：重力势能参考面" });
+    await requireOne(reviewCard, "due review card");
+    await reviewCard.click();
+    await review.waitFor({ state: "visible", timeout: 10000 });
+    await expandNoteBlock(review, "due mechanical-energy review");
+    await review.locator('input[type="radio"][value="B"]').check();
+    await review.getByRole("button", { name: "提交本次复习", exact: true }).click();
+    assert.match(await review.locator(".learning-cycle-review-feedback").innerText(), /回答正确/);
+
+    await openSceneDirectly(learningPage, MECHANICAL_COURSE_2_ID);
+    assert.equal(await learningPage.locator("#learningCycleCanvasGate").isVisible(), true);
+    assert.equal(await learningPage.locator("#jsonAnimPlayBtn").isDisabled(), true);
+    assert.match(
+      await learningPage.locator('.learning-cycle-prediction-block[data-scene="' + MECHANICAL_COURSE_2_ID + '"]').innerText(),
+      /等初动能不等于等势能/
+    );
+
+    await waitUntil(function () {
+      var state = readLearningState(learningStatePath);
+      return Boolean(
+        state && state.stores && state.stores.learningCycle &&
+        state.stores.learningCycle[MECHANICAL_COURSE_ID + ":cycle"]
+      );
+    }, "learning-cycle state to reach the server", 12000);
+    await learningPage.close();
   });
 
   await runCheck("NotebookLM 服务模块", async function () {
@@ -462,7 +596,7 @@ async function main() {
   });
 
   assert.deepEqual(pageErrors, [], "uncaught page errors: " + pageErrors.join(" | "));
-  console.log("Browser regression passed: 10/10 checks");
+  console.log("Browser regression passed: 13/13 checks");
 }
 
 try {

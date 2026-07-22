@@ -932,3 +932,5 @@ function rotUnloadingGraph() {
   rotMarker(frame, time, rotUnloadingVelocity(time), "#2563eb");
   rotLegend([{ color: "#2563eb", label: "货物" }, { color: "#f97316", label: "平板车" }], 845, 112);
 }
+
+registerSceneRenderer("required_one_test_model", drawRequiredOneTestScene, drawRequiredOneTestGraph);

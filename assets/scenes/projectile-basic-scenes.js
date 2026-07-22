@@ -611,3 +611,20 @@ function drawVolleyGraph() {
   text("刚落底线所需 v0 = " + volleyExactV0().toFixed(1), gx + 12, gy + 34);
   text("当前落点 R = " + volleyRange().toFixed(1), gx + 12, gy + 56);
 }
+
+registerFanPhysicsRenderer("projectileBasic", drawProjectileScene, drawProjectileGraph, {
+  timeKey: "projT",
+  duration: function () { return projectileFlightTime(); }
+});
+registerFanPhysicsRenderer("projectileSlope", drawSlopeScene, drawSlopeGraph, {
+  timeKey: "slopeT",
+  duration: function () { return slopeMaxTime(); }
+});
+registerFanPhysicsRenderer("projectileWindow", drawWindowScene, drawWindowGraph, {
+  timeKey: "winT",
+  duration: function () { return windowEndTime(); }
+});
+registerFanPhysicsRenderer("volleyballServe", drawVolleyScene, drawVolleyGraph, {
+  timeKey: "volleyT",
+  duration: function () { return volleyFlightTime(); }
+});

@@ -1164,3 +1164,5 @@ function drawFrGameTrackGraph() {
   frMarker(frame, h, frGameRange(h), "#dc2626");
   frText("达到带速后射程进入平台", 797, 112, "#0f766e", 12, CENTER);
 }
+
+registerSceneRenderer("functional_relation_model", drawFunctionalRelationModelScene, drawFunctionalRelationModelGraph);

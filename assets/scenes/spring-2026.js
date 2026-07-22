@@ -998,3 +998,20 @@ function drawInclineSlotCurve(gx, gy, gw, gh, tMax, yMin, yMax, kind) {
   }
   endShape();
 }
+
+registerFanPhysicsRenderer("doubleThrow", drawDoubleThrowScene, drawDoubleThrowGraph, {
+  timeKey: "throwT",
+  duration: function () { return throwMaxT; }
+});
+registerFanPhysicsRenderer("pipeDrop", drawPipeDropScene, drawPipeDropGraph, {
+  timeKey: "pipeT",
+  duration: function () { return pipeLandTime(); }
+});
+registerFanPhysicsRenderer("threeCar", drawThreeCarScene, drawThreeCarGraph, {
+  timeKey: "carT",
+  duration: function () { return carMaxT; }
+});
+registerFanPhysicsRenderer("inclineSlot", drawInclineSlotScene, drawInclineSlotGraph, {
+  timeKey: "slotT",
+  duration: function () { return slotMaxT; }
+});

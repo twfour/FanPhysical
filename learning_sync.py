@@ -20,6 +20,7 @@ STORE_TYPES = {
     "exploration": "text",
     "realLife": "text",
     "realLifeChecks": "checks",
+    "learningCycle": "text",
 }
 
 

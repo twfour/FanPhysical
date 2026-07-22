@@ -718,3 +718,17 @@ function drawSemiCircleGraph() {
   text("A(" + a.x.toFixed(0) + ", " + a.y.toFixed(0) + ")", gx + 20, gy + 48);
   text("B(" + b.x.toFixed(0) + ", " + b.y.toFixed(0) + ")", gx + 20, gy + 76);
 }
+
+registerFanPhysicsRenderer("dartTarget", drawDartScene, drawDartGraph, {
+  timeKey: "dartT",
+  duration: function () { return dartFlightTime(); }
+});
+registerFanPhysicsRenderer("projectileNormal", drawNormalScene, drawNormalGraph, {
+  timeKey: "normalT",
+  duration: function () { return normalSceneMaxTime(); }
+});
+registerFanPhysicsRenderer("projectileBounce", drawBounceScene, drawBounceGraph, {
+  timeKey: "bounceT",
+  duration: function () { return bounceTotalTime(); }
+});
+registerFanPhysicsRenderer("semiCircleThrow", drawSemiCircleScene, drawSemiCircleGraph);

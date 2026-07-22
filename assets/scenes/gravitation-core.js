@@ -262,3 +262,5 @@ function gravDrawOptionRows(title, subtitle, labels, ratios, truths) {
     gravText(truths[i] ? "正确" : "不符", frame.x + frame.w - 8, y + 8, truths[i] ? "#15803d" : "#b91c1c", 12, RIGHT);
   }
 }
+
+registerSceneRenderer("gravitation_model", drawGravitationModelScene, drawGravitationModelGraph);

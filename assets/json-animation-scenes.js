@@ -968,67 +968,6 @@ function drawBar(x, baseY, w, h, colorHex, labelText) {
   text(labelText, constrain(x + w / 2, graphFrameLeft + 8, graphFrameRight - 8), baseY + 8);
 }
 
-function drawGraphFrame(title, subtitle) {
-  var gx = graphLeft + 50;
-  var gy = 82;
-  var gw = graphRight - graphLeft - 90;
-  var gh = 330;
-  noStroke();
-  fill("#111827");
-  textAlign(LEFT, TOP);
-  textSize(20);
-  text(title, graphLeft + 24, 22);
-  fill("#334155");
-  textSize(14);
-  text(subtitle, graphLeft + 24, 48);
-  stroke("#cbd5e1");
-  strokeWeight(1);
-  noFill();
-  rect(gx, gy, gw, gh);
-  stroke("#e5e7eb");
-  for (var i = 0; i <= 4; i++) {
-    line(gx, gy + i * gh / 4, gx + gw, gy + i * gh / 4);
-    line(gx + i * gw / 4, gy, gx + i * gw / 4, gy + gh);
-  }
-}
-
-function drawSimpleCurve(gx, gy, gw, gh, xMax, yMax, colorHex, fn) {
-  xMax = Math.max(0.0001, xMax);
-  yMax = Math.max(0.0001, yMax);
-  noFill();
-  stroke(colorHex);
-  strokeWeight(2.5);
-  beginShape();
-  for (var i = 0; i <= 120; i++) {
-    var x = i * xMax / 120;
-    var y = fn(x);
-    if (!isFinite(y)) {
-      y = 0;
-    }
-    vertex(
-      constrain(map(x, 0, xMax, gx, gx + gw), gx, gx + gw),
-      constrain(map(y, 0, yMax, gy + gh, gy), gy, gy + gh)
-    );
-  }
-  endShape();
-}
-
-function drawSpringCoil(x, y1, y2, radius, turns, colorHex) {
-  noFill();
-  stroke(colorHex);
-  strokeWeight(3);
-  beginShape();
-  vertex(x, y1);
-  for (var i = 0; i <= turns * 12; i++) {
-    var p = i / (turns * 12);
-    var y = lerp(y1 + 14, y2 - 14, p);
-    var xOffset = Math.sin(p * Math.PI * turns * 2) * radius;
-    vertex(x + xOffset, y);
-  }
-  vertex(x, y2);
-  endShape();
-}
-
 function forceDirectionVector(direction, angle) {
   direction = String(direction || "").toLowerCase();
   if (direction === "down") {
@@ -1082,3 +1021,9 @@ function forceVectorScale(force, animation) {
   }
   return 95;
 }
+
+registerSceneRenderer("projectile", drawJsonProjectileScene, drawJsonProjectileGraph);
+registerSceneRenderer("spring_balance", drawJsonSpringScene, drawJsonSpringGraph);
+registerSceneRenderer("force_diagram", drawJsonForceDiagramScene, drawJsonForceDiagramGraph);
+registerSceneRenderer("bullet_cylinder", drawJsonBulletCylinderScene, drawJsonBulletCylinderGraph);
+registerSceneRenderer("circular_concept", drawJsonCircularConceptScene, drawJsonCircularConceptGraph);

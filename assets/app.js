@@ -131,8 +131,16 @@ var problemLoadPromiseMap = {};
 var problemCatalogReadyPromise = null;
 var sceneSwitchRequestId = 0;
 var runtimeScriptPromiseMap = {};
+var problemRuntimeReadyMap = {};
 var mathJaxLoadPromise = null;
-var runtimeAssetVersion = "20260722-large-file-split";
+var sceneTreeItemMap = {};
+var activeSceneTreeItem = null;
+var problemNoteCacheMap = {};
+var problemNoteCacheOrder = [];
+var problemNoteCacheLimit = 8;
+var adjacentPrefetchHandle = null;
+var adjacentPrefetchUsesIdleCallback = false;
+var runtimeAssetVersion = "20260722-learning-cycle";
 var promotedProblemChapterMap = {
   "必修一结业测试": true,
   "必修二结业测试": true,
@@ -158,6 +166,14 @@ var originY = 250;
 var simTime = 0;
 var lastMillis = 0;
 var canvasVisibilityListenerReady = false;
+var appShellInitialized = false;
+var p5CanvasInitialized = false;
+var p5CanvasReadyPromise = null;
+var p5CanvasReadyResolve = null;
+var p5CanvasReadyReject = null;
+var graphFrameCacheMap = {};
+var graphFrameCacheOrder = [];
+var graphFrameCacheLimit = 6;
 
 function shouldRunCanvasLoop(sceneName) {
   if (document.hidden || !isJsonAnimationScene(sceneName)) {
@@ -184,38 +200,99 @@ function syncCanvasLoop() {
 
 function handleCanvasVisibilityChange() {
   if (document.hidden) {
-    noLoop();
-    silencePhysicsAudio();
+    if (typeof noLoop === "function") {
+      noLoop();
+    }
+    if (typeof silencePhysicsAudio === "function") {
+      silencePhysicsAudio();
+    }
     return;
   }
   syncCanvasLoop();
 }
 
 function setup() {
+  if (p5CanvasInitialized) {
+    return;
+  }
   pixelDensity(Math.min(window.devicePixelRatio || 1, 2));
   var cnv = createCanvas(canvasW, canvasH);
   cnv.parent("canvas-holder");
+  frameRate(30);
   textFont('"Noto Sans SC", "Microsoft YaHei", sans-serif');
-  loadStepConversationState();
-  physicsSoundEnabled = readPhysicsSoundPreference();
+  if (typeof readPhysicsSoundPreference === "function") {
+    physicsSoundEnabled = readPhysicsSoundPreference();
+  }
   if (drawingContext) {
     drawingContext.fontKerning = "normal";
     drawingContext.textRendering = "geometricPrecision";
   }
+  p5CanvasInitialized = true;
+  noLoop();
+  lastMillis = millis();
+  if (p5CanvasReadyResolve) {
+    p5CanvasReadyResolve(window.p5);
+    p5CanvasReadyResolve = null;
+    p5CanvasReadyReject = null;
+  }
+}
+
+function initializeAppShell() {
+  if (appShellInitialized) {
+    return;
+  }
+  appShellInitialized = true;
+  loadStepConversationState();
   if (!canvasVisibilityListenerReady) {
     document.addEventListener("visibilitychange", handleCanvasVisibilityChange);
     canvasVisibilityListenerReady = true;
   }
-  noLoop();
+  initializeSceneNavigation();
   initializeLearningProgressOverview();
   problemCatalogReadyPromise = loadProblemData();
   problemCatalogReadyPromise.then(function () {
     renderFavoriteHome();
-    switchScene(currentScene);
   });
   renderFavoriteHome();
-  switchScene(currentScene);
-  lastMillis = millis();
+  applySceneView("home");
+}
+
+function ensureP5Canvas() {
+  if (p5CanvasInitialized) {
+    return Promise.resolve(window.p5);
+  }
+  if (p5CanvasReadyPromise) {
+    return p5CanvasReadyPromise;
+  }
+  p5CanvasReadyPromise = new Promise(function (resolve, reject) {
+    p5CanvasReadyResolve = resolve;
+    p5CanvasReadyReject = reject;
+    var timeout = window.setTimeout(function () {
+      if (!p5CanvasInitialized && p5CanvasReadyReject) {
+        p5CanvasReadyReject(new Error("Canvas runtime initialization timed out"));
+        p5CanvasReadyPromise = null;
+        p5CanvasReadyResolve = null;
+        p5CanvasReadyReject = null;
+      }
+    }, 10000);
+    loadRuntimeScript("/assets/vendor/p5.min.js?library=1.9.0").then(function () {
+      window.setTimeout(function () {
+        if (!p5CanvasInitialized && window.p5 && !window.p5.instance) {
+          new window.p5();
+        }
+        if (p5CanvasInitialized) {
+          window.clearTimeout(timeout);
+        }
+      }, 0);
+    }).catch(function (error) {
+      window.clearTimeout(timeout);
+      p5CanvasReadyPromise = null;
+      p5CanvasReadyResolve = null;
+      p5CanvasReadyReject = null;
+      reject(error);
+    });
+  });
+  return p5CanvasReadyPromise;
 }
 
 function draw() {
@@ -227,7 +304,7 @@ function draw() {
   background(255);
   drawLayout();
 
-  if (isJsonProblemScene(currentScene)) {
+  if (isJsonProblemScene(currentScene) && problemRuntimeReadyMap[currentScene]) {
     updateJsonAnimation(dt);
     drawJsonAnimationScene();
   }
@@ -237,21 +314,116 @@ function draw() {
 }
 
 function drawAnimScene(sceneDrawer) {
-  push();
-  drawingContext.save();
-  drawingContext.beginPath();
-  drawingContext.rect(0, 0, animRight, canvasH);
-  drawingContext.clip();
-  sceneDrawer();
-  drawingContext.restore();
-  pop();
+  sceneDrawingKit.clippedRegion(0, 0, animRight, canvasH, sceneDrawer);
+}
+
+function touchGraphFrameCache(sceneName) {
+  graphFrameCacheOrder = graphFrameCacheOrder.filter(function (item) {
+    return item !== sceneName;
+  });
+  graphFrameCacheOrder.push(sceneName);
+  while (graphFrameCacheOrder.length > graphFrameCacheLimit) {
+    var expiredScene = graphFrameCacheOrder.shift();
+    delete graphFrameCacheMap[expiredScene];
+  }
+}
+
+function getGraphFrameSignature(sceneName) {
+  var state = getJsonAnimationState(sceneName);
+  return JSON.stringify({
+    values: state.values,
+    width: graphRight - graphLeft,
+    height: canvasH,
+    density: typeof pixelDensity === "function" ? pixelDensity() : 1
+  });
+}
+
+function drawGraphWithFrameCache(graphDrawer) {
+  var sceneName = currentScene;
+  var state = getJsonAnimationState(sceneName);
+  var signature = getGraphFrameSignature(sceneName);
+  var entry = graphFrameCacheMap[sceneName];
+  var refreshForMotion = state.playing && (typeof frameCount !== "number" || frameCount % 2 === 0);
+  var shouldRefresh = !entry || entry.signature !== signature || !state.playing || refreshForMotion;
+  if (!shouldRefresh && entry.image) {
+    push();
+    imageMode(CORNER);
+    image(entry.image, graphLeft, 0, graphRight - graphLeft, canvasH);
+    pop();
+    touchGraphFrameCache(sceneName);
+    return;
+  }
+  sceneDrawingKit.clippedRegion(graphLeft, 0, graphRight - graphLeft, canvasH, graphDrawer);
+  graphFrameCacheMap[sceneName] = {
+    signature: signature,
+    image: get(graphLeft, 0, graphRight - graphLeft, canvasH)
+  };
+  touchGraphFrameCache(sceneName);
 }
 
 function updateSceneTreeSelection(sceneName) {
-  document.getElementById("treeHome").className = sceneName === "home" ? "tree-item active" : "tree-item";
-  document.querySelectorAll(".tree-item[data-scene]").forEach(function (item) {
-    item.className = item.dataset.scene === sceneName ? "tree-item indent active" : "tree-item indent";
+  var homeItem = document.getElementById("treeHome");
+  var nextItem = sceneName === "home" ? homeItem : sceneTreeItemMap[sceneName];
+  if (activeSceneTreeItem && activeSceneTreeItem !== nextItem) {
+    activeSceneTreeItem.classList.remove("active");
+  }
+  if (nextItem) {
+    nextItem.classList.add("active");
+  }
+  if (homeItem && nextItem !== homeItem) {
+    homeItem.classList.remove("active");
+  }
+  activeSceneTreeItem = nextItem || null;
+}
+
+function touchProblemNoteCache(sceneName) {
+  problemNoteCacheOrder = problemNoteCacheOrder.filter(function (item) {
+    return item !== sceneName;
   });
+  problemNoteCacheOrder.push(sceneName);
+}
+
+function disposeProblemNoteCache(sceneName) {
+  var note = problemNoteCacheMap[sceneName];
+  if (note && window.MathJax && window.MathJax.typesetClear) {
+    window.MathJax.typesetClear([note]);
+  }
+  delete problemNoteCacheMap[sceneName];
+  delete mathRenderedSceneMap[sceneName];
+  delete mathRenderingSceneMap[sceneName];
+  problemNoteCacheOrder = problemNoteCacheOrder.filter(function (item) {
+    return item !== sceneName;
+  });
+}
+
+function cacheProblemNote(note) {
+  if (!note || !note.id) {
+    return;
+  }
+  var sceneName = note.id.replace(/Notes$/, "");
+  var previous = problemNoteCacheMap[sceneName];
+  if (previous && previous !== note) {
+    disposeProblemNoteCache(sceneName);
+  }
+  note.style.display = "none";
+  note.remove();
+  problemNoteCacheMap[sceneName] = note;
+  touchProblemNoteCache(sceneName);
+  while (problemNoteCacheOrder.length > problemNoteCacheLimit) {
+    disposeProblemNoteCache(problemNoteCacheOrder[0]);
+  }
+}
+
+function restoreProblemNote(sceneName) {
+  var note = problemNoteCacheMap[sceneName];
+  var host = document.getElementById("problemNotesHost");
+  if (!note || !host) {
+    return null;
+  }
+  host.replaceChildren(note);
+  note.style.display = "block";
+  touchProblemNoteCache(sceneName);
+  return note;
 }
 
 function clearProblemNotesHost() {
@@ -261,14 +433,9 @@ function clearProblemNotesHost() {
   }
   var note = host.querySelector(".problem-notes");
   if (note) {
-    var sceneName = note.id.replace(/Notes$/, "");
-    if (window.MathJax && window.MathJax.typesetClear) {
-      window.MathJax.typesetClear([note]);
-    }
-    delete mathRenderedSceneMap[sceneName];
-    delete mathRenderingSceneMap[sceneName];
+    cacheProblemNote(note);
   }
-  host.innerHTML = "";
+  host.replaceChildren();
 }
 
 function showProblemLoadStatus(message, isError) {
@@ -288,6 +455,9 @@ function applySceneView(sceneName) {
   if (sceneName === "home") {
     renderFavoriteHome();
     renderLearningProgressOverview();
+    if (typeof renderLearningReviewHome === "function") {
+      renderLearningReviewHome();
+    }
   }
   var summerExamPanel = document.getElementById("summerExamPanel");
   if (summerExamPanel) {
@@ -321,15 +491,41 @@ function switchScene(sceneName) {
       getJsonAnimationState(currentScene).playing = false;
     }
     stopStepVoiceRecognition(true);
-    silencePhysicsAudio();
+    if (typeof silencePhysicsAudio === "function") {
+      silencePhysicsAudio();
+    }
   }
   currentScene = sceneName;
   updateSceneTreeSelection(sceneName);
 
-  if (sceneName === "home" || sceneName === "summerExam") {
+  if (sceneName === "home") {
     clearProblemNotesHost();
     applySceneView(sceneName);
     return Promise.resolve(null);
+  }
+  if (sceneName === "summerExam") {
+    clearProblemNotesHost();
+    return loadRuntimeScript("/assets/summer-exam.js").then(function () {
+      if (requestId === sceneSwitchRequestId) {
+        applySceneView(sceneName);
+      }
+      return null;
+    }).catch(function (error) {
+      console.warn("Summer exam runtime load failed", error);
+      showProblemLoadStatus("综合试卷加载失败，请稍后重试。", true);
+      return null;
+    });
+  }
+
+  var cachedProblem = problemDataMap[sceneName];
+  var cachedNote = problemNoteCacheMap[sceneName];
+  var cachedCanvasReady = !shouldShowCanvas(sceneName) || p5CanvasInitialized;
+  if (cachedProblem && cachedNote && problemRuntimeReadyMap[sceneName] && cachedCanvasReady) {
+    clearProblemNotesHost();
+    restoreProblemNote(sceneName);
+    applySceneView(sceneName);
+    scheduleAdjacentProblemPrefetch(sceneName);
+    return Promise.resolve(cachedProblem);
   }
 
   document.getElementById("homePanel").style.display = "none";
@@ -351,13 +547,18 @@ function switchScene(sceneName) {
       showProblemLoadStatus("题目加载失败，请稍后重试。", true);
       return null;
     }
-    return ensureProblemRuntime(problem).then(function () {
+    var canvasReady = shouldShowCanvas(sceneName) ? ensureP5Canvas() : Promise.resolve(null);
+    return Promise.all([ensureProblemRuntime(problem), canvasReady]).then(function () {
       if (requestId !== sceneSwitchRequestId) {
         return null;
       }
-      var note = renderProblemDataNotes(problem);
-      enhanceProblemNotes(note);
+      var note = restoreProblemNote(sceneName);
+      if (!note) {
+        note = renderProblemDataNotes(problem);
+        enhanceProblemNotes(note);
+      }
       applySceneView(sceneName);
+      scheduleAdjacentProblemPrefetch(sceneName);
       return problem;
     });
   }).catch(function (error) {
@@ -367,6 +568,73 @@ function switchScene(sceneName) {
     }
     return null;
   });
+}
+
+function prefetchProblem(sceneName) {
+  if (!sceneName || sceneName === "home" || sceneName === "summerExam") {
+    return Promise.resolve(null);
+  }
+  return ensureProblemLoaded(sceneName).then(function (problem) {
+    return problem ? ensureProblemRuntime(problem).then(function () { return problem; }) : null;
+  }).catch(function (error) {
+    console.warn("Problem prefetch failed", sceneName, error);
+    return null;
+  });
+}
+
+function scheduleAdjacentProblemPrefetch(sceneName) {
+  if (adjacentPrefetchHandle !== null) {
+    if (adjacentPrefetchUsesIdleCallback && window.cancelIdleCallback) {
+      window.cancelIdleCallback(adjacentPrefetchHandle);
+    } else {
+      window.clearTimeout(adjacentPrefetchHandle);
+    }
+    adjacentPrefetchHandle = null;
+  }
+  var item = sceneTreeItemMap[sceneName];
+  if (!item || !item.parentElement) {
+    return;
+  }
+  var siblings = Array.from(item.parentElement.children).filter(function (candidate) {
+    return candidate.matches && candidate.matches("button.tree-item[data-scene]") && candidate.dataset.scene !== "summerExam";
+  });
+  var index = siblings.indexOf(item);
+  var adjacent = siblings[index + 1] || siblings[index - 1];
+  if (!adjacent) {
+    return;
+  }
+  var run = function () {
+    adjacentPrefetchHandle = null;
+    prefetchProblem(adjacent.dataset.scene);
+  };
+  if (window.requestIdleCallback) {
+    adjacentPrefetchUsesIdleCallback = true;
+    adjacentPrefetchHandle = window.requestIdleCallback(run, { timeout: 1500 });
+  } else {
+    adjacentPrefetchUsesIdleCallback = false;
+    adjacentPrefetchHandle = window.setTimeout(run, 500);
+  }
+}
+
+function initializeSceneNavigation() {
+  if (Object.keys(sceneTreeItemMap).length) {
+    return;
+  }
+  document.querySelectorAll(".tree-item[data-scene]").forEach(function (item) {
+    sceneTreeItemMap[item.dataset.scene] = item;
+  });
+  var sidebar = document.querySelector(".sidebar");
+  if (!sidebar) {
+    return;
+  }
+  var prefetchFromEvent = function (event) {
+    var item = event.target.closest && event.target.closest(".tree-item[data-scene]");
+    if (item && sidebar.contains(item)) {
+      prefetchProblem(item.dataset.scene);
+    }
+  };
+  sidebar.addEventListener("pointerover", prefetchFromEvent);
+  sidebar.addEventListener("focusin", prefetchFromEvent);
 }
 
 function waitForProblemLoad(ms) {
@@ -470,8 +738,14 @@ function gravitationSceneScript(variant) {
 }
 
 var problemRuntimeScriptMap = {
-  curve_training_model: ["/assets/scenes/curve-training.js"],
-  projectile_training_model: ["/assets/scenes/projectile-training.js"],
+  curve_training_model: [
+    "/assets/scenes/training-scene-common.js",
+    "/assets/scenes/curve-training.js"
+  ],
+  projectile_training_model: [
+    "/assets/scenes/training-scene-common.js",
+    "/assets/scenes/projectile-training.js"
+  ],
   gravitation_model: ["/assets/scenes/gravitation-core.js"],
   gravitation_lunar_throw: ["/assets/scenes/projectile-lunar-scene.js"],
   gravitation_eclipse: ["/assets/scenes/circular-motion.js"],
@@ -494,7 +768,15 @@ function lessonQuestionSceneScript(problem, lessonNumber, courseScript, homework
 function getProblemRuntimeScripts(problem) {
   var animation = (problem && problem.animation) || {};
   var type = animation.type || "";
-  var scripts = (problemRuntimeScriptMap[type] || []).slice();
+  var scripts = [];
+  if (isProblemAnimationEnabled(problem)) {
+    scripts = [
+      "/assets/physics-audio.js",
+      "/assets/scenes/physics-sound.js",
+      "/assets/json-animation-scenes.js"
+    ];
+  }
+  scripts = scripts.concat(problemRuntimeScriptMap[type] || []);
   if (type === "fanphysics_model") {
     var sceneScript = fanPhysicsSceneScript(animation.variant || problem.id);
     if (sceneScript.indexOf("/assets/scenes/projectile-") === 0) {
@@ -505,6 +787,9 @@ function getProblemRuntimeScripts(problem) {
   }
   if (type === "gravitation_model") {
     scripts.push(gravitationSceneScript(animation.variant));
+  }
+  if (type === "circular_concept" && String(animation.variant || "").indexOf("daily_") === 0) {
+    scripts.push("/assets/circular-daily-scenes.js");
   }
   if (type === "work_power_model") {
     scripts.push(lessonQuestionSceneScript(
@@ -542,7 +827,9 @@ function ensureProblemRuntime(problem) {
     return promise.then(function () {
       return loadRuntimeScript(path);
     });
-  }, Promise.resolve());
+  }, Promise.resolve()).then(function () {
+    problemRuntimeReadyMap[problem.id] = true;
+  });
 }
 
 function registerProblemData(problem) {
@@ -845,4 +1132,10 @@ function drawLayout() {
   noStroke();
   fill("#f6f8fb");
   rect(graphLeft, 0, graphRight - graphLeft, canvasH);
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeAppShell, { once: true });
+} else {
+  initializeAppShell();
 }

@@ -151,6 +151,67 @@ def validate_real_life_case(path, problem):
     return errors
 
 
+def validate_learning_cycle(path, problem):
+    cycle = problem.get("learningCycle")
+    if cycle is None:
+        return []
+    errors = []
+    if not isinstance(cycle, dict):
+        return [f"{path.name}: learningCycle must be an object"]
+    animation = problem.get("animation", {})
+    if animation.get("enabled") is not True or animation.get("playable") is not True:
+        errors.append(f"{path.name}: learningCycle prediction gate requires a playable animation")
+    intervals = cycle.get("intervalDays")
+    if not isinstance(intervals, list) or not intervals:
+        errors.append(f"{path.name}: learningCycle intervalDays must be a non-empty list")
+    elif any(isinstance(item, bool) or not isinstance(item, (int, float)) or item <= 0 for item in intervals):
+        errors.append(f"{path.name}: learningCycle intervalDays must contain positive numbers")
+    for section_name in ("prediction", "review"):
+        section = cycle.get(section_name)
+        if not isinstance(section, dict):
+            errors.append(f"{path.name}: learningCycle needs {section_name}")
+            continue
+        for field in ("title", "prompt", "answer", "explanation"):
+            if not is_non_empty_string(section.get(field)):
+                errors.append(f"{path.name}: learningCycle {section_name} needs {field}")
+        options = section.get("options")
+        if not isinstance(options, list) or len(options) < 2:
+            errors.append(f"{path.name}: learningCycle {section_name} options need at least two items")
+            continue
+        values = []
+        for index, option in enumerate(options, start=1):
+            if not isinstance(option, dict):
+                errors.append(f"{path.name}: learningCycle {section_name} option {index} must be an object")
+                continue
+            value = option.get("value")
+            if not is_non_empty_string(value) or not is_non_empty_string(option.get("text")):
+                errors.append(f"{path.name}: learningCycle {section_name} option {index} needs value and text")
+                continue
+            values.append(value)
+            if value == section.get("answer"):
+                continue
+            diagnosis = option.get("diagnosis")
+            if not isinstance(diagnosis, dict):
+                errors.append(
+                    f"{path.name}: learningCycle {section_name} wrong option {value} needs diagnosis"
+                )
+                continue
+            for field in ("tag", "feedback"):
+                if not is_non_empty_string(diagnosis.get(field)):
+                    errors.append(
+                        f"{path.name}: learningCycle {section_name} wrong option {value} diagnosis needs {field}"
+                    )
+            if section_name == "prediction" and not is_non_empty_string(diagnosis.get("prompt")):
+                errors.append(
+                    f"{path.name}: learningCycle prediction wrong option {value} diagnosis needs prompt"
+                )
+        if len(values) != len(set(values)):
+            errors.append(f"{path.name}: learningCycle {section_name} option values must be unique")
+        if section.get("answer") not in values:
+            errors.append(f"{path.name}: learningCycle {section_name} answer must match an option")
+    return errors
+
+
 def validate_problem(path):
     problem = load_json(path)
     errors = []
@@ -186,6 +247,7 @@ def validate_problem(path):
         errors.append(f"{path.name}: unsupported animation type {animation_type}")
     errors.extend(validate_student_exploration(path, problem))
     errors.extend(validate_real_life_case(path, problem))
+    errors.extend(validate_learning_cycle(path, problem))
     return problem, animation_type, errors
 
 

@@ -100,11 +100,15 @@ function getLearningChecks(responseKey) {
 }
 
 function getLearningSyncStoreDefinitions() {
-  return [
+  var definitions = [
     { name: "exploration", storageKey: studentExplorationStorageKey },
     { name: "realLife", storageKey: realLifeResponseStorageKey },
     { name: "realLifeChecks", storageKey: realLifeRubricStorageKey }
   ];
+  if (typeof learningCycleStorageKey !== "undefined") {
+    definitions.push({ name: "learningCycle", storageKey: learningCycleStorageKey });
+  }
+  return definitions;
 }
 
 function collectLearningSyncState() {
@@ -145,7 +149,7 @@ function mergeLearningSyncState(remoteState) {
 
 function refreshCurrentLearningNotes() {
   var problem = problemDataMap[currentScene];
-  if (!problem || !problem.studentExploration && !problem.realLifeCase) return;
+  if (!problem || !problem.studentExploration && !problem.realLifeCase && !problem.learningCycle) return;
   var note = renderProblemDataNotes(problem);
   if (note) {
     note.style.display = "block";
@@ -191,6 +195,7 @@ function updateLearningSyncPanels() {
     }
   });
   if (typeof renderLearningProgressOverview === "function") renderLearningProgressOverview();
+  if (typeof renderLearningReviewHome === "function") renderLearningReviewHome();
 }
 
 async function checkLearningSyncSession() {

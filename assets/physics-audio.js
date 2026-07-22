@@ -426,3 +426,5 @@ function setPhysicsSoundEnabled(enabled) {
   }
   syncPhysicsSoundButton();
 }
+
+physicsSoundEnabled = readPhysicsSoundPreference();

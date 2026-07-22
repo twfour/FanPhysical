@@ -805,3 +805,21 @@ function formatGravitationEclipseNumber(value) {
   }
   return value.toFixed(2);
 }
+
+registerFanPhysicsRenderer("bulletCylinder", drawBulletScene, drawBulletGraph, {
+  timeKey: "bulletT",
+  duration: function () { return bulletTransitTime(); }
+});
+registerFanPhysicsRenderer("bikeGear", drawBikeGearScene, drawBikeGearGraph, {
+  timeKey: "bikeGearT",
+  duration: function () { return 6; }
+});
+registerFanPhysicsRenderer("pileDriver", drawPileScene, drawPileGraph, {
+  timeKey: "pileT",
+  duration: function () { return pilePeriod(); }
+});
+registerFanPhysicsRenderer("bowlDoubleBall", drawBowlScene, drawBowlGraph, {
+  timeKey: "bowlT",
+  duration: function () { return bowlCycleTime(); }
+});
+registerSceneRenderer("gravitation_eclipse", drawGravitationEclipseScene, drawGravitationEclipseGraph);

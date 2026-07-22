@@ -1159,3 +1159,31 @@ function drawPointLabel(x, y, label, colorHex) {
   textSize(14);
   text(label, x, y);
 }
+
+registerFanPhysicsRenderer("motionCompose", drawComposeScene, drawComposeGraph, {
+  timeKey: "composeT",
+  duration: function () { return composeMaxT; }
+});
+registerFanPhysicsRenderer("curveForce", drawCurveForceScene, drawCurveForceGraph);
+registerFanPhysicsRenderer("riverCrossing", drawRiverScene, drawRiverGraph, {
+  timeKey: "riverT",
+  duration: function () { return riverArriveTime(); }
+});
+registerFanPhysicsRenderer("riverAdvanced", drawAdvRiverScene, drawAdvRiverGraph, {
+  timeKey: "advRiverT",
+  duration: function () { return advRiverArriveTime(); }
+});
+registerFanPhysicsRenderer("waterfallCrossing", drawWaterfallScene, drawWaterfallGraph, {
+  timeKey: "waterfallT",
+  duration: function () { return waterfallArriveTime(); }
+});
+registerFanPhysicsRenderer("rodConstraint", drawRodConstraintScene, drawRodConstraintGraph);
+registerFanPhysicsRenderer("dualConstraintCircle", drawDualConstraintScene, drawDualConstraintGraph, {
+  timeKey: "dualT",
+  duration: function () { return dualCycleTime(); }
+});
+registerFanPhysicsRenderer("handRopeBreak", drawHandRopeScene, drawHandRopeGraph, {
+  timeKey: "handT",
+  duration: function () { return handSceneDuration(); }
+});
+registerFanPhysicsRenderer("rainWindow", drawRainScene, drawRainGraph);

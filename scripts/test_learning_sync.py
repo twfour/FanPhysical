@@ -57,6 +57,19 @@ class LearningSyncTests(unittest.TestCase):
         self.assertEqual(loaded["stores"]["realLife"]["problem:real-life"]["value"], "迁移回答")
         self.assertEqual(loaded["stores"]["realLifeChecks"]["problem:real-life"]["value"], [0, 2])
 
+    def test_learning_cycle_state_round_trip(self):
+        cycle = '{"prediction":{"answer":"B"},"review":{"dueAt":12345}}'
+        payload = {
+            "stores": {
+                "learningCycle": {
+                    "problem:cycle": {"value": cycle, "updatedAt": 600, "deleted": False},
+                },
+            },
+        }
+        self.service.save_state(payload)
+        loaded = self.service.load_state()
+        self.assertEqual(loaded["stores"]["learningCycle"]["problem:cycle"]["value"], cycle)
+
     def test_signed_session_cookie_is_accepted(self):
         token = self.service.create_session_token()
         headers = {"Cookie": f"{SESSION_COOKIE}={token}"}

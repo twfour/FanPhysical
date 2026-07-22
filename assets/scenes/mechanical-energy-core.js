@@ -280,3 +280,5 @@ function drawMechanicalEnergyModelGraph() {
   else if (variant === "lesson12_rod_end_balls") drawLesson12RodEndBallsGraph();
   else if (variant === "lesson12_linked_sliders") drawLesson12LinkedSlidersGraph();
 }
+
+registerSceneRenderer("mechanical_energy_model", drawMechanicalEnergyModelScene, drawMechanicalEnergyModelGraph);

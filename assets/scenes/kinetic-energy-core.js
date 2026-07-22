@@ -265,3 +265,5 @@ function drawKineticEnergyModelGraph() {
   else if (variant === "lesson11_linear_drag_throw") drawLesson11LinearDragGraph();
   else if (variant === "lesson11_trebuchet") drawLesson11TrebuchetGraph();
 }
+
+registerSceneRenderer("kinetic_energy_model", drawKineticEnergyModelScene, drawKineticEnergyModelGraph);

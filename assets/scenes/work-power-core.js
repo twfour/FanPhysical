@@ -207,3 +207,5 @@ function drawWorkPowerModelGraph() {
   else if (variant === "lesson10_sled_circle") drawLesson10SledGraph();
   else if (variant === "lesson10_gravity_power") drawLesson10GravityPowerGraph();
 }
+
+registerSceneRenderer("work_power_model", drawWorkPowerModelScene, drawWorkPowerModelGraph);

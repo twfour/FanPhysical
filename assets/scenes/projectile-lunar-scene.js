@@ -172,3 +172,5 @@ function drawGravitationLunarThrowGraph() {
   text("M月 = " + values.moonMass.toExponential(2) + " kg", gx + 8, gy + gh + 38);
   text("ρ月 = " + values.density.toFixed(0) + " kg/m³", gx + 190, gy + gh + 38);
 }
+
+registerSceneRenderer("gravitation_lunar_throw", drawGravitationLunarThrowScene, drawGravitationLunarThrowGraph);

@@ -7,7 +7,6 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <title>FanPhysics动态模型库</title>
-  <script defer src="assets/vendor/p5.min.js?v=1.9.0"></script>
   <script>
     window.MathJax = {
       startup: {
@@ -16,7 +15,7 @@
     };
   </script>
   <link rel="stylesheet" href="assets/styles.css?v=20260722-module-split" />
-  <link rel="stylesheet" href="assets/learning.css?v=20260722-learning-progress" />
+  <link rel="stylesheet" href="assets/learning.css?v=20260722-learning-cycle" />
 </head>
 
 <body>
@@ -370,6 +369,17 @@
       <section class="workspace">
 
     <div id="homePanel" class="home-panel">
+      <section id="learningReviewSection" class="home-section learning-review-section" aria-labelledby="learningReviewTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">今日复习</p>
+            <h3 id="learningReviewTitle">到期的检索任务</h3>
+          </div>
+          <span id="learningReviewCount" class="learning-review-count">今天无到期任务</span>
+        </div>
+        <div id="learningReviewGrid" class="home-grid learning-review-grid" aria-live="polite"></div>
+      </section>
+
       <section id="learningProgressSection" class="home-section learning-progress-section" aria-labelledby="learningProgressTitle">
         <div class="section-heading">
           <div>
@@ -471,20 +481,17 @@
 
   </main>
 
-  <script defer src="assets/summer-exam.js?v=20260717-summer-exam"></script>
-  <script defer src="assets/learning-sync.js?v=20260722-learning-progress"></script>
+  <script defer src="assets/learning-sync.js?v=20260722-learning-cycle"></script>
   <script defer src="assets/learning-progress.js?v=20260722-learning-progress"></script>
   <script defer src="assets/learning-blocks.js?v=20260722-reality-video"></script>
-  <script defer src="assets/problem-content.js?v=20260722-runtime-split"></script>
+  <script defer src="assets/problem-content.js?v=20260722-learning-cycle"></script>
+  <script defer src="assets/learning-cycle.js?v=20260722-learning-cycle"></script>
   <script defer src="assets/problem-favorites.js?v=20260722-large-file-split"></script>
   <script defer src="assets/problem-note-interactions.js?v=20260722-large-file-split"></script>
   <script defer src="assets/step-conversation.js?v=20260722-large-file-split"></script>
-  <script defer src="assets/json-animation-runtime.js?v=20260722-runtime-split"></script>
-  <script defer src="assets/physics-audio.js?v=20260722-runtime-split"></script>
-  <script defer src="assets/json-animation-scenes.js?v=20260722-runtime-split"></script>
-  <script defer src="assets/circular-daily-scenes.js?v=20260722-runtime-split"></script>
-  <script defer src="assets/app.js?v=20260722-large-file-split"></script>
-  <script defer src="assets/scenes/common.js?v=20260722-runtime-split"></script>
-  <script defer src="assets/scenes/physics-sound.js?v=20260717-json-migration"></script>
+  <script defer src="assets/scene-registry.js?v=20260722-performance-runtime"></script>
+  <script defer src="assets/scenes/common.js?v=20260722-performance-runtime"></script>
+  <script defer src="assets/json-animation-runtime.js?v=20260722-learning-cycle"></script>
+  <script defer src="assets/app.js?v=20260722-learning-cycle"></script>
 </body>
 </html>

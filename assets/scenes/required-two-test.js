@@ -1232,3 +1232,5 @@ function rttArcInclineGraph() {
   rttPlot(frame, "#7c3aed", function (mu) { return 4.8 / (0.6 + 0.8 * mu); }, 0.75, 1, false);
   rttMarker(frame, friction, rttArcInclineDistance(friction), "#dc2626", "当前");
 }
+
+registerSceneRenderer("required_two_test_model", drawRequiredTwoTestScene, drawRequiredTwoTestGraph);
