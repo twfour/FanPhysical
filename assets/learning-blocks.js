@@ -162,41 +162,50 @@ function createStudentExplorationBlock(problem) {
   return block;
 }
 
-function createRealLifeVideoSection(videos) {
-  var items = Array.isArray(videos) ? videos.filter(function (item) {
+function createRealLifeLinkSection(links, settings) {
+  var config = settings || {};
+  var items = Array.isArray(links) ? links.filter(function (item) {
     return Boolean(item && item.title && item.url && /^https:\/\//i.test(item.url));
-  }).slice(0, 3) : [];
+  }).slice(0, config.limit || 3) : [];
   if (!items.length) {
     return null;
   }
 
   var section = document.createElement("section");
   section.className = "real-life-videos";
-  var heading = document.createElement("div");
-  heading.className = "real-life-videos-heading";
-  var title = document.createElement("h3");
-  title.innerText = "对应视频";
-  var hint = document.createElement("p");
-  hint.innerText = "带着观看重点观察现实过程，再回到原题核对物理量与约束。";
-  heading.appendChild(title);
-  heading.appendChild(hint);
-  section.appendChild(heading);
+  if (config.sectionClass) {
+    section.classList.add(config.sectionClass);
+  }
+  if (!config.hideHeading) {
+    var heading = document.createElement("div");
+    heading.className = "real-life-videos-heading";
+    var headingTitle = document.createElement("h3");
+    headingTitle.innerText = config.title || "延伸资源";
+    var hint = document.createElement("p");
+    hint.innerText = config.hint || "打开资源后，回到原题核对物理量与约束。";
+    heading.appendChild(headingTitle);
+    heading.appendChild(hint);
+    section.appendChild(heading);
+  }
 
   var grid = document.createElement("div");
   grid.className = "real-life-video-grid";
   items.forEach(function (item) {
     var link = document.createElement("a");
     link.className = "real-life-video-card";
+    if (config.cardClass) {
+      link.classList.add(config.cardClass);
+    }
     link.href = item.url;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    var platformName = String(item.platform || "视频");
+    var platformName = String(item.platform || config.fallbackPlatform || "外部资源");
     if (/bilibili|哔哩/i.test(platformName)) {
       link.classList.add("is-bilibili");
     } else if (/youtube/i.test(platformName)) {
       link.classList.add("is-youtube");
     }
-    link.setAttribute("aria-label", "打开" + platformName + "视频：" + item.title);
+    link.setAttribute("aria-label", "打开" + platformName + "：" + item.title);
 
     var meta = document.createElement("div");
     meta.className = "real-life-video-meta";
@@ -204,11 +213,12 @@ function createRealLifeVideoSection(videos) {
     platform.className = "real-life-video-platform";
     platform.innerText = platformName;
     meta.appendChild(platform);
-    if (item.duration) {
-      var duration = document.createElement("span");
-      duration.className = "real-life-video-duration";
-      duration.innerText = String(item.duration);
-      meta.appendChild(duration);
+    var metaValue = config.metaField ? item[config.metaField] : item.duration;
+    if (metaValue) {
+      var metaDetail = document.createElement("span");
+      metaDetail.className = "real-life-video-duration";
+      metaDetail.innerText = String(metaValue);
+      meta.appendChild(metaDetail);
     }
     link.appendChild(meta);
 
@@ -217,13 +227,14 @@ function createRealLifeVideoSection(videos) {
     videoTitle.innerText = item.title;
     link.appendChild(videoTitle);
 
-    if (item.watchFor) {
+    var focusText = config.focusField ? item[config.focusField] : item.watchFor;
+    if (focusText) {
       var watchFor = document.createElement("p");
       watchFor.className = "real-life-video-watch";
       var watchLabel = document.createElement("b");
-      watchLabel.innerText = "观看重点";
+      watchLabel.innerText = config.focusLabel || "观看重点";
       var watchText = document.createElement("span");
-      watchText.innerText = item.watchFor;
+      watchText.innerText = focusText;
       watchFor.appendChild(watchLabel);
       watchFor.appendChild(watchText);
       link.appendChild(watchFor);
@@ -232,18 +243,64 @@ function createRealLifeVideoSection(videos) {
     if (item.matchReason) {
       var match = document.createElement("p");
       match.className = "real-life-video-match";
-      match.innerText = "同构关系：" + item.matchReason;
+      match.innerText = (config.matchLabel || "同构关系") + "：" + item.matchReason;
       link.appendChild(match);
     }
 
     var action = document.createElement("span");
     action.className = "real-life-video-action";
-    action.innerText = "打开视频";
+    action.innerText = config.actionLabel || "打开资源";
     link.appendChild(action);
     grid.appendChild(link);
   });
   section.appendChild(grid);
   return section;
+}
+
+function createRealLifeVideoSection(videos) {
+  return createRealLifeLinkSection(videos, {
+    title: "对应视频",
+    hint: "带着观看重点观察现实过程，再回到原题核对物理量与约束。",
+    fallbackPlatform: "视频",
+    focusLabel: "观看重点",
+    actionLabel: "打开视频"
+  });
+}
+
+function createAuthoritativeResourceSection(resources, hideHeading) {
+  return createRealLifeLinkSection(resources, {
+    title: "权威解释与交互",
+    hint: "优先用大学、教材与专业教学机构的内容校准概念，再用原题检验理解。",
+    fallbackPlatform: "权威资源",
+    focusField: "useFor",
+    focusLabel: "使用方式",
+    metaField: "kind",
+    matchLabel: "对应考点",
+    actionLabel: "打开资源",
+    sectionClass: "real-life-authoritative-resources",
+    cardClass: "is-authoritative",
+    hideHeading: hideHeading === true
+  });
+}
+
+function createAuthoritativeResourcesBlock(problem) {
+  var realLifeCase = problem && problem.realLifeCase;
+  var section = createAuthoritativeResourceSection(
+    realLifeCase && realLifeCase.authoritativeResources,
+    true
+  );
+  if (!section) {
+    return null;
+  }
+  var block = createProblemNoteBlock("学习资源", "权威解释与交互", "");
+  block.classList.add("authoritative-resources-block");
+  block.dataset.keepExpanded = "1";
+  var intro = document.createElement("p");
+  intro.className = "authoritative-resources-intro";
+  intro.innerText = "优先用大学、教材与专业教学机构的内容校准概念，再用原题检验理解。";
+  block.appendChild(intro);
+  block.appendChild(section);
+  return block;
 }
 
 function createRealLifeCaseBlock(problem) {

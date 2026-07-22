@@ -623,6 +623,17 @@
   border-top: 1px solid var(--line);
 }
 
+.problem-note-block .authoritative-resources-intro {
+  margin: 0;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.authoritative-resources-block .real-life-authoritative-resources {
+  margin-top: 14px;
+}
+
 .real-life-videos-heading {
   display: flex;
   align-items: baseline;
@@ -676,6 +687,10 @@
   border-left-color: #dc2626;
 }
 
+.real-life-video-card.is-authoritative {
+  border-left-color: #0f766e;
+}
+
 .real-life-video-card:hover,
 .real-life-video-card:focus-visible {
   border-color: #94a3b8;
@@ -713,6 +728,11 @@
 .is-youtube .real-life-video-platform {
   background: #fef2f2;
   color: #b91c1c;
+}
+
+.is-authoritative .real-life-video-platform {
+  background: #ecfdf5;
+  color: #047857;
 }
 
 .real-life-video-duration {

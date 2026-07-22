@@ -73,6 +73,24 @@
         "matchReason": "视频给出摩擦方向的基础规则，本题只需把这条规则从一维推广到相互垂直的两个速度分量。"
       }
     ],
+    "authoritativeResources": [
+      {
+        "platform": "PhET",
+        "kind": "中文交互模拟",
+        "title": "向量相加",
+        "url": "https://phet.colorado.edu/zh_CN/simulations/vector-addition",
+        "useFor": "在二维页面构造物块对地速度与传送带速度，使用矢量相减得到相对速度，再据此确定滑动摩擦方向。",
+        "matchReason": "原题最关键的一步是先求物块相对传送带的速度；摩擦方向由相对滑动而非对地速度决定。"
+      },
+      {
+        "platform": "OpenStax",
+        "kind": "开放教材（英文）",
+        "title": "机械能、摩擦与能量转化",
+        "url": "https://openstax.org/books/physics/pages/9-2-mechanical-energy-and-conservation-of-energy",
+        "useFor": "完成相对运动后，用能量守恒区分物块动能变化与相对滑动产生的内能。",
+        "matchReason": "原题后半部分还要求计算摩擦热，必须把机械能变化和系统内能增加分开记账。"
+      }
+    ],
     "question": "为什么摩擦方向不能只说成“与包裹运动方向相反”，而必须先求包裹相对传送带的速度？",
     "answer": "滑动摩擦阻碍的是两个接触面之间的相对滑动。传送带本身在运动，所以包裹对地速度并不能代表包裹相对带面的滑动方向。应先求 \\(\\vec v_r=\\vec v_{包/地}-\\vec v_{带/地}\\)，包裹所受滑动摩擦方向与 \\(\\vec v_r\\) 相反。只有带面静止时，它才恰好与包裹对地速度反向。",
     "rubric": ["指出滑动摩擦阻碍接触面的相对运动。", "写出或说明相对速度是两速度的矢量差。", "说明传送带运动时摩擦不一定与包裹对地速度反向。"]

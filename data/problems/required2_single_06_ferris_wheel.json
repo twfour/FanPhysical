@@ -56,6 +56,16 @@
         "matchReason": "视频对象就是摩天轮轿厢内物体，和本题场景及受力判断直接一致。"
       }
     ],
+    "authoritativeResources": [
+      {
+        "platform": "The Physics Classroom",
+        "kind": "交互模拟（英文）",
+        "title": "匀速圆周运动：速度与加速度矢量",
+        "url": "https://www.physicsclassroom.com/interactive/circular-and-satellite-motion/circular-motion",
+        "useFor": "打开速度、加速度矢量并拖动半径和转速，确认向心加速度始终指向圆心；再把它投影到水平方向判断摩擦力。",
+        "matchReason": "原题需要把向心加速度分解到水平、竖直方向，并识别静摩擦承担的水平合力。"
+      }
+    ],
     "question": "若物体位于摩天轮正上方或正下方，为什么所需水平摩擦力为零，但支持力并不一定等于重力？",
     "answer": "在最高点和最低点，向心加速度都沿竖直方向，所以不需要水平合力，水平静摩擦为零。但竖直方向仍需产生大小为 \\(m\\omega^2R\\) 的向心合力：最高点满足 \\(mg-N=m\\omega^2R\\)，最低点满足 \\(N-mg=m\\omega^2R\\)。因此只要 \\(\\omega\\ne0\\)，支持力一般就不等于重力。",
     "rubric": ["指出最高点和最低点的向心加速度没有水平分量。", "分别写出或说明最高点、最低点的竖直合力关系。", "说明支持力只有在向心加速度为零等特殊情况下才等于重力。"]

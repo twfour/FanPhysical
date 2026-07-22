@@ -16,6 +16,7 @@ REQUIRED_STEP_FIELDS = ["title", "content"]
 REQUIRED_EXPLORATION_STAGE_FIELDS = ["title", "prompt", "thought", "check", "correction", "takeaway"]
 REQUIRED_REAL_LIFE_FIELDS = ["title", "scene", "mapping", "sharedModel", "question", "answer"]
 REQUIRED_REAL_LIFE_VIDEO_FIELDS = ["platform", "title", "url", "watchFor", "matchReason"]
+REQUIRED_REAL_LIFE_RESOURCE_FIELDS = ["platform", "title", "url", "useFor", "matchReason"]
 SUPPORTED_ANIMATION_TYPES = {
     "none",
     "fanphysics_model",
@@ -148,6 +149,31 @@ def validate_real_life_case(path, problem):
                     isinstance(start_at, bool) or not isinstance(start_at, (int, float)) or start_at < 0
                 ):
                     errors.append(f"{path.name}: realLifeCase video {index} startAt must be non-negative")
+    resources = real_life.get("authoritativeResources")
+    if resources is not None:
+        if not isinstance(resources, list) or not resources:
+            errors.append(f"{path.name}: realLifeCase authoritativeResources must be a non-empty list")
+        else:
+            if len(resources) > 3:
+                errors.append(f"{path.name}: realLifeCase authoritativeResources may contain at most three items")
+            for index, resource in enumerate(resources, start=1):
+                if not isinstance(resource, dict):
+                    errors.append(f"{path.name}: realLifeCase authoritative resource {index} must be an object")
+                    continue
+                for field in REQUIRED_REAL_LIFE_RESOURCE_FIELDS:
+                    if not is_non_empty_string(resource.get(field)):
+                        errors.append(
+                            f"{path.name}: realLifeCase authoritative resource {index} needs {field}"
+                        )
+                if not re.match(r"^https://", str(resource.get("url", ""))):
+                    errors.append(
+                        f"{path.name}: realLifeCase authoritative resource {index} needs an HTTPS URL"
+                    )
+                kind = resource.get("kind")
+                if kind is not None and not is_non_empty_string(kind):
+                    errors.append(
+                        f"{path.name}: realLifeCase authoritative resource {index} kind must be a string"
+                    )
     return errors
 
 

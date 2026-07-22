@@ -20,6 +20,10 @@ function renderProblemDataNotes(problem) {
     note.appendChild(grid);
 
     grid.appendChild(createProblemQuestionBlock(problem));
+    var authoritativeResourcesBlock = createAuthoritativeResourcesBlock(problem);
+    if (authoritativeResourcesBlock) {
+      grid.appendChild(authoritativeResourcesBlock);
+    }
     var predictionBlock = createLearningCyclePredictionBlock(problem);
     if (predictionBlock) {
       grid.appendChild(predictionBlock);
@@ -33,7 +37,7 @@ function renderProblemDataNotes(problem) {
     grid.appendChild(analysisBlock);
     var explorationBlock = createStudentExplorationBlock(problem);
     var realLifeBlock = createRealLifeCaseBlock(problem);
-    if (explorationBlock || realLifeBlock || predictionBlock) {
+    if (explorationBlock || realLifeBlock || authoritativeResourcesBlock || predictionBlock) {
       grid.appendChild(createLearningSyncPanel());
     }
     if (explorationBlock) {

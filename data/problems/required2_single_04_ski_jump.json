@@ -73,6 +73,16 @@
         "matchReason": "它直接覆盖本题的数学骨架，能把真实跳台画面还原成可计算的平抛落斜面模型。"
       }
     ],
+    "authoritativeResources": [
+      {
+        "platform": "OpenStax",
+        "kind": "开放教材（英文）",
+        "title": "功率、功与动能定理",
+        "url": "https://openstax.org/books/physics/pages/9-1-work-power-and-the-work-energy-theorem",
+        "useFor": "对照平均功率与瞬时功率的定义，分别用总功除以时间和力与瞬时速度的点积进行判断。",
+        "matchReason": "原题把平抛过程中的重力做功、平均功率和着陆前瞬时功率放在一起比较。"
+      }
+    ],
     "question": "为什么落地瞬间重力功率不用总速度，而只用竖直速度 \\(v_y\\)？",
     "answer": "瞬时功率是力与速度的点积：\\(P=\\vec F\\cdot\\vec v\\)。重力竖直向下，所以只有速度在竖直方向的分量与重力做功，水平速度与重力垂直，对功率贡献为零。因此落地瞬间 \\(P_G=mgv_y\\)，其中 \\(v_y\\) 取沿重力方向的分量。",
     "rubric": ["写出瞬时功率的点积形式 \\(P=\\vec F\\cdot\\vec v\\)。", "说明水平速度与重力垂直，对功率没有贡献。", "得到 \\(P_G=mgv_y\\) 并说明分量方向。"]
