@@ -72,6 +72,7 @@ function createStudentExplorationBlock(problem) {
   }
   var block = createProblemNoteBlock("初学者探索", exploration.title || "如果我第一次遇到这道题", exploration.opening || "");
   block.classList.add("student-exploration-block");
+  block.dataset.defaultExpanded = "1";
   stages.forEach(function (stage, index) {
     var responseKey = problem.id + ":stage:" + index;
     var savedResponse = getLearningResponse(studentExplorationStorageKey, responseKey);
@@ -325,6 +326,7 @@ function createRealLifeCaseBlock(problem) {
   }
   var block = createProblemNoteBlock("现实同构案例", item.title || "现实中的同一物理模型", parts.join("\n\n"));
   block.classList.add("real-life-case-block");
+  block.dataset.defaultExpanded = "1";
   var videoSection = createRealLifeVideoSection(item.videos);
   if (videoSection) {
     block.appendChild(videoSection);

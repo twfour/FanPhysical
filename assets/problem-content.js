@@ -21,9 +21,6 @@ function renderProblemDataNotes(problem) {
 
     grid.appendChild(createProblemQuestionBlock(problem));
     var authoritativeResourcesBlock = createAuthoritativeResourcesBlock(problem);
-    if (authoritativeResourcesBlock) {
-      grid.appendChild(authoritativeResourcesBlock);
-    }
     var predictionBlock = createLearningCyclePredictionBlock(problem);
     if (predictionBlock) {
       grid.appendChild(predictionBlock);
@@ -45,6 +42,9 @@ function renderProblemDataNotes(problem) {
     }
     if (realLifeBlock) {
       grid.appendChild(realLifeBlock);
+    }
+    if (authoritativeResourcesBlock) {
+      grid.appendChild(authoritativeResourcesBlock);
     }
     var practiceBlock = createProblemPracticeBlock(problem);
     if (practiceBlock) {

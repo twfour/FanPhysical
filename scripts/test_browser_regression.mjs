@@ -135,6 +135,22 @@ async function openRegressionProblem(page) {
   await page.locator("#canvas-holder canvas").waitFor({ state: "visible", timeout: 10000 });
   await page.locator(".student-exploration-block").waitFor({ state: "visible", timeout: 10000 });
   await page.locator(".real-life-case-block").waitFor({ state: "visible", timeout: 10000 });
+  var learningLayout = await page.locator(".problem-notes-grid").evaluate(function (grid) {
+    var blocks = Array.prototype.slice.call(grid.querySelectorAll(":scope > .problem-note-block"));
+    return {
+      explorationCollapsed: grid.querySelector(".student-exploration-block").classList.contains("is-collapsed"),
+      realLifeCollapsed: grid.querySelector(".real-life-case-block").classList.contains("is-collapsed"),
+      realLifeIndex: blocks.indexOf(grid.querySelector(".real-life-case-block")),
+      authoritativeIndex: blocks.indexOf(grid.querySelector(".authoritative-resources-block"))
+    };
+  });
+  assert.equal(learningLayout.explorationCollapsed, false, "student exploration should start expanded");
+  assert.equal(learningLayout.realLifeCollapsed, false, "real-life case should start expanded");
+  assert.equal(
+    learningLayout.authoritativeIndex,
+    learningLayout.realLifeIndex + 1,
+    "authoritative resources should follow the real-life case"
+  );
   await expandLearningBlocks(page);
 }
 

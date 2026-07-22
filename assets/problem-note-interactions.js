@@ -49,11 +49,14 @@ function enhanceProblemNotes(root) {
       if (hasCollapsibleSteps && isAnalysisNoteBlock(block)) {
         wireCollapsedAnalysisSteps(body, sceneName);
       } else if (index > 0 && kickerText !== "近似题" && block.dataset.keepExpanded !== "1") {
-        block.classList.add("is-collapsed");
+        var startsExpanded = block.dataset.defaultExpanded === "1";
+        if (!startsExpanded) {
+          block.classList.add("is-collapsed");
+        }
         var toggle = document.createElement("button");
         toggle.type = "button";
         toggle.className = "note-toggle";
-        toggle.innerText = "展开";
+        toggle.innerText = startsExpanded ? "收起" : "展开";
         toggle.onclick = function () {
           var collapsed = block.classList.toggle("is-collapsed");
           toggle.innerText = collapsed ? "展开" : "收起";
