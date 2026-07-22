@@ -132,7 +132,7 @@ var problemCatalogReadyPromise = null;
 var sceneSwitchRequestId = 0;
 var runtimeScriptPromiseMap = {};
 var mathJaxLoadPromise = null;
-var runtimeAssetVersion = "20260722-runtime-split";
+var runtimeAssetVersion = "20260722-large-file-split";
 var promotedProblemChapterMap = {
   "必修一结业测试": true,
   "必修二结业测试": true,
@@ -436,15 +436,17 @@ function fanPhysicsSceneScript(variant) {
     handRopeBreak: true,
     rainWindow: true
   };
-  var projectileScenes = {
+  var basicProjectileScenes = {
     projectileBasic: true,
     projectileSlope: true,
-    projectileNormal: true,
-    semiCircleThrow: true,
     projectileWindow: true,
-    volleyballServe: true,
+    volleyballServe: true
+  };
+  var advancedProjectileScenes = {
     dartTarget: true,
-    projectileBounce: true
+    projectileNormal: true,
+    projectileBounce: true,
+    semiCircleThrow: true
   };
   if (springScenes[variant]) {
     return "/assets/scenes/spring-2026.js";
@@ -452,33 +454,81 @@ function fanPhysicsSceneScript(variant) {
   if (curveScenes[variant]) {
     return "/assets/scenes/curve-motion.js";
   }
-  if (projectileScenes[variant]) {
-    return "/assets/scenes/projectile-motion.js";
+  if (basicProjectileScenes[variant]) {
+    return "/assets/scenes/projectile-basic-scenes.js";
+  }
+  if (advancedProjectileScenes[variant]) {
+    return "/assets/scenes/projectile-advanced-scenes.js";
   }
   return "/assets/scenes/circular-motion.js";
+}
+
+function gravitationSceneScript(variant) {
+  return String(variant || "").indexOf("lesson9_") === 0
+    ? "/assets/scenes/gravitation-orbits.js"
+    : "/assets/scenes/gravitation-foundations.js";
 }
 
 var problemRuntimeScriptMap = {
   curve_training_model: ["/assets/scenes/curve-training.js"],
   projectile_training_model: ["/assets/scenes/projectile-training.js"],
-  gravitation_model: ["/assets/scenes/gravitation.js"],
-  gravitation_lunar_throw: ["/assets/scenes/projectile-motion.js"],
+  gravitation_model: ["/assets/scenes/gravitation-core.js"],
+  gravitation_lunar_throw: ["/assets/scenes/projectile-lunar-scene.js"],
   gravitation_eclipse: ["/assets/scenes/circular-motion.js"],
-  work_power_model: ["/assets/scenes/work-power.js"],
-  kinetic_energy_model: ["/assets/scenes/kinetic-energy.js"],
-  mechanical_energy_model: ["/assets/scenes/mechanical-energy.js"],
+  work_power_model: ["/assets/scenes/work-power-core.js"],
+  kinetic_energy_model: ["/assets/scenes/kinetic-energy-core.js"],
+  mechanical_energy_model: [
+    "/assets/scenes/mechanical-energy-core.js",
+    "/assets/scenes/mechanical-energy-audio.js"
+  ],
   functional_relation_model: ["/assets/scenes/functional-relations.js"],
   required_one_test_model: ["/assets/scenes/required-one-test.js"],
   required_two_test_model: ["/assets/scenes/required-two-test.js"]
 };
+
+function lessonQuestionSceneScript(problem, lessonNumber, courseScript, homeworkScript) {
+  var id = String((problem && problem.id) || "");
+  return id.indexOf("lesson" + lessonNumber + "_course_") === 0 ? courseScript : homeworkScript;
+}
 
 function getProblemRuntimeScripts(problem) {
   var animation = (problem && problem.animation) || {};
   var type = animation.type || "";
   var scripts = (problemRuntimeScriptMap[type] || []).slice();
   if (type === "fanphysics_model") {
-    scripts.push(fanPhysicsSceneScript(animation.variant || problem.id));
+    var sceneScript = fanPhysicsSceneScript(animation.variant || problem.id);
+    if (sceneScript.indexOf("/assets/scenes/projectile-") === 0) {
+      scripts.push("/assets/scenes/projectile-core.js");
+    }
+    scripts.push(sceneScript);
     scripts.push("/assets/scenes/fanphysics-models.js");
+  }
+  if (type === "gravitation_model") {
+    scripts.push(gravitationSceneScript(animation.variant));
+  }
+  if (type === "work_power_model") {
+    scripts.push(lessonQuestionSceneScript(
+      problem,
+      "10",
+      "/assets/scenes/work-power-course.js",
+      "/assets/scenes/work-power-homework.js"
+    ));
+  }
+  if (type === "kinetic_energy_model") {
+    scripts.push(lessonQuestionSceneScript(
+      problem,
+      "11",
+      "/assets/scenes/kinetic-energy-course.js",
+      "/assets/scenes/kinetic-energy-homework.js"
+    ));
+  }
+  if (type === "mechanical_energy_model") {
+    scripts.push(lessonQuestionSceneScript(
+      problem,
+      "12",
+      "/assets/scenes/mechanical-energy-course.js",
+      "/assets/scenes/mechanical-energy-homework.js"
+    ));
   }
   if (getCodexAnimationKey(problem.id) === "bulletCylinder" && scripts.indexOf("/assets/scenes/circular-motion.js") < 0) {
     scripts.unshift("/assets/scenes/circular-motion.js");

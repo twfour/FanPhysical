@@ -30,6 +30,8 @@ echo "==> Packaging runtime files"
     classical-mechanics-demo.html \
     server.py \
     learning_sync.py \
+    notebooklm_service.py \
+    step_ai_service.py \
     assets \
     data \
     math \

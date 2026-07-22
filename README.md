@@ -31,7 +31,7 @@ http://127.0.0.1:8001/
 npm run check
 ```
 
-浏览器回归会自动启动独立临时服务器，验证独立同步密码、登录恢复、先作答再揭示、三点评分保存、动画验证、首页学习进度，以及刷新和服务器恢复。测试使用临时密码和临时学习记录文件，不会影响本地 `8001` 服务或正式数据：
+浏览器回归会自动启动独立临时服务器，验证独立同步密码、登录恢复、题目交互、作答与评分、动画验证、首页学习进度、各场景题组按需加载、NotebookLM 服务，以及刷新和服务器恢复。测试使用临时密码和临时学习记录文件，不会影响本地 `8001` 服务或正式数据：
 
 ```bash
 npm run check:browser
@@ -124,17 +124,25 @@ deploy/aliyun/deploy.sh
 
 - `assets/app.js`：页面导航、题目加载、Canvas 生命周期、Markdown 与 MathJax 通用能力。
 - `assets/problem-content.js`：JSON 题干、选项、解析、NotebookLM 与近似题渲染。
-- `assets/problem-interactions.js`：收藏、解析折叠、多轮提问与语音输入。
+- `assets/problem-favorites.js`：收藏状态、收藏按钮与首页收藏卡片。
+- `assets/problem-note-interactions.js`：题目说明增强与解析步骤折叠。
+- `assets/step-conversation.js`：解析步骤的多轮提问与语音输入。
 - `assets/json-animation-runtime.js`：JSON 动画推断、参数控件、时间轴与绘制分发。
 - `assets/physics-audio.js`：动画音效状态、Web Audio 通道与事件合成。
 - `assets/json-animation-scenes.js`：通用 JSON 动画与图表绘制。
 - `assets/circular-daily-scenes.js`：圆周运动日常题的动画与图表绘制。
+- `assets/scenes/gravitation-core.js`：引力模型分发与共享绘图工具；`gravitation-foundations.js`、`gravitation-orbits.js` 按章节题组延迟加载。
+- `assets/scenes/work-power-*`、`kinetic-energy-*`、`mechanical-energy-*`：功与功率、动能定理、机械能的共享运行时及课堂/作业题组，按当前题目延迟加载。
+- `assets/scenes/projectile-*`：平抛的共享状态、基础题组、进阶题组与月面抛射场景，按当前题目延迟加载。
 - `assets/learning-sync.js`：学习记录的浏览器存储、服务器登录与跨设备合并。
 - `assets/learning-progress.js`：首页学习进度统计、章节汇总与待巩固知识点。
 - `assets/learning-blocks.js`：初学者探索、动画验证和现实同构案例组件。
 - `data/learning-progress.json`：首页使用的紧凑学习元数据，由 `scripts/build_learning_progress.py` 生成并在测试中校验。
 - `assets/styles.css`：站点通用样式；`assets/learning.css`：学习组件样式。
-- `server.py`：HTTP 路由、NotebookLM 页面与 AI 接口；`learning_sync.py`：学习记录会话、校验、合并与持久化。
+- `server.py`：HTTP 路由、鉴权协调与静态文件服务。
+- `notebooklm_service.py`：NotebookLM 目录、章节/题目页面与笔记链接存储。
+- `step_ai_service.py`：步骤级 AI 上下文构造、DeepSeek 请求与重试。
+- `learning_sync.py`：学习记录会话、校验、合并与持久化。
 
 ## 题目录入架构
 

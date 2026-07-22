@@ -12,6 +12,17 @@ import { chromium } from "playwright";
 
 var ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 var PROBLEM_ID = "required2_single_01_history";
+var GRAVITATION_FOUNDATION_ID = "gravitation_course_01_perihelion_speed";
+var GRAVITATION_ORBIT_ID = "lesson9_course_08_sync_transfer";
+var WORK_COURSE_ID = "lesson10_course_01_crane_work";
+var WORK_HOMEWORK_ID = "lesson10_hw_01_tilting_truck";
+var KINETIC_COURSE_ID = "lesson11_course_01_jet_takeoff";
+var KINETIC_HOMEWORK_ID = "lesson11_a_01_spring_compression";
+var MECHANICAL_COURSE_ID = "lesson12_course_01_reference_plane";
+var MECHANICAL_HOMEWORK_ID = "lesson12_a_01_projectile_sea";
+var PROJECTILE_BASIC_ID = "projectileSlope";
+var PROJECTILE_ADVANCED_ID = "projectileBounce";
+var PROJECTILE_LUNAR_ID = "gravitation_course_08_lunar_throw";
 var LEARNING_SYNC_TEST_PASSWORD = "fanphysics-learning-browser-test";
 var NOTEBOOKLM_TEST_PASSWORD = "fanphysics-notebook-browser-test";
 var EXPLORATION_ANSWER = "轨道数据只能确定规律，测量引力常量还需要独立实验。";
@@ -125,6 +136,28 @@ async function openRegressionProblem(page) {
   await expandLearningBlocks(page);
 }
 
+async function openSceneDirectly(page, sceneName) {
+  await page.evaluate(async function (targetScene) {
+    await window.switchScene(targetScene);
+  }, sceneName);
+  await page.locator("#" + sceneName + "Notes").waitFor({ state: "visible", timeout: 10000 });
+  await page.locator("#canvas-holder canvas").waitFor({ state: "visible", timeout: 10000 });
+}
+
+async function countCanvasInkPixels(page) {
+  return page.locator("#canvas-holder canvas").evaluate(function (canvas) {
+    var context = canvas.getContext("2d");
+    var pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+    var count = 0;
+    for (var index = 0; index < pixels.length; index += 160) {
+      if (pixels[index + 3] && (pixels[index] < 245 || pixels[index + 1] < 245 || pixels[index + 2] < 245)) {
+        count += 1;
+      }
+    }
+    return count;
+  });
+}
+
 async function waitForSyncedPanel(page) {
   var status = page.locator(".learning-sync-copy span");
   await requireOne(status, "learning sync status");
@@ -235,6 +268,18 @@ async function main() {
     assert.equal(await feedback.isVisible(), true, "feedback should appear after answering");
   });
 
+  await runCheck("拆分后的题目交互", async function () {
+    assert.equal(await page.locator('script[src^="assets/problem-favorites.js"]').count(), 1);
+    assert.equal(await page.locator('script[src^="assets/problem-note-interactions.js"]').count(), 1);
+    assert.equal(await page.locator('script[src^="assets/step-conversation.js"]').count(), 1);
+    assert.equal(await page.locator(".favorite-toggle").count() > 0, true, "favorite control should exist");
+    assert.equal(await page.locator(".note-toggle").count() > 0, true, "note toggle should exist");
+    assert.equal(await page.evaluate(function () {
+      return typeof window.addStepConversationPanels === "function" &&
+        typeof window.startStepVoiceRecognition === "function";
+    }), true, "step conversation functions should be registered");
+  });
+
   await runCheck("动画验证", async function () {
     var stage = page.locator(".student-exploration-block .exploration-stage-card").first();
     var verify = stage.getByRole("button", { name: "在动画中验证", exact: true });
@@ -296,6 +341,88 @@ async function main() {
     assert.equal(await page.locator("#learningProgressSyncStatus").innerText(), "跨设备已同步");
   });
 
+  await runCheck("引力题组按需加载", async function () {
+    await openSceneDirectly(page, GRAVITATION_ORBIT_ID);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/gravitation-core.js"]').count(), 1);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/gravitation-orbits.js"]').count(), 1);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/gravitation-foundations.js"]').count(), 0);
+    assert.equal(await countCanvasInkPixels(page) > 100, true, "orbit-transfer canvas should not be blank");
+
+    await openSceneDirectly(page, GRAVITATION_FOUNDATION_ID);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/gravitation-core.js"]').count(), 1);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/gravitation-foundations.js"]').count(), 1);
+    assert.equal(await countCanvasInkPixels(page) > 100, true, "foundation canvas should not be blank");
+  });
+
+  await runCheck("其余场景题组按需加载", async function () {
+    await openSceneDirectly(page, WORK_COURSE_ID);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/work-power-core.js"]').count(), 1);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/work-power-course.js"]').count(), 1);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/work-power-homework.js"]').count(), 0);
+    await openSceneDirectly(page, WORK_HOMEWORK_ID);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/work-power-homework.js"]').count(), 1);
+
+    await openSceneDirectly(page, KINETIC_COURSE_ID);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/kinetic-energy-core.js"]').count(), 1);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/kinetic-energy-course.js"]').count(), 1);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/kinetic-energy-homework.js"]').count(), 0);
+    await openSceneDirectly(page, KINETIC_HOMEWORK_ID);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/kinetic-energy-homework.js"]').count(), 1);
+
+    await openSceneDirectly(page, MECHANICAL_COURSE_ID);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-core.js"]').count(), 1);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-audio.js"]').count(), 1);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-course.js"]').count(), 1);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-homework.js"]').count(), 0);
+    await openSceneDirectly(page, MECHANICAL_HOMEWORK_ID);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/mechanical-energy-homework.js"]').count(), 1);
+
+    await openSceneDirectly(page, PROJECTILE_BASIC_ID);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/projectile-core.js"]').count(), 1);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/projectile-basic-scenes.js"]').count(), 1);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/projectile-advanced-scenes.js"]').count(), 0);
+    await openSceneDirectly(page, PROJECTILE_ADVANCED_ID);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/projectile-advanced-scenes.js"]').count(), 1);
+    await openSceneDirectly(page, PROJECTILE_LUNAR_ID);
+    assert.equal(await page.locator('script[data-runtime-script="/assets/scenes/projectile-lunar-scene.js"]').count(), 1);
+    assert.equal(await countCanvasInkPixels(page) > 100, true, "split scene canvas should not be blank");
+  });
+
+  await runCheck("NotebookLM 服务模块", async function () {
+    var notebookResult = await page.evaluate(async function (password) {
+      var directoryResponse = await fetch("/notebooklm/", { cache: "no-store" });
+      var directoryHtml = await directoryResponse.text();
+      var updateResponse = await fetch("/api/notebooklm-link", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chapter: "万有引力与宇宙航行",
+          url: "https://notebooklm.google.com/notebook/browser-regression/artifact/ignored",
+          password: password
+        })
+      });
+      var updatePayload = await updateResponse.json();
+      var chapterResponse = await fetch("/notebooklm/chapter/" + encodeURIComponent("万有引力与宇宙航行"), {
+        cache: "no-store"
+      });
+      var chapterHtml = await chapterResponse.text();
+      return {
+        directoryStatus: directoryResponse.status,
+        hasDirectoryTitle: directoryHtml.includes("独立课例地址"),
+        updateStatus: updateResponse.status,
+        updatePayload: updatePayload,
+        chapterStatus: chapterResponse.status,
+        hasSavedLink: chapterHtml.includes("https://notebooklm.google.com/notebook/browser-regression")
+      };
+    }, NOTEBOOKLM_TEST_PASSWORD);
+    assert.equal(notebookResult.directoryStatus, 200);
+    assert.equal(notebookResult.hasDirectoryTitle, true);
+    assert.equal(notebookResult.updateStatus, 200);
+    assert.equal(notebookResult.updatePayload.url, "https://notebooklm.google.com/notebook/browser-regression");
+    assert.equal(notebookResult.chapterStatus, 200);
+    assert.equal(notebookResult.hasSavedLink, true);
+  });
+
   await runCheck("刷新与服务器恢复", async function () {
     await page.reload({ waitUntil: "domcontentloaded" });
     await openRegressionProblem(page);
@@ -335,7 +462,7 @@ async function main() {
   });
 
   assert.deepEqual(pageErrors, [], "uncaught page errors: " + pageErrors.join(" | "));
-  console.log("Browser regression passed: 6/6 checks");
+  console.log("Browser regression passed: 10/10 checks");
 }
 
 try {
