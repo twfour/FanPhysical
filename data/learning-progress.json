@@ -1,0 +1,286 @@
+{
+  "version": 1,
+  "problems": [
+    {
+      "id": "required2_single_01_history",
+      "chapter": "必修二结业测试",
+      "title": "单选第1题：万有引力科学史",
+      "knowledge": [
+        "物理学史",
+        "开普勒定律",
+        "万有引力定律",
+        "引力常量"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_single_02_river_crossing",
+      "chapter": "必修二结业测试",
+      "title": "单选第2题：两种方式渡河时间比",
+      "knowledge": [
+        "运动合成",
+        "小船渡河",
+        "最短时间",
+        "矢量分解"
+      ],
+      "explorationStages": 3,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_single_03_rope_constraint",
+      "chapter": "必修二结业测试",
+      "title": "单选第3题：斜绳关联速度与能量",
+      "knowledge": [
+        "绳长约束",
+        "速度投影",
+        "机械能守恒",
+        "内力做功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_single_04_ski_jump",
+      "chapter": "必修二结业测试",
+      "title": "单选第4题：跳台滑雪功率",
+      "knowledge": [
+        "平抛运动",
+        "重力做功",
+        "平均功率",
+        "瞬时功率"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_single_05_oblique_throw",
+      "chapter": "必修二结业测试",
+      "title": "单选第5题：斜抛机械能与参考面",
+      "knowledge": [
+        "斜抛运动",
+        "机械能守恒",
+        "势能参考面",
+        "功率与能量"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_single_06_ferris_wheel",
+      "chapter": "必修二结业测试",
+      "title": "单选第6题：摩天轮轿厢摩擦力",
+      "knowledge": [
+        "匀速圆周运动",
+        "向心加速度",
+        "摩擦力",
+        "力的分解"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_single_07_double_conical_pendulum",
+      "chapter": "必修二结业测试",
+      "title": "单选第7题：双球圆锥摆构型",
+      "knowledge": [
+        "圆锥摆",
+        "连接体受力",
+        "向心力",
+        "构型判断"
+      ],
+      "explorationStages": 3,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_single_08_planet_gravity",
+      "chapter": "必修二结业测试",
+      "title": "单选第8题：星球表面重力",
+      "knowledge": [
+        "万有引力",
+        "表面重力",
+        "比例法",
+        "天体参数"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_single_09_solar_density",
+      "chapter": "必修二结业测试",
+      "title": "单选第9题：小孔成像估测太阳密度",
+      "knowledge": [
+        "小孔成像",
+        "相似三角形",
+        "万有引力",
+        "天体密度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_single_10_orbit_transfer",
+      "chapter": "必修二结业测试",
+      "title": "单选第10题：圆轨道与转移椭圆",
+      "knowledge": [
+        "卫星变轨",
+        "机械能",
+        "开普勒第三定律",
+        "引力加速度"
+      ],
+      "explorationStages": 3,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_single_11_force_vt",
+      "chapter": "必修二结业测试",
+      "title": "单选第11题：恒力作用的速度图像",
+      "knowledge": [
+        "速度时间图像",
+        "摩擦力",
+        "功与冲量",
+        "追及问题"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_single_12_conveyor_energy",
+      "chapter": "必修二结业测试",
+      "title": "单选第12题：传送带能量分配",
+      "knowledge": [
+        "传送带",
+        "摩擦生热",
+        "功能关系",
+        "电能分配"
+      ],
+      "explorationStages": 3,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_multiple_13_geostationary",
+      "chapter": "必修二结业测试",
+      "title": "多选第13题：地球张角与卫星参数",
+      "knowledge": [
+        "地球同步卫星",
+        "开普勒第三定律",
+        "天体密度",
+        "信号遮挡"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_multiple_14_cross_conveyor",
+      "chapter": "必修二结业测试",
+      "title": "多选第14题：垂直滑上传送带",
+      "knowledge": [
+        "动能定理",
+        "二维相对运动",
+        "摩擦生热",
+        "传送带"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_multiple_15_gear_turntable",
+      "chapter": "必修二结业测试",
+      "title": "多选第15题：齿轮转台拉力图像",
+      "knowledge": [
+        "齿轮传动",
+        "向心力",
+        "摩擦力",
+        "函数图像"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_multiple_16_counterweight_spring",
+      "chapter": "必修二结业测试",
+      "title": "多选第16题：配重球绳长约束与弹簧",
+      "knowledge": [
+        "绳长约束",
+        "弹簧势能",
+        "机械能转移",
+        "瞬时加速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_solution_17_semicircle_tube",
+      "chapter": "必修二结业测试",
+      "title": "解答第17题：半圆管道与垂直落斜面",
+      "knowledge": [
+        "竖直圆周运动",
+        "向心力",
+        "平抛运动",
+        "速度方向"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_solution_18_rope_ball",
+      "chapter": "必修二结业测试",
+      "title": "解答第18题：圆锥摆、松绳与断绳抛体",
+      "knowledge": [
+        "圆锥摆",
+        "松绳约束",
+        "竖直圆周运动",
+        "平抛最值"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_solution_19_toy_car_power",
+      "chapter": "必修二结业测试",
+      "title": "解答第19题：玩具车恒力与恒功率启动",
+      "knowledge": [
+        "恒功率启动",
+        "速度时间图像",
+        "动能定理",
+        "分段运动"
+      ],
+      "explorationStages": 3,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "required2_solution_20_arc_incline",
+      "chapter": "必修二结业测试",
+      "title": "解答第20题：圆弧斜面往复与总路程",
+      "knowledge": [
+        "圆周运动",
+        "动能定理",
+        "摩擦做功",
+        "往复运动",
+        "分段函数"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    }
+  ]
+}

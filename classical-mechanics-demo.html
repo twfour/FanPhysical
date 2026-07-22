@@ -16,7 +16,7 @@
     };
   </script>
   <link rel="stylesheet" href="assets/styles.css?v=20260722-module-split" />
-  <link rel="stylesheet" href="assets/learning.css?v=20260722-reality-video" />
+  <link rel="stylesheet" href="assets/learning.css?v=20260722-learning-progress" />
 </head>
 
 <body>
@@ -370,6 +370,21 @@
       <section class="workspace">
 
     <div id="homePanel" class="home-panel">
+      <section id="learningProgressSection" class="home-section learning-progress-section" aria-labelledby="learningProgressTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">学习进度</p>
+            <h3 id="learningProgressTitle">学习概览</h3>
+          </div>
+          <span id="learningProgressSyncStatus" class="learning-progress-sync-status">当前设备记录</span>
+        </div>
+        <div id="learningProgressSummary" class="learning-progress-summary" aria-live="polite"></div>
+        <div class="learning-progress-detail-grid">
+          <div id="learningProgressChapters" class="learning-progress-chapters" aria-label="章节学习进度"></div>
+          <aside id="learningProgressWeak" class="learning-progress-weak" aria-label="待巩固知识点"></aside>
+        </div>
+      </section>
+
       <section id="favoriteHomeSection" class="home-section favorite-home-section">
         <div class="section-heading">
           <div>
@@ -457,7 +472,8 @@
   </main>
 
   <script defer src="assets/summer-exam.js?v=20260717-summer-exam"></script>
-  <script defer src="assets/learning-sync.js?v=20260722-module-split"></script>
+  <script defer src="assets/learning-sync.js?v=20260722-learning-progress"></script>
+  <script defer src="assets/learning-progress.js?v=20260722-learning-progress"></script>
   <script defer src="assets/learning-blocks.js?v=20260722-reality-video"></script>
   <script defer src="assets/problem-content.js?v=20260722-runtime-split"></script>
   <script defer src="assets/problem-interactions.js?v=20260722-runtime-split"></script>
@@ -465,7 +481,7 @@
   <script defer src="assets/physics-audio.js?v=20260722-runtime-split"></script>
   <script defer src="assets/json-animation-scenes.js?v=20260722-runtime-split"></script>
   <script defer src="assets/circular-daily-scenes.js?v=20260722-runtime-split"></script>
-  <script defer src="assets/app.js?v=20260722-runtime-split"></script>
+  <script defer src="assets/app.js?v=20260722-learning-progress"></script>
   <script defer src="assets/scenes/common.js?v=20260722-runtime-split"></script>
   <script defer src="assets/scenes/physics-sound.js?v=20260717-json-migration"></script>
 </body>

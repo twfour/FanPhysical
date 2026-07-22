@@ -36,6 +36,15 @@ if [[ ${#NOTEBOOKLM_EDIT_PASSWORD} -lt 12 ]]; then
   echo "NOTEBOOKLM_EDIT_PASSWORD must contain at least 12 characters in $ENV_SOURCE" >&2
   exit 1
 fi
+LEARNING_SYNC_PASSWORD="${LEARNING_SYNC_PASSWORD:-}"
+if [[ ${#LEARNING_SYNC_PASSWORD} -lt 12 ]]; then
+  echo "LEARNING_SYNC_PASSWORD must contain at least 12 characters in $ENV_SOURCE" >&2
+  exit 1
+fi
+if [[ "$LEARNING_SYNC_PASSWORD" == "$NOTEBOOKLM_EDIT_PASSWORD" ]]; then
+  echo "LEARNING_SYNC_PASSWORD must differ from NOTEBOOKLM_EDIT_PASSWORD" >&2
+  exit 1
+fi
 
 umask 077
 {
@@ -48,6 +57,7 @@ umask 077
   printf 'DEEPSEEK_TIMEOUT_SECONDS=90\n'
   printf 'DEEPSEEK_MAX_RETRIES=2\n'
   printf 'NOTEBOOKLM_EDIT_PASSWORD=%s\n' "$NOTEBOOKLM_EDIT_PASSWORD"
+  printf 'LEARNING_SYNC_PASSWORD=%s\n' "$LEARNING_SYNC_PASSWORD"
   printf 'NOTEBOOKLM_LINKS_PATH=/opt/fanphysics/shared/notebooklm-links.json\n'
   printf 'LEARNING_STATE_PATH=/opt/fanphysics/shared/learning-state.json\n'
 } > "$TMP_ENV"

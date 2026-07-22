@@ -74,6 +74,7 @@ function writeLearningValue(storageKey, responseKey, value) {
     deleted: deleted
   };
   persistLearningStore(storageKey, responses);
+  if (typeof renderLearningProgressOverview === "function") renderLearningProgressOverview();
   scheduleLearningStateSync();
 }
 
@@ -138,6 +139,7 @@ function mergeLearningSyncState(remoteState) {
     });
     persistLearningStore(definition.storageKey, localStore);
   });
+  if (typeof renderLearningProgressOverview === "function") renderLearningProgressOverview();
   return changed;
 }
 
@@ -146,6 +148,7 @@ function refreshCurrentLearningNotes() {
   if (!problem || !problem.studentExploration && !problem.realLifeCase) return;
   var note = renderProblemDataNotes(problem);
   if (note) {
+    note.style.display = "block";
     enhanceProblemNotes(note);
     renderMath(note);
   }
@@ -187,6 +190,7 @@ function updateLearningSyncPanels() {
       }
     }
   });
+  if (typeof renderLearningProgressOverview === "function") renderLearningProgressOverview();
 }
 
 async function checkLearningSyncSession() {

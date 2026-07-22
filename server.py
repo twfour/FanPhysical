@@ -66,15 +66,18 @@ PROBLEM_DIR = PROBLEM_INDEX_PATH.parent
 CHAPTER_GUIDES_PATH = ROOT / "data" / "chapter-guides.json"
 NOTEBOOKLM_EDIT_PASSWORD = os.environ.get("NOTEBOOKLM_EDIT_PASSWORD", "")
 NOTEBOOKLM_EDIT_ENABLED = len(NOTEBOOKLM_EDIT_PASSWORD) >= 12
+LEARNING_SYNC_PASSWORD = os.environ.get("LEARNING_SYNC_PASSWORD", "")
 NOTEBOOKLM_LINKS_PATH = Path(
     os.environ.get("NOTEBOOKLM_LINKS_PATH", str(ROOT / "work" / "notebooklm-links.json"))
 ).expanduser()
 if not NOTEBOOKLM_LINKS_PATH.is_absolute():
     NOTEBOOKLM_LINKS_PATH = ROOT / NOTEBOOKLM_LINKS_PATH
 NOTEBOOKLM_LINKS_LOCK = threading.RLock()
+AUTH_FAILURES_LOCK = threading.RLock()
 NOTEBOOKLM_AUTH_FAILURES = {}
-NOTEBOOKLM_AUTH_WINDOW_SECONDS = 10 * 60
-NOTEBOOKLM_AUTH_MAX_FAILURES = 6
+LEARNING_AUTH_FAILURES = {}
+AUTH_WINDOW_SECONDS = 10 * 60
+AUTH_MAX_FAILURES = 6
 MAX_NOTEBOOKLM_EDIT_BODY_BYTES = 8_000
 LEARNING_STATE_PATH = Path(
     os.environ.get("LEARNING_STATE_PATH", str(NOTEBOOKLM_LINKS_PATH.with_name("learning-state.json")))
@@ -82,7 +85,7 @@ LEARNING_STATE_PATH = Path(
 if not LEARNING_STATE_PATH.is_absolute():
     LEARNING_STATE_PATH = ROOT / LEARNING_STATE_PATH
 LEARNING_SYNC = LearningSyncService(
-    password=NOTEBOOKLM_EDIT_PASSWORD,
+    password=LEARNING_SYNC_PASSWORD,
     state_path=LEARNING_STATE_PATH,
     app_env=APP_ENV,
 )
@@ -182,31 +185,31 @@ def save_notebooklm_link_override(chapter, url):
         os.replace(temporary_path, NOTEBOOKLM_LINKS_PATH)
 
 
-def notebooklm_edit_client_ip(handler):
+def request_client_ip(handler):
     forwarded = handler.headers.get("X-Real-IP", "").strip()
     return forwarded or handler.client_address[0]
 
 
-def notebooklm_auth_is_limited(client_ip):
+def auth_is_limited(failures, client_ip):
     now = time.monotonic()
-    with NOTEBOOKLM_LINKS_LOCK:
+    with AUTH_FAILURES_LOCK:
         attempts = [
             timestamp
-            for timestamp in NOTEBOOKLM_AUTH_FAILURES.get(client_ip, [])
-            if now - timestamp < NOTEBOOKLM_AUTH_WINDOW_SECONDS
+            for timestamp in failures.get(client_ip, [])
+            if now - timestamp < AUTH_WINDOW_SECONDS
         ]
-        NOTEBOOKLM_AUTH_FAILURES[client_ip] = attempts
-        return len(attempts) >= NOTEBOOKLM_AUTH_MAX_FAILURES
+        failures[client_ip] = attempts
+        return len(attempts) >= AUTH_MAX_FAILURES
 
 
-def record_notebooklm_auth_failure(client_ip):
-    with NOTEBOOKLM_LINKS_LOCK:
-        NOTEBOOKLM_AUTH_FAILURES.setdefault(client_ip, []).append(time.monotonic())
+def record_auth_failure(failures, client_ip):
+    with AUTH_FAILURES_LOCK:
+        failures.setdefault(client_ip, []).append(time.monotonic())
 
 
-def clear_notebooklm_auth_failures(client_ip):
-    with NOTEBOOKLM_LINKS_LOCK:
-        NOTEBOOKLM_AUTH_FAILURES.pop(client_ip, None)
+def clear_auth_failures(failures, client_ip):
+    with AUTH_FAILURES_LOCK:
+        failures.pop(client_ip, None)
 
 
 def notebooklm_password_matches(candidate):
@@ -797,15 +800,15 @@ def handle_learning_auth(handler):
         status = 413 if error == "invalid_body_size" else 400
         json_response(handler, status, {"ok": False, "error": error})
         return
-    client_ip = notebooklm_edit_client_ip(handler)
-    if notebooklm_auth_is_limited(client_ip):
+    client_ip = request_client_ip(handler)
+    if auth_is_limited(LEARNING_AUTH_FAILURES, client_ip):
         json_response(handler, 429, {"ok": False, "error": "rate_limited"})
         return
     if not LEARNING_SYNC.password_matches(payload.get("password")):
-        record_notebooklm_auth_failure(client_ip)
+        record_auth_failure(LEARNING_AUTH_FAILURES, client_ip)
         json_response(handler, 401, {"ok": False, "error": "authentication_failed"})
         return
-    clear_notebooklm_auth_failures(client_ip)
+    clear_auth_failures(LEARNING_AUTH_FAILURES, client_ip)
     token = LEARNING_SYNC.create_session_token()
     state = LEARNING_SYNC.load_state()
     json_response(
@@ -873,15 +876,15 @@ def handle_notebooklm_link_update(handler):
         json_response(handler, 400, {"ok": False, "error": "invalid_payload"})
         return
 
-    client_ip = notebooklm_edit_client_ip(handler)
-    if notebooklm_auth_is_limited(client_ip):
+    client_ip = request_client_ip(handler)
+    if auth_is_limited(NOTEBOOKLM_AUTH_FAILURES, client_ip):
         json_response(handler, 429, {"ok": False, "error": "rate_limited"})
         return
     if not notebooklm_password_matches(payload.get("password")):
-        record_notebooklm_auth_failure(client_ip)
+        record_auth_failure(NOTEBOOKLM_AUTH_FAILURES, client_ip)
         json_response(handler, 401, {"ok": False, "error": "authentication_failed"})
         return
-    clear_notebooklm_auth_failures(client_ip)
+    clear_auth_failures(NOTEBOOKLM_AUTH_FAILURES, client_ip)
 
     chapter = payload.get("chapter")
     raw_url = payload.get("url")

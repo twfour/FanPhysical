@@ -207,6 +207,7 @@ function setup() {
     canvasVisibilityListenerReady = true;
   }
   noLoop();
+  initializeLearningProgressOverview();
   problemCatalogReadyPromise = loadProblemData();
   problemCatalogReadyPromise.then(function () {
     renderFavoriteHome();
@@ -286,6 +287,7 @@ function applySceneView(sceneName) {
   document.getElementById("homePanel").style.display = sceneName === "home" ? "block" : "none";
   if (sceneName === "home") {
     renderFavoriteHome();
+    renderLearningProgressOverview();
   }
   var summerExamPanel = document.getElementById("summerExamPanel");
   if (summerExamPanel) {

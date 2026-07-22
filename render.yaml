@@ -17,3 +17,5 @@ services:
         sync: false
       - key: NOTEBOOKLM_EDIT_PASSWORD
         sync: false
+      - key: LEARNING_SYNC_PASSWORD
+        sync: false

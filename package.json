@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "check": "npm run check:js && npm run check:data && npm run check:server",
-    "check:js": "node --check assets/app.js && node --check assets/learning-sync.js && node --check assets/learning-blocks.js && node --check assets/problem-content.js && node --check assets/problem-interactions.js && node --check assets/json-animation-runtime.js && node --check assets/physics-audio.js && node --check assets/json-animation-scenes.js && node --check assets/circular-daily-scenes.js && node --check assets/scenes/*.js",
-    "check:data": "python3 -B scripts/validate_problems.py",
+    "check:browser": "node scripts/test_browser_regression.mjs",
+    "check:full": "npm run check && npm run check:browser",
+    "check:js": "node --check assets/app.js && node --check assets/learning-sync.js && node --check assets/learning-progress.js && node --check assets/learning-blocks.js && node --check assets/problem-content.js && node --check assets/problem-interactions.js && node --check assets/json-animation-runtime.js && node --check assets/physics-audio.js && node --check assets/json-animation-scenes.js && node --check assets/circular-daily-scenes.js && node --check assets/scenes/*.js",
+    "check:data": "python3 -B scripts/validate_problems.py && python3 -B scripts/build_learning_progress.py --check",
     "check:server": "python3 -B scripts/test_learning_sync.py"
   },
   "devDependencies": {

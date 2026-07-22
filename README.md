@@ -23,6 +23,28 @@ http://127.0.0.1:8001/
 
 根路径会显示 `classical-mechanics-demo.html`。
 
+## 自动验证
+
+快速检查 JavaScript、题目 JSON 和学习同步服务：
+
+```bash
+npm run check
+```
+
+浏览器回归会自动启动独立临时服务器，验证独立同步密码、登录恢复、先作答再揭示、三点评分保存、动画验证、首页学习进度，以及刷新和服务器恢复。测试使用临时密码和临时学习记录文件，不会影响本地 `8001` 服务或正式数据：
+
+```bash
+npm run check:browser
+```
+
+提交前完整运行两组检查：
+
+```bash
+npm run check:full
+```
+
+GitHub Actions 会在推送和 Pull Request 时自动执行完整回归。
+
 ## NotebookLM 独立课例地址
 
 服务器会为题库中的每个课例生成服务端独立讲义页面，便于直接作为 NotebookLM 的网站来源。题目正文和原始 LaTeX 公式都直接包含在 HTML 中，浏览器再通过 MathJax 增强公式排版；即使 MathJax 未加载，NotebookLM 仍可抓取完整公式文本。总目录左侧提供一级章节目录，单课页面左侧提供当前章节的题目目录。
@@ -50,10 +72,11 @@ http://127.0.0.1:8001/notebooklm/chapter/<章节名>
 NotebookLM 编辑环境变量：
 
 - `NOTEBOOKLM_EDIT_PASSWORD`：章节笔记网址的管理密码，至少 12 个字符。
+- `LEARNING_SYNC_PASSWORD`：学习记录跨设备同步密码，至少 12 个字符；应与 NotebookLM 管理密码不同。
 - `NOTEBOOKLM_LINKS_PATH`：服务器覆盖值文件，本地默认为 `work/notebooklm-links.json`。
 - `LEARNING_STATE_PATH`：带身份验证的学习记录文件，默认与 NotebookLM 覆盖值保存在同一目录。
 
-动态模型页的“初学者探索”和“现实同构案例”会先保存到当前浏览器。使用同一个管理密码启用“学习记录”同步后，服务器签发 `HttpOnly` 会话 Cookie，并按记录时间戳合并不同设备上的作答与三点评分；浏览器不会保存管理密码。
+动态模型页的“初学者探索”和“现实同构案例”会先保存到当前浏览器。使用独立的学习同步密码启用“学习记录”同步后，服务器签发 `HttpOnly` 会话 Cookie，并按记录时间戳合并不同设备上的作答与三点评分；浏览器不会保存密码。首页会基于这些记录显示章节完成度、探索与迁移进度、自评得分和待巩固知识点。
 
 例如：
 
@@ -107,7 +130,9 @@ deploy/aliyun/deploy.sh
 - `assets/json-animation-scenes.js`：通用 JSON 动画与图表绘制。
 - `assets/circular-daily-scenes.js`：圆周运动日常题的动画与图表绘制。
 - `assets/learning-sync.js`：学习记录的浏览器存储、服务器登录与跨设备合并。
+- `assets/learning-progress.js`：首页学习进度统计、章节汇总与待巩固知识点。
 - `assets/learning-blocks.js`：初学者探索、动画验证和现实同构案例组件。
+- `data/learning-progress.json`：首页使用的紧凑学习元数据，由 `scripts/build_learning_progress.py` 生成并在测试中校验。
 - `assets/styles.css`：站点通用样式；`assets/learning.css`：学习组件样式。
 - `server.py`：HTTP 路由、NotebookLM 页面与 AI 接口；`learning_sync.py`：学习记录会话、校验、合并与持久化。
 
