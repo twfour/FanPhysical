@@ -50,6 +50,10 @@ function renderProblemDataNotes(problem) {
     if (practiceBlock) {
       grid.appendChild(practiceBlock);
     }
+    var examConnectionsBlock = createProblemExamConnectionsBlock(problem);
+    if (examConnectionsBlock) {
+      grid.appendChild(examConnectionsBlock);
+    }
     var reviewBlock = createLearningCycleReviewBlock(problem);
     if (reviewBlock) {
       grid.appendChild(reviewBlock);
@@ -376,6 +380,111 @@ function createProblemPracticeBlock(problem) {
     block.appendChild(thinkingDetails);
   }
   return block;
+}
+
+function createProblemExamConnectionsBlock(problem) {
+  var items = problem && Array.isArray(problem.examConnections) ? problem.examConnections : [];
+  if (!items.length) {
+    return null;
+  }
+
+  var block = createProblemNoteBlock(
+    "真题拓展",
+    "高考迁移与竞赛挑战",
+    "先判断模型是否相同，再比较题目增加了哪些条件。竞赛题仅在考点确实衔接时提供。"
+  );
+  block.classList.add("exam-connections-block");
+  var groups = [
+    {
+      type: "gaokao",
+      title: "高考迁移",
+      description: "同一考点在真实高考试卷中的设问方式"
+    },
+    {
+      type: "competition",
+      title: "竞赛挑战",
+      description: "在当前模型上继续增加约束或推理层次"
+    }
+  ];
+
+  groups.forEach(function (group) {
+    var groupItems = items.filter(function (item) {
+      return item && item.type === group.type;
+    });
+    if (!groupItems.length) {
+      return;
+    }
+    var section = document.createElement("section");
+    section.className = "exam-connection-group is-" + group.type;
+    var heading = document.createElement("div");
+    heading.className = "exam-connection-heading";
+    var headingTitle = document.createElement("h3");
+    headingTitle.innerText = group.title;
+    var headingText = document.createElement("p");
+    headingText.innerText = group.description;
+    heading.appendChild(headingTitle);
+    heading.appendChild(headingText);
+    section.appendChild(heading);
+
+    var grid = document.createElement("div");
+    grid.className = "exam-connection-grid";
+    groupItems.forEach(function (item) {
+      grid.appendChild(createProblemExamConnectionCard(item));
+    });
+    section.appendChild(grid);
+    block.appendChild(section);
+  });
+  return block;
+}
+
+function createProblemExamConnectionCard(item) {
+  var card = document.createElement("a");
+  card.className = "exam-connection-card is-" + item.type;
+  card.href = item.url;
+  card.target = "_blank";
+  card.rel = "noopener noreferrer";
+
+  var meta = document.createElement("div");
+  meta.className = "exam-connection-meta";
+  var sourceType = document.createElement("span");
+  sourceType.className = "exam-connection-kind";
+  sourceType.innerText = item.type === "competition"
+    ? "竞赛真题 · " + item.tier
+    : "高考真题";
+  var matchLevel = document.createElement("span");
+  matchLevel.className = "exam-connection-level";
+  matchLevel.innerText = item.matchLevel;
+  meta.appendChild(sourceType);
+  meta.appendChild(matchLevel);
+  card.appendChild(meta);
+
+  var title = document.createElement("h4");
+  title.className = "exam-connection-title";
+  title.innerText = item.title;
+  card.appendChild(title);
+
+  var source = document.createElement("p");
+  source.className = "exam-connection-source";
+  source.innerText = item.year + " · " + item.source + " · " + item.number;
+  card.appendChild(source);
+
+  var reason = document.createElement("div");
+  reason.className = "exam-connection-reason";
+  reason.innerHTML = markdownLiteToHtml("**为什么匹配：** " + item.matchReason);
+  card.appendChild(reason);
+
+  if (Array.isArray(item.prerequisites) && item.prerequisites.length) {
+    var prerequisites = document.createElement("p");
+    prerequisites.className = "exam-connection-prerequisites";
+    prerequisites.innerText = "先修知识：" + item.prerequisites.join("、");
+    card.appendChild(prerequisites);
+  }
+
+  var action = document.createElement("span");
+  action.className = "exam-connection-action";
+  action.innerText = "查看可核验题源";
+  card.appendChild(action);
+  return card;
 }
 
 function appendMarkdownChildren(parent, content) {

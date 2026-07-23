@@ -94,5 +94,33 @@
     "question": "航天器从半径 \\(r\\) 的圆轨道经霍曼转移进入半径 \\(4r\\) 的圆轨道。分别求近地点和远地点点火前后的速度表达式，并比较两次速度增量 \\(\\Delta v_1、\\Delta v_2\\) 的大小。",
     "answer": "令 \\(v_0=\\sqrt{GM/r}\\)。转移椭圆半长轴 \\(a=5r/2\\)。近地点转移速度 \\(v_p=v_0\\sqrt{8/5}\\)，故 \\(\\Delta v_1=v_0(\\sqrt{8/5}-1)\\)。远地点转移速度 \\(v_a=v_0\\sqrt{1/10}\\)，外圆速度 \\(v_3=v_0/2\\)，故 \\(\\Delta v_2=v_0(1/2-1/\\sqrt{10})\\)。数值上 \\(\\Delta v_1\\gt\\Delta v_2\\)。",
     "thinking": "**解题思路**\n\n圆轨道用 \\(v=\\sqrt{GM/r}\\)，椭圆切点用活力公式 \\(v^2=GM(2/r-1/a)\\)。两次点火都比较同一点的前后速度。"
-  }
+  },
+  "examConnections": [
+    {
+      "type": "gaokao",
+      "title": "阻力作用下圆轨道卫星的轨道衰减",
+      "source": "2013年全国新课标Ⅱ卷",
+      "year": 2013,
+      "number": "物理部分第7题",
+      "matchLevel": "同一考点",
+      "matchReason": "真题从能量与圆轨道速度分析轨道半径变化，原题进一步比较圆轨道和转移椭圆在切点处的速度、加速度及周期。",
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L139"
+    },
+    {
+      "type": "competition",
+      "title": "霍曼转移轨道与空间交会",
+      "source": "第38届全国中学生物理竞赛决赛理论试题",
+      "year": 2021,
+      "number": "第2题",
+      "matchLevel": "高度同构",
+      "matchReason": "竞赛题把两次点火、转移椭圆、轨道周期和交会相位统一进同一模型，是原题变轨比较的完整深化。",
+      "tier": "竞赛进阶",
+      "prerequisites": [
+        "椭圆轨道总能量",
+        "角动量守恒",
+        "极坐标下的椭圆方程"
+      ],
+      "url": "https://cpho.pku.edu.cn/assets/file/2021cpho/3821jsllst.pdf"
+    }
+  ]
 }

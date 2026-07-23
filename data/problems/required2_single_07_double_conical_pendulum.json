@@ -76,5 +76,17 @@
     "question": "上、下两球质量分别为 \\(m\\) 和 \\(2m\\)，两根绳长均为 \\(l\\)，以同一角速度 \\(\\omega\\) 绕竖直轴转动。建立决定两绳倾角 \\(\\alpha、\\beta\\) 的方程组，并说明改变下球质量后哪一段绳张力变化更直接。",
     "answer": "下球：\\(T_2\\cos\\beta=2mg\\)、\\(T_2\\sin\\beta=2m\\omega^2r_2\\)。上球：\\(T_1\\cos\\alpha-T_2\\cos\\beta=mg\\)、\\(T_1\\sin\\alpha-T_2\\sin\\beta=m\\omega^2r_1\\)，其中 \\(r_1=l\\sin\\alpha\\)、\\(r_2=r_1+l\\sin\\beta\\)。下球质量首先直接成比例改变 \\(T_2\\)，并通过上球方程继续影响 \\(T_1\\)。",
     "thinking": "**解题思路**\n\n先隔离末端球求下段张力，再隔离上球或把两球视为整体。不要假定两段绳张力相等，也不要把两球的转动半径写成同一个量。"
-  }
+  },
+  "examConnections": [
+    {
+      "type": "gaokao",
+      "title": "双中子星绕共同中心运动",
+      "source": "2018年全国新课标Ⅰ卷",
+      "year": 2018,
+      "number": "物理部分第7题",
+      "matchLevel": "同一考点",
+      "matchReason": "两题都涉及两个物体绕共同轴以相同角速度运动，需要联立各自的半径、向心力与整体几何关系。",
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L425"
+    }
+  ]
 }

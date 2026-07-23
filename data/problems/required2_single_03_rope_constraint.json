@@ -85,5 +85,17 @@
     "question": "竖直杆与定滑轮水平距离为 \\(d\\)。杆上小球以恒定速度 \\(u\\) 向下运动，在小球距滑轮水平面 \\(y=d\\) 的瞬间，求绳另一端重物的速度和加速度；设此时小球仍保持匀速。",
     "answer": "由 \\(s=\\sqrt{d^2+y^2}\\)，\\(v=\\dot s=yu/s\\)。在 \\(y=d\\) 时 \\(v=u/\\sqrt2\\)。再求导得 \\(a=u^2d^2/s^3\\)，所以 \\(a=u^2/(2\\sqrt2d)\\)，方向为绳端被拉动的方向。",
     "thinking": "**解题思路**\n\n速度约束来自绳长的一次求导；加速度约束必须再求一次导数，不能把瞬时速度比直接当成恒定比例。"
-  }
+  },
+  "examConnections": [
+    {
+      "type": "gaokao",
+      "title": "轻绳拉动物块沿斜面匀速上行",
+      "source": "2019年全国新课标Ⅱ卷",
+      "year": 2019,
+      "number": "物理部分第3题",
+      "matchLevel": "综合迁移",
+      "matchReason": "真题先考轻绳方向、张力与斜面受力；原题在此基础上增加绳长约束、速度投影和系统能量转移。",
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L502"
+    }
+  ]
 }

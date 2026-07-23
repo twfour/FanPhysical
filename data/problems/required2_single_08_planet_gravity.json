@@ -75,5 +75,17 @@
     "question": "一颗均匀星球的平均密度为地球的 \\(2\\) 倍，表面重力加速度与地球相同。求其半径、质量和第一宇宙速度分别为地球对应量的多少倍。",
     "answer": "由 \\(g=(4\\pi G/3)\\rho R\\)，得 \\(R'/R_\\oplus=1/2\\)。质量比为 \\(M'/M_\\oplus=(\\rho'/\\rho_\\oplus)(R'/R_\\oplus)^3=1/4\\)。第一宇宙速度 \\(v_1=\\sqrt{gR}\\)，故 \\(v_1'/v_{1\\oplus}=1/\\sqrt2\\)。",
     "thinking": "**解题思路**\n\n先把 \\(M=4\\pi\\rho R^3/3\\) 代入表面重力公式消去质量，再分别恢复质量和第一宇宙速度。"
-  }
+  },
+  "examConnections": [
+    {
+      "type": "gaokao",
+      "title": "嫦娥三号月面悬停与自由下落",
+      "source": "2015年全国新课标Ⅰ卷",
+      "year": 2015,
+      "number": "物理部分第8题",
+      "matchLevel": "高度同构",
+      "matchReason": "真题直接利用天体质量、半径的比例求月面重力加速度，再把结果用于悬停受力、自由落体和近月轨道判断。",
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L238"
+    }
+  ]
 }

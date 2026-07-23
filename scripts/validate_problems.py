@@ -17,6 +17,19 @@ REQUIRED_EXPLORATION_STAGE_FIELDS = ["title", "prompt", "thought", "check", "cor
 REQUIRED_REAL_LIFE_FIELDS = ["title", "scene", "mapping", "sharedModel", "question", "answer"]
 REQUIRED_REAL_LIFE_VIDEO_FIELDS = ["platform", "title", "url", "watchFor", "matchReason"]
 REQUIRED_REAL_LIFE_RESOURCE_FIELDS = ["platform", "title", "url", "useFor", "matchReason"]
+REQUIRED_EXAM_CONNECTION_FIELDS = [
+    "type",
+    "title",
+    "source",
+    "year",
+    "number",
+    "matchLevel",
+    "matchReason",
+    "url",
+]
+SUPPORTED_EXAM_CONNECTION_TYPES = {"gaokao", "competition"}
+SUPPORTED_EXAM_MATCH_LEVELS = {"高度同构", "同一考点", "综合迁移"}
+SUPPORTED_COMPETITION_TIERS = {"竞赛入门", "竞赛进阶", "国际挑战"}
 SUPPORTED_ANIMATION_TYPES = {
     "none",
     "fanphysics_model",
@@ -238,6 +251,61 @@ def validate_learning_cycle(path, problem):
     return errors
 
 
+def validate_exam_connections(path, problem):
+    connections = problem.get("examConnections")
+    if connections is None:
+        if problem.get("chapter") == "必修二结业测试":
+            return [f"{path.name}: 必修二结业测试 problem needs examConnections"]
+        return []
+    errors = []
+    if not isinstance(connections, list) or not connections:
+        return [f"{path.name}: examConnections must be a non-empty list"]
+    if len(connections) > 4:
+        errors.append(f"{path.name}: examConnections may contain at most four items")
+    seen = set()
+    connection_types = set()
+    for index, item in enumerate(connections, start=1):
+        if not isinstance(item, dict):
+            errors.append(f"{path.name}: examConnections item {index} must be an object")
+            continue
+        for field in REQUIRED_EXAM_CONNECTION_FIELDS:
+            value = item.get(field)
+            if field == "year":
+                if isinstance(value, bool) or not isinstance(value, int) or not 1950 <= value <= 2100:
+                    errors.append(f"{path.name}: examConnections item {index} needs a valid integer year")
+            elif not is_non_empty_string(value):
+                errors.append(f"{path.name}: examConnections item {index} needs {field}")
+        connection_type = item.get("type")
+        if connection_type not in SUPPORTED_EXAM_CONNECTION_TYPES:
+            errors.append(f"{path.name}: examConnections item {index} has unsupported type")
+        else:
+            connection_types.add(connection_type)
+        if item.get("matchLevel") not in SUPPORTED_EXAM_MATCH_LEVELS:
+            errors.append(f"{path.name}: examConnections item {index} has unsupported matchLevel")
+        if not re.match(r"^https://", str(item.get("url", ""))):
+            errors.append(f"{path.name}: examConnections item {index} needs an HTTPS URL")
+        identity = (connection_type, item.get("source"), item.get("number"))
+        if identity in seen:
+            errors.append(f"{path.name}: examConnections item {index} duplicates an earlier source")
+        seen.add(identity)
+        prerequisites = item.get("prerequisites")
+        if prerequisites is not None and (
+            not isinstance(prerequisites, list)
+            or not prerequisites
+            or not all(is_non_empty_string(value) for value in prerequisites)
+        ):
+            errors.append(f"{path.name}: examConnections item {index} prerequisites must be a non-empty string list")
+        tier = item.get("tier")
+        if connection_type == "competition":
+            if tier not in SUPPORTED_COMPETITION_TIERS:
+                errors.append(f"{path.name}: examConnections item {index} needs a supported competition tier")
+        elif tier is not None:
+            errors.append(f"{path.name}: examConnections item {index} gaokao item must not define tier")
+    if problem.get("chapter") == "必修二结业测试" and "gaokao" not in connection_types:
+        errors.append(f"{path.name}: 必修二结业测试 problem needs a gaokao exam connection")
+    return errors
+
+
 def validate_problem(path):
     problem = load_json(path)
     errors = []
@@ -274,6 +342,7 @@ def validate_problem(path):
     errors.extend(validate_student_exploration(path, problem))
     errors.extend(validate_real_life_case(path, problem))
     errors.extend(validate_learning_cycle(path, problem))
+    errors.extend(validate_exam_connections(path, problem))
     return problem, animation_type, errors
 
 

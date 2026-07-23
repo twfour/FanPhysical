@@ -75,5 +75,17 @@
     "question": "摩天轮半径为 \\(R\\)，轿厢地板水平，物体与地板间静摩擦因数为 \\(\\mu\\)。推导物体在任意位置都不滑动时角速度 \\(\\omega\\) 应满足的条件，并考虑支持力随位置变化对最大静摩擦力的影响。",
     "answer": "设半径与竖直向下方向夹角为 \\(\\phi\\)。有 \\(f=m\\omega^2R|\\sin\\phi|\\)，\\(N=mg-m\\omega^2R\\cos\\phi\\)。需对所有 \\(\\phi\\) 满足 \\(\\omega^2R|\\sin\\phi|\\le\\mu(g-\\omega^2R\\cos\\phi)\\)。其最不利条件等价于 \\(\\omega^2R\\sqrt{1+\\mu^2}\\le\\mu g\\)，即 \\(\\omega^2R\\le\\mu g/\\sqrt{1+\\mu^2}\\)。",
     "thinking": "**解题思路**\n\n不能只用 \\(f\\le\\mu mg\\)，因为支持力也随竖直向心分量变化。先写出 \\(f(\\phi)\\) 与 \\(N(\\phi)\\)，再对整周寻找最严格条件。"
-  }
+  },
+  "examConnections": [
+    {
+      "type": "gaokao",
+      "title": "摩天轮座舱的速度、合力与机械能",
+      "source": "2019年江苏卷",
+      "year": 2019,
+      "number": "第6题",
+      "matchLevel": "高度同构",
+      "matchReason": "情境同为始终保持水平的摩天轮座舱，核心都是先确定向心加速度方向，再由受力分解判断摩天轮作用力及其分量。",
+      "url": "https://www.shijuan123.com/zhenti/119.html"
+    }
+  ]
 }

@@ -82,5 +82,17 @@
     "question": "一颗行星绕恒星做近圆运动，周期为 \\(T\\)。观测到恒星角直径为 \\(\\delta\\)，并由雷达测得行星轨道半径为 \\(r\\)。先不用 \\(r\\) 直接写出恒星平均密度关于 \\(T、\\delta\\) 的表达式，再解释为什么轨道半径会消去。",
     "answer": "小角度下 \\(R/r\\approx\\delta/2\\)。由 \\(M=4\\pi^2r^3/(GT^2)\\)，有 \\(\\rho=3M/(4\\pi R^3)=24\\pi/(GT^2\\delta^3)\\)。质量和体积都含 \\(r^3\\)，取比后轨道尺度消去。",
     "thinking": "**解题思路**\n\n先保留无量纲比值 \\(r/R\\)，不要过早代入绝对距离。密度本质上由周期和视角共同决定。"
-  }
+  },
+  "examConnections": [
+    {
+      "type": "gaokao",
+      "title": "毫秒脉冲星稳定自转的最低密度",
+      "source": "2018年全国新课标Ⅱ卷",
+      "year": 2018,
+      "number": "物理部分第3题",
+      "matchLevel": "高度同构",
+      "matchReason": "两题都把天体质量写成密度与体积，再用万有引力和周期条件消去质量、半径，得到只含周期与引力常量的密度关系。",
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L447"
+    }
+  ]
 }

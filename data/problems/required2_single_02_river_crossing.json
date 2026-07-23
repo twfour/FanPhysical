@@ -83,5 +83,17 @@
     "question": "河宽为 \\(120\\,\\mathrm m\\)，水速为 \\(3\\,\\mathrm{m/s}\\)，船在静水中的速度为 \\(5\\,\\mathrm{m/s}\\)。船要在 \\(30\\,\\mathrm s\\) 内到达正对岸上游 \\(30\\,\\mathrm m\\) 处，判断是否可行；若可行，求船头相对垂直河岸方向的偏角。",
     "answer": "目标合速度分量为 \\(v_\\perp=120/30=4\\,\\mathrm{m/s}\\)、\\(v_\\parallel=-30/30=-1\\,\\mathrm{m/s}\\)。船对水速度沿岸分量应为 \\(-1-3=-4\\,\\mathrm{m/s}\\)，与垂岸分量组成 \\(\\sqrt{4^2+4^2}=4\\sqrt2\\,\\mathrm{m/s}\\gt5\\,\\mathrm{m/s}\\)，因此不可行。",
     "thinking": "**解题思路**\n\n先由目标位移和规定时间反求合速度，再减去水流速度得到所需船速；最后与船在静水中的最大速度比较。"
-  }
+  },
+  "examConnections": [
+    {
+      "type": "gaokao",
+      "title": "不同水平初速度的乒乓球越网",
+      "source": "2017年全国新课标Ⅰ卷",
+      "year": 2017,
+      "number": "物理部分第2题",
+      "matchLevel": "同一考点",
+      "matchReason": "两题都要先把二维运动拆成彼此独立的分运动，再由某一方向的时间约束判断另一方向的位移。",
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L348"
+    }
+  ]
 }

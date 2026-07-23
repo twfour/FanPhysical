@@ -92,5 +92,17 @@
     "question": "质量为 \\(m\\) 的滑雪者以水平速度 \\(v_0\\) 从斜面顶端飞出，斜面倾角为 \\(\\theta\\)。忽略空气阻力，推导落地前重力平均功率与落地瞬时功率之比，并判断该比值是否依赖 \\(v_0\\)。",
     "answer": "落地时间 \\(t=2v_0\\tan\\theta/g\\)，下降高度 \\(h=gt^2/2\\)。于是 \\(\\bar P=mgh/t=mg^2t/2\\)，而 \\(P_\\text{末}=mg(gt)=mg^2t\\)。故 \\(\\bar P:P_\\text{末}=1:2\\)，与 \\(v_0\\) 和 \\(\\theta\\) 均无关。",
     "thinking": "**解题思路**\n\n不必先展开落点坐标。竖直速度从 0 线性增加到 \\(gt\\)，所以重力功率也线性增加，时间平均值必为末值的一半。"
-  }
+  },
+  "examConnections": [
+    {
+      "type": "gaokao",
+      "title": "水平抛出物块的动能、势能与落地角",
+      "source": "2014年全国新课标Ⅱ卷",
+      "year": 2014,
+      "number": "物理部分第2题",
+      "matchLevel": "同一考点",
+      "matchReason": "真题与原题都从水平抛出出发，把平抛分运动、机械能和末速度方向连接起来；原题再追问重力的平均功率与瞬时功率。",
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L183"
+    }
+  ]
 }

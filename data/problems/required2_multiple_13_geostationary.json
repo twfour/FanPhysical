@@ -92,5 +92,17 @@
     "question": "同步卫星对地半张角为 \\(\\theta\\)，一颗轨道半径为 \\(kR\\) 的低轨卫星与其共面、同向运动。建立低轨卫星一个周期内被地球遮挡的时间比例，并求两卫星相对角速度决定的连续通信窗口周期。",
     "answer": "同步卫星切线决定遮挡边界；在低轨圆上可进一步由几何求临界圆心角 \\(\\beta\\)。单个低轨周期的遮挡比例为遮挡圆心角除以 \\(2\\pi\\)。低轨角速度 \\(\\omega_L=\\sqrt{GM/(kR)^3}\\)，同步角速度 \\(\\omega_S=2\\pi/T_0\\)，相对构型重复周期为 \\(T_\\text{rel}=2\\pi/|\\omega_L-\\omega_S|\\)。",
     "thinking": "**解题思路**\n\n原题把同步卫星近似固定在地球坐标系中；进阶题还要处理两卫星相对转动。先解几何边界，再用相对角速度组织时间窗口。"
-  }
+  },
+  "examConnections": [
+    {
+      "type": "gaokao",
+      "title": "同步卫星高度、行星密度与自转周期",
+      "source": "2010年全国卷Ⅱ",
+      "year": 2010,
+      "number": "物理部分第8题",
+      "matchLevel": "高度同构",
+      "matchReason": "两题都把同步卫星的轨道半径、中心天体密度和自转周期联立，核心消元关系完全一致。",
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L29"
+    }
+  ]
 }

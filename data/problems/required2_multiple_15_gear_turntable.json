@@ -93,5 +93,33 @@
     "question": "把原题中的动摩擦改为最大静摩擦因数 \\(\\mu_s\\)，细线初始松弛量可忽略但只能受拉。随主动齿轮角速度从 0 增大，画出传感器示数 \\(F\\) 关于 \\(\\omega^2\\) 的分段关系，并给出开始有示数的临界角速度。",
     "answer": "低速时静摩擦独自提供向心力，\\(F=0\\)。当 \\(m\\omega_B^2L=\\mu_smg\\) 时达到临界，故 \\(\\omega_c=(n_2/n_1)\\sqrt{\\mu_sg/L}\\)。此后 \\(F=mL(n_1/n_2)^2\\omega^2-\\mu_smg\\)，图像先沿横轴，再接一条斜直线。",
     "thinking": "**解题思路**\n\n先判断约束何时真正受力。细线不能推物体，因此数学直线的负值部分在物理上应被 \\(F=0\\) 的区段替代。"
-  }
+  },
+  "examConnections": [
+    {
+      "type": "gaokao",
+      "title": "倾斜弯道的向心力与摩擦临界",
+      "source": "2013年全国新课标Ⅱ卷",
+      "year": 2013,
+      "number": "物理部分第8题",
+      "matchLevel": "同一考点",
+      "matchReason": "两题都要判断静摩擦力何时参与提供向心力以及临界条件如何变化；原题再叠加齿轮传动比和拉力图像。",
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L150"
+    },
+    {
+      "type": "competition",
+      "title": "汽车驱动、滚动约束与变速器",
+      "source": "第38届全国中学生物理竞赛复赛理论试题",
+      "year": 2021,
+      "number": "第7题",
+      "matchLevel": "综合迁移",
+      "matchReason": "竞赛题把齿轮变速比、轮胎无滑动、驱动力矩和摩擦临界放在同一汽车模型中，完整深化原题的传动与向心受力思想。",
+      "tier": "竞赛进阶",
+      "prerequisites": [
+        "刚体转动",
+        "转动惯量",
+        "纯滚动约束"
+      ],
+      "url": "https://cpho.pku.edu.cn/assets/file/2021cpho/3821fsst.pdf"
+    }
+  ]
 }

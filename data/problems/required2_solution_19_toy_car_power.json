@@ -72,5 +72,33 @@
     "question": "质量为 \\(m\\) 的汽车在倾角为 \\(\\theta\\) 的长斜坡上向上启动，阻力恒为 \\(f\\)。前一阶段以恒定牵引力加速，在速度 \\(v_1\\) 时达到额定功率 \\(P\\)，此后保持恒功率，最终匀速。求前段牵引力、最终速度，并建立恒功率阶段速度随时间变化的隐式关系。",
     "answer": "达到额定功率瞬间牵引力为 \\(F_0=P/v_1\\)。最终匀速满足 \\(P/v_m=f+mg\\sin\\theta\\)，故 \\(v_m=P/(f+mg\\sin\\theta)\\)。恒功率阶段有 \\(m\\dot v=P/v-(f+mg\\sin\\theta)\\)。积分可得 \\(t-t_1=m\\int_{v_1}^{v}\\dfrac{u\\,du}{P-(f+mg\\sin\\theta)u}\\)，它给出 \\(v(t)\\) 的隐式关系。",
     "thinking": "**解题思路**\n\n把坡向恒定阻力合并为 \\(f+mg\\sin\\theta\\)。恒功率阶段牵引力随速度变化，不能继续使用匀加速公式。"
-  }
+  },
+  "examConnections": [
+    {
+      "type": "gaokao",
+      "title": "地铁列车分段运动与牵引功",
+      "source": "2015年四川卷",
+      "year": 2015,
+      "number": "第9题",
+      "matchLevel": "高度同构",
+      "matchReason": "真题把匀加速、匀速和匀减速三段连接起来，并同时使用牵引力做功与匀速阶段功率；与原题的恒力到额定功率启动结构直接对应。",
+      "url": "https://gaokao.eol.cn/shiti/zhenti/201506/t20150608_1269736.shtml"
+    },
+    {
+      "type": "competition",
+      "title": "直流电机驱动的电动汽车加速",
+      "source": "第38届全国中学生物理竞赛复赛理论试题",
+      "year": 2021,
+      "number": "第8题",
+      "matchLevel": "高度同构",
+      "matchReason": "竞赛题从电机力矩随转速变化出发，推导车速随时间的关系、加速时间、能耗和效率，是原题恒力与恒功率启动模型的机制化版本。",
+      "tier": "竞赛进阶",
+      "prerequisites": [
+        "刚体转动",
+        "直流电机反电动势",
+        "微分方程"
+      ],
+      "url": "https://cpho.pku.edu.cn/assets/file/2021cpho/3821fsst.pdf"
+    }
+  ]
 }

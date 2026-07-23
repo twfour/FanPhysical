@@ -86,5 +86,17 @@
     "question": "同一斜抛过程分别以地面和最高点为重力势能零面。写出抛出点、最高点和落地点的机械能表达式，并证明任意两种参考面下动能计算结果相同。",
     "answer": "若以地面为零面，机械能为 \\(E_1=mv_0^2/2+mgh\\)。若以最高点为零面，机械能为 \\(E_2=mv_0^2/2-mg(H-h)\\)。势能零点改变只使所有势能和机械能同时平移同一常量，\\(E_k=E-E_p\\) 不变。",
     "thinking": "**解题思路**\n\n把“机械能的数值依赖参考面”和“机械能守恒不依赖参考面”分开。比较同一位置的 \\(E-E_p\\)，即可证明动能不受零点选择影响。"
-  }
+  },
+  "examConnections": [
+    {
+      "type": "gaokao",
+      "title": "烟花弹上升、爆炸与最大高度",
+      "source": "2018年全国新课标Ⅰ卷",
+      "year": 2018,
+      "number": "物理选考第11题",
+      "matchLevel": "同一考点",
+      "matchReason": "两题都要求分阶段追踪重力势能、动能和最高点状态，并正确处理势能零点与能量变化的区别。",
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Subjective_Questions/2010-2022_Physics_Open-ended_Questions.json#L295"
+    }
+  ]
 }

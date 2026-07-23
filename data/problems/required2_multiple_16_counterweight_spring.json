@@ -93,5 +93,33 @@
     "question": "将原题初始右侧绳与水平方向夹角改为 \\(\\alpha\\)，仍有 \\(OQ=d\\)，且甲在初、末位置弹簧弹力等大。吊篮质量为 \\(\\lambda m\\)。推导甲从初位置到 Q 的上升高度、吊篮下降高度和 Q 点甲的速度，并指出哪些结果依赖弹簧劲度系数。",
     "answer": "初始甲低于 Q 的高度 \\(h=d\\tan\\alpha\\)，斜绳长为 \\(d/\\cos\\alpha\\)，故吊篮下降 \\(s=d(\\sec\\alpha-1)\\)。端点弹簧势能相等，Q 点吊篮瞬时速度为 0，所以 \\(mv_Q^2/2=\\lambda mgd(\\sec\\alpha-1)-mgd\\tan\\alpha\\)。即 \\(v_Q^2=2gd[\\lambda(\\sec\\alpha-1)-\\tan\\alpha]\\)。端点速度不依赖 \\(k\\)，但过程中的能量分配和加速度依赖 \\(k\\)。",
     "thinking": "**解题思路**\n\n把 53° 的特殊三角形换成一般三角函数。端点弹簧能相等会把 \\(k\\) 从速度公式中消去，但不能据此认为整个运动都与弹簧无关。"
-  }
+  },
+  "examConnections": [
+    {
+      "type": "gaokao",
+      "title": "蹦极绳张紧后的机械能转移",
+      "source": "2011年全国新课标卷",
+      "year": 2011,
+      "number": "物理部分第3题",
+      "matchLevel": "同一考点",
+      "matchReason": "两题都要选定包含弹性元件的系统，辨认重力势能、动能和弹性势能之间的转移，并区分单个物体与整体系统。",
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L73"
+    },
+    {
+      "type": "competition",
+      "title": "零长度弹簧与魔力线圈",
+      "source": "第50届国际物理奥林匹克理论试题",
+      "year": 2019,
+      "number": "第1题",
+      "matchLevel": "综合迁移",
+      "matchReason": "竞赛题从连续质量分布出发研究弹簧的静力学、动力学和能量；它把原题的离散配重与弹簧模型推广到连续系统。",
+      "tier": "国际挑战",
+      "prerequisites": [
+        "连续质量分布",
+        "变质量系统",
+        "微积分"
+      ],
+      "url": "https://cpho.pku.edu.cn/assets/file/2019Ipho/exam-theory-Q1-chinese.pdf"
+    }
+  ]
 }
