@@ -45,6 +45,10 @@ from notebooklm_service import (
     render_problem_page,
     save_notebooklm_link_override,
 )
+from model_system_service import (
+    render_model_system_detail,
+    render_model_system_index,
+)
 from step_ai_service import DEEPSEEK_MODEL, MAX_BODY_BYTES, call_deepseek
 
 
@@ -295,6 +299,27 @@ class Handler(SimpleHTTPRequestHandler):
             return
         if parsed.path == "/api/learning-state":
             handle_learning_state_get(self)
+            return
+        if parsed.path in {"/models", "/models/"}:
+            try:
+                catalog = load_problem_catalog()
+            except (OSError, json.JSONDecodeError):
+                html_response(self, 500, "<!doctype html><meta charset='utf-8'><h1>模型图谱暂不可用</h1>")
+                return
+            html_response(self, 200, render_model_system_index(catalog))
+            return
+        if parsed.path.startswith("/models/"):
+            model_id = unquote(parsed.path.removeprefix("/models/")).strip("/")
+            try:
+                catalog = load_problem_catalog()
+            except (OSError, json.JSONDecodeError):
+                html_response(self, 500, "<!doctype html><meta charset='utf-8'><h1>模型题族暂不可用</h1>")
+                return
+            page = render_model_system_detail(model_id, catalog)
+            if page is None:
+                html_response(self, 404, "<!doctype html><meta charset='utf-8'><h1>没有找到这个物理模型</h1><p><a href='/models/'>返回模型图谱</a></p>")
+                return
+            html_response(self, 200, page)
             return
         if parsed.path in {"/notebooklm", "/notebooklm/"}:
             try:

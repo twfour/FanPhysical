@@ -3,6 +3,19 @@
   "originalNumber": "B9",
   "chapter": "机械能守恒定律",
   "title": "B组第9题：偏心轻杆双球",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "连接体机械能",
+    "modelId": "constraint-system",
+    "modelName": "连接体与约束",
+    "familyId": "rigid-body-rotation",
+    "familyName": "刚性连接体转动",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": ["整体能量建模", "圆周运动临界判断"],
+    "prerequisites": ["角速度关联", "向心力"]
+  },
   "question": "（多选）轻杆长 \\(3L\\)，A、B 两端分别固定质量均为 \\(m\\) 的球。距 A 为 \\(L\\) 的 O 点装在光滑水平轴上，杆和球在竖直面内转动。若球 B 到最高点时对杆恰好无作用力，忽略空气阻力。下列说法正确的是（  ）。",
   "options": [
     "A. B 在最高点速度为 \\(\\sqrt{gL}\\)",

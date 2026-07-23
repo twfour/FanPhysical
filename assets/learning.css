@@ -929,6 +929,53 @@
   font-weight: 700;
 }
 
+.problem-taxonomy-block {
+  border-left: 4px solid #235b8f;
+}
+
+.problem-taxonomy-family,
+.problem-taxonomy-copy {
+  margin: 8px 0 0;
+  color: #596572;
+}
+
+.problem-taxonomy-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.problem-taxonomy-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 3px 9px;
+  border: 1px solid #cbd7e2;
+  border-radius: 999px;
+  background: #f2f6f9;
+  color: #315b7a;
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.problem-taxonomy-link {
+  display: inline-flex;
+  margin-top: 14px;
+  padding: 7px 11px;
+  border: 1px solid #235b8f;
+  border-radius: 6px;
+  color: #235b8f;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.problem-taxonomy-link:hover {
+  background: #235b8f;
+  color: #fff;
+}
+
 .real-life-answer {
   margin-top: 14px;
   border: 1px solid #cbd5e1;

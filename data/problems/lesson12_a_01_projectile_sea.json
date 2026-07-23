@@ -3,6 +3,19 @@
   "originalNumber": "A1",
   "chapter": "机械能守恒定律",
   "title": "A组第1题：抛体落海平面",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "机械能",
+    "modelId": "energy-conservation",
+    "modelName": "机械能守恒",
+    "familyId": "vertical-energy",
+    "familyName": "竖直运动中的能量比较",
+    "role": "基础变式",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": ["负势能处理", "始末状态比较"],
+    "prerequisites": ["重力势能参考面", "机械能守恒"]
+  },
   "question": "（多选）在地面上以速度 \\(v_0\\) 抛出质量为 \\(m\\) 的物体，物体落到比地面低 \\(h\\) 的海平面。以地面为零势能面，不计空气阻力。下列说法正确的是（  ）。",
   "options": [
     "A. 重力对物体做的功为 \\(-mgh\\)",

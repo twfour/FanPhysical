@@ -3,6 +3,19 @@
   "originalNumber": "单6",
   "chapter": "必修二结业测试",
   "title": "单选第6题：摩天轮轿厢摩擦力",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-force",
+    "familyName": "圆周运动受力分解",
+    "role": "综合题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": ["向心加速度定向", "二维受力分解"],
+    "prerequisites": ["匀速圆周运动", "牛顿第二定律"]
+  },
   "question": "某摩天轮在竖直面内绕 O 点做匀速圆周运动，半径为 \\(R\\)，角速度为 \\(\\omega\\)，转动过程中轿厢地板始终保持水平。质量为 \\(m\\) 的物体放在地板上，当物体转到 O 点左下方、半径与水平方向夹角为 \\(\\theta\\) 的位置时，物体受到的摩擦力大小为（　　）。",
   "options": [
     "A. \\(m\\omega^2R\\sin\\theta\\)",

@@ -3,6 +3,19 @@
   "originalNumber": "多14",
   "chapter": "必修二结业测试",
   "title": "多选第14题：垂直滑上传送带",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "传送带功能关系",
+    "modelId": "conveyor-energy",
+    "modelName": "传送带功能关系",
+    "familyId": "cross-conveyor",
+    "familyName": "垂直传送带与相对运动",
+    "role": "综合题",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": ["二维相对运动", "摩擦功与热量分配"],
+    "prerequisites": ["动能定理", "相对位移"]
+  },
   "question": "倾斜滑道高 \\(h=0.6\\,\\mathrm m\\)、水平底边长 \\(L=0.8\\,\\mathrm m\\)，与水平传送带平滑连接，传送带沿垂直于滑道的方向以 \\(v=1\\,\\mathrm{m/s}\\) 匀速运行。质量为 \\(2\\,\\mathrm{kg}\\) 的工件从滑道顶端由静止释放，工件与滑道及传送带间动摩擦因数均为 \\(0.5\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)，忽略连接处能量损失。下列说法正确的是（　　）。",
   "options": [
     "A. 工件滑上传送带时的速度大小为 \\(2\\,\\mathrm{m/s}\\)",

@@ -3,6 +3,19 @@
   "originalNumber": "课6",
   "chapter": "机械能守恒定律",
   "title": "例6：落球压缩弹簧",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "弹簧与机械能",
+    "modelId": "spring-energy",
+    "modelName": "弹簧与机械能",
+    "familyId": "spring-compression",
+    "familyName": "落体压缩弹簧",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": ["研究系统选择", "动能极值判断"],
+    "prerequisites": ["弹性势能", "机械能守恒"]
+  },
   "question": "（多选）轻弹簧支撑质量忽略的平台 \\(PQ\\)，弹簧下端固定在地面。质量为 \\(m\\) 的金属球从高处落下。从球碰到 \\(PQ\\) 到弹簧压缩最短，弹簧始终发生弹性形变。下列说法正确的是（  ）。",
   "options": [
     "A. 金属球、地球与弹簧构成的系统机械能守恒",

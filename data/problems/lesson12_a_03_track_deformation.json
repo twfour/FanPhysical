@@ -3,6 +3,19 @@
   "originalNumber": "A3",
   "chapter": "机械能守恒定律",
   "title": "A组第3题：光滑轨道变形",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "机械能与抛体",
+    "modelId": "track-transition",
+    "modelName": "轨道临界与抛体衔接",
+    "familyId": "track-projectile",
+    "familyName": "圆弧轨道与离轨抛体",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": ["轨道约束判断", "离轨后运动建模"],
+    "prerequisites": ["机械能守恒", "平抛运动"]
+  },
   "question": "（多选）物体以初速度 \\(v_0\\) 冲向光滑斜面 \\(AB\\)，并恰好能沿斜面升高 \\(h\\)。保持 \\(v_0\\) 不变，下列说法正确的是（  ）。",
   "options": [
     "A. 从 C 点竖直向下锯断并去掉 BC，物体冲过 C 点后仍可能达到高度 \\(h\\)",

@@ -3,6 +3,19 @@
   "originalNumber": "A6",
   "chapter": "机械能守恒定律",
   "title": "A组第6题：定滑轮竖杆小球",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "连接体机械能",
+    "modelId": "constraint-system",
+    "modelName": "连接体与约束",
+    "familyId": "rope-slider",
+    "familyName": "滑轮绳约束连接体",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": ["绳长约束求速度", "连接体能量建模"],
+    "prerequisites": ["速度投影", "机械能守恒"]
+  },
   "question": "（多选）竖直光滑细杆上穿着小球 \\(B\\)，B 通过不可伸长轻绳绕过光滑定滑轮与质量为 \\(m\\) 的物块 \\(A\\) 相连。初始将 A 向上托起，使滑轮左侧绳与竖直方向夹角为 \\(\\theta\\)，松手后 A 做竖直往复运动，B 最高到达 M。滑轮到细杆距离为 \\(d\\)，Q 与滑轮等高，且 \\(OM\\perp OP\\)，\\(\\sin\\theta=0.6\\)，滑轮视为质点。下列说法正确的是（  ）。",
   "options": [
     "A. B 经过 Q 点时，A 的加速度为零",

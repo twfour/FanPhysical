@@ -3,6 +3,19 @@
   "originalNumber": "课1",
   "chapter": "机械能守恒定律",
   "title": "例1：重力势能参考面",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "机械能",
+    "modelId": "energy-conservation",
+    "modelName": "机械能守恒",
+    "familyId": "potential-reference",
+    "familyName": "重力势能参考面",
+    "role": "母题",
+    "difficulty": 1,
+    "variantLevel": "L0",
+    "skills": ["参考面选择", "势能差计算"],
+    "prerequisites": ["功的正负", "重力势能"]
+  },
   "question": "如图，质量 \\(m=0.5\\,\\mathrm{kg}\\) 的小球从桌面上方 \\(h_1=1.2\\,\\mathrm m\\) 的 \\(A\\) 点落到地面的 \\(B\\) 点，桌面高 \\(h_2=0.8\\,\\mathrm m\\)。分别以桌面和地面为零势能面，填写小球在 \\(A,B\\) 两点的重力势能、下落过程重力做功和重力势能变化。取 \\(g=10\\,\\mathrm{m/s^2}\\)。",
   "answer": "以桌面为参考面：\\(E_{pA}=6\\,\\mathrm J,\\ E_{pB}=-4\\,\\mathrm J,\\ W_G=10\\,\\mathrm J,\\ \\Delta E_p=-10\\,\\mathrm J\\)。以地面为参考面：\\(E_{pA}=10\\,\\mathrm J,\\ E_{pB}=0,\\ W_G=10\\,\\mathrm J,\\ \\Delta E_p=-10\\,\\mathrm J\\)。",
   "animation": {

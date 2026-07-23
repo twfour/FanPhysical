@@ -3,6 +3,19 @@
   "originalNumber": "课9",
   "chapter": "机械能守恒定律",
   "title": "例9：匀加速竖直下降",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "mechanical-energy-change",
+    "familyName": "非保守力与机械能变化",
+    "role": "基础变式",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": ["非保守力判断", "机械能变化计算"],
+    "prerequisites": ["匀变速运动", "机械能"]
+  },
   "question": "（多选）质量为 \\(m\\) 的物体从静止出发，以加速度 \\(\\frac34g\\) 竖直下降高度 \\(h\\)。则此过程中（  ）。",
   "options": [
     "A. 物体动能增加了 \\(\\frac34mgh\\)",

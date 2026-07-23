@@ -3,6 +3,19 @@
   "originalNumber": "多15",
   "chapter": "必修二结业测试",
   "title": "多选第15题：齿轮转台拉力图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "gear-turntable",
+    "familyName": "齿轮转台与向心力",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": ["传动比换算", "向心力图像分析"],
+    "prerequisites": ["齿轮传动", "静摩擦力"]
+  },
   "question": "主动齿轮 A 带动从动齿轮 B 及水平转台匀速转动。质量为 \\(m\\) 的滑块置于转台上，通过长为 \\(L\\) 的不可伸长细线连接力传感器，细线刚好伸直。A、B 齿数分别为 \\(n_1、n_2\\)，滑块与转台间动摩擦因数为 \\(\\mu\\)。改变 A 的角速度 \\(\\omega\\)，记录传感器示数 \\(F\\)，所得 \\(F-\\omega^2\\) 图像正向延长线与横轴交于 \\(a\\)，与纵轴交于 \\(-b\\)。下列说法正确的是（　　）。",
   "options": [
     "A. A、B 的角速度之比为 \\(n_2:n_1\\)",

@@ -3,6 +3,19 @@
   "originalNumber": "A4",
   "chapter": "机械能守恒定律",
   "title": "A组第4题：斜面恒力加速",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "mechanical-energy-change",
+    "familyName": "非保守力与机械能变化",
+    "role": "基础变式",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": ["外力做功计算", "机械能增量判断"],
+    "prerequisites": ["功的计算", "机械能"]
+  },
   "question": "倾角为 \\(30^\\circ\\) 的斜面上，质量为 \\(m\\) 的物块在沿斜面恒定拉力作用下，以加速度 \\(a=\\frac g2\\) 向上运动距离 \\(x\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 重力势能增加 \\(mgx\\)",

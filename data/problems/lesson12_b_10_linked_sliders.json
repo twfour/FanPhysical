@@ -3,6 +3,19 @@
   "originalNumber": "B10",
   "chapter": "机械能守恒定律",
   "title": "B组第10题：刚杆连接双滑块",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "连接体机械能",
+    "modelId": "constraint-system",
+    "modelName": "连接体与约束",
+    "familyId": "rod-sliders",
+    "familyName": "刚杆连接滑块",
+    "role": "综合题",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": ["几何约束建模", "机械能极值求解"],
+    "prerequisites": ["关联速度", "机械能守恒"]
+  },
   "question": "（多选）滑块 \\(a,b\\) 的质量均为 \\(m\\)。a 套在固定竖直杆上，初始距光滑水平地面 \\(h\\)；b 放在地面上。a、b 由铰链用刚性轻杆连接并由静止开始运动，不计摩擦，二者视为质点。下列说法正确的是（  ）。",
   "options": [
     "A. a 落地前，轻杆对 b 先做正功后做负功",

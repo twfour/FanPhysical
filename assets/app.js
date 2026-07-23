@@ -252,6 +252,10 @@ function initializeAppShell() {
   problemCatalogReadyPromise = loadProblemData();
   problemCatalogReadyPromise.then(function () {
     renderFavoriteHome();
+    var requestedScene = new URLSearchParams(window.location.search).get("scene");
+    if (requestedScene && problemIndexMap[requestedScene] && currentScene === "home") {
+      switchScene(requestedScene);
+    }
   });
   renderFavoriteHome();
   applySceneView("home");

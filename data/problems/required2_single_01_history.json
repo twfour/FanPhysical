@@ -3,6 +3,19 @@
   "originalNumber": "单1",
   "chapter": "必修二结业测试",
   "title": "单选第1题：万有引力科学史",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "science-history",
+    "familyName": "引力理论证据链",
+    "role": "概念辨析",
+    "difficulty": 1,
+    "variantLevel": "L0",
+    "skills": ["科学史证据链", "理论与实验区分"],
+    "prerequisites": ["开普勒定律", "万有引力定律"]
+  },
   "question": "天空中壮丽璀璨的景象吸引着人们的注意，物理学发展中许多物理学家的科学研究推动了人类文明的进程。下面说法正确的是（　　）。",
   "options": [
     "A. 开普勒根据第谷的观测数据总结得出了开普勒行星运动定律",

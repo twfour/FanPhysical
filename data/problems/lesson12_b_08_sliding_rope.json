@@ -3,6 +3,19 @@
   "originalNumber": "B8",
   "chapter": "机械能守恒定律",
   "title": "B组第8题：柔绳滑离桌面",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "连续体机械能",
+    "modelId": "energy-conservation",
+    "modelName": "机械能守恒",
+    "familyId": "continuous-body",
+    "familyName": "连续体重力势能",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": ["连续体积分等效", "函数极值分析"],
+    "prerequisites": ["重心位置", "机械能守恒"]
+  },
   "question": "质量为 \\(M\\)、长度为 \\(L\\) 的均匀柔软细绳置于光滑水平桌面，右端恰在桌边。受扰后细绳从静止沿桌边下滑。下落长度为 \\(x\\) 时，加速度为 \\(a\\)，转折点 \\(O\\) 的张力为 \\(T\\)，桌面剩余绳的动能为 \\(E_k\\)、动量为 \\(p\\)。从初态到绳全部离开桌面的过程中，下列说法正确的是（  ）。",
   "options": [
     "A. 当 \\(x=L/4\\) 时，张力 \\(T\\) 有最大值",

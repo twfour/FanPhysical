@@ -3,6 +3,19 @@
   "originalNumber": "课11",
   "chapter": "机械能守恒定律",
   "title": "例11：绳弹簧连接体",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "连接体机械能",
+    "modelId": "constraint-system",
+    "modelName": "连接体与约束",
+    "familyId": "rope-spring-linkage",
+    "familyName": "绳弹簧连接系统",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": ["关联速度分析", "系统能量建模"],
+    "prerequisites": ["绳长约束", "弹性势能"]
+  },
   "question": "物块 \\(B,C\\) 由轻质弹簧相连，轻绳跨过定滑轮，两端分别连接套在竖直杆上的小球 \\(A\\) 和物块 \\(B\\)。初始托住 \\(A\\) 使系统静止，滑轮与 \\(A\\) 间绳水平、与 \\(B\\) 间绳竖直且绳无拉力。\\(B,C\\) 质量均为 \\(m\\)，\\(A\\) 质量为 \\(2m\\)。释放 \\(A\\)，当连接 \\(A\\) 的绳与竖直杆夹角为 \\(37^\\circ\\) 时，\\(B\\) 上升速度为 \\(v\\)，且 \\(C\\) 刚要离地。取 \\(\\sin37^\\circ=0.6,\\cos37^\\circ=0.8\\)，不计摩擦和空气阻力。此过程中 \\(A\\) 下降高度为（  ）。",
   "options": [
     "A. \\(\\frac{v^2}{2g}\\)",

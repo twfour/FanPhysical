@@ -3,6 +3,19 @@
   "originalNumber": "解17",
   "chapter": "必修二结业测试",
   "title": "解答第17题：半圆管道与垂直落斜面",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周与抛体综合",
+    "modelId": "track-transition",
+    "modelName": "轨道临界与抛体衔接",
+    "familyId": "semicircle-projectile",
+    "familyName": "半圆轨道与抛体衔接",
+    "role": "综合题",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": ["多阶段过程划分", "速度方向约束"],
+    "prerequisites": ["竖直圆周运动", "平抛运动"]
+  },
   "question": "竖直放置的半圆形管道固定在水平面上。质量 \\(m=0.4\\,\\mathrm{kg}\\) 的小球以 \\(v_0=5\\,\\mathrm{m/s}\\) 沿水平面从管道最低点 A 进入，刚进入时对 A 点压力为 \\(29\\,\\mathrm N\\)。小球随后从最高点 B 水平抛出，最后垂直落在倾角为 \\(45^\\circ\\) 的斜面 C 点，测得 B、C 高度差为 \\(5\\,\\mathrm{cm}\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)。求：（1）圆弧管道半径 \\(R\\)；（2）小球经过 B 点时管道对小球作用力的大小和方向。",
   "answer": "（1）\\(R=0.40\\,\\mathrm m\\)；（2）作用力大小为 \\(3.0\\,\\mathrm N\\)，方向竖直向上。",
   "animation": {

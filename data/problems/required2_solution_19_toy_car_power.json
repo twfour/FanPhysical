@@ -3,6 +3,19 @@
   "originalNumber": "解19",
   "chapter": "必修二结业测试",
   "title": "解答第19题：玩具车恒力与恒功率启动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "机车启动",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "constant-power",
+    "familyName": "恒功率分段启动",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": ["分段运动建模", "恒功率方程"],
+    "prerequisites": ["动能定理", "功率"]
+  },
   "question": "质量 \\(m=1\\,\\mathrm{kg}\\) 的遥控玩具车在水平路面由静止启动，前 \\(2\\,\\mathrm s\\) 做匀加速直线运动，\\(2\\,\\mathrm s\\) 末达到额定功率；\\(10\\,\\mathrm s\\) 至 \\(14\\,\\mathrm s\\) 以 \\(6\\,\\mathrm{m/s}\\) 匀速；\\(14\\,\\mathrm s\\) 末停止遥控后自由滑行，并在 \\(18\\,\\mathrm s\\) 停止。全过程阻力大小不变。求：（1）阻力 \\(F\\)；（2）\\(2\\,\\mathrm s\\) 末速度 \\(v_x\\)；（3）\\(2\\,\\mathrm s\\) 至 \\(18\\,\\mathrm s\\) 的路程 \\(L\\)。",
   "answer": "（1）\\(F=1.5\\,\\mathrm N\\)；（2）\\(v_x=3.0\\,\\mathrm{m/s}\\)；（3）\\(L=75\\,\\mathrm m\\)。",
   "animation": {

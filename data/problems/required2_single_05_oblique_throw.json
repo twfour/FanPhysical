@@ -3,6 +3,19 @@
   "originalNumber": "单5",
   "chapter": "必修二结业测试",
   "title": "单选第5题：斜抛机械能与参考面",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "机械能",
+    "modelId": "energy-conservation",
+    "modelName": "机械能守恒",
+    "familyId": "potential-reference",
+    "familyName": "重力势能参考面",
+    "role": "综合题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": ["参考面切换", "斜抛能量判断"],
+    "prerequisites": ["斜抛运动", "机械能守恒"]
+  },
   "question": "将质量为 \\(m\\) 的石块从离地面 \\(h\\) 高处以初速度 \\(v_0\\) 斜向上抛出，最后落回地面。最高点距地面高度为 \\(H\\)。以抛出点为重力势能参考平面，不计空气阻力。下列说法正确的是（　　）。",
   "options": [
     "A. 石块到达地面时的动能为 \\(\\dfrac12mv_0^2-mgH\\)",

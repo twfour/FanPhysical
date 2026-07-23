@@ -3,6 +3,19 @@
   "originalNumber": "课5",
   "chapter": "机械能守恒定律",
   "title": "例5：圆弧轨道最大高度",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "机械能与圆周运动",
+    "modelId": "track-transition",
+    "modelName": "轨道临界与抛体衔接",
+    "familyId": "track-projectile",
+    "familyName": "圆弧轨道与离轨抛体",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": ["临界条件识别", "多过程衔接"],
+    "prerequisites": ["机械能守恒", "向心力", "平抛运动"]
+  },
   "question": "如图甲，质量为 \\(m\\) 的小球以速度 \\(v_0\\) 竖直上抛，最大高度为 \\(h\\)。再将质量分别为 \\(2m,3m,4m,5m\\) 的小球，以同样大小的速度 \\(v_0\\) 从半径均为 \\(R=\\frac12h\\) 的四种竖直圆弧形光滑轨道最低点水平射入。四轨道依次为半圆、圆心角 \\(120^\\circ\\)、圆心角 \\(90^\\circ\\)、圆心角 \\(30^\\circ\\)。小球大小和空气阻力均不计，能到达的最大高度仍为 \\(h\\) 的是（  ）。",
   "options": [
     "A. 质量为 \\(2m\\) 的小球",

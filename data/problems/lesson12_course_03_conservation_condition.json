@@ -3,6 +3,19 @@
   "originalNumber": "课3",
   "chapter": "机械能守恒定律",
   "title": "例3：机械能守恒条件",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "机械能",
+    "modelId": "energy-conservation",
+    "modelName": "机械能守恒",
+    "familyId": "conservation-condition",
+    "familyName": "机械能守恒条件",
+    "role": "概念辨析",
+    "difficulty": 2,
+    "variantLevel": "L0",
+    "skills": ["守恒条件判断", "研究系统选择"],
+    "prerequisites": ["保守力做功", "机械能"]
+  },
   "question": "下列说法中正确的是（  ）。",
   "options": [
     "A. 做匀速直线运动的物体，机械能一定守恒",

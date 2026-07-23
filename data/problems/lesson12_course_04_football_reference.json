@@ -3,6 +3,19 @@
   "originalNumber": "课4",
   "chapter": "机械能守恒定律",
   "title": "例4：足球机械能与参考面",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "机械能",
+    "modelId": "energy-conservation",
+    "modelName": "机械能守恒",
+    "familyId": "potential-reference",
+    "familyName": "重力势能参考面",
+    "role": "基础变式",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": ["参考面选择", "物理量逐项判断"],
+    "prerequisites": ["重力势能", "机械能"]
+  },
   "question": "（多选）某人将质量为 \\(m\\)、静止在水平地面 \\(A\\) 点的足球以速度 \\(v_0\\) 斜向上踢起。足球到达离地高度为 \\(h\\) 的 \\(B\\) 点，取 \\(B\\) 处为零势能参考面，重力加速度为 \\(g\\)，不计空气阻力。下列说法正确的是（  ）。",
   "options": [
     "A. 足球在 A 点的机械能为 \\(\\frac12mv_0^2-mgh\\)",

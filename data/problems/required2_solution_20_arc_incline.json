@@ -3,6 +3,19 @@
   "originalNumber": "解20",
   "chapter": "必修二结业测试",
   "title": "解答第20题：圆弧斜面往复与总路程",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系综合",
+    "modelId": "track-transition",
+    "modelName": "轨道临界与抛体衔接",
+    "familyId": "friction-roundtrip",
+    "familyName": "圆弧斜面往复与摩擦",
+    "role": "综合题",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": ["往复过程划分", "分段函数建模"],
+    "prerequisites": ["动能定理", "摩擦做功", "圆周运动"]
+  },
   "question": "粗糙斜面轨道 AB 的下端与光滑圆弧轨道 BCD 相切于 B，C 为最低点，D 与圆心 O 等高，\\(\\angle BOC=37^\\circ\\)，圆弧半径 \\(R=1.0\\,\\mathrm m\\)。质量 \\(m=0.2\\,\\mathrm{kg}\\) 的物体从 D 正上方 E 点由静止下落，\\(DE=h=4.0\\,\\mathrm m\\)，物体恰好能到达斜面顶端 A。物体与斜面间动摩擦因数 \\(\\mu=0.5\\)，取 \\(\\sin37^\\circ=0.6、\\cos37^\\circ=0.8、g=10\\,\\mathrm{m/s^2}\\)。求：（1）物体第一次到达 C 点时对轨道的压力；（2）斜面 AB 长度 \\(L\\)；（3）若 \\(\\mu\\) 可变，求物体在斜面上滑行的总路程 \\(x\\)。",
   "answer": "（1）\\(N=22\\,\\mathrm N\\)；（2）\\(L=4.8\\,\\mathrm m\\)；（3）\\(0\\le\\mu\\lt0.5\\) 时 \\(x=4.8\\,\\mathrm m\\)；\\(0.5\\le\\mu\\lt0.75\\) 时 \\(x=6/\\mu\\,\\mathrm m\\)；\\(\\mu\\ge0.75\\) 时 \\(x=4.8/(0.6+0.8\\mu)\\,\\mathrm m\\)。",
   "animation": {

@@ -3,6 +3,19 @@
   "originalNumber": "单3",
   "chapter": "必修二结业测试",
   "title": "单选第3题：斜绳关联速度与能量",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "连接体机械能",
+    "modelId": "constraint-system",
+    "modelName": "连接体与约束",
+    "familyId": "rope-projection",
+    "familyName": "绳约束速度投影",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": ["关联速度投影", "内力做功判断"],
+    "prerequisites": ["绳长约束", "机械能守恒"]
+  },
   "question": "如图，一个质量为 \\(m_1\\) 的有孔小球套在竖直固定的光滑直杆上，通过一条跨过定滑轮的轻绳与质量为 \\(m_2\\) 的重物相连。定滑轮与直杆的水平距离为 \\(d\\)。将小球从与定滑轮等高的 A 处由静止释放，当小球沿直杆下滑 \\(\\dfrac34d\\) 到 B 处时，下列说法正确的是（　　）。",
   "options": [
     "A. 小球的速度与重物上升速度大小之比为 \\(5:4\\)",

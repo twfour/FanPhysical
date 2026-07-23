@@ -30,6 +30,31 @@ REQUIRED_EXAM_CONNECTION_FIELDS = [
 SUPPORTED_EXAM_CONNECTION_TYPES = {"gaokao", "competition"}
 SUPPORTED_EXAM_MATCH_LEVELS = {"高度同构", "同一考点", "综合迁移"}
 SUPPORTED_COMPETITION_TIERS = {"竞赛入门", "竞赛进阶", "国际挑战"}
+TAXONOMY_REQUIRED_CHAPTERS = {"机械能守恒定律", "必修二结业测试"}
+REQUIRED_TAXONOMY_FIELDS = [
+    "module",
+    "topic",
+    "modelId",
+    "modelName",
+    "familyId",
+    "familyName",
+    "role",
+    "difficulty",
+    "variantLevel",
+    "skills",
+    "prerequisites",
+]
+SUPPORTED_TAXONOMY_ROLES = {
+    "概念辨析",
+    "母题",
+    "基础变式",
+    "条件变式",
+    "综合题",
+    "高考真题",
+    "竞赛拓展",
+}
+SUPPORTED_VARIANT_LEVELS = {"L0", "L1", "L2", "L3"}
+TAXONOMY_ID_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 SUPPORTED_ANIMATION_TYPES = {
     "none",
     "fanphysics_model",
@@ -306,6 +331,48 @@ def validate_exam_connections(path, problem):
     return errors
 
 
+def validate_taxonomy(path, problem):
+    taxonomy = problem.get("taxonomy")
+    chapter = problem.get("chapter")
+    if taxonomy is None:
+        if chapter in TAXONOMY_REQUIRED_CHAPTERS:
+            return [f"{path.name}: {chapter} problem needs taxonomy"]
+        return []
+    if not isinstance(taxonomy, dict):
+        return [f"{path.name}: taxonomy must be an object"]
+    errors = []
+    for field in REQUIRED_TAXONOMY_FIELDS:
+        if field not in taxonomy:
+            errors.append(f"{path.name}: taxonomy needs {field}")
+    for field in ("module", "topic", "modelId", "modelName", "familyId", "familyName"):
+        if field in taxonomy and not is_non_empty_string(taxonomy.get(field)):
+            errors.append(f"{path.name}: taxonomy {field} must be a non-empty string")
+    for field in ("modelId", "familyId"):
+        value = taxonomy.get(field)
+        if is_non_empty_string(value) and not TAXONOMY_ID_PATTERN.fullmatch(value):
+            errors.append(f"{path.name}: taxonomy {field} must be a lowercase kebab-case id")
+    if taxonomy.get("role") not in SUPPORTED_TAXONOMY_ROLES:
+        errors.append(f"{path.name}: taxonomy has unsupported role")
+    difficulty = taxonomy.get("difficulty")
+    if isinstance(difficulty, bool) or not isinstance(difficulty, int) or not 1 <= difficulty <= 5:
+        errors.append(f"{path.name}: taxonomy difficulty must be an integer from 1 to 5")
+    if taxonomy.get("variantLevel") not in SUPPORTED_VARIANT_LEVELS:
+        errors.append(f"{path.name}: taxonomy has unsupported variantLevel")
+    for field, minimum in (("skills", 2), ("prerequisites", 1)):
+        values = taxonomy.get(field)
+        if (
+            not isinstance(values, list)
+            or len(values) < minimum
+            or not all(is_non_empty_string(value) for value in values)
+        ):
+            errors.append(
+                f"{path.name}: taxonomy {field} must contain at least {minimum} non-empty string(s)"
+            )
+        elif len(values) != len(set(values)):
+            errors.append(f"{path.name}: taxonomy {field} must not contain duplicates")
+    return errors
+
+
 def validate_problem(path):
     problem = load_json(path)
     errors = []
@@ -343,6 +410,7 @@ def validate_problem(path):
     errors.extend(validate_real_life_case(path, problem))
     errors.extend(validate_learning_cycle(path, problem))
     errors.extend(validate_exam_connections(path, problem))
+    errors.extend(validate_taxonomy(path, problem))
     return problem, animation_type, errors
 
 
@@ -402,6 +470,8 @@ def main():
     seen_ids = set()
     seen_files = set()
     seen_chapters = set()
+    taxonomy_models = {}
+    taxonomy_families = {}
     animation_type_counts = Counter()
     all_errors = []
     for position, entry in enumerate(entries, start=1):
@@ -431,6 +501,20 @@ def main():
             all_errors.append(f"{file_name}: duplicate id {problem_id}")
         seen_ids.add(problem_id)
         seen_chapters.add(problem.get("chapter") or "未分类")
+        taxonomy = problem.get("taxonomy")
+        if isinstance(taxonomy, dict):
+            model_id = taxonomy.get("modelId")
+            model_signature = (taxonomy.get("modelName"), taxonomy.get("module"))
+            if model_id in taxonomy_models and taxonomy_models[model_id] != model_signature:
+                all_errors.append(f"{file_name}: taxonomy modelId {model_id} has inconsistent naming")
+            else:
+                taxonomy_models[model_id] = model_signature
+            family_id = taxonomy.get("familyId")
+            family_signature = (model_id, taxonomy.get("familyName"))
+            if family_id in taxonomy_families and taxonomy_families[family_id] != family_signature:
+                all_errors.append(f"{file_name}: taxonomy familyId {family_id} has inconsistent ownership")
+            else:
+                taxonomy_families[family_id] = family_signature
         if entry.get("id") != problem_id:
             all_errors.append(
                 f"index.json: id {entry.get('id')} does not match {file_name} id {problem_id}"
@@ -456,6 +540,7 @@ def main():
     hidden_index_entries = seen_ids.difference(tree_scene_ids)
     print(f"OK: {len(entries)} problem file(s) and {len(tree_scene_ids)} tree scene(s) validated")
     print(f"Animation types: {dict(sorted(animation_type_counts.items()))}")
+    print(f"Taxonomy: {len(taxonomy_models)} model(s), {len(taxonomy_families)} family/families")
     if hidden_index_entries:
         print(f"Index-only historical problems retained: {len(hidden_index_entries)}")
     return 0

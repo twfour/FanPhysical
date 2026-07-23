@@ -3,6 +3,19 @@
   "originalNumber": "单7",
   "chapter": "必修二结业测试",
   "title": "单选第7题：双球圆锥摆构型",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "conical-pendulum",
+    "familyName": "圆锥摆构型与参数",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": ["空间构型判断", "圆锥摆参数关联"],
+    "prerequisites": ["向心力", "力的合成"]
+  },
   "question": "两个完全相同的小球由两根等长轻绳依次连接并固定于 O 点，以竖直线 \\(OO'\\) 为轴分别在水平面内做匀速圆周运动，两小球始终处于同一竖直平面内。下列图示构型可能正确的是（　　）。",
   "options": [
     "A. 下段绳相对竖直方向的倾角大于上段绳的倾角",

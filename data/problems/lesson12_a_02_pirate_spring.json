@@ -3,6 +3,19 @@
   "originalNumber": "A2",
   "chapter": "机械能守恒定律",
   "title": "A组第2题：海盗桶弹簧弹射",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "弹簧与机械能",
+    "modelId": "spring-energy",
+    "modelName": "弹簧与机械能",
+    "familyId": "spring-launch",
+    "familyName": "弹簧弹射与分离",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": ["能量转化分析", "分离状态判断"],
+    "prerequisites": ["弹性势能", "机械能守恒"]
+  },
   "question": "海盗桶玩具可简化为竖直弹簧弹射小球：弹簧压缩后由锁扣 \\(K\\) 锁住，打开锁扣，小球从压缩位置 \\(B\\) 向上运动到弹簧原长位置 \\(A\\)。忽略弹簧质量和空气阻力。从 \\(B\\) 到 \\(A\\) 的过程中，下列说法正确的是（  ）。",
   "options": [
     "A. 小球的机械能守恒",

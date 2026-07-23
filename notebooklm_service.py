@@ -164,6 +164,8 @@ def notebooklm_styles():
     .chapter-law-list{display:grid;gap:10px;margin:0;padding:0;list-style:none;counter-reset:chapter-law}.chapter-law-list li{position:relative;border-left:3px solid #c69b70;background:#fffdf7;padding:12px 15px 12px 44px}.chapter-law-list li:before{position:absolute;left:14px;top:12px;counter-increment:chapter-law;content:counter(chapter-law);color:var(--accent);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-weight:900}
     .chapter-formula-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.chapter-formula-card{min-width:0;border:1px solid var(--line);background:#fffdf7;padding:15px 17px}.chapter-formula-card h3{margin:0 0 .5em;color:var(--ink)}.chapter-formula-card p{margin:.4em 0 0;color:var(--muted);font-size:.9rem}.chapter-formula-card mjx-container[display="true"]{font-size:.96em}
     .chapter-notebook-card{border:1px solid #c69b70;background:#fffdf7;padding:18px 20px}.chapter-notebook-card p{margin:0 0 12px;color:var(--muted)}.notebook-cta{display:inline-flex;align-items:center;min-height:42px;border-radius:7px;background:var(--accent);padding:0 16px;color:#fff;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.92rem;font-weight:800;text-decoration:none}.notebook-cta:hover{background:#7b2f24}.chapter-source-url{display:block;overflow-wrap:anywhere;border:1px dashed var(--line);background:var(--paper);padding:9px 11px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.5}.chapter-source-url[hidden]{display:none}
+    .taxonomy-card{border:1px solid #9eb5c8;border-left:5px solid #235b8f;background:#f8fbfd;padding:15px 18px}.taxonomy-card h3{margin:0 0 .25em}.taxonomy-meta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.taxonomy-meta span{border-radius:999px;background:#e8f0f6;padding:2px 9px;color:#315b7a;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.78rem;font-weight:800}.taxonomy-card p{margin:.4em 0;color:var(--muted)}.taxonomy-card a{font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.86rem;font-weight:800}
+    .exam-source-list{display:grid;gap:10px}.exam-source-card{border:1px solid var(--line);border-left:4px solid #2563eb;background:#fffdf7;padding:14px 16px}.exam-source-card.competition{border-left-color:#a13d2d}.exam-source-card h3{margin:0 0 .35em}.exam-source-card p{margin:.35em 0;color:var(--muted);font-size:.92rem}.exam-source-card a{font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.86rem;font-weight:800}
     .chapter-notebook-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.notebook-edit-button,.notebook-reset-button,.notebook-save-button,.notebook-cancel-button{min-height:38px;border:1px solid var(--line);border-radius:6px;background:var(--paper);padding:0 13px;color:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.86rem;font-weight:800;cursor:pointer}.notebook-edit-button:hover,.notebook-reset-button:hover,.notebook-cancel-button:hover{border-color:var(--accent);color:var(--accent)}.notebook-save-button{border-color:var(--accent);background:var(--accent);color:#fff}.notebook-save-button:hover{background:#7b2f24}.notebook-edit-button:disabled,.notebook-reset-button:disabled,.notebook-save-button:disabled,.notebook-cancel-button:disabled{cursor:not-allowed;opacity:.55}.notebook-reset-button[hidden],.notebook-edit-form[hidden]{display:none}.notebook-edit-form{margin-top:14px;border-top:1px solid var(--line);padding-top:14px}.notebook-edit-form label{display:block;margin-bottom:6px;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.88rem;font-weight:800}.notebook-edit-form label:not(:first-child){margin-top:12px}.notebook-edit-form input{width:100%;min-height:42px;border:1px solid var(--line);border-radius:6px;background:#fff;padding:8px 10px;color:var(--ink);font:inherit}.notebook-edit-form input:focus{border-color:var(--accent);outline:2px solid #a13d2d22}.notebook-edit-help{margin:8px 0 0!important;font-size:.82rem}.notebook-edit-status{min-height:1.5em;margin:8px 0 0!important;color:var(--accent)!important;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.84rem;font-weight:700}
     @media(max-width:900px){.notebook-shell{width:min(900px,calc(100% - 28px));grid-template-columns:1fr}.notebook-shell>main{grid-column:1;grid-row:2}.notebook-sidebar{grid-column:1;grid-row:1;position:static;max-height:280px}.notebook-directory{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}}
     @media(max-width:700px){.chapter-formula-grid{grid-template-columns:1fr}}
@@ -362,6 +364,65 @@ def summarize_problem_question(value, limit=155):
     return text[: limit - 1].rstrip("，,；;。.") + "…"
 
 
+def render_problem_taxonomy(problem):
+    taxonomy = problem.get("taxonomy")
+    if not isinstance(taxonomy, dict) or not taxonomy.get("modelId") or not taxonomy.get("familyId"):
+        return ""
+    labels = [
+        taxonomy.get("role"),
+        taxonomy.get("variantLevel"),
+        f'难度 {taxonomy.get("difficulty")}/5' if taxonomy.get("difficulty") else "",
+    ]
+    label_html = "".join(f"<span>{escape(str(label))}</span>" for label in labels if label)
+    skills = taxonomy.get("skills") if isinstance(taxonomy.get("skills"), list) else []
+    prerequisites = taxonomy.get("prerequisites") if isinstance(taxonomy.get("prerequisites"), list) else []
+    path = (
+        f'/models/{quote(str(taxonomy["modelId"]), safe="")}'
+        f'#family-{quote(str(taxonomy["familyId"]), safe="")}'
+    )
+    return (
+        '<h2>学习定位</h2><section class="taxonomy-card">'
+        f'<h3>{escape(str(taxonomy.get("modelName") or taxonomy["modelId"]))}</h3>'
+        f'<p>题族：{escape(str(taxonomy.get("familyName") or taxonomy["familyId"]))}</p>'
+        f'<div class="taxonomy-meta">{label_html}</div>'
+        f'<p>训练能力：{escape("、".join(str(item) for item in skills))}</p>'
+        f'<p>前置知识：{escape("、".join(str(item) for item in prerequisites))}</p>'
+        f'<a href="{escape(path, quote=True)}">查看该模型的完整题族链</a></section>'
+    )
+
+
+def render_problem_exam_connections(problem):
+    connections = problem.get("examConnections")
+    if not isinstance(connections, list) or not connections:
+        return ""
+    cards = []
+    for item in connections:
+        if not isinstance(item, dict):
+            continue
+        item_type = item.get("type")
+        kind = "竞赛真题" if item_type == "competition" else "高考真题"
+        tier = f' · {item.get("tier")}' if item.get("tier") else ""
+        prerequisites = item.get("prerequisites")
+        prerequisites = prerequisites if isinstance(prerequisites, list) else []
+        prerequisite_html = (
+            f'<p>前置要求：{escape("、".join(str(value) for value in prerequisites))}</p>'
+            if prerequisites
+            else ""
+        )
+        cards.append(
+            f'<section class="exam-source-card{" competition" if item_type == "competition" else ""}">'
+            f'<h3>{escape(str(item.get("title") or kind))}</h3>'
+            f'<p>{escape(kind + tier)} · {escape(str(item.get("matchLevel") or ""))}</p>'
+            f'<p>{escape(str(item.get("source") or ""))} · {escape(str(item.get("number") or ""))}</p>'
+            f'<p>{escape(str(item.get("matchReason") or ""))}</p>{prerequisite_html}'
+            f'<a href="{escape(str(item.get("url") or "#"), quote=True)}" target="_blank" '
+            'rel="noopener noreferrer">查看题目资料</a></section>'
+        )
+    if not cards:
+        return ""
+    return f'<h2>真题拓展</h2><div class="exam-source-list">{"".join(cards)}</div>'
+
+
 def derive_notebooklm_notebook_url(chapter_items, guide):
     configured = guide.get("notebooklmUrl") if isinstance(guide, dict) else None
     candidates = [configured] if isinstance(configured, str) else []
@@ -413,6 +474,8 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
     practice = problem.get("practice") if isinstance(problem.get("practice"), dict) else None
     real_life = problem.get("realLifeCase") if isinstance(problem.get("realLifeCase"), dict) else None
     exploration = problem.get("studentExploration") if isinstance(problem.get("studentExploration"), dict) else None
+    taxonomy_html = render_problem_taxonomy(problem)
+    exam_connections_html = render_problem_exam_connections(problem)
     chapter_items = chapter_items or [(problem_id, problem)]
     sidebar_links = [
         (f"/notebooklm/{quote(item_id)}", item_problem.get("title") or item_id)
@@ -426,6 +489,7 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
         current_href=current_href,
         footer=[
             (notebooklm_chapter_path(chapter), "本章概览与公式"),
+            ("/models/", "查看模型图谱"),
             ("/notebooklm/", "查看全部章节"),
         ],
     )
@@ -521,6 +585,13 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
             )
     previous_link = f'<a rel="prev" href="/notebooklm/{quote(previous_id)}">← 上一课</a>' if previous_id else "<span></span>"
     next_link = f'<a rel="next" href="/notebooklm/{quote(next_id)}">下一课 →</a>' if next_id else "<span></span>"
+    taxonomy = problem.get("taxonomy") if isinstance(problem.get("taxonomy"), dict) else {}
+    middle_path = (
+        f'/models/{quote(str(taxonomy.get("modelId")), safe="")}'
+        if taxonomy.get("modelId")
+        else "/models/"
+    )
+    middle_label = "所属模型题族" if taxonomy.get("modelId") else "模型图谱"
 
     return f"""<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -528,8 +599,8 @@ def render_problem_page(handler, problem_id, problem, previous_id=None, next_id=
 <link rel="canonical" href="{escape(canonical)}"><style>{notebooklm_styles()}</style>{notebooklm_math_head()}</head>
 <body><div class="notebook-shell"><main><header><div class="eyebrow">FANPHYSICS · NOTEBOOKLM 讲义</div><h1>{escape(title)}</h1>
 <div class="meta">章节：{escape(chapter)}　·　资料编号：{escape(problem_id)}</div></header>
-<article><h2>题目</h2><p>{text_block(problem.get("question"))}</p>{options_html}{knowledge_html}{answer_html}{analysis_html}{steps_html}{exploration_html}{real_life_html}{practice_html}</article>
-<nav class="lesson-pager">{previous_link}<a href="/notebooklm/">全部独立课例</a>{next_link}</nav></main>{sidebar_html}</div></body></html>"""
+<article><h2>题目</h2><p>{text_block(problem.get("question"))}</p>{options_html}{taxonomy_html}{knowledge_html}{answer_html}{analysis_html}{steps_html}{exploration_html}{real_life_html}{practice_html}{exam_connections_html}</article>
+<nav class="lesson-pager">{previous_link}<a href="{escape(middle_path, quote=True)}">{middle_label}</a>{next_link}</nav></main>{sidebar_html}</div></body></html>"""
 
 
 def render_notebooklm_chapter_page(handler, chapter, chapter_items, grouped, guide, notebook_override=""):
@@ -616,7 +687,10 @@ def render_notebooklm_chapter_page(handler, chapter, chapter_items, grouped, gui
         "全部章节",
         chapter_links,
         current_href=current_href,
-        footer=("/notebooklm/", "返回课例总目录"),
+        footer=[
+            ("/models/", "查看模型图谱"),
+            ("/notebooklm/", "返回课例总目录"),
+        ],
     )
     overview = guide.get("overview") or f"本章共收录 {len(chapter_items)} 道题。"
 
@@ -631,7 +705,7 @@ def render_notebooklm_chapter_page(handler, chapter, chapter_items, grouped, gui
 <h3>核心定理与规律</h3><ol class="chapter-law-list">{laws_html}</ol>
 <h3>常用公式</h3><div class="chapter-formula-grid">{"".join(formula_cards)}</div>
 <h2>NotebookLM 笔记</h2><section class="chapter-notebook-card" data-chapter="{escape(chapter, quote=True)}" data-default-url="{escape(default_notebook_url, quote=True)}" data-current-url="{escape(notebook_url, quote=True)}" data-has-override="{1 if has_notebook_override else 0}" data-edit-enabled="{1 if NOTEBOOKLM_EDIT_ENABLED else 0}">{notebook_content}</section></article>
-<nav class="lesson-pager"><a href="/notebooklm/">课例总目录</a><a href="/classical-mechanics-demo.html">返回动态模型库</a></nav>
+<nav class="lesson-pager"><a href="/notebooklm/">课例总目录</a><a href="/models/">模型图谱</a><a href="/classical-mechanics-demo.html">返回动态模型库</a></nav>
 </main>{sidebar_html}</div>{notebooklm_chapter_editor_script()}</body></html>"""
 
 
@@ -656,7 +730,10 @@ def render_notebooklm_index(handler, catalog):
         "一级目录",
         "全部章节",
         sidebar_links,
-        footer=("/classical-mechanics-demo.html", "返回动态模型库"),
+        footer=[
+            ("/models/", "查看模型图谱"),
+            ("/classical-mechanics-demo.html", "返回动态模型库"),
+        ],
     )
     canonical = f"{request_origin(handler)}/notebooklm/"
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">

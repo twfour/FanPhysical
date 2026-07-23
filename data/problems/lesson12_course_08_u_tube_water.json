@@ -3,6 +3,19 @@
   "originalNumber": "课8",
   "chapter": "机械能守恒定律",
   "title": "例8：U形管水柱",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "连续体机械能",
+    "modelId": "energy-conservation",
+    "modelName": "机械能守恒",
+    "familyId": "continuous-body",
+    "familyName": "连续体重力势能",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": ["连续体等效", "重心变化建模"],
+    "prerequisites": ["重力势能", "体积守恒"]
+  },
   "question": "（多选）内径面积为 \\(S\\) 的 U 形圆筒竖直放置，筒内装水。底部阀门 \\(K\\) 关闭时两侧水面高度分别为 \\(h_1,h_2\\)。水的密度为 \\(\\rho\\)，不计水与筒壁的摩擦。打开阀门，当两侧水面高度相等时，该过程中（  ）。",
   "options": [
     "A. 水柱的重力做正功",

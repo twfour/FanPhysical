@@ -3,6 +3,19 @@
   "originalNumber": "单10",
   "chapter": "必修二结业测试",
   "title": "单选第10题：圆轨道与转移椭圆",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "卫星变轨",
+    "modelId": "orbit-transfer",
+    "modelName": "卫星轨道与变轨",
+    "familyId": "hohmann-transfer",
+    "familyName": "圆轨道与转移椭圆",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": ["轨道状态比较", "切点变轨判断"],
+    "prerequisites": ["开普勒第三定律", "轨道机械能"]
+  },
   "question": "航天器先进入近地圆轨道 1 做匀速圆周运动，再经椭圆轨道 2，最终进入圆轨道 3 做匀速圆周运动。轨道 2 分别与轨道 1、轨道 3 相切于 P、Q 两点。则航天器（　　）。",
   "options": [
     "A. 在轨道 3 上的机械能小于其在轨道 2 上的机械能",

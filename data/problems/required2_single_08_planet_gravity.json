@@ -3,6 +3,19 @@
   "originalNumber": "单8",
   "chapter": "必修二结业测试",
   "title": "单选第8题：星球表面重力",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "surface-gravity",
+    "familyName": "星球表面重力",
+    "role": "综合题",
+    "difficulty": 2,
+    "variantLevel": "L2",
+    "skills": ["比例法", "天体参数换算"],
+    "prerequisites": ["万有引力定律", "表面重力"]
+  },
   "question": "某星球的质量为地球质量的一半，半径为地球半径的一半。已知地球表面的重力加速度大小为 \\(g_0\\)，忽略天体自转。该星球表面的重力加速度大小为（　　）。",
   "options": [
     "A. \\(\\dfrac14g_0\\)",

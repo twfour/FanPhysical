@@ -3,6 +3,19 @@
   "originalNumber": "单11",
   "chapter": "必修二结业测试",
   "title": "单选第11题：恒力作用的速度图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "force-vt",
+    "familyName": "恒力作用与速度图像",
+    "role": "综合题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": ["速度图像分段", "功与冲量辨析"],
+    "prerequisites": ["速度时间图像", "摩擦力"]
+  },
   "question": "质量相等的 A、B 两物体放在同一水平面上，分别受水平恒力 \\(F_1、F_2\\)，同时由静止从同一位置出发。经过 \\(t_0\\) 和 \\(4t_0\\)，速度分别达到 \\(2v_0\\) 和 \\(v_0\\) 时撤去对应恒力，随后两物体均匀减速直至停止。根据题给 \\(v-t\\) 图像，下列说法正确的是（　　）。",
   "options": [
     "A. \\(F_1\\) 与 \\(F_2\\) 的大小之比为 \\(8:1\\)",

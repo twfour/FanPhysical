@@ -3,6 +3,19 @@
   "originalNumber": "课7",
   "chapter": "机械能守恒定律",
   "title": "例7：直杆双球转动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "连接体机械能",
+    "modelId": "constraint-system",
+    "modelName": "连接体与约束",
+    "familyId": "rigid-body-rotation",
+    "familyName": "刚性连接体转动",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": ["同轴角速度关联", "系统能量建模"],
+    "prerequisites": ["转动线速度", "机械能守恒"]
+  },
   "question": "质量不计、长为 \\(L\\) 且不能弯曲的直杆，一端和中点分别固定质量均为 \\(m\\) 的小球 \\(A,B\\)，另一端固定在水平轴 \\(O\\) 处。杆可在竖直面内无摩擦转动。杆从水平位置由静止释放，转到竖直位置时，求两球速度 \\(v_A,v_B\\)。",
   "answer": "\\(v_A=\\sqrt{\\frac{12}{5}gL}\\)，\\(v_B=\\sqrt{\\frac35gL}\\)。",
   "animation": {

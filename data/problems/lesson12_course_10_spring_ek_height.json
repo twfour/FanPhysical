@@ -3,6 +3,19 @@
   "originalNumber": "课10",
   "chapter": "机械能守恒定律",
   "title": "例10：弹簧滑块动能—高度图",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "弹簧与机械能",
+    "modelId": "spring-energy",
+    "modelName": "弹簧与机械能",
+    "familyId": "spring-separation-graph",
+    "familyName": "弹簧分离与能量图像",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": ["能量图像读取", "分段过程判断"],
+    "prerequisites": ["弹性势能", "动能定理"]
+  },
   "question": "（多选）竖直光滑杆固定，套在杆上的轻弹簧下端固定。将滑块向下压缩弹簧至离地高度 \\(h=0.1\\,\\mathrm m\\) 处，滑块与弹簧不拴接，由静止释放。传感器得到滑块的 \\(E_k-h\\) 图像：\\(0.2\\,\\mathrm m\\) 到 \\(0.35\\,\\mathrm m\\) 为从 \\(0.30\\,\\mathrm J\\) 线性降至零的直线，其余部分为曲线。以地面为零势能面，取 \\(g=10\\,\\mathrm{m/s^2}\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 小滑块质量为 \\(0.2\\,\\mathrm{kg}\\)",

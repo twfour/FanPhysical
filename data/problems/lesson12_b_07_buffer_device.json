@@ -3,6 +3,19 @@
   "originalNumber": "B7",
   "chapter": "机械能守恒定律",
   "title": "B组第7题：弹簧摩擦缓冲器",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "弹簧与功能关系",
+    "modelId": "spring-energy",
+    "modelName": "弹簧与机械能",
+    "familyId": "spring-friction-buffer",
+    "familyName": "弹簧摩擦缓冲",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": ["临界状态识别", "耗散能量计算"],
+    "prerequisites": ["弹性势能", "摩擦做功"]
+  },
   "question": "某缓冲装置由劲度系数足够大的轻弹簧与可在固定槽内移动的轻杆相连，轻杆与槽间滑动摩擦力恒为 \\(f\\)，最大静摩擦力也为 \\(f\\)。轻杆向右移动不超过 \\(l\\) 时装置安全。质量为 \\(m\\) 的小车以速度 \\(v_0\\) 撞击弹簧时，轻杆向右移动 \\(l/4\\)。不计小车与地面的摩擦，弹簧劲度系数为 \\(k\\)。则（  ）。",
   "options": [
     "A. 轻杆开始移动时，弹簧压缩量为 \\(\\frac{k}{f}\\)",

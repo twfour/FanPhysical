@@ -3,6 +3,19 @@
   "originalNumber": "多13",
   "chapter": "必修二结业测试",
   "title": "多选第13题：地球张角与卫星参数",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "geostationary",
+    "familyName": "同步卫星与几何遮挡",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": ["轨道参数推导", "空间几何建模"],
+    "prerequisites": ["同步卫星", "开普勒第三定律"]
+  },
   "question": "I 为北斗卫星导航系统中的静止轨道卫星，其对地张角为 \\(2\\theta\\)；II 为地球的近地卫星。已知地球自转周期为 \\(T_0\\)，万有引力常量为 \\(G\\)。根据题中条件，可求出（　　）。",
   "options": [
     "A. 地球平均密度为 \\(\\dfrac{3\\pi\\sin^3\\theta}{GT_0^2}\\)",

@@ -3,6 +3,19 @@
   "originalNumber": "单2",
   "chapter": "必修二结业测试",
   "title": "单选第2题：两种方式渡河时间比",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "曲线运动",
+    "modelId": "river-crossing",
+    "modelName": "运动合成与小船渡河",
+    "familyId": "river-time",
+    "familyName": "渡河时间与速度合成",
+    "role": "综合题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": ["速度矢量分解", "时间方案比较"],
+    "prerequisites": ["运动合成", "三角函数"]
+  },
   "question": "有一条两岸平直且平行的河流，河水流速恒定，大小为 \\(v_1\\)。一条小船在河上横渡，船在静水中的速度大小为 \\(v_2\\)。第一次过河时船头始终指向与河岸垂直的方向；第二次过河时行驶路线与河岸垂直。若 \\(v_1、v_2\\) 均不变，第一次与第二次过河所用时间的比值为（　　）。",
   "options": [
     "A. \\(\\dfrac{v_1}{\\sqrt{v_1^2-v_2^2}}\\)",

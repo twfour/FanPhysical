@@ -20,6 +20,10 @@ function renderProblemDataNotes(problem) {
     note.appendChild(grid);
 
     grid.appendChild(createProblemQuestionBlock(problem));
+    var taxonomyBlock = createProblemTaxonomyBlock(problem);
+    if (taxonomyBlock) {
+      grid.appendChild(taxonomyBlock);
+    }
     var authoritativeResourcesBlock = createAuthoritativeResourcesBlock(problem);
     var predictionBlock = createLearningCyclePredictionBlock(problem);
     if (predictionBlock) {
@@ -69,6 +73,54 @@ function createProblemQuestionBlock(problem) {
   var block = createProblemNoteBlock("题目", problem.title, problem.question || "");
   appendProblemOptions(block, options);
   appendProblemImages(block, problem.images);
+  return block;
+}
+
+function createProblemTaxonomyBlock(problem) {
+  var taxonomy = problem && problem.taxonomy;
+  if (!taxonomy || !taxonomy.modelId || !taxonomy.familyId) {
+    return null;
+  }
+  var block = createProblemNoteBlock(
+    "学习定位",
+    taxonomy.modelName || "物理模型",
+    ""
+  );
+  block.classList.add("problem-taxonomy-block");
+  block.dataset.keepExpanded = "1";
+
+  var family = document.createElement("p");
+  family.className = "problem-taxonomy-family";
+  family.innerText = "题族：" + (taxonomy.familyName || taxonomy.familyId);
+  block.appendChild(family);
+
+  var tags = document.createElement("div");
+  tags.className = "problem-taxonomy-tags";
+  [
+    taxonomy.role,
+    taxonomy.variantLevel,
+    taxonomy.difficulty ? "难度 " + taxonomy.difficulty + "/5" : ""
+  ].filter(Boolean).forEach(function (label) {
+    var tag = document.createElement("span");
+    tag.innerText = label;
+    tags.appendChild(tag);
+  });
+  block.appendChild(tags);
+
+  var skills = Array.isArray(taxonomy.skills) ? taxonomy.skills : [];
+  if (skills.length) {
+    var skillText = document.createElement("p");
+    skillText.className = "problem-taxonomy-copy";
+    skillText.innerText = "训练能力：" + skills.join("、");
+    block.appendChild(skillText);
+  }
+
+  var link = document.createElement("a");
+  link.className = "problem-taxonomy-link";
+  link.href = "/models/" + encodeURIComponent(taxonomy.modelId) +
+    "#family-" + encodeURIComponent(taxonomy.familyId);
+  link.innerText = "查看该模型的完整题族链";
+  block.appendChild(link);
   return block;
 }
 

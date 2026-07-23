@@ -3,6 +3,19 @@
   "originalNumber": "多16",
   "chapter": "必修二结业测试",
   "title": "多选第16题：配重球绳长约束与弹簧",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "弹簧与连接体",
+    "modelId": "spring-energy",
+    "modelName": "弹簧与机械能",
+    "familyId": "counterweight-spring",
+    "familyName": "配重绳约束与弹簧",
+    "role": "综合题",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": ["绳长几何约束", "多物体能量转移"],
+    "prerequisites": ["关联速度", "弹性势能"]
+  },
   "question": "质量为 \\(m\\) 的配重球甲穿在竖直光滑导向杆上并挂在缓冲弹簧上端，质量为 \\(4m\\) 的吊篮乙通过轻绳跨过定滑轮 O 与甲连接。初始甲在 P 点，滑轮左侧绳竖直，右侧绳与水平方向夹角 \\(53^\\circ\\)，轻绳刚好伸直但无拉力。由静止释放乙，随后甲运动到 Q 点，O、Q 连线水平且 \\(OQ=d\\)。甲在 P、Q 两点处弹簧弹力大小相等。已知 \\(E_p=kx^2/2\\)，\\(\\sin53^\\circ=0.8\\)、\\(\\cos53^\\circ=0.6\\)。下列说法正确的是（　　）。",
   "options": [
     "A. 配重球甲在 Q 点的加速度小于 \\(g\\)",

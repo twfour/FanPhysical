@@ -3,6 +3,19 @@
   "originalNumber": "单9",
   "chapter": "必修二结业测试",
   "title": "单选第9题：小孔成像估测太阳密度",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "celestial-density",
+    "familyName": "天体密度估测",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": ["跨模型信息提取", "密度公式推导"],
+    "prerequisites": ["相似三角形", "开普勒第三定律"]
+  },
   "question": "科技小组利用小孔成像和万有引力知识估测太阳密度。小孔到屏幕的距离为 \\(D\\)，屏上太阳像的直径为 \\(d\\)，地球绕太阳公转周期为 \\(T\\)，引力常量为 \\(G\\)。地球到太阳中心的距离远大于太阳半径，且小角度时近似有 \\(\\sin\\theta=\\tan\\theta\\)。太阳的密度为（　　）。",
   "options": [
     "A. \\(\\dfrac{3\\pi}{GT^2}\\left(\\dfrac{D}{d}\\right)^3\\)",

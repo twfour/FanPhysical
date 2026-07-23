@@ -3,6 +3,19 @@
   "originalNumber": "单4",
   "chapter": "必修二结业测试",
   "title": "单选第4题：跳台滑雪功率",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛与功率",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-power",
+    "familyName": "抛体过程中的功率",
+    "role": "综合题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": ["速度分量求解", "瞬时功率计算"],
+    "prerequisites": ["平抛运动", "功率"]
+  },
   "question": "跳台滑雪中，一位总质量为 \\(60\\,\\mathrm{kg}\\) 的运动员从起跳平台 A 点以 \\(20\\,\\mathrm{m/s}\\) 的速度沿水平方向飞出，在倾角为 \\(30^\\circ\\) 的斜坡 B 点着陆。取 \\(g=10\\,\\mathrm{m/s^2}\\)，不计空气阻力。下列说法正确的是（　　）。",
   "options": [
     "A. 从 A 点飞出到 B 点所用时间为 \\(4\\,\\mathrm s\\)",

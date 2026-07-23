@@ -3,6 +3,19 @@
   "originalNumber": "A5",
   "chapter": "机械能守恒定律",
   "title": "A组第5题：汽车两路段功率",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功率与能量",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "power-energy",
+    "familyName": "功率与机械能变化",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": ["功率比较", "分路段能量分析"],
+    "prerequisites": ["瞬时功率", "匀速运动"]
+  },
   "question": "（多选）一辆无人驾驶车在水平路段 \\(MN\\) 上以恒定功率 \\(48\\,\\mathrm{kW}\\)、速度 \\(16\\,\\mathrm{m/s}\\) 匀速行驶；在斜坡路段 \\(PQ\\) 上以恒定功率 \\(96\\,\\mathrm{kW}\\)、速度 \\(8\\,\\mathrm{m/s}\\) 匀速行驶。车辆总质量 \\(1600\\,\\mathrm{kg}\\)，\\(MN=PQ=200\\,\\mathrm m\\)，斜坡倾角 \\(30^\\circ\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)，不计空气阻力。下列说法正确的是（  ）。",
   "options": [
     "A. 水平路段 MN 上的阻力为 \\(3000\\,\\mathrm N\\)",
