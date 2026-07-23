@@ -3,6 +3,25 @@
   "originalNumber": "课9",
   "chapter": "动能定理",
   "title": "例9：水平传送带上的往返运动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "conveyor-energy",
+    "modelName": "传送带功能关系",
+    "familyId": "conveyor-energy-cycle",
+    "familyName": "传送带能量与往返过程",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "分阶段相对运动",
+      "电功热量动能分配"
+    ],
+    "prerequisites": [
+      "相对位移",
+      "功能关系"
+    ]
+  },
   "question": "水平传送带 \\(AB\\) 以恒定速率 \\(v_1\\) 向右运动，右端与光滑平台等高。质量 \\(m=2\\,\\mathrm{kg}\\) 的滑块以速率 \\(v_2\\) 向左从 \\(A\\) 点滑上传送带。其动能随路程变化的 \\(E_k-x\\) 图像依次经过 \\((0,16\\,\\mathrm J)\\)、\\((4\\,\\mathrm m,0)\\)、\\((5\\,\\mathrm m,4\\,\\mathrm J)\\)，并从 \\(x=5\\,\\mathrm m\\) 到 \\(8\\,\\mathrm m\\) 保持 \\(4\\,\\mathrm J\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 传送带运行速率为 \\(v_1=1\\,\\mathrm{m/s}\\)",

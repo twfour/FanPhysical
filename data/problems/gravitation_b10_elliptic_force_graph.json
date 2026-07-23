@@ -3,6 +3,25 @@
   "originalNumber": "B10",
   "chapter": "万有引力与宇宙航行",
   "title": "B10：椭圆轨道引力图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "kepler-orbit-law",
+    "familyName": "开普勒定律与椭圆轨道",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "轨道位置比较",
+      "面积速度推理"
+    ],
+    "prerequisites": [
+      "开普勒定律",
+      "万有引力"
+    ]
+  },
   "question": "（多选）卫星 \\(P\\)、\\(Q\\) 绕某行星运动的轨道均为椭圆，只考虑它们受到该行星的引力。引力大小随时间的图像显示：\\(P\\) 的周期为 \\(t_1\\)，引力最大、最小值分别为 \\(8F\\)、\\(2F\\)；\\(Q\\) 的周期为 \\(2t_2\\)，引力最大、最小值分别为 \\(9F\\)、\\(F\\)。已知 \\(t_2=\\sqrt2t_1\\)。下列说法正确的是（  ）",
   "options": [
     "A. \\(P\\)、\\(Q\\) 绕行星公转的周期之比为 \\(1:2\\sqrt2\\)",

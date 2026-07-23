@@ -7,6 +7,25 @@
   "id": "circular_daily_b6_stacked_turntable",
   "chapter": "圆周运动日常",
   "title": "B6：叠放物块转盘临界",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "horizontal-circle-critical",
+    "familyName": "水平圆周运动临界",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "静摩擦临界判断",
+      "参数范围求解"
+    ],
+    "prerequisites": [
+      "向心力",
+      "最大静摩擦力"
+    ]
+  },
   "question": "粗糙水平圆盘上，甲、乙两个小物体叠放在一起，随圆盘以角速度 \\(\\omega\\) 做匀速圆周运动，两物体到转轴距离为 \\(r\\)。乙的质量是甲的 \\(2\\) 倍，甲、乙间动摩擦因数为 \\(\\mu_1\\)，盘与乙间动摩擦因数为 \\(\\mu_2\\)，最大静摩擦力等于滑动摩擦力，且 \\(\\mu_1>\\mu_2\\)。重力加速度为 \\(g\\)。下列说法正确的是（  ）",
   "options": [
     "A. 乙所需要的向心力是甲所需要的向心力的 \\(3\\) 倍",

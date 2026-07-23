@@ -3,6 +3,25 @@
   "originalNumber": "题1",
   "chapter": "曲线运动",
   "title": "第1题：曲线运动概念辨析",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "曲线运动",
+    "modelId": "curve-kinematics",
+    "modelName": "曲线运动与矢量分析",
+    "familyId": "curve-concepts",
+    "familyName": "曲线运动方向与受力",
+    "role": "概念辨析",
+    "difficulty": 1,
+    "variantLevel": "L0",
+    "skills": [
+      "速度切线判断",
+      "力与轨迹关系判断"
+    ],
+    "prerequisites": [
+      "速度矢量",
+      "牛顿第二定律"
+    ]
+  },
   "question": "下面说法正确的是（　　）。",
   "options": [
     "A. 物体做匀速率曲线运动时加速度等于零",

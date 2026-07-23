@@ -3,6 +3,25 @@
   "originalNumber": "单3",
   "chapter": "行星运动与变轨等问题",
   "title": "作业第3题：赤道卫星连续监测",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "卫星运动",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "satellite-coverage",
+    "familyName": "卫星覆盖、追及与地面轨迹",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "空间几何建模",
+      "相对角速度分析"
+    ],
+    "prerequisites": [
+      "开普勒第三定律",
+      "圆周运动"
+    ]
+  },
   "question": "地球赤道上空有一颗与地球自转同向运行的卫星 A，对赤道覆盖的最大张角 \\(\\alpha=60^\\circ\\)。赤道上有卫星监测站 B，已知近地卫星周期约为 \\(1.4\\,\\mathrm h\\)。监测站 B 连续监测到卫星 A 的最长时间约为（  ）。",
   "options": [
     "A. \\(0.7\\,\\mathrm h\\)",

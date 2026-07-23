@@ -7,6 +7,25 @@
   "id": "circular_daily_ex2_conical_cylinder",
   "chapter": "圆周运动日常",
   "title": "例2：粗糙圆锥筒中物块",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "horizontal-circle-critical",
+    "familyName": "水平圆周运动临界",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "静摩擦临界判断",
+      "参数范围求解"
+    ],
+    "prerequisites": [
+      "向心力",
+      "最大静摩擦力"
+    ]
+  },
   "question": "一个竖直放置的圆锥筒可以绕中轴 \\(OO'\\) 转动，筒内壁粗糙，筒口半径为 \\(R\\)，筒高为 \\(H\\)，且 \\(H=\\frac{3R}{4}\\)。筒内壁 \\(A\\) 点处有一质量为 \\(m\\) 的小物块，\\(A\\) 点到 \\(OO'\\) 轴的距离为 \\(\\frac{R}{2}\\)。求：（1）筒不转动时物块在 \\(A\\) 点受到的摩擦力和支持力；（2）物块在 \\(A\\) 点随筒匀速转动且摩擦力为零时，筒的角速度；（3）若最大静摩擦因数 \\(\\mu_0=0.5\\)，物块相对锥筒保持静止时筒的最大角速度。",
   "options": [],
   "answer": "（1）\\(f=\\frac{3}{5}mg\\)，\\(N=\\frac{4}{5}mg\\)；（2）\\(\\omega=\\sqrt{\\frac{3g}{2R}}\\)；（3）由临界方程求最大角速度。",

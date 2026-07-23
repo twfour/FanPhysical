@@ -6,6 +6,25 @@
   "id": "mechanics_spring_length_maximization",
   "chapter": "力学基础",
   "title": "弹簧串联总长度最长配置",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "弹力",
+    "modelId": "elastic-force",
+    "modelName": "弹簧与弹力",
+    "familyId": "spring-series-equilibrium",
+    "familyName": "串联弹簧与连接体平衡",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "弹簧连接关系建模",
+      "整体与隔离切换"
+    ],
+    "prerequisites": [
+      "胡克定律",
+      "作用力与反作用力"
+    ]
+  },
   "question": "8. 劲度系数分别为\\(k_1\\)、\\(k_2\\)的轻质弹簧甲、乙，且\\(k_1 > k_2\\)；质量分别为\\(m_1\\)、\\(m_2\\)的小物块丙、丁，且\\(m_1 > m_2\\)。将轻质弹簧、小物块按图示方式悬挂起来处于平衡状态时，为使两根弹簧的总长度最长，下面操作可行的是\nA. 甲在上，丙在上\nB. 甲在上，丁在上\nC. 乙在上，丙在上\nD. 乙在上，丁在上",
   "options": [
     "A. 甲在上，丙在上",

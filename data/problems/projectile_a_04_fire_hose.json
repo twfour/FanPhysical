@@ -3,6 +3,25 @@
   "originalNumber": "A4",
   "chapter": "平抛运动",
   "title": "A组第4题：水柱垂直击墙",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "斜抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "oblique-projectile-target",
+    "familyName": "斜抛命中与射程",
+    "role": "基础变式",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "初速度分解",
+      "命中条件联立"
+    ],
+    "prerequisites": [
+      "斜抛运动",
+      "三角函数"
+    ]
+  },
   "question": "消防员在水平地面上使用喷水枪对着火房屋喷水灭火，出水轨迹可简化为抛物线。消防员控制水柱恰好垂直击中竖直墙面，此时喷水枪出水口和水平面的夹角为 \\(60^\\circ\\)，不计空气阻力。下列做法仍可能让水柱垂直打到竖直墙面的是（　　）。",
   "options": [
     "A. 喷水枪与水平面夹角不变，增大喷水初速度，人向前走一定距离",

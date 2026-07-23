@@ -3,6 +3,25 @@
   "originalNumber": "课5",
   "chapter": "功和功率",
   "title": "例5：缓慢下压漂浮木块",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "variable-force-work",
+    "familyName": "变力做功与图像面积",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "力位移图像读取",
+      "面积求功"
+    ],
+    "prerequisites": [
+      "功的定义",
+      "函数图像"
+    ]
+  },
   "question": "一面积很大的水池水深为 \\(H\\)，水面上浮着正方体木块，木块边长为 \\(a\\)，密度为水的 \\(\\frac12\\)，质量为 \\(m\\)，开始时木块静止。现用力 \\(F\\) 将木块缓慢地向下压，不计摩擦。求从开始压木块到木块刚好完全没入水的过程中，力 \\(F\\) 所做的功。",
   "answer": "\\(\\frac14mga\\)",
   "animation": {

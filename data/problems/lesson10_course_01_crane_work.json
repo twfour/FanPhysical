@@ -3,6 +3,25 @@
   "originalNumber": "课1",
   "chapter": "功和功率",
   "title": "例1：起重机加速提升货物",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "constant-force-work",
+    "familyName": "恒力做功与过程判断",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "功的正负判断",
+      "力位移夹角处理"
+    ],
+    "prerequisites": [
+      "功的定义",
+      "牛顿第二定律"
+    ]
+  },
   "question": "起重机以 \\(1\\,\\mathrm{m/s^2}\\) 的加速度将重为 \\(1.0\\times10^4\\,\\mathrm N\\) 的货物由静止加速向上提升。取 \\(g=10\\,\\mathrm{m/s^2}\\)，则在第 \\(1\\,\\mathrm s\\) 内起重机对货物做的功是（  ）。",
   "options": [
     "A. \\(500\\,\\mathrm J\\)",

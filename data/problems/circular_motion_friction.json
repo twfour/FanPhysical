@@ -7,6 +7,25 @@
   "id": "circular_motion_friction",
   "chapter": "圆周运动",
   "title": "课7：汽车过弯最大速度",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-force",
+    "familyName": "圆周运动受力分解",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "向心方向确定",
+      "径向受力方程"
+    ],
+    "prerequisites": [
+      "牛顿第二定律",
+      "向心加速度"
+    ]
+  },
   "question": "汽车在水平圆弧弯道上匀速通过，弯道半径为 \\(R\\)，轮胎与地面间的动摩擦因数为 \\(\\mu\\)。求汽车不发生侧滑时的最大速度。",
   "options": [
     "A. 在 \\(P\\) 处车对弯道的压力大小为 \\(F_{压}=\\frac{mg}{\\cos\\theta}\\)",

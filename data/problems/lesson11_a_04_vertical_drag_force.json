@@ -3,6 +3,25 @@
   "originalNumber": "A4",
   "chapter": "动能定理",
   "title": "A组第4题：恒阻力作用下的竖直上抛",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动能定理",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "kinetic-theorem-basic",
+    "familyName": "动能定理与力位移图像",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "合功表达",
+      "图像斜率读取"
+    ],
+    "prerequisites": [
+      "功的计算",
+      "动能"
+    ]
+  },
   "question": "（多选）从地面竖直向上抛出一物体。除重力外，物体还受到一个大小不变、方向始终与运动方向相反的外力。高度 \\(h\\le3\\,\\mathrm m\\) 时，动能—高度图像显示：上升线段由 \\((0,72\\,\\mathrm J)\\) 到 \\((3\\,\\mathrm m,36\\,\\mathrm J)\\)，下落线段由 \\((0,48\\,\\mathrm J)\\) 到 \\((3\\,\\mathrm m,24\\,\\mathrm J)\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 物体质量为 \\(0.8\\,\\mathrm{kg}\\)",

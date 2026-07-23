@@ -3,6 +3,25 @@
   "originalNumber": "题9",
   "chapter": "曲线运动",
   "title": "第9题：风洞恒力曲线运动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "曲线运动",
+    "modelId": "curve-kinematics",
+    "modelName": "曲线运动与矢量分析",
+    "familyId": "vector-motion-composition",
+    "familyName": "二维运动的矢量合成",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "分运动选择",
+      "矢量图像转换"
+    ],
+    "prerequisites": [
+      "运动独立性",
+      "速度合成"
+    ]
+  },
   "question": "在某次风洞实验中，将质量 \\(m=1\\,\\mathrm{kg}\\) 的物体从 \\(A\\) 点以 \\(v_A=5\\sqrt3\\,\\mathrm{m/s}\\) 的初速度水平抛出。物体运动到 \\(B\\) 点时的速度 \\(v_B=5\\sqrt3\\,\\mathrm{m/s}\\)，\\(v_A\\)、\\(v_B\\) 与 \\(AB\\) 连线的夹角均为 \\(30^\\circ\\)，\\(A\\)、\\(B\\) 两点间距离 \\(s=7.5\\,\\mathrm m\\)。风洞对物体的作用力 \\(F\\) 恒定且方向与纸面平行，取 \\(g=10\\,\\mathrm{m/s^2}\\)。下列说法正确的是（　　）。",
   "options": [
     "A. \\(F=5\\sqrt3\\,\\mathrm N\\)，方向竖直向上",

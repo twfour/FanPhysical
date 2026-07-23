@@ -3,6 +3,26 @@
   "originalNumber": "课8",
   "chapter": "动能定理",
   "title": "例8：平抛入圆弧后滑上长木板",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动能定理",
+    "modelId": "track-transition",
+    "modelName": "轨道临界与抛体衔接",
+    "familyId": "track-energy-projectile",
+    "familyName": "轨道、临界与抛体综合",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "多过程状态连接",
+      "轨道临界判断"
+    ],
+    "prerequisites": [
+      "动能定理",
+      "圆周运动",
+      "平抛运动"
+    ]
+  },
   "question": "从 \\(A\\) 点以 \\(v_0=4\\,\\mathrm{m/s}\\) 的水平速度抛出质量 \\(m=1\\,\\mathrm{kg}\\) 的小物块。物块到达 \\(B\\) 点时恰沿切线进入半径 \\(R=2.75\\,\\mathrm m\\) 的光滑圆弧轨道 \\(BC\\)，其中 \\(C\\) 端切线水平，\\(\\angle BOC=37^\\circ\\)。随后物块滑上质量 \\(M=2\\,\\mathrm{kg}\\) 的长木板。物块与板间动摩擦因数 \\(\\mu_1=0.5\\)，板与地面间动摩擦因数 \\(\\mu_2=0.1\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)，\\(\\sin37^\\circ=0.6\\)，\\(\\cos37^\\circ=0.8\\)。求：（1）物块到 \\(B\\) 点的速度；（2）到 \\(C\\) 点的速度；（3）若物块恰不滑出木板，从滑上木板到二者最终停止，物块与木板间摩擦力做功的代数和。",
   "answer": "（1）\\(5\\,\\mathrm{m/s}\\)；（2）\\(6\\,\\mathrm{m/s}\\)；（3）\\(-15\\,\\mathrm J\\)",
   "animation": {

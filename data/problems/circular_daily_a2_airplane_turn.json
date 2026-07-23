@@ -7,6 +7,25 @@
   "id": "circular_daily_a2_airplane_turn",
   "chapter": "圆周运动日常",
   "title": "A2：飞机水平盘旋升力",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-force",
+    "familyName": "圆周运动受力分解",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "向心方向确定",
+      "径向受力方程"
+    ],
+    "prerequisites": [
+      "牛顿第二定律",
+      "向心加速度"
+    ]
+  },
   "question": "C919 正在空中沿半径为 \\(r\\) 的水平圆周做匀速盘旋，飞行速率为 \\(v=\\sqrt{\\frac{gr}{2}}\\)，重力加速度大小为 \\(g\\)，则飞机受到的升力为自身重力的（  ）",
   "options": [
     "A. \\(\\frac{3}{2}\\) 倍",

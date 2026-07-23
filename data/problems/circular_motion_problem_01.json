@@ -7,6 +7,25 @@
   "id": "circular_motion_problem_01",
   "chapter": "圆周运动",
   "title": "B9：打夯机",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "小型打夯机可简化为质量为 \\(M\\) 的支架上由长 \\(l\\) 的轻杆带动质量为 \\(m\\) 的铁球，铁球以角速度 \\(\\omega\\) 做匀速圆周运动。判断线速度、向心加速度、最低点压力和最高点临界。",
   "options": [
     "A. 铁球转动过程线速度不变",

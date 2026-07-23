@@ -7,6 +7,25 @@
   "id": "circular_daily_b7_valve_light",
   "chapter": "圆周运动日常",
   "title": "B7：自行车气嘴灯",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "如图为自行车气嘴灯及其结构图，弹簧一端固定在 \\(A\\) 端，另一端拴接重物。当车轮高速旋转时，LED 灯就会发光。下列说法正确的是（  ）",
   "options": [
     "A. 只要轮子转动起来，气嘴灯就能发光",

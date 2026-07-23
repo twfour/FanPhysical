@@ -3,6 +3,25 @@
   "originalNumber": "单7",
   "chapter": "必修一结业测试",
   "title": "单选第7题：定滑轮缓慢提升",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "相互作用与平衡",
+    "modelId": "force-equilibrium",
+    "modelName": "受力分析与平衡",
+    "familyId": "multi-rope-equilibrium",
+    "familyName": "多绳多接触平衡",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "整体法与隔离法",
+      "几何约束转化"
+    ],
+    "prerequisites": [
+      "力的合成",
+      "共点力平衡"
+    ]
+  },
   "question": "用固定在斜面上方的定滑轮和轻绳缓慢提升斜面上的重物。斜面体上表面光滑，滑轮位置如图示，重物沿斜面上移时绳与斜面的夹角逐渐增大。下列说法正确的是（　　）。",
   "options": [
     "A. 重物受到的支持力不变",

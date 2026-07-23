@@ -6,6 +6,25 @@
   "id": "mechanics_two_body_spring_equilibrium",
   "chapter": "力学基础",
   "title": "弹簧连接的两物体平衡问题",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "弹力",
+    "modelId": "elastic-force",
+    "modelName": "弹簧与弹力",
+    "familyId": "spring-series-equilibrium",
+    "familyName": "串联弹簧与连接体平衡",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "弹簧连接关系建模",
+      "整体与隔离切换"
+    ],
+    "prerequisites": [
+      "胡克定律",
+      "作用力与反作用力"
+    ]
+  },
   "question": "如图所示，A、B两物体的重力分别是 G_A=3N、 G_B=4N，A用悬绳挂在天花板上，B放在水平地面上，A、B间的轻弹簧为压缩状态，弹力 F=2N，则绳中张力和B对地面的压力分别为（  ）",
   "options": [
     "A. 7N 和 10N",

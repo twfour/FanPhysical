@@ -3,6 +3,25 @@
   "originalNumber": "A4",
   "chapter": "功能关系",
   "title": "A 组第4题：有阻力竖直上抛能量图",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "dissipative-energy-graph",
+    "familyName": "阻力作用与能量图像",
+    "role": "基础变式",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "能量图像斜率分析",
+      "耗散功反演"
+    ],
+    "prerequisites": [
+      "机械能变化",
+      "阻力做功"
+    ]
+  },
   "question": "从地面竖直向上抛出一物体，其机械能 \\(E_{\\text{总}}\\) 等于动能 \\(E_k\\) 与重力势能 \\(E_p\\) 之和，取地面为重力势能零点。图中 \\(E_{\\text{总}}\\) 随高度 \\(h\\) 从 \\((0,100\\,\\mathrm J)\\) 线性减至 \\((4\\,\\mathrm m,80\\,\\mathrm J)\\)，\\(E_p\\) 从 \\((0,0)\\) 线性增至 \\((4\\,\\mathrm m,80\\,\\mathrm J)\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 该物体的质量为 \\(1\\,\\mathrm{kg}\\)",

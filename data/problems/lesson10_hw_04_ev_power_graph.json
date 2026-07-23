@@ -3,6 +3,25 @@
   "originalNumber": "单4",
   "chapter": "功和功率",
   "title": "课后单选第4题：新能源汽车功率与速度图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "vehicle-power",
+    "familyName": "机车恒功率与分段启动",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "牵引力速度关系",
+      "分阶段运动建模"
+    ],
+    "prerequisites": [
+      "功率公式",
+      "动能定理"
+    ]
+  },
   "question": "一辆新能源汽车在平直公路上由静止开始启动。启动过程中，汽车牵引力的功率及瞬时速度随时间的变化分别如图甲、乙所示：前 \\(5\\,\\mathrm s\\) 功率由 \\(0\\) 线性增至 \\(15\\,\\mathrm{kW}\\)，速度由 \\(0\\) 线性增至 \\(5\\,\\mathrm{m/s}\\)；此后功率保持 \\(15\\,\\mathrm{kW}\\)，速度继续增大并逐渐稳定。已知汽车所受阻力恒为重力的 \\(\\frac15\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 该汽车的质量为 \\(2.0\\times10^3\\,\\mathrm{kg}\\)",

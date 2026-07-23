@@ -7,6 +7,25 @@
   "id": "circular_daily_ex5_bicycle_turn",
   "chapter": "圆周运动日常",
   "title": "例5：自行车转弯侧倾",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-force",
+    "familyName": "圆周运动受力分解",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "向心方向确定",
+      "径向受力方程"
+    ],
+    "prerequisites": [
+      "牛顿第二定律",
+      "向心加速度"
+    ]
+  },
   "question": "运动员在水平道路上转弯，转弯轨迹可看成半径为 \\(R\\) 的圆弧。运动员始终与自行车在同一平面内，转弯时只有当地面对车的作用力通过车（包括人）的重心时，车才不会倾倒。设自行车和人的总质量为 \\(M\\)，轮胎与路面间的动摩擦因数为 \\(\\mu\\)，最大静摩擦力等于滑动摩擦力，重力加速度为 \\(g\\)。下列说法正确的是（  ）",
   "options": [
     "A. 车受到地面的支持力方向与车所在平面平行",

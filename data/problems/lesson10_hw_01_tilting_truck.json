@@ -3,6 +3,25 @@
   "originalNumber": "单1",
   "chapter": "功和功率",
   "title": "课后单选第1题：自卸车厢对货物做功",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "constant-force-work",
+    "familyName": "恒力做功与过程判断",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "功的正负判断",
+      "力位移夹角处理"
+    ],
+    "prerequisites": [
+      "功的定义",
+      "牛顿第二定律"
+    ]
+  },
   "question": "某自动卸货车始终静止在水平地面上，车厢在液压机作用下倾角 \\(\\theta\\) 逐渐增大。货物与车厢保持相对静止。下列关于车厢对货物的摩擦力和支持力做功情况，说法正确的是（  ）。",
   "options": [
     "A. 摩擦力和支持力都做正功",

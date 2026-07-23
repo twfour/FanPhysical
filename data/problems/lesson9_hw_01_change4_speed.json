@@ -3,6 +3,25 @@
   "originalNumber": "单1",
   "chapter": "行星运动与变轨等问题",
   "title": "作业第1题：嫦娥四号绕月速度",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "surface-gravity-throw",
+    "familyName": "星球表面重力与竖直运动",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "天体参数换算",
+      "局部重力运动建模"
+    ],
+    "prerequisites": [
+      "万有引力",
+      "竖直运动"
+    ]
+  },
   "question": "“嫦娥四号”着陆前曾绕月球做匀速圆周运动，轨道半径为月球半径的 \\(K\\) 倍。地球质量是月球质量的 \\(P\\) 倍，地球半径 \\(R\\) 是月球半径的 \\(Q\\) 倍，地表重力加速度为 \\(g\\)。则探测器绕月速率为（  ）。",
   "options": [
     "A. \\(\\sqrt{RQg/(KP)}\\)",

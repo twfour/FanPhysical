@@ -3,6 +3,25 @@
   "originalNumber": "单3",
   "chapter": "功和功率",
   "title": "课后单选第3题：健走克服重力做功",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "constant-force-work",
+    "familyName": "恒力做功与过程判断",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "功的正负判断",
+      "力位移夹角处理"
+    ],
+    "prerequisites": [
+      "功的定义",
+      "牛顿第二定律"
+    ]
+  },
   "question": "研究表明，人步行时重心升降的幅度约为脚跨一步距离的 \\(0.1\\) 倍。某人下班步行回家，导航地图显示单位离家 \\(2\\,\\mathrm{km}\\)，花 \\(20\\,\\mathrm{min}\\) 到小区门口，其中含等红灯 \\(2\\,\\mathrm{min}\\)，微信显示步数为 \\(2995\\) 步。他走每一步单脚克服重力所做的功和整个过程做功的平均功率约为（  ）。",
   "options": [
     "A. \\(40\\,\\mathrm J，100\\,\\mathrm W\\)",

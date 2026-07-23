@@ -3,6 +3,25 @@
   "originalNumber": "题5",
   "chapter": "曲线运动",
   "title": "第5题：二维速度图像合成",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "曲线运动",
+    "modelId": "curve-kinematics",
+    "modelName": "曲线运动与矢量分析",
+    "familyId": "vector-motion-composition",
+    "familyName": "二维运动的矢量合成",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "分运动选择",
+      "矢量图像转换"
+    ],
+    "prerequisites": [
+      "运动独立性",
+      "速度合成"
+    ]
+  },
   "question": "某物体在竖直 \\(y\\) 方向（向上为正）和水平 \\(x\\) 方向运动的 \\(v-t\\) 图像如下：\\(v_y\\) 在 \\(0\\sim4\\,\\mathrm s\\) 内由 \\(0\\) 匀增到 \\(4\\,\\mathrm{m/s}\\)，再在 \\(4\\sim8\\,\\mathrm s\\) 内匀减到 \\(0\\)；\\(v_x\\) 在 \\(0\\sim4\\,\\mathrm s\\) 内由 \\(3\\,\\mathrm{m/s}\\) 匀减到 \\(1\\,\\mathrm{m/s}\\)，随后保持不变。关于物体在 \\(0\\sim8\\,\\mathrm s\\) 内的运动，下列说法正确的是（　　）。",
   "options": [
     "A. 物体在 \\(2\\,\\mathrm s\\) 时刻处于失重状态",

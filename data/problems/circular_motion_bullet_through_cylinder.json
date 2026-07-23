@@ -7,6 +7,25 @@
   "id": "circular_motion_bullet_through_cylinder",
   "chapter": "圆周运动",
   "title": "例2：子弹穿过旋转纸筒",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "rotating-target-timing",
+    "familyName": "旋转目标与穿越计时",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "直线与转动时间匹配",
+      "周期性条件判断"
+    ],
+    "prerequisites": [
+      "匀速圆周运动",
+      "匀速直线运动"
+    ]
+  },
   "question": "直径为 \\(d\\) 的纸筒以角速度 \\(\\omega\\) 绕轴 \\(O\\) 匀速转动，子弹沿直径穿过纸筒。子弹在纸筒旋转不到半周时留下 \\(a,b\\) 两个弹孔，已知 \\(aO\\) 与 \\(bO\\) 的夹角为 \\(\\varphi\\)，求子弹速度大小。",
   "options": [],
   "answer": "\\(v=\\frac{\\omega d}{\\pi-\\varphi}\\)",

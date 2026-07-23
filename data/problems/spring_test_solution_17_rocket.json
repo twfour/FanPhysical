@@ -3,6 +3,25 @@
   "originalNumber": "解17",
   "chapter": "必修一结业测试",
   "title": "解答第17题：火箭多阶段升降",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "直线运动",
+    "modelId": "kinematics",
+    "modelName": "直线运动与追及",
+    "familyId": "vertical-multistage",
+    "familyName": "竖直多阶段运动",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "过程划分",
+      "方向与符号管理"
+    ],
+    "prerequisites": [
+      "牛顿第二定律",
+      "匀变速运动"
+    ]
+  },
   "question": "物理老师从操场竖直向上发射一枚总质量为 \\(2\\,\\mathrm{kg}\\) 的火箭模型。\\(t=0\\) 时发动机点火，提供竖直向上、大小恒为 \\(45\\,\\mathrm N\\) 的推力；3 s 后发动机熄火。火箭到达最高点后打开降落伞，在降落伞作用下向下做匀加速运动，到达地面时速度大小为 \\(9\\,\\mathrm{m/s}\\)。火箭筒体运动过程中受到的空气阻力大小恒为 \\(5\\,\\mathrm N\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)，忽略喷气导致的质量变化。求：（1）发动机熄火时的速度；（2）最大高度；（3）若降落伞阻力恒定，求其大小。",
   "answer": "（1）\\(30\\,\\mathrm{m/s}\\)；（2）\\(81\\,\\mathrm m\\)；（3）\\(14\\,\\mathrm N\\)。",
   "animation": {

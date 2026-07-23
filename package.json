@@ -8,7 +8,7 @@
     "check:animations": "node scripts/test_animation_smoke.mjs",
     "check:full": "npm run check && npm run check:browser && npm run check:animations",
     "check:js": "node --check assets/app.js && node --check assets/learning-sync.js && node --check assets/learning-progress.js && node --check assets/learning-blocks.js && node --check assets/learning-cycle.js && node --check assets/problem-content.js && node --check assets/problem-favorites.js && node --check assets/problem-note-interactions.js && node --check assets/step-conversation.js && node --check assets/scene-registry.js && node --check assets/json-animation-runtime.js && node --check assets/physics-audio.js && node --check assets/json-animation-scenes.js && node --check assets/circular-daily-scenes.js && node --check assets/scenes/*.js && node --check scripts/test_browser_regression.mjs && node --check scripts/test_animation_smoke.mjs",
-    "check:data": "python3 -B scripts/validate_problems.py && python3 -B scripts/build_learning_progress.py --check",
+    "check:data": "python3 -B scripts/backfill_taxonomy.py && python3 -B scripts/validate_problems.py && python3 -B scripts/build_learning_progress.py --check",
     "check:server": "python3 -B scripts/test_learning_sync.py && python3 -B scripts/test_server_modules.py"
   },
   "devDependencies": {

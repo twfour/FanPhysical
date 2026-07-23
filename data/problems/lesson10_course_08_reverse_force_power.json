@@ -3,6 +3,25 @@
   "originalNumber": "课8",
   "chapter": "功和功率",
   "title": "例8：反向恒力作用下的功和功率",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "power-velocity",
+    "familyName": "速度方向与瞬时功率",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "瞬时速度确定",
+      "功率正负判断"
+    ],
+    "prerequisites": [
+      "瞬时功率",
+      "速度分解"
+    ]
+  },
   "question": "（多选）质量 \\(m=20\\,\\mathrm{kg}\\) 的物体在大小恒定的水平外力 \\(F\\) 作用下沿水平面做直线运动。\\(0\\sim2\\,\\mathrm s\\) 内 \\(F\\) 与运动方向相反，\\(2\\sim4\\,\\mathrm s\\) 内 \\(F\\) 与运动方向相同。物体的 \\(v-t\\) 图像显示：\\(v(0)=10\\,\\mathrm{m/s}\\)、\\(v(2)=0\\)、\\(v(4)=-2\\,\\mathrm{m/s}\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)，则（  ）。",
   "options": [
     "A. 拉力 \\(F\\) 的大小为 \\(100\\,\\mathrm N\\)",

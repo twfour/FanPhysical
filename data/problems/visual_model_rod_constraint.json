@@ -2,6 +2,25 @@
   "id": "rodConstraint",
   "chapter": "曲线运动",
   "title": "课上第13题：杆约束速度",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "关联速度",
+    "modelId": "constraint-system",
+    "modelName": "连接体与约束",
+    "familyId": "constraint-velocity",
+    "familyName": "绳杆约束速度",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "约束方程建立",
+      "速度投影"
+    ],
+    "prerequisites": [
+      "不可伸长约束",
+      "瞬时速度"
+    ]
+  },
   "question": "如图所示，均匀直杆上连着两个小球 \\(A\\)、\\(B\\)，不计一切摩擦。当杆滑到图示位置时，\\(B\\) 球的水平速度为 \\(v_B\\)，杆与竖直方向夹角为 \\(\\alpha\\)。\n\n求此时 \\(A\\) 球的速度大小。",
   "answer": "\\(v_A=v_B\\tan\\alpha\\)。",
   "analysis": {

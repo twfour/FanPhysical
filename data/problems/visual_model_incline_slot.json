@@ -2,6 +2,25 @@
   "id": "inclineSlot",
   "chapter": "必修一结业测试",
   "title": "第3题：光滑斜槽下滑",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "直线运动",
+    "modelId": "kinematics",
+    "modelName": "直线运动与追及",
+    "familyId": "incline-equal-time",
+    "familyName": "斜面运动与等时性",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "几何长度建模",
+      "加速度分解"
+    ],
+    "prerequisites": [
+      "斜面运动",
+      "圆的几何"
+    ]
+  },
   "question": "\\(AB\\)、\\(CD\\) 是光滑斜槽，端点分别在半径为 \\(R\\) 和 \\(r\\) 的两个圆周上，延长线交于共同切点 \\(P\\)，\\(P\\) 为最低点。两个质量均为 \\(m\\) 的重物分别沿 \\(AB\\)、\\(CD\\) 由静止下滑；\\(AP\\)、\\(CP\\) 与竖直方向夹角分别为 \\(30^\\circ\\)、\\(45^\\circ\\)，比较加速度、下滑时间、粗糙影响和质量影响。",
   "analysis": {
     "title": "从外圆到内圆，槽长和加速度同含 \\(\\cos\\theta\\)"

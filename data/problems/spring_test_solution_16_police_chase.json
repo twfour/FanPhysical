@@ -3,6 +3,25 @@
   "originalNumber": "解16",
   "chapter": "必修一结业测试",
   "title": "解答第16题：警车货车箱子追及",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "直线运动",
+    "modelId": "kinematics",
+    "modelName": "直线运动与追及",
+    "familyId": "pursuit-braking",
+    "familyName": "追及、刹车与安全距离",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "分阶段追及",
+      "临界条件识别"
+    ],
+    "prerequisites": [
+      "匀变速运动",
+      "相对运动"
+    ]
+  },
   "question": "在平直公路上，货车 B 以 \\(v_2=20\\,\\mathrm{m/s}\\) 匀速行驶，车尾悬挂着离地很近的箱子 C。警车 A 以 \\(v_1=30\\,\\mathrm{m/s}\\) 匀速追赶货车。当二者距离 \\(s_0=60\\,\\mathrm m\\) 时警车鸣笛示意其减速；货车经 \\(t_0=1\\,\\mathrm s\\) 后立即以 \\(a_2=2\\,\\mathrm{m/s^2}\\) 加速逃离，箱子同时脱落并以 \\(a_3=2\\,\\mathrm{m/s^2}\\) 做匀减速运动。警员看到箱子脱落立刻以 \\(a_1=4\\,\\mathrm{m/s^2}\\) 刹车。货车最大速度为 \\(v_m=30\\,\\mathrm{m/s}\\)。求：（1）箱子脱落时警车与箱子的距离；（2）判断警车是否撞上箱子；若不撞，求最小间距；（3）警车停下时与货车的距离。",
   "answer": "（1）\\(50\\,\\mathrm m\\)；（2）不会相撞，最小间距 \\(25\\,\\mathrm m\\)；（3）\\(137.5\\,\\mathrm m\\)。",
   "animation": {

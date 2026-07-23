@@ -7,6 +7,25 @@
   "id": "circular_daily_a4_box_vertical_circle",
   "chapter": "圆周运动日常",
   "title": "A4：盒内小球竖直圆",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "基础变式",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "质量为 \\(m\\) 的小球置于内表面光滑的正方体盒子中，盒子的棱长略大于小球直径。某同学拿着盒子在竖直面内做半径为 \\(R\\) 的匀速圆周运动，盒子在运动过程中不发生转动。已知重力加速度为 \\(g\\)，盒子经过最高点 \\(A\\) 时与小球间恰好无作用力。以下说法正确的是（  ）",
   "options": [
     "A. 盒子做匀速圆周运动的周期为 \\(\\pi\\sqrt{\\frac{R}{g}}\\)",

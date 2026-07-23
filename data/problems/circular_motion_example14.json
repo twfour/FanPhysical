@@ -7,6 +7,25 @@
   "id": "circular_motion_example14",
   "chapter": "圆周运动",
   "title": "例14：双绳水平圆周运动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "conical-pendulum",
+    "familyName": "圆锥摆构型与参数",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "空间受力分解",
+      "角速度与几何关联"
+    ],
+    "prerequisites": [
+      "向心力",
+      "力的合成"
+    ]
+  },
   "question": "质量为 \\(m\\) 的小球由轻绳 \\(a,b\\) 分别系于细杆 \\(A,B\\) 点，\\(a\\) 绳与水平方向成 \\(\\theta\\)，\\(b\\) 绳水平且长为 \\(l\\)。杆绕 \\(AB\\) 以角速度 \\(\\omega\\) 匀速转动，两绳伸直，小球在水平面内做匀速圆周运动。判断绳张力和临界角速度。",
   "options": [
     "A. \\(a\\) 绳张力不可能为零",

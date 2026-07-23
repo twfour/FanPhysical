@@ -3,6 +3,25 @@
   "originalNumber": "B7",
   "chapter": "万有引力与宇宙航行",
   "title": "B7：光电门拉力图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "surface-gravity-throw",
+    "familyName": "星球表面重力与竖直运动",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "天体参数换算",
+      "局部重力运动建模"
+    ],
+    "prerequisites": [
+      "万有引力",
+      "竖直运动"
+    ]
+  },
   "question": "（多选）长为 \\(L\\) 的轻绳上装有力传感器，一端连接质点小球。小球上有宽为 \\(d\\) 的遮光条，在竖直平面内做圆周运动。小球通过最高点时，光电门测出遮光时间 \\(t\\)，力传感器测出绳上拉力 \\(F\\)。在地球赤道和南极测得的 \\(F-t^{-2}\\) 图像为两条斜率均为 \\(k\\) 的直线，横轴截距分别为 \\(a\\)、\\(b\\)，且 \\(b>a\\)。已知引力常量为 \\(G\\)，地球半径为 \\(R\\)。则（  ）",
   "options": [
     "A. 小球的质量为 \\(kL/d^2\\)",

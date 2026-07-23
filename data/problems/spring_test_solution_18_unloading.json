@@ -3,6 +3,25 @@
   "originalNumber": "解18",
   "chapter": "必修一结业测试",
   "title": "解答第18题：斜面传送带平板车卸货",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "牛顿运动定律",
+    "modelId": "accelerated-frame",
+    "modelName": "加速参考系与相对运动",
+    "familyId": "friction-relative-motion",
+    "familyName": "多物体摩擦与相对运动",
+    "role": "综合题",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "多对象过程划分",
+      "相对位移计算"
+    ],
+    "prerequisites": [
+      "静摩擦临界",
+      "牛顿第二定律"
+    ]
+  },
   "question": "货物由静止从斜面顶端滑下，经过 B 点进入顺时针匀速传送带，再由 C 点滑上静止在水平地面的无动力平板车。货物质量 \\(m=140\\,\\mathrm{kg}\\)，平板车质量 \\(M=20\\,\\mathrm{kg}\\)，斜面高度 \\(h=2.5\\,\\mathrm m\\)、倾角 \\(30^\\circ\\)，货物与斜面动摩擦因数 \\(\\mu_1=\\sqrt3/6\\)；传送带速度 \\(v=8\\,\\mathrm{m/s}\\)、长度 \\(l=10.5\\,\\mathrm m\\)，货物与带间动摩擦因数 \\(\\mu_2=0.3\\)；货物与平板车、平板车与地面间动摩擦因数分别为 \\(\\mu_3=0.4\\)、\\(\\mu_4=0.2\\)。忽略经过 B、C 的能量损失，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求：（1）到 B 点的速度；（2）在传送带上的时间；（3）平板车至少需要多长。",
   "answer": "（1）\\(5\\,\\mathrm{m/s}\\)；（2）\\(1.5\\,\\mathrm s\\)；（3）\\(2.0\\,\\mathrm m\\)。",
   "animation": {

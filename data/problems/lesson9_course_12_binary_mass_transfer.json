@@ -3,6 +3,25 @@
   "originalNumber": "课12",
   "chapter": "行星运动与变轨等问题",
   "title": "例12：双星质量转移",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "multi-star-system",
+    "modelName": "双星与多星系统",
+    "familyId": "multi-star-dynamics",
+    "familyName": "双星与多星圆周运动",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "质心约束分析",
+      "多体引力合成"
+    ],
+    "prerequisites": [
+      "万有引力",
+      "匀速圆周运动"
+    ]
+  },
   "question": "（多选）双星系统中质量较小的星体吸收质量较大星体的表面物质，双星总质量不变、星间距离缓慢增大，轨道近似为圆。下列说法正确的是（  ）。",
   "options": [
     "A. 双星做圆周运动的角速度不断减小",

@@ -7,6 +7,25 @@
   "id": "circular_motion_friction_static_friction",
   "chapter": "圆周运动",
   "title": "B11：竖直圆周运动物块",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "物块放在水平木板上，木板托住物块绕 \\(O\\) 点在竖直平面内做半径为 \\(R\\) 的匀速圆周运动，角速度为 \\(\\omega\\)。物块与木板间动摩擦因数为 \\(\\mu\\)，最大静摩擦力等于滑动摩擦力，始终相对静止且木板保持水平。判断圆心等高处摩擦力和 \\(\\omega\\) 最大值。",
   "options": [
     "A. 在圆心等高处时物块受到的摩擦力为 \\(\\mu mg\\)",

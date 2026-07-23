@@ -7,6 +7,25 @@
   "id": "circular_daily_ex3_hilly_road",
   "chapter": "圆周运动日常",
   "title": "例3：丘陵路面爆胎位置",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "一辆汽车在丘陵地匀速行驶，地形如图所示。由于轮胎太旧，途中爆胎，爆胎可能性最大的地点应是（  ）",
   "options": [
     "A. \\(a\\) 处",

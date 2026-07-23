@@ -3,6 +3,25 @@
   "originalNumber": "课3",
   "chapter": "行星运动与变轨等问题",
   "title": "例3：赤道物体与两类卫星比较",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "卫星运动",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "satellite-comparison",
+    "familyName": "卫星类型与轨道参数比较",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "轨道量比较",
+      "模型真假辨析"
+    ],
+    "prerequisites": [
+      "圆轨道速度",
+      "同步卫星"
+    ]
+  },
   "question": "质量相等的三个物体分别为：随地球自转的赤道物体、贴近地面运行的近地卫星和地球同步卫星。它们的向心力、向心加速度、线速度、角速度依次记为 \\(F_i、a_i、v_i、\\omega_i\\)。地表重力加速度为 \\(g\\)，第一宇宙速度为 \\(v\\)。下列说法正确的是（  ）。",
   "options": [
     "A. \\(F_1=F_2>F_3\\)",

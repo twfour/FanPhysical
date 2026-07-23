@@ -3,6 +3,25 @@
   "originalNumber": "题11",
   "chapter": "曲线运动",
   "title": "第11题：两船渡河相遇",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "曲线运动",
+    "modelId": "river-crossing",
+    "modelName": "运动合成与小船渡河",
+    "familyId": "river-basic",
+    "familyName": "渡河时间与轨迹",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "垂直河岸分量提取",
+      "相遇条件判断"
+    ],
+    "prerequisites": [
+      "速度合成",
+      "三角函数"
+    ]
+  },
   "question": "甲、乙两船从同一河流的同一岸边同时开始渡河，河宽为 \\(d\\)，\\(M\\)、\\(N\\) 分别是甲、乙两船的出发点。两船船头与河岸均成 \\(\\alpha\\) 角，甲船船头恰好对准 \\(N\\) 点的正对岸 \\(P\\) 点；经过一段时间，乙船恰好到达 \\(P\\) 点。两船划船速度大小均为 \\(v_0\\)，相遇不影响各自航行。下列判断正确的是（多选）。",
   "options": [
     "A. 水流方向向左，大小为 \\(v_0\\cos\\alpha\\)",

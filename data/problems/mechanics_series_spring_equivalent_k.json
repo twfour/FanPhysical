@@ -6,6 +6,25 @@
   "id": "mechanics_series_spring_equivalent_k",
   "chapter": "力学基础",
   "title": "弹簧串联等效弹性系数",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "弹力",
+    "modelId": "elastic-force",
+    "modelName": "弹簧与弹力",
+    "familyId": "spring-series-equilibrium",
+    "familyName": "串联弹簧与连接体平衡",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "弹簧连接关系建模",
+      "整体与隔离切换"
+    ],
+    "prerequisites": [
+      "胡克定律",
+      "作用力与反作用力"
+    ]
+  },
   "question": "10. 某同学通过实验探究两弹簧串联后的弹性系数。他把弹性系数分别为\\(k_a\\)和\\(k_b\\)的不同轻弹簧a、b串接在一起，a的上端固定在天花板上，竖直悬挂。测量a和b弹簧原长，计算串接后弹簧a和b的总长度；在b的下端悬挂一定质量的钩码，再次测量弹簧a和b的长度，计算总长度，使用悬挂钩码重力与总形变量之比记为两弹簧串联后的等效弹性系数，则等效弹性系数的表达式正确的是\nA. \\(\\frac{k_a k_b}{k_a + k_b}\\)\nB. \\(k_a + k_b\\)\nC. \\(\\frac{k_a + k_b}{k_a k_b}\\)\nD. \\(\\frac{k_a k_b}{|k_a - k_b|}\\)",
   "options": [
     "A. \\(\\frac{k_a k_b}{k_a + k_b}\\)",

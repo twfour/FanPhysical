@@ -3,6 +3,25 @@
   "originalNumber": "B10",
   "chapter": "平抛运动",
   "title": "B组第10题：半圆小孔通关",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-circle",
+    "familyName": "平抛与圆弧相交",
+    "role": "综合题",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "圆坐标约束",
+      "速度方向反演"
+    ],
+    "prerequisites": [
+      "平抛方程",
+      "圆的几何"
+    ]
+  },
   "question": "图中为某通关游戏的示意图。竖直面内半圆弧 \\(BCD\\) 的直径 \\(BD\\) 水平，且与竖直轨道 \\(AB\\) 处在同一竖直面内。小孔 \\(P\\) 和圆心 \\(O\\) 的连线与水平方向夹角为 \\(37^\\circ\\)。安装在轨道 \\(AB\\) 上的弹射器可上下移动，能水平射出速度大小可调的弹丸，弹丸射出口在 \\(B\\) 点正上方。若弹丸垂直于 \\(P\\) 点圆弧切线方向射入小孔 \\(P\\) 即通关。某次弹射器从离 \\(B\\) 点 \\(0.15\\mathrm m\\) 的高度将弹丸射出，正好通关。不计空气阻力，取 \\(\\sin37^\\circ=0.6\\)、\\(\\cos37^\\circ=0.8\\)、\\(g=10\\mathrm{m/s^2}\\)。圆弧半径和弹丸初速度分别为（　　）。",
   "options": [
     "A. \\(2\\mathrm m，4\\sqrt3\\mathrm{m/s}\\)",

@@ -3,6 +3,25 @@
   "originalNumber": "课7",
   "chapter": "万有引力与宇宙航行",
   "title": "例7：星球自转解体",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "rotation-surface-gravity",
+    "familyName": "天体自转与视重临界",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "引力与向心力分配",
+      "解体临界判断"
+    ],
+    "prerequisites": [
+      "表面重力",
+      "圆周运动"
+    ]
+  },
   "question": "已知某星球不自转时，其表面重力加速度为 \\(g\\)，半径为 \\(R\\)。问该星球自转的角速度 \\(\\omega\\) 增大为多少时，星球开始解体？",
   "answer": "\\(\\omega=\\sqrt{g/R}\\)",
   "animation": {

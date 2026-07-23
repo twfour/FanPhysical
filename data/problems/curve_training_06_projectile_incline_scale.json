@@ -3,6 +3,25 @@
   "originalNumber": "题6",
   "chapter": "曲线运动",
   "title": "第6题：平抛落斜面参数缩放",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-incline",
+    "familyName": "平抛与斜面相交",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "轨迹几何联立",
+      "末速度方向判断"
+    ],
+    "prerequisites": [
+      "平抛方程",
+      "斜面几何"
+    ]
+  },
   "question": "从倾角为 \\(\\theta\\) 的足够长斜面顶端 \\(P\\) 以速度 \\(v_0\\) 水平抛出一个小球，小球落在斜面上的 \\(Q\\) 点，落到斜面时速度与斜面的夹角为 \\(\\alpha\\)。若把初速度改为 \\(2v_0\\)，则（　　）。",
   "options": [
     "A. \\(PQ\\) 间距离变为原来的 \\(2\\) 倍",

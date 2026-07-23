@@ -3,6 +3,25 @@
   "originalNumber": "单2",
   "chapter": "必修一结业测试",
   "title": "单选第2题：八格匀减速滑行",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "直线运动",
+    "modelId": "kinematics",
+    "modelName": "直线运动与追及",
+    "familyId": "uniform-motion-graphs",
+    "familyName": "匀变速运动与图像",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "运动图像转换",
+      "制动过程建模"
+    ],
+    "prerequisites": [
+      "匀变速公式",
+      "平均速度"
+    ]
+  },
   "question": "地上有连续排列的 8 个等大格子。石块从第 1 个格子的前端踢出，沿直线滑动并恰好停在第 8 个格子的后端，总滑行时间为 \\(t_0\\)。石块不转动、不滚动，且与地面的动摩擦因数处处相同。下列说法正确的是（　　）。",
   "options": [
     "A. 石块到达第 6 个格子后端的速度，是到达第 1 个格子前端速度的一半",

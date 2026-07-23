@@ -7,6 +7,25 @@
   "id": "circular_motion_belt_pulley_1",
   "chapter": "圆周运动",
   "title": "A1：皮带轮运动分析",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-transmission",
+    "familyName": "同轴、皮带与齿轮传动",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "传动约束识别",
+      "角速度线速度换算"
+    ],
+    "prerequisites": [
+      "周期与角速度",
+      "线速度"
+    ]
+  },
   "question": "两个半径相等的大轮构成皮带轮结构，\\(A,B\\) 两点到各自转轴的半径比为 \\(2:1\\)，\\(C,D\\) 两点到各自转轴的半径比也为 \\(2:1\\)。判断各点线速度和角速度关系。",
   "options": [
     "A. \\(A,B\\) 两点的线速度之比为 \\(v_A:v_B=1:2\\)",

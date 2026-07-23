@@ -3,6 +3,25 @@
   "originalNumber": "课13",
   "chapter": "行星运动与变轨等问题",
   "title": "例13：直线与三角形三星系统",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "multi-star-system",
+    "modelName": "双星与多星系统",
+    "familyId": "multi-star-dynamics",
+    "familyName": "双星与多星圆周运动",
+    "role": "母题",
+    "difficulty": 5,
+    "variantLevel": "L1",
+    "skills": [
+      "质心约束分析",
+      "多体引力合成"
+    ],
+    "prerequisites": [
+      "万有引力",
+      "匀速圆周运动"
+    ]
+  },
   "question": "（多选）三颗质量均为 \\(m\\) 的恒星组成稳定三星系统。甲图中三颗星共线，相邻距离均为 \\(L\\)，两颗外星绕中央星转动；乙图中三颗星位于边长为 \\(L\\) 的等边三角形顶点，并绕三角形中心运行。引力常量为 \\(G\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 直线三星系统中外星线速度为 \\(\\sqrt{Gm/L}\\)",

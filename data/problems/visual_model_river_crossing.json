@@ -2,6 +2,25 @@
   "id": "riverCrossing",
   "chapter": "曲线运动",
   "title": "课上第8题：小船渡河",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "曲线运动",
+    "modelId": "river-crossing",
+    "modelName": "运动合成与小船渡河",
+    "familyId": "river-basic",
+    "familyName": "渡河时间与轨迹",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "垂直河岸分量提取",
+      "相遇条件判断"
+    ],
+    "prerequisites": [
+      "速度合成",
+      "三角函数"
+    ]
+  },
   "question": "河宽为 \\(d\\)，船在静水中的速度为 \\(v_{\\text{船}}\\)，水流速度为 \\(v_{\\text{水}}\\)。船速方向与河岸的夹角为 \\(\\theta\\)，且 \\(v_{\\text{船}}>v_{\\text{水}}\\)。\n\n求船渡河所用时间、沿河岸方向的横向位移，并判断船头怎样指向时时间最短；若要使船的合位移最小，应怎样渡河，对船速大小有什么要求？",
   "analysis": {
     "title": "取课上第8题：先分解船速，再合成对地速度"

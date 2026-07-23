@@ -2,6 +2,25 @@
   "id": "dartTarget",
   "chapter": "平抛运动",
   "title": "课上第8题：飞镖垂直命中",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "斜抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "oblique-projectile-target",
+    "familyName": "斜抛命中与射程",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "初速度分解",
+      "命中条件联立"
+    ],
+    "prerequisites": [
+      "斜抛运动",
+      "三角函数"
+    ]
+  },
   "question": "某次投镖，飞镖垂直射中竖直摆放的靶面中心。飞镖出手点在靶心下方，与靶心的水平距离为 \\(L\\)，竖直距离为 \\(H\\)，可将飞镖看成质点。\n\n试问飞镖出手时的速度大小为多少？若出手速度与水平面的夹角变大，其他条件不变，要使飞镖仍能垂直射中靶子，人应该前移还是后移？",
   "answer": "\\(\\displaystyle v_0=\\sqrt{\\frac{gL^2}{2H}+2gH}\\)，夹角变大时应前移。",
   "analysis": {

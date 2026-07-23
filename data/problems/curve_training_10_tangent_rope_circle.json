@@ -3,6 +3,25 @@
   "originalNumber": "题10",
   "chapter": "曲线运动",
   "title": "第10题：切线轻绳双圆运动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "horizontal-circle-critical",
+    "familyName": "水平圆周运动临界",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "静摩擦临界判断",
+      "参数范围求解"
+    ],
+    "prerequisites": [
+      "向心力",
+      "最大静摩擦力"
+    ]
+  },
   "question": "一个人用手握着长为 \\(L\\) 的轻绳一端，另一端连接一个可视为质点的滑块。手握的一端在水平桌面上做半径为 \\(r\\)、角速度为 \\(\\omega\\) 的匀速圆周运动，绳的方向始终与该圆周相切，并使滑块在同一水平面内做半径更大的匀速圆周运动。取重力加速度为 \\(g\\)。关于滑块，下列说法正确的是（　　）。",
   "options": [
     "A. 角速度小于 \\(\\omega\\)",

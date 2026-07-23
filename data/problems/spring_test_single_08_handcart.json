@@ -3,6 +3,25 @@
   "originalNumber": "单8",
   "chapter": "必修一结业测试",
   "title": "单选第8题：倾斜小推车双支持力",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "相互作用与平衡",
+    "modelId": "force-equilibrium",
+    "modelName": "受力分析与平衡",
+    "familyId": "multi-rope-equilibrium",
+    "familyName": "多绳多接触平衡",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "整体法与隔离法",
+      "几何约束转化"
+    ],
+    "prerequisites": [
+      "力的合成",
+      "共点力平衡"
+    ]
+  },
   "question": "搬运小推车的中间支架与底板垂直。正方体货物放在底板上，初始底板水平，随后缓慢下压把手，直到底板与水平面的夹角为 \\(60^\\circ\\)。小推车位置不变，不计货物与支架、底板间摩擦。下列说法正确的是（　　）。",
   "options": [
     "A. 小推车对货物的作用力方向先水平向左、后竖直向上",

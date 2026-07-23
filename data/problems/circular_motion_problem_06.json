@@ -7,6 +7,25 @@
   "id": "circular_motion_problem_06",
   "chapter": "圆周运动",
   "title": "A2：圆盘点奶油问题",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-transmission",
+    "familyName": "同轴、皮带与齿轮传动",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "传动约束识别",
+      "角速度线速度换算"
+    ],
+    "prerequisites": [
+      "周期与角速度",
+      "线速度"
+    ]
+  },
   "question": "圆盘绕中心匀速转动，蛋糕放在圆盘上。若每隔 \\(4\\,\\mathrm{s}\\) 点一次奶油，一周均匀点出 \\(15\\) 个奶油点，判断圆盘周期和角速度。",
   "options": [
     "A. 圆盘转动的转速约为 \\(2\\pi\\,\\mathrm{r/min}\\)",

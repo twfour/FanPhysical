@@ -3,6 +3,25 @@
   "originalNumber": "课10",
   "chapter": "行星运动与变轨等问题",
   "title": "例10：地火霍曼转移",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "卫星变轨",
+    "modelId": "orbit-transfer",
+    "modelName": "卫星轨道与变轨",
+    "familyId": "hohmann-transfer",
+    "familyName": "圆轨道与转移椭圆",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "变轨前后状态比较",
+      "转移时间与相位判断"
+    ],
+    "prerequisites": [
+      "轨道机械能",
+      "开普勒第三定律"
+    ]
+  },
   "question": "地球和火星在同一平面内绕太阳做圆周运动，火星轨道半径为地球轨道半径 \\(R_e\\) 的 \\(1.5\\) 倍。探测器从地球轨道点火后，沿与地球、火星轨道分别在长轴两端相切的半椭圆转移轨道飞向火星。某年 3 月 1 日零时，探测器与火星的角距离为 \\(60^\\circ\\)，火星沿公转方向领先。已知 \\(T_e=365\\,\\mathrm d\\)、\\(\\sqrt{1.5^3}=1.840\\)、\\(\\sqrt{1.25^3}=1.400\\)。求：（1）火星公转周期和转移时间；（2）点火日期。",
   "answer": "\\(T_m\\approx672\\,\\mathrm d\\)，转移时间 \\(t\\approx256\\,\\mathrm d\\)，应于当年 4 月 8 日左右点火。",
   "animation": {

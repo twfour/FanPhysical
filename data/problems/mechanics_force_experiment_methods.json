@@ -6,6 +6,25 @@
   "id": "mechanics_force_experiment_methods",
   "chapter": "力学基础",
   "title": "四种力学实验方法的辨析",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "实验方法",
+    "modelId": "force-equilibrium",
+    "modelName": "受力分析与平衡",
+    "familyId": "force-experiment-methods",
+    "familyName": "力学实验与方法",
+    "role": "概念辨析",
+    "difficulty": 1,
+    "variantLevel": "L0",
+    "skills": [
+      "实验方法辨析",
+      "微小量放大"
+    ],
+    "prerequisites": [
+      "弹力产生条件",
+      "力的示意图"
+    ]
+  },
   "question": "如下图所示，关于它们的说法正确的是（  ）",
   "options": [
     "A. 甲图中表示力的方法叫力的图示",

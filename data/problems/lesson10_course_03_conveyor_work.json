@@ -3,6 +3,25 @@
   "originalNumber": "课3",
   "chapter": "功和功率",
   "title": "例3：传送带相对滑动中的摩擦功",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "conveyor-energy",
+    "modelName": "传送带功能关系",
+    "familyId": "conveyor-work",
+    "familyName": "传送带摩擦功",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "物体与传送带位移区分",
+      "摩擦功计算"
+    ],
+    "prerequisites": [
+      "摩擦力",
+      "相对运动"
+    ]
+  },
   "question": "水平传送带以 \\(v=2\\,\\mathrm{m/s}\\) 的恒定速度向右运动。现将质量 \\(m=10\\,\\mathrm{kg}\\) 的行李轻放在传送带上，行李与传送带间的动摩擦因数 \\(\\mu=0.2\\)，传送带足够长，取 \\(g=10\\,\\mathrm{m/s^2}\\)。在行李与传送带发生相对滑动的过程中，分别求摩擦力对行李做的功 \\(W_1\\)、对传送带做的功 \\(W_2\\) 以及摩擦力对系统做的总功 \\(W_{\\mathrm{总}}\\)。",
   "answer": "\\(W_1=20\\,\\mathrm J\\)，\\(W_2=-40\\,\\mathrm J\\)，\\(W_{\\mathrm{总}}=-20\\,\\mathrm J\\)",
   "animation": {

@@ -3,6 +3,25 @@
   "originalNumber": "课11",
   "chapter": "功和功率",
   "title": "例11：汽车匀加速与恒功率两阶段启动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "vehicle-power",
+    "familyName": "机车恒功率与分段启动",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "牵引力速度关系",
+      "分阶段运动建模"
+    ],
+    "prerequisites": [
+      "功率公式",
+      "动能定理"
+    ]
+  },
   "question": "一辆车质量为 \\(5\\,\\mathrm t\\)，额定功率为 \\(80\\,\\mathrm{kW}\\)，初速度为零，以 \\(a=1\\,\\mathrm{m/s^2}\\) 做匀加速直线运动，车受阻力为车重的 \\(0.06\\) 倍，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求：①匀加速运动能维持多长时间；②匀加速过程的平均功率；③加速 \\(10\\,\\mathrm s\\) 末的瞬时功率；④车速的最大值；⑤若车启动后只匀加速 \\(5\\,\\mathrm s\\) 就改做匀速直线运动，匀速时的实际功率。",
   "answer": "① \\(10\\,\\mathrm s\\)；② \\(40\\,\\mathrm{kW}\\)；③ \\(80\\,\\mathrm{kW}\\)；④ \\(\\frac{80}{3}\\,\\mathrm{m/s}\\approx26.7\\,\\mathrm{m/s}\\)；⑤ \\(15\\,\\mathrm{kW}\\)",
   "animation": {

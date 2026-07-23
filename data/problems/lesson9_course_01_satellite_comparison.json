@@ -3,6 +3,25 @@
   "originalNumber": "课1",
   "chapter": "行星运动与变轨等问题",
   "title": "例1：四类地球卫星比较",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "卫星运动",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "satellite-comparison",
+    "familyName": "卫星类型与轨道参数比较",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "轨道量比较",
+      "模型真假辨析"
+    ],
+    "prerequisites": [
+      "圆轨道速度",
+      "同步卫星"
+    ]
+  },
   "question": "有 \\(a、b、c、d\\) 四颗地球卫星，\\(a\\) 在地球赤道上未发射，\\(b\\) 在地面附近的近地轨道上正常运动，\\(c\\) 是地球同步卫星，\\(d\\) 是高空探测卫星。各卫星由内到外排列如图，判断下列说法正确的是（  ）。",
   "options": [
     "A. \\(a\\) 的向心加速度等于重力加速度 \\(g\\)",

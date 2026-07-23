@@ -6,6 +6,25 @@
   "id": "mechanics_spring_displacement",
   "chapter": "力学基础",
   "title": "两弹簧连接体上提距离问题",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "弹力",
+    "modelId": "elastic-force",
+    "modelName": "弹簧与弹力",
+    "familyId": "spring-series-equilibrium",
+    "familyName": "串联弹簧与连接体平衡",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "弹簧连接关系建模",
+      "整体与隔离切换"
+    ],
+    "prerequisites": [
+      "胡克定律",
+      "作用力与反作用力"
+    ]
+  },
   "question": "如图所示，两木块的质量分别为\\(m_1\\)和\\(m_2\\)，两轻质弹簧的劲度系数分别为\\(k_1\\)和\\(k_2\\)，弹簧与木块之间拴接而不分离，整个系统处于平衡状态。现缓慢向上提上面的木块，直到下面的弹簧恢复原长，求这过程中上面木块移动的距离。",
   "options": [],
   "answer": "\\(\\Delta x = \\frac{(m_1+m_2)g}{k_2} + \\frac{m_1g}{k_1}\\)",

@@ -3,6 +3,25 @@
   "originalNumber": "题8",
   "chapter": "曲线运动",
   "title": "第8题：匀速投弹落斜坡",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "moving-platform-projectile",
+    "familyName": "运动载体投弹",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "参考系转换",
+      "事件间隔分析"
+    ],
+    "prerequisites": [
+      "平抛运动",
+      "相对运动"
+    ]
+  },
   "question": "轰炸机在高空沿直线水平匀速飞行时先后投下三颗炸弹，炸弹依次落在山坡上的 \\(A\\)、\\(B\\)、\\(C\\) 三点，其中 \\(B\\) 为 \\(AC\\) 的中点，不计空气阻力。下列说法正确的是（　　）。",
   "options": [
     "A. 相邻两次投弹的时间间隔相等",

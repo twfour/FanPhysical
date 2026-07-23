@@ -3,6 +3,25 @@
   "originalNumber": "单6",
   "chapter": "行星运动与变轨等问题",
   "title": "作业第6题：卫星星下点轨迹",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "卫星运动",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "satellite-coverage",
+    "familyName": "卫星覆盖、追及与地面轨迹",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "空间几何建模",
+      "相对角速度分析"
+    ],
+    "prerequisites": [
+      "开普勒第三定律",
+      "圆周运动"
+    ]
+  },
   "question": "卫星 FZ01 的“星下点”轨迹如图，在全球经度范围内形成三个相同波瓣，最高纬度为 \\(30^\\circ\\)。已知地球同步卫星轨道半径为 \\(r=6.6R\\)，FZ01 的绕行方向与地球自转方向一致。下列说法正确的是（  ）。",
   "options": [
     "A. FZ01 的轨道半径约为 \\(r/3\\)",

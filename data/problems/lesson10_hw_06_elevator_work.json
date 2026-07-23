@@ -3,6 +3,25 @@
   "originalNumber": "多6",
   "chapter": "功和功率",
   "title": "课后多选第6题：升降机内斜面对物体做功",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "moving-support-work",
+    "familyName": "运动接触面对物体做功",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "参考系位移判断",
+      "分力做功计算"
+    ],
+    "prerequisites": [
+      "功的定义",
+      "受力平衡"
+    ]
+  },
   "question": "（多选）升降机内斜面的倾角 \\(\\theta=30^\\circ\\)，质量为 \\(2\\,\\mathrm{kg}\\) 的物体置于斜面上，始终不发生相对滑动。在升降机以 \\(5\\,\\mathrm{m/s^2}\\) 的加速度从静止开始匀加速上升 \\(4\\,\\mathrm s\\) 的过程中，取 \\(g=10\\,\\mathrm{m/s^2}\\)，则（  ）。",
   "options": [
     "A. 斜面对物体的支持力做功 \\(900\\,\\mathrm J\\)",

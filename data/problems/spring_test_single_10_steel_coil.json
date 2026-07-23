@@ -3,6 +3,25 @@
   "originalNumber": "单10",
   "chapter": "必修一结业测试",
   "title": "单选第10题：钢卷刹车离地临界",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "牛顿运动定律",
+    "modelId": "accelerated-frame",
+    "modelName": "加速参考系与相对运动",
+    "familyId": "equivalent-gravity",
+    "familyName": "等效重力与随体参考系",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "非惯性系建模",
+      "临界状态判断"
+    ],
+    "prerequisites": [
+      "牛顿第二定律",
+      "共点力平衡"
+    ]
+  },
   "question": "半径为 \\(R\\) 的圆形钢卷放在货车水平车面上，未采用其他固定方式，只由前、后两个三角尖楔顶住下端。尖楔与钢卷接触点距车面高度为 \\(h\\)，尖楔相对车面不滑动，钢卷与尖楔间摩擦不计。货车急刹时，为保证钢卷不离开车面，刹车加速度大小不能超过（　　）。",
   "options": [
     "A. \\(\\frac{g\\sqrt{2Rh-h^2}}{R-h}\\)",

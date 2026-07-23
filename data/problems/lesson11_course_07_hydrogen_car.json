@@ -3,6 +3,25 @@
   "originalNumber": "课7",
   "chapter": "动能定理",
   "title": "例7：氢能源汽车分段启动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "vehicle-power",
+    "familyName": "机车恒功率与分段启动",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "牵引力速度关系",
+      "分阶段运动建模"
+    ],
+    "prerequisites": [
+      "功率公式",
+      "动能定理"
+    ]
+  },
   "question": "（多选）质量 \\(m=1000\\,\\mathrm{kg}\\) 的氢能源汽车沿平直公路从静止开始运动。汽车在 \\(0\\sim t_1\\) 内做匀加速运动，\\(t_1\\sim50\\,\\mathrm s\\) 内保持额定功率，\\(50\\sim70\\,\\mathrm s\\) 以 \\(40\\,\\mathrm{m/s}\\) 匀速行驶，\\(70\\,\\mathrm s\\) 末关闭动力并匀减速滑行，至 \\(t_2\\) 时刻停止。图中 \\(t_1\\) 时速度为 \\(20\\,\\mathrm{m/s}\\)。额定功率为 \\(80\\,\\mathrm{kW}\\)，阻力恒定。下列说法正确的是（  ）。",
   "options": [
     "A. 汽车从启动到停止共历时 \\(t_2=100\\,\\mathrm s\\)",

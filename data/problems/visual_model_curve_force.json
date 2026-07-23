@@ -2,6 +2,25 @@
   "id": "curveForce",
   "chapter": "曲线运动",
   "title": "课上第5题：曲线运动受力方向判断",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "曲线运动",
+    "modelId": "curve-kinematics",
+    "modelName": "曲线运动与矢量分析",
+    "familyId": "curve-concepts",
+    "familyName": "曲线运动方向与受力",
+    "role": "母题",
+    "difficulty": 1,
+    "variantLevel": "L1",
+    "skills": [
+      "速度切线判断",
+      "力与轨迹关系判断"
+    ],
+    "prerequisites": [
+      "速度矢量",
+      "牛顿第二定律"
+    ]
+  },
   "question": "质点沿如图所示的轨迹从 \\(A\\) 点运动到 \\(B\\) 点，已知其速度逐渐减小。判断图中能正确表示质点在 \\(C\\) 点所受合力方向的是哪一个。\n\n题图给出四个候选方向，关键是同时满足“使速度减小”和“使轨迹弯曲”两个条件。",
   "analysis": {
     "title": "取课上第5题：减速看切向反向，转弯看凹侧"

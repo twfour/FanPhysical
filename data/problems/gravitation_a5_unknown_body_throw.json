@@ -3,6 +3,25 @@
   "originalNumber": "A5",
   "chapter": "万有引力与宇宙航行",
   "title": "A5：未知天体竖直上抛",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "surface-gravity-throw",
+    "familyName": "星球表面重力与竖直运动",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "天体参数换算",
+      "局部重力运动建模"
+    ],
+    "prerequisites": [
+      "万有引力",
+      "竖直运动"
+    ]
+  },
   "question": "（多选）航天员登上某半径为 \\(R\\) 的球形未知天体，在其表面将质量为 \\(m\\) 的小球以初速度 \\(v_0\\) 竖直上抛，上升的最大高度为 \\(h\\)，引力常量为 \\(G\\)。则（  ）",
   "options": [
     "A. 该天体表面的重力加速度大小为 \\(v_0^2/(2h)\\)",

@@ -7,6 +7,25 @@
   "id": "circular_daily_a5_string_tension_graph",
   "chapter": "圆周运动日常",
   "title": "A5：最高点绳拉力图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "基础变式",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "用轻质绳拴着质量为 \\(m\\) 的小球，在竖直平面内做圆周运动，不计一切阻力。小球运动到最高点时绳对小球的拉力为 \\(T\\)，最高点速度大小为 \\(v\\)，其 \\(T-v^2\\) 图像如图所示，则下列说法不正确的是（  ）",
   "options": [
     "A. 轻质绳长为 \\(\\frac{mb}{a}\\)",

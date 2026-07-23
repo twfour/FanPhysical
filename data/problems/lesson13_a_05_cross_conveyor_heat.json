@@ -3,6 +3,25 @@
   "originalNumber": "A5",
   "chapter": "功能关系",
   "title": "A 组第5题：垂直传送带相对运动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "conveyor-energy",
+    "modelName": "传送带功能关系",
+    "familyId": "cross-conveyor",
+    "familyName": "垂直传送带与相对运动",
+    "role": "基础变式",
+    "difficulty": 5,
+    "variantLevel": "L1",
+    "skills": [
+      "二维相对运动",
+      "摩擦功与热量分配"
+    ],
+    "prerequisites": [
+      "动能定理",
+      "相对位移"
+    ]
+  },
   "question": "如图，有两个相互垂直且等高的水平传送带 \\(M\\) 和 \\(N\\)，速度大小分别为 \\(0.6\\,\\mathrm{m/s}\\)、\\(0.8\\,\\mathrm{m/s}\\)，方向如图。一小煤块离开传送带 \\(M\\) 前已与 \\(M\\) 同速，并平稳地传到传送带 \\(N\\) 上。煤块质量为 \\(1\\,\\mathrm{kg}\\)，与传送带 \\(N\\) 间的动摩擦因数为 \\(0.2\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)，传送带 \\(N\\) 足够宽。下列说法正确的是（  ）。",
   "options": [
     "A. 煤块传到 \\(N\\) 前的瞬间，相对传送带 \\(N\\) 的速度大小为 \\(1.4\\,\\mathrm{m/s}\\)",

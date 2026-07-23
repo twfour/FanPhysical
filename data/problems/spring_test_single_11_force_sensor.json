@@ -3,6 +3,25 @@
   "originalNumber": "单11",
   "chapter": "必修一结业测试",
   "title": "单选第11题：下蹲起跳压力图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "牛顿运动定律",
+    "modelId": "accelerated-frame",
+    "modelName": "加速参考系与相对运动",
+    "familyId": "overweight-force-graph",
+    "familyName": "超重失重与力传感器图像",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "力图像读取",
+      "冲量与速度关联"
+    ],
+    "prerequisites": [
+      "牛顿第二定律",
+      "冲量"
+    ]
+  },
   "question": "水平力传感器记录人对其压力 \\(F\\) 随时间的变化。人从静止站立开始，先下蹲，再原地向上跳起，离开传感器后落回。图像中站立压力基线、下蹲和起跳阶段以及一段 \\(F=0\\) 的腾空区间均可辨认。取 \\(g=10\\,\\mathrm{m/s^2}\\)。下列说法正确的是（　　）。",
   "options": [
     "A. 图像表明人向上跳起后离开传感器两次",

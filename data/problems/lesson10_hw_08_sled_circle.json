@@ -3,6 +3,25 @@
   "originalNumber": "多8",
   "chapter": "功和功率",
   "title": "课后多选第8题：狗拉雪橇做匀速圆周运动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "power-velocity",
+    "familyName": "速度方向与瞬时功率",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "瞬时速度确定",
+      "功率正负判断"
+    ],
+    "prerequisites": [
+      "瞬时功率",
+      "速度分解"
+    ]
+  },
   "question": "（多选）一条狗用水平拉力拉着质量为 \\(80\\,\\mathrm{kg}\\) 的雪橇（包括内部物品），在水平雪面做半径为 \\(24\\,\\mathrm m\\) 的匀速圆周运动，速度大小为 \\(3\\,\\mathrm{m/s}\\)。雪橇与地面间的动摩擦因数为 \\(0.05\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)、\\(\\cos53^\\circ=0.6\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 雪橇受到狗的水平拉力大小为 \\(40\\,\\mathrm N\\)",

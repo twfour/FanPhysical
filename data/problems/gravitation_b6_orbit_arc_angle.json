@@ -3,6 +3,25 @@
   "originalNumber": "B6",
   "chapter": "万有引力与宇宙航行",
   "title": "B6：弧长角度测天体",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "orbit-parameter-inference",
+    "familyName": "观测数据反演天体参数",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "多源数据提取",
+      "天体质量密度推导"
+    ],
+    "prerequisites": [
+      "开普勒第三定律",
+      "圆周运动"
+    ]
+  },
   "question": "（多选）人造航天器在月球表面上空绕月球做匀速圆周运动。经过时间 \\(t\\)（\\(t\\) 小于航天器的绕行周期），航天器运动的弧长为 \\(s\\)，航天器与月球的中心连线扫过的角度为 \\(\\theta\\)，引力常量为 \\(G\\)。则（  ）",
   "options": [
     "A. 航天器的轨道半径为 \\(\\theta/s\\)",

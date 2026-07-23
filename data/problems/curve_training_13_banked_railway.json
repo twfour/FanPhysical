@@ -3,6 +3,25 @@
   "originalNumber": "题13",
   "chapter": "曲线运动",
   "title": "第13题：铁路弯道侧倾",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-force",
+    "familyName": "圆周运动受力分解",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "向心方向确定",
+      "径向受力方程"
+    ],
+    "prerequisites": [
+      "牛顿第二定律",
+      "向心加速度"
+    ]
+  },
   "question": "铁路拐弯处内、外轨有一定高度差。质量为 \\(M_0\\) 的火车以设计速率 \\(v_0\\) 在水平面内转弯时，内、外轨对车轮均无侧向压力，轨道支持力为 \\(N_0\\)。当火车以实际速率 \\(v\ne v_0\\) 通过此弯道时，轨道将施加一个与枕木平行的侧向压力 \\(F\\)。已知重力加速度为 \\(g\\)，轨道与水平面夹角为 \\(\\theta\\)。下列说法正确的是（多选）。",
   "options": [
     "A. 若 \\(v\\gt v_0\\)，侧向压力 \\(F\\) 方向由内轨指向外轨",

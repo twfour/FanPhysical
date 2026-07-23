@@ -3,6 +3,25 @@
   "originalNumber": "B8",
   "chapter": "功能关系",
   "title": "B 组第8题：倾斜传送带煤块划痕",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "conveyor-energy",
+    "modelName": "传送带功能关系",
+    "familyId": "conveyor-energy-cycle",
+    "familyName": "传送带能量与往返过程",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "分阶段相对运动",
+      "电功热量动能分配"
+    ],
+    "prerequisites": [
+      "相对位移",
+      "功能关系"
+    ]
+  },
   "question": "（多选）传送带与地面倾角 \\(\\theta=37^\\circ\\)，从 \\(A\\) 到 \\(B\\) 长 \\(16\\,\\mathrm m\\)，传送带以 \\(10\\,\\mathrm{m/s}\\) 的速度逆时针转动。在传送带上端 \\(A\\) 无初速度地放一个质量为 \\(m=0.5\\,\\mathrm{kg}\\) 的黑色煤块，它与传送带间的动摩擦因数 \\(\\mu=0.5\\)，煤块在传送带上会留下黑色划痕。已知 \\(\\sin37^\\circ=0.6\\)，\\(\\cos37^\\circ=0.8\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 煤块从 \\(A\\) 到 \\(B\\) 运动的时间为 \\(2\\,\\mathrm s\\)",

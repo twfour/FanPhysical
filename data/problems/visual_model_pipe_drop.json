@@ -2,6 +2,25 @@
   "id": "pipeDrop",
   "chapter": "竖直上抛运动",
   "title": "第10题：金属管穿球",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "直线运动",
+    "modelId": "kinematics",
+    "modelName": "直线运动与追及",
+    "familyId": "same-acceleration-relative",
+    "familyName": "同加速度相对运动",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "相对运动降维",
+      "相遇条件判断"
+    ],
+    "prerequisites": [
+      "竖直上抛",
+      "自由落体"
+    ]
+  },
   "question": "金属管从地面以初速度 \\(v\\) 竖直上抛，管长为 \\(L\\)；小球从管口上方高度 \\(h\\) 处由静止释放。判断小球是否会穿过金属管，并分析穿过发生在金属管上升还是下降阶段。",
   "analysis": {
     "title": "两者加速度相同，转为相对匀速"

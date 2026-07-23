@@ -3,6 +3,25 @@
   "originalNumber": "B6",
   "chapter": "动能定理",
   "title": "B组第6题：提升装置最短时间",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "vehicle-power",
+    "familyName": "机车恒功率与分段启动",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "牵引力速度关系",
+      "分阶段运动建模"
+    ],
+    "prerequisites": [
+      "功率公式",
+      "动能定理"
+    ]
+  },
   "question": "（多选）额定功率为 \\(1200\\,\\mathrm W\\)、最大拉力为 \\(300\\,\\mathrm N\\) 的提升装置，把静置于地面的质量 \\(20\\,\\mathrm{kg}\\) 的重物竖直提升到高 \\(85.2\\,\\mathrm m\\) 的平台。重物先加速再匀速，最后做加速度大小不超过 \\(5\\,\\mathrm{m/s^2}\\) 的匀减速运动，到达平台时速度恰为零。若提升时间最短，取 \\(g=10\\,\\mathrm{m/s^2}\\)，下列说法正确的是（  ）。",
   "options": [
     "A. 整个过程中最大加速度为 \\(15\\,\\mathrm{m/s^2}\\)",

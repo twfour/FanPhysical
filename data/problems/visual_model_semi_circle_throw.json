@@ -2,6 +2,25 @@
   "id": "semiCircleThrow",
   "chapter": "平抛运动",
   "title": "课上第5题：平抛落圆弧",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-circle",
+    "familyName": "平抛与圆弧相交",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "圆坐标约束",
+      "速度方向反演"
+    ],
+    "prerequisites": [
+      "平抛方程",
+      "圆的几何"
+    ]
+  },
   "question": "如图所示，在竖直放置的半圆形容器的中心 \\(O\\) 点，分别以水平速度 \\(v_1\\)、\\(v_2\\) 抛出两个小球。小球可视为质点，最终它们分别落在圆弧上的 \\(A\\) 点和 \\(B\\) 点。\n\n已知 \\(OA\\perp OB\\)，且 \\(OA\\) 与竖直方向成 \\(\\alpha\\) 角，求两小球初速度之比 \\(\\frac{v_1}{v_2}\\)。",
   "options": [
     "A. \\(\\tan\\alpha\\)",

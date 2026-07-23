@@ -3,6 +3,25 @@
   "originalNumber": "A2",
   "chapter": "万有引力与宇宙航行",
   "title": "A2：节气与公转快慢",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "kepler-orbit-law",
+    "familyName": "开普勒定律与椭圆轨道",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "轨道位置比较",
+      "面积速度推理"
+    ],
+    "prerequisites": [
+      "开普勒定律",
+      "万有引力"
+    ]
+  },
   "question": "（多选）二十四节气按地球和太阳的连线每扫过 \\(15^\\circ\\) 划分。北半球冬至时地球在近日点附近。根据节气在地球公转轨道上的位置，下列说法正确的是（  ）",
   "options": [
     "A. 芒种时地球公转速度比小满时小",

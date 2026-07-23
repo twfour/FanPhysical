@@ -3,6 +3,25 @@
   "originalNumber": "题15",
   "chapter": "曲线运动",
   "title": "第15题：圆盘双木块摩擦图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "horizontal-circle-critical",
+    "familyName": "水平圆周运动临界",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "静摩擦临界判断",
+      "参数范围求解"
+    ],
+    "prerequisites": [
+      "向心力",
+      "最大静摩擦力"
+    ]
+  },
   "question": "两个完全相同的小木块 \\(a\\)、\\(b\\) 用轻绳连接并置于水平圆盘上，\\(a\\) 与转轴 \\(OO'\\) 的距离为 \\(l\\)。圆盘从静止开始绕转轴极缓慢地加速转动，木块与圆盘保持相对静止。\\(\\omega\\) 表示圆盘角速度，\\(a\\)、\\(b\\) 所受摩擦力 \\(f\\) 与 \\(\\omega^2\\) 的关系如题图所示：图线（1）先达到平台值 \\(f_2\\)，图线（2）在 \\(\\omega_1^2\\) 处由 \\(f_1\\) 改变斜率并在 \\(\\omega_2^2\\) 处达到 \\(f_2\\)，且 \\(f_2=3f_1\\)。下列判断正确的是（多选）。",
   "options": [
     "A. 图线（1）对应物体 \\(a\\)",

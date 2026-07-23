@@ -7,6 +7,25 @@
   "id": "circular_motion_string",
   "chapter": "圆周运动",
   "title": "C12：旋转飞椅",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "conical-pendulum",
+    "familyName": "圆锥摆构型与参数",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "空间受力分解",
+      "角速度与几何关联"
+    ],
+    "prerequisites": [
+      "向心力",
+      "力的合成"
+    ]
+  },
   "question": "旋转飞椅可简化为转盘带动顶部圆盘转动，长为 \\(L\\) 的轻质悬绳一端系在圆盘上，另一端系椅子。两绳与竖直方向夹角分别为 \\(\\theta_1=37^\\circ\\)、\\(\\theta_2=53^\\circ\\)，椅子与游客总质量分别为 \\(m_A,m_B\\)。判断向心力来源、拉力比、向心加速度比和夹角是否与质量有关。",
   "options": [
     "A. 由重力与绳子拉力的合力提供向心力",

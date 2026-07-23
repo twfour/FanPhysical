@@ -6,6 +6,25 @@
   "id": "mechanics_desk_deformation_experiment",
   "chapter": "力学基础",
   "title": "桌面微小形变的放大实验",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "实验方法",
+    "modelId": "force-equilibrium",
+    "modelName": "受力分析与平衡",
+    "familyId": "force-experiment-methods",
+    "familyName": "力学实验与方法",
+    "role": "母题",
+    "difficulty": 1,
+    "variantLevel": "L1",
+    "skills": [
+      "实验方法辨析",
+      "微小量放大"
+    ],
+    "prerequisites": [
+      "弹力产生条件",
+      "力的示意图"
+    ]
+  },
   "question": "在实验室中可以看到如图所示的实验现象：当用手按压桌面时，反射在天花板上的光点会发生移动，下列说法正确的是（  ）",
   "options": [
     "A. 桌面受到向下的弹力，是由于桌面发生了形变",

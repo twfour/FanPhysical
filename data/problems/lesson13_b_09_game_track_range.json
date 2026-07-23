@@ -3,6 +3,26 @@
   "originalNumber": "B9",
   "chapter": "功能关系",
   "title": "B 组第9题：斜轨—传送带—半圆—平抛",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动能定理",
+    "modelId": "track-transition",
+    "modelName": "轨道临界与抛体衔接",
+    "familyId": "track-energy-projectile",
+    "familyName": "轨道、临界与抛体综合",
+    "role": "综合题",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "多过程状态连接",
+      "轨道临界判断"
+    ],
+    "prerequisites": [
+      "动能定理",
+      "圆周运动",
+      "平抛运动"
+    ]
+  },
   "question": "如图，一游戏装置由倾角为 \\(\\alpha\\) 的轨道 \\(AB\\)、水平传送带 \\(BC\\) 和半径为 \\(R\\) 的光滑半圆弧轨道 \\(DE\\) 组成，\\(D、C、O、E\\) 在同一竖直线上。小滑块从斜面不同高度静止释放，经过传送带和半圆轨道，最后由 \\(E\\) 点平抛落地。已知小滑块与斜面、传送带间的动摩擦因数分别为 \\(\\mu_1=0.5\\)、\\(\\mu_2=0.1\\)，\\(BC=L=4\\,\\mathrm m\\)，\\(AB=L'=6\\,\\mathrm m\\)，传送带向右匀速运动，速度 \\(v=4\\,\\mathrm{m/s}\\)，\\(D\\) 距地面的高度 \\(H=3.05\\,\\mathrm m\\)，\\(R=0.9\\,\\mathrm m\\)，\\(\\alpha=37^\\circ\\)，\\(CD\\) 间距离刚好允许滑块通过。忽略转轮大小和 \\(CD\\) 间距，滑块经过 \\(B\\) 点时无能量损失，其余阻力不计，取 \\(g=10\\,\\mathrm{m/s^2}\\)，\\(\\sin37^\\circ=0.6\\)。求：\n\n（1）若滑块匀速通过传送带，释放高度 \\(h\\)；\n\n（2）在（1）条件下，滑块平抛的水平距离 \\(x\\)；\n\n（3）平抛距离 \\(x\\) 与释放高度 \\(h\\) 的关系。",
   "answer": "（1）\\(h=2.4\\,\\mathrm m\\)；（2）\\(x=\\sqrt{13}\\,\\mathrm m\\)；（3）当 \\(0\\le h\\lt1.2\\,\\mathrm m\\) 时 \\(x=\\dfrac12\\sqrt{\\dfrac{20}{3}h+44}\\)，当 \\(1.2\\le h\\le3.6\\,\\mathrm m\\) 时 \\(x=\\sqrt{13}\\,\\mathrm m\\)。",
   "animation": {

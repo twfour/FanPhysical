@@ -3,6 +3,25 @@
   "originalNumber": "B9",
   "chapter": "动能定理",
   "title": "B组第9题：线性空气阻力下的竖直上抛",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "dissipative-energy-graph",
+    "familyName": "阻力作用与能量图像",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "能量图像斜率分析",
+      "耗散功反演"
+    ],
+    "prerequisites": [
+      "机械能变化",
+      "阻力做功"
+    ]
+  },
   "question": "（多选）从地面以初速度 \\(v_0\\) 竖直向上抛出质量为 \\(m\\) 的小球。空气阻力大小与速率成正比，比例系数为 \\(k\\)。小球在 \\(t_1\\) 时刻到达最高点，再落回地面；落地前已达到向下的终端速率 \\(v_1\\)。取重力加速度为 \\(g\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 小球上升时间大于下落时间",

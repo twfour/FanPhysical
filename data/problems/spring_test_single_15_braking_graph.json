@@ -3,6 +3,25 @@
   "originalNumber": "单15",
   "chapter": "必修一结业测试",
   "title": "单选第15题：刹车变换图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "直线运动",
+    "modelId": "kinematics",
+    "modelName": "直线运动与追及",
+    "familyId": "uniform-motion-graphs",
+    "familyName": "匀变速运动与图像",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "运动图像转换",
+      "制动过程建模"
+    ],
+    "prerequisites": [
+      "匀变速公式",
+      "平均速度"
+    ]
+  },
   "question": "汽车匀速行驶时，驾驶员发现车头前方 \\(30\\,\\mathrm m\\) 处有动物横穿公路，经过 \\(0.2\\,\\mathrm s\\) 反应时间后刹车。刹车过程中汽车的 \\(x/t^2\\)-\\(1/t\\) 图像是一条直线，其纵轴截距为 \\(-1\\,\\mathrm{m/s^2}\\)，横轴截距为 \\(0.1\\,\\mathrm{s^{-1}}\\)。下列说法正确的是（　　）。",
   "options": [
     "A. 汽车刹车的加速度大小为 \\(1\\,\\mathrm{m/s^2}\\)",

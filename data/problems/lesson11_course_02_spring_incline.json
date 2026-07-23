@@ -3,6 +3,25 @@
   "originalNumber": "课2",
   "chapter": "动能定理",
   "title": "例2：斜面上压缩弹簧",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动能定理",
+    "modelId": "spring-energy",
+    "modelName": "弹簧与机械能",
+    "familyId": "spring-work-energy",
+    "familyName": "弹簧功与动能变化",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "弹簧状态划分",
+      "变力功处理"
+    ],
+    "prerequisites": [
+      "弹性势能",
+      "动能定理"
+    ]
+  },
   "question": "如图所示，光滑斜面的顶端固定一弹簧。小球在斜面最低点 \\(A\\) 的速度为 \\(v\\)，向上运动并将弹簧压缩；到 \\(C\\) 点时弹簧最短，且 \\(C\\) 点距地面高度为 \\(h\\)。不计小球与弹簧碰撞过程中的能量损失，则弹簧从开始接触到被压缩至最短的过程中，弹簧对小球做的功为（  ）。",
   "options": [
     "A. \\(mgh-\\frac12mv^2\\)",

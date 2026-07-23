@@ -3,6 +3,25 @@
   "originalNumber": "A3",
   "chapter": "动能定理",
   "title": "A组第3题：粗糙斜面上滑再返回",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动能定理",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "work-friction-roundtrip",
+    "familyName": "往返运动与摩擦耗能",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "全过程动能定理",
+      "路程位移区分"
+    ],
+    "prerequisites": [
+      "摩擦功",
+      "动能定理"
+    ]
+  },
   "question": "（多选）物体以速度 \\(v_0\\) 沿倾角为 \\(\\theta\\) 的粗糙斜面上滑，到最高点后再沿斜面下滑，回到出发点时速度为 \\(\\frac12v_0\\)。下列判断正确的是（  ）。",
   "options": [
     "A. 动摩擦因数 \\(\\mu=\\frac35\\tan\\theta\\)",

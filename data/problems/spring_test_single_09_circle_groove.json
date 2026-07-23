@@ -3,6 +3,25 @@
   "originalNumber": "单9",
   "chapter": "必修一结业测试",
   "title": "单选第9题：斜面圆槽相对静止",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "牛顿运动定律",
+    "modelId": "accelerated-frame",
+    "modelName": "加速参考系与相对运动",
+    "familyId": "equivalent-gravity",
+    "familyName": "等效重力与随体参考系",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "非惯性系建模",
+      "临界状态判断"
+    ],
+    "prerequisites": [
+      "牛顿第二定律",
+      "共点力平衡"
+    ]
+  },
   "question": "小球 C 置于光滑圆形槽 B 内，B 放在倾角为 \\(\\theta\\) 的足够长光滑斜面 A 上。B、C 一起沿斜面下滑，稳定后 C 与 B 相对静止。下列位置关系正确的是（　　）。上方动画区给出圆槽中的受力方向示意。",
   "options": [
     "A. C 偏在圆槽靠斜面上方的一侧",

@@ -3,6 +3,25 @@
   "originalNumber": "课8",
   "chapter": "万有引力与宇宙航行",
   "title": "例8：月面竖直上抛",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "surface-gravity-throw",
+    "familyName": "星球表面重力与竖直运动",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "天体参数换算",
+      "局部重力运动建模"
+    ],
+    "prerequisites": [
+      "万有引力",
+      "竖直运动"
+    ]
+  },
   "question": "（多选）航天员在月球表面将小球以速度 \\(v_0\\) 竖直向上抛出，小球上升的最大高度为 \\(h\\)。已知月球半径为 \\(R\\)，引力常量为 \\(G\\)。下列说法正确的是（  ）",
   "options": [
     "A. 月球表面的重力加速度大小为 \\(v_0^2/h\\)",

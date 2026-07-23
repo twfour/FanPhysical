@@ -3,6 +3,25 @@
   "originalNumber": "多9",
   "chapter": "功和功率",
   "title": "课后多选第9题：四种抛体的重力功率",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "power-velocity",
+    "familyName": "速度方向与瞬时功率",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "瞬时速度确定",
+      "功率正负判断"
+    ],
+    "prerequisites": [
+      "瞬时功率",
+      "速度分解"
+    ]
+  },
   "question": "（多选）同一高度处有 \\(4\\) 个质量相同且可视为质点的小球。小球 \\(A\\) 做自由落体运动，小球 \\(B\\) 做平抛运动，小球 \\(C\\) 做竖直上抛运动，小球 \\(D\\) 做竖直下抛运动，且小球 \\(B、C、D\\) 抛出时的初速度大小相同。不计空气阻力。小球从释放或抛出到落地的过程中（  ）。",
   "options": [
     "A. 重力对 \\(4\\) 个小球做的功相同",

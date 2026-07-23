@@ -3,6 +3,25 @@
   "originalNumber": "单12",
   "chapter": "必修一结业测试",
   "title": "单选第12题：缆车加速摩擦判零",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "牛顿运动定律",
+    "modelId": "accelerated-frame",
+    "modelName": "加速参考系与相对运动",
+    "familyId": "equivalent-gravity",
+    "familyName": "等效重力与随体参考系",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "非惯性系建模",
+      "临界状态判断"
+    ],
+    "prerequisites": [
+      "牛顿第二定律",
+      "共点力平衡"
+    ]
+  },
   "question": "缆车沿与水平方向成 \\(30^\\circ\\) 的绳缆向上做匀加速直线运动。车厢内 P、Q 两物体与车厢保持相对静止。四种图示中，P、Q 的接触面方向不同。P、Q 间摩擦力可能为零的是（　　）。上方动画区显示无摩擦时接触面法线与等效重力的关系。",
   "options": [
     "A. 图 A 所示",

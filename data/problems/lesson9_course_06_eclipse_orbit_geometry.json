@@ -3,6 +3,25 @@
   "originalNumber": "课6",
   "chapter": "行星运动与变轨等问题",
   "title": "例6：飞船日全食与轨道几何",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "卫星运动",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "satellite-coverage",
+    "familyName": "卫星覆盖、追及与地面轨迹",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "空间几何建模",
+      "相对角速度分析"
+    ],
+    "prerequisites": [
+      "开普勒第三定律",
+      "圆周运动"
+    ]
+  },
   "question": "（多选）宇宙飞船以周期 \\(T\\) 绕地球做圆周运动。地球半径为 \\(R\\)、质量为 \\(M\\)，引力常量为 \\(G\\)，地球自转周期为 \\(T_0\\)。太阳光可视为平行光，宇航员在轨道上 A 点测得地球张角为 \\(\\alpha\\)。下列说法正确的是（  ）。",
   "options": [
     "A. \\(v=\\dfrac{2\\pi R}{T\\sin(\\alpha/2)}\\)",

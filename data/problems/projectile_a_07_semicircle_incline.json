@@ -3,6 +3,25 @@
   "originalNumber": "A7",
   "chapter": "平抛运动",
   "title": "A组第7题：半圆轨道与斜面",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-incline",
+    "familyName": "平抛与斜面相交",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "轨迹几何联立",
+      "末速度方向判断"
+    ],
+    "prerequisites": [
+      "平抛方程",
+      "斜面几何"
+    ]
+  },
   "question": "如图，\\(a、b\\) 两小球分别从半圆轨道顶端和斜面顶端以大小相等的初速度 \\(v_0\\) 同时水平抛出。半圆轨道的半径与斜面竖直高度相等且在同一竖直面内，斜面底边长是其竖直高度的 \\(2\\) 倍。若小球 \\(b\\) 能落到斜面上，下列说法正确的是（　　）。",
   "options": [
     "A. \\(a、b\\) 两球不可能同时落在半圆轨道和斜面上",

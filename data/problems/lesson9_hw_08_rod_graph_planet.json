@@ -3,6 +3,25 @@
   "originalNumber": "多8",
   "chapter": "行星运动与变轨等问题",
   "title": "作业第8题：轻杆弹力图像测星球",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "surface-gravity-throw",
+    "familyName": "星球表面重力与竖直运动",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "天体参数换算",
+      "局部重力运动建模"
+    ],
+    "prerequisites": [
+      "万有引力",
+      "竖直运动"
+    ]
+  },
   "question": "（多选）在 X 星球表面，用长为 \\(R\\) 的轻杆连接小球，使小球在竖直平面内做圆周运动。小球到达最高点时，弹力为 \\(F\\)、速度为 \\(v\\)，测得 \\(F-v^2\\) 图像是一条直线，纵轴截距为 \\(a\\)，横轴截距为 \\(b\\)。已知 X 星球半径为 \\(R_0\\)，引力常量为 \\(G\\)，忽略自转。下列说法正确的是（  ）。",
   "options": [
     "A. X 星球第一宇宙速度 \\(v_1=\\sqrt b\\)",

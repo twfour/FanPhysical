@@ -3,6 +3,25 @@
   "originalNumber": "A2",
   "chapter": "动能定理",
   "title": "A组第2题：倾斜传送带传送包裹",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "conveyor-energy",
+    "modelName": "传送带功能关系",
+    "familyId": "conveyor-energy-cycle",
+    "familyName": "传送带能量与往返过程",
+    "role": "基础变式",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "分阶段相对运动",
+      "电功热量动能分配"
+    ],
+    "prerequisites": [
+      "相对位移",
+      "功能关系"
+    ]
+  },
   "question": "倾角 \\(\\theta=37^\\circ\\)、长度 \\(L=8\\,\\mathrm m\\) 的传送带以 \\(v_0=2\\,\\mathrm{m/s}\\) 顺时针转动。质量 \\(m=1\\,\\mathrm{kg}\\) 的包裹被轻放在下端 \\(A\\)，包裹与传送带间的动摩擦因数 \\(\\mu=0.8\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)，\\(\\sin37^\\circ=0.6\\)，\\(\\cos37^\\circ=0.8\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 包裹从 \\(A\\) 到 \\(B\\) 的过程中始终做匀加速直线运动",

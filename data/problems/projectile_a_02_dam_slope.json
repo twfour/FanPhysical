@@ -3,6 +3,25 @@
   "originalNumber": "A2",
   "chapter": "平抛运动",
   "title": "A组第2题：斜坡抛石入水",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-incline",
+    "familyName": "平抛与斜面相交",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "轨迹几何联立",
+      "末速度方向判断"
+    ],
+    "prerequisites": [
+      "平抛方程",
+      "斜面几何"
+    ]
+  },
   "question": "如图为湖边一倾角为 \\(30^\\circ\\) 的大坝横截面示意图，水面与大坝的交点为 \\(O\\)。一人站在 \\(A\\) 点处以速度 \\(v_0\\) 沿水平方向扔小石块。已知 \\(AO=40\\mathrm m\\)，\\(g=10\\mathrm{m/s^2}\\)，忽略人的身高，不计空气阻力。下列说法正确的是（　　）。",
   "options": [
     "A. 若 \\(v_0\\gt10\\sqrt3\\mathrm{m/s}\\)，则石块一定落入水中",

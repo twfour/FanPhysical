@@ -3,6 +3,25 @@
   "originalNumber": "课1",
   "chapter": "动能定理",
   "title": "例1：喷气式飞机起飞牵引力",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动能定理",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "kinetic-theorem-basic",
+    "familyName": "动能定理与力位移图像",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "合功表达",
+      "图像斜率读取"
+    ],
+    "prerequisites": [
+      "功的计算",
+      "动能"
+    ]
+  },
   "question": "一架喷气式飞机的质量 \\(m=5\\times10^3\\,\\mathrm{kg}\\)。起飞过程中，飞机从静止开始滑跑 \\(s=5.3\\times10^2\\,\\mathrm m\\) 后达到起飞速度 \\(v=60\\,\\mathrm{m/s}\\)。飞机受到的平均阻力为其重力的 \\(0.02\\) 倍，求飞机受到的牵引力。取 \\(g=10\\,\\mathrm{m/s^2}\\)。",
   "answer": "\\(F\\approx1.8\\times10^4\\,\\mathrm N\\)",
   "animation": {

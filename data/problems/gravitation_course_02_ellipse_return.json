@@ -3,6 +3,25 @@
   "originalNumber": "课2",
   "chapter": "万有引力与宇宙航行",
   "title": "例2：椭圆变轨返回",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "卫星变轨",
+    "modelId": "orbit-transfer",
+    "modelName": "卫星轨道与变轨",
+    "familyId": "hohmann-transfer",
+    "familyName": "圆轨道与转移椭圆",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "变轨前后状态比较",
+      "转移时间与相位判断"
+    ],
+    "prerequisites": [
+      "轨道机械能",
+      "开普勒第三定律"
+    ]
+  },
   "question": "神舟六号沿半径为 \\(r\\) 的圆周绕地球运动，周期为 \\(T\\)。飞船在轨道上的 \\(A\\) 点降低速率后，沿以地心为焦点的椭圆轨道运动，椭圆与地球表面在 \\(B\\) 点相切。若地球半径为 \\(R\\)，求飞船从 \\(A\\) 点到 \\(B\\) 点所需的时间。",
   "answer": "\\(t_{AB}=\\dfrac{T}{2}\\left(\\dfrac{r+R}{2r}\\right)^{3/2}\\)",
   "animation": {

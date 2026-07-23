@@ -3,6 +3,25 @@
   "originalNumber": "课3",
   "chapter": "万有引力与宇宙航行",
   "title": "例3：球体挖腔引力",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "shell-gravity-field",
+    "familyName": "球壳与均匀球体引力场",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "等效叠加",
+      "分区引力判断"
+    ],
+    "prerequisites": [
+      "万有引力定律",
+      "球壳定理"
+    ]
+  },
   "question": "在距一个质量为 \\(M\\)、半径为 \\(R\\)、密度均匀的球体表面 \\(R\\) 处，有一个质量为 \\(m\\) 的质点，球体对质点的万有引力为 \\(F_1\\)。从球体右侧挖去一个与外球内切、半径为 \\(R/2\\) 的球体后，剩余部分对质点的万有引力为 \\(F_2\\)。求 \\(F_1:F_2\\)。",
   "answer": "\\(F_1:F_2=9:7\\)",
   "animation": {

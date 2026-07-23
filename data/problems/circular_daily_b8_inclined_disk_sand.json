@@ -7,6 +7,25 @@
   "id": "circular_daily_b8_inclined_disk_sand",
   "chapter": "圆周运动日常",
   "title": "B8：倾斜圆盘细沙脱落",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "horizontal-circle-critical",
+    "familyName": "水平圆周运动临界",
+    "role": "综合题",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "静摩擦临界判断",
+      "参数范围求解"
+    ],
+    "prerequisites": [
+      "向心力",
+      "最大静摩擦力"
+    ]
+  },
   "question": "半径为 \\(R\\) 的匀质实心圆盘，盘面与水平面的夹角为 \\(\\theta\\)，开始时圆盘静止。其上表面均匀覆盖一层细沙且没有掉落，细沙与盘面间动摩擦因数为 \\(\\mu\\)，最大静摩擦力等于滑动摩擦力。现让圆盘绕垂直于盘面的固定对称轴旋转，角速度从 \\(0\\) 缓慢增加到 \\(\\omega\\)。此时圆盘表面上的细沙有 \\(\\frac89\\) 被甩掉，重力加速度为 \\(g\\)。则 \\(\\omega\\) 的值为（  ）",
   "options": [
     "A. \\(\\sqrt{\\frac{g(\\mu\\cos\\theta+\\sin\\theta)}{R}}\\)",

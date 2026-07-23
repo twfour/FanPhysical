@@ -3,6 +3,25 @@
   "originalNumber": "单14",
   "chapter": "必修一结业测试",
   "title": "单选第14题：弹簧连接体三种方向",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "弹力",
+    "modelId": "elastic-force",
+    "modelName": "弹簧与弹力",
+    "familyId": "spring-series-equilibrium",
+    "familyName": "串联弹簧与连接体平衡",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "弹簧连接关系建模",
+      "整体与隔离切换"
+    ],
+    "prerequisites": [
+      "胡克定律",
+      "作用力与反作用力"
+    ]
+  },
   "question": "轻质弹簧连接物块 a、b。图 I 中两物块在水平轨道上，图 II 中两物块在固定斜面上，图 III 中两物块竖直放置。三种情形均沿图示方向用大小恒定的力 \\(F\\) 拉 a，使 a、b 一起做匀加速直线运动。加速度大小分别为 \\(a_1,a_2,a_3\\)，弹簧伸长量分别为 \\(x_1,x_2,x_3\\)，不计摩擦。下列关系正确的是（　　）。",
   "options": [
     "A. \\(a_1\\gt a_2\\gt a_3\\)，且 \\(x_1=x_2=x_3\\)",

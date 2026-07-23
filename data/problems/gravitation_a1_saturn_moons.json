@@ -3,6 +3,25 @@
   "originalNumber": "A1",
   "chapter": "万有引力与宇宙航行",
   "title": "A1：土星双卫星位置",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "kepler-orbit-law",
+    "familyName": "开普勒定律与椭圆轨道",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "轨道位置比较",
+      "面积速度推理"
+    ],
+    "prerequisites": [
+      "开普勒定律",
+      "万有引力"
+    ]
+  },
   "question": "（多选）土卫一 \\(M\\) 和土卫二 \\(E\\) 是土星 \\(S\\) 的两个卫星，土卫二的公转半径约为土卫一的 \\(2\\) 倍。某时刻两卫星均位于土星右侧同一直线上，且公转方向均为逆时针。在土卫一公转一周的时间内，两卫星的位置关系大致为（  ）",
   "options": [
     "A. \\(M\\) 位于内轨道左侧，\\(E\\) 位于外轨道右上方",

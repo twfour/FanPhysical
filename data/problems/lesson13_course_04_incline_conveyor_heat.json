@@ -3,6 +3,25 @@
   "originalNumber": "课4",
   "chapter": "功能关系",
   "title": "例4：倾斜传送带热量与电功",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "conveyor-energy",
+    "modelName": "传送带功能关系",
+    "familyId": "conveyor-energy-cycle",
+    "familyName": "传送带能量与往返过程",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "分阶段相对运动",
+      "电功热量动能分配"
+    ],
+    "prerequisites": [
+      "相对位移",
+      "功能关系"
+    ]
+  },
   "question": "（多选）传送带与水平地面的倾角为 \\(\\theta\\)，\\(A、B\\) 两端相距 \\(L\\)。将质量为 \\(m\\) 的小物体轻放到传送带的 \\(A\\) 端，物体沿 \\(AB\\) 方向从 \\(A\\) 端一直加速运动到 \\(B\\) 端，滑动摩擦力大小为 \\(f\\)。传送带顺时针转动，带速 \\(v\\) 保持不变，物体从 \\(A\\) 到 \\(B\\) 用时 \\(t\\)。小物体和传送带组成的系统因摩擦产生的热量为 \\(Q\\)，电动机因运送小物体多做的功为 \\(W\\)。下列关系式中一定成立的是（  ）。",
   "options": [
     "A. \\(Q=fL\\)",

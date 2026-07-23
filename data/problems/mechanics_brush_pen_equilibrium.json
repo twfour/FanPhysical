@@ -6,6 +6,25 @@
   "id": "mechanics_brush_pen_equilibrium",
   "chapter": "力学基础",
   "title": "毛笔静止时的受力分析",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "相互作用与平衡",
+    "modelId": "force-equilibrium",
+    "modelName": "受力分析与平衡",
+    "familyId": "contact-force-equilibrium",
+    "familyName": "接触力与静态平衡",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "受力对象选择",
+      "接触力方向判断"
+    ],
+    "prerequisites": [
+      "重力",
+      "共点力平衡"
+    ]
+  },
   "question": "9. 如图所示，一支毛笔笔顶放在水平桌面上，笔杆靠在笔架上保持静止。毛笔与笔架之间摩擦力忽略不计。下列说法正确的是\nA. 笔架对毛笔的支持力方向竖直向上\nB. 桌面与毛笔之间没有摩擦力\nC. 桌面与笔架之间有摩擦力\nD. 毛笔对桌面的压力与桌面对毛笔的支持力是一对平衡力",
   "options": [
     "A. 笔架对毛笔的支持力方向竖直向上",

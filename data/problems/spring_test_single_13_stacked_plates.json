@@ -3,6 +3,25 @@
   "originalNumber": "单13",
   "chapter": "必修一结业测试",
   "title": "单选第13题：三层工件急刹错位",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "牛顿运动定律",
+    "modelId": "accelerated-frame",
+    "modelName": "加速参考系与相对运动",
+    "familyId": "friction-relative-motion",
+    "familyName": "多物体摩擦与相对运动",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "多对象过程划分",
+      "相对位移计算"
+    ],
+    "prerequisites": [
+      "静摩擦临界",
+      "牛顿第二定律"
+    ]
+  },
   "question": "三块完全相同的均质板状工件上下对齐放在卡车上，只有最下面工件与车厢底部固定。运输途中司机紧急刹车。若各接触面的摩擦性质相同，下列可能出现的状态是（　　）。",
   "options": [
     "A. 三层依次向车头错开，越上层越靠前",

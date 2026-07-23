@@ -2,6 +2,25 @@
   "id": "bikeGear",
   "chapter": "圆周运动",
   "title": "课上第3题：变速自行车传动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-transmission",
+    "familyName": "同轴、皮带与齿轮传动",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "传动约束识别",
+      "角速度线速度换算"
+    ],
+    "prerequisites": [
+      "周期与角速度",
+      "线速度"
+    ]
+  },
   "question": "如图所示，某种变速自行车有五个飞轮和三个链轮。链轮和飞轮的齿数如下表所示，后轮直径为 \\(d=660\\mathrm{mm}\\)。\n\n链轮齿数为 \\(48,38,28\\)，飞轮齿数为 \\(15,18,21,24,28\\)。人骑该车行进的速度为 \\(v=4\\mathrm{m/s}\\) 时，求脚蹬踏板作匀速圆周运动的角速度最小值。",
   "options": [
     "A. \\(1.9\\mathrm{rad/s}\\)",

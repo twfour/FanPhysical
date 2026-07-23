@@ -3,6 +3,25 @@
   "originalNumber": "课6",
   "chapter": "功和功率",
   "title": "例6：定滑轮变角拉绳做功",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "variable-direction-work",
+    "familyName": "变方向力做功",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "路径微元分析",
+      "几何约束转化"
+    ],
+    "prerequisites": [
+      "功的定义",
+      "弧长与位移"
+    ]
+  },
   "question": "人在 \\(A\\) 点拉着绳子，通过一个定滑轮匀速吊起质量 \\(m=50\\,\\mathrm{kg}\\) 的物体。开始时绳与水平方向夹角为 \\(60^\\circ\\)。在人沿水平方向从 \\(A\\) 点运动 \\(l=2\\,\\mathrm m\\) 到 \\(B\\) 点的过程中，绳与水平方向的夹角变为 \\(30^\\circ\\)。取 \\(g=10\\,\\mathrm{m/s^2}\\)，求人对绳的拉力做的功。",
   "answer": "\\(1000(\\sqrt3-1)\\,\\mathrm J\\)",
   "animation": {

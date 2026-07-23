@@ -3,6 +3,25 @@
   "originalNumber": "课8",
   "chapter": "行星运动与变轨等问题",
   "title": "例8：同步卫星椭圆变轨",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "卫星变轨",
+    "modelId": "orbit-transfer",
+    "modelName": "卫星轨道与变轨",
+    "familyId": "hohmann-transfer",
+    "familyName": "圆轨道与转移椭圆",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "变轨前后状态比较",
+      "转移时间与相位判断"
+    ],
+    "prerequisites": [
+      "轨道机械能",
+      "开普勒第三定律"
+    ]
+  },
   "question": "（多选）发射同步卫星时，先把卫星送入近地圆轨道 1，再于 P 点点火进入椭圆轨道 2，最后在 Q 点再次点火进入同步圆轨道 3。轨道 1、2 相切于 P 点，轨道 2、3 相切于 Q 点。下列说法正确的是（  ）。",
   "options": [
     "A. 在轨道 3 上的速率大于轨道 1 上的速率",

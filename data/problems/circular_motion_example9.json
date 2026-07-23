@@ -7,6 +7,25 @@
   "id": "circular_motion_example9",
   "chapter": "圆周运动",
   "title": "例9：双人圆周运动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-force",
+    "familyName": "圆周运动受力分解",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "向心方向确定",
+      "径向受力方程"
+    ],
+    "prerequisites": [
+      "牛顿第二定律",
+      "向心加速度"
+    ]
+  },
   "question": "男女溜冰运动员质量分别为 \\(80\\,\\mathrm{kg}\\)、\\(40\\,\\mathrm{kg}\\)，面对面拉着弹簧秤做圆周运动。两人相距 \\(0.9\\,\\mathrm{m}\\)，弹簧秤示数为 \\(9.2\\,\\mathrm{N}\\)。判断两人的半径、角速度和速率比。",
   "options": [
     "A. 速度大小相同，约为 \\(40\\,\\mathrm{m/s}\\)",

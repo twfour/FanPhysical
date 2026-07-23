@@ -7,6 +7,25 @@
   "id": "circular_motion_ex12",
   "chapter": "圆周运动",
   "title": "例12：细绳绕钉拉力图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "母题",
+    "difficulty": 5,
+    "variantLevel": "L1",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "光滑水平面上有两根细钉 \\(A,B\\) 和小球 \\(C\\)，三者在同一直线上。细绳挂在 \\(B\\) 上，给小球一个垂直于绳的速度，使其绕钉做圆周运动；每次细绳碰钉均无机械能损失。已知细绳拉力随时间变化图像，判断碰钉时刻、拉力大小和时间间隔。",
   "options": [
     "A. \\(t=10\\,\\mathrm{s}\\) 时细绳第二次碰到钉子",

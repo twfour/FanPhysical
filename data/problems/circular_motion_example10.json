@@ -7,6 +7,25 @@
   "id": "circular_motion_example10",
   "chapter": "圆周运动",
   "title": "例10：转台临界滑动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "horizontal-circle-critical",
+    "familyName": "水平圆周运动临界",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "静摩擦临界判断",
+      "参数范围求解"
+    ],
+    "prerequisites": [
+      "向心力",
+      "最大静摩擦力"
+    ]
+  },
   "question": "转台上放有 \\(A,B,C\\) 三物，质量分别为 \\(2m,m,m\\)，离轴距离分别为 \\(R,R,2R\\)，它们与转台间的动摩擦因数相同。转台转动时，判断摩擦力大小、滑动临界和谁先滑动。",
   "options": [
     "A. 三物都未滑动，C的向心加速度最大",

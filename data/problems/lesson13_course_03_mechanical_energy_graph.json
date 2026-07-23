@@ -3,6 +3,25 @@
   "originalNumber": "课3",
   "chapter": "功能关系",
   "title": "例3：恒力上提机械能图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "dissipative-energy-graph",
+    "familyName": "阻力作用与能量图像",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "能量图像斜率分析",
+      "耗散功反演"
+    ],
+    "prerequisites": [
+      "机械能变化",
+      "阻力做功"
+    ]
+  },
   "question": "（多选）对一静止在水平地面上的物体（可视为质点）施加竖直向上的恒力 \\(F\\)，物体上升到一定高度时撤去 \\(F\\)。物体向上运动过程中，机械能 \\(E\\) 随距地面高度 \\(h\\) 的关系如图：从 \\((0,0)\\) 线性增至 \\((h_0,5E_0)\\)，再线性减至 \\((2h_0,4E_0)\\)。已知物体所受阻力大小恒定，物体上升的最大高度为 \\(2h_0\\)，重力加速度为 \\(g\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 物体质量为 \\(\\dfrac{2E_0}{gh_0}\\)",

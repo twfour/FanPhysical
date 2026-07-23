@@ -3,6 +3,25 @@
   "originalNumber": "A6",
   "chapter": "平抛运动",
   "title": "A组第6题：水瓶侧孔射流",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-fluid-jet",
+    "familyName": "液体射流的抛体模型",
+    "role": "基础变式",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "跨模型公式连接",
+      "射程极值分析"
+    ],
+    "prerequisites": [
+      "平抛运动",
+      "流速公式"
+    ]
+  },
   "question": "如图，装满水的圆柱形水瓶竖直放在水平地面上，在侧壁钻几个截面积一样的小孔。水流从小孔中水平射出的初速度满足 \\(v_0=\\sqrt{2gh}\\)，其中 \\(h\\) 为小孔距液面的高度。不计一切阻力，且不考虑水流引起的液面高度变化。下列说法正确的是（　　）。",
   "options": [
     "A. 水落地时的瞬时速率与小孔位置有关",

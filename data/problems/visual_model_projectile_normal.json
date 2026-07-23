@@ -2,6 +2,25 @@
   "id": "projectileNormal",
   "chapter": "平抛运动",
   "title": "课上第3题：垂直打到斜面",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-incline",
+    "familyName": "平抛与斜面相交",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "轨迹几何联立",
+      "末速度方向判断"
+    ],
+    "prerequisites": [
+      "平抛方程",
+      "斜面几何"
+    ]
+  },
   "question": "固定斜面 \\(PO\\)、\\(QO\\) 与水平面 \\(MN\\) 的夹角均为 \\(45^\\circ\\)。由 \\(A\\) 点分别以 \\(v_1\\)、\\(v_2\\) 先后沿水平方向抛出两个小球，不计空气阻力。\n\n以 \\(v_1\\) 抛出的小球恰能垂直于 \\(QO\\) 落于 \\(C\\) 点，飞行时间为 \\(t\\)；以 \\(v_2\\) 抛出的小球落在 \\(PO\\) 斜面上的 \\(B\\) 点，且 \\(B\\)、\\(C\\) 在同一水平面上。\n\n**判断：**",
   "options": [
     "A. 落于 \\(B\\) 点的小球飞行时间为 \\(t\\)",

@@ -3,6 +3,26 @@
   "originalNumber": "课10",
   "chapter": "动能定理",
   "title": "例10：圆弧—水平轨道—平抛最远",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动能定理",
+    "modelId": "track-transition",
+    "modelName": "轨道临界与抛体衔接",
+    "familyId": "track-energy-projectile",
+    "familyName": "轨道、临界与抛体综合",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "多过程状态连接",
+      "轨道临界判断"
+    ],
+    "prerequisites": [
+      "动能定理",
+      "圆周运动",
+      "平抛运动"
+    ]
+  },
   "question": "半径为 \\(2\\,\\mathrm m\\) 的四分之一竖直圆弧轨道 \\(AB\\) 与长度可调的水平轨道 \\(BC\\) 在 \\(B\\) 点平滑连接。质量 \\(0.2\\,\\mathrm{kg}\\) 的小球从 \\(A\\) 点由静止释放，经过 \\(B\\) 点时传感器测得轨道所受压力为 \\(3.6\\,\\mathrm N\\)。小球在 \\(BC\\) 段所受阻力为重力的 \\(0.2\\) 倍，从 \\(C\\) 点水平飞出，落到比 \\(C\\) 低 \\(3.2\\,\\mathrm m\\) 的地面。取 \\(g=10\\,\\mathrm{m/s^2}\\)。求：（1）小球到 \\(B\\) 点的速度；（2）圆弧段摩擦力做的功；（3）使落点到 \\(B\\) 点的水平距离最大时，\\(BC\\) 的长度。",
   "answer": "（1）\\(4\\,\\mathrm{m/s}\\)；（2）\\(-2.4\\,\\mathrm J\\)；（3）\\(3.36\\,\\mathrm m\\)",
   "animation": {

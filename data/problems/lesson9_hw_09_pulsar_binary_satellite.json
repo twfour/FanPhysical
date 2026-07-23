@@ -3,6 +3,25 @@
   "originalNumber": "多9",
   "chapter": "行星运动与变轨等问题",
   "title": "作业第9题：脉冲双星与伴星卫星",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "multi-star-system",
+    "modelName": "双星与多星系统",
+    "familyId": "multi-star-dynamics",
+    "familyName": "双星与多星圆周运动",
+    "role": "条件变式",
+    "difficulty": 5,
+    "variantLevel": "L2",
+    "skills": [
+      "质心约束分析",
+      "多体引力合成"
+    ],
+    "prerequisites": [
+      "万有引力",
+      "匀速圆周运动"
+    ]
+  },
   "question": "（多选）双星 a、b 绕共同质心 O 逆时针做匀速圆周运动，周期为 \\(T_0\\)，双星间距为 \\(L\\)。卫星 c 绕质量为 \\(m\\) 的脉冲星 b 逆时针做匀速圆周运动，周期为 \\(T<T_0\\)。忽略 a 对 c 的影响，引力常量为 \\(G\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 双星 a、b 的质量和为 \\(\\dfrac{4\\pi^2L^3}{GT_0^2}\\)",

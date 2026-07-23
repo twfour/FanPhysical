@@ -7,6 +7,25 @@
   "id": "circular_motion_pour_water_ice_2",
   "chapter": "圆周运动",
   "title": "A2：泼水成冰运动分析",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-transmission",
+    "familyName": "同轴、皮带与齿轮传动",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "传动约束识别",
+      "角速度线速度换算"
+    ],
+    "prerequisites": [
+      "周期与角速度",
+      "线速度"
+    ]
+  },
   "question": "杯子沿圆弧匀速泼水，半径约 \\(1\\,\\mathrm{m}\\)，在 \\(0.4\\,\\mathrm{s}\\) 内转过 \\(\\frac{2\\pi}{5}\\)。判断小水珠速度方向、向心加速度方向、线速度和向心加速度大小。",
   "options": [
     "A. \\(P\\) 位置的小水珠速度方向沿 \\(b\\) 方向",

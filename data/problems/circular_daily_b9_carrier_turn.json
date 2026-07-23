@@ -7,6 +7,25 @@
   "id": "circular_daily_b9_carrier_turn",
   "chapter": "圆周运动日常",
   "title": "B9：航母外倾转弯摩擦",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "horizontal-circle-critical",
+    "familyName": "水平圆周运动临界",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "静摩擦临界判断",
+      "参数范围求解"
+    ],
+    "prerequisites": [
+      "向心力",
+      "最大静摩擦力"
+    ]
+  },
   "question": "一艘航母正在进行顺时针急转弯训练，运动轨迹可视作半径为 \\(R\\) 的水平圆周。航母在圆周运动中船身向外侧倾斜，甲板法线与竖直方向夹角为 \\(\\theta\\)。一质量为 \\(m\\) 的小物块与甲板始终保持相对静止，甲板与小物块间动摩擦因数为 \\(\\mu\\)，重力加速度为 \\(g\\)。假设航母运动半径为 \\(R\\)，夹角不随航速改变，最大静摩擦力等于滑动摩擦力。下列说法正确的是（  ）",
   "options": [
     "A. 小物块可能只受重力、支持力两个力作用",

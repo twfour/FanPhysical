@@ -3,6 +3,25 @@
   "originalNumber": "课4",
   "chapter": "行星运动与变轨等问题",
   "title": "例4：土星环身份判别",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "卫星运动",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "satellite-comparison",
+    "familyName": "卫星类型与轨道参数比较",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "轨道量比较",
+      "模型真假辨析"
+    ],
+    "prerequisites": [
+      "圆轨道速度",
+      "同步卫星"
+    ]
+  },
   "question": "（多选）为判断土星外层的环是土星的一部分还是土星的卫星群，可测量环中各层线速度 \\(v\\) 与该层到土星中心距离 \\(R\\) 的关系。下列说法正确的是（  ）。",
   "options": [
     "A. 若 \\(v\\propto R\\)，则该环是土星的一部分",

@@ -3,6 +3,25 @@
   "originalNumber": "课2",
   "chapter": "功能关系",
   "title": "例2：极限跳伞能量图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "dissipative-energy-graph",
+    "familyName": "阻力作用与能量图像",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "能量图像斜率分析",
+      "耗散功反演"
+    ],
+    "prerequisites": [
+      "机械能变化",
+      "阻力做功"
+    ]
+  },
   "question": "极限跳伞者起跳后并不立即打开降落伞。开伞前可看成自由落体，开伞后空气阻力与速度平方成正比，跳伞者先减速下降，最后匀速下降。用 \\(h\\) 表示下落高度，\\(E_p\\) 表示以地面为零势能面的重力势能，\\(E_k\\) 表示动能，\\(E\\) 表示机械能，\\(v\\) 表示下落速度。下列图像可能符合事实的是（  ）。",
   "options": [
     "A. \\(E_p-h\\) 图像为逐渐变缓并降到零的曲线",

@@ -7,6 +7,25 @@
   "id": "circular_daily_ex7_horizontal_bar",
   "chapter": "圆周运动日常",
   "title": "例7：单杠最高点弹力图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "运动员用一只手抓住单杠，伸展身体，以单杠为轴做圆周运动。运动到最高点时，用力传感器测得运动员与单杠间弹力大小为 \\(F\\)，用速度传感器记录最高点速度大小为 \\(v\\)，得到 \\(F-v^2\\) 图像。取 \\(g=10\\mathrm{m/s^2}\\)，下列说法正确的是（  ）",
   "options": [
     "A. 运动员的质量为 \\(65\\mathrm{kg}\\)",

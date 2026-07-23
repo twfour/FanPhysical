@@ -3,6 +3,25 @@
   "originalNumber": "多7",
   "chapter": "功和功率",
   "title": "课后多选第7题：汽车速度与牵引力倒数图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "vehicle-power",
+    "familyName": "机车恒功率与分段启动",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "牵引力速度关系",
+      "分阶段运动建模"
+    ],
+    "prerequisites": [
+      "功率公式",
+      "动能定理"
+    ]
+  },
   "question": "（多选）某型号汽车的速度 \\(v\\) 与牵引力 \\(F\\) 大小倒数 \\(1/F\\) 的关系如图，\\(v_m\\) 表示最大速度。汽车在水平路面上由静止启动，图中 \\(ab\\) 平行于 \\(v\\) 轴，\\(bc\\) 反向延长过原点 \\(O\\)。已知阻力恒定，汽车质量为 \\(1.5\\times10^3\\,\\mathrm{kg}\\)。图中 \\(b\\) 点为 \\(1/F=1/5\\times10^{-3}\\,\\mathrm{N^{-1}}\\)、\\(v=10\\,\\mathrm{m/s}\\)，\\(c\\) 点为 \\(1/F=1/2\\times10^{-3}\\,\\mathrm{N^{-1}}\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 汽车由 \\(b\\) 到 \\(c\\) 过程做匀加速直线运动",

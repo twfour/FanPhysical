@@ -7,6 +7,25 @@
   "id": "circular_motion_ex11",
   "chapter": "圆周运动",
   "title": "例11：突然停止悬绳张力",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "两完全相同小球 \\(A,B\\) 用长 \\(L=0.8\\,\\mathrm{m}\\) 的细绳悬于以 \\(v=4\\,\\mathrm{m/s}\\) 向左匀速运动的小车顶部，两球与小车前后壁接触。小车突然停止，取 \\(g=10\\,\\mathrm{m/s^2}\\)，求此时悬线张力之比。",
   "options": [
     "A. 1:1",

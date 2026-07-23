@@ -2,6 +2,25 @@
   "id": "projectileBasic",
   "chapter": "平抛运动",
   "title": "平抛运动基础",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-basics",
+    "familyName": "平抛运动基本规律",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "运动分解",
+      "时间与位移反演"
+    ],
+    "prerequisites": [
+      "匀速直线运动",
+      "自由落体"
+    ]
+  },
   "question": "物体从高度 \\(h\\) 处以水平初速度 \\(v_0\\) 抛出，不计空气阻力。观察轨迹、落地时间、水平射程、竖直分速度和落地速度方向。",
   "answer": "先把运动分解为水平和竖直两个方向：水平方向匀速，竖直方向自由落体。",
   "analysis": {

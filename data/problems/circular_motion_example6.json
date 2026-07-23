@@ -7,6 +7,25 @@
   "id": "circular_motion_example6",
   "chapter": "圆周运动",
   "title": "例6：皮带传动向心加速度",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-transmission",
+    "familyName": "同轴、皮带与齿轮传动",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "传动约束识别",
+      "角速度线速度换算"
+    ],
+    "prerequisites": [
+      "周期与角速度",
+      "线速度"
+    ]
+  },
   "question": "大轮通过皮带带动小轮转动，皮带与两轮无滑动。大轮半径是小轮半径的 \\(2\\) 倍，大轮上 \\(S\\) 点到转轴的距离是大轮半径的一半。已知大轮边缘 \\(P\\) 点的向心加速度为 \\(10\\,\\mathrm{m/s^2}\\)，求 \\(S\\) 点和小轮边缘 \\(Q\\) 点的向心加速度。",
   "options": [],
   "answer": "\\(a_S=5\\,\\mathrm{m/s^2}\\)，\\(a_Q=20\\,\\mathrm{m/s^2}\\)",

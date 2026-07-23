@@ -3,6 +3,25 @@
   "originalNumber": "课拓",
   "chapter": "万有引力与宇宙航行",
   "title": "拓展例题：地表上下重力",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "shell-gravity-field",
+    "familyName": "球壳与均匀球体引力场",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "等效叠加",
+      "分区引力判断"
+    ],
+    "prerequisites": [
+      "万有引力定律",
+      "球壳定理"
+    ]
+  },
   "question": "求距地表 \\(h\\) 高度处的重力加速度；再求地球上深度为 \\(h\\) 的矿井里的重力加速度。已知地球表面重力加速度为 \\(g\\)，并把地球视为质量分布均匀、半径为 \\(R\\) 的球体。",
   "answer": "\\(g_{高}=gR^2/(R+h)^2\\)，\\(g_{深}=g(R-h)/R\\)",
   "animation": {

@@ -3,6 +3,25 @@
   "originalNumber": "课2",
   "chapter": "功和功率",
   "title": "例2：平移斜面上的摩擦力做功",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "moving-support-work",
+    "familyName": "运动接触面对物体做功",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "参考系位移判断",
+      "分力做功计算"
+    ],
+    "prerequisites": [
+      "功的定义",
+      "受力平衡"
+    ]
+  },
   "question": "质量为 \\(m\\) 的物体静止在倾角为 \\(\\theta\\) 的斜面上，物体与斜面间的动摩擦因数为 \\(\\mu\\)，重力加速度为 \\(g\\)。现使斜面向右水平匀速移动一段距离 \\(L\\)，物体与斜面的相对位置不变。在此过程中摩擦力对物体所做的功为（  ）。",
   "options": [
     "A. \\(\\mu mgL\\cos^2\\theta\\)",

@@ -3,6 +3,25 @@
   "originalNumber": "课4",
   "chapter": "动能定理",
   "title": "例4：动能—位移图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动能定理",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "kinetic-theorem-basic",
+    "familyName": "动能定理与力位移图像",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "合功表达",
+      "图像斜率读取"
+    ],
+    "prerequisites": [
+      "功的计算",
+      "动能"
+    ]
+  },
   "question": "（多选）质量 \\(m=2\\,\\mathrm{kg}\\) 的物体以 \\(100\\,\\mathrm J\\) 的初动能在粗糙程度相同的水平地面上滑行，其动能 \\(E_k\\) 随位移 \\(x\\) 的图像是一条由 \\((0,100\\,\\mathrm J)\\) 到 \\((10\\,\\mathrm m,0)\\) 的直线。下列判断正确的是（  ）。",
   "options": [
     "A. 物体运动的总位移大小为 \\(10\\,\\mathrm m\\)",

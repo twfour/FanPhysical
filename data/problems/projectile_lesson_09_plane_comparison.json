@@ -3,6 +3,25 @@
   "originalNumber": "课9",
   "chapter": "平抛运动",
   "title": "课上第9题：平抛与光滑斜面比较",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-incline",
+    "familyName": "平抛与斜面相交",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "轨迹几何联立",
+      "末速度方向判断"
+    ],
+    "prerequisites": [
+      "平抛方程",
+      "斜面几何"
+    ]
+  },
   "question": "如图，\\(A、B\\) 两质点从同一点 \\(O\\) 分别以相同的水平速度 \\(v_0\\) 沿 \\(x\\) 轴正方向抛出。\\(A\\) 在竖直平面内运动，落地点为 \\(P_1\\)；\\(B\\) 沿光滑斜面运动，落地点为 \\(P_2\\)。\\(P_1、P_2\\) 在同一水平地面上，不计阻力。下列说法正确的是（　　）。",
   "options": [
     "A. \\(A、B\\) 的运动时间相同",

@@ -7,6 +7,25 @@
   "id": "circular_motion_gear_ratio",
   "chapter": "圆周运动",
   "title": "A3：牛力齿轮水车",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-transmission",
+    "familyName": "同轴、皮带与齿轮传动",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "传动约束识别",
+      "角速度线速度换算"
+    ],
+    "prerequisites": [
+      "周期与角速度",
+      "线速度"
+    ]
+  },
   "question": "《天工开物》牛力齿轮水车中，齿轮 \\(A\\) 带动齿轮 \\(B\\)，\\(B,C\\) 同轴。三齿轮半径满足 \\(R_A:R_B:R_C=5:3:1\\)。判断周期、角速度、边缘线速度和向心加速度比。",
   "options": [
     "A. 齿轮 \\(A,B,C\\) 的周期之比为 \\(5:5:3\\)",

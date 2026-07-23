@@ -7,6 +7,25 @@
   "id": "circular_daily_ex8_rod_two_balls",
   "chapter": "圆周运动日常",
   "title": "例8：轻杆双球最高点",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "轻杆长 \\(3L\\)，在杆两端分别固定质量均为 \\(m\\) 的球 \\(A\\) 和 \\(B\\)。光滑水平转轴穿过杆上距球 \\(A\\) 为 \\(L\\) 处的 \\(O\\) 点。外界给系统一定能量后，杆和球在竖直平面内转动。球 \\(B\\) 运动到最高点时，杆对球 \\(B\\) 恰好无作用力。忽略空气阻力，则球 \\(B\\) 在最高点时（  ）",
   "options": [
     "A. 球 \\(B\\) 的速度为零",

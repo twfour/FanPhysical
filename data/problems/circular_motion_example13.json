@@ -7,6 +7,25 @@
   "id": "circular_motion_example13",
   "chapter": "圆周运动",
   "title": "例13：同高圆锥摆",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "conical-pendulum",
+    "familyName": "圆锥摆构型与参数",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "空间受力分解",
+      "角速度与几何关联"
+    ],
+    "prerequisites": [
+      "向心力",
+      "力的合成"
+    ]
+  },
   "question": "两个质量相等的小球 \\(A,B\\) 用长度不等的细线拴在同一点，并在同一水平面内做匀速圆周运动。比较它们的周期、线速度、向心加速度以及绳的拉力与绳长关系。",
   "options": [
     "A. 运动周期相等",

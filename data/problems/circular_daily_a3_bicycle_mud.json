@@ -7,6 +7,25 @@
   "id": "circular_daily_a3_bicycle_mud",
   "chapter": "圆周运动日常",
   "title": "A3：车轮泥巴脱落",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "基础变式",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "雨天在野外骑车时，自行车后轮轮胎上常会粘附一些泥巴。若将后轮撑起，使后轮悬空，然后用手匀速摇脚踏板，使后轮飞速转动。图中 \\(a,b,c,d\\) 为后轮轮胎边缘上的四个特殊位置，泥巴在（  ）位置时最容易被甩下来。",
   "options": [
     "A. \\(a\\)",

@@ -3,6 +3,25 @@
   "originalNumber": "单5",
   "chapter": "必修一结业测试",
   "title": "单选第5题：五彩灯绳系平衡",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "相互作用与平衡",
+    "modelId": "force-equilibrium",
+    "modelName": "受力分析与平衡",
+    "familyId": "multi-rope-equilibrium",
+    "familyName": "多绳多接触平衡",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "整体法与隔离法",
+      "几何约束转化"
+    ],
+    "prerequisites": [
+      "力的合成",
+      "共点力平衡"
+    ]
+  },
   "question": "五个质量均为 \\(m\\) 的小彩灯由轻绳依次连接并静止。天花板与彩灯 1 间的细绳同竖直方向夹角 \\(\\theta_1=30^\\circ\\)，连接彩灯 2、3 的细绳同水平方向夹角为 \\(\\theta_2\\)，彩灯 5 右侧受水平恒力 \\(F\\)。下列说法错误的是（　　）。",
   "options": [
     "A. 连接天花板和彩灯 1 的细绳拉力为 \\(\\frac{10\\sqrt3}{3}mg\\)",

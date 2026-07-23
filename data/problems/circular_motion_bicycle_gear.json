@@ -7,6 +7,25 @@
   "id": "circular_motion_bicycle_gear",
   "chapter": "圆周运动",
   "title": "例3：变速自行车脚踏板角速度",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-transmission",
+    "familyName": "同轴、皮带与齿轮传动",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "传动约束识别",
+      "角速度线速度换算"
+    ],
+    "prerequisites": [
+      "周期与角速度",
+      "线速度"
+    ]
+  },
   "question": "变速自行车有五个飞轮和三个链轮，链轮齿数为 \\(48,38,28\\)，飞轮齿数为 \\(15,18,21,24,28\\)，后轮直径 \\(d=660\\,\\mathrm{mm}\\)。人骑车速度 \\(v=4\\,\\mathrm{m/s}\\) 时，求脚蹬踏板做匀速圆周运动角速度的最小值。",
   "options": [
     "A. \\(1.9\\,\\mathrm{rad/s}\\)",

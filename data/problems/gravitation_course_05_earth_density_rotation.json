@@ -3,6 +3,25 @@
   "originalNumber": "课5",
   "chapter": "万有引力与宇宙航行",
   "title": "例5：自转与地球密度",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "rotation-surface-gravity",
+    "familyName": "天体自转与视重临界",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "引力与向心力分配",
+      "解体临界判断"
+    ],
+    "prerequisites": [
+      "表面重力",
+      "圆周运动"
+    ]
+  },
   "question": "假设地球可视为质量均匀分布的球体。已知地球表面重力加速度在两极的大小为 \\(g_0\\)，在赤道的大小为 \\(g\\)，地球自转周期为 \\(T\\)，引力常量为 \\(G\\)，则地球的密度为（  ）",
   "options": [
     "A. \\(\\dfrac{3\\pi(g_0-g)}{GT^2g_0}\\)",

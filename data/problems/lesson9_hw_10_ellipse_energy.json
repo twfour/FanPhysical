@@ -3,6 +3,25 @@
   "originalNumber": "多10",
   "chapter": "行星运动与变轨等问题",
   "title": "作业第10题：椭圆轨道速度与能量",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "卫星变轨",
+    "modelId": "orbit-transfer",
+    "modelName": "卫星轨道与变轨",
+    "familyId": "elliptic-orbit-energy",
+    "familyName": "椭圆轨道速度与能量",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "近日远日状态比较",
+      "角动量与能量联合"
+    ],
+    "prerequisites": [
+      "角动量守恒",
+      "轨道机械能"
+    ]
+  },
   "question": "（多选）行星 P 绕位于椭圆焦点 F 的太阳运行。椭圆半长轴、半短轴和焦距分别为 \\(a、b、c\\)，太阳质量为 \\(M\\)，行星质量为 \\(m\\)。引力势能 \\(E_p=-GMm/r\\)。行星在近焦点一侧端点 A、远焦点一侧端点 B 的速度分别为 \\(v_A、v_B\\)。下列说法正确的是（  ）。",
   "options": [
     "A. \\(v_B=\\dfrac{a-c}{a+c}v_A\\)",

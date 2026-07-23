@@ -3,6 +3,25 @@
   "originalNumber": "课3",
   "chapter": "动能定理",
   "title": "例3：斜面与水平面的往返功",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动能定理",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "work-friction-roundtrip",
+    "familyName": "往返运动与摩擦耗能",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "全过程动能定理",
+      "路程位移区分"
+    ],
+    "prerequisites": [
+      "摩擦功",
+      "动能定理"
+    ]
+  },
   "question": "质量为 \\(m\\) 的物体从斜面上的 \\(A\\) 处由静止滑下，经斜面底端进入水平面时速度大小不变，最后停在水平面上的 \\(B\\) 处。\\(A、B\\) 两点间的水平距离为 \\(s\\)，\\(A\\) 点高度为 \\(h\\)。物体与斜面及水平面间的动摩擦因数相同，斜面倾角为 \\(\\theta\\)。求动摩擦因数 \\(\\mu\\)；若要物体沿原路再回到 \\(A\\) 点，外力至少做多少功？",
   "answer": "\\(\\mu=\\dfrac{h}{s}\\)，\\(W_{\\min}=2mgh\\)",
   "animation": {

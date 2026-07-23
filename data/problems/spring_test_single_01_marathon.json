@@ -3,6 +3,25 @@
   "originalNumber": "单1",
   "chapter": "必修一结业测试",
   "title": "单选第1题：半程马拉松概念辨析",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "运动学",
+    "modelId": "kinematics",
+    "modelName": "直线运动与追及",
+    "familyId": "motion-quantity-concepts",
+    "familyName": "运动学基本量辨析",
+    "role": "概念辨析",
+    "difficulty": 1,
+    "variantLevel": "L0",
+    "skills": [
+      "物理量辨析",
+      "单位与参考系判断"
+    ],
+    "prerequisites": [
+      "时刻与时间",
+      "位移与路程"
+    ]
+  },
   "question": "男子半程马拉松新国家纪录在厦门诞生。2022 年 12 月 18 日早上 7 点 30 分鸣枪，选手彭建华以 1 小时 02 分 30 秒跑完 21 km 的赛程。下列说法正确的是（　　）。",
   "options": [
     "A. ‘7 点 30 分’表示的是时刻",

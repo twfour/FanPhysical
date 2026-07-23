@@ -3,6 +3,25 @@
   "originalNumber": "A3",
   "chapter": "功能关系",
   "title": "A 组第3题：水平传送带电功与热量",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "conveyor-energy",
+    "modelName": "传送带功能关系",
+    "familyId": "conveyor-energy-cycle",
+    "familyName": "传送带能量与往返过程",
+    "role": "基础变式",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "分阶段相对运动",
+      "电功热量动能分配"
+    ],
+    "prerequisites": [
+      "相对位移",
+      "功能关系"
+    ]
+  },
   "question": "（多选）质量为 \\(m\\) 的物体在水平传送带上由静止释放，传送带由电动机带动，始终以速度 \\(v\\) 匀速运动。物体与传送带间的动摩擦因数为 \\(\\mu\\)，物体经过一会儿与传送带保持相对静止。对于物体从静止释放到相对静止这一过程，下列说法正确的是（  ）。",
   "options": [
     "A. 电动机多做的功为 \\(\\dfrac12mv^2\\)",

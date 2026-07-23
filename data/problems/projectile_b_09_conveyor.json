@@ -3,6 +3,25 @@
   "originalNumber": "B9",
   "chapter": "平抛运动",
   "title": "B组第9题：传送带相对运动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "conveyor-energy",
+    "modelName": "传送带功能关系",
+    "familyId": "cross-conveyor",
+    "familyName": "垂直传送带与相对运动",
+    "role": "综合题",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "二维相对运动",
+      "摩擦功与热量分配"
+    ],
+    "prerequisites": [
+      "动能定理",
+      "相对位移"
+    ]
+  },
   "question": "如图，粗糙水平传送带的运行速度大小为 \\(v\\)。一物块以 \\(v_0\\) 从传送带的边缘、沿垂直传送带运行方向滑上传送带。在物块达到与传送带共速前的过程中，下列说法正确的是（　　）。",
   "options": [
     "A. 物块的速度一直增大",

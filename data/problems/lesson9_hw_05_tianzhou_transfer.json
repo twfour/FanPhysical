@@ -3,6 +3,25 @@
   "originalNumber": "单5",
   "chapter": "行星运动与变轨等问题",
   "title": "作业第5题：天舟八号变轨对接",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "卫星变轨",
+    "modelId": "orbit-transfer",
+    "modelName": "卫星轨道与变轨",
+    "familyId": "hohmann-transfer",
+    "familyName": "圆轨道与转移椭圆",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "变轨前后状态比较",
+      "转移时间与相位判断"
+    ],
+    "prerequisites": [
+      "轨道机械能",
+      "开普勒第三定律"
+    ]
+  },
   "question": "“天舟八号”从近地圆轨道 1 的 P 点点火进入椭圆轨道 2，在远地点 Q 再次变轨到圆轨道 3，随后从目标飞行器后下方约 \\(52\\,\\mathrm{km}\\) 处交会对接。下列说法正确的是（  ）。",
   "options": [
     "A. 在圆轨道 1 的速度大于椭圆轨道 2 在 P 点的速度",

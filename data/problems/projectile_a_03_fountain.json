@@ -3,6 +3,25 @@
   "originalNumber": "A3",
   "chapter": "平抛运动",
   "title": "A组第3题：音乐喷泉抛体",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "斜抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "oblique-projectile-target",
+    "familyName": "斜抛命中与射程",
+    "role": "基础变式",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "初速度分解",
+      "命中条件联立"
+    ],
+    "prerequisites": [
+      "斜抛运动",
+      "三角函数"
+    ]
+  },
   "question": "宁波市东部新城音乐喷泉启动一段时间稳定后可保持图示的迷人风姿。假设从水面四周喷出的各水流速度大小相等、与水平面所成夹角大小相同，不计空气阻力、水流互不干扰。下列说法正确的是（　　）。",
   "options": [
     "A. 水落回水面的速度都相同",

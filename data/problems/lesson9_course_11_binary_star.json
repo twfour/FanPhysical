@@ -3,6 +3,25 @@
   "originalNumber": "课11",
   "chapter": "行星运动与变轨等问题",
   "title": "例11：双星系统基本关系",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "multi-star-system",
+    "modelName": "双星与多星系统",
+    "familyId": "multi-star-dynamics",
+    "familyName": "双星与多星圆周运动",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "质心约束分析",
+      "多体引力合成"
+    ],
+    "prerequisites": [
+      "万有引力",
+      "匀速圆周运动"
+    ]
+  },
   "question": "两颗星球质量分别为 \\(m_1、m_2\\)，中心距离恒为 \\(L\\)，绕共同质心做匀速圆周运动，轨道半径分别为 \\(r_1、r_2\\)，线速度分别为 \\(v_1、v_2\\)。已知引力常量为 \\(G\\)。求 \\(r_1:r_2\\)、\\(v_1:v_2\\) 和双星系统周期 \\(T\\)。",
   "answer": "\\(r_1:r_2=m_2:m_1\\)，\\(v_1:v_2=m_2:m_1\\)，\\(T=2\\pi\\sqrt{L^3/[G(m_1+m_2)]}\\)。",
   "animation": {

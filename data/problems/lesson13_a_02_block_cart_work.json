@@ -3,6 +3,25 @@
   "originalNumber": "A2",
   "chapter": "功能关系",
   "title": "A 组第2题：滑块—小车摩擦功",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "friction-system-energy",
+    "familyName": "板块系统的摩擦功",
+    "role": "基础变式",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "系统与单体能量区分",
+      "相对位移求热量"
+    ],
+    "prerequisites": [
+      "摩擦做功",
+      "功能关系"
+    ]
+  },
   "question": "如图，质量为 \\(2m\\)、长度为 \\(L\\) 的小车静止在光滑水平面上，质量为 \\(m\\) 的小物块放在小车最左端。现用水平恒力 \\(F\\) 作用在小物块上，使小物块从静止开始做匀加速直线运动。小物块与小车间的动摩擦因数为 \\(\\mu\\)，重力加速度为 \\(g\\)。小物块滑到小车最右端时，小车运动的距离为 \\(x\\)。下列结论正确的是（  ）。",
   "options": [
     "A. 小车运动的加速度大小为 \\(\\mu g\\)",

@@ -3,6 +3,25 @@
   "originalNumber": "题7",
   "chapter": "曲线运动",
   "title": "第7题：平抛撞墙角度",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-incline",
+    "familyName": "平抛与斜面相交",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "轨迹几何联立",
+      "末速度方向判断"
+    ],
+    "prerequisites": [
+      "平抛方程",
+      "斜面几何"
+    ]
+  },
   "question": "从同一点水平抛出三个小球，分别撞在同一竖直墙壁上的 \\(a\\)、\\(b\\)、\\(c\\) 点。小球撞到墙壁时的速度方向与竖直墙壁的夹角分别为 \\(60^\\circ\\)、\\(45^\\circ\\)、\\(30^\\circ\\)。不计空气阻力，下列说法正确的是（　　）。",
   "options": [
     "A. 落在 \\(a\\) 点的小球撞在墙面的速度最小",

@@ -3,6 +3,25 @@
   "originalNumber": "B7",
   "chapter": "动能定理",
   "title": "B组第7题：小车—轻绳—弹簧联动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动能定理",
+    "modelId": "spring-energy",
+    "modelName": "弹簧与机械能",
+    "familyId": "spring-work-energy",
+    "familyName": "弹簧功与动能变化",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "弹簧状态划分",
+      "变力功处理"
+    ],
+    "prerequisites": [
+      "弹性势能",
+      "动能定理"
+    ]
+  },
   "question": "固定光滑斜面倾角 \\(37^\\circ\\)，下端有挡板。质量均为 \\(m\\) 的物块 \\(A、B\\) 用沿斜面的轻弹簧连接，\\(A\\) 靠在挡板上。轻绳跨过定滑轮，左端连 \\(B\\)，右端连地面上的小车；初态右侧绳竖直、长度为 \\(L\\)，绳中无弹力。小车缓慢向右移动 \\(\\frac34L\\) 时，\\(A\\) 恰好不离开挡板。取 \\(\\sin37^\\circ=0.6\\)、\\(\\cos37^\\circ=0.8\\)。在小车从图示位置移动 \\(\\frac34L\\) 的过程中，下列说法正确的是（  ）。",
   "options": [
     "A. 弹簧劲度系数为 \\(\\frac{12mg}{5L}\\)",

@@ -2,6 +2,25 @@
   "id": "bowlDoubleBall",
   "chapter": "圆周运动",
   "title": "补充第13题：半球碗双球圆周运动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "conical-pendulum",
+    "familyName": "圆锥摆构型与参数",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "空间受力分解",
+      "角速度与几何关联"
+    ],
+    "prerequisites": [
+      "向心力",
+      "力的合成"
+    ]
+  },
   "question": "如图所示，质量均为 \\(m\\) 的 \\(a,b\\) 两个小球在光滑半球形碗内做圆周运动，碗的球心为 \\(O\\)，半径为 \\(0.1\\mathrm{m}\\)，\\(Oa,Ob\\) 与竖直方向的夹角分别为 \\(53^\\circ,37^\\circ\\)。两球运动过程中，碗始终静止在水平地面上。已知 \\(\\sin37^\\circ=0.6\\)，\\(g=10\\mathrm{m/s^2}\\)，则下列说法正确的是（  ）",
   "options": [
     "A. \\(a,b\\) 两球做圆周运动的线速度之比为 \\(8\\sqrt3:3\\)",

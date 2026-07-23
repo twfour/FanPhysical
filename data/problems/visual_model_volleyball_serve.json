@@ -2,6 +2,25 @@
   "id": "volleyballServe",
   "chapter": "平抛运动",
   "title": "课上第7题：排球过网落点",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-barrier-target",
+    "familyName": "越障与靶面命中",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "临界过障判断",
+      "落点反演"
+    ],
+    "prerequisites": [
+      "平抛轨迹",
+      "速度方向"
+    ]
+  },
   "question": "如图所示，一排球运动员将球在边界处正上方水平向右击出，球刚好过网并落在图中位置，不计空气阻力。\n\n已知击球点高度为 \\(h_1\\)，网高为 \\(h_2\\)，击球点到网的水平距离为 \\(s\\)，过网后到落点的水平距离为 \\(\\frac{s}{2}\\)。判断下列说法中正确的是哪些。",
   "options": [
     "A. \\(h_1=1.8h_2\\)",

@@ -2,6 +2,25 @@
   "id": "dualConstraintCircle",
   "chapter": "曲线运动",
   "title": "第17题：轻绳轻杆双约束圆周",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "horizontal-circle-critical",
+    "familyName": "水平圆周运动临界",
+    "role": "母题",
+    "difficulty": 5,
+    "variantLevel": "L1",
+    "skills": [
+      "静摩擦临界判断",
+      "参数范围求解"
+    ],
+    "prerequisites": [
+      "向心力",
+      "最大静摩擦力"
+    ]
+  },
   "question": "如图所示的玩具转盘半径为 \\(l\\)，角速度 \\(\\omega\\) 可以调节，转盘中心 \\(O\\) 点固定了一竖直杆。质量为 \\(m\\) 的小球用轻绳 \\(AC\\) 和轻杆 \\(BC\\) 一起连接在竖直杆上，轻绳 \\(AC\\) 长为 \\(l\\)，与竖直杆上 \\(A\\) 点相连；轻杆 \\(BC\\) 用铰链连接在竖直杆上的 \\(B\\) 点且可绕 \\(B\\) 点自由转动，\\(OB=\\frac32l\\)。\n\n圆盘静止时，轻绳 \\(AC\\) 与竖直方向夹角 \\(\\theta_1=30^\\circ\\)，轻杆 \\(BC\\) 与竖直方向夹角 \\(\\theta_2=45^\\circ\\)。不计摩擦阻力，重力加速度为 \\(g\\)。\n\n（1）要保持轻绳拉直，求 \\(\\omega\\) 的取值范围。\n\n（2）当 \\(\\omega=\\sqrt{\\frac{g}{l}}\\) 时，求轻绳 \\(AC\\)、轻杆 \\(BC\\) 所受的力的大小。\n\n（3）在转动过程中小球忽然脱离，要求小球不能碰到圆盘，求 \\(\\omega\\) 的取值范围。",
   "analysis": {
     "title": "第17题：先由几何定半径，再列水平向心和竖直平衡"

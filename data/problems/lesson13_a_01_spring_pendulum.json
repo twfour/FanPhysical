@@ -3,6 +3,25 @@
   "originalNumber": "A1",
   "chapter": "功能关系",
   "title": "A 组第1题：弹簧摆能量转化",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "spring-energy",
+    "modelName": "弹簧与机械能",
+    "familyId": "spring-dissipation",
+    "familyName": "弹簧系统与摩擦耗能",
+    "role": "基础变式",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "往返状态比较",
+      "弹性势能与热量分配"
+    ],
+    "prerequisites": [
+      "弹性势能",
+      "摩擦生热"
+    ]
+  },
   "question": "如图，一轻弹簧的一端固定于 \\(O\\) 点，另一端系一小球。将小球从与悬点 \\(O\\) 在同一水平面且弹簧保持原长的 \\(A\\) 点无初速度释放，不计空气阻力。在小球由 \\(A\\) 点摆向最低点 \\(B\\) 的过程中，下列说法正确的是（  ）。",
   "options": [
     "A. 小球减少的机械能一定等于弹簧增加的弹性势能",

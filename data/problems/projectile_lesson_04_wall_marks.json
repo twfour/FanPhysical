@@ -3,6 +3,25 @@
   "originalNumber": "课4",
   "chapter": "平抛运动",
   "title": "课上第4题：墙上弹痕比值",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-basics",
+    "familyName": "平抛运动基本规律",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "运动分解",
+      "时间与位移反演"
+    ],
+    "prerequisites": [
+      "匀速直线运动",
+      "自由落体"
+    ]
+  },
   "question": "从竖直墙的前方 \\(A\\) 处，沿 \\(AO\\) 方向水平发射三颗弹丸 \\(a、b、c\\)，在墙上留下的弹痕如图所示。已知 \\(Oa=ab=bc\\)，不计空气阻力，则三颗弹丸（　　）。",
   "options": [
     "A. 初速度之比是 \\(\\sqrt6:\\sqrt3:\\sqrt2\\)",

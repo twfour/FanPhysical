@@ -3,6 +3,25 @@
   "originalNumber": "单2",
   "chapter": "行星运动与变轨等问题",
   "title": "作业第2题：太空电梯与卫星比较",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "卫星运动",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "satellite-comparison",
+    "familyName": "卫星类型与轨道参数比较",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "轨道量比较",
+      "模型真假辨析"
+    ],
+    "prerequisites": [
+      "圆轨道速度",
+      "同步卫星"
+    ]
+  },
   "question": "地球同步轨道站向赤道基站垂下一条缆绳。物体 Q 随太空电梯到达低于同步轨道的 a 位置并停在那里；一颗自由运行的卫星 P 恰与 Q 同高度。下列说法正确的是（  ）。",
   "options": [
     "A. Q 与 P 的速度相同",

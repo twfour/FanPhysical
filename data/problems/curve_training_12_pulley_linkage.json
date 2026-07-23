@@ -3,6 +3,25 @@
   "originalNumber": "题12",
   "chapter": "曲线运动",
   "title": "第12题：滑轮连接体关联速度",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "关联速度",
+    "modelId": "constraint-system",
+    "modelName": "连接体与约束",
+    "familyId": "constraint-velocity",
+    "familyName": "绳杆约束速度",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "约束方程建立",
+      "速度投影"
+    ],
+    "prerequisites": [
+      "不可伸长约束",
+      "瞬时速度"
+    ]
+  },
   "question": "质量分别为 \\(2\\,\\mathrm{kg}\\) 和 \\(3\\,\\mathrm{kg}\\) 的物体 \\(A\\)、\\(B\\) 通过轻绳跨过轻质定滑轮相连接。在水平力 \\(F\\) 作用下，\\(B\\) 沿水平地面向右运动，\\(A\\) 恰以 \\(3\\,\\mathrm{m/s}\\) 匀速上升。已知 \\(B\\) 与地面间的动摩擦因数为 \\(0.2\\)，\\(g=10\\,\\mathrm{m/s^2}\\)。当斜绳与水平方向成 \\(\\alpha=53^\\circ\\) 时（\\(\\sin53^\\circ=0.8\\)，\\(\\cos53^\\circ=0.6\\)），下列选项正确的是（多选）。",
   "options": [
     "A. \\(B\\) 所受摩擦力为 \\(2.8\\,\\mathrm N\\)",

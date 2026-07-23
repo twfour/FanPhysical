@@ -3,6 +3,25 @@
   "originalNumber": "题2",
   "chapter": "曲线运动",
   "title": "第2题：非均匀水流渡河",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "曲线运动",
+    "modelId": "river-crossing",
+    "modelName": "运动合成与小船渡河",
+    "familyId": "river-basic",
+    "familyName": "渡河时间与轨迹",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "垂直河岸分量提取",
+      "相遇条件判断"
+    ],
+    "prerequisites": [
+      "速度合成",
+      "三角函数"
+    ]
+  },
   "question": "小船从 \\(M\\) 点出发横渡一条河，船头始终垂直于河岸方向，船速大小不变。小船的实际运动轨迹先向下游弯曲加剧、经过中部后弯曲减弱并到达对岸 \\(N\\) 点。能表示河水流速随横向位置变化的是（　　）。",
   "options": [
     "A. 水速从 \\(M\\) 岸到 \\(N\\) 岸逐渐增大",

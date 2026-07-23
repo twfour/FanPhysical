@@ -6,6 +6,25 @@
   "id": "mechanics_spring_balance_reading",
   "chapter": "力学基础",
   "title": "弹簧测力计在不同固定方式下的读数",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "弹力",
+    "modelId": "elastic-force",
+    "modelName": "弹簧与弹力",
+    "familyId": "spring-force-reading",
+    "familyName": "弹簧测力计读数",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "测力计受力分析",
+      "读数对象判断"
+    ],
+    "prerequisites": [
+      "胡克定律",
+      "平衡条件"
+    ]
+  },
   "question": "实验室常用的弹簧测力计如图甲所示，连接有挂钩的拉杆与弹簧相连，并固定在外壳一端上，外壳上固定一个圆环，可以认为弹簧测力计的总质量主要集中在外壳(重力为\\(G\\))上，弹簧和拉杆的质量忽略不计。现将该弹簧测力计以两种方式固定于地面上，如图乙、丙所示，分别用恒力\\(F_0\\)竖直向上拉弹簧测力计，静止时弹簧测力计的读数分别为？",
   "options": [
     "A. 乙图读数为\\(F_0-G\\)，丙图读数为\\(F_0+G\\)",

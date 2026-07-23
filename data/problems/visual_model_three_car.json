@@ -2,6 +2,25 @@
   "id": "threeCar",
   "chapter": "竖直上抛运动",
   "title": "第11题：三车防追尾",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "直线运动",
+    "modelId": "kinematics",
+    "modelName": "直线运动与追及",
+    "familyId": "pursuit-braking",
+    "familyName": "追及、刹车与安全距离",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "分阶段追及",
+      "临界条件识别"
+    ],
+    "prerequisites": [
+      "匀变速运动",
+      "相对运动"
+    ]
+  },
   "question": "甲、乙、丙三车同向行驶，初速度分别为 \\(6\\,\\text{m/s}\\)、\\(8\\,\\text{m/s}\\)、\\(9\\,\\text{m/s}\\)，相邻车距均为 \\(5\\,\\text{m}\\)。甲车以 \\(1\\,\\text{m/s}^2\\) 减速，乙、丙立即匀减速，求乙、丙为避免追尾所需的最小减速度。",
   "analysis": {
     "title": "先求乙的临界减速度，再用停车距离约束丙"

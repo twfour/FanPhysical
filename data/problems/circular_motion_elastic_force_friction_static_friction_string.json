@@ -7,6 +7,25 @@
   "id": "circular_motion_elastic_force_friction_static_friction_string",
   "chapter": "圆周运动",
   "title": "B8：转盘绳连木块",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "horizontal-circle-critical",
+    "familyName": "水平圆周运动临界",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "静摩擦临界判断",
+      "参数范围求解"
+    ],
+    "prerequisites": [
+      "向心力",
+      "最大静摩擦力"
+    ]
+  },
   "question": "水平转盘绕竖直轴转动，转盘上有相同木块 \\(A,B\\)，\\(A\\) 距轴 \\(L\\)，\\(B\\) 距轴 \\(2L\\)，两木块间用长 \\(L\\) 的细绳连接。两木块最大静摩擦力均为各自重力的 \\(k\\) 倍。角速度从零缓慢增大，判断滑动、绳张力和摩擦力变化。",
   "options": [
     "A. \\(\\omega>\\sqrt{\\frac{2kg}{3L}}\\)时，A、B相对于转盘会滑动",

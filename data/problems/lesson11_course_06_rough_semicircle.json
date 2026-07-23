@@ -3,6 +3,25 @@
   "originalNumber": "课6",
   "chapter": "动能定理",
   "title": "例6：粗糙半圆槽的能量比较",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动能定理",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "work-friction-roundtrip",
+    "familyName": "往返运动与摩擦耗能",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "全过程动能定理",
+      "路程位移区分"
+    ],
+    "prerequisites": [
+      "摩擦功",
+      "动能定理"
+    ]
+  },
   "question": "固定半圆形轨道槽内壁粗糙。一个可视为质点的小物块从轨道槽右口 \\(B\\) 上方 \\(2x\\) 处由静止释放，穿过轨道后从左口 \\(A\\) 冲出，最终到达 \\(A\\) 上方 \\(x\\) 的高度。若把释放点调整到 \\(B\\) 上方 \\(x\\) 处，则小物块从轨道左边冲出后能达到的最高位置在（  ）。",
   "options": [
     "A. \\(A\\) 点上方",

@@ -2,6 +2,25 @@
   "id": "riverAdvanced",
   "chapter": "曲线运动",
   "title": "课上第9题：小船渡河进阶",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "曲线运动",
+    "modelId": "river-crossing",
+    "modelName": "运动合成与小船渡河",
+    "familyId": "river-optimal",
+    "familyName": "最短航程与临界渡河",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "速度圆分析",
+      "极值与临界判断"
+    ],
+    "prerequisites": [
+      "矢量合成",
+      "最短距离"
+    ]
+  },
   "question": "小船在宽 \\(d=200\\,\\mathrm{m}\\) 的河水中行驶，船在静水中的速度 \\(v_{\\text{船}}=2\\,\\mathrm{m/s}\\)，水流速度 \\(v_{\\text{水}}=4\\,\\mathrm{m/s}\\)。\n\n若要使船能在最短距离内渡河，船应向什么方向划船？",
   "answer": "船头应偏向上游，取速度圆切线对应方向，即与上游河岸方向约成 \\(60^\\circ\\)。",
   "analysis": {

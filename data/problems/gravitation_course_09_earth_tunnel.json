@@ -3,6 +3,25 @@
   "originalNumber": "课9",
   "chapter": "万有引力与宇宙航行",
   "title": "例9：穿地隧道加速度",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "shell-gravity-field",
+    "familyName": "球壳与均匀球体引力场",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "等效叠加",
+      "分区引力判断"
+    ],
+    "prerequisites": [
+      "万有引力定律",
+      "球壳定理"
+    ]
+  },
   "question": "如图所示，有人设想从中国建立一条通过地心的光滑隧道直达巴西。若只考虑物体间的万有引力，从隧道口抛下一物体，物体加速度的大小（  ）",
   "options": [
     "A. 一直增大",

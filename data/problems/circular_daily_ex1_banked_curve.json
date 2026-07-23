@@ -7,6 +7,25 @@
   "id": "circular_daily_ex1_banked_curve",
   "chapter": "圆周运动日常",
   "title": "例1：弯道侧滑临界",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-force",
+    "familyName": "圆周运动受力分解",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "向心方向确定",
+      "径向受力方程"
+    ],
+    "prerequisites": [
+      "牛顿第二定律",
+      "向心加速度"
+    ]
+  },
   "question": "公路急转弯处通常是交通事故多发地带。某公路急转弯处是一圆弧，当汽车行驶的速率为 \\(v_0\\) 时，汽车恰好没有向公路内外两侧滑动的趋势。则在该弯道处（  ）",
   "options": [
     "A. 路面外侧高内侧低",

@@ -3,6 +3,25 @@
   "originalNumber": "课9",
   "chapter": "功和功率",
   "title": "例9：水平拉球的瞬时功率",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "power-velocity",
+    "familyName": "速度方向与瞬时功率",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "瞬时速度确定",
+      "功率正负判断"
+    ],
+    "prerequisites": [
+      "瞬时功率",
+      "速度分解"
+    ]
+  },
   "question": "细线的一端固定于 \\(O\\) 点，另一端系一小球。在水平拉力作用下，小球以恒定速率在竖直平面内由 \\(A\\) 点运动到 \\(B\\) 点。在此过程中，拉力的瞬时功率变化情况是（  ）。",
   "options": [
     "A. 逐渐增大",

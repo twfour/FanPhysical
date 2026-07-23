@@ -7,6 +7,25 @@
   "id": "circular_daily_ex9_rattle_drum",
   "chapter": "圆周运动日常",
   "title": "例9：拨浪鼓双球圆周",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "conical-pendulum",
+    "familyName": "圆锥摆构型与参数",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "空间受力分解",
+      "角速度与几何关联"
+    ],
+    "prerequisites": [
+      "向心力",
+      "力的合成"
+    ]
+  },
   "question": "拨浪鼓可简化为两根长度不等的细绳分别系着相同小球，另一端固定在关于手柄对称的鼓沿上。连接 \\(A\\) 球的绳子更长一些。现使竖直放置的手柄匀速转动，两小球在水平面内做周期相同的匀速圆周运动，不计空气阻力，下列说法正确的是（  ）",
   "options": [
     "A. 两球做圆周运动时绳子与竖直方向夹角满足 \\(\\theta>\\beta\\)",

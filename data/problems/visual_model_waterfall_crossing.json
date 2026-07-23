@@ -2,6 +2,25 @@
   "id": "waterfallCrossing",
   "chapter": "曲线运动",
   "title": "课上第10题：瀑布临界渡河",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "曲线运动",
+    "modelId": "river-crossing",
+    "modelName": "运动合成与小船渡河",
+    "familyId": "river-optimal",
+    "familyName": "最短航程与临界渡河",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "速度圆分析",
+      "极值与临界判断"
+    ],
+    "prerequisites": [
+      "矢量合成",
+      "最短距离"
+    ]
+  },
   "question": "一只船从河岸 \\(A\\) 处渡河，河宽 \\(d=30\\,\\mathrm{m}\\)，水速 \\(v_{\\text{水}}=10\\,\\mathrm{m/s}\\)，距 \\(A\\) 下游 \\(L=40\\,\\mathrm{m}\\) 处有瀑布。为使小船靠岸时不至于被冲进瀑布，求船相对静水的最小速度。",
   "answer": "\\(6\\,\\mathrm{m/s}\\)。",
   "analysis": {

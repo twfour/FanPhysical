@@ -3,6 +3,25 @@
   "originalNumber": "B8",
   "chapter": "动能定理",
   "title": "B组第8题：摆球最低点的拉力",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "一根不可伸长的轻绳一端固定于 \\(O\\) 点，另一端拴有质量为 \\(m\\) 的小球。初始时绳拉紧，且与水平方向成 \\(30^\\circ\\)，小球由静止释放。当小球运动到悬点正下方 \\(C\\) 位置时，细绳承受的拉力为（  ）。",
   "options": [
     "A. \\(4mg\\)",

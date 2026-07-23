@@ -3,6 +3,25 @@
   "originalNumber": "A3",
   "chapter": "万有引力与宇宙航行",
   "title": "A3：哈雷彗星近日远日",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "kepler-orbit-law",
+    "familyName": "开普勒定律与椭圆轨道",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "轨道位置比较",
+      "面积速度推理"
+    ],
+    "prerequisites": [
+      "开普勒定律",
+      "万有引力"
+    ]
+  },
   "question": "（多选）哈雷彗星的公转轨道可看作较扁的椭圆。在近日点到太阳中心的距离为 \\(r_1\\)，线速度大小为 \\(v_1\\)，加速度大小为 \\(a_1\\)；在远日点相应物理量为 \\(r_2\\)、\\(v_2\\)、\\(a_2\\)。则（  ）",
   "options": [
     "A. \\(v_1>v_2\\)",

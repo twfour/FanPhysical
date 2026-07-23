@@ -3,6 +3,26 @@
   "originalNumber": "课5",
   "chapter": "动能定理",
   "title": "例5：粗糙斜面与光滑半圆轨道",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动能定理",
+    "modelId": "track-transition",
+    "modelName": "轨道临界与抛体衔接",
+    "familyId": "track-energy-projectile",
+    "familyName": "轨道、临界与抛体综合",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "多过程状态连接",
+      "轨道临界判断"
+    ],
+    "prerequisites": [
+      "动能定理",
+      "圆周运动",
+      "平抛运动"
+    ]
+  },
   "question": "倾角为 \\(37^\\circ\\) 的粗糙斜面 \\(AB\\) 与半径 \\(R=0.4\\,\\mathrm m\\) 的光滑半圆轨道 \\(BC\\) 在 \\(B\\) 点平滑相连，\\(BC\\) 为竖直直径，\\(A、C\\) 两点等高。质量 \\(m=1\\,\\mathrm{kg}\\) 的滑块从 \\(A\\) 点由静止下滑，恰能滑到与圆心 \\(O\\) 等高的 \\(D\\) 点。取 \\(g=10\\,\\mathrm{m/s^2}\\)。求：（1）滑块与斜面间的动摩擦因数；（2）要使滑块能到达 \\(C\\) 点，从 \\(A\\) 点下滑时初速度的最小值；（3）若滑块离开 \\(C\\) 点的速度为 \\(10\\,\\mathrm{m/s}\\)，求落到斜面前的飞行时间。",
   "answer": "（1）\\(\\mu=\\frac38\\)；（2）\\(v_{0\\min}=2\\sqrt3\\,\\mathrm{m/s}\\)；（3）\\(t=0.10\\,\\mathrm s\\)",
   "animation": {

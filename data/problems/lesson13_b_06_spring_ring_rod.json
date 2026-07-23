@@ -3,6 +3,25 @@
   "originalNumber": "B6",
   "chapter": "功能关系",
   "title": "B 组第6题：粗糙竖杆弹簧圆环",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "spring-energy",
+    "modelName": "弹簧与机械能",
+    "familyId": "spring-dissipation",
+    "familyName": "弹簧系统与摩擦耗能",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "往返状态比较",
+      "弹性势能与热量分配"
+    ],
+    "prerequisites": [
+      "弹性势能",
+      "摩擦生热"
+    ]
+  },
   "question": "如图，轻质弹簧一端固定，另一端与质量为 \\(m\\)、套在粗糙竖直固定杆上 \\(A\\) 处的圆环相连，弹簧水平且处于原长。圆环从 \\(A\\) 处由静止开始下滑，经过 \\(B\\) 处时速度最大，到达 \\(C\\) 处时速度为零，\\(AC=h\\)。圆环在 \\(C\\) 处获得一个竖直向上的速度 \\(v\\)，恰好能回到 \\(A\\)；弹簧始终在弹性限度内，重力加速度为 \\(g\\)。下列说法正确的是（  ）。",
   "options": [
     "A. 下滑过程中，加速度一直减小",

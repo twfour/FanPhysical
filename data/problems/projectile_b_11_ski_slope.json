@@ -3,6 +3,25 @@
   "originalNumber": "B11",
   "chapter": "平抛运动",
   "title": "B组第11题：跳台滑雪斜面",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-incline",
+    "familyName": "平抛与斜面相交",
+    "role": "综合题",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "轨迹几何联立",
+      "末速度方向判断"
+    ],
+    "prerequisites": [
+      "平抛方程",
+      "斜面几何"
+    ]
+  },
   "question": "2022 年北京冬奥会跳台滑雪项目的比赛场地别具一格，形似“如意”。运动员由赛道上一定高度处滑下，由 \\(O\\) 点沿水平方向飞出，经过时间 \\(t\\) 后落在倾角为 \\(\\alpha\\) 的倾斜轨道上的 \\(A\\) 点。假设运动员可视为质点，\\(O、A\\) 间视为直道，空气阻力不计，重力加速度为 \\(g\\)。下列说法正确的是（　　）。",
   "options": [
     "A. 运动员在 \\(A\\) 点时的速度与水平方向的夹角为 \\(2\\alpha\\)",

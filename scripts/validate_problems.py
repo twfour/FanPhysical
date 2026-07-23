@@ -30,7 +30,6 @@ REQUIRED_EXAM_CONNECTION_FIELDS = [
 SUPPORTED_EXAM_CONNECTION_TYPES = {"gaokao", "competition"}
 SUPPORTED_EXAM_MATCH_LEVELS = {"高度同构", "同一考点", "综合迁移"}
 SUPPORTED_COMPETITION_TIERS = {"竞赛入门", "竞赛进阶", "国际挑战"}
-TAXONOMY_REQUIRED_CHAPTERS = {"机械能守恒定律", "必修二结业测试"}
 REQUIRED_TAXONOMY_FIELDS = [
     "module",
     "topic",
@@ -333,11 +332,8 @@ def validate_exam_connections(path, problem):
 
 def validate_taxonomy(path, problem):
     taxonomy = problem.get("taxonomy")
-    chapter = problem.get("chapter")
     if taxonomy is None:
-        if chapter in TAXONOMY_REQUIRED_CHAPTERS:
-            return [f"{path.name}: {chapter} problem needs taxonomy"]
-        return []
+        return [f"{path.name}: problem needs taxonomy"]
     if not isinstance(taxonomy, dict):
         return [f"{path.name}: taxonomy must be an object"]
     errors = []

@@ -2,6 +2,25 @@
   "id": "projectileSlope",
   "chapter": "平抛运动",
   "title": "课上第2题：平抛落斜面",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-incline",
+    "familyName": "平抛与斜面相交",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "轨迹几何联立",
+      "末速度方向判断"
+    ],
+    "prerequisites": [
+      "平抛方程",
+      "斜面几何"
+    ]
+  },
   "question": "两个相同直角三角形斜面固定在水平面上，三个小球从左边斜面顶点以不同初速度水平抛出，分别落在同一斜面的 \\(a\\)、\\(b\\)、\\(c\\) 三点。\n\n比较三个小球的飞行时间、水平初速度、速度变化量以及落到斜面时的末速度方向。",
   "answer": "时间、水平初速度、速度变化量均按 \\(a,b,c\\) 依次增大；末速度方向相同。",
   "analysis": {

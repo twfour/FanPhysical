@@ -2,6 +2,25 @@
   "id": "projectileBounce",
   "chapter": "平抛运动",
   "title": "课后作业第12题：反弹过挡板",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-bounce",
+    "familyName": "碰撞反弹后的分段抛体",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "碰撞前后状态连接",
+      "分段轨迹建模"
+    ],
+    "prerequisites": [
+      "平抛运动",
+      "碰撞反弹"
+    ]
+  },
   "question": "从高 \\(H=4\\,\\text{m}\\) 处的 \\(A\\) 先后水平抛出两个小球 1 和 2。\n\n球 1 与地面碰撞一次后，恰好越过位于水平地面上高为 \\(h\\) 的竖直挡板，然后落在水平地面上的 \\(D\\) 点。碰撞碰后速度水平方向不变，竖直方向等大反向。\n\n球 2 恰好越过挡板，也落在 \\(D\\) 点。忽略空气阻力，求挡板高度 \\(h\\)。",
   "options": [
     "A. \\(3.5\\,\\text{m}\\)",

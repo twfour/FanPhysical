@@ -3,6 +3,25 @@
   "originalNumber": "A1",
   "chapter": "平抛运动",
   "title": "A组第1题：双飞镖墙距",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-barrier-target",
+    "familyName": "越障与靶面命中",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "临界过障判断",
+      "落点反演"
+    ],
+    "prerequisites": [
+      "平抛轨迹",
+      "速度方向"
+    ]
+  },
   "question": "如图，墙壁上沿有两只飞镖，它们从同一位置水平射出。飞镖 \\(A\\) 与竖直墙壁成 \\(53^\\circ\\) 角，飞镖 \\(B\\) 与竖直墙壁成 \\(37^\\circ\\) 角，两者相距 \\(d\\)。假设飞镖做平抛运动，已知 \\(\\sin37^\\circ=0.6\\)、\\(\\cos37^\\circ=0.8\\)，则射出点离墙壁的水平距离为（　　）。",
   "options": [
     "A. \\(\\frac{24}{7}d\\)",

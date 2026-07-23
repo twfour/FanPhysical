@@ -3,6 +3,25 @@
   "originalNumber": "单6",
   "chapter": "必修一结业测试",
   "title": "单选第6题：双钉悬篮调节",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "相互作用与平衡",
+    "modelId": "force-equilibrium",
+    "modelName": "受力分析与平衡",
+    "familyId": "multi-rope-equilibrium",
+    "familyName": "多绳多接触平衡",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "整体法与隔离法",
+      "几何约束转化"
+    ],
+    "prerequisites": [
+      "力的合成",
+      "共点力平衡"
+    ]
+  },
   "question": "竖直墙面上有不等高的固定钉 A、B，一根轻绳依次绕过 A、B 后，两端悬挂同一吊篮。现把 B 竖直下移到 C，使 A、C 等高且 C 在 B 的正下方，再用原绳重新悬挂。细绳始终在同一竖直平面内，不计绳与钉间摩擦。下列说法正确的是（　　）。",
   "options": [
     "A. 调整后细绳张力比调整前小",

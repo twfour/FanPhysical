@@ -3,6 +3,25 @@
   "originalNumber": "单4",
   "chapter": "行星运动与变轨等问题",
   "title": "作业第4题：双卫星距离图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "卫星运动",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "satellite-coverage",
+    "familyName": "卫星覆盖、追及与地面轨迹",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "空间几何建模",
+      "相对角速度分析"
+    ],
+    "prerequisites": [
+      "开普勒第三定律",
+      "圆周运动"
+    ]
+  },
   "question": "A、B 两颗卫星在同一平面内沿同一方向绕地球做匀速圆周运动，它们之间的距离 \\(\\Delta r\\) 随时间变化。图像给出最小距离为 \\(3r\\)、最大距离为 \\(5r\\)，相邻最小值的时间间隔为 \\(T\\)。地球半径为 \\(0.8r\\)，引力常量为 \\(G\\)，且 A 的线速度大于 B。下列说法正确的是（  ）。",
   "options": [
     "A. 卫星 A 的加速度小于卫星 B 的加速度",

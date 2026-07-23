@@ -7,6 +7,25 @@
   "id": "circular_daily_ex4_centrifuge",
   "chapter": "圆周运动日常",
   "title": "例4：离心分离血液",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "centrifuge-density",
+    "familyName": "离心现象与密度分层",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "等效重力判断",
+      "现实装置建模"
+    ],
+    "prerequisites": [
+      "向心加速度",
+      "密度"
+    ]
+  },
   "question": "分离血液成分需要用到离心分离器。离心分离器转动时给血液提供一种“模拟重力”的环境，“模拟重力”的方向沿试管远离转轴的方向，其大小与细胞质量以及到转轴距离成正比。初始时试管静止，血液内离转轴同样距离处有两种细胞 \\(a,b\\)，其密度分别为 \\(\\rho_a\\) 和 \\(\\rho_b\\)，它们与血浆密度 \\(\\rho_0\\) 的关系为 \\(\\rho_a<\\rho_0<\\rho_b\\)。试管由静止开始绕轴旋转并不断增大转速的过程中，下列说法正确的是（  ）",
   "options": [
     "A. 细胞 \\(a\\) 相对试管向内侧运动，细胞 \\(b\\) 相对试管向外侧运动",

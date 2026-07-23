@@ -7,6 +7,25 @@
   "id": "circular_daily_a1_car_turn_passengers",
   "chapter": "圆周运动日常",
   "title": "A1：汽车转弯乘员比较",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-transmission",
+    "familyName": "同轴、皮带与齿轮传动",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "传动约束识别",
+      "角速度线速度换算"
+    ],
+    "prerequisites": [
+      "周期与角速度",
+      "线速度"
+    ]
+  },
   "question": "如图所示，汽车在拐弯时做匀速圆周运动，则司机 \\(A\\) 与乘客 \\(B\\) 相比一定正确的是（  ）",
   "options": [
     "A. 角速度 \\(\\omega_A>\\omega_B\\)",

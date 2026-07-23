@@ -2,6 +2,25 @@
   "id": "rainWindow",
   "chapter": "曲线运动",
   "title": "课后作业B组第10题：车窗雨滴相对速度",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "曲线运动",
+    "modelId": "curve-kinematics",
+    "modelName": "曲线运动与矢量分析",
+    "familyId": "relative-velocity",
+    "familyName": "参考系与相对速度",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "参考系切换",
+      "速度矢量分解"
+    ],
+    "prerequisites": [
+      "相对速度",
+      "运动合成"
+    ]
+  },
   "question": "如图所示，某人在沿直线匀速行驶的火车车厢中面对车窗观察到雨滴下落时与竖直方向的夹角为 \\(\\theta\\)。已知车窗外无风，火车速度为 \\(v_1\\)，雨滴对地速度为 \\(v_2\\)。\n\n判断火车速度方向、雨滴对地速度方向，以及 \\(v_1\\)、\\(v_2\\)、\\(\\theta\\) 之间的关系。",
   "options": [
     "A. \\(v_1\\) 水平向他的右手方向，\\(v_2\\) 竖直向下，且 \\(v_1=v_2\\tan\\theta\\)",

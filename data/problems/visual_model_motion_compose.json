@@ -2,6 +2,25 @@
   "id": "motionCompose",
   "chapter": "曲线运动",
   "title": "课上第4题：二维运动合成",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "曲线运动",
+    "modelId": "curve-kinematics",
+    "modelName": "曲线运动与矢量分析",
+    "familyId": "vector-motion-composition",
+    "familyName": "二维运动的矢量合成",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "分运动选择",
+      "矢量图像转换"
+    ],
+    "prerequisites": [
+      "运动独立性",
+      "速度合成"
+    ]
+  },
   "question": "一个质量为 \\(4\\,\\mathrm{kg}\\) 的质点在 \\(xOy\\) 平面内运动。题图分别给出 \\(x\\) 方向的速度图像和 \\(y\\) 方向的位移图像。\n\n图像信息为：\\(v_x\\) 在 \\(0\\sim2\\,\\mathrm{s}\\) 内由 \\(3\\,\\mathrm{m/s}\\) 匀增至 \\(6\\,\\mathrm{m/s}\\)；\\(y\\) 在 \\(0\\sim2\\,\\mathrm{s}\\) 内由 \\(8\\,\\mathrm{m}\\) 匀减至 \\(0\\)。判断下列说法正确的是哪一个。",
   "options": [
     "A. 质点做匀变速直线运动",

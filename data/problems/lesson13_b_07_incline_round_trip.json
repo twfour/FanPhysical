@@ -3,6 +3,25 @@
   "originalNumber": "B7",
   "chapter": "功能关系",
   "title": "B 组第7题：粗糙斜面往返能量",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "dissipative-energy-graph",
+    "familyName": "阻力作用与能量图像",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "能量图像斜率分析",
+      "耗散功反演"
+    ],
+    "prerequisites": [
+      "机械能变化",
+      "阻力做功"
+    ]
+  },
   "question": "（多选）如图，\\(t=0\\) 时质量为 \\(1\\,\\mathrm{kg}\\) 的滑块以 \\(20\\,\\mathrm{m/s}\\) 的初速度从倾角为 \\(\\alpha\\) 的固定斜面底部沿斜面向上滑行。滑块与斜面间的动摩擦因数为 \\(0.5\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)，\\(\\sin\\alpha=0.6\\)，斜面足够长。下列说法正确的是（  ）。",
   "options": [
     "A. \\(0\\sim3\\,\\mathrm s\\) 内物块损失的机械能为 \\(84\\,\\mathrm J\\)",

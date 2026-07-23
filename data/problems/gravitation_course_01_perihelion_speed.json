@@ -3,6 +3,25 @@
   "originalNumber": "课1",
   "chapter": "万有引力与宇宙航行",
   "title": "例1：近日点速度",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "kepler-orbit-law",
+    "familyName": "开普勒定律与椭圆轨道",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "轨道位置比较",
+      "面积速度推理"
+    ],
+    "prerequisites": [
+      "开普勒定律",
+      "万有引力"
+    ]
+  },
   "question": "某行星沿椭圆轨道运行，远日点 \\(A\\) 离太阳距离为 \\(a\\)，近日点 \\(B\\) 离太阳距离为 \\(b\\)。过远日点时行星的速率为 \\(v_a\\)，则过近日点时行星的速率为（  ）",
   "options": [
     "A. \\(v_b=\\dfrac{b}{a}v_a\\)",

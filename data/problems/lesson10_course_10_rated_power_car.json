@@ -3,6 +3,25 @@
   "originalNumber": "课10",
   "chapter": "功和功率",
   "title": "例10：额定功率下的汽车运动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "vehicle-power",
+    "familyName": "机车恒功率与分段启动",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "牵引力速度关系",
+      "分阶段运动建模"
+    ],
+    "prerequisites": [
+      "功率公式",
+      "动能定理"
+    ]
+  },
   "question": "汽车发动机的额定功率为 \\(60\\,\\mathrm{kW}\\)，汽车质量为 \\(5\\,\\mathrm t\\)。汽车在水平地面行驶时，阻力为车重的 \\(0.1\\) 倍，取 \\(g=10\\,\\mathrm{m/s^2}\\)。若汽车保持额定功率不变由静止启动，求：①汽车能达到的最大速度；②当汽车加速度为 \\(2\\,\\mathrm{m/s^2}\\) 时的速度；③当汽车速度为 \\(6\\,\\mathrm{m/s}\\) 时的加速度。",
   "answer": "① \\(12\\,\\mathrm{m/s}\\)；② \\(4\\,\\mathrm{m/s}\\)；③ \\(1\\,\\mathrm{m/s^2}\\)",
   "animation": {

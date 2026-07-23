@@ -3,6 +3,25 @@
   "originalNumber": "题3",
   "chapter": "曲线运动",
   "title": "第3题：加速飞机投弹队列",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "moving-platform-projectile",
+    "familyName": "运动载体投弹",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "参考系转换",
+      "事件间隔分析"
+    ],
+    "prerequisites": [
+      "平抛运动",
+      "相对运动"
+    ]
+  },
   "question": "某型战斗机沿水平方向向右做匀加速直线运动，从某时刻开始以相等时间间隔自由释放无动力炸弹（图中用小球替代）。不计空气阻力，炸弹落地前在空中形成的排列图景是（　　）。",
   "options": [
     "A. 炸弹沿竖直直线排列",

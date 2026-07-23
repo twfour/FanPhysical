@@ -2,6 +2,25 @@
   "id": "pileDriver",
   "chapter": "圆周运动",
   "title": "第9题：打夯机",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "如图甲所示为建筑行业使用的一种小型打夯机，其原理可简化为一个质量为 \\(M\\) 的支架（含电动机）上由一根长为 \\(l\\) 的轻杆带动一个质量为 \\(m\\) 的铁球（铁球可视为质点），如图乙所示，重力加速度为 \\(g\\)。若在某次打夯过程中，铁球以角速度 \\(\\omega\\) 匀速转动，则（  ）",
   "options": [
     "A. 铁球转动过程线速度不变",

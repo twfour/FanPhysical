@@ -3,6 +3,25 @@
   "originalNumber": "A1",
   "chapter": "动能定理",
   "title": "A组第1题：粗糙水平面上的弹簧压缩",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动能定理",
+    "modelId": "spring-energy",
+    "modelName": "弹簧与机械能",
+    "familyId": "spring-work-energy",
+    "familyName": "弹簧功与动能变化",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "弹簧状态划分",
+      "变力功处理"
+    ],
+    "prerequisites": [
+      "弹性势能",
+      "动能定理"
+    ]
+  },
   "question": "质量为 \\(m\\) 的物体以初速度 \\(v_0\\) 沿水平面向左运动，起始点 \\(A\\) 与轻弹簧 \\(O\\) 端相距 \\(s\\)。物体与水平面间的动摩擦因数为 \\(\\mu\\)，与弹簧相碰后弹簧的最大压缩量为 \\(x\\)。从开始碰撞到弹簧被压缩至最短，物体克服弹簧弹力所做的功为（  ）。",
   "options": [
     "A. \\(\\frac12mv_0^2-\\mu mg(s+x)\\)",

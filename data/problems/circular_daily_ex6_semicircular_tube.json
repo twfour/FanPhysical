@@ -7,6 +7,25 @@
   "id": "circular_daily_ex6_semicircular_tube",
   "chapter": "圆周运动日常",
   "title": "例6：半圆管道脱离平抛",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "固定在竖直平面上的光滑半圆形管道内有一个直径略小于管道内径的小球。小球在管道内做圆周运动，从 \\(B\\) 点脱离后做平抛运动，经过 \\(0.3\\mathrm{s}\\) 后恰好垂直与倾角为 \\(45^\\circ\\) 的斜面相碰。已知管道半径 \\(R=1\\mathrm{m}\\)，小球质量 \\(m=1\\mathrm{kg}\\)，取 \\(g=10\\mathrm{m/s^2}\\)。则（  ）",
   "options": [
     "A. 相碰点 \\(C\\) 与 \\(B\\) 点的水平距离是 \\(0.9\\mathrm{m}\\)",

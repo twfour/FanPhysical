@@ -3,6 +3,25 @@
   "originalNumber": "单7",
   "chapter": "行星运动与变轨等问题",
   "title": "作业第7题：黑洞最小自转周期",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "compact-object-critical",
+    "familyName": "致密天体逃逸与自转临界",
+    "role": "条件变式",
+    "difficulty": 5,
+    "variantLevel": "L2",
+    "skills": [
+      "极限条件建模",
+      "量纲与比例推导"
+    ],
+    "prerequisites": [
+      "逃逸速度",
+      "向心力"
+    ]
+  },
   "question": "当天体逃逸速度超过光速 \\(c\\) 时，该天体可视为黑洞。已知第二宇宙速度为第一宇宙速度的 \\(\\sqrt2\\) 倍，引力常量为 \\(G\\)。质量为 \\(M\\)、半径取最大值的黑洞，其自转周期的最小值为（  ）。",
   "options": [
     "A. \\(\\dfrac{2\\sqrt2\\pi GM}{c^2}\\)",

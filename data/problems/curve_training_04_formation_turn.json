@@ -3,6 +3,25 @@
   "originalNumber": "题4",
   "chapter": "曲线运动",
   "title": "第4题：方阵通过圆弧跑道",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-transmission",
+    "familyName": "同轴、皮带与齿轮传动",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "传动约束识别",
+      "角速度线速度换算"
+    ],
+    "prerequisites": [
+      "周期与角速度",
+      "线速度"
+    ]
+  },
   "question": "同学们组成的跑操方阵排列整齐地匀速率通过圆弧形跑道区域，每个方阵中的每位同学均可视为做匀速圆周运动。下列说法正确的是（　　）。",
   "options": [
     "A. 每位同学的角速度相同",

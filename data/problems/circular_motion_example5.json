@@ -7,6 +7,25 @@
   "id": "circular_motion_example5",
   "chapter": "圆周运动",
   "title": "例5：飞镖与转盘游戏",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "rotating-target-timing",
+    "familyName": "旋转目标与穿越计时",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "直线与转动时间匹配",
+      "周期性条件判断"
+    ],
+    "prerequisites": [
+      "匀速圆周运动",
+      "匀速直线运动"
+    ]
+  },
   "question": "圆盘直径为 \\(d\\)，飞镖距圆盘距离为 \\(L\\)，飞镖对准圆盘上边缘 \\(A\\) 点以水平速度 \\(v_0\\) 抛出。飞镖抛出的同时，圆盘绕过圆心 \\(O\\) 且垂直盘面的水平轴以角速度 \\(\\omega\\) 匀速转动。若飞镖恰好击中 \\(A\\) 点，判断 \\(\\omega,d,L,v_0,g\\) 的关系。",
   "options": [
     "A. \\(dv_0^2=L^2g\\)",

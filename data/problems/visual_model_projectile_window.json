@@ -2,6 +2,25 @@
   "id": "projectileWindow",
   "chapter": "平抛运动",
   "title": "课上第6题：平抛穿窗",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-window",
+    "familyName": "平抛穿越有限区域",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "区间边界判断",
+      "临界初速度求解"
+    ],
+    "prerequisites": [
+      "平抛方程",
+      "不等式"
+    ]
+  },
   "question": "如图所示，窗子上下沿间的高度 \\(H=1.6\\,\\mathrm{m}\\)，墙的厚度 \\(d=0.4\\,\\mathrm{m}\\)。某人与离墙壁距离 \\(L=1.4\\,\\mathrm{m}\\)，在距窗子上沿 \\(h=0.2\\,\\mathrm{m}\\) 处的 \\(P\\) 点，将可视为质点的小物件以速度 \\(v\\) 水平抛出。\n\n要求小物件能直接穿过窗口并落在水平地面上，不计空气阻力，问可以实现上述要求的速度大小是哪一个？",
   "options": [
     "A. \\(2\\,\\mathrm{m/s}\\)",

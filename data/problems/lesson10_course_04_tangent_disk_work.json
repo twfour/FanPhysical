@@ -3,6 +3,25 @@
   "originalNumber": "课4",
   "chapter": "功和功率",
   "title": "例4：切向恒力推动转盘",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "variable-direction-work",
+    "familyName": "变方向力做功",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "路径微元分析",
+      "几何约束转化"
+    ],
+    "prerequisites": [
+      "功的定义",
+      "弧长与位移"
+    ]
+  },
   "question": "大小为 \\(F=10\\,\\mathrm N\\) 的力作用在半径 \\(r=1\\,\\mathrm m\\) 的转盘边缘，力的大小保持不变，方向在任意时刻均与作用点的切线一致。转盘转动一周，力 \\(F\\) 做的总功为多少？",
   "answer": "\\(20\\pi\\,\\mathrm J\\)",
   "animation": {

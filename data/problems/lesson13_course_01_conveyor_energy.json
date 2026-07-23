@@ -3,6 +3,25 @@
   "originalNumber": "课1",
   "chapter": "功能关系",
   "title": "例1：传送带功能关系",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功能关系",
+    "modelId": "conveyor-energy",
+    "modelName": "传送带功能关系",
+    "familyId": "conveyor-energy-cycle",
+    "familyName": "传送带能量与往返过程",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "分阶段相对运动",
+      "电功热量动能分配"
+    ],
+    "prerequisites": [
+      "相对位移",
+      "功能关系"
+    ]
+  },
   "question": "传送带以速度 \\(v\\) 顺时针转动，在传送带左端轻放一质量为 \\(m\\) 的物块。已知物块与传送带间的动摩擦因数为 \\(\\mu\\)，重力加速度为 \\(g\\)，且传送带足够长。要将物块传送到右端，问：\n\n（1）物块相对传送带的位移是多少？\n\n（2）传送带的电动机要多做多少功？\n\n（3）在这一过程中，摩擦产生了多少热量？",
   "answer": "（1）\\(\\Delta x=\\dfrac{v^2}{2\\mu g}\\)；（2）\\(W_{\\text{电}}=mv^2\\)；（3）\\(Q=\\dfrac12mv^2\\)。",
   "animation": {

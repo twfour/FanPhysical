@@ -3,6 +3,25 @@
   "originalNumber": "课12",
   "chapter": "功和功率",
   "title": "例12：牵引力与速度倒数图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "功和功率",
+    "modelId": "work-energy",
+    "modelName": "功率、动能与功能关系",
+    "familyId": "vehicle-power",
+    "familyName": "机车恒功率与分段启动",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "牵引力速度关系",
+      "分阶段运动建模"
+    ],
+    "prerequisites": [
+      "功率公式",
+      "动能定理"
+    ]
+  },
   "question": "（多选）图示为汽车牵引力 \\(F\\) 和车速倒数 \\(1/v\\) 的关系图像。汽车质量为 \\(2\\times10^3\\,\\mathrm{kg}\\)，由静止开始沿平直公路行驶，行驶中阻力恒定，最大车速为 \\(30\\,\\mathrm{m/s}\\)。图像在低速段为 \\(F=6\\times10^3\\,\\mathrm N\\)，恒功率段经过 \\((1/v=1/10\\,\\mathrm{s/m},F=6\\times10^3\\,\\mathrm N)\\) 与 \\((1/v=1/30\\,\\mathrm{s/m},F=2\\times10^3\\,\\mathrm N)\\)。则（  ）。",
   "options": [
     "A. 汽车所受阻力为 \\(2\\times10^3\\,\\mathrm N\\)",

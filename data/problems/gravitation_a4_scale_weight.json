@@ -3,6 +3,25 @@
   "originalNumber": "A4",
   "chapter": "万有引力与宇宙航行",
   "title": "A4：不同位置测重",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "万有引力",
+    "modelId": "gravitation",
+    "modelName": "万有引力与天体参数",
+    "familyId": "rotation-surface-gravity",
+    "familyName": "天体自转与视重临界",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "引力与向心力分配",
+      "解体临界判断"
+    ],
+    "prerequisites": [
+      "表面重力",
+      "圆周运动"
+    ]
+  },
   "question": "（多选）用弹簧测力计称量一个相对地球静止、质量为 \\(m\\) 的小物体。已知地球质量为 \\(M\\)，引力常量为 \\(G\\)，将地球视为半径为 \\(R\\)、质量分布均匀的球体。下列说法正确的是（  ）",
   "options": [
     "A. 在北极地面称量时，读数 \\(F_0=GMm/R^2\\)",

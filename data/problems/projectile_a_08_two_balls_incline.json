@@ -3,6 +3,25 @@
   "originalNumber": "A8",
   "chapter": "平抛运动",
   "title": "A组第8题：双球同落斜面",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "平抛运动",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "projectile-incline",
+    "familyName": "平抛与斜面相交",
+    "role": "基础变式",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "轨迹几何联立",
+      "末速度方向判断"
+    ],
+    "prerequisites": [
+      "平抛方程",
+      "斜面几何"
+    ]
+  },
   "question": "如图，两小球 \\(M、N\\) 从同一高度同时分别以 \\(v_1、v_2\\) 的初速度水平抛出，经过时间 \\(t\\) 都落在倾角 \\(\\theta=37^\\circ\\) 的斜面上的 \\(A\\) 点，其中小球 \\(N\\) 垂直打到斜面上。已知 \\(\\sin37^\\circ=0.6\\)、\\(\\cos37^\\circ=0.8\\)，则（　　）。",
   "options": [
     "A. 初速度 \\(v_1、v_2\\) 大小之比为 \\(9:8\\)",

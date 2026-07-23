@@ -2,6 +2,25 @@
   "id": "doubleThrow",
   "chapter": "竖直上抛运动",
   "title": "第7题：双球上抛相遇",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "直线运动",
+    "modelId": "kinematics",
+    "modelName": "直线运动与追及",
+    "familyId": "same-acceleration-relative",
+    "familyName": "同加速度相对运动",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "相对运动降维",
+      "相遇条件判断"
+    ],
+    "prerequisites": [
+      "竖直上抛",
+      "自由落体"
+    ]
+  },
   "question": "\\(A\\) 球先从地面以初速度 \\(2v_0\\) 竖直上抛；经过时间 \\(\\Delta t\\) 后，\\(B\\) 球再从地面以初速度 \\(v_0\\) 竖直上抛。判断两球能否在空中相遇，并用高度-时间图像理解相遇条件。",
   "analysis": {
     "title": "用相对运动找相遇区间"

@@ -7,6 +7,25 @@
   "id": "circular_motion_problem_02",
   "chapter": "圆周运动",
   "title": "B10：双漏斗小球",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "conical-pendulum",
+    "familyName": "圆锥摆构型与参数",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "空间受力分解",
+      "角速度与几何关联"
+    ],
+    "prerequisites": [
+      "向心力",
+      "力的合成"
+    ]
+  },
   "question": "两个同轴光滑漏斗与竖直轴夹角分别为 \\(\\alpha,\\beta\\)，且 \\(\\alpha<\\beta\\)。小球 \\(A,B,C\\) 在漏斗上做匀速圆周运动，\\(A,B\\) 在同一漏斗不同位置，\\(C\\) 在另一漏斗上且与 \\(B\\) 等高。比较支持力、向心加速度、速度和周期。",
   "options": [
     "A. A球与B球受到的支持力一定大小相等",

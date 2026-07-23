@@ -7,6 +7,25 @@
   "id": "circular_motion_example8",
   "chapter": "圆周运动",
   "title": "例8：转盘连接小球求加速度和速度",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "circular-force",
+    "familyName": "圆周运动受力分解",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "向心方向确定",
+      "径向受力方程"
+    ],
+    "prerequisites": [
+      "牛顿第二定律",
+      "向心加速度"
+    ]
+  },
   "question": "小球跟着转盘一起做匀速圆周运动。不计小球尺寸，设转盘半径为 \\(R\\)，轻绳长为 \\(L\\)，绳与竖直方向夹角为 \\(\\theta\\)。求小球的向心加速度和线速度。",
   "options": [],
   "answer": "\\(a_c=g\\tan\\theta\\)，\\(v=\\sqrt{g(R+L\\sin\\theta)\\tan\\theta}\\)",

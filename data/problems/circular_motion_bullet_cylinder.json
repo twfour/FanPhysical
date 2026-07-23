@@ -7,6 +7,25 @@
   "id": "circular_motion_bullet_cylinder",
   "chapter": "圆周运动",
   "title": "A4：子弹射穿圆筒",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "rotating-target-timing",
+    "familyName": "旋转目标与穿越计时",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "直线与转动时间匹配",
+      "周期性条件判断"
+    ],
+    "prerequisites": [
+      "匀速圆周运动",
+      "匀速直线运动"
+    ]
+  },
   "question": "半径为 \\(R\\) 的竖直圆筒绕中心轴线匀速转动。子弹以水平速度 \\(v_0\\) 沿圆筒直径方向从左侧射入，从右侧射出后发现两弹孔在同一竖直线上。判断筒内运动时间、孔高度差和圆筒转动周期关系。",
   "options": [
     "A. 在圆筒中的运动时间为 \\(\\frac{2\\pi R}{v_0}\\)",

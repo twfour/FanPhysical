@@ -7,6 +7,25 @@
   "id": "circular_daily_ex10_turntable_sensor",
   "chapter": "圆周运动日常",
   "title": "例10：转盘叠块传感器图像",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "horizontal-circle-critical",
+    "familyName": "水平圆周运动临界",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "静摩擦临界判断",
+      "参数范围求解"
+    ],
+    "prerequisites": [
+      "向心力",
+      "最大静摩擦力"
+    ]
+  },
   "question": "水平转盘可绕竖直中心轴转动，盘上叠放着质量均为 \\(1\\mathrm{kg}\\) 的 \\(A,B\\) 两个物块，\\(B\\) 用长为 \\(0.25\\mathrm{m}\\) 的细线与固定在转盘中心处的力传感器相连。细线最大拉力为 \\(8\\mathrm{N}\\)。\\(A,B\\) 间动摩擦因数 \\(\\mu_2=0.4\\)，\\(B\\) 与转盘间动摩擦因数 \\(\\mu_1=0.1\\)，最大静摩擦力等于滑动摩擦力。转盘静止时细线刚好伸直，传感器读数为零。求传感器读数 \\(F\\) 与 \\(\\omega^2\\) 的关系并作图，取 \\(g=10\\mathrm{m/s^2}\\)。",
   "options": [],
   "answer": "\\(0\\leq\\omega^2\\leq4\\) 时 \\(F=0\\)；\\(4<\\omega^2\\leq16\\) 时 \\(F=0.5\\omega^2-2\\)；\\(16<\\omega^2\\leq24\\) 时 \\(F=0.25\\omega^2+2\\)，\\(\\omega^2=24\\) 时绳将断。",

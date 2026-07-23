@@ -7,6 +7,25 @@
   "id": "circular_motion_example15",
   "chapter": "圆周运动",
   "title": "例15：圆锥面圆周运动",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "conical-pendulum",
+    "familyName": "圆锥摆构型与参数",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L1",
+    "skills": [
+      "空间受力分解",
+      "角速度与几何关联"
+    ],
+    "prerequisites": [
+      "向心力",
+      "力的合成"
+    ]
+  },
   "question": "光滑圆锥顶端用长 \\(L\\) 的细线悬挂质量为 \\(m\\) 的小球，圆锥顶角为 \\(2\\theta\\)。圆锥和小球一起以角速度 \\(\\omega\\) 匀速转动，小球压紧锥面。求绳张力、离开锥面的临界角速度，并说明 \\(T-\\omega^2\\) 图像。",
   "options": [],
   "answer": "离面临界：\\(\\omega_0=\\sqrt{\\frac{g}{L\\cos\\theta}}\\)。",

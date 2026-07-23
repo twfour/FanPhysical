@@ -3,6 +3,25 @@
   "originalNumber": "单4",
   "chapter": "必修一结业测试",
   "title": "单选第4题：弧形坡道准静态受力",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "相互作用与平衡",
+    "modelId": "force-equilibrium",
+    "modelName": "受力分析与平衡",
+    "familyId": "quasistatic-equilibrium",
+    "familyName": "缓慢变化中的动态平衡",
+    "role": "综合题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "准静态过程判断",
+      "受力随位置变化分析"
+    ],
+    "prerequisites": [
+      "共点力平衡",
+      "摩擦力"
+    ]
+  },
   "question": "汽车沿弧形坡道缓慢下坡，先后经过坡度较大的 A 点和坡度较小的 B 点。关于汽车在 A、B 两点的受力，下列说法正确的是（　　）。",
   "options": [
     "A. 坡道对车的支持力在 A 点比 B 点小",

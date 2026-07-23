@@ -3,6 +3,25 @@
   "originalNumber": "题16",
   "chapter": "曲线运动",
   "title": "第16题：细绳缠绕三棱柱",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "条件变式",
+    "difficulty": 5,
+    "variantLevel": "L2",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "光滑水平面上固定一边长为 \\(0.3\\,\\mathrm m\\) 的正三棱柱 \\(abc\\)。长 \\(1\\,\\mathrm m\\) 的细绳一端固定在 \\(a\\) 点，另一端拴一质量为 \\(0.5\\,\\mathrm{kg}\\) 的小球。开始时细绳拉直在 \\(ca\\) 的延长线上，给小球一个 \\(2\\,\\mathrm{m/s}\\)、垂直细绳方向的水平速度，细绳逐渐缠绕在棱柱上，不计能量损失。若细绳能承受的最大拉力为 \\(7\\,\\mathrm N\\)，求从开始到细绳断裂时小球运动的总时间和位移大小。",
   "answer": "总时间 \\(0.7\\pi\\,\\mathrm s\\)，位移大小 \\(0.9\\,\\mathrm m\\)。",
   "animation": {

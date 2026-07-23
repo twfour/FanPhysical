@@ -7,6 +7,25 @@
   "id": "circular_motion_pendulum_hitting_nail",
   "chapter": "圆周运动",
   "title": "A5：悬线碰钉子",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周运动",
+    "modelId": "circular-motion",
+    "modelName": "圆周运动动力学",
+    "familyId": "vertical-circle-critical",
+    "familyName": "竖直圆周运动临界",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L1",
+    "skills": [
+      "最高最低点受力",
+      "不断约束条件判断"
+    ],
+    "prerequisites": [
+      "机械能守恒",
+      "向心力"
+    ]
+  },
   "question": "长为 \\(L\\) 的悬线固定于 \\(O\\) 点，\\(O\\) 点正下方 \\(OC=\\frac{L}{2}\\) 处有钉子 \\(C\\)。小球从与悬点等高处由静止释放，运动到 \\(O\\) 正下方时悬线碰钉。判断碰钉前后线速度、角速度、向心加速度和张力变化。",
   "options": [
     "A. 线速度突然增大为原来的 \\(2\\) 倍",

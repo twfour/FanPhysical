@@ -6,6 +6,25 @@
   "id": "mechanics_tightrope_center_of_gravity",
   "chapter": "力学基础",
   "title": "走钢丝演员的重心与平衡",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "相互作用与平衡",
+    "modelId": "force-equilibrium",
+    "modelName": "受力分析与平衡",
+    "familyId": "contact-force-equilibrium",
+    "familyName": "接触力与静态平衡",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "受力对象选择",
+      "接触力方向判断"
+    ],
+    "prerequisites": [
+      "重力",
+      "共点力平衡"
+    ]
+  },
   "question": "“走钢丝”的技艺在我国有着悠久的历史。某杂技演员手握长杆表演高空走钢丝的情景如图所示，下列说法正确的是（  ）",
   "options": [
     "A. 演员（包括长杆）的重心与钢丝在同一竖直平面内",

@@ -3,6 +3,25 @@
   "originalNumber": "B10",
   "chapter": "动能定理",
   "title": "B组第10题：可调抛石机",
+  "taxonomy": {
+    "module": "力学",
+    "topic": "圆周与抛体",
+    "modelId": "projectile-motion",
+    "modelName": "抛体运动与功率",
+    "familyId": "circle-projectile-transition",
+    "familyName": "圆周运动断约束后的抛体",
+    "role": "综合题",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "约束切换判断",
+      "多阶段最值求解"
+    ],
+    "prerequisites": [
+      "圆周运动",
+      "平抛运动"
+    ]
+  },
   "question": "抛石机长臂 \\(OA\\) 长 \\(L=4\\,\\mathrm m\\)，\\(B\\) 为 \\(OA\\) 中点，石块可装在长臂的 \\(AB\\) 区域。初态长臂与水平面的夹角 \\(\\alpha=30^\\circ\\)，\\(A\\) 点位于地面；当长臂转到竖直位置时立即停止，石块被水平抛出。某次将质量 \\(m=10\\,\\mathrm{kg}\\) 的石块装在 \\(A\\) 点，恰击中地面上距 \\(O\\) 点水平距离 \\(x=12\\,\\mathrm m\\) 的目标。不计空气阻力和抛石机臂的质量，取 \\(g=10\\,\\mathrm{m/s^2}\\)。求：（1）抛出瞬间石块所需向心力；（2）全过程抛石机对石块做的功；（3）若抛石机对石块做功恒定，应把石块装在距 \\(O\\) 点多远处，才能使落点水平距离最大？",
   "answer": "（1）\\(300\\,\\mathrm N\\)；（2）\\(1200\\,\\mathrm J\\)；（3）\\(3\\,\\mathrm m\\)",
   "animation": {
