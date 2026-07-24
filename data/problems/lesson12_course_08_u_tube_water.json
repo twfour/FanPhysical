@@ -259,6 +259,15 @@
       "指出现实对象与题目研究对象、过程边界的对应关系。",
       "写出或说明关系 \\[\\Delta E_p=\\frac14\\rho Sg(h_1-h_2)^2,\\qquad \\frac12\\rho SHv^2=\\Delta E_p\\]，并解释关键变量。",
       "说明至少一个现实修正因素，并完成安全或临界条件检查。"
+    ],
+    "videos": [
+      {
+        "platform": "哔哩哔哩",
+        "title": "系统机械能守恒",
+        "url": "https://www.bilibili.com/video/BV1cCQVYkEgA/",
+        "watchFor": "用整体质心高度表示连续体重力势能，并保持质量分布与速度约束一致。",
+        "matchReason": "视频直接覆盖“连续体重力势能”题族的核心建模关系，观看时可把演示中的研究对象、受力或运动阶段逐一对应到当前题目。"
+      }
     ]
   },
   "learningCycle": {

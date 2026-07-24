@@ -187,6 +187,15 @@
       "指出现实对象与题目研究对象、过程边界的对应关系。",
       "写出或说明关系 \\[T\\cos\\beta=mg\\sin\\theta,\\qquad N=mg\\cos\\theta-T\\sin\\beta\\]，并解释关键变量。",
       "说明至少一个现实修正因素，并完成安全或临界条件检查。"
+    ],
+    "videos": [
+      {
+        "platform": "哔哩哔哩",
+        "title": "轻绳模型：活结与死结",
+        "url": "https://www.bilibili.com/video/BV1kt4y1i7YD/",
+        "watchFor": "先判断绳结类型和同绳张力关系，再用力的矢量平衡分析结点。",
+        "matchReason": "视频直接覆盖“多绳多接触平衡”题族的核心建模关系，观看时可把演示中的研究对象、受力或运动阶段逐一对应到当前题目。"
+      }
     ]
   },
   "learningCycle": {

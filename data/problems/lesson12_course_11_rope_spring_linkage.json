@@ -246,6 +246,15 @@
       "指出现实对象与题目研究对象、过程边界的对应关系。",
       "写出或说明关系 \\[v_B=v_A\\cos\\theta,\\qquad \\Delta E_{pA}+\\Delta E_{pB}+\\Delta E_s+\\Delta E_k=0\\]，并解释关键变量。",
       "说明至少一个现实修正因素，并完成安全或临界条件检查。"
+    ],
+    "videos": [
+      {
+        "platform": "哔哩哔哩",
+        "title": "绳、弹簧连接系统的机械能",
+        "url": "https://www.bilibili.com/video/BV1cCQVYkEgA/",
+        "watchFor": "同时追踪绳长约束和弹簧形变量，把弹性势能计入系统总机械能。",
+        "matchReason": "视频直接覆盖“绳弹簧连接系统”题族的核心建模关系，观看时可把演示中的研究对象、受力或运动阶段逐一对应到当前题目。"
+      }
     ]
   },
   "learningCycle": {

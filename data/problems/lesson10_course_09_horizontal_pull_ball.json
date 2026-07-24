@@ -233,6 +233,15 @@
       "指出现实对象与题目研究对象、过程边界的对应关系。",
       "写出或说明关系 \\[P=Fv_x=mg\\tan\\theta\\cdot v\\cos\\theta=mgv\\sin\\theta\\]，并解释关键变量。",
       "说明至少一个现实修正因素，并完成安全或临界条件检查。"
+    ],
+    "videos": [
+      {
+        "platform": "哔哩哔哩",
+        "title": "功率",
+        "url": "https://www.bilibili.com/video/BV1XhkzYVEZ5/",
+        "watchFor": "从瞬时功率关系出发，比较力、速度与夹角改变时功率怎样变化。",
+        "matchReason": "视频直接覆盖“速度方向与瞬时功率”题族的核心建模关系，观看时可把演示中的研究对象、受力或运动阶段逐一对应到当前题目。"
+      }
     ]
   },
   "learningCycle": {

@@ -278,6 +278,443 @@ RESOURCES = {
     },
 }
 
+VIDEO_BACKFILL_CHAPTERS = {
+    "力学基础",
+    "功和功率",
+    "必修一结业测试",
+    "竖直上抛运动",
+    "曲线运动",
+    "万有引力与宇宙航行",
+    "动能定理",
+    "平抛运动",
+    "功能关系",
+    "机械能守恒定律",
+    "行星运动与变轨等问题",
+    "圆周运动日常",
+    "圆周运动",
+}
+
+VIDEOS_BY_FAMILY = {
+    "spring-force-reading": {
+        "title": "探究弹力和弹簧伸长之间的关系：胡克定律实验",
+        "url": "https://www.bilibili.com/video/BV165411G7Vr/",
+        "watchFor": "观察弹簧形变量如何转化为测力计读数，并辨认弹性限度。",
+    },
+    "spring-series-equilibrium": {
+        "title": "探究弹力和弹簧伸长之间的关系：胡克定律实验",
+        "url": "https://www.bilibili.com/video/BV165411G7Vr/",
+        "watchFor": "先确认单根弹簧的劲度系数，再思考串联时各弹簧弹力和形变量的关系。",
+    },
+    "contact-force-equilibrium": {
+        "title": "动态平衡：动态三角形",
+        "url": "https://www.bilibili.com/video/BV1yt41197oE/",
+        "watchFor": "暂停画出同一研究对象的受力图，观察约束方向变化时平衡力如何改变。",
+    },
+    "force-experiment-methods": {
+        "title": "高中物理实验系统课",
+        "url": "https://www.bilibili.com/video/BV1yx4y1a7Wh/",
+        "watchFor": "重点辨认放大、转换、控制变量和理想化等实验方法分别解决什么测量困难。",
+    },
+    "constant-force-work": {
+        "title": "功的概念、功率与机车启动",
+        "url": "https://www.bilibili.com/video/BV1J4411i76E/",
+        "watchFor": "判断力与位移的夹角，并核对正功、负功和不做功的条件。",
+    },
+    "moving-support-work": {
+        "title": "功和功率",
+        "url": "https://www.bilibili.com/video/BV1uE421w7u1/",
+        "watchFor": "研究对象改变时重新确认作用点的对地位移，不把相对位移误作做功位移。",
+    },
+    "conveyor-work": {
+        "title": "传送带摩擦力分析：动画演示",
+        "url": "https://www.bilibili.com/video/BV1LL411j7r7/",
+        "watchFor": "区分物体对地位移、传送带位移和接触面的相对滑动路程。",
+    },
+    "variable-direction-work": {
+        "title": "功和功率",
+        "url": "https://www.bilibili.com/video/BV1uE421w7u1/",
+        "watchFor": "把过程分成足够小的位移段，观察力与瞬时位移夹角变化对功的影响。",
+    },
+    "variable-force-work": {
+        "title": "功和功率",
+        "url": "https://www.bilibili.com/video/BV1uE421w7u1/",
+        "watchFor": "关注变力功为何不能直接用末态力乘总位移，以及图像面积的物理意义。",
+    },
+    "power-velocity": {
+        "title": "功率",
+        "url": "https://www.bilibili.com/video/BV1XhkzYVEZ5/",
+        "watchFor": "从瞬时功率关系出发，比较力、速度与夹角改变时功率怎样变化。",
+    },
+    "vehicle-power": {
+        "title": "机车启动：恒定功率与恒定加速度",
+        "url": "https://www.bilibili.com/video/BV1LBGRzFE5g/",
+        "watchFor": "对照恒加速度和恒功率两个阶段，找出牵引力、速度与加速度的转折点。",
+    },
+    "motion-quantity-concepts": {
+        "title": "质点与参考系",
+        "url": "https://www.bilibili.com/video/BV1Lz42197T1/",
+        "watchFor": "结合实际运动情境区分质点、路程、位移、平均速度和瞬时速度。",
+    },
+    "uniform-motion-graphs": {
+        "title": "三种运动图像的比较",
+        "url": "https://www.bilibili.com/video/BV1nr4y1p7yN/",
+        "watchFor": "分别读出横纵轴、斜率和面积含义，不把轨迹形状与运动图像形状混淆。",
+    },
+    "quasistatic-equilibrium": {
+        "title": "动态平衡：动态三角形",
+        "url": "https://www.bilibili.com/video/BV1yt41197oE/",
+        "watchFor": "把缓慢变化过程看成连续平衡状态，追踪各力方向和大小的变化。",
+    },
+    "multi-rope-equilibrium": {
+        "title": "轻绳模型：活结与死结",
+        "url": "https://www.bilibili.com/video/BV1kt4y1i7YD/",
+        "watchFor": "先判断绳结类型和同绳张力关系，再用力的矢量平衡分析结点。",
+    },
+    "equivalent-gravity": {
+        "title": "超重和失重实验",
+        "url": "https://www.bilibili.com/video/BV1vp4y1e7Lq?p=1",
+        "watchFor": "比较不同加速度状态下的视重变化，并尝试用非惯性系中的等效重力方向解释。",
+    },
+    "overweight-force-graph": {
+        "title": "超重和失重实验",
+        "url": "https://www.bilibili.com/video/BV1vp4y1e7Lq?p=1",
+        "watchFor": "把测力传感器读数的变化与人体加速度方向逐段对应。",
+    },
+    "friction-relative-motion": {
+        "title": "传送带摩擦力分析：动画演示",
+        "url": "https://www.bilibili.com/video/BV1LL411j7r7/",
+        "watchFor": "先判断接触面间的相对运动趋势，再确定摩擦力方向和相对位移。",
+    },
+    "incline-equal-time": {
+        "title": "光滑斜面与等时圆",
+        "url": "https://www.bilibili.com/video/BV1LiHvzwEDv/",
+        "watchFor": "从圆的弦长和沿斜面加速度同时入手，观察倾角为何会在时间表达式中抵消。",
+    },
+    "pursuit-braking": {
+        "title": "追击相遇问题",
+        "url": "https://www.bilibili.com/video/BV1aK4y1Y7Tb/",
+        "watchFor": "统一时间轴，画出相对距离随时间的变化并检查最小间距或相遇条件。",
+    },
+    "vertical-multistage": {
+        "title": "火箭运动",
+        "url": "https://www.bilibili.com/video/BV1ob411z7UZ/",
+        "watchFor": "按动力、惯性上升和下落等阶段切分时间，并在阶段边界传递位置与速度。",
+    },
+    "same-acceleration-relative": {
+        "title": "竖直上抛：基础篇",
+        "url": "https://www.bilibili.com/video/BV1Ge411L7hQ/",
+        "watchFor": "比较两个物体具有相同重力加速度时，相对加速度和相对速度怎样变化。",
+    },
+    "curve-concepts": {
+        "title": "曲线运动、运动的合成与分解",
+        "url": "https://www.bilibili.com/video/BV1Mh4y1y7sW/",
+        "watchFor": "观察瞬时速度的切线方向，并根据速度方向或大小的变化判断加速度。",
+    },
+    "vector-motion-composition": {
+        "title": "运动的合成与分解",
+        "url": "https://www.bilibili.com/video/BV1Mh4y1y7sW/",
+        "watchFor": "统一参考系和时间，把二维运动拆成两个方向的分运动后再进行矢量合成。",
+    },
+    "relative-velocity": {
+        "title": "变换参考系与相对速度",
+        "url": "https://www.bilibili.com/video/BV1Mh4y1y7sW/",
+        "watchFor": "明确观察者和研究对象，检查相对速度的矢量减法方向。",
+    },
+    "constraint-velocity": {
+        "title": "绳、杆末端的关联速度",
+        "url": "https://www.bilibili.com/video/BV1Mh4y1y7sW/",
+        "watchFor": "把端点速度投影到绳长或杆长约束方向，找出必须相等的速度分量。",
+    },
+    "river-basic": {
+        "title": "小船渡河：时间最短与距离最短",
+        "url": "https://www.bilibili.com/video/BV1Mh4y1y7sW/",
+        "watchFor": "区分船对水、水对岸和船对岸三种速度，观察航向与航迹的差别。",
+    },
+    "river-optimal": {
+        "title": "小船渡河：时间最短与距离最短",
+        "url": "https://www.bilibili.com/video/BV1Mh4y1y7sW/",
+        "watchFor": "分别建立最短时间和最短航程的目标，检查船速与水速的临界关系。",
+    },
+    "circular-force": {
+        "title": "圆周运动受力与转弯模型",
+        "url": "https://www.bilibili.com/video/BV1cz421B78U/",
+        "watchFor": "沿半径方向列合力，不把向心力画成独立的新作用力。",
+    },
+    "circular-transmission": {
+        "title": "圆周运动的传动问题",
+        "url": "https://www.bilibili.com/video/BV1cz421B78U/",
+        "watchFor": "区分同轴角速度相同与皮带接触点线速度相同两类约束。",
+    },
+    "horizontal-circle-critical": {
+        "title": "圆盘、转弯与圆周运动临界",
+        "url": "https://www.bilibili.com/video/BV1cz421B78U/",
+        "watchFor": "先找径向合力的最大值，再由静摩擦或绳力边界确定临界速度。",
+    },
+    "vertical-circle-critical": {
+        "title": "竖直圆周运动",
+        "url": "https://www.bilibili.com/video/BV1cz421B78U/",
+        "watchFor": "在最高点、最低点分别列径向方程，并检查绳、杆或轨道的约束差异。",
+    },
+    "moving-platform-projectile": {
+        "title": "平抛运动与运动载体投弹",
+        "url": "https://www.bilibili.com/video/BV1xz411i78C/",
+        "watchFor": "保留释放瞬间的水平速度，比较不同释放时刻的共同运动时间。",
+    },
+    "circle-projectile-transition": {
+        "title": "圆周运动断约束后的抛体",
+        "url": "https://www.bilibili.com/video/BV1k44y1V73n/",
+        "watchFor": "先由圆周阶段求脱离点速度，再把该速度作为抛体阶段的初速度。",
+    },
+    "projectile-basics": {
+        "title": "平抛运动基础与研究方法",
+        "url": "https://www.bilibili.com/video/BV1724y1E7CT/",
+        "watchFor": "用同一时间连接水平匀速和竖直自由落体两个分运动。",
+    },
+    "projectile-incline": {
+        "title": "与斜面、圆弧面有关的平抛",
+        "url": "https://www.bilibili.com/video/BV1cz421B78U/",
+        "watchFor": "把落点坐标同时代入平抛方程和斜面几何方程，辨认位移角与速度角。",
+    },
+    "projectile-circle": {
+        "title": "与斜面、圆弧面有关的平抛",
+        "url": "https://www.bilibili.com/video/BV1cz421B78U/",
+        "watchFor": "用圆的几何方程约束落点，再结合平抛参数方程消去时间。",
+    },
+    "projectile-barrier-target": {
+        "title": "平抛临界、越障与靶面命中",
+        "url": "https://www.bilibili.com/video/BV1cz421B78U/",
+        "watchFor": "把障碍物边缘转化为轨迹刚好通过的临界点，并继续检查最终落点。",
+    },
+    "projectile-window": {
+        "title": "平抛临界与有限区域穿越",
+        "url": "https://www.bilibili.com/video/BV1cz421B78U/",
+        "watchFor": "分别计算进入和离开窗口边界的时刻，用不等式确定允许的初速度范围。",
+    },
+    "projectile-bounce": {
+        "title": "平抛运动的分段建模",
+        "url": "https://www.bilibili.com/video/BV1724y1E7CT/",
+        "watchFor": "在碰撞时刻结束第一段运动，再按碰撞后的速度分量建立下一段抛体方程。",
+    },
+    "projectile-fluid-jet": {
+        "title": "平抛运动基础与生活中的水平射流",
+        "url": "https://www.bilibili.com/video/BV1724y1E7CT/",
+        "watchFor": "把流出小孔的液滴视为连续平抛质点，联系出口速度、落差与水平射程。",
+    },
+    "oblique-projectile-target": {
+        "title": "斜抛运动",
+        "url": "https://www.bilibili.com/video/BV1oB42167Au/",
+        "watchFor": "把初速度分解为水平和竖直分量，用到达目标的同一时刻联立坐标条件。",
+    },
+    "kepler-orbit-law": {
+        "title": "开普勒三定律",
+        "url": "https://www.bilibili.com/video/BV1vv411e7QZ/",
+        "watchFor": "区分椭圆焦点、面积定律和周期半长轴关系，并判断近日点与远日点速度。",
+    },
+    "orbit-parameter-inference": {
+        "title": "万有引力与天体参数反演",
+        "url": "https://www.bilibili.com/video/BV1XJZrYWEQQ/",
+        "watchFor": "从轨道半径和周期建立向心力方程，判断能反推出中心天体的哪些参数。",
+    },
+    "rotation-surface-gravity": {
+        "title": "万有引力与自转条件下的视重",
+        "url": "https://www.bilibili.com/video/BV1vv411e7QZ/",
+        "watchFor": "把引力分成支持力与自转向心力，检查赤道处临界失重条件。",
+    },
+    "shell-gravity-field": {
+        "title": "球壳的万有引力",
+        "url": "https://www.bilibili.com/video/BV19t411k72n/",
+        "watchFor": "比较球壳内、球壳外和均匀球体内部的引力规律，不直接套用质点反平方公式。",
+    },
+    "surface-gravity-throw": {
+        "title": "万有引力、星球重力与黄金代换",
+        "url": "https://www.bilibili.com/video/BV1XJZrYWEQQ/",
+        "watchFor": "先由星球参数确定表面重力加速度，再分析近地竖直抛体运动。",
+    },
+    "hohmann-transfer": {
+        "title": "卫星变轨与转移椭圆",
+        "url": "https://www.bilibili.com/video/BV1vv411e7QZ/",
+        "watchFor": "在点火点比较变轨前后速度，确认新椭圆轨道必须经过点火位置。",
+    },
+    "conveyor-energy-cycle": {
+        "title": "传送带问题与能量分析",
+        "url": "https://www.bilibili.com/video/BV1w6QVYyEiX/",
+        "watchFor": "逐段判断相对运动和摩擦方向，再分别统计机械能变化与摩擦生热。",
+    },
+    "cross-conveyor": {
+        "title": "传送带问题与相对运动",
+        "url": "https://www.bilibili.com/video/BV1w6QVYyEiX/",
+        "watchFor": "分方向处理速度变化，先判断相对速度再确定摩擦加速度。",
+    },
+    "spring-work-energy": {
+        "title": "动能定理、变力做功与弹簧能量",
+        "url": "https://www.bilibili.com/video/BV1k44y1V73n/",
+        "watchFor": "用弹力功或弹性势能变化处理变力，不用末态弹力直接乘位移。",
+    },
+    "track-energy-projectile": {
+        "title": "动能定理与竖直圆、多过程问题",
+        "url": "https://www.bilibili.com/video/BV1k44y1V73n/",
+        "watchFor": "分开处理轨道、临界和离轨后抛体阶段，并在连接点传递速度。",
+    },
+    "dissipative-energy-graph": {
+        "title": "动能定理处理变力与能量图像",
+        "url": "https://www.bilibili.com/video/BV1k44y1V73n/",
+        "watchFor": "由图像斜率或面积识别变力做功，再连接到动能随位移的变化。",
+    },
+    "kinetic-theorem-basic": {
+        "title": "动能与动能定理",
+        "url": "https://www.bilibili.com/video/BV1k44y1V73n/",
+        "watchFor": "先逐一判断各力做功，再用合力总功连接初末动能。",
+    },
+    "work-friction-roundtrip": {
+        "title": "动能定理：往返运动解题思路",
+        "url": "https://www.bilibili.com/video/BV1D4411i7Ya/",
+        "watchFor": "分清重力功的路径无关性和摩擦功的路程相关性，完整统计往返总路程。",
+    },
+    "collision-composite": {
+        "title": "碰撞、多过程运动与能量转化",
+        "url": "https://www.bilibili.com/video/BV1D4411i7Ya/",
+        "watchFor": "把碰撞前、碰撞瞬间和碰撞后分段，分别判断动量与机械能的适用条件。",
+    },
+    "spring-dissipation": {
+        "title": "弹簧系统、摩擦与能量守恒",
+        "url": "https://www.bilibili.com/video/BV1k44y1V73n/",
+        "watchFor": "把弹簧纳入系统，用弹性势能变化和摩擦生热共同核对能量去向。",
+    },
+    "friction-system-energy": {
+        "title": "摩擦力做功与系统能量",
+        "url": "https://www.bilibili.com/video/BV1w6QVYyEiX/",
+        "watchFor": "分别统计摩擦力对各物体的功，并用相对路程计算系统增加的内能。",
+    },
+    "road-power-optimization": {
+        "title": "功率、速度与圆周运动约束",
+        "url": "https://www.bilibili.com/video/BV1XhkzYVEZ5/",
+        "watchFor": "把功率关系与弯道速度上限同时列出，区分动力约束和转弯安全约束。",
+    },
+    "rigid-body-rotation": {
+        "title": "系统机械能守恒与刚性连接体",
+        "url": "https://www.bilibili.com/video/BV1cCQVYkEgA/",
+        "watchFor": "先用刚体约束确定各点角速度关系，再把所有物体的动能和势能纳入同一系统。",
+    },
+    "rod-sliders": {
+        "title": "轻杆连接体的关联速度与系统机械能",
+        "url": "https://www.bilibili.com/video/BV1984y1d7sc/",
+        "watchFor": "沿杆方向投影两端速度，先满足长度约束，再列系统机械能关系。",
+    },
+    "rope-slider": {
+        "title": "轻绳连接体的关联速度与系统机械能",
+        "url": "https://www.bilibili.com/video/BV1984y1d7sc/",
+        "watchFor": "由绳长不变确定两物体速度关系，并检查绳是否始终绷紧。",
+    },
+    "rope-spring-linkage": {
+        "title": "绳、弹簧连接系统的机械能",
+        "url": "https://www.bilibili.com/video/BV1cCQVYkEgA/",
+        "watchFor": "同时追踪绳长约束和弹簧形变量，把弹性势能计入系统总机械能。",
+    },
+    "conservation-condition": {
+        "title": "机械能守恒的条件与全部考点",
+        "url": "https://www.bilibili.com/video/BV1YTLRzcEMu/",
+        "watchFor": "先选系统，再检查是否只有重力或弹力等保守力做功。",
+    },
+    "continuous-body": {
+        "title": "系统机械能守恒",
+        "url": "https://www.bilibili.com/video/BV1cCQVYkEgA/",
+        "watchFor": "用整体质心高度表示连续体重力势能，并保持质量分布与速度约束一致。",
+    },
+    "vertical-energy": {
+        "title": "机械能守恒：重力势能与动能转化",
+        "url": "https://www.bilibili.com/video/BV1Gp4y1b7KM/",
+        "watchFor": "选定参考面后比较初末动能和重力势能，不让参考面选择影响势能差。",
+    },
+    "spring-compression": {
+        "title": "机械能守恒：动能与弹性势能转化",
+        "url": "https://www.bilibili.com/video/BV1Gp4y1b7KM/",
+        "watchFor": "在接触弹簧前后分段，找出最大压缩时速度或支持力的条件。",
+    },
+    "spring-friction-buffer": {
+        "title": "弹簧缓冲、摩擦与能量分析",
+        "url": "https://www.bilibili.com/video/BV1k44y1V73n/",
+        "watchFor": "把初始机械能分配到弹性势能和摩擦生热，检查停止位置是否唯一。",
+    },
+    "spring-launch": {
+        "title": "弹簧弹射与系统机械能守恒",
+        "url": "https://www.bilibili.com/video/BV1cCQVYkEgA/",
+        "watchFor": "在分离条件出现前使用共同运动约束，分离后分别处理各物体。",
+    },
+    "spring-separation-graph": {
+        "title": "弹簧能量与分离图像",
+        "url": "https://www.bilibili.com/video/BV1YTLRzcEMu/",
+        "watchFor": "把图像上的动能、势能极值与弹簧原长、最大形变和分离时刻对应。",
+    },
+    "track-projectile": {
+        "title": "机械能守恒、圆弧轨道与离轨抛体",
+        "url": "https://www.bilibili.com/video/BV1YTLRzcEMu/",
+        "watchFor": "先用机械能求离轨速度，再检查支持力条件并进入抛体阶段。",
+    },
+    "mechanical-energy-change": {
+        "title": "非保守力做功与机械能变化",
+        "url": "https://www.bilibili.com/video/BV1YTLRzcEMu/",
+        "watchFor": "明确系统边界，用非保守力总功判断机械能增加或减少。",
+    },
+    "power-energy": {
+        "title": "功率与机械能变化",
+        "url": "https://www.bilibili.com/video/BV1XhkzYVEZ5/",
+        "watchFor": "把功率对时间的积累转化为功，再与机械能变化和阻力耗散平衡。",
+    },
+    "compact-object-critical": {
+        "title": "万有引力、逃逸速度与致密天体",
+        "url": "https://www.bilibili.com/video/BV1XJZrYWEQQ/",
+        "watchFor": "从引力提供向心力或逃逸能量出发，检查致密天体半径与临界速度。",
+    },
+    "satellite-comparison": {
+        "title": "高低轨卫星与轨道参数比较",
+        "url": "https://www.bilibili.com/video/BV19t411k72n/",
+        "watchFor": "随轨道半径变化依次比较线速度、角速度、周期和机械能。",
+    },
+    "satellite-coverage": {
+        "title": "卫星追及、覆盖与地面观测",
+        "url": "https://www.bilibili.com/video/BV1vv411e7QZ/",
+        "watchFor": "把卫星角速度与天体自转角速度作差，再结合视线几何确定窗口或覆盖范围。",
+    },
+    "multi-star-dynamics": {
+        "title": "双星与多星圆周运动",
+        "url": "https://www.bilibili.com/video/BV1XJZrYWEQQ/",
+        "watchFor": "先确定共同质心和相同角速度，再分别对每颗星列万有引力与向心力关系。",
+    },
+    "elliptic-orbit-energy": {
+        "title": "椭圆轨道、速度与机械能",
+        "url": "https://www.bilibili.com/video/BV1vv411e7QZ/",
+        "watchFor": "比较近日点和远日点的速度、引力势能与总机械能，区分轨道内变化和轨道间比较。",
+    },
+    "centrifuge-density": {
+        "title": "圆周运动与离心机模型",
+        "url": "https://www.bilibili.com/video/BV1GY411n7BX/",
+        "watchFor": "在旋转参考下比较不同密度物质所需的向心力及其径向分层趋势。",
+    },
+    "rotating-target-timing": {
+        "title": "圆周运动中的旋转目标与周期计时",
+        "url": "https://www.bilibili.com/video/av92502098/",
+        "watchFor": "把直线穿越时间与转动物体的角位移、周期和孔位重复条件联立。",
+    },
+}
+
+
+def curated_video(problem: dict) -> dict | None:
+    if problem.get("chapter") not in VIDEO_BACKFILL_CHAPTERS:
+        return None
+    family_id = problem.get("taxonomy", {}).get("familyId")
+    video = VIDEOS_BY_FAMILY.get(family_id)
+    if not video:
+        return None
+    result = {
+        "platform": "哔哩哔哩",
+        **copy.deepcopy(video),
+        "matchReason": (
+            f"视频直接覆盖“{problem['taxonomy']['familyName']}”题族的核心建模关系，"
+            "观看时可把演示中的研究对象、受力或运动阶段逐一对应到当前题目。"
+        ),
+    }
+    return result
+
 
 def load_problem(path: Path) -> dict:
     with path.open("r", encoding="utf-8") as handle:
@@ -423,6 +860,10 @@ def build_real_life_case(problem: dict, profile: dict, exact_family_source: dict
         videos = exact_family_source.get("realLifeCase", {}).get("videos", [])
         if videos:
             result["videos"] = copy.deepcopy(videos[:1])
+    if "videos" not in result:
+        video = curated_video(problem)
+        if video:
+            result["videos"] = [video]
     return result
 
 

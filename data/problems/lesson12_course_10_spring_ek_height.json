@@ -251,6 +251,15 @@
       "指出现实对象与题目研究对象、过程边界的对应关系。",
       "写出或说明关系 \\[\\frac{\\mathrm dE_k}{\\mathrm dh}=-mg,\\qquad E=E_k+E_{pg}+E_{pe},\\qquad (E_{pg}+E_{pe})_{\\min}=E-E_{k,\\max}\\]，并解释关键变量。",
       "说明至少一个现实修正因素，并完成安全或临界条件检查。"
+    ],
+    "videos": [
+      {
+        "platform": "哔哩哔哩",
+        "title": "弹簧能量与分离图像",
+        "url": "https://www.bilibili.com/video/BV1YTLRzcEMu/",
+        "watchFor": "把图像上的动能、势能极值与弹簧原长、最大形变和分离时刻对应。",
+        "matchReason": "视频直接覆盖“弹簧分离与能量图像”题族的核心建模关系，观看时可把演示中的研究对象、受力或运动阶段逐一对应到当前题目。"
+      }
     ]
   },
   "learningCycle": {
