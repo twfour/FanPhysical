@@ -454,6 +454,32 @@ async function main() {
       await pathBlock.locator(".problem-learning-path-link").first().getAttribute("href") || "",
       /[?&]scene=/
     );
+    var linkedScene = await pathBlock.locator(".problem-learning-path-link").first().evaluate(function (link) {
+      return new URL(link.href).searchParams.get("scene");
+    });
+    await pathBlock.locator(".problem-learning-path-link").first().click();
+    await page.locator("#" + linkedScene + "Notes").waitFor({ state: "visible", timeout: 10000 });
+    var linkedTreeState = await page.locator('.tree-item[data-scene="' + linkedScene + '"]').evaluate(function (item) {
+      var ancestors = [];
+      var parent = item.parentElement;
+      while (parent) {
+        if (parent.tagName === "DETAILS") ancestors.push(parent.open);
+        parent = parent.parentElement;
+      }
+      return {
+        active: item.classList.contains("active"),
+        current: item.getAttribute("aria-current"),
+        ancestorsOpen: ancestors.every(Boolean)
+      };
+    });
+    assert.deepEqual(linkedTreeState, { active: true, current: "page", ancestorsOpen: true });
+    assert.equal(new URL(page.url()).searchParams.get("scene"), linkedScene);
+    await page.goBack({ waitUntil: "domcontentloaded" });
+    await page.locator("#" + PROJECTILE_BASIC_ID + "Notes").waitFor({ state: "visible", timeout: 10000 });
+    assert.equal(
+      await page.locator('.tree-item[data-scene="' + PROJECTILE_BASIC_ID + '"]').getAttribute("aria-current"),
+      "page"
+    );
     var videoKind = page.locator(".real-life-video-card[data-resource-kind]").first();
     await requireOne(videoKind, "classified reality video");
     assert.match(

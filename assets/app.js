@@ -46,7 +46,7 @@ var problemNoteCacheOrder = [];
 var problemNoteCacheLimit = 8;
 var adjacentPrefetchHandle = null;
 var adjacentPrefetchUsesIdleCallback = false;
-var runtimeAssetVersion = "20260724-virtual-lab";
+var runtimeAssetVersion = "20260724-tree-sync";
 var canvasW = 1000;
 var canvasH = 500;
 var animRight = 570;
@@ -146,7 +146,7 @@ function initializeAppShell() {
     renderFavoriteHome();
     var requestedScene = new URLSearchParams(window.location.search).get("scene");
     if (requestedScene && problemIndexMap[requestedScene] && currentScene === "home") {
-      switchScene(requestedScene);
+      switchScene(requestedScene, { historyMode: "replace" });
     }
   });
   renderFavoriteHome();
@@ -257,19 +257,73 @@ function drawGraphWithFrameCache(graphDrawer) {
   touchGraphFrameCache(sceneName);
 }
 
-function updateSceneTreeSelection(sceneName) {
+function expandSceneTreePath(item) {
+  var parent = item ? item.parentElement : null;
+  while (parent) {
+    if (parent.tagName === "DETAILS") {
+      parent.open = true;
+    }
+    parent = parent.parentElement;
+  }
+}
+
+function scrollSceneTreeItemIntoView(item) {
+  var sidebar = document.querySelector(".sidebar");
+  if (!sidebar || !item) {
+    return;
+  }
+  window.requestAnimationFrame(function () {
+    var sidebarRect = sidebar.getBoundingClientRect();
+    var itemRect = item.getBoundingClientRect();
+    var padding = 18;
+    if (itemRect.top < sidebarRect.top + padding) {
+      sidebar.scrollTop -= sidebarRect.top + padding - itemRect.top;
+    } else if (itemRect.bottom > sidebarRect.bottom - padding) {
+      sidebar.scrollTop += itemRect.bottom - sidebarRect.bottom + padding;
+    }
+  });
+}
+
+function updateSceneTreeSelection(sceneName, shouldLocate) {
   var homeItem = document.getElementById("treeHome");
   var nextItem = sceneName === "home" ? homeItem : sceneTreeItemMap[sceneName];
   if (activeSceneTreeItem && activeSceneTreeItem !== nextItem) {
     activeSceneTreeItem.classList.remove("active");
+    activeSceneTreeItem.removeAttribute("aria-current");
   }
   if (nextItem) {
+    expandSceneTreePath(nextItem);
     nextItem.classList.add("active");
+    nextItem.setAttribute("aria-current", "page");
+    if (shouldLocate !== false) {
+      scrollSceneTreeItemIntoView(nextItem);
+    }
   }
   if (homeItem && nextItem !== homeItem) {
     homeItem.classList.remove("active");
+    homeItem.removeAttribute("aria-current");
   }
   activeSceneTreeItem = nextItem || null;
+}
+
+function updateSceneHistory(sceneName, historyMode) {
+  if (historyMode === "none" || !window.history || !window.URL) {
+    return;
+  }
+  var url = new URL(window.location.href);
+  if (sceneName === "home") {
+    url.searchParams.delete("scene");
+  } else {
+    url.searchParams.set("scene", sceneName);
+  }
+  var state = Object.assign({}, window.history.state || {}, { scene: sceneName });
+  var nextUrl = url.pathname + url.search + url.hash;
+  var currentSceneParam = new URLSearchParams(window.location.search).get("scene") || "home";
+  if (historyMode === "replace" || currentSceneParam === sceneName) {
+    window.history.replaceState(state, "", nextUrl);
+  } else {
+    window.history.pushState(state, "", nextUrl);
+  }
 }
 
 function touchProblemNoteCache(sceneName) {
@@ -379,7 +433,8 @@ function applySceneView(sceneName) {
   syncCanvasLoop();
 }
 
-function switchScene(sceneName) {
+function switchScene(sceneName, options) {
+  var navigationOptions = options || {};
   var requestId = ++sceneSwitchRequestId;
   if (currentScene !== sceneName) {
     if (isJsonAnimationScene(currentScene)) {
@@ -391,7 +446,8 @@ function switchScene(sceneName) {
     }
   }
   currentScene = sceneName;
-  updateSceneTreeSelection(sceneName);
+  updateSceneTreeSelection(sceneName, navigationOptions.locateTree !== false);
+  updateSceneHistory(sceneName, navigationOptions.historyMode || "push");
 
   if (sceneName === "home") {
     clearProblemNotesHost();
@@ -516,6 +572,19 @@ function initializeSceneNavigation() {
   }
   document.querySelectorAll(".tree-item[data-scene]").forEach(function (item) {
     sceneTreeItemMap[item.dataset.scene] = item;
+  });
+  updateSceneTreeSelection("home", false);
+  var initialScene = new URLSearchParams(window.location.search).get("scene") || "home";
+  updateSceneHistory(initialScene, "replace");
+  window.addEventListener("popstate", function (event) {
+    var sceneName = event.state && event.state.scene;
+    if (!sceneName) {
+      sceneName = new URLSearchParams(window.location.search).get("scene") || "home";
+    }
+    if (sceneName !== "home" && !sceneTreeItemMap[sceneName]) {
+      sceneName = "home";
+    }
+    switchScene(sceneName, { historyMode: "none" });
   });
   var sidebar = document.querySelector(".sidebar");
   if (!sidebar) {
