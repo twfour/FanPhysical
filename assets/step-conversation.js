@@ -408,7 +408,6 @@ function getStepContext(paragraph, prompt, intent, fallbackStepIndex) {
     : block && block.dataset.stepIndex
     ? Number(block.dataset.stepIndex)
     : (blockIndex > 0 ? blockIndex - 1 : (paragraph ? paragraphs.indexOf(paragraph) : fallbackStepIndex));
-  var source = modelSourceMap[currentScene] || {};
   var problemData = problemDataMap[currentScene];
   var problemAnalysisSteps = getProblemAnalysisItems(problemData);
   var heading = block ? block.querySelector("h2") : null;
@@ -429,7 +428,7 @@ function getStepContext(paragraph, prompt, intent, fallbackStepIndex) {
 
   return {
     problemId: currentScene,
-    problemTitle: (problemData && problemData.title) || source.title || currentScene,
+    problemTitle: (problemData && problemData.title) || currentScene,
     problemQuestion: (problemData && problemData.question) || "",
     referenceAnswer: (problemData && problemData.answer) || "",
     solutionSteps: problemAnalysisSteps.length

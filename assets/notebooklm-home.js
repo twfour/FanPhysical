@@ -55,6 +55,30 @@
     });
   }
 
+  function renderNotebookError() {
+    var grid = document.getElementById("notebooklmHomeGrid");
+    if (!grid) {
+      return;
+    }
+    grid.innerHTML = "";
+
+    var error = document.createElement("div");
+    error.className = "home-empty-state";
+
+    var copy = document.createElement("p");
+    copy.className = "home-empty-copy";
+    copy.innerText = "笔记链接暂时无法读取。";
+    error.appendChild(copy);
+
+    var retry = document.createElement("button");
+    retry.className = "ghost-action notebooklm-retry";
+    retry.type = "button";
+    retry.innerText = "重新读取";
+    retry.addEventListener("click", loadNotebookLinks);
+    error.appendChild(retry);
+    grid.appendChild(error);
+  }
+
   function loadNotebookLinks() {
     fetch("/api/notebooklm-links", { credentials: "same-origin" })
       .then(function (response) {
@@ -67,7 +91,7 @@
         renderNotebookLinks(Array.isArray(payload.chapters) ? payload.chapters : []);
       })
       .catch(function () {
-        renderNotebookLinks([]);
+        renderNotebookError();
       });
   }
 

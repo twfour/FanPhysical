@@ -636,6 +636,19 @@ button.sound-action:disabled {
   font-size: 14px;
 }
 
+.home-empty-state {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notebooklm-retry {
+  flex: 0 0 auto;
+  min-height: 34px;
+  padding: 0 12px;
+}
+
 .notebooklm-home-card {
   display: flex;
   min-height: 144px;

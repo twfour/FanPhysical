@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -Eeuo pipefail
 
 APP_BASE="${APP_BASE:-/opt/fanphysics}"
 NGINX_CONF="${NGINX_CONF:-/etc/nginx/conf.d/fanphysics.conf}"
@@ -32,7 +32,7 @@ ssh \
   -o StrictHostKeyChecking=no \
   "$SSH_TARGET" \
   bash -s -- "$APP_BASE" "$NGINX_CONF" "$GITHUB_REPOSITORY" "$GIT_COMMIT" "$RELEASE_ID" <<'REMOTE'
-set -euo pipefail
+set -Eeuo pipefail
 
 APP_BASE="$1"
 NGINX_CONF="$2"
@@ -41,6 +41,32 @@ GIT_COMMIT="$4"
 RELEASE_ID="$5"
 ARCHIVE="/tmp/fanphysics-${GIT_COMMIT}.tar.gz"
 RELEASE_DIR="$APP_BASE/releases/$RELEASE_ID"
+PREVIOUS_RELEASE="$(readlink -f "$APP_BASE/current" 2>/dev/null || true)"
+NGINX_BACKUP="${NGINX_CONF}.fanphysics-deploy-backup"
+ACTIVATED=0
+
+rollback() {
+  status=$?
+  trap - ERR
+  echo "Deployment failed; restoring previous release." >&2
+  rm -f "$ARCHIVE"
+  if [[ "$ACTIVATED" == "1" && -n "$PREVIOUS_RELEASE" && -d "$PREVIOUS_RELEASE" ]]; then
+    ln -sfn "$PREVIOUS_RELEASE" "$APP_BASE/current.next"
+    mv -Tf "$APP_BASE/current.next" "$APP_BASE/current"
+    cp "$APP_BASE/current/deploy/aliyun/fanphysics.service" /etc/systemd/system/
+    if [[ -f "$NGINX_BACKUP" ]]; then
+      cp "$NGINX_BACKUP" "$NGINX_CONF"
+    fi
+    systemctl daemon-reload
+    systemctl restart fanphysics.service
+    nginx -t
+    systemctl reload nginx
+  fi
+  rm -f "$NGINX_BACKUP"
+  rm -rf "$RELEASE_DIR"
+  exit "$status"
+}
+trap rollback ERR
 
 curl \
   --fail \
@@ -61,8 +87,12 @@ chmod 755 "$RELEASE_DIR/deploy/aliyun/"*.sh
 
 ln -sfn "$RELEASE_DIR" "$APP_BASE/current.next"
 mv -Tf "$APP_BASE/current.next" "$APP_BASE/current"
+ACTIVATED=1
 
 cp "$APP_BASE/current/deploy/aliyun/fanphysics.service" /etc/systemd/system/
+if [[ -f "$NGINX_CONF" ]]; then
+  cp "$NGINX_CONF" "$NGINX_BACKUP"
+fi
 cp "$APP_BASE/current/deploy/aliyun/nginx-https.conf" "$NGINX_CONF"
 
 systemctl daemon-reload
@@ -77,6 +107,8 @@ done
 curl -fsS http://127.0.0.1:8010/api/health
 echo
 
+rm -f "$NGINX_BACKUP"
+trap - ERR
 ls -1dt "$APP_BASE"/releases/* | tail -n +4 | xargs -r rm -rf
 echo "Activated release $RELEASE_ID"
 REMOTE

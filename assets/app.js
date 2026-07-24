@@ -1,84 +1,6 @@
 var currentScene = "home";
 var mathRenderedSceneMap = {};
 var mathRenderingSceneMap = {};
-var modelSourceMap = {
-  doubleThrow: {
-    title: "2026春季班 / 竖直上抛运动",
-    text: "第7题"
-  },
-  pipeDrop: {
-    title: "2026春季班 / 竖直上抛运动",
-    text: "第10题"
-  },
-  threeCar: {
-    title: "2026春季班 / 竖直上抛运动",
-    text: "第11题"
-  },
-  inclineSlot: {
-    title: "2026春季班 / 必修一结业测试",
-    text: "第3题"
-  },
-  rainWindow: {
-    title: "曲线运动课后作业",
-    text: "B组第10题"
-  },
-  rodConstraint: {
-    title: "暑期课时1曲线运动课上内容",
-    text: "第13题"
-  },
-  dualConstraintCircle: {
-    title: "暑假课时5 曲线运动习题训练",
-    text: "第17题"
-  },
-  handRopeBreak: {
-    title: "暑假课时5 曲线运动习题训练",
-    text: "第18题"
-  },
-  projectileBasic: {
-    title: "平抛运动课上内容",
-    text: "第1题、第2题基础模型"
-  },
-  projectileSlope: {
-    title: "平抛运动课上内容",
-    text: "第2题"
-  },
-  projectileWindow: {
-    title: "平抛运动课上内容",
-    text: "第6题"
-  },
-  volleyballServe: {
-    title: "平抛运动课上内容",
-    text: "第7题"
-  },
-  dartTarget: {
-    title: "平抛运动课上内容",
-    text: "第8题"
-  },
-  projectileNormal: {
-    title: "平抛运动课上内容 / 平抛运动课后作业",
-    text: "课上第3题；课后作业第8题"
-  },
-  projectileBounce: {
-    title: "平抛运动课后作业",
-    text: "第12题"
-  },
-  semiCircleThrow: {
-    title: "平抛运动课上内容",
-    text: "第5题"
-  },
-  bulletCylinder: {
-    title: "2026暑假班 / 圆周运动",
-    text: "课上第2题"
-  },
-  bikeGear: {
-    title: "2026暑假班 / 圆周运动",
-    text: "课上第3题"
-  },
-  pileDriver: {
-    title: "2026暑假班 / 圆周运动",
-    text: "第9题"
-  }
-};
 
 var knowledgePointMap = {
   doubleThrow: ["竖直上抛", "相对运动", "相遇条件"],
@@ -124,21 +46,7 @@ var problemNoteCacheOrder = [];
 var problemNoteCacheLimit = 8;
 var adjacentPrefetchHandle = null;
 var adjacentPrefetchUsesIdleCallback = false;
-var runtimeAssetVersion = "20260724-learning-enrichment";
-var promotedProblemChapterMap = {
-  "必修一结业测试": true,
-  "必修二结业测试": true,
-  "曲线运动": true,
-  "平抛运动": true,
-  "圆周运动": true,
-  "圆周运动日常": true,
-  "万有引力与宇宙航行": true,
-  "行星运动与变轨等问题": true,
-  "功和功率": true,
-  "动能定理": true,
-  "机械能守恒定律": true,
-  "功能关系": true
-};
+var runtimeAssetVersion = "20260724-consistency";
 var canvasW = 1000;
 var canvasH = 500;
 var animRight = 570;
@@ -467,7 +375,6 @@ function applySceneView(sceneName) {
   if (note) {
     note.style.display = "block";
   }
-  updateModelSource(sceneName);
   scheduleSceneMath(sceneName);
   syncCanvasLoop();
 }
@@ -523,7 +430,6 @@ function switchScene(sceneName) {
   }
   document.getElementById("canvas-holder").style.display = "none";
   renderJsonAnimationControls("");
-  updateModelSource("");
   showProblemLoadStatus("正在加载题目…", false);
   syncCanvasLoop();
 
@@ -834,9 +740,6 @@ function registerProblemData(problem) {
   if (problem.knowledge) {
     knowledgePointMap[problem.id] = problem.knowledge;
   }
-  if (!isPromotedProblem(problem)) {
-    modelSourceMap[problem.id] = normalizeProblemSource(problem);
-  }
   return problem;
 }
 
@@ -1095,21 +998,6 @@ function renderSceneMath(sceneName) {
   }).finally(function () {
     mathRenderingSceneMap[sceneName] = false;
   });
-}
-
-function updateModelSource(sceneName) {
-  var source = modelSourceMap[sceneName];
-  var sourceBox = document.getElementById("modelSource");
-  if (!sourceBox) {
-    return;
-  }
-  if (!source) {
-    sourceBox.style.display = "none";
-    return;
-  }
-  document.getElementById("modelSourceTitle").innerText = source.title;
-  document.getElementById("modelSourceText").innerText = source.text;
-  sourceBox.style.display = "block";
 }
 
 function drawLayout() {

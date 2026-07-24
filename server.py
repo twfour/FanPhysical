@@ -304,10 +304,8 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
             self.send_header("Pragma", "no-cache")
             self.send_header("Expires", "0")
-        elif parsed.path.startswith("/assets/") and "v=" in parsed.query:
-            self.send_header("Cache-Control", "public, max-age=31536000, immutable")
         elif parsed.path.startswith("/assets/"):
-            self.send_header("Cache-Control", "public, max-age=3600")
+            self.send_header("Cache-Control", "no-cache")
         else:
             self.send_header("Cache-Control", "no-cache")
         super().end_headers()

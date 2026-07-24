@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -9,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PROBLEM_DIR = ROOT / "data" / "problems"
 INDEX_PATH = PROBLEM_DIR / "index.json"
 OUTPUT_PATH = ROOT / "data" / "learning-progress.json"
+HTML_PATH = ROOT / "classical-mechanics-demo.html"
 
 
 def load_json(path):
@@ -25,11 +27,23 @@ def clean_string_list(items):
     return cleaned
 
 
+def load_visible_problem_ids():
+    html = HTML_PATH.read_text(encoding="utf-8")
+    return {
+        scene_id
+        for scene_id in re.findall(r'data-scene="([^"]+)"', html)
+        if scene_id != "summerExam"
+    }
+
+
 def build_progress_catalog():
     index = load_json(INDEX_PATH)
+    visible_problem_ids = load_visible_problem_ids()
     problems = []
     for entry in index.get("problems", []):
         if not isinstance(entry, dict) or not entry.get("file"):
+            continue
+        if entry.get("id") not in visible_problem_ids:
             continue
         problem = load_json(PROBLEM_DIR / entry["file"])
         exploration = problem.get("studentExploration")

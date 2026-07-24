@@ -178,9 +178,6 @@ function getFavoriteScenePath(sceneName, catalogItem, favorite) {
   if (problem.chapter) {
     return problem.chapter;
   }
-  if (modelSourceMap[sceneName] && modelSourceMap[sceneName].title) {
-    return modelSourceMap[sceneName].title;
-  }
   return (favorite && favorite.path) || "收藏模型题";
 }
 

@@ -547,24 +547,6 @@ function appendMarkdownChildren(parent, content) {
   });
 }
 
-function normalizeProblemSource(problem) {
-  var source = problem.source || {};
-  var title = source.title || problem.chapter || "题目来源";
-  var text = source.text || source.page || "";
-  var imageLike = /(^|\/)(IMG_|image|photo)|\.(jpg|jpeg|png|webp|bmp|gif)$/i.test(text);
-  if (!title || title === "图片 OCR 导入" || title === "OCR 文本导入") {
-    title = problem.chapter || "题目来源";
-  }
-  if (!text || imageLike) {
-    text = source.page || "来源待校对";
-  }
-  return { title: title, text: text };
-}
-
-function isPromotedProblem(problem) {
-  return Boolean(problem && promotedProblemChapterMap[problem.chapter || ""]);
-}
-
 function toPascalId(value) {
   return String(value || "")
     .split(/[^a-zA-Z0-9]+/)
