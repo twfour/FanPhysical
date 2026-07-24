@@ -2,6 +2,3311 @@
   "version": 1,
   "problems": [
     {
+      "id": "curve_training_01_concepts",
+      "chapter": "曲线运动",
+      "title": "第1题：曲线运动概念辨析",
+      "knowledge": [
+        "曲线运动",
+        "速度矢量",
+        "加速度",
+        "牛顿第一定律"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_02_nonuniform_river",
+      "chapter": "曲线运动",
+      "title": "第2题：非均匀水流渡河",
+      "knowledge": [
+        "速度合成",
+        "非均匀水流",
+        "轨迹斜率"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_03_accelerating_bomber",
+      "chapter": "曲线运动",
+      "title": "第3题：加速飞机投弹队列",
+      "knowledge": [
+        "相对运动",
+        "匀加速载体",
+        "平抛运动",
+        "轨迹方程"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_04_formation_turn",
+      "chapter": "曲线运动",
+      "title": "第4题：方阵通过圆弧跑道",
+      "knowledge": [
+        "同轴转动",
+        "角速度",
+        "线速度",
+        "向心加速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_05_velocity_graphs",
+      "chapter": "曲线运动",
+      "title": "第5题：二维速度图像合成",
+      "knowledge": [
+        "速度图像",
+        "运动合成",
+        "匀变速曲线运动",
+        "失重"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_06_projectile_incline_scale",
+      "chapter": "曲线运动",
+      "title": "第6题：平抛落斜面参数缩放",
+      "knowledge": [
+        "平抛运动",
+        "斜面几何",
+        "比例关系",
+        "末速度方向"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_07_projectile_wall_angles",
+      "chapter": "曲线运动",
+      "title": "第7题：平抛撞墙角度",
+      "knowledge": [
+        "平抛运动",
+        "末速度方向",
+        "轨迹切线",
+        "几何共点"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_08_bombs_on_slope",
+      "chapter": "曲线运动",
+      "title": "第8题：匀速投弹落斜坡",
+      "knowledge": [
+        "平抛运动",
+        "匀速载体投弹",
+        "斜坡几何",
+        "事件间隔"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_09_wind_tunnel_force",
+      "chapter": "曲线运动",
+      "title": "第9题：风洞恒力曲线运动",
+      "knowledge": [
+        "恒力曲线运动",
+        "平均速度",
+        "速度变化量",
+        "力的合成"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_10_tangent_rope_circle",
+      "chapter": "曲线运动",
+      "title": "第10题：切线轻绳双圆运动",
+      "knowledge": [
+        "同角速度",
+        "切线几何",
+        "摩擦力方向",
+        "向心力分解"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_11_two_boats",
+      "chapter": "曲线运动",
+      "title": "第11题：两船渡河相遇",
+      "knowledge": [
+        "速度合成",
+        "两船相遇",
+        "渡河时间",
+        "相对运动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_12_pulley_linkage",
+      "chapter": "曲线运动",
+      "title": "第12题：滑轮连接体关联速度",
+      "knowledge": [
+        "关联速度",
+        "绳长约束",
+        "摩擦力",
+        "连接体受力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_13_banked_railway",
+      "chapter": "曲线运动",
+      "title": "第13题：铁路弯道侧倾",
+      "knowledge": [
+        "倾斜弯道",
+        "向心力",
+        "侧向压力",
+        "设计速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_14_valve_light",
+      "chapter": "曲线运动",
+      "title": "第14题：自行车气嘴灯临界",
+      "knowledge": [
+        "竖直圆周",
+        "弹簧触发",
+        "径向分力",
+        "临界角速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_15_two_blocks_disk",
+      "chapter": "曲线运动",
+      "title": "第15题：圆盘双木块摩擦图像",
+      "knowledge": [
+        "静摩擦力图像",
+        "圆盘连接体",
+        "张力",
+        "临界角速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curve_training_16_rope_wrap_prism",
+      "chapter": "曲线运动",
+      "title": "第16题：细绳缠绕三棱柱",
+      "knowledge": [
+        "变半径圆周运动",
+        "绳缠绕",
+        "张力临界",
+        "分段运动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectile_lesson_04_wall_marks",
+      "chapter": "平抛运动",
+      "title": "课上第4题：墙上弹痕比值",
+      "knowledge": [
+        "平抛运动",
+        "等距弹痕",
+        "初速度比",
+        "速度增量"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectile_lesson_09_plane_comparison",
+      "chapter": "平抛运动",
+      "title": "课上第9题：平抛与光滑斜面比较",
+      "knowledge": [
+        "平抛运动",
+        "斜面运动",
+        "机械能",
+        "运动时间比较"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectile_a_01_dart_wall",
+      "chapter": "平抛运动",
+      "title": "A组第1题：双飞镖墙距",
+      "knowledge": [
+        "平抛运动",
+        "末速度方向",
+        "墙面几何",
+        "位移反演"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectile_a_02_dam_slope",
+      "chapter": "平抛运动",
+      "title": "A组第2题：斜坡抛石入水",
+      "knowledge": [
+        "平抛运动",
+        "轨迹与斜面交点",
+        "临界速度",
+        "末速度方向"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectile_a_03_fountain",
+      "chapter": "平抛运动",
+      "title": "A组第3题：音乐喷泉抛体",
+      "knowledge": [
+        "斜抛运动",
+        "同高落点",
+        "射程",
+        "完全失重"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectile_a_04_fire_hose",
+      "chapter": "平抛运动",
+      "title": "A组第4题：水柱垂直击墙",
+      "knowledge": [
+        "斜抛运动",
+        "最高点",
+        "垂直击墙",
+        "参数调整"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectile_a_06_bottle_holes",
+      "chapter": "平抛运动",
+      "title": "A组第6题：水瓶侧孔射流",
+      "knowledge": [
+        "平抛运动",
+        "托里拆利定律",
+        "射程最值",
+        "流量"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectile_a_07_semicircle_incline",
+      "chapter": "平抛运动",
+      "title": "A组第7题：半圆轨道与斜面",
+      "knowledge": [
+        "平抛运动",
+        "圆轨道交点",
+        "斜面交点",
+        "速度方向不变量"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectile_a_08_two_balls_incline",
+      "chapter": "平抛运动",
+      "title": "A组第8题：双球同落斜面",
+      "knowledge": [
+        "平抛运动",
+        "垂直斜面",
+        "相向运动",
+        "相遇时间"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectile_b_09_conveyor",
+      "chapter": "平抛运动",
+      "title": "B组第9题：传送带相对运动",
+      "knowledge": [
+        "相对运动",
+        "滑动摩擦",
+        "曲线运动",
+        "速度合成"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectile_b_10_arc_game",
+      "chapter": "平抛运动",
+      "title": "B组第10题：半圆小孔通关",
+      "knowledge": [
+        "平抛运动",
+        "圆弧几何",
+        "径向入孔",
+        "参数反演"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectile_b_11_ski_slope",
+      "chapter": "平抛运动",
+      "title": "B组第11题：跳台滑雪斜面",
+      "knowledge": [
+        "平抛运动",
+        "落斜面",
+        "末速度",
+        "最大法向距离"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectileBasic",
+      "chapter": "平抛运动",
+      "title": "平抛运动基础",
+      "knowledge": [
+        "平抛运动",
+        "运动分解",
+        "自由落体",
+        "速度合成"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_single_01_marathon",
+      "chapter": "必修一结业测试",
+      "title": "单选第1题：半程马拉松概念辨析",
+      "knowledge": [
+        "时刻与时间间隔",
+        "路程与位移",
+        "平均速度",
+        "国际单位制"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_single_02_grid_slide",
+      "chapter": "必修一结业测试",
+      "title": "单选第2题：八格匀减速滑行",
+      "knowledge": [
+        "匀减速直线运动",
+        "逆向思维",
+        "速度位移关系",
+        "平均速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_single_04_curved_slope",
+      "chapter": "必修一结业测试",
+      "title": "单选第4题：弧形坡道准静态受力",
+      "knowledge": [
+        "准静态平衡",
+        "斜面受力",
+        "支持力",
+        "静摩擦力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_single_05_light_chain",
+      "chapter": "必修一结业测试",
+      "title": "单选第5题：五彩灯绳系平衡",
+      "knowledge": [
+        "多结点平衡",
+        "整体法",
+        "隔离法",
+        "绳张力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_single_06_nail_basket",
+      "chapter": "必修一结业测试",
+      "title": "单选第6题：双钉悬篮调节",
+      "knowledge": [
+        "同绳张力",
+        "几何约束",
+        "共点力平衡",
+        "整体法"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_single_07_incline_lift",
+      "chapter": "必修一结业测试",
+      "title": "单选第7题：定滑轮缓慢提升",
+      "knowledge": [
+        "动态平衡",
+        "光滑斜面",
+        "力的分解",
+        "整体与隔离"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_single_08_handcart",
+      "chapter": "必修一结业测试",
+      "title": "单选第8题：倾斜小推车双支持力",
+      "knowledge": [
+        "双接触面支持力",
+        "共点力平衡",
+        "力的正交分解"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_single_09_circle_groove",
+      "chapter": "必修一结业测试",
+      "title": "单选第9题：斜面圆槽相对静止",
+      "knowledge": [
+        "加速参考系",
+        "等效重力",
+        "斜面共同加速度",
+        "圆槽约束"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_single_10_steel_coil",
+      "chapter": "必修一结业测试",
+      "title": "单选第10题：钢卷刹车离地临界",
+      "knowledge": [
+        "加速参考系",
+        "临界离地",
+        "圆几何",
+        "共点力平衡"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_single_11_force_sensor",
+      "chapter": "必修一结业测试",
+      "title": "单选第11题：下蹲起跳压力图像",
+      "knowledge": [
+        "超重与失重",
+        "压力图像",
+        "冲量",
+        "竖直上抛"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_single_12_cable_car",
+      "chapter": "必修一结业测试",
+      "title": "单选第12题：缆车加速摩擦判零",
+      "knowledge": [
+        "随体参考系",
+        "等效重力",
+        "接触面摩擦",
+        "共同加速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_single_13_stacked_plates",
+      "chapter": "必修一结业测试",
+      "title": "单选第13题：三层工件急刹错位",
+      "knowledge": [
+        "惯性",
+        "多层摩擦",
+        "相对运动",
+        "临界静摩擦"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_single_14_spring_cases",
+      "chapter": "必修一结业测试",
+      "title": "单选第14题：弹簧连接体三种方向",
+      "knowledge": [
+        "连接体整体法",
+        "弹簧隔离法",
+        "牛顿第二定律",
+        "重力分量"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_single_15_braking_graph",
+      "chapter": "必修一结业测试",
+      "title": "单选第15题：刹车变换图像",
+      "knowledge": [
+        "匀变速图像变换",
+        "反应距离",
+        "刹车停止",
+        "安全距离"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_solution_16_police_chase",
+      "chapter": "必修一结业测试",
+      "title": "解答第16题：警车货车箱子追及",
+      "knowledge": [
+        "分阶段追及",
+        "相对运动",
+        "刹车停止",
+        "速度上限"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_solution_17_rocket",
+      "chapter": "必修一结业测试",
+      "title": "解答第17题：火箭多阶段升降",
+      "knowledge": [
+        "牛顿第二定律",
+        "竖直多阶段运动",
+        "空气阻力",
+        "降落伞"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "spring_test_solution_18_unloading",
+      "chapter": "必修一结业测试",
+      "title": "解答第18题：斜面传送带平板车卸货",
+      "knowledge": [
+        "斜面摩擦",
+        "传送带相对运动",
+        "板块模型",
+        "相对位移"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "mechanics_three_stacked_bodies",
+      "chapter": "力学基础",
+      "title": "叠放物体静止时的弹力分析",
+      "knowledge": [
+        "弹力",
+        "共点力平衡",
+        "受力分析"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "mechanics_ball_wall_incline",
+      "chapter": "力学基础",
+      "title": "斜面上球受水平力与墙的弹力分析",
+      "knowledge": [
+        "共点力平衡",
+        "弹力",
+        "受力分析"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "mechanics_spring_balance_reading",
+      "chapter": "力学基础",
+      "title": "弹簧测力计在不同固定方式下的读数",
+      "knowledge": [
+        "弹簧测力计读数原理",
+        "受力分析"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "mechanics_spring_displacement",
+      "chapter": "力学基础",
+      "title": "两弹簧连接体上提距离问题",
+      "knowledge": [
+        "胡克定律",
+        "共点力平衡",
+        "连接体问题"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "mechanics_tightrope_center_of_gravity",
+      "chapter": "力学基础",
+      "title": "走钢丝演员的重心与平衡",
+      "knowledge": [
+        "重心",
+        "弹力",
+        "重力与引力的关系",
+        "平衡条件"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "mechanics_desk_deformation_experiment",
+      "chapter": "力学基础",
+      "title": "桌面微小形变的放大实验",
+      "knowledge": [
+        "弹力的产生",
+        "放大法",
+        "形变"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "mechanics_two_body_spring_equilibrium",
+      "chapter": "力学基础",
+      "title": "弹簧连接的两物体平衡问题",
+      "knowledge": [
+        "共点力平衡",
+        "弹簧弹力",
+        "隔离法",
+        "作用力与反作用力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "mechanics_force_experiment_methods",
+      "chapter": "力学基础",
+      "title": "四种力学实验方法的辨析",
+      "knowledge": [
+        "力的图示与力的示意图区别",
+        "悬挂法测重心",
+        "理想实验法",
+        "形变"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "mechanics_incline_suspended_ball",
+      "chapter": "力学基础",
+      "title": "斜面上悬挂小球的受力分析",
+      "knowledge": [
+        "共点力平衡",
+        "弹力方向",
+        "重力方向",
+        "受力分析"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "mechanics_elastic_force_direction",
+      "chapter": "力学基础",
+      "title": "弹力的存在及方向",
+      "knowledge": [
+        "弹力产生条件",
+        "弹力方向"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "mechanics_magnetic_box_static",
+      "chapter": "力学基础",
+      "title": "磁性盒子放入笔后受力变化",
+      "knowledge": [
+        "平衡条件",
+        "静摩擦力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "mechanics_spring_length_maximization",
+      "chapter": "力学基础",
+      "title": "弹簧串联总长度最长配置",
+      "knowledge": [
+        "胡克定律",
+        "弹簧串联受力分析"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "mechanics_brush_pen_equilibrium",
+      "chapter": "力学基础",
+      "title": "毛笔静止时的受力分析",
+      "knowledge": [
+        "受力分析",
+        "平衡条件",
+        "相互作用力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "mechanics_series_spring_equivalent_k",
+      "chapter": "力学基础",
+      "title": "弹簧串联等效弹性系数",
+      "knowledge": [
+        "胡克定律",
+        "弹簧串联"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_bicycle_gear",
+      "chapter": "圆周运动",
+      "title": "例3：变速自行车脚踏板角速度",
+      "knowledge": [
+        "圆周运动",
+        "传动比",
+        "线速度与角速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_problem_01",
+      "chapter": "圆周运动",
+      "title": "B9：打夯机",
+      "knowledge": [
+        "匀速圆周运动",
+        "向心力",
+        "超重与失重",
+        "临界条件"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_problem_02",
+      "chapter": "圆周运动",
+      "title": "B10：双漏斗小球",
+      "knowledge": [
+        "圆锥摆模型",
+        "向心力",
+        "向心加速度",
+        "周期"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_friction",
+      "chapter": "圆周运动",
+      "title": "课7：汽车过弯最大速度",
+      "knowledge": [
+        "圆周运动向心力",
+        "受力分析"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_bullet_through_cylinder",
+      "chapter": "圆周运动",
+      "title": "例2：子弹穿过旋转纸筒",
+      "knowledge": [
+        "圆周运动",
+        "直线运动与圆周运动结合"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_cake_decoration_rotation",
+      "chapter": "圆周运动",
+      "title": "例4：蛋糕裱花圆盘转动",
+      "knowledge": [
+        "匀速圆周运动",
+        "周期",
+        "角速度",
+        "线速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_example5",
+      "chapter": "圆周运动",
+      "title": "例5：飞镖与转盘游戏",
+      "knowledge": [
+        "平抛运动",
+        "匀速圆周运动",
+        "时间相等关系"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_problem_06",
+      "chapter": "圆周运动",
+      "title": "A2：圆盘点奶油问题",
+      "knowledge": [
+        "匀速圆周运动",
+        "周期、角速度、线速度、转速"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_example6",
+      "chapter": "圆周运动",
+      "title": "例6：皮带传动向心加速度",
+      "knowledge": [
+        "向心加速度",
+        "同轴转动角速度相同",
+        "皮带传动线速度相同"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_example8",
+      "chapter": "圆周运动",
+      "title": "例8：转盘连接小球求加速度和速度",
+      "knowledge": [
+        "向心力",
+        "匀速圆周运动",
+        "牛顿第二定律"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_example9",
+      "chapter": "圆周运动",
+      "title": "例9：双人圆周运动",
+      "knowledge": [
+        "向心力",
+        "圆周运动中的角速度相同",
+        "牛顿第二定律"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_example10",
+      "chapter": "圆周运动",
+      "title": "例10：转台临界滑动",
+      "knowledge": [
+        "向心加速度",
+        "静摩擦力",
+        "临界滑动条件",
+        "圆周运动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_ex11",
+      "chapter": "圆周运动",
+      "title": "例11：突然停止悬绳张力",
+      "knowledge": [],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_ex12",
+      "chapter": "圆周运动",
+      "title": "例12：细绳绕钉拉力图像",
+      "knowledge": [
+        "向心力公式 \\(F = m\\frac{v^2}{r}\\)",
+        "圆周运动周期与半径关系 \\(T = \\frac{2\\pi r}{v}\\)",
+        "机械能守恒"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_example13",
+      "chapter": "圆周运动",
+      "title": "例13：同高圆锥摆",
+      "knowledge": [
+        "圆锥摆模型",
+        "向心力分析"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_example14",
+      "chapter": "圆周运动",
+      "title": "例14：双绳水平圆周运动",
+      "knowledge": [
+        "双绳圆周运动模型",
+        "临界角速度",
+        "受力分析"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_example15",
+      "chapter": "圆周运动",
+      "title": "例15：圆锥面圆周运动",
+      "knowledge": [
+        "圆锥面圆周运动",
+        "临界条件",
+        "牛顿第二定律"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_belt_pulley_1",
+      "chapter": "圆周运动",
+      "title": "A1：皮带轮运动分析",
+      "knowledge": [
+        "圆周运动",
+        "皮带传动",
+        "同轴传动",
+        "线速度",
+        "角速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_pour_water_ice_2",
+      "chapter": "圆周运动",
+      "title": "A2：泼水成冰运动分析",
+      "knowledge": [
+        "圆周运动",
+        "匀速圆周运动",
+        "角速度",
+        "线速度",
+        "向心加速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_gear_ratio",
+      "chapter": "圆周运动",
+      "title": "A3：牛力齿轮水车",
+      "knowledge": [
+        "齿轮传动",
+        "同轴传动",
+        "线速度与角速度关系",
+        "周期与角速度关系",
+        "向心加速度公式"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_bullet_cylinder",
+      "chapter": "圆周运动",
+      "title": "A4：子弹射穿圆筒",
+      "knowledge": [
+        "平抛运动",
+        "匀速圆周运动",
+        "运动合成与分解",
+        "周期性"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_pendulum_hitting_nail",
+      "chapter": "圆周运动",
+      "title": "A5：悬线碰钉子",
+      "knowledge": [
+        "机械能守恒",
+        "圆周运动",
+        "向心加速度",
+        "牛顿第二定律"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_elastic_force_friction_static_friction_string",
+      "chapter": "圆周运动",
+      "title": "B8：转盘绳连木块",
+      "knowledge": [
+        "静摩擦力提供向心力",
+        "最大静摩擦力公式 \\(f_{\\max}=kmg\\)",
+        "临界角速度分析"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_friction_static_friction",
+      "chapter": "圆周运动",
+      "title": "B11：竖直圆周运动物块",
+      "knowledge": [
+        "竖直平面圆周运动",
+        "静摩擦力",
+        "向心力",
+        "临界角速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_motion_string",
+      "chapter": "圆周运动",
+      "title": "C12：旋转飞椅",
+      "knowledge": [
+        "圆锥摆模型",
+        "向心力来源",
+        "力的合成与分解"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_ex1_banked_curve",
+      "chapter": "圆周运动日常",
+      "title": "例1：弯道侧滑临界",
+      "knowledge": [
+        "圆周运动",
+        "向心力",
+        "弯道倾角",
+        "静摩擦临界"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_ex2_conical_cylinder",
+      "chapter": "圆周运动日常",
+      "title": "例2：粗糙圆锥筒中物块",
+      "knowledge": [
+        "圆锥面",
+        "向心力",
+        "静摩擦",
+        "临界角速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_ex3_hilly_road",
+      "chapter": "圆周运动日常",
+      "title": "例3：丘陵路面爆胎位置",
+      "knowledge": [
+        "竖直面圆周运动",
+        "支持力",
+        "超重",
+        "向心力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_ex4_centrifuge",
+      "chapter": "圆周运动日常",
+      "title": "例4：离心分离血液",
+      "knowledge": [
+        "离心现象",
+        "等效重力",
+        "密度分层",
+        "向心加速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_ex5_bicycle_turn",
+      "chapter": "圆周运动日常",
+      "title": "例5：自行车转弯侧倾",
+      "knowledge": [
+        "水平圆周运动",
+        "最大静摩擦",
+        "侧倾",
+        "临界速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_ex6_semicircular_tube",
+      "chapter": "圆周运动日常",
+      "title": "例6：半圆管道脱离平抛",
+      "knowledge": [
+        "竖直圆周运动",
+        "平抛运动",
+        "速度方向",
+        "管道约束"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_ex7_horizontal_bar",
+      "chapter": "圆周运动日常",
+      "title": "例7：单杠最高点弹力图像",
+      "knowledge": [
+        "竖直圆周运动",
+        "最高点",
+        "弹力图像",
+        "临界速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_ex8_rod_two_balls",
+      "chapter": "圆周运动日常",
+      "title": "例8：轻杆双球最高点",
+      "knowledge": [
+        "轻杆圆周运动",
+        "同角速度",
+        "最高点临界",
+        "转轴作用力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_ex9_rattle_drum",
+      "chapter": "圆周运动日常",
+      "title": "例9：拨浪鼓双球圆周",
+      "knowledge": [
+        "圆锥摆",
+        "同周期",
+        "线速度",
+        "绳张力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_ex10_turntable_sensor",
+      "chapter": "圆周运动日常",
+      "title": "例10：转盘叠块传感器图像",
+      "knowledge": [
+        "转盘",
+        "叠放物块",
+        "分段函数",
+        "传感器图像"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_a1_car_turn_passengers",
+      "chapter": "圆周运动日常",
+      "title": "A1：汽车转弯乘员比较",
+      "knowledge": [
+        "同轴转动",
+        "角速度",
+        "线速度",
+        "向心加速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_a2_airplane_turn",
+      "chapter": "圆周运动日常",
+      "title": "A2：飞机水平盘旋升力",
+      "knowledge": [
+        "水平圆周运动",
+        "飞机盘旋",
+        "力的分解",
+        "向心力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_a3_bicycle_mud",
+      "chapter": "圆周运动日常",
+      "title": "A3：车轮泥巴脱落",
+      "knowledge": [
+        "竖直圆周运动",
+        "最高点",
+        "附着力",
+        "向心力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_a4_box_vertical_circle",
+      "chapter": "圆周运动日常",
+      "title": "A4：盒内小球竖直圆",
+      "knowledge": [
+        "竖直圆周运动",
+        "最高点临界",
+        "最低点压力",
+        "周期"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_a5_string_tension_graph",
+      "chapter": "圆周运动日常",
+      "title": "A5：最高点绳拉力图像",
+      "knowledge": [
+        "绳球圆周运动",
+        "最高点",
+        "图像斜率",
+        "最低点拉力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_b6_stacked_turntable",
+      "chapter": "圆周运动日常",
+      "title": "B6：叠放物块转盘临界",
+      "knowledge": [
+        "叠放物块",
+        "转盘临界",
+        "静摩擦",
+        "整体法"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_b7_valve_light",
+      "chapter": "圆周运动日常",
+      "title": "B7：自行车气嘴灯",
+      "knowledge": [
+        "竖直圆周运动",
+        "临界触发",
+        "向心力",
+        "重力分量"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_b8_inclined_disk_sand",
+      "chapter": "圆周运动日常",
+      "title": "B8：倾斜圆盘细沙脱落",
+      "knowledge": [
+        "倾斜圆盘",
+        "静摩擦临界",
+        "面积比例",
+        "圆周运动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "circular_daily_b9_carrier_turn",
+      "chapter": "圆周运动日常",
+      "title": "B9：航母外倾转弯摩擦",
+      "knowledge": [
+        "倾斜甲板",
+        "水平圆周运动",
+        "静摩擦临界",
+        "最大速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_course_01_perihelion_speed",
+      "chapter": "万有引力与宇宙航行",
+      "title": "例1：近日点速度",
+      "knowledge": [
+        "开普勒第二定律",
+        "角动量守恒",
+        "近日点与远日点"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_course_02_ellipse_return",
+      "chapter": "万有引力与宇宙航行",
+      "title": "例2：椭圆变轨返回",
+      "knowledge": [
+        "开普勒第三定律",
+        "椭圆变轨",
+        "半长轴"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_course_03_spherical_cavity",
+      "chapter": "万有引力与宇宙航行",
+      "title": "例3：球体挖腔引力",
+      "knowledge": [
+        "万有引力",
+        "球壳定理",
+        "等效叠加"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_course_04_hollow_shells",
+      "chapter": "万有引力与宇宙航行",
+      "title": "例4：空心球壳引力",
+      "knowledge": [
+        "球壳定理",
+        "万有引力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_course_05_earth_density_rotation",
+      "chapter": "万有引力与宇宙航行",
+      "title": "例5：自转与地球密度",
+      "knowledge": [
+        "地球自转",
+        "视重",
+        "平均密度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_course_06_orbit_known_quantities",
+      "chapter": "万有引力与宇宙航行",
+      "title": "例6：轨道数据估算",
+      "knowledge": [
+        "万有引力提供向心力",
+        "轨道周期",
+        "线速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_course_07_planet_breakup",
+      "chapter": "万有引力与宇宙航行",
+      "title": "例7：星球自转解体",
+      "knowledge": [
+        "自转临界",
+        "万有引力",
+        "向心力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_course_08_lunar_throw",
+      "chapter": "万有引力与宇宙航行",
+      "title": "例8：月面竖直上抛",
+      "knowledge": [
+        "竖直上抛",
+        "近地重力",
+        "天体质量与密度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_course_09_earth_tunnel",
+      "chapter": "万有引力与宇宙航行",
+      "title": "例9：穿地隧道加速度",
+      "knowledge": [
+        "均匀球体内部引力",
+        "穿地隧道",
+        "简谐运动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_course_extension_gravity",
+      "chapter": "万有引力与宇宙航行",
+      "title": "拓展例题：地表上下重力",
+      "knowledge": [
+        "球外重力",
+        "球内重力",
+        "球壳定理"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_a1_saturn_moons",
+      "chapter": "万有引力与宇宙航行",
+      "title": "A1：土星双卫星位置",
+      "knowledge": [
+        "开普勒第三定律",
+        "卫星相对位置"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_a2_solar_terms",
+      "chapter": "万有引力与宇宙航行",
+      "title": "A2：节气与公转快慢",
+      "knowledge": [
+        "开普勒第二定律",
+        "近日点",
+        "节气"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_a3_halley_comet",
+      "chapter": "万有引力与宇宙航行",
+      "title": "A3：哈雷彗星近日远日",
+      "knowledge": [
+        "椭圆轨道",
+        "万有引力加速度",
+        "面积速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_a4_scale_weight",
+      "chapter": "万有引力与宇宙航行",
+      "title": "A4：不同位置测重",
+      "knowledge": [
+        "视重",
+        "地球自转",
+        "万有引力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_a5_unknown_body_throw",
+      "chapter": "万有引力与宇宙航行",
+      "title": "A5：未知天体竖直上抛",
+      "knowledge": [
+        "竖直上抛",
+        "天体质量",
+        "量纲判断"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_b6_orbit_arc_angle",
+      "chapter": "万有引力与宇宙航行",
+      "title": "B6：弧长角度测天体",
+      "knowledge": [
+        "弧长公式",
+        "轨道周期",
+        "中心天体质量"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_b7_photogate_tension",
+      "chapter": "万有引力与宇宙航行",
+      "title": "B7：光电门拉力图像",
+      "knowledge": [
+        "光电门测速",
+        "竖直圆周运动",
+        "图像斜率与截距"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_b8_solar_eclipse",
+      "chapter": "万有引力与宇宙航行",
+      "title": "B8：日全食尺度估算",
+      "knowledge": [
+        "角直径",
+        "开普勒第三定律",
+        "平均密度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_b9_astronomy_photo",
+      "chapter": "万有引力与宇宙航行",
+      "title": "B9：照片测行星密度",
+      "knowledge": [
+        "正弦投影",
+        "开普勒第三定律",
+        "天体密度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "gravitation_b10_elliptic_force_graph",
+      "chapter": "万有引力与宇宙航行",
+      "title": "B10：椭圆轨道引力图像",
+      "knowledge": [
+        "椭圆轨道",
+        "引力图像",
+        "开普勒第三定律"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_course_01_satellite_comparison",
+      "chapter": "行星运动与变轨等问题",
+      "title": "例1：四类地球卫星比较",
+      "knowledge": [
+        "圆轨道速度",
+        "同步卫星",
+        "万有引力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_course_02_exoplanet_mass",
+      "chapter": "行星运动与变轨等问题",
+      "title": "例2：系外行星反推恒星质量",
+      "knowledge": [
+        "开普勒第三定律",
+        "中心天体质量"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_course_03_three_orbit_comparison",
+      "chapter": "行星运动与变轨等问题",
+      "title": "例3：赤道物体与两类卫星比较",
+      "knowledge": [
+        "同步卫星",
+        "第一宇宙速度",
+        "向心运动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_course_04_saturn_ring_identity",
+      "chapter": "行星运动与变轨等问题",
+      "title": "例4：土星环身份判别",
+      "knowledge": [
+        "刚体转动",
+        "圆轨道速度",
+        "模型判别"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_course_05_sync_satellite_min_period",
+      "chapter": "行星运动与变轨等问题",
+      "title": "例5：三颗同步卫星的最小周期",
+      "knowledge": [
+        "同步卫星",
+        "覆盖几何",
+        "开普勒第三定律"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_course_06_eclipse_orbit_geometry",
+      "chapter": "行星运动与变轨等问题",
+      "title": "例6：飞船日全食与轨道几何",
+      "knowledge": [
+        "张角几何",
+        "圆轨道周期",
+        "日全食"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_course_07_horizon_flash_period",
+      "chapter": "行星运动与变轨等问题",
+      "title": "例7：地平线闪光卫星周期",
+      "knowledge": [
+        "地球阴影",
+        "相切几何",
+        "圆轨道周期"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_course_08_sync_transfer",
+      "chapter": "行星运动与变轨等问题",
+      "title": "例8：同步卫星椭圆变轨",
+      "knowledge": [
+        "卫星变轨",
+        "圆轨道速度",
+        "引力加速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_course_09_change3_lunar_orbits",
+      "chapter": "行星运动与变轨等问题",
+      "title": "例9：嫦娥三号环月轨道",
+      "knowledge": [
+        "第二宇宙速度",
+        "环月轨道",
+        "失重"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_course_10_earth_mars_transfer",
+      "chapter": "行星运动与变轨等问题",
+      "title": "例10：地火霍曼转移",
+      "knowledge": [
+        "霍曼转移",
+        "开普勒第三定律",
+        "追及角"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_course_11_binary_star",
+      "chapter": "行星运动与变轨等问题",
+      "title": "例11：双星系统基本关系",
+      "knowledge": [
+        "双星模型",
+        "质心",
+        "万有引力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_course_12_binary_mass_transfer",
+      "chapter": "行星运动与变轨等问题",
+      "title": "例12：双星质量转移",
+      "knowledge": [
+        "双星模型",
+        "质量转移",
+        "角速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_course_13_triple_star",
+      "chapter": "行星运动与变轨等问题",
+      "title": "例13：直线与三角形三星系统",
+      "knowledge": [
+        "三星模型",
+        "引力合成",
+        "匀速圆周运动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_hw_01_change4_speed",
+      "chapter": "行星运动与变轨等问题",
+      "title": "作业第1题：嫦娥四号绕月速度",
+      "knowledge": [
+        "环月速度",
+        "比例换算",
+        "地表重力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_hw_02_space_elevator",
+      "chapter": "行星运动与变轨等问题",
+      "title": "作业第2题：太空电梯与卫星比较",
+      "knowledge": [
+        "太空电梯",
+        "同步转动",
+        "圆轨道"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_hw_03_monitor_window",
+      "chapter": "行星运动与变轨等问题",
+      "title": "作业第3题：赤道卫星连续监测",
+      "knowledge": [
+        "卫星覆盖",
+        "相对角速度",
+        "开普勒第三定律"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_hw_04_satellite_distance_graph",
+      "chapter": "行星运动与变轨等问题",
+      "title": "作业第4题：双卫星距离图像",
+      "knowledge": [
+        "双卫星追及",
+        "距离图像",
+        "中心天体质量"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_hw_05_tianzhou_transfer",
+      "chapter": "行星运动与变轨等问题",
+      "title": "作业第5题：天舟八号变轨对接",
+      "knowledge": [
+        "卫星变轨",
+        "交会对接",
+        "引力加速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_hw_06_ground_track",
+      "chapter": "行星运动与变轨等问题",
+      "title": "作业第6题：卫星星下点轨迹",
+      "knowledge": [
+        "星下点",
+        "轨道倾角",
+        "周期与半径"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_hw_07_black_hole_period",
+      "chapter": "行星运动与变轨等问题",
+      "title": "作业第7题：黑洞最小自转周期",
+      "knowledge": [
+        "逃逸速度",
+        "临界自转",
+        "黑洞半径"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_hw_08_rod_graph_planet",
+      "chapter": "行星运动与变轨等问题",
+      "title": "作业第8题：轻杆弹力图像测星球",
+      "knowledge": [
+        "竖直圆周运动",
+        "图像截距",
+        "星球参数"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_hw_09_pulsar_binary_satellite",
+      "chapter": "行星运动与变轨等问题",
+      "title": "作业第9题：脉冲双星与伴星卫星",
+      "knowledge": [
+        "双星质量",
+        "圆轨道速度",
+        "相对角速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson9_hw_10_ellipse_energy",
+      "chapter": "行星运动与变轨等问题",
+      "title": "作业第10题：椭圆轨道速度与能量",
+      "knowledge": [
+        "椭圆轨道",
+        "角动量守恒",
+        "机械能"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_course_01_crane_work",
+      "chapter": "功和功率",
+      "title": "例1：起重机加速提升货物",
+      "knowledge": [
+        "功的计算",
+        "牛顿第二定律",
+        "匀加速直线运动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_course_02_moving_wedge",
+      "chapter": "功和功率",
+      "title": "例2：平移斜面上的摩擦力做功",
+      "knowledge": [
+        "摩擦力做功",
+        "静力平衡",
+        "功的夹角"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_course_03_conveyor_work",
+      "chapter": "功和功率",
+      "title": "例3：传送带相对滑动中的摩擦功",
+      "knowledge": [
+        "传送带",
+        "摩擦力做功",
+        "功能关系"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_course_04_tangent_disk_work",
+      "chapter": "功和功率",
+      "title": "例4：切向恒力推动转盘",
+      "knowledge": [
+        "变方向力做功",
+        "弧长",
+        "力矩"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_course_05_submerged_cube",
+      "chapter": "功和功率",
+      "title": "例5：缓慢下压漂浮木块",
+      "knowledge": [
+        "浮力",
+        "变力做功",
+        "图像面积"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_course_06_pulley_person_work",
+      "chapter": "功和功率",
+      "title": "例6：定滑轮变角拉绳做功",
+      "knowledge": [
+        "变方向力做功",
+        "定滑轮",
+        "几何约束"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_course_07_three_paths_friction",
+      "chapter": "功和功率",
+      "title": "例7：三条轨道上的摩擦功",
+      "knowledge": [
+        "曲线运动支持力",
+        "摩擦力做功",
+        "微元法"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_course_08_reverse_force_power",
+      "chapter": "功和功率",
+      "title": "例8：反向恒力作用下的功和功率",
+      "knowledge": [
+        "速度图像",
+        "变向运动",
+        "瞬时功率"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_course_09_horizontal_pull_ball",
+      "chapter": "功和功率",
+      "title": "例9：水平拉球的瞬时功率",
+      "knowledge": [
+        "瞬时功率",
+        "切向平衡",
+        "圆周运动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_course_10_rated_power_car",
+      "chapter": "功和功率",
+      "title": "例10：额定功率下的汽车运动",
+      "knowledge": [
+        "机车启动",
+        "恒功率",
+        "瞬时功率"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_course_11_two_stage_car",
+      "chapter": "功和功率",
+      "title": "例11：汽车匀加速与恒功率两阶段启动",
+      "knowledge": [
+        "机车两阶段启动",
+        "平均功率",
+        "额定功率"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_course_12_force_reciprocal",
+      "chapter": "功和功率",
+      "title": "例12：牵引力与速度倒数图像",
+      "knowledge": [
+        "图像转换",
+        "恒牵引力",
+        "恒功率"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_hw_01_tilting_truck",
+      "chapter": "功和功率",
+      "title": "课后单选第1题：自卸车厢对货物做功",
+      "knowledge": [
+        "功的方向",
+        "刚体转动",
+        "静摩擦力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_hw_02_vertical_slider",
+      "chapter": "功和功率",
+      "title": "课后单选第2题：竖直滑块的绳拉力做功",
+      "knowledge": [
+        "变方向力做功",
+        "绳长变化",
+        "几何比较"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_hw_03_walking_power",
+      "chapter": "功和功率",
+      "title": "课后单选第3题：健走克服重力做功",
+      "knowledge": [
+        "克服重力做功",
+        "平均功率",
+        "生活估算"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_hw_04_ev_power_graph",
+      "chapter": "功和功率",
+      "title": "课后单选第4题：新能源汽车功率与速度图像",
+      "knowledge": [
+        "功率时间图像",
+        "速度时间图像",
+        "图像面积"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_hw_05_accel_reciprocal",
+      "chapter": "功和功率",
+      "title": "课后单选第5题：加速度与速度倒数图像",
+      "knowledge": [
+        "加速度图像",
+        "恒功率",
+        "机车启动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_hw_06_elevator_work",
+      "chapter": "功和功率",
+      "title": "课后多选第6题：升降机内斜面对物体做功",
+      "knowledge": [
+        "支持力做功",
+        "摩擦力做功",
+        "动能定理"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_hw_07_car_inverse_force",
+      "chapter": "功和功率",
+      "title": "课后多选第7题：汽车速度与牵引力倒数图像",
+      "knowledge": [
+        "倒数图像",
+        "恒功率",
+        "汽车启动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_hw_08_sled_circle",
+      "chapter": "功和功率",
+      "title": "课后多选第8题：狗拉雪橇做匀速圆周运动",
+      "knowledge": [
+        "圆周运动",
+        "功率",
+        "摩擦力做功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson10_hw_09_gravity_power",
+      "chapter": "功和功率",
+      "title": "课后多选第9题：四种抛体的重力功率",
+      "knowledge": [
+        "重力做功",
+        "平均功率",
+        "瞬时功率"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_course_01_jet_takeoff",
+      "chapter": "动能定理",
+      "title": "例1：喷气式飞机起飞牵引力",
+      "knowledge": [
+        "动能定理",
+        "阻力做功",
+        "平均牵引力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_course_02_spring_incline",
+      "chapter": "动能定理",
+      "title": "例2：斜面上压缩弹簧",
+      "knowledge": [
+        "动能定理",
+        "弹簧功",
+        "机械能转化"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_course_03_round_trip_incline",
+      "chapter": "动能定理",
+      "title": "例3：斜面与水平面的往返功",
+      "knowledge": [
+        "全过程动能定理",
+        "摩擦功",
+        "最小外力功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_course_04_kinetic_graph",
+      "chapter": "动能定理",
+      "title": "例4：动能—位移图像",
+      "knowledge": [
+        "动能—位移图像",
+        "图像斜率",
+        "摩擦力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_course_05_incline_loop",
+      "chapter": "动能定理",
+      "title": "例5：粗糙斜面与光滑半圆轨道",
+      "knowledge": [
+        "动能定理",
+        "竖直圆周运动",
+        "平抛与斜面"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_course_06_rough_semicircle",
+      "chapter": "动能定理",
+      "title": "例6：粗糙半圆槽的能量比较",
+      "knowledge": [
+        "粗糙曲面",
+        "能量差比较",
+        "摩擦耗能"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_course_07_hydrogen_car",
+      "chapter": "动能定理",
+      "title": "例7：氢能源汽车分段启动",
+      "knowledge": [
+        "机车启动",
+        "恒功率运动",
+        "动能定理"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_course_08_arc_plank",
+      "chapter": "动能定理",
+      "title": "例8：平抛入圆弧后滑上长木板",
+      "knowledge": [
+        "平抛速度分解",
+        "机械能守恒",
+        "摩擦功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_course_09_conveyor_return",
+      "chapter": "动能定理",
+      "title": "例9：水平传送带上的往返运动",
+      "knowledge": [
+        "传送带模型",
+        "动能—路程图像",
+        "摩擦生热"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_course_10_arc_projectile",
+      "chapter": "动能定理",
+      "title": "例10：圆弧—水平轨道—平抛最远",
+      "knowledge": [
+        "圆周运动",
+        "动能定理",
+        "函数最值"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_a_01_spring_compression",
+      "chapter": "动能定理",
+      "title": "A组第1题：粗糙水平面上的弹簧压缩",
+      "knowledge": [
+        "弹簧功",
+        "摩擦功",
+        "全过程动能定理"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_a_02_incline_conveyor",
+      "chapter": "动能定理",
+      "title": "A组第2题：倾斜传送带传送包裹",
+      "knowledge": [
+        "倾斜传送带",
+        "摩擦力做功",
+        "摩擦生热"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_a_03_incline_round_trip",
+      "chapter": "动能定理",
+      "title": "A组第3题：粗糙斜面上滑再返回",
+      "knowledge": [
+        "斜面往返",
+        "动能定理",
+        "摩擦功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_a_04_vertical_drag_force",
+      "chapter": "动能定理",
+      "title": "A组第4题：恒阻力作用下的竖直上抛",
+      "knowledge": [
+        "动能—高度图像",
+        "图像斜率",
+        "变向阻力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_a_05_cross_conveyor",
+      "chapter": "动能定理",
+      "title": "A组第5题：垂直冲上传送带",
+      "knowledge": [
+        "二维传送带",
+        "相对运动",
+        "摩擦力做功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_b_06_hoist_shortest_time",
+      "chapter": "动能定理",
+      "title": "B组第6题：提升装置最短时间",
+      "knowledge": [
+        "最短时间",
+        "额定功率",
+        "功率与功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_b_07_car_rope_spring",
+      "chapter": "动能定理",
+      "title": "B组第7题：小车—轻绳—弹簧联动",
+      "knowledge": [
+        "绳长约束",
+        "弹簧形变",
+        "变力做功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_b_08_pendulum_tension",
+      "chapter": "动能定理",
+      "title": "B组第8题：摆球最低点的拉力",
+      "knowledge": [
+        "摆动机械能",
+        "最低点向心力",
+        "绳张力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_b_09_linear_drag_throw",
+      "chapter": "动能定理",
+      "title": "B组第9题：线性空气阻力下的竖直上抛",
+      "knowledge": [
+        "线性阻力",
+        "冲量",
+        "功能关系"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson11_b_10_trebuchet",
+      "chapter": "动能定理",
+      "title": "B组第10题：可调抛石机",
+      "knowledge": [
+        "圆周运动",
+        "平抛运动",
+        "动能定理",
+        "二次函数最值"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_course_01_reference_plane",
+      "chapter": "机械能守恒定律",
+      "title": "例1：重力势能参考面",
+      "knowledge": [
+        "重力势能",
+        "零势能参考面",
+        "重力做功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_course_02_well_throw",
+      "chapter": "机械能守恒定律",
+      "title": "例2：深井等初动能上抛",
+      "knowledge": [
+        "机械能守恒",
+        "重力势能",
+        "同初动能比较"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_course_03_conservation_condition",
+      "chapter": "机械能守恒定律",
+      "title": "例3：机械能守恒条件",
+      "knowledge": [
+        "机械能守恒条件",
+        "曲线运动",
+        "保守力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_course_04_football_reference",
+      "chapter": "机械能守恒定律",
+      "title": "例4：足球机械能与参考面",
+      "knowledge": [
+        "机械能",
+        "参考面",
+        "功与能"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_course_05_arc_max_height",
+      "chapter": "机械能守恒定律",
+      "title": "例5：圆弧轨道最大高度",
+      "knowledge": [
+        "机械能守恒",
+        "圆周运动约束",
+        "离轨抛体"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_course_06_ball_spring_platform",
+      "chapter": "机械能守恒定律",
+      "title": "例6：落球压缩弹簧",
+      "knowledge": [
+        "弹性势能",
+        "系统机械能",
+        "动能极值"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_course_07_rod_two_balls",
+      "chapter": "机械能守恒定律",
+      "title": "例7：直杆双球转动",
+      "knowledge": [
+        "连接体机械能",
+        "同轴转动",
+        "角速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_course_08_u_tube_water",
+      "chapter": "机械能守恒定律",
+      "title": "例8：U形管水柱",
+      "knowledge": [
+        "连续体机械能",
+        "水柱运动",
+        "大气压力做功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_course_09_accelerated_descent",
+      "chapter": "机械能守恒定律",
+      "title": "例9：匀加速竖直下降",
+      "knowledge": [
+        "匀变速运动",
+        "机械能变化",
+        "非保守力做功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_course_10_spring_ek_height",
+      "chapter": "机械能守恒定律",
+      "title": "例10：弹簧滑块动能—高度图",
+      "knowledge": [
+        "动能图像",
+        "弹簧分离",
+        "机械能守恒"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_course_11_rope_spring_linkage",
+      "chapter": "机械能守恒定律",
+      "title": "例11：绳弹簧连接体",
+      "knowledge": [
+        "关联速度",
+        "连接体机械能",
+        "弹簧能量"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_a_01_projectile_sea",
+      "chapter": "机械能守恒定律",
+      "title": "A组第1题：抛体落海平面",
+      "knowledge": [
+        "负重力势能",
+        "机械能守恒",
+        "重力做功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_a_02_pirate_spring",
+      "chapter": "机械能守恒定律",
+      "title": "A组第2题：海盗桶弹簧弹射",
+      "knowledge": [
+        "弹簧弹射",
+        "势能极小",
+        "小球机械能"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_a_03_track_deformation",
+      "chapter": "机械能守恒定律",
+      "title": "A组第3题：光滑轨道变形",
+      "knowledge": [
+        "轨道约束",
+        "脱轨抛体",
+        "机械能守恒"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_a_04_incline_pull",
+      "chapter": "机械能守恒定律",
+      "title": "A组第4题：斜面恒力加速",
+      "knowledge": [
+        "机械能增量",
+        "恒力做功",
+        "斜面运动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_a_05_car_two_roads",
+      "chapter": "机械能守恒定律",
+      "title": "A组第5题：汽车两路段功率",
+      "knowledge": [
+        "功率",
+        "匀速运动",
+        "机械能变化"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_a_06_pulley_slider",
+      "chapter": "机械能守恒定律",
+      "title": "A组第6题：定滑轮竖杆小球",
+      "knowledge": [
+        "绳长约束",
+        "连接体机械能",
+        "瞬时加速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_b_07_buffer_device",
+      "chapter": "机械能守恒定律",
+      "title": "B组第7题：弹簧摩擦缓冲器",
+      "knowledge": [
+        "弹簧能量",
+        "摩擦耗能",
+        "临界状态"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_b_08_sliding_rope",
+      "chapter": "机械能守恒定律",
+      "title": "B组第8题：柔绳滑离桌面",
+      "knowledge": [
+        "连续体",
+        "机械能守恒",
+        "函数极值"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_b_09_rod_end_balls",
+      "chapter": "机械能守恒定律",
+      "title": "B组第9题：偏心轻杆双球",
+      "knowledge": [
+        "竖直圆周运动",
+        "刚体机械能",
+        "内力做功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson12_b_10_linked_sliders",
+      "chapter": "机械能守恒定律",
+      "title": "B组第10题：刚杆连接双滑块",
+      "knowledge": [
+        "刚杆约束",
+        "连接体机械能",
+        "机械能极值"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_course_01_conveyor_energy",
+      "chapter": "功能关系",
+      "title": "例1：传送带功能关系",
+      "knowledge": [
+        "相对位移",
+        "摩擦生热",
+        "电动机做功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_course_02_skydiving_graph",
+      "chapter": "功能关系",
+      "title": "例2：极限跳伞能量图像",
+      "knowledge": [
+        "自由落体",
+        "空气阻力",
+        "能量图像"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_course_03_mechanical_energy_graph",
+      "chapter": "功能关系",
+      "title": "例3：恒力上提机械能图像",
+      "knowledge": [
+        "机械能变化率",
+        "图像斜率",
+        "恒定阻力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_course_04_incline_conveyor_heat",
+      "chapter": "功能关系",
+      "title": "例4：倾斜传送带热量与电功",
+      "knowledge": [
+        "摩擦生热",
+        "传送带",
+        "电动机做功"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_course_05_spring_track_plank",
+      "chapter": "功能关系",
+      "title": "例5：弹簧—传送带—圆轨道—木板",
+      "knowledge": [
+        "全过程能量",
+        "圆周运动临界",
+        "板块相对运动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_course_06_pulley_arc_collision",
+      "chapter": "功能关系",
+      "title": "例6：动滑轮—圆弧—碰撞综合",
+      "knowledge": [
+        "动能定理",
+        "斜抛运动",
+        "完全非弹性碰撞",
+        "功能关系"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_course_07_s_curve_road",
+      "chapter": "功能关系",
+      "title": "例7：S 形盘山公路",
+      "knowledge": [
+        "水平圆周运动",
+        "功率做功",
+        "动能定理",
+        "弯道优化"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_a_01_spring_pendulum",
+      "chapter": "功能关系",
+      "title": "A 组第1题：弹簧摆能量转化",
+      "knowledge": [
+        "系统机械能",
+        "弹性势能",
+        "功能关系"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_a_02_block_cart_work",
+      "chapter": "功能关系",
+      "title": "A 组第2题：滑块—小车摩擦功",
+      "knowledge": [
+        "相对位移",
+        "摩擦功",
+        "系统能量"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_a_03_conveyor_motor",
+      "chapter": "功能关系",
+      "title": "A 组第3题：水平传送带电功与热量",
+      "knowledge": [
+        "摩擦功",
+        "电动机功率",
+        "能量分配"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_a_04_vertical_throw_energy_graph",
+      "chapter": "功能关系",
+      "title": "A 组第4题：有阻力竖直上抛能量图",
+      "knowledge": [
+        "能量图像",
+        "恒定阻力",
+        "竖直上抛"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_a_05_cross_conveyor_heat",
+      "chapter": "功能关系",
+      "title": "A 组第5题：垂直传送带相对运动",
+      "knowledge": [
+        "相对速度",
+        "矢量运动",
+        "摩擦生热"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_b_06_spring_ring_rod",
+      "chapter": "功能关系",
+      "title": "B 组第6题：粗糙竖杆弹簧圆环",
+      "knowledge": [
+        "往返摩擦",
+        "弹性势能",
+        "能量比较"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_b_07_incline_round_trip",
+      "chapter": "功能关系",
+      "title": "B 组第7题：粗糙斜面往返能量",
+      "knowledge": [
+        "斜面往返",
+        "机械能损失",
+        "摩擦生热"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_b_08_incline_conveyor_scratch",
+      "chapter": "功能关系",
+      "title": "B 组第8题：倾斜传送带煤块划痕",
+      "knowledge": [
+        "倾斜传送带",
+        "划痕长度",
+        "最短时间"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "lesson13_b_09_game_track_range",
+      "chapter": "功能关系",
+      "title": "B 组第9题：斜轨—传送带—半圆—平抛",
+      "knowledge": [
+        "多过程能量",
+        "传送带速度匹配",
+        "平抛运动",
+        "分段函数"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "doubleThrow",
+      "chapter": "竖直上抛运动",
+      "title": "第7题：双球上抛相遇",
+      "knowledge": [
+        "竖直上抛",
+        "相对运动",
+        "相遇条件"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "pipeDrop",
+      "chapter": "竖直上抛运动",
+      "title": "第10题：金属管穿球",
+      "knowledge": [
+        "相对运动",
+        "自由落体",
+        "同加速度模型"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "threeCar",
+      "chapter": "竖直上抛运动",
+      "title": "第11题：三车防追尾",
+      "knowledge": [
+        "匀减速",
+        "追及相遇",
+        "临界条件"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "inclineSlot",
+      "chapter": "必修一结业测试",
+      "title": "第3题：光滑斜槽下滑",
+      "knowledge": [
+        "斜面运动",
+        "圆几何",
+        "等时性"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "motionCompose",
+      "chapter": "曲线运动",
+      "title": "课上第4题：二维运动合成",
+      "knowledge": [
+        "运动合成",
+        "图像读取",
+        "牛顿第二定律"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "curveForce",
+      "chapter": "曲线运动",
+      "title": "课上第5题：曲线运动受力方向判断",
+      "knowledge": [
+        "曲线运动",
+        "受力分析",
+        "切向与法向"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "riverCrossing",
+      "chapter": "曲线运动",
+      "title": "课上第8题：小船渡河",
+      "knowledge": [
+        "速度合成",
+        "渡河模型",
+        "分运动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "riverAdvanced",
+      "chapter": "曲线运动",
+      "title": "课上第9题：小船渡河进阶",
+      "knowledge": [
+        "速度圆",
+        "最短位移",
+        "矢量合成"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "waterfallCrossing",
+      "chapter": "曲线运动",
+      "title": "课上第10题：瀑布临界渡河",
+      "knowledge": [
+        "速度合成",
+        "临界轨迹",
+        "最小船速"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "rodConstraint",
+      "chapter": "曲线运动",
+      "title": "课上第13题：杆约束速度",
+      "knowledge": [
+        "杆约束",
+        "速度投影",
+        "关联速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "dualConstraintCircle",
+      "chapter": "曲线运动",
+      "title": "第17题：轻绳轻杆双约束圆周",
+      "knowledge": [
+        "圆周运动",
+        "双约束",
+        "向心力"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "handRopeBreak",
+      "chapter": "曲线运动",
+      "title": "第18题：手绳圆周断裂抛体",
+      "knowledge": [
+        "圆锥摆",
+        "断绳抛体",
+        "最值"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "rainWindow",
+      "chapter": "曲线运动",
+      "title": "课后作业B组第10题：车窗雨滴相对速度",
+      "knowledge": [
+        "相对速度",
+        "参考系",
+        "速度分解"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectileSlope",
+      "chapter": "平抛运动",
+      "title": "课上第2题：平抛落斜面",
+      "knowledge": [
+        "平抛运动",
+        "斜面几何",
+        "末速度方向"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectileNormal",
+      "chapter": "平抛运动",
+      "title": "课上第3题：垂直打到斜面",
+      "knowledge": [
+        "平抛运动",
+        "垂直斜面",
+        "速度分解"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "semiCircleThrow",
+      "chapter": "平抛运动",
+      "title": "课上第5题：平抛落圆弧",
+      "knowledge": [
+        "平抛运动",
+        "圆弧坐标",
+        "速度比"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectileWindow",
+      "chapter": "平抛运动",
+      "title": "课上第6题：平抛穿窗",
+      "knowledge": [
+        "平抛运动",
+        "区间判断",
+        "厚墙模型"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "volleyballServe",
+      "chapter": "平抛运动",
+      "title": "课上第7题：排球过网落点",
+      "knowledge": [
+        "平抛运动",
+        "临界过网",
+        "落点判断"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "dartTarget",
+      "chapter": "平抛运动",
+      "title": "课上第8题：飞镖垂直命中",
+      "knowledge": [
+        "斜抛运动",
+        "命中条件",
+        "速度方向"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "projectileBounce",
+      "chapter": "平抛运动",
+      "title": "课后作业第12题：反弹过挡板",
+      "knowledge": [
+        "平抛运动",
+        "碰撞反弹",
+        "分段运动"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "bulletCylinder",
+      "chapter": "圆周运动",
+      "title": "课上第2题：子弹穿旋转圆筒",
+      "knowledge": [
+        "圆周运动",
+        "角速度",
+        "穿筒时间"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "bikeGear",
+      "chapter": "圆周运动",
+      "title": "课上第3题：变速自行车传动",
+      "knowledge": [
+        "圆周运动",
+        "链传动",
+        "角速度"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "pileDriver",
+      "chapter": "圆周运动",
+      "title": "第9题：打夯机",
+      "knowledge": [
+        "圆周运动",
+        "向心力",
+        "超重与失重"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "bowlDoubleBall",
+      "chapter": "圆周运动",
+      "title": "补充第13题：半球碗双球圆周运动",
+      "knowledge": [
+        "圆周运动",
+        "圆锥摆",
+        "半球碗约束"
+      ],
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
       "id": "required2_single_01_history",
       "chapter": "必修二结业测试",
       "title": "单选第1题：万有引力科学史",

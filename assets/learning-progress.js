@@ -4,7 +4,10 @@ var learningProgressLoadPromise = null;
 var learningProgressLoadError = "";
 
 function learningProgressRatio(done, total) {
-  return total > 0 ? Math.round(done * 100 / total) : 0;
+  if (total <= 0 || done <= 0) {
+    return 0;
+  }
+  return Math.max(1, Math.round(done * 100 / total));
 }
 
 function learningProgressValue(done, total) {

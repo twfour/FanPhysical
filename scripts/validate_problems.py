@@ -66,7 +66,12 @@ SUPPORTED_ANIMATION_TYPES = {
     "work_power_model",
     "kinetic_energy_model",
     "mechanical_energy_model",
+    "foundation_mechanics_model",
     "functional_relation_model",
+    "projectile",
+    "spring_balance",
+    "force_diagram",
+    "bullet_cylinder",
     "required_one_test_model",
     "required_two_test_model",
 }

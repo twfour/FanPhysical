@@ -94,14 +94,13 @@
     }
   ],
   "analysisPresentation": {
-    "collapseEachStep": true
+    "collapseEachStep": true,
+    "optionMode": "shared-solution"
   },
   "optionAnalyses": [
     {
       "option": "A",
       "title": "几何和速度方向共同定半径",
-      "thinking": "先用径向入孔条件消去飞行时间。",
-      "formula": "\\[h+R\\sin\\phi=\\frac12R(1+\\cos\\phi)\\tan\\phi\\]",
       "judgment": "代入 \\(h=0.15\\mathrm m、\\phi=37^\\circ\\) 得 \\(R=2\\mathrm m\\)，再得 \\(v_0=4\\sqrt3\\mathrm{m/s}\\)，A 正确。",
       "knowledge": [],
       "commonMistakes": []
@@ -109,8 +108,6 @@
     {
       "option": "B",
       "title": "半径不满足下落量方程",
-      "thinking": "检验射口到 \\(P\\) 的总下落量。",
-      "formula": "\\[y=h+R\\sin37^\\circ\\]",
       "judgment": "取 \\(R=1.5\\mathrm m\\) 时，几何下落量与径向速度条件不一致，B 错误。",
       "knowledge": [],
       "commonMistakes": []
@@ -118,8 +115,6 @@
     {
       "option": "C",
       "title": "初速度过小",
-      "thinking": "在正确半径下使用平抛轨迹方程。",
-      "formula": "\\[v_0=x\\sqrt{\\frac{g}{2y}}=4\\sqrt3\\,\\mathrm{m/s}\\]",
       "judgment": "\\(2\\sqrt6\\mathrm{m/s}\\) 不能到达给定小孔，C 错误。",
       "knowledge": [],
       "commonMistakes": []
@@ -127,8 +122,6 @@
     {
       "option": "D",
       "title": "两个参数均不满足",
-      "thinking": "半径先由几何与方向唯一确定，初速度再由轨迹唯一确定。",
-      "formula": "\\[(R,v_0)=(2,4\\sqrt3)\\]",
       "judgment": "D 的半径和速度均错误。",
       "knowledge": [],
       "commonMistakes": []
@@ -139,5 +132,162 @@
     "question": "把原题中射口高于 \\(B\\) 的距离记为 \\(h\\)，\\(OP\\) 与水平夹角记为 \\(\\phi\\)。弹丸仍从 \\(B\\) 正上方水平射出并沿 \\(OP\\) 方向进入小孔。推导圆弧半径 \\(R\\) 和初速度 \\(v_0\\) 的一般表达式。",
     "answer": "**半径**\n\n水平位移 \\(x=R(1+\\cos\\phi)\\)，下落量 \\(y=h+R\\sin\\phi\\)，且径向入孔给出 \\(v_y/v_x=\\tan\\phi\\)。由 \\(y=x\\tan\\phi/2\\) 得\n\n\\[R=\\frac{2h\\cos\\phi}{\\sin\\phi(1-\\cos\\phi)}.\\]\n\n**初速度**\n\n\\[v_0=x\\sqrt{\\frac{g}{2y}}=\\sqrt{\\frac{gx}{\\tan\\phi}}.\\]\n\n把上式的 \\(R\\) 与 \\(x=R(1+\\cos\\phi)\\) 代入即可得到只含 \\(h、\\phi、g\\) 的表达式。",
     "thinking": "**思路**\n\n圆几何提供 \\(P\\) 点坐标，径向入孔提供末速度角。平抛恒等式 \\(y=(x/2)(v_y/v_x)\\) 能直接消去时间和初速度，先求 \\(R\\) 最省力。"
+  },
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "先用径向入孔条件消去飞行时间。",
+    "sharedFormula": "\\[h+R\\sin\\phi=\\frac12R(1+\\cos\\phi)\\tan\\phi\\]"
+  },
+  "studentExploration": {
+    "generatedBy": "backfill_learning_content_v1",
+    "title": "从“平抛与圆弧相交”开始探索",
+    "opening": "先把“B组第10题：半圆小孔通关”还原成可复用的物理模型。下面两步先要求预测和解释，再展开检验。",
+    "stages": [
+      {
+        "title": "先识别“平抛与圆弧相交”",
+        "prompt": "暂不代入数据。阅读“B组第10题：半圆小孔通关”后，写出研究对象、过程边界，并说明“圆坐标约束、速度方向反演”中哪一个条件最先控制后续列式。",
+        "thought": "我可能会看到熟悉的数值就直接套公式，忽略本题属于“平抛与圆弧相交”题族。",
+        "check": "先执行：先选坐标轴，把运动分解为互相独立且等时的水平、竖直分运动。再检查题设中的方向、接触、阶段或临界条件是否已经进入模型。",
+        "correction": "本题解析中的关键关系为：\n\n\\[h+R\\sin\\phi=\\frac12R(1+\\cos\\phi)\\tan\\phi\\]\n\n先建立关系，再决定哪些数值需要代入。",
+        "takeaway": "遇到同题族的新题，先复用模型结构，不复用表面数字。需要特别避免：把轨迹方向误当成恒定的受力方向。",
+        "animationPreset": {
+          "params": {
+            "launchHeight": 0.15
+          },
+          "progress": 0.0,
+          "play": true,
+          "caption": "已切换到“平抛与圆弧相交”的起始观察状态，请核对动画与图表中的关键量。"
+        }
+      },
+      {
+        "title": "改变条件，检查结论是否仍成立",
+        "prompt": "若只改变动画中的一个参数或题设中的一个条件，哪些关系保持不变，哪些临界值、图像斜率或最终结论必须重新判断？",
+        "thought": "我可能会认为动画外观相似，就说明原来的数值结论仍然成立。",
+        "check": "把变化前后都放回关系：\n\n\\[h+R\\sin\\phi=\\frac12R(1+\\cos\\phi)\\tan\\phi\\]\n\n逐项区分模型不变量与由参数决定的结果。",
+        "correction": "真正保持的是：忽略空气阻力时，水平和竖直分运动共享同一时间，竖直加速度始终为重力加速度。数值结论需要在新条件下重新计算并检查边界。",
+        "takeaway": "迁移题的关键不是换数，而是确认控制关系、系统边界和适用条件是否改变。",
+        "animationPreset": {
+          "params": {
+            "launchHeight": 0.3
+          },
+          "progress": 0.72,
+          "play": false,
+          "caption": "已切换到“平抛与圆弧相交”的条件变化状态，请核对动画与图表中的关键量。"
+        }
+      }
+    ]
+  },
+  "realLifeCase": {
+    "generatedBy": "backfill_learning_content_v1",
+    "title": "球类轨迹与抛投定位：现实中的“平抛与圆弧相交”",
+    "scene": "篮球投篮、消防水流和物资抛投都需要由初速度、方向和落差预测轨迹。",
+    "mapping": "题目中的抛体对应球、水滴或物资，初速度和落点约束对应现实中的发射条件与目标区域。 当前题目“B组第10题：半圆小孔通关”训练的“圆坐标约束、速度方向反演”正是完成这种映射时需要识别的量。",
+    "sharedModel": "本题可使用关系：\n\n\\[h+R\\sin\\phi=\\frac12R(1+\\cos\\phi)\\tan\\phi\\]\n\n更一般的模型关系是：\n\n\\[x=v_{0x}t,\\qquad y=v_{0y}t+\\frac12gt^2\\]\n\n忽略空气阻力时，水平和竖直分运动共享同一时间，竖直加速度始终为重力加速度，因而动画与现实案例共享同一控制结构。",
+    "realityFactors": [
+      "空气阻力会缩短射程并改变轨迹。",
+      "物体自旋可能产生额外升力。"
+    ],
+    "authoritativeResources": [
+      {
+        "platform": "PhET",
+        "kind": "交互模拟",
+        "title": "向量相加",
+        "url": "https://phet.colorado.edu/zh_CN/simulations/vector-addition",
+        "useFor": "用交互或教材内容复核本题涉及的“圆坐标约束、速度方向反演”，并把资源中的变量对应回题目的动画与图表。",
+        "matchReason": "该资源覆盖“抛体运动与功率”的核心关系，可用于检验本题所属“平抛与圆弧相交”题族的建模步骤。"
+      }
+    ],
+    "question": "把“B组第10题：半圆小孔通关”改写成上述现实场景后，应测量哪三个物理量，怎样用同一主关系判断结果是否满足安全或运行边界？",
+    "answer": "先测量题目所对应的状态量、控制参数和边界量，再按“先选坐标轴，把运动分解为互相独立且等时的水平、竖直分运动”建立模型。可先使用：\n\n\\[h+R\\sin\\phi=\\frac12R(1+\\cos\\phi)\\tan\\phi\\]\n\n把测量值代入后，还必须检查方向、接触、阶段或临界条件；只有主方程和边界条件同时满足，现实结论才成立。",
+    "rubric": [
+      "指出现实对象与题目研究对象、过程边界的对应关系。",
+      "写出或说明关系 \\[h+R\\sin\\phi=\\frac12R(1+\\cos\\phi)\\tan\\phi\\]，并解释关键变量。",
+      "说明至少一个现实修正因素，并完成安全或临界条件检查。"
+    ]
+  },
+  "learningCycle": {
+    "generatedBy": "backfill_learning_content_v1",
+    "intervalDays": [
+      1,
+      3,
+      7,
+      14,
+      30
+    ],
+    "prediction": {
+      "title": "播放前预测：平抛与圆弧相交",
+      "prompt": "观察动画前，解决“B组第10题：半圆小孔通关”时最合理的第一步是什么？",
+      "answer": "B",
+      "explanation": "正确起点是“先选坐标轴，把运动分解为互相独立且等时的水平、竖直分运动”。本题关系 \\[h+R\\sin\\phi=\\frac12R(1+\\cos\\phi)\\tan\\phi\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
+      "options": [
+        {
+          "value": "A",
+          "text": "先把题目中的所有数值代入最熟悉的公式",
+          "diagnosis": {
+            "tag": "先算后建模",
+            "feedback": "这样容易出现“把轨迹方向误当成恒定的受力方向”的问题。",
+            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
+          }
+        },
+        {
+          "value": "B",
+          "text": "先选坐标轴，把运动分解为互相独立且等时的水平、竖直分运动"
+        },
+        {
+          "value": "C",
+          "text": "只根据动画轨迹外形直接判断答案",
+          "diagnosis": {
+            "tag": "把示意图当成定量证据",
+            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
+            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
+          }
+        },
+        {
+          "value": "D",
+          "text": "先记住原题答案，再寻找能得到该答案的计算",
+          "diagnosis": {
+            "tag": "结论倒推动机",
+            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
+            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
+          }
+        }
+      ]
+    },
+    "review": {
+      "title": "延时复习：迁移“平抛与圆弧相交”",
+      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
+      "answer": "B",
+      "explanation": "同题族迁移时应保留“忽略空气阻力时，水平和竖直分运动共享同一时间，竖直加速度始终为重力加速度”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
+      "options": [
+        {
+          "value": "A",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "diagnosis": {
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+          }
+        },
+        {
+          "value": "B",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+        },
+        {
+          "value": "C",
+          "text": "只要公式相同，就不需要重新判断研究对象和过程",
+          "diagnosis": {
+            "tag": "忽略模型前提",
+            "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
+          }
+        },
+        {
+          "value": "D",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "diagnosis": {
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+          }
+        }
+      ]
+    }
   }
 }

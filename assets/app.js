@@ -140,7 +140,7 @@ var problemNoteCacheOrder = [];
 var problemNoteCacheLimit = 8;
 var adjacentPrefetchHandle = null;
 var adjacentPrefetchUsesIdleCallback = false;
-var runtimeAssetVersion = "20260722-learning-cycle";
+var runtimeAssetVersion = "20260724-learning-enrichment";
 var promotedProblemChapterMap = {
   "必修一结业测试": true,
   "必修二结业测试": true,
@@ -759,6 +759,7 @@ var problemRuntimeScriptMap = {
     "/assets/scenes/mechanical-energy-core.js",
     "/assets/scenes/mechanical-energy-audio.js"
   ],
+  foundation_mechanics_model: ["/assets/scenes/foundation-mechanics.js"],
   functional_relation_model: ["/assets/scenes/functional-relations.js"],
   required_one_test_model: ["/assets/scenes/required-one-test.js"],
   required_two_test_model: ["/assets/scenes/required-two-test.js"]

@@ -121,5 +121,72 @@
     "answer": "### 1. 基础设问\n\n车内看雨滴的相对速度为水平向左 \\(15\\,\\mathrm{m/s}\\)、竖直向下 \\(20\\,\\mathrm{m/s}\\)。所以 \\(\\tan\\theta=\\frac{15}{20}=\\frac34\\)，\\(\\theta\\approx36.9^\\circ\\)。\n\n### 2. 综合提升\n\n取车行方向为正，雨滴对车的水平分速度为 \\(u-v_c\\)，竖直分速度为 \\(-v_r\\)，故\n\n\\[\\tan\\theta=\\frac{|u-v_c|}{v_r}.\\]\n\n两次观测给出两条带方向符号的线性方程 \\(u-v_{c,i}=\\sigma_i v_r\\tan\\theta_i\\)，联立即可反求 \\(u,v_r\\)。\\(\\sigma_i\\) 由雨线向车前还是车后倾确定。",
     "thinking": "### 1. 基础思路\n\n相对速度等于雨滴速度减去汽车速度。车越快，看到的雨线越向后倾。\n\n### 2. 进阶思路\n\n一次观测只给速度差，第二种车速提供独立方程；先保留方向符号，避免只用绝对值造成多解。",
     "difficulty": "equal-or-higher"
+  },
+  "studentExploration": {
+    "generatedBy": "backfill_learning_content_v1",
+    "title": "从“参考系与相对速度”开始探索",
+    "opening": "先把“课后作业B组第10题：车窗雨滴相对速度”还原成可复用的物理模型。下面两步先要求预测和解释，再展开检验。",
+    "stages": [
+      {
+        "title": "先识别“参考系与相对速度”",
+        "prompt": "暂不代入数据。阅读“课后作业B组第10题：车窗雨滴相对速度”后，写出研究对象、过程边界，并说明“参考系切换、速度矢量分解”中哪一个条件最先控制后续列式。",
+        "thought": "我可能会看到熟悉的数值就直接套公式，忽略本题属于“参考系与相对速度”题族。",
+        "check": "先执行：先在轨迹上标出速度切线方向，再由速度变化判断加速度方向。再检查题设中的方向、接触、阶段或临界条件是否已经进入模型。",
+        "correction": "本题解析中的关键关系为：\n\n\\[\\vec v=\\frac{\\mathrm d\\vec r}{\\mathrm dt},\\qquad \\vec a=\\frac{\\mathrm d\\vec v}{\\mathrm dt}\\]\n\n先建立关系，再决定哪些数值需要代入。",
+        "takeaway": "遇到同题族的新题，先复用模型结构，不复用表面数字。需要特别避免：认为速度方向总与合力或加速度方向相同。",
+        "animationPreset": {
+          "params": {
+            "rainTrainV": 18
+          },
+          "progress": 0.0,
+          "play": true,
+          "caption": "已切换到“参考系与相对速度”的起始观察状态，请核对动画与图表中的关键量。"
+        }
+      },
+      {
+        "title": "改变条件，检查结论是否仍成立",
+        "prompt": "若只改变动画中的一个参数或题设中的一个条件，哪些关系保持不变，哪些临界值、图像斜率或最终结论必须重新判断？",
+        "thought": "我可能会认为动画外观相似，就说明原来的数值结论仍然成立。",
+        "check": "把变化前后都放回关系：\n\n\\[\\vec v=\\frac{\\mathrm d\\vec r}{\\mathrm dt},\\qquad \\vec a=\\frac{\\mathrm d\\vec v}{\\mathrm dt}\\]\n\n逐项区分模型不变量与由参数决定的结果。",
+        "correction": "真正保持的是：曲线运动中瞬时速度沿轨迹切线，加速度指向速度矢量变化的方向。数值结论需要在新条件下重新计算并检查边界。",
+        "takeaway": "迁移题的关键不是换数，而是确认控制关系、系统边界和适用条件是否改变。",
+        "animationPreset": {
+          "params": {
+            "rainTrainV": 40
+          },
+          "progress": 0.72,
+          "play": false,
+          "caption": "已切换到“参考系与相对速度”的条件变化状态，请核对动画与图表中的关键量。"
+        }
+      }
+    ]
+  },
+  "realLifeCase": {
+    "generatedBy": "backfill_learning_content_v1",
+    "title": "道路轨迹规划与运动追踪：现实中的“参考系与相对速度”",
+    "scene": "无人机、运动相机和导航软件会从连续位置数据重建速度方向与转弯趋势，用于轨迹控制和风险预测。",
+    "mapping": "题目中的轨迹与速度箭头对应定位数据和瞬时运动方向，加速度对应控制系统改变速度矢量的效果。 当前题目“课后作业B组第10题：车窗雨滴相对速度”训练的“参考系切换、速度矢量分解”正是完成这种映射时需要识别的量。",
+    "sharedModel": "本题可使用关系：\n\n\\[\\vec v=\\frac{\\mathrm d\\vec r}{\\mathrm dt},\\qquad \\vec a=\\frac{\\mathrm d\\vec v}{\\mathrm dt}\\]\n\n更一般的模型关系是：\n\n\\[\\vec v=\\frac{\\mathrm d\\vec r}{\\mathrm dt},\\qquad \\vec a=\\frac{\\mathrm d\\vec v}{\\mathrm dt}\\]\n\n曲线运动中瞬时速度沿轨迹切线，加速度指向速度矢量变化的方向，因而动画与现实案例共享同一控制结构。",
+    "realityFactors": [
+      "采样频率会影响速度和曲率估计。",
+      "风、路面和控制延迟会使实际轨迹偏离理想曲线。"
+    ],
+    "authoritativeResources": [
+      {
+        "platform": "PhET",
+        "kind": "交互模拟",
+        "title": "向量相加",
+        "url": "https://phet.colorado.edu/zh_CN/simulations/vector-addition",
+        "useFor": "用交互或教材内容复核本题涉及的“参考系切换、速度矢量分解”，并把资源中的变量对应回题目的动画与图表。",
+        "matchReason": "该资源覆盖“曲线运动与矢量分析”的核心关系，可用于检验本题所属“参考系与相对速度”题族的建模步骤。"
+      }
+    ],
+    "question": "把“课后作业B组第10题：车窗雨滴相对速度”改写成上述现实场景后，应测量哪三个物理量，怎样用同一主关系判断结果是否满足安全或运行边界？",
+    "answer": "先测量题目所对应的状态量、控制参数和边界量，再按“先在轨迹上标出速度切线方向，再由速度变化判断加速度方向”建立模型。可先使用：\n\n\\[\\vec v=\\frac{\\mathrm d\\vec r}{\\mathrm dt},\\qquad \\vec a=\\frac{\\mathrm d\\vec v}{\\mathrm dt}\\]\n\n把测量值代入后，还必须检查方向、接触、阶段或临界条件；只有主方程和边界条件同时满足，现实结论才成立。",
+    "rubric": [
+      "指出现实对象与题目研究对象、过程边界的对应关系。",
+      "写出或说明关系 \\[\\vec v=\\frac{\\mathrm d\\vec r}{\\mathrm dt},\\qquad \\vec a=\\frac{\\mathrm d\\vec v}{\\mathrm dt}\\]，并解释关键变量。",
+      "说明至少一个现实修正因素，并完成安全或临界条件检查。"
+    ]
   }
 }
