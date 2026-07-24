@@ -9,6 +9,7 @@ var learningSyncError = "";
 var learningSyncCheckPromise = null;
 var learningSyncSaveTimer = null;
 var learningSyncPanels = [];
+var problemLearningStatusBars = [];
 
 function readLearningResponseStore(storageKey) {
   try {
@@ -183,6 +184,7 @@ function updateLearningSyncPanels() {
     refs.sync.disabled = learningSyncStatus === "syncing";
     refs.logout.disabled = learningSyncStatus === "syncing";
   });
+  updateProblemLearningStatusBars();
   document.querySelectorAll(".real-life-case-block .learning-save-status").forEach(function (status) {
     var block = status.closest(".real-life-case-block");
     var textarea = block ? block.querySelector("textarea") : null;
@@ -334,7 +336,7 @@ async function logoutLearningSync() {
 
 function createLearningSyncPanel() {
   var panel = document.createElement("section");
-  panel.className = "learning-sync-panel is-compact";
+  panel.className = "learning-sync-panel";
 
   var copy = document.createElement("div");
   copy.className = "learning-sync-copy";
@@ -409,4 +411,80 @@ function createLearningSyncPanel() {
     checkLearningSyncSession();
   }, 0);
   return panel;
+}
+
+function problemLearningStatusText(problem) {
+  var state = typeof getLearningCycleState === "function" ? getLearningCycleState(problem.id) : {};
+  var prediction = state.prediction || {};
+  var review = state.review || {};
+  var parts = [];
+  if (!prediction.answer) {
+    parts.push("预测待完成");
+  } else if (!state.animationCompletedAt) {
+    parts.push("动画待检验");
+  } else if (prediction.correct === false) {
+    parts.push("存在待修正误区");
+  } else {
+    parts.push("预测已完成");
+  }
+  if (review.dueAt) {
+    parts.push(
+      Number(review.dueAt) <= Date.now()
+        ? "复习已到期"
+        : "下次复习 " + formatLearningCycleDate(review.dueAt)
+    );
+  }
+  if (learningSyncStatus === "error") {
+    parts.push("同步异常，记录已留在本机");
+  } else if (learningSyncAuthenticated) {
+    parts.push(learningSyncStatus === "pending" || learningSyncStatus === "syncing" ? "正在同步" : "已同步");
+  } else {
+    parts.push("当前设备记录");
+  }
+  return parts.join(" · ");
+}
+
+function updateProblemLearningStatusBars() {
+  problemLearningStatusBars = problemLearningStatusBars.filter(function (bar) {
+    return bar && bar.isConnected;
+  });
+  problemLearningStatusBars.forEach(function (bar) {
+    var problem = problemDataMap[bar.dataset.scene];
+    var status = bar.querySelector(".problem-learning-status-text");
+    if (problem && status) status.innerText = problemLearningStatusText(problem);
+    bar.classList.toggle("has-sync-error", learningSyncStatus === "error");
+  });
+}
+
+function createProblemLearningStatusBar(problem) {
+  var bar = document.createElement("button");
+  bar.type = "button";
+  bar.className = "problem-learning-status-bar";
+  bar.dataset.scene = problem.id;
+  var label = document.createElement("strong");
+  label.innerText = "学习状态";
+  var status = document.createElement("span");
+  status.className = "problem-learning-status-text";
+  status.innerText = problemLearningStatusText(problem);
+  var action = document.createElement("span");
+  action.className = "problem-learning-status-action";
+  action.innerText = "首页查看";
+  bar.appendChild(label);
+  bar.appendChild(status);
+  bar.appendChild(action);
+  bar.onclick = function () {
+    Promise.resolve(typeof switchScene === "function" ? switchScene("home") : null).then(function () {
+      var target = document.getElementById("learningProgressSection");
+      if (target && target.scrollIntoView) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
+  problemLearningStatusBars.push(bar);
+  return bar;
+}
+
+function initializeLearningSyncHome() {
+  var host = document.getElementById("learningSyncHome");
+  if (!host || host.dataset.initialized === "1") return;
+  host.dataset.initialized = "1";
+  host.appendChild(createLearningSyncPanel());
 }

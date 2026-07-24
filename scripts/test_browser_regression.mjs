@@ -259,6 +259,9 @@ async function main() {
 
   await runCheck("独立同步密码与登录恢复", async function () {
     await openRegressionProblem(page);
+    assert.equal(await page.locator(".problem-notes .learning-sync-panel").count(), 0);
+    assert.equal(await page.locator(".problem-learning-status-bar").count(), 1);
+    await page.locator("#treeHome").click();
     var wrongCredentialStatus = await page.evaluate(async function (password) {
       var response = await fetch("/api/learning-auth", {
         method: "POST",
@@ -279,11 +282,12 @@ async function main() {
     await requireOne(login, "learning sync login button");
     await login.click();
     await waitForSyncedPanel(page);
+    await openRegressionProblem(page);
 
     await page.reload({ waitUntil: "domcontentloaded" });
     await openRegressionProblem(page);
     await waitForSyncedPanel(page);
-    assert.equal(await page.getByRole("button", { name: "立即同步", exact: true }).isVisible(), true);
+    assert.match(await page.locator(".problem-learning-status-text").innerText(), /已同步/);
   });
 
   await runCheck("先作答再揭示", async function () {
@@ -312,23 +316,18 @@ async function main() {
     }), true, "step conversation functions should be registered");
     var contentOrder = await page.locator(".problem-notes-grid").evaluate(function (grid) {
       return Array.from(grid.children).map(function (child) {
-        if (child.classList.contains("learning-sync-panel")) return "学习同步";
+        if (child.classList.contains("problem-learning-status-bar")) return "学习状态";
         var kicker = child.querySelector(".problem-note-kicker");
         return kicker && kicker.firstChild ? String(kicker.firstChild.nodeValue || "").trim() : "";
       });
     });
-    ["学习同步", "题目", "学习定位", "先预测", "初学者探索", "解析", "近似题"].forEach(
+    ["学习状态", "题目", "学习定位", "先预测", "初学者探索", "解析", "近似题"].forEach(
       function (label, index) {
         assert.equal(contentOrder[index], label, "unexpected problem content order at " + label);
       }
     );
-    assert.equal(
-      await page.locator(".learning-sync-panel").first().evaluate(function (panel) {
-        return panel.classList.contains("is-compact");
-      }),
-      true,
-      "learning sync should use the compact top status bar"
-    );
+    assert.equal(await page.locator(".problem-notes .learning-sync-panel").count(), 0);
+    assert.equal(await page.locator("#learningSyncHome .learning-sync-panel").count(), 1);
   });
 
   await runCheck("动画验证", async function () {

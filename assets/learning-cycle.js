@@ -33,6 +33,7 @@ function saveLearningCycleState(problem, state) {
     getLearningCycleRecordKey(problem.id),
     JSON.stringify(state)
   );
+  if (typeof updateProblemLearningStatusBars === "function") updateProblemLearningStatusBars();
   renderLearningReviewHome();
 }
 

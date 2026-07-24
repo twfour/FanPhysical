@@ -390,6 +390,7 @@ function loadLearningProgressCatalog() {
 }
 
 function initializeLearningProgressOverview() {
+  if (typeof initializeLearningSyncHome === "function") initializeLearningSyncHome();
   renderLearningProgressOverview();
   loadLearningProgressCatalog();
   checkLearningSyncSession();

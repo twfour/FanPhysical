@@ -26,7 +26,7 @@ function renderProblemDataNotes(problem) {
     var practiceBlock = createProblemPracticeBlock(problem);
     var notebookLmBlock = createProblemNotebookLmBlock(problem);
     if (explorationBlock || realLifeBlock || authoritativeResourcesBlock || predictionBlock) {
-      grid.appendChild(createLearningSyncPanel());
+      grid.appendChild(createProblemLearningStatusBar(problem));
     }
     grid.appendChild(createProblemQuestionBlock(problem));
     var taxonomyBlock = createProblemTaxonomyBlock(problem);
