@@ -18,22 +18,6 @@ var modelSourceMap = {
     title: "2026春季班 / 必修一结业测试",
     text: "第3题"
   },
-  curveForce: {
-    title: "暑期课时1曲线运动课上内容",
-    text: "第5题"
-  },
-  motionCompose: {
-    title: "暑期课时1曲线运动课上内容",
-    text: "第4题"
-  },
-  riverCrossing: {
-    title: "暑期课时1曲线运动课上内容 / 曲线运动课后作业",
-    text: "课上第8题；课后作业 A组第3题"
-  },
-  riverAdvanced: {
-    title: "暑期课时1曲线运动课上内容",
-    text: "第9题"
-  },
   rainWindow: {
     title: "曲线运动课后作业",
     text: "B组第10题"
