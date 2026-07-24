@@ -19,40 +19,40 @@ function renderProblemDataNotes(problem) {
     grid.className = "problem-notes-grid";
     note.appendChild(grid);
 
+    var authoritativeResourcesBlock = createAuthoritativeResourcesBlock(problem);
+    var predictionBlock = createLearningCyclePredictionBlock(problem);
+    var explorationBlock = createStudentExplorationBlock(problem);
+    var realLifeBlock = createRealLifeCaseBlock(problem);
+    var practiceBlock = createProblemPracticeBlock(problem);
+    var notebookLmBlock = createProblemNotebookLmBlock(problem);
+    if (explorationBlock || realLifeBlock || authoritativeResourcesBlock || predictionBlock) {
+      grid.appendChild(createLearningSyncPanel());
+    }
     grid.appendChild(createProblemQuestionBlock(problem));
     var taxonomyBlock = createProblemTaxonomyBlock(problem);
     if (taxonomyBlock) {
       grid.appendChild(taxonomyBlock);
     }
-    var authoritativeResourcesBlock = createAuthoritativeResourcesBlock(problem);
-    var predictionBlock = createLearningCyclePredictionBlock(problem);
     if (predictionBlock) {
       grid.appendChild(predictionBlock);
     }
-    var notebookLmBlock = createProblemNotebookLmBlock(problem);
-    if (notebookLmBlock) {
-      grid.appendChild(notebookLmBlock);
+    if (explorationBlock) {
+      grid.appendChild(explorationBlock);
     }
     var analysisBlock = createProblemAnalysisBlock(problem);
     analysisBlock.dataset.analysisBlock = "1";
     grid.appendChild(analysisBlock);
-    var explorationBlock = createStudentExplorationBlock(problem);
-    var realLifeBlock = createRealLifeCaseBlock(problem);
-    if (explorationBlock || realLifeBlock || authoritativeResourcesBlock || predictionBlock) {
-      grid.appendChild(createLearningSyncPanel());
+    if (practiceBlock) {
+      grid.appendChild(practiceBlock);
     }
-    if (explorationBlock) {
-      grid.appendChild(explorationBlock);
+    if (notebookLmBlock) {
+      grid.appendChild(notebookLmBlock);
     }
     if (realLifeBlock) {
       grid.appendChild(realLifeBlock);
     }
     if (authoritativeResourcesBlock) {
       grid.appendChild(authoritativeResourcesBlock);
-    }
-    var practiceBlock = createProblemPracticeBlock(problem);
-    if (practiceBlock) {
-      grid.appendChild(practiceBlock);
     }
     var examConnectionsBlock = createProblemExamConnectionsBlock(problem);
     if (examConnectionsBlock) {

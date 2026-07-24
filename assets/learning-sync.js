@@ -332,7 +332,7 @@ async function logoutLearningSync() {
 
 function createLearningSyncPanel() {
   var panel = document.createElement("section");
-  panel.className = "learning-sync-panel";
+  panel.className = "learning-sync-panel is-compact";
 
   var copy = document.createElement("div");
   copy.className = "learning-sync-copy";

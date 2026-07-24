@@ -445,6 +445,41 @@
   padding: 14px 16px;
 }
 
+.learning-sync-panel.is-compact {
+  gap: 8px 12px;
+  border-left-width: 3px;
+  padding: 8px 12px;
+}
+
+.learning-sync-panel.is-compact .learning-sync-copy {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.learning-sync-panel.is-compact .learning-sync-copy strong {
+  flex: 0 0 auto;
+  font-size: 14px;
+}
+
+.learning-sync-panel.is-compact .learning-sync-copy span {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.learning-sync-panel.is-compact .learning-sync-form input {
+  width: 132px;
+  min-height: 32px;
+  padding: 5px 8px;
+  font-size: 13px;
+}
+
+.learning-sync-panel.is-compact button {
+  min-height: 32px;
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
 .learning-sync-copy {
   display: grid;
   gap: 3px;

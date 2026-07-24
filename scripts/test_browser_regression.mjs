@@ -310,6 +310,25 @@ async function main() {
       return typeof window.addStepConversationPanels === "function" &&
         typeof window.startStepVoiceRecognition === "function";
     }), true, "step conversation functions should be registered");
+    var contentOrder = await page.locator(".problem-notes-grid").evaluate(function (grid) {
+      return Array.from(grid.children).map(function (child) {
+        if (child.classList.contains("learning-sync-panel")) return "学习同步";
+        var kicker = child.querySelector(".problem-note-kicker");
+        return kicker && kicker.firstChild ? String(kicker.firstChild.nodeValue || "").trim() : "";
+      });
+    });
+    ["学习同步", "题目", "学习定位", "先预测", "初学者探索", "解析", "近似题"].forEach(
+      function (label, index) {
+        assert.equal(contentOrder[index], label, "unexpected problem content order at " + label);
+      }
+    );
+    assert.equal(
+      await page.locator(".learning-sync-panel").first().evaluate(function (panel) {
+        return panel.classList.contains("is-compact");
+      }),
+      true,
+      "learning sync should use the compact top status bar"
+    );
   });
 
   await runCheck("动画验证", async function () {
