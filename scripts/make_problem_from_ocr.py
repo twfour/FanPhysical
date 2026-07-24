@@ -42,10 +42,6 @@ def main():
                 "commonMistakes": []
             }
         ],
-        "summary": {
-            "title": "待总结",
-            "content": ""
-        }
     }
 
     output_path.parent.mkdir(parents=True, exist_ok=True)

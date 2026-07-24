@@ -78,12 +78,6 @@
     "线速度",
     "向心加速度"
   ],
-  "source": {
-    "title": "圆周运动",
-    "text": "第2题",
-    "page": "",
-    "hidden": true
-  },
   "steps": [
     {
       "stepId": 1,
@@ -125,10 +119,6 @@
       "commonMistakes": []
     }
   ],
-  "summary": {
-    "title": "总结",
-    "content": "匀速圆周运动中，角速度由转过的角度和时间决定，线速度、向心加速度由角速度和半径计算。注意向心加速度方向始终变化。"
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：泼水成冰角速度",

@@ -83,12 +83,6 @@
     "圆锥摆模型",
     "向心力分析"
   ],
-  "source": {
-    "title": "圆周运动",
-    "text": "例13",
-    "page": "",
-    "hidden": true
-  },
   "steps": [
     {
       "stepId": 1,
@@ -121,10 +115,6 @@
       "commonMistakes": []
     }
   ],
-  "summary": {
-    "title": "总结",
-    "content": "圆锥摆中，若悬点固定、旋转平面水平且高度相同，则周期相同，拉力与绳长成正比。"
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：同高圆锥摆",

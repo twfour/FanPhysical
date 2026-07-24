@@ -62,6 +62,8 @@ def update_index(problem_id, json_filename):
 
 
 def normalize_problem(problem, problem_id, chapter, source_file, source_index):
+    problem.pop("source", None)
+    problem.pop("summary", None)
     problem["id"] = problem_id
     problem["chapter"] = problem.get("chapter") or chapter
     problem["title"] = problem.get("title") or f"{source_file.stem} 第 {source_index} 题"
@@ -88,14 +90,6 @@ def normalize_problem(problem, problem_id, chapter, source_file, source_index):
             "commonMistakes": []
         }
     ])
-    problem.setdefault("summary", {"title": "待总结", "content": ""})
-    source = problem.get("source") if isinstance(problem.get("source"), dict) else {}
-    source.setdefault("title", problem["chapter"])
-    source.setdefault("text", "来源待校对")
-    source.setdefault("page", f"第 {source_index} 题")
-    if str(source.get("text", "")).endswith((".jpg", ".jpeg", ".png", ".webp", ".txt", ".md")):
-        source["text"] = source.get("page") or "来源待校对"
-    problem["source"] = source
     return problem
 
 

@@ -84,12 +84,6 @@
     "图像斜率",
     "最低点拉力"
   ],
-  "source": {
-    "title": "圆周运动日常",
-    "text": "A5",
-    "page": "",
-    "hidden": true
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：由 \\(T-v^2\\) 图像求绳长",

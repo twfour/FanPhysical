@@ -100,12 +100,6 @@
     "面积比例",
     "圆周运动"
   ],
-  "source": {
-    "title": "圆周运动日常",
-    "text": "B8",
-    "page": "",
-    "hidden": true
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：由剩余面积求半径",

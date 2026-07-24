@@ -76,12 +76,6 @@
     "线速度",
     "向心加速度"
   ],
-  "source": {
-    "title": "圆周运动日常",
-    "text": "A1",
-    "page": "",
-    "hidden": true
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：车内两点转弯比较",

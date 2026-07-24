@@ -77,12 +77,6 @@
     "匀速圆周运动",
     "牛顿第二定律"
   ],
-  "source": {
-    "title": "圆周运动",
-    "text": "例8",
-    "page": "",
-    "hidden": true
-  },
   "steps": [
     {
       "stepId": 1,
@@ -118,10 +112,6 @@
       "commonMistakes": []
     }
   ],
-  "summary": {
-    "title": "解题要点",
-    "content": "关键是确定小球的圆周半径和向心力来源。通过受力分析得到向心加速度表达式，再结合几何关系求线速度。"
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：转盘小球圆锥摆",

@@ -84,12 +84,6 @@
     "速度方向",
     "管道约束"
   ],
-  "source": {
-    "title": "圆周运动日常",
-    "text": "例6",
-    "page": "",
-    "hidden": true
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：平抛垂直撞斜面",

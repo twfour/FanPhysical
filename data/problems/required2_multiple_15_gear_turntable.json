@@ -13,8 +13,14 @@
     "role": "综合题",
     "difficulty": 4,
     "variantLevel": "L3",
-    "skills": ["传动比换算", "向心力图像分析"],
-    "prerequisites": ["齿轮传动", "静摩擦力"]
+    "skills": [
+      "传动比换算",
+      "向心力图像分析"
+    ],
+    "prerequisites": [
+      "齿轮传动",
+      "静摩擦力"
+    ]
   },
   "question": "主动齿轮 A 带动从动齿轮 B 及水平转台匀速转动。质量为 \\(m\\) 的滑块置于转台上，通过长为 \\(L\\) 的不可伸长细线连接力传感器，细线刚好伸直。A、B 齿数分别为 \\(n_1、n_2\\)，滑块与转台间动摩擦因数为 \\(\\mu\\)。改变 A 的角速度 \\(\\omega\\)，记录传感器示数 \\(F\\)，所得 \\(F-\\omega^2\\) 图像正向延长线与横轴交于 \\(a\\)，与纵轴交于 \\(-b\\)。下列说法正确的是（　　）。",
   "options": [
@@ -33,16 +39,47 @@
     "interactive": true,
     "notes": "显示齿轮传动、滑块圆周运动与拉力—角速度平方直线。",
     "params": {
-      "gearRatio": {"label": "齿数比 n2/n1", "value": 2, "min": 1, "max": 4, "step": 0.25, "unit": ""},
-      "friction": {"label": "动摩擦因数", "value": 0.3, "min": 0.1, "max": 0.6, "step": 0.05, "unit": ""}
+      "gearRatio": {
+        "label": "齿数比 n2/n1",
+        "value": 2,
+        "min": 1,
+        "max": 4,
+        "step": 0.25,
+        "unit": ""
+      },
+      "friction": {
+        "label": "动摩擦因数",
+        "value": 0.3,
+        "min": 0.1,
+        "max": 0.6,
+        "step": 0.05,
+        "unit": ""
+      }
     },
-    "timeline": {"duration": 8, "loop": false}
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
   },
-  "knowledge": ["齿轮传动", "向心力", "摩擦力", "函数图像"],
+  "knowledge": [
+    "齿轮传动",
+    "向心力",
+    "摩擦力",
+    "函数图像"
+  ],
   "steps": [
-    {"title": "建立传动关系", "content": "啮合点线速度相等：\\(\\omega_A n_1=\\omega_B n_2\\)，所以 \\(\\omega_A:\\omega_B=n_2:n_1\\)。"},
-    {"title": "写拉力函数", "content": "当细线和摩擦共同提供向心力时，\\(F+\\mu mg=m\\omega_B^2L\\)。代入 \\(\\omega_B=(n_1/n_2)\\omega\\)，得 \\(F=mL(n_1/n_2)^2\\omega^2-\\mu mg\\)。"},
-    {"title": "读取截距", "content": "\\(b=\\mu mg\\)，\\(a=\\mu g(n_2/n_1)^2/L\\)，故 \\(b/a=mL(n_1/n_2)^2\\)，随 \\(m\\) 增大。题给 C 的角速度对应 \\(F=\\mu mg/2\\)，不是 \\(3\\mu mg/2\\)。故 A、D 正确。"}
+    {
+      "title": "建立传动关系",
+      "content": "啮合点线速度相等：\\(\\omega_A n_1=\\omega_B n_2\\)，所以 \\(\\omega_A:\\omega_B=n_2:n_1\\)。"
+    },
+    {
+      "title": "写拉力函数",
+      "content": "当细线和摩擦共同提供向心力时，\\(F+\\mu mg=m\\omega_B^2L\\)。代入 \\(\\omega_B=(n_1/n_2)\\omega\\)，得 \\(F=mL(n_1/n_2)^2\\omega^2-\\mu mg\\)。"
+    },
+    {
+      "title": "读取截距",
+      "content": "\\(b=\\mu mg\\)，\\(a=\\mu g(n_2/n_1)^2/L\\)，故 \\(b/a=mL(n_1/n_2)^2\\)，随 \\(m\\) 增大。题给 C 的角速度对应 \\(F=\\mu mg/2\\)，不是 \\(3\\mu mg/2\\)。故 A、D 正确。"
+    }
   ],
   "analysis": {
     "title": "多选第15题逐项解析",
@@ -50,18 +87,69 @@
     "sharedFormula": "\\[\\omega_B=\\frac{n_1}{n_2}\\omega,\\qquad F=mL\\left(\\frac{n_1}{n_2}\\right)^2\\omega^2-\\mu mg\\]"
   },
   "optionAnalyses": [
-    {"option": "A", "title": "齿轮角速度比", "judgment": "角速度与齿数成反比，A 正确。"},
-    {"option": "B", "title": "横截距", "judgment": "横截距还含齿数比平方，B 错误。"},
-    {"option": "C", "title": "指定角速度下拉力", "judgment": "代入得 \\(F=\\mu mg/2\\)，C 错误。"},
-    {"option": "D", "title": "质量对截距比的影响", "judgment": "\\(b/a=mL(n_1/n_2)^2\\)，随质量增大，D 正确。"}
+    {
+      "option": "A",
+      "title": "齿轮角速度比",
+      "judgment": "角速度与齿数成反比，A 正确。"
+    },
+    {
+      "option": "B",
+      "title": "横截距",
+      "judgment": "横截距还含齿数比平方，B 错误。"
+    },
+    {
+      "option": "C",
+      "title": "指定角速度下拉力",
+      "judgment": "代入得 \\(F=\\mu mg/2\\)，C 错误。"
+    },
+    {
+      "option": "D",
+      "title": "质量对截距比的影响",
+      "judgment": "\\(b/a=mL(n_1/n_2)^2\\)，随质量增大，D 正确。"
+    }
   ],
-  "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "analysisPresentation": {
+    "optionMode": "independent-statements",
+    "collapseEachStep": true
+  },
   "studentExploration": {
     "title": "齿轮加图像题，我分两次建模",
     "opening": "先把主动轮转速换成转台转速，再建立拉力与转速平方的关系。",
     "stages": [
-      {"title": "“齿数越多，角速度越大？”", "prompt": "两个齿轮啮合处线速度相等。若 B 的齿数是 A 的数倍，\\(\\omega_B/\\omega_A\\) 应是多少？", "thought": "我看到大齿轮周长更大，直觉上觉得它可能转得更快。", "check": "啮合点线速度相同，大齿轮每转一圈走过更多齿，所以角速度更小。", "correction": "由 \\(\\omega_An_1=\\omega_Bn_2\\) 得角速度与齿数成反比。", "takeaway": "齿轮传动先守住接触点线速度相等。", "animationPreset": {"params": {"gearRatio": 4, "friction": 0.3}, "progress": 0, "play": true, "caption": "齿数比已调到最大。观察啮合处线速度相等时，大齿轮角速度反而更小。"}},
-      {"title": "负纵截距意味着什么", "prompt": "把拉力图像的直线延长到负纵截距时，负值代表绳产生了推力，还是代表低速区模型的约束发生了变化？", "thought": "直线延长出现负拉力，我怀疑方程错了。", "check": "数学直线描述“拉力加摩擦共同提供向心力”的区段；低速时摩擦可独自承担，绳不会产生负拉力。", "correction": "负截距用于读出摩擦项，不代表细线能推物体。", "takeaway": "图像延长线可提供参数，但要检查其区段是否物理可实现。", "animationPreset": {"params": {"gearRatio": 2, "friction": 0.6}, "progress": 0.16, "play": false, "caption": "图像已停在低速外推区。负截距只用于识别摩擦项；实际绳张力到零后不会继续变成负值。"}}
+      {
+        "title": "“齿数越多，角速度越大？”",
+        "prompt": "两个齿轮啮合处线速度相等。若 B 的齿数是 A 的数倍，\\(\\omega_B/\\omega_A\\) 应是多少？",
+        "thought": "我看到大齿轮周长更大，直觉上觉得它可能转得更快。",
+        "check": "啮合点线速度相同，大齿轮每转一圈走过更多齿，所以角速度更小。",
+        "correction": "由 \\(\\omega_An_1=\\omega_Bn_2\\) 得角速度与齿数成反比。",
+        "takeaway": "齿轮传动先守住接触点线速度相等。",
+        "animationPreset": {
+          "params": {
+            "gearRatio": 4,
+            "friction": 0.3
+          },
+          "progress": 0,
+          "play": true,
+          "caption": "齿数比已调到最大。观察啮合处线速度相等时，大齿轮角速度反而更小。"
+        }
+      },
+      {
+        "title": "负纵截距意味着什么",
+        "prompt": "把拉力图像的直线延长到负纵截距时，负值代表绳产生了推力，还是代表低速区模型的约束发生了变化？",
+        "thought": "直线延长出现负拉力，我怀疑方程错了。",
+        "check": "数学直线描述“拉力加摩擦共同提供向心力”的区段；低速时摩擦可独自承担，绳不会产生负拉力。",
+        "correction": "负截距用于读出摩擦项，不代表细线能推物体。",
+        "takeaway": "图像延长线可提供参数，但要检查其区段是否物理可实现。",
+        "animationPreset": {
+          "params": {
+            "gearRatio": 2,
+            "friction": 0.6
+          },
+          "progress": 0.16,
+          "play": false,
+          "caption": "图像已停在低速外推区。负截距只用于识别摩擦项；实际绳张力到零后不会继续变成负值。"
+        }
+      }
     ]
   },
   "realLifeCase": {
@@ -69,7 +157,10 @@
     "scene": "实验室用齿轮驱动旋转台，样品由拉力传感器限制在固定半径。改变电机转速并记录拉力，可判断摩擦力和齿轮减速比是否符合设计。",
     "mapping": "主动、从动齿轮对应转速变换；样品所需向心力由绳拉力和摩擦共同提供；图像斜率与截距分别编码质量、半径、齿数比和摩擦。",
     "sharedModel": "啮合处线速度相等给 \\(\\omega_An_1=\\omega_Bn_2\\)。再由 \\(F+\\mu mg=m\\omega_B^2L\\)，得到 \\(F\\) 关于 \\(\\omega_A^2\\) 的直线，纵截距为负摩擦项。",
-    "realityFactors": ["低速时往往是静摩擦，传感器示数会出现分段而非无限延长的直线。", "齿隙、轴承摩擦和转台振动会影响读数。"],
+    "realityFactors": [
+      "低速时往往是静摩擦，传感器示数会出现分段而非无限延长的直线。",
+      "齿隙、轴承摩擦和转台振动会影响读数。"
+    ],
     "videos": [
       {
         "platform": "哔哩哔哩",
@@ -99,7 +190,11 @@
     ],
     "question": "图线向下延长得到负拉力是否代表绳真的能推物体？它实际提示了哪个分段边界？",
     "answer": "负拉力只是把有效区间内的直线关系向低速外推得到的数学值，绳只能受拉，不能推物体。低速时，所需向心力可由静摩擦独自提供，绳保持松弛，传感器示数应为 \\(F=0\\)。直线与横轴的交点表示“摩擦刚好不能再独立提供所需向心力、绳开始绷紧受力”的临界转速。",
-    "rubric": ["指出细绳不能提供负拉力或推力。", "说明低速区由静摩擦独自提供向心力，拉力为零。", "指出横轴交点代表绳开始受力的分段边界。"]
+    "rubric": [
+      "指出细绳不能提供负拉力或推力。",
+      "说明低速区由静摩擦独自提供向心力，拉力为零。",
+      "指出横轴交点代表绳开始受力的分段边界。"
+    ]
   },
   "practice": {
     "title": "进阶近似题：静摩擦与拉力的分段图像",
@@ -134,5 +229,90 @@
       ],
       "url": "https://cpho.pku.edu.cn/assets/file/2021cpho/3821fsst.pdf"
     }
-  ]
+  ],
+  "learningCycle": {
+    "generatedBy": "backfill_learning_content_v1",
+    "intervalDays": [
+      1,
+      3,
+      7,
+      14,
+      30
+    ],
+    "prediction": {
+      "title": "播放前预测：齿轮转台与向心力",
+      "prompt": "观察动画前，解决“多选第15题：齿轮转台拉力图像”时最合理的第一步是什么？",
+      "answer": "B",
+      "explanation": "正确起点是“先标出圆心方向，再判断哪些实际力提供径向合力”。本题关系 \\[\\omega_B=\\frac{n_1}{n_2}\\omega,\\qquad F=mL\\left(\\frac{n_1}{n_2}\\right)^2\\omega^2-\\mu mg\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
+      "options": [
+        {
+          "value": "A",
+          "text": "先把题目中的所有数值代入最熟悉的公式",
+          "diagnosis": {
+            "tag": "先算后建模",
+            "feedback": "这样容易出现“把向心力当成物体额外受到的一种力”的问题。",
+            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
+          }
+        },
+        {
+          "value": "B",
+          "text": "先标出圆心方向，再判断哪些实际力提供径向合力"
+        },
+        {
+          "value": "C",
+          "text": "只根据动画轨迹外形直接判断答案",
+          "diagnosis": {
+            "tag": "把示意图当成定量证据",
+            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
+            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
+          }
+        },
+        {
+          "value": "D",
+          "text": "先记住原题答案，再寻找能得到该答案的计算",
+          "diagnosis": {
+            "tag": "结论倒推动机",
+            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
+            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
+          }
+        }
+      ]
+    },
+    "review": {
+      "title": "延时复习：迁移“齿轮转台与向心力”",
+      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
+      "answer": "B",
+      "explanation": "同题族迁移时应保留“无论装置怎样变化，径向合力都必须等于质量与向心加速度的乘积”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
+      "options": [
+        {
+          "value": "A",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "diagnosis": {
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+          }
+        },
+        {
+          "value": "B",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+        },
+        {
+          "value": "C",
+          "text": "只要公式相同，就不需要重新判断研究对象和过程",
+          "diagnosis": {
+            "tag": "忽略模型前提",
+            "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
+          }
+        },
+        {
+          "value": "D",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "diagnosis": {
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+          }
+        }
+      ]
+    }
+  }
 }

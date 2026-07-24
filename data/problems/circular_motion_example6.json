@@ -69,12 +69,6 @@
     "同轴转动角速度相同",
     "皮带传动线速度相同"
   ],
-  "source": {
-    "title": "圆周运动",
-    "text": "例6",
-    "page": "",
-    "hidden": true
-  },
   "steps": [
     {
       "stepId": 1,
@@ -110,10 +104,6 @@
       "commonMistakes": []
     }
   ],
-  "summary": {
-    "title": "总结",
-    "content": "本题考查了同轴转动和皮带传动中向心加速度的计算，需区分角速度相同和线速度相同两种情形。"
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：皮带传动向心加速度",

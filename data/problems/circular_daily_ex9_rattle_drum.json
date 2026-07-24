@@ -92,12 +92,6 @@
     "线速度",
     "绳张力"
   ],
-  "source": {
-    "title": "圆周运动日常",
-    "text": "例9",
-    "page": "",
-    "hidden": true
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：同角速度圆锥摆",

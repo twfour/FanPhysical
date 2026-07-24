@@ -92,12 +92,6 @@
     "侧倾",
     "临界速度"
   ],
-  "source": {
-    "title": "圆周运动日常",
-    "text": "例5",
-    "page": "",
-    "hidden": true
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：水平转弯最大速度",

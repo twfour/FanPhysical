@@ -100,12 +100,6 @@
     "弯道倾角",
     "静摩擦临界"
   ],
-  "source": {
-    "title": "圆周运动日常",
-    "text": "例1",
-    "page": "",
-    "hidden": true
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：倾斜弯道的设计速度",

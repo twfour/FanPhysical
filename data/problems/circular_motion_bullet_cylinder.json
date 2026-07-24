@@ -85,12 +85,6 @@
     "运动合成与分解",
     "周期性"
   ],
-  "source": {
-    "title": "圆周运动",
-    "text": "第4题",
-    "page": "",
-    "hidden": true
-  },
   "steps": [
     {
       "stepId": 1,
@@ -129,10 +123,6 @@
       "commonMistakes": []
     }
   ],
-  "summary": {
-    "title": "总结",
-    "content": "子弹穿过旋转圆筒问题需考虑水平运动和圆筒转动的周期性，结合几何关系求解。"
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：旋转圆筒与平抛下落",

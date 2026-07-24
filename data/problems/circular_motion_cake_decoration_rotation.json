@@ -77,12 +77,6 @@
     "角速度",
     "线速度"
   ],
-  "source": {
-    "title": "圆周运动",
-    "text": "例4",
-    "page": "",
-    "hidden": true
-  },
   "steps": [
     {
       "stepId": 1,
@@ -121,10 +115,6 @@
       "commonMistakes": []
     }
   ],
-  "summary": {
-    "title": "总结",
-    "content": "本题考查圆周运动基本参量的计算，注意正确理解点奶油过程与周期的关系。"
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：圆盘点奶油",

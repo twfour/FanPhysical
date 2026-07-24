@@ -95,15 +95,6 @@
       ]
     }
   ],
-  "summary": {
-    "title": "总结",
-    "content": "串联弹簧等效劲度系数的倒数等于各弹簧劲度系数倒数之和。"
-  },
-  "source": {
-    "title": "力学基础",
-    "text": "第 5 题",
-    "page": "第 5 题"
-  },
   "optionAnalyses": [
     {
       "option": "A",

@@ -142,11 +142,6 @@ def problem_batch_schema():
                     ]
                 },
                 "knowledge": ["string"],
-                "source": {
-                    "title": "课程/讲义/章节名称，若图中/OCR 中没有则用 chapter",
-                    "text": "具体来源，例如 课上第 3 题、A组第 5 题、课后作业第 2 题；不要写图片路径",
-                    "page": "题号或页码，若无法识别则留空"
-                },
                 "steps": [
                     {
                         "stepId": 1,
@@ -155,11 +150,7 @@ def problem_batch_schema():
                         "knowledge": ["string"],
                         "commonMistakes": ["string"]
                     }
-                ],
-                "summary": {
-                    "title": "string",
-                    "content": "string"
-                }
+                ]
             }
         ]
     }
@@ -216,7 +207,7 @@ def batch_requirements(input_kind):
         "slug 使用简短英文或拼音小写，只含 a-z、0-9、下划线；slug 必须表达物理模型或题目特征，禁止使用原题号、纯数字、q1、problem_1 这类无语义名称。",
         "当前阶段只做题目录入和解析展示，默认不生成动画。所有题的 animation.enabled 必须为 false，animation.level/type 用 none，key 留空，params 用空对象。",
         "只有人工后续决定要做动画时，才会由 Codex 手写动画模型并手工改 animation.enabled=true；OCR/视觉模型不要擅自填写 codex_scene、projectile、force_diagram 等动画类型。",
-        "source 必须描述真实题目来源，例如那一课、哪一讲、哪一组、哪一题；严禁把 source 写成图片文件名、OCR 文件名或本地路径。如果无法识别来源，source.title 用 chapter，source.text 写“来源待校对”。",
+        "不要生成 source、summary 或一句话总结字段；原题序号直接写入 originalNumber 和题目标题。",
         "title 由题目内容和物理模型自动生成，适合显示在网站卡片上。",
         "analysis.content 必须有可展示文字，不要留空；可以写简短总览。",
         "steps 用于页面分步骤解析和 AI 上下文，必须按解题步骤拆分；每题至少 2 步，除非题目本身只有一步。",
@@ -337,11 +328,7 @@ def call_deepseek(ocr_text, problem_id, chapter, title):
                     "knowledge": ["string"],
                     "commonMistakes": ["string"]
                 }
-            ],
-            "summary": {
-                "title": "string",
-                "content": "string"
-            }
+            ]
         },
         "ocrText": ocr_text
     }
@@ -435,7 +422,7 @@ def call_deepseek_from_questions(questions, chapter, id_prefix, source_name):
         "outputSchema": problem_batch_schema(),
         "requirements": [
             "输入 questions 已经按题号切好；输出 problems 数量应与可解析 questions 数量一致。",
-            "question_no 写入 originalNumber；source.text 优先使用 question_no，例如“第 2 题”。",
+            "question_no 写入 originalNumber，并把原题序号保留在题目标题中。",
             "选项必须来自 options，不能丢失 A/B/C/D。",
             "不要解读手写痕迹；uncertainty 中的不确定信息用“【待校对】”保留。",
             "如果某题 text 太少，无法构成完整题目，输出 skip=true 并写明 skipReason。",

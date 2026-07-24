@@ -85,12 +85,6 @@
     "向心加速度",
     "牛顿第二定律"
   ],
-  "source": {
-    "title": "圆周运动",
-    "text": "第5题",
-    "page": "",
-    "hidden": true
-  },
   "steps": [
     {
       "stepId": 1,
@@ -129,10 +123,6 @@
       "commonMistakes": []
     }
   ],
-  "summary": {
-    "title": "总结",
-    "content": "解决此类问题关键：碰钉子瞬间线速度不变，半径突变，从而角速度、向心加速度发生相应变化，结合牛顿第二定律分析拉力。"
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：摆线碰钉",

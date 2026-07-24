@@ -84,12 +84,6 @@
     "匀速圆周运动",
     "时间相等关系"
   ],
-  "source": {
-    "title": "圆周运动",
-    "text": "例5",
-    "page": "",
-    "hidden": true
-  },
   "steps": [
     {
       "stepId": 1,
@@ -125,10 +119,6 @@
       "commonMistakes": []
     }
   ],
-  "summary": {
-    "title": "总结",
-    "content": "本题的关键是平抛运动时间与圆周运动时间相等，并考虑转盘转动的周期性。"
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：飞镖命中转盘",

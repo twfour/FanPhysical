@@ -84,12 +84,6 @@
     "密度分层",
     "向心加速度"
   ],
-  "source": {
-    "title": "圆周运动日常",
-    "text": "例4",
-    "page": "",
-    "hidden": true
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：离心场中的分层",

@@ -84,12 +84,6 @@
     "向心力",
     "重力分量"
   ],
-  "source": {
-    "title": "圆周运动日常",
-    "text": "B7",
-    "page": "",
-    "hidden": true
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：最高点和最低点触发",

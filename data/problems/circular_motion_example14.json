@@ -84,12 +84,6 @@
     "临界角速度",
     "受力分析"
   ],
-  "source": {
-    "title": "圆周运动",
-    "text": "例14",
-    "page": "",
-    "hidden": true
-  },
   "steps": [
     {
       "stepId": 1,
@@ -125,10 +119,6 @@
       "commonMistakes": []
     }
   ],
-  "summary": {
-    "title": "总结",
-    "content": "双绳圆周运动问题需分析临界条件，注意竖直方向平衡关系。"
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：双绳临界角速度",

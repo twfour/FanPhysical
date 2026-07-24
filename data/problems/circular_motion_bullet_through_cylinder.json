@@ -76,12 +76,6 @@
     "圆周运动",
     "直线运动与圆周运动结合"
   ],
-  "source": {
-    "title": "圆周运动",
-    "text": "例2",
-    "page": "",
-    "hidden": true
-  },
   "steps": [
     {
       "stepId": 1,
@@ -114,10 +108,6 @@
       "commonMistakes": []
     }
   ],
-  "summary": {
-    "title": "总结",
-    "content": "本题通过圆周运动与直线运动的等时性，求解子弹速度。"
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：子弹穿旋转纸筒",

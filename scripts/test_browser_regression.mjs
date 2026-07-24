@@ -313,6 +313,14 @@ async function main() {
   });
 
   await runCheck("动画验证", async function () {
+    var prediction = page.locator('.learning-cycle-prediction-block[data-scene="' + PROBLEM_ID + '"]');
+    await requireOne(prediction, "required-two prediction block");
+    await prediction.locator('input[type="radio"][value="B"]').check();
+    await prediction.locator('.learning-cycle-confidence input[value="3"]').check();
+    await prediction.getByRole("button", { name: "提交预测并解锁动画", exact: true }).click();
+    await waitUntil(async function () {
+      return await page.locator("#learningCycleCanvasGate").isHidden();
+    }, "required-two prediction gate to unlock");
     var stage = page.locator(".student-exploration-block .exploration-stage-card").first();
     var verify = stage.getByRole("button", { name: "在动画中验证", exact: true });
     await requireOne(verify, "animation verification button");

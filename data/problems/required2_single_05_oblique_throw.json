@@ -13,8 +13,14 @@
     "role": "综合题",
     "difficulty": 3,
     "variantLevel": "L2",
-    "skills": ["参考面切换", "斜抛能量判断"],
-    "prerequisites": ["斜抛运动", "机械能守恒"]
+    "skills": [
+      "参考面切换",
+      "斜抛能量判断"
+    ],
+    "prerequisites": [
+      "斜抛运动",
+      "机械能守恒"
+    ]
   },
   "question": "将质量为 \\(m\\) 的石块从离地面 \\(h\\) 高处以初速度 \\(v_0\\) 斜向上抛出，最后落回地面。最高点距地面高度为 \\(H\\)。以抛出点为重力势能参考平面，不计空气阻力。下列说法正确的是（　　）。",
   "options": [
@@ -33,17 +39,55 @@
     "interactive": true,
     "notes": "显示斜抛轨迹及动能、势能、机械能的同步变化。",
     "params": {
-      "launchSpeed": {"label": "初速度", "value": 16, "min": 8, "max": 24, "step": 1, "unit": "m/s"},
-      "launchAngle": {"label": "抛射角", "value": 50, "min": 20, "max": 75, "step": 1, "unit": "deg"},
-      "launchHeight": {"label": "离地高度", "value": 6, "min": 2, "max": 12, "step": 1, "unit": "m"}
+      "launchSpeed": {
+        "label": "初速度",
+        "value": 16,
+        "min": 8,
+        "max": 24,
+        "step": 1,
+        "unit": "m/s"
+      },
+      "launchAngle": {
+        "label": "抛射角",
+        "value": 50,
+        "min": 20,
+        "max": 75,
+        "step": 1,
+        "unit": "deg"
+      },
+      "launchHeight": {
+        "label": "离地高度",
+        "value": 6,
+        "min": 2,
+        "max": 12,
+        "step": 1,
+        "unit": "m"
+      }
     },
-    "timeline": {"duration": 7, "loop": false}
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
   },
-  "knowledge": ["斜抛运动", "机械能守恒", "势能参考面", "功率与能量"],
+  "knowledge": [
+    "斜抛运动",
+    "机械能守恒",
+    "势能参考面",
+    "功率与能量"
+  ],
   "steps": [
-    {"title": "确定总机械能", "content": "参考面取在抛出点，初态重力势能为 0，因此系统机械能为 \\(E=mv_0^2/2\\)。只有重力做功，所以全过程机械能守恒。"},
-    {"title": "检查地面状态", "content": "地面位于参考面下方 \\(h\\)，故 \\(E_{p,\\text{地}}=-mgh\\)，落地动能为 \\(E_{k,\\text{地}}=mv_0^2/2+mgh\\)。"},
-    {"title": "检查最高点和变化趋势", "content": "最高点机械能仍为 \\(mv_0^2/2\\)。上升阶段势能增大，下降阶段势能减小，因此只有 C 正确。"}
+    {
+      "title": "确定总机械能",
+      "content": "参考面取在抛出点，初态重力势能为 0，因此系统机械能为 \\(E=mv_0^2/2\\)。只有重力做功，所以全过程机械能守恒。"
+    },
+    {
+      "title": "检查地面状态",
+      "content": "地面位于参考面下方 \\(h\\)，故 \\(E_{p,\\text{地}}=-mgh\\)，落地动能为 \\(E_{k,\\text{地}}=mv_0^2/2+mgh\\)。"
+    },
+    {
+      "title": "检查最高点和变化趋势",
+      "content": "最高点机械能仍为 \\(mv_0^2/2\\)。上升阶段势能增大，下降阶段势能减小，因此只有 C 正确。"
+    }
   ],
   "analysis": {
     "title": "单选第5题逐项解析",
@@ -51,18 +95,71 @@
     "sharedFormula": "\\[E=E_k+E_p=\\frac12mv_0^2,\\qquad E_{p,\\text{地}}=-mgh\\]"
   },
   "optionAnalyses": [
-    {"option": "A", "title": "落地动能", "judgment": "落地动能应为 \\(mv_0^2/2+mgh\\)，与最高高度 \\(H\\) 无直接关系，A 错误。"},
-    {"option": "B", "title": "落地势能", "judgment": "地面低于参考面，势能是 \\(-mgh\\)，B 错误。"},
-    {"option": "C", "title": "最高点机械能", "judgment": "无阻力时机械能守恒，最高点仍为 \\(mv_0^2/2\\)，C 正确。"},
-    {"option": "D", "title": "势能变化", "judgment": "石块先上升后下降，势能先增大后减小，D 错误。"}
+    {
+      "option": "A",
+      "title": "落地动能",
+      "judgment": "落地动能应为 \\(mv_0^2/2+mgh\\)，与最高高度 \\(H\\) 无直接关系，A 错误。"
+    },
+    {
+      "option": "B",
+      "title": "落地势能",
+      "judgment": "地面低于参考面，势能是 \\(-mgh\\)，B 错误。"
+    },
+    {
+      "option": "C",
+      "title": "最高点机械能",
+      "judgment": "无阻力时机械能守恒，最高点仍为 \\(mv_0^2/2\\)，C 正确。"
+    },
+    {
+      "option": "D",
+      "title": "势能变化",
+      "judgment": "石块先上升后下降，势能先增大后减小，D 错误。"
+    }
   ],
-  "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "analysisPresentation": {
+    "optionMode": "independent-statements",
+    "collapseEachStep": true
+  },
   "studentExploration": {
     "title": "势能出现负数时，我先检查参考面",
     "opening": "我把抛出点、最高点、地面相对参考面的高度标出来，再写每处能量。",
     "stages": [
-      {"title": "“势能怎么能是负数？”", "prompt": "若题目把抛出点规定为零势能面，地面位于其下方 \\(h\\)，地面重力势能应写成多少？改变零面会不会改变速度？", "thought": "我以为重力势能必须大于等于零，所以想把地面势能写成零。", "check": "题目明确以抛出点为零面，地面低 \\(h\\)，数值就应为 \\(-mgh\\)。势能零点是人为选择。", "correction": "地面 \\(E_p=-mgh\\)，但势能差和运动结果不受参考面影响。", "takeaway": "先服从题目给定的零势能面，负势能完全允许。", "animationPreset": {"params": {"launchSpeed": 16, "launchAngle": 50, "launchHeight": 12}, "progress": 0.8, "play": false, "caption": "已停在接近落地的位置。对照能量图观察势能可为负，而动能仍由 \\(E_k=E-E_p\\) 得到正值。"}},
-      {"title": "最高点并不是静止", "prompt": "小球到达最高点时，\\(v_x\\) 与 \\(v_y\\) 分别是多少？此刻是否还有动能，机械能由哪些部分组成？", "thought": "我差点认为最高点速度为零、机械能全是势能。", "check": "斜抛最高点只有竖直速度为零，水平速度仍存在。", "correction": "不必分速度也能判断：只有重力做功，所以最高点机械能仍等于初始机械能。", "takeaway": "“某方向速度为零”不等于物体静止。", "animationPreset": {"params": {"launchSpeed": 16, "launchAngle": 50, "launchHeight": 6}, "progress": 0.36, "play": false, "caption": "动画已停在轨迹最高点附近。竖直速度降为零，但水平速度箭头仍保留，动能条不会归零。"}}
+      {
+        "title": "“势能怎么能是负数？”",
+        "prompt": "若题目把抛出点规定为零势能面，地面位于其下方 \\(h\\)，地面重力势能应写成多少？改变零面会不会改变速度？",
+        "thought": "我以为重力势能必须大于等于零，所以想把地面势能写成零。",
+        "check": "题目明确以抛出点为零面，地面低 \\(h\\)，数值就应为 \\(-mgh\\)。势能零点是人为选择。",
+        "correction": "地面 \\(E_p=-mgh\\)，但势能差和运动结果不受参考面影响。",
+        "takeaway": "先服从题目给定的零势能面，负势能完全允许。",
+        "animationPreset": {
+          "params": {
+            "launchSpeed": 16,
+            "launchAngle": 50,
+            "launchHeight": 12
+          },
+          "progress": 0.8,
+          "play": false,
+          "caption": "已停在接近落地的位置。对照能量图观察势能可为负，而动能仍由 \\(E_k=E-E_p\\) 得到正值。"
+        }
+      },
+      {
+        "title": "最高点并不是静止",
+        "prompt": "小球到达最高点时，\\(v_x\\) 与 \\(v_y\\) 分别是多少？此刻是否还有动能，机械能由哪些部分组成？",
+        "thought": "我差点认为最高点速度为零、机械能全是势能。",
+        "check": "斜抛最高点只有竖直速度为零，水平速度仍存在。",
+        "correction": "不必分速度也能判断：只有重力做功，所以最高点机械能仍等于初始机械能。",
+        "takeaway": "“某方向速度为零”不等于物体静止。",
+        "animationPreset": {
+          "params": {
+            "launchSpeed": 16,
+            "launchAngle": 50,
+            "launchHeight": 6
+          },
+          "progress": 0.36,
+          "play": false,
+          "caption": "动画已停在轨迹最高点附近。竖直速度降为零，但水平速度箭头仍保留，动能条不会归零。"
+        }
+      }
     ]
   },
   "realLifeCase": {
@@ -70,7 +167,10 @@
     "scene": "同一次物资抛投可以用海平面、起投平台或地面作为高度零点。记录表中的势能数值会变，物资的轨迹与落地速度却不会因此变化。",
     "mapping": "抛出点作为零势能面时，地面位于其下方，所以势能为负；这不表示能量“错误”，只是记账基准不同。",
     "sharedModel": "改变参考面会给所有重力势能同时加上同一常量，机械能也同量平移；差值 \\(\\Delta E_p\\) 与 \\(E_k=E-E_p\\) 不变。无空气阻力时，斜抛全过程机械能守恒。",
-    "realityFactors": ["真实抛投受到空气阻力，机械能会转化为内能。", "工程计算必须统一坐标与高度基准，否则不同数据源会产生表面矛盾。"],
+    "realityFactors": [
+      "真实抛投受到空气阻力，机械能会转化为内能。",
+      "工程计算必须统一坐标与高度基准，否则不同数据源会产生表面矛盾。"
+    ],
     "videos": [
       {
         "platform": "哔哩哔哩",
@@ -92,7 +192,11 @@
     ],
     "question": "地面势能可以是负数，为什么落地动能仍一定是正数？请用 \\(E_k=E-E_p\\) 说明。",
     "answer": "势能正负取决于人为选择的零势能面。以抛出点为零面时，地面有 \\(E_p=-mgh\\)。机械能守恒给总机械能 \\(E=E_{k0}\\)，于是落地动能 \\(E_k=E-E_p=E_{k0}+mgh\\gt0\\)。改变参考面会使 \\(E\\) 与 \\(E_p\\) 同时平移同一常量，它们的差值不变。",
-    "rubric": ["指出势能零点可以任意选择，负势能允许。", "利用 \\(E_k=E-E_p\\) 得到落地动能表达式。", "说明参考面改变不影响动能和运动结果。"]
+    "rubric": [
+      "指出势能零点可以任意选择，负势能允许。",
+      "利用 \\(E_k=E-E_p\\) 得到落地动能表达式。",
+      "说明参考面改变不影响动能和运动结果。"
+    ]
   },
   "practice": {
     "title": "进阶近似题：改变势能零点后的同一运动",
@@ -111,5 +215,90 @@
       "matchReason": "两题都要求分阶段追踪重力势能、动能和最高点状态，并正确处理势能零点与能量变化的区别。",
       "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Subjective_Questions/2010-2022_Physics_Open-ended_Questions.json#L295"
     }
-  ]
+  ],
+  "learningCycle": {
+    "generatedBy": "backfill_learning_content_v1",
+    "intervalDays": [
+      1,
+      3,
+      7,
+      14,
+      30
+    ],
+    "prediction": {
+      "title": "播放前预测：重力势能参考面",
+      "prompt": "观察动画前，解决“单选第5题：斜抛机械能与参考面”时最合理的第一步是什么？",
+      "answer": "B",
+      "explanation": "正确起点是“先选系统并检查是否只有保守力做功，再比较初末机械能”。本题关系 \\[E=E_k+E_p=\\frac12mv_0^2,\\qquad E_{p,\\text{地}}=-mgh\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
+      "options": [
+        {
+          "value": "A",
+          "text": "先把题目中的所有数值代入最熟悉的公式",
+          "diagnosis": {
+            "tag": "先算后建模",
+            "feedback": "这样容易出现“看到速度和高度变化就直接使用机械能守恒”的问题。",
+            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
+          }
+        },
+        {
+          "value": "B",
+          "text": "先选系统并检查是否只有保守力做功，再比较初末机械能"
+        },
+        {
+          "value": "C",
+          "text": "只根据动画轨迹外形直接判断答案",
+          "diagnosis": {
+            "tag": "把示意图当成定量证据",
+            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
+            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
+          }
+        },
+        {
+          "value": "D",
+          "text": "先记住原题答案，再寻找能得到该答案的计算",
+          "diagnosis": {
+            "tag": "结论倒推动机",
+            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
+            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
+          }
+        }
+      ]
+    },
+    "review": {
+      "title": "延时复习：迁移“重力势能参考面”",
+      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
+      "answer": "B",
+      "explanation": "同题族迁移时应保留“机械能是否守恒取决于系统边界和非保守力做功，而不是取决于轨迹形状”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
+      "options": [
+        {
+          "value": "A",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "diagnosis": {
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+          }
+        },
+        {
+          "value": "B",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+        },
+        {
+          "value": "C",
+          "text": "只要公式相同，就不需要重新判断研究对象和过程",
+          "diagnosis": {
+            "tag": "忽略模型前提",
+            "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
+          }
+        },
+        {
+          "value": "D",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "diagnosis": {
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+          }
+        }
+      ]
+    }
+  }
 }

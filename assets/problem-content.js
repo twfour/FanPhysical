@@ -62,9 +62,6 @@ function renderProblemDataNotes(problem) {
     if (reviewBlock) {
       grid.appendChild(reviewBlock);
     }
-    if (problem.summary && !problem.analysis) {
-      grid.appendChild(createProblemNoteBlock("一句话总结", problem.summary.title || "总结", problem.summary.content || ""));
-    }
     return note;
 }
 
@@ -382,7 +379,7 @@ function createProblemAnalysisBlock(problem) {
     });
     return block;
   }
-  appendMarkdownChildren(block, content || (problem.summary && problem.summary.content) || "这道题的解析还需要补充。");
+  appendMarkdownChildren(block, content || "这道题的解析还需要补充。");
   return block;
 }
 

@@ -76,12 +76,6 @@
     "圆周运动中的角速度相同",
     "牛顿第二定律"
   ],
-  "source": {
-    "title": "圆周运动",
-    "text": "例9",
-    "page": "",
-    "hidden": true
-  },
   "steps": [
     {
       "stepId": 1,
@@ -117,10 +111,6 @@
       "commonMistakes": []
     }
   ],
-  "summary": {
-    "title": "解题要点",
-    "content": "关键点：两人角速度相同，向心力相等。利用半径之和与质量比求半径，再验证其他选项。"
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：双人拉力圆周运动",

@@ -77,12 +77,6 @@
     "临界条件",
     "牛顿第二定律"
   ],
-  "source": {
-    "title": "圆周运动",
-    "text": "例15",
-    "page": "",
-    "hidden": true
-  },
   "steps": [
     {
       "stepId": 1,
@@ -118,10 +112,6 @@
       "commonMistakes": []
     }
   ],
-  "summary": {
-    "title": "总结",
-    "content": "圆锥面圆周运动问题关键是受力分析，明确临界条件，注意图像的分段特征。"
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：圆锥面离面临界",

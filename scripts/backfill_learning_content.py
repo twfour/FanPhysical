@@ -1027,7 +1027,19 @@ def required_two_sources(problems: list[dict]) -> tuple[dict[str, dict], dict[st
 
 
 def enrich_problem(problem: dict, by_family: dict[str, dict]) -> None:
+    problem.pop("source", None)
+    problem.pop("summary", None)
     if problem.get("chapter") in EXCLUDED_CHAPTERS:
+        taxonomy = problem.get("taxonomy", {})
+        profile = MODEL_PROFILES.get(taxonomy.get("modelId"))
+        animation = problem.get("animation", {})
+        if (
+            profile
+            and animation.get("enabled") is True
+            and animation.get("playable") is True
+            and not problem.get("learningCycle")
+        ):
+            problem["learningCycle"] = build_learning_cycle(problem, profile)
         return
     taxonomy = problem.get("taxonomy", {})
     model_id = taxonomy.get("modelId")

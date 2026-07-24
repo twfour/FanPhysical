@@ -13,8 +13,14 @@
     "role": "综合题",
     "difficulty": 4,
     "variantLevel": "L3",
-    "skills": ["轨道参数推导", "空间几何建模"],
-    "prerequisites": ["同步卫星", "开普勒第三定律"]
+    "skills": [
+      "轨道参数推导",
+      "空间几何建模"
+    ],
+    "prerequisites": [
+      "同步卫星",
+      "开普勒第三定律"
+    ]
   },
   "question": "I 为北斗卫星导航系统中的静止轨道卫星，其对地张角为 \\(2\\theta\\)；II 为地球的近地卫星。已知地球自转周期为 \\(T_0\\)，万有引力常量为 \\(G\\)。根据题中条件，可求出（　　）。",
   "options": [
@@ -33,16 +39,47 @@
     "interactive": true,
     "notes": "显示地球切线张角、两条轨道和近地卫星的信号遮挡弧段。",
     "params": {
-      "viewAngle": {"label": "半张角", "value": 8.7, "min": 5, "max": 20, "step": 0.5, "unit": "deg"},
-      "earthPeriod": {"label": "自转周期", "value": 24, "min": 20, "max": 28, "step": 1, "unit": "h"}
+      "viewAngle": {
+        "label": "半张角",
+        "value": 8.7,
+        "min": 5,
+        "max": 20,
+        "step": 0.5,
+        "unit": "deg"
+      },
+      "earthPeriod": {
+        "label": "自转周期",
+        "value": 24,
+        "min": 20,
+        "max": 28,
+        "step": 1,
+        "unit": "h"
+      }
     },
-    "timeline": {"duration": 8, "loop": false}
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
   },
-  "knowledge": ["地球同步卫星", "开普勒第三定律", "天体密度", "信号遮挡"],
+  "knowledge": [
+    "地球同步卫星",
+    "开普勒第三定律",
+    "天体密度",
+    "信号遮挡"
+  ],
   "steps": [
-    {"title": "建立几何比例", "content": "从卫星 I 向地球作切线，设静止轨道半径为 \\(r\\)、地球半径为 \\(R\\)，则 \\(\\sin\\theta=R/r\\)。"},
-    {"title": "比较加速度和周期", "content": "\\(a_I/a_{II}=(R/r)^2=\\sin^2\\theta\\)。由开普勒第三定律，\\(T_{II}/T_0=(R/r)^{3/2}=\\sqrt{\\sin^3\\theta}\\)。"},
-    {"title": "求密度与遮挡时间", "content": "\\(\\rho=3\\pi/(GT_0^2\\sin^3\\theta)\\)，所以 A 少了倒数。近地卫星受遮挡的圆心角为 \\(\\pi+2\\theta\\)，遮挡时间为该角度占一周的比例乘 \\(T_{II}\\)。故 B、C、D 正确。"}
+    {
+      "title": "建立几何比例",
+      "content": "从卫星 I 向地球作切线，设静止轨道半径为 \\(r\\)、地球半径为 \\(R\\)，则 \\(\\sin\\theta=R/r\\)。"
+    },
+    {
+      "title": "比较加速度和周期",
+      "content": "\\(a_I/a_{II}=(R/r)^2=\\sin^2\\theta\\)。由开普勒第三定律，\\(T_{II}/T_0=(R/r)^{3/2}=\\sqrt{\\sin^3\\theta}\\)。"
+    },
+    {
+      "title": "求密度与遮挡时间",
+      "content": "\\(\\rho=3\\pi/(GT_0^2\\sin^3\\theta)\\)，所以 A 少了倒数。近地卫星受遮挡的圆心角为 \\(\\pi+2\\theta\\)，遮挡时间为该角度占一周的比例乘 \\(T_{II}\\)。故 B、C、D 正确。"
+    }
   ],
   "analysis": {
     "title": "多选第13题逐项解析",
@@ -50,18 +87,69 @@
     "sharedFormula": "\\[\\sin\\theta=\\frac Rr,\\quad \\frac{a_I}{a_{II}}=\\left(\\frac Rr\\right)^2,\\quad \\frac{T_{II}}{T_0}=\\left(\\frac Rr\\right)^{3/2}\\]"
   },
   "optionAnalyses": [
-    {"option": "A", "title": "地球平均密度", "judgment": "正确表达式为 \\(3\\pi/(GT_0^2\\sin^3\\theta)\\)，A 错误。"},
-    {"option": "B", "title": "两卫星加速度比", "judgment": "加速度按轨道半径平方反比，B 正确。"},
-    {"option": "C", "title": "近地卫星周期", "judgment": "周期按轨道半径的 \\(3/2\\) 次方变化，C 正确。"},
-    {"option": "D", "title": "信号遮挡时间", "judgment": "遮挡弧对应圆心角 \\(\\pi+2\\theta\\)，乘近地卫星周期即可，D 正确。"}
+    {
+      "option": "A",
+      "title": "地球平均密度",
+      "judgment": "正确表达式为 \\(3\\pi/(GT_0^2\\sin^3\\theta)\\)，A 错误。"
+    },
+    {
+      "option": "B",
+      "title": "两卫星加速度比",
+      "judgment": "加速度按轨道半径平方反比，B 正确。"
+    },
+    {
+      "option": "C",
+      "title": "近地卫星周期",
+      "judgment": "周期按轨道半径的 \\(3/2\\) 次方变化，C 正确。"
+    },
+    {
+      "option": "D",
+      "title": "信号遮挡时间",
+      "judgment": "遮挡弧对应圆心角 \\(\\pi+2\\theta\\)，乘近地卫星周期即可，D 正确。"
+    }
   ],
-  "analysisPresentation": {"optionMode": "independent-statements", "collapseEachStep": true},
+  "analysisPresentation": {
+    "optionMode": "independent-statements",
+    "collapseEachStep": true
+  },
   "studentExploration": {
     "title": "多选卫星题，我把几何量翻译成轨道半径比",
     "opening": "我先从切线图中提取唯一的无量纲量 \\(R/r\\)，再让每个选项都用它表示。",
     "stages": [
-      {"title": "“张角越大，卫星一定越远？”", "prompt": "从卫星向地球作切线，半张角为 \\(\\theta\\)。请写直角三角形中的 \\(\\sin\\theta\\)，并用“越远看起来越小”检查比例方向。", "thought": "我对图形方向没有把握，差点把 \\(r/R\\) 写反。", "check": "离地球越远，看到的地球应越小，半张角应减小。", "correction": "切线直角三角形给 \\(\\sin\\theta=R/r\\)，符合远则角小。", "takeaway": "几何公式写完后用远近趋势检查比例方向。", "animationPreset": {"params": {"viewAngle": 20, "earthPeriod": 24}, "progress": 0, "play": true, "caption": "地球视张角已调大。观察张角增大时轨道半径应减小，再对照平方与 \\(3/2\\) 次幂规律。"}},
-      {"title": "同一个比例出现不同幂次", "prompt": "同一个轨道半径比代入 \\(a=GM/r^2\\) 和 \\(T^2\\propto r^3\\) 后，加速度比与周期比分别带什么幂次？", "thought": "我想把加速度比和周期比都写成 \\(R/r\\)。", "check": "引力加速度按半径平方反比，周期按半径 \\(3/2\\) 次方变化。", "correction": "分别得到 \\(a_I/a_{II}=(R/r)^2\\) 和 \\(T_{II}/T_0=(R/r)^{3/2}\\)。", "takeaway": "先写基本规律，再代共同几何比，不能凭相似形式猜幂次。", "animationPreset": {"params": {"viewAngle": 8.7, "earthPeriod": 28}, "progress": 0.78, "play": false, "caption": "轨道半径比已固定，右侧同时显示平方反比的加速度和 \\(3/2\\) 次幂的周期，比较两条曲线的变化速度。"}}
+      {
+        "title": "“张角越大，卫星一定越远？”",
+        "prompt": "从卫星向地球作切线，半张角为 \\(\\theta\\)。请写直角三角形中的 \\(\\sin\\theta\\)，并用“越远看起来越小”检查比例方向。",
+        "thought": "我对图形方向没有把握，差点把 \\(r/R\\) 写反。",
+        "check": "离地球越远，看到的地球应越小，半张角应减小。",
+        "correction": "切线直角三角形给 \\(\\sin\\theta=R/r\\)，符合远则角小。",
+        "takeaway": "几何公式写完后用远近趋势检查比例方向。",
+        "animationPreset": {
+          "params": {
+            "viewAngle": 20,
+            "earthPeriod": 24
+          },
+          "progress": 0,
+          "play": true,
+          "caption": "地球视张角已调大。观察张角增大时轨道半径应减小，再对照平方与 \\(3/2\\) 次幂规律。"
+        }
+      },
+      {
+        "title": "同一个比例出现不同幂次",
+        "prompt": "同一个轨道半径比代入 \\(a=GM/r^2\\) 和 \\(T^2\\propto r^3\\) 后，加速度比与周期比分别带什么幂次？",
+        "thought": "我想把加速度比和周期比都写成 \\(R/r\\)。",
+        "check": "引力加速度按半径平方反比，周期按半径 \\(3/2\\) 次方变化。",
+        "correction": "分别得到 \\(a_I/a_{II}=(R/r)^2\\) 和 \\(T_{II}/T_0=(R/r)^{3/2}\\)。",
+        "takeaway": "先写基本规律，再代共同几何比，不能凭相似形式猜幂次。",
+        "animationPreset": {
+          "params": {
+            "viewAngle": 8.7,
+            "earthPeriod": 28
+          },
+          "progress": 0.78,
+          "play": false,
+          "caption": "轨道半径比已固定，右侧同时显示平方反比的加速度和 \\(3/2\\) 次幂的周期，比较两条曲线的变化速度。"
+        }
+      }
     ]
   },
   "realLifeCase": {
@@ -69,7 +157,10 @@
     "scene": "地面站或高轨卫星与低轨卫星通信时，地球会像屏障一样遮住无线电视线。工程师用轨道高度、地球张角和相对周期估算可见时间。",
     "mapping": "同步卫星看到的地球半张角给出 \\(R/r\\)，近地卫星周期由轨道尺度换算，信号遮挡时长则由被遮挡圆心角占一周的比例决定。",
     "sharedModel": "切线几何给 \\(\\sin\\theta=R/r\\)；引力加速度按 \\(r^{-2}\\) 变化，周期按 \\(r^{3/2}\\) 变化。几何、动力学和时间比例是原题三个选项的共同骨架。",
-    "realityFactors": ["大气折射和通信天线最低仰角会缩短有效可见窗口。", "真实导航星座还需考虑轨道倾角与多颗卫星接力。"],
+    "realityFactors": [
+      "大气折射和通信天线最低仰角会缩短有效可见窗口。",
+      "真实导航星座还需考虑轨道倾角与多颗卫星接力。"
+    ],
     "videos": [
       {
         "platform": "哔哩哔哩",
@@ -98,7 +189,11 @@
     ],
     "question": "为什么同一个 \\(R/r\\) 既会以平方出现在加速度比中，又会以 \\(3/2\\) 次方出现在周期比中？",
     "answer": "\\(R/r\\) 只是几何给出的半径比，代入不同物理规律时会继承不同幂次。引力加速度满足 \\(a=GM/r^2\\)，所以加速度比含半径比的平方；开普勒第三定律给 \\(T^2\\propto r^3\\)，即 \\(T\\propto r^{3/2}\\)，所以周期比含半径比的 \\(3/2\\) 次方。幂次来自物理定律，不来自张角几何本身。",
-    "rubric": ["写出或说明引力加速度的平方反比规律。", "写出或说明周期的 \\(r^{3/2}\\) 规律。", "指出共同几何比代入不同定律后产生不同幂次。"]
+    "rubric": [
+      "写出或说明引力加速度的平方反比规律。",
+      "写出或说明周期的 \\(r^{3/2}\\) 规律。",
+      "指出共同几何比代入不同定律后产生不同幂次。"
+    ]
   },
   "practice": {
     "title": "进阶近似题：卫星之间的可视窗口",
@@ -117,5 +212,90 @@
       "matchReason": "两题都把同步卫星的轨道半径、中心天体密度和自转周期联立，核心消元关系完全一致。",
       "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L29"
     }
-  ]
+  ],
+  "learningCycle": {
+    "generatedBy": "backfill_learning_content_v1",
+    "intervalDays": [
+      1,
+      3,
+      7,
+      14,
+      30
+    ],
+    "prediction": {
+      "title": "播放前预测：同步卫星与几何遮挡",
+      "prompt": "观察动画前，解决“多选第13题：地球张角与卫星参数”时最合理的第一步是什么？",
+      "answer": "B",
+      "explanation": "正确起点是“先确定中心天体、距离是球心距还是高度，再写万有引力关系”。本题关系 \\[\\sin\\theta=\\frac Rr,\\quad \\frac{a_I}{a_{II}}=\\left(\\frac Rr\\right)^2,\\quad \\frac{T_{II}}{T_0}=\\left(\\frac Rr\\right)^{3/2}\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
+      "options": [
+        {
+          "value": "A",
+          "text": "先把题目中的所有数值代入最熟悉的公式",
+          "diagnosis": {
+            "tag": "先算后建模",
+            "feedback": "这样容易出现“把距地面高度直接代入万有引力公式中的球心距”的问题。",
+            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
+          }
+        },
+        {
+          "value": "B",
+          "text": "先确定中心天体、距离是球心距还是高度，再写万有引力关系"
+        },
+        {
+          "value": "C",
+          "text": "只根据动画轨迹外形直接判断答案",
+          "diagnosis": {
+            "tag": "把示意图当成定量证据",
+            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
+            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
+          }
+        },
+        {
+          "value": "D",
+          "text": "先记住原题答案，再寻找能得到该答案的计算",
+          "diagnosis": {
+            "tag": "结论倒推动机",
+            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
+            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
+          }
+        }
+      ]
+    },
+    "review": {
+      "title": "延时复习：迁移“同步卫星与几何遮挡”",
+      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
+      "answer": "B",
+      "explanation": "同题族迁移时应保留“球对称天体外部的引力由中心距离和中心天体质量决定”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
+      "options": [
+        {
+          "value": "A",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "diagnosis": {
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+          }
+        },
+        {
+          "value": "B",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+        },
+        {
+          "value": "C",
+          "text": "只要公式相同，就不需要重新判断研究对象和过程",
+          "diagnosis": {
+            "tag": "忽略模型前提",
+            "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
+          }
+        },
+        {
+          "value": "D",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "diagnosis": {
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+          }
+        }
+      ]
+    }
+  }
 }

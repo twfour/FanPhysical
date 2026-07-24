@@ -100,12 +100,6 @@
     "静摩擦临界",
     "最大速度"
   ],
-  "source": {
-    "title": "圆周运动日常",
-    "text": "B9",
-    "page": "",
-    "hidden": true
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：倾斜面上无摩擦转弯",

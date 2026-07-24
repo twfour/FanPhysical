@@ -116,15 +116,6 @@
       ]
     }
   ],
-  "summary": {
-    "title": "核心方法",
-    "content": "分别计算初末状态下各弹簧的形变量，然后根据物体之间的连接关系找出相对位移。"
-  },
-  "source": {
-    "title": "力学基础",
-    "text": "第 2 题",
-    "page": "第 2 题"
-  },
   "analysisPresentation": {
     "collapseEachStep": true
   },

@@ -75,12 +75,6 @@
     "匀速圆周运动",
     "周期、角速度、线速度、转速"
   ],
-  "source": {
-    "title": "圆周运动",
-    "text": "第2题",
-    "page": "",
-    "hidden": true
-  },
   "steps": [
     {
       "stepId": 1,
@@ -113,10 +107,6 @@
       "commonMistakes": []
     }
   ],
-  "summary": {
-    "title": "总结",
-    "content": "本题关键是通过奶油点数确定周期，然后熟练运用公式。最终答案为B。"
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：圆盘点奶油",

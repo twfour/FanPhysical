@@ -78,12 +78,6 @@
     "线速度",
     "角速度"
   ],
-  "source": {
-    "title": "圆周运动",
-    "text": "第1题",
-    "page": "",
-    "hidden": true
-  },
   "steps": [
     {
       "stepId": 1,
@@ -125,10 +119,6 @@
       "commonMistakes": []
     }
   ],
-  "summary": {
-    "title": "总结",
-    "content": "皮带传动边缘线速度相等，同轴传动角速度相等。通过半径比例即可推导各点速度、角速度之比。"
-  },
   "images": [],
   "practice": {
     "title": "进阶近似题：皮带轮线速度与角速度",
