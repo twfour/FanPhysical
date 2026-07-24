@@ -398,6 +398,97 @@ def validate_exam_connections(path, problem):
     return errors
 
 
+def validate_study_tracks(path, problem):
+    tracks = problem.get("studyTracks")
+    if problem.get("chapter") != "必修二结业测试":
+        return [] if tracks is None else [f"{path.name}: studyTracks currently belongs only to 必修二结业测试"]
+    if not isinstance(tracks, dict):
+        return [f"{path.name}: 必修二结业测试 problem needs studyTracks"]
+    errors = []
+    if tracks.get("defaultTrack") != "gaokao":
+        errors.append(f"{path.name}: studyTracks defaultTrack must be gaokao")
+    required = {
+        "gaokao": ("title", "badge", "goal", "method", "focus", "completion", "verifiedCount"),
+        "competition": (
+            "title", "badge", "goal", "method", "mathTools", "boundary",
+            "completion", "verifiedCount", "resourceStatus",
+        ),
+    }
+    for key, fields in required.items():
+        track = tracks.get(key)
+        if not isinstance(track, dict):
+            errors.append(f"{path.name}: studyTracks needs {key}")
+            continue
+        for field in fields:
+            value = track.get(field)
+            if field == "verifiedCount":
+                if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+                    errors.append(f"{path.name}: studyTracks {key} needs a valid verifiedCount")
+            elif field in {"focus", "mathTools"}:
+                if not isinstance(value, list) or not value or not all(is_non_empty_string(item) for item in value):
+                    errors.append(f"{path.name}: studyTracks {key} needs non-empty {field}")
+            elif not is_non_empty_string(value):
+                errors.append(f"{path.name}: studyTracks {key} needs {field}")
+        actual = sum(
+            item.get("type") == key
+            for item in problem.get("examConnections", [])
+            if isinstance(item, dict)
+        )
+        if track.get("verifiedCount") != actual:
+            errors.append(f"{path.name}: studyTracks {key} verifiedCount must match examConnections")
+    return errors
+
+
+def validate_virtual_experiment(path, problem):
+    experiment = problem.get("experiment")
+    if experiment is None:
+        return []
+    if not isinstance(experiment, dict):
+        return [f"{path.name}: experiment must be an object"]
+    errors = []
+    for field in ("type", "title", "goal", "expectedRelation"):
+        if not is_non_empty_string(experiment.get(field)):
+            errors.append(f"{path.name}: experiment needs {field}")
+    if experiment.get("enabled") is not True:
+        errors.append(f"{path.name}: experiment enabled must be true")
+    instruments = experiment.get("instruments")
+    required = experiment.get("requiredInstruments")
+    if not isinstance(instruments, list) or not instruments:
+        errors.append(f"{path.name}: experiment needs instruments")
+        instrument_ids = set()
+    else:
+        instrument_ids = {
+            item.get("id")
+            for item in instruments
+            if isinstance(item, dict) and is_non_empty_string(item.get("id")) and is_non_empty_string(item.get("label"))
+        }
+        if len(instrument_ids) != len(instruments):
+            errors.append(f"{path.name}: experiment instruments need unique id and label")
+    if not isinstance(required, list) or not required or not all(item in instrument_ids for item in required):
+        errors.append(f"{path.name}: experiment requiredInstruments must reference defined instruments")
+    defaults = experiment.get("defaults")
+    controls = experiment.get("controls")
+    for key in ("mass", "radius", "period"):
+        if not isinstance(defaults, dict) or not isinstance(defaults.get(key), (int, float)):
+            errors.append(f"{path.name}: experiment defaults needs numeric {key}")
+        definition = controls.get(key) if isinstance(controls, dict) else None
+        if not isinstance(definition, dict):
+            errors.append(f"{path.name}: experiment controls needs {key}")
+            continue
+        for field in ("label", "min", "max", "step", "decimals", "unit"):
+            if field not in definition:
+                errors.append(f"{path.name}: experiment control {key} needs {field}")
+    fit_models = experiment.get("fitModels")
+    if fit_models != ["period", "periodSquared", "inversePeriodSquared"]:
+        errors.append(f"{path.name}: experiment fitModels must provide the supported three choices")
+    if not isinstance(experiment.get("minimumSamples"), int) or experiment.get("minimumSamples") < 3:
+        errors.append(f"{path.name}: experiment minimumSamples must be at least 3")
+    noise = experiment.get("noise")
+    if not isinstance(noise, dict) or not isinstance(noise.get("relative"), (int, float)):
+        errors.append(f"{path.name}: experiment needs numeric relative noise")
+    return errors
+
+
 def validate_taxonomy(path, problem):
     taxonomy = problem.get("taxonomy")
     if taxonomy is None:
@@ -478,6 +569,8 @@ def validate_problem(path):
     errors.extend(validate_learning_cycle(path, problem))
     errors.extend(validate_learning_path(path, problem))
     errors.extend(validate_exam_connections(path, problem))
+    errors.extend(validate_study_tracks(path, problem))
+    errors.extend(validate_virtual_experiment(path, problem))
     errors.extend(validate_taxonomy(path, problem))
     return problem, animation_type, errors
 

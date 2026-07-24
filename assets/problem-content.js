@@ -21,6 +21,9 @@ function renderProblemDataNotes(problem) {
 
     var authoritativeResourcesBlock = createAuthoritativeResourcesBlock(problem);
     var predictionBlock = createLearningCyclePredictionBlock(problem);
+    var experimentBlock = typeof createVirtualExperimentBlock === "function"
+      ? createVirtualExperimentBlock(problem)
+      : null;
     var explorationBlock = createStudentExplorationBlock(problem);
     var realLifeBlock = createRealLifeCaseBlock(problem);
     var practiceBlock = createProblemPracticeBlock(problem);
@@ -29,6 +32,9 @@ function renderProblemDataNotes(problem) {
       grid.appendChild(createProblemLearningStatusBar(problem));
     }
     grid.appendChild(createProblemQuestionBlock(problem));
+    if (experimentBlock) {
+      grid.appendChild(experimentBlock);
+    }
     var taxonomyBlock = createProblemTaxonomyBlock(problem);
     if (taxonomyBlock) {
       grid.appendChild(taxonomyBlock);
@@ -617,11 +623,14 @@ function createProblemExamConnectionsBlock(problem) {
   if (!items.length) {
     return null;
   }
+  var tracks = problem.studyTracks;
 
   var block = createProblemNoteBlock(
-    "真题拓展",
-    "高考迁移与竞赛挑战",
-    "先判断模型是否相同，再比较题目增加了哪些条件。竞赛题仅在考点确实衔接时提供。"
+    tracks ? "升学分轨" : "真题拓展",
+    tracks ? "高考轨与竞赛衔接轨" : "高考迁移与竞赛挑战",
+    tracks
+      ? "两条路径目标不同。高考轨训练课内模型的稳定迁移；竞赛轨训练模型升级、近似与数学准备。"
+      : "先判断模型是否相同，再比较题目增加了哪些条件。竞赛题仅在考点确实衔接时提供。"
   );
   block.classList.add("exam-connections-block");
   var groups = [
@@ -637,15 +646,52 @@ function createProblemExamConnectionsBlock(problem) {
     }
   ];
 
-  groups.forEach(function (group) {
+  var trackPanels = {};
+  if (tracks) {
+    var tabs = document.createElement("div");
+    tabs.className = "study-track-tabs";
+    tabs.setAttribute("role", "tablist");
+    [
+      { key: "gaokao", label: "高考轨" },
+      { key: "competition", label: "竞赛衔接轨" }
+    ].forEach(function (definition, index) {
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "study-track-tab";
+      button.dataset.track = definition.key;
+      button.setAttribute("role", "tab");
+      button.setAttribute("aria-selected", index === 0 ? "true" : "false");
+      button.innerText = definition.label;
+      button.onclick = function () {
+        tabs.querySelectorAll(".study-track-tab").forEach(function (tab) {
+          tab.setAttribute("aria-selected", tab === button ? "true" : "false");
+        });
+        Object.keys(trackPanels).forEach(function (key) {
+          trackPanels[key].hidden = key !== definition.key;
+        });
+        renderMath(block);
+      };
+      tabs.appendChild(button);
+    });
+    block.appendChild(tabs);
+  }
+
+  groups.forEach(function (group, groupIndex) {
     var groupItems = items.filter(function (item) {
       return item && item.type === group.type;
     });
-    if (!groupItems.length) {
+    var track = tracks && tracks[group.type];
+    if (!groupItems.length && !track) {
       return;
     }
     var section = document.createElement("section");
     section.className = "exam-connection-group is-" + group.type;
+    if (tracks) {
+      section.classList.add("study-track-panel");
+      section.hidden = groupIndex !== 0;
+      trackPanels[group.type] = section;
+      appendProblemStudyTrackOverview(section, track, group.type);
+    }
     var heading = document.createElement("div");
     heading.className = "exam-connection-heading";
     var headingTitle = document.createElement("h3");
@@ -656,15 +702,72 @@ function createProblemExamConnectionsBlock(problem) {
     heading.appendChild(headingText);
     section.appendChild(heading);
 
-    var grid = document.createElement("div");
-    grid.className = "exam-connection-grid";
-    groupItems.forEach(function (item) {
-      grid.appendChild(createProblemExamConnectionCard(item));
-    });
-    section.appendChild(grid);
+    if (groupItems.length) {
+      var grid = document.createElement("div");
+      grid.className = "exam-connection-grid";
+      groupItems.forEach(function (item) {
+        grid.appendChild(createProblemExamConnectionCard(item));
+      });
+      section.appendChild(grid);
+    } else if (group.type === "competition") {
+      var empty = document.createElement("p");
+      empty.className = "study-track-resource-empty";
+      empty.innerText = "当前题暂未关联可核验竞赛原题。先完成上方能力准备；找到官方题源后再加入真题。";
+      section.appendChild(empty);
+    }
     block.appendChild(section);
   });
   return block;
+}
+
+function appendProblemStudyTrackOverview(section, track, type) {
+  if (!section || !track) return;
+  var overview = document.createElement("div");
+  overview.className = "study-track-overview is-" + type;
+  var heading = document.createElement("div");
+  heading.className = "study-track-overview-heading";
+  var title = document.createElement("strong");
+  title.innerText = track.title || (type === "competition" ? "竞赛衔接轨" : "高考轨");
+  var badge = document.createElement("span");
+  badge.innerText = track.badge || "";
+  heading.appendChild(title);
+  heading.appendChild(badge);
+  overview.appendChild(heading);
+  [
+    ["目标", track.goal],
+    ["训练方法", track.method],
+    ["完成标准", track.completion]
+  ].forEach(function (item) {
+    if (!item[1]) return;
+    var row = document.createElement("p");
+    var label = document.createElement("b");
+    label.innerText = item[0] + "：";
+    row.appendChild(label);
+    row.appendChild(document.createTextNode(item[1]));
+    overview.appendChild(row);
+  });
+  var list = type === "competition" ? track.mathTools : track.focus;
+  if (Array.isArray(list) && list.length) {
+    var tools = document.createElement("p");
+    var toolsLabel = document.createElement("b");
+    toolsLabel.innerText = type === "competition" ? "数学准备：" : "高考重点：";
+    tools.appendChild(toolsLabel);
+    tools.appendChild(document.createTextNode(list.join("、")));
+    overview.appendChild(tools);
+  }
+  if (track.boundary) {
+    var boundary = document.createElement("p");
+    boundary.className = "study-track-boundary";
+    boundary.innerText = "范围边界：" + track.boundary;
+    overview.appendChild(boundary);
+  }
+  if (track.resourceStatus) {
+    var status = document.createElement("p");
+    status.className = "study-track-resource-status";
+    status.innerText = track.resourceStatus;
+    overview.appendChild(status);
+  }
+  section.appendChild(overview);
 }
 
 function createProblemExamConnectionCard(item) {

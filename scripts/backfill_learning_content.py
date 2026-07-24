@@ -26,6 +26,44 @@ HANDCRAFTED_LEARNING_CYCLE_IDS = {
 }
 GENERATOR_ID = "backfill_learning_content_v1"
 
+COMPETITION_TRACKS = {
+    "gravitation": {
+        "mathTools": ["参数比例与无量纲化", "一元函数极值", "必要时使用简单微积分"],
+        "upgrade": "从圆轨道直接计算升级到椭圆轨道、有效势能、摄动或观测反演。",
+        "boundary": "不默认要求广义相对论；陌生轨道公式必须由题面给出或从守恒关系推出。",
+    },
+    "orbit-transfer": {
+        "mathTools": ["矢量分解", "参数方程", "能量与角动量联立"],
+        "upgrade": "从单次变轨判断升级到多次点火、转移轨道和燃料约束。",
+        "boundary": "先掌握二体模型；有限推力、摄动和三体效应只在题面提供信息时使用。",
+    },
+    "projectile-motion": {
+        "mathTools": ["参数方程", "一元函数极值", "小量近似"],
+        "upgrade": "从水平与竖直分解升级到包络线、最值、移动边界或阻力修正。",
+        "boundary": "无阻力模型与含阻力模型必须分开；不把微分方程当作默认先修知识。",
+    },
+    "circular-motion": {
+        "mathTools": ["矢量投影", "一元函数极值", "角动量与能量联立"],
+        "upgrade": "从径向受力升级到非惯性系、变半径约束、角动量或稳定性判断。",
+        "boundary": "向心力仍是径向合力；科里奥利力等内容只在参考系确实需要时引入。",
+    },
+    "constraint-system": {
+        "mathTools": ["矢量投影", "几何微分", "多变量约束的参数化"],
+        "upgrade": "从单根绳长约束升级到多约束、瞬时速度关系和分段接触。",
+        "boundary": "先从几何恒等式推导，不把端点速度大小直接判为相等。",
+    },
+    "work-energy": {
+        "mathTools": ["函数图像面积", "简单定积分", "一元函数极值"],
+        "upgrade": "从恒力做功升级到变力功、功率约束和多阶段能量转化。",
+        "boundary": "积分只用于变力功或连续变化量；能量系统边界仍须先明确。",
+    },
+    "energy-conservation": {
+        "mathTools": ["函数极值", "简单定积分", "近似展开"],
+        "upgrade": "从两状态守恒升级到有效势能、稳定平衡和多阶段约束。",
+        "boundary": "机械能守恒必须先检查非保守力；不能因数学形式漂亮而省略系统判断。",
+    },
+}
+
 
 MODEL_PROFILES = {
     "accelerated-frame": {
@@ -1208,6 +1246,46 @@ def build_learning_cycle(
     }
 
 
+def build_required_two_study_tracks(problem: dict, profile: dict) -> dict:
+    taxonomy = problem["taxonomy"]
+    skills = taxonomy.get("skills", [])
+    exam_connections = problem.get("examConnections", [])
+    gaokao_count = sum(item.get("type") == "gaokao" for item in exam_connections)
+    competition_count = sum(item.get("type") == "competition" for item in exam_connections)
+    competition = COMPETITION_TRACKS.get(
+        taxonomy["modelId"],
+        {
+            "mathTools": ["矢量分解", "一元函数关系", "量纲与极限检验"],
+            "upgrade": "从课内直接模型升级到陌生情境、参数变化和多阶段综合。",
+            "boundary": "超出课内的规律必须由题面给出或完成必要推导，不预设大学课程结论。",
+        },
+    )
+    return {
+        "generatedBy": GENERATOR_ID,
+        "defaultTrack": "gaokao",
+        "gaokao": {
+            "title": "高考轨",
+            "badge": "课内模型与规范表达",
+            "goal": f"稳定掌握“{taxonomy['familyName']}”，在高考情境中完成识别、列式、计算和边界检查。",
+            "method": f"先执行“{profile['first']}”，再完成原题解析、近似题和高考真题迁移。",
+            "focus": skills[:3],
+            "completion": "能够独立完成原题与近似题，并说明真题改变了哪些条件。",
+            "verifiedCount": gaokao_count,
+        },
+        "competition": {
+            "title": "竞赛衔接轨",
+            "badge": "模型升级与数学准备",
+            "goal": competition["upgrade"],
+            "method": f"保留核心不变量“{profile['invariant']}”，再引入新增约束、近似或数学工具。",
+            "mathTools": competition["mathTools"],
+            "boundary": competition["boundary"],
+            "completion": "能先写出物理模型与近似条件，再完成推导、量纲检查和极限情况检验。",
+            "verifiedCount": competition_count,
+            "resourceStatus": "已有核验竞赛真题" if competition_count else "暂无核验竞赛真题，仅进行能力准备",
+        },
+    }
+
+
 def normalize_option_analysis(problem: dict, profile: dict) -> None:
     analyses = problem.get("optionAnalyses")
     if not isinstance(analyses, list) or not analyses:
@@ -1317,6 +1395,8 @@ def enrich_problem(
                 profile,
                 cycle_answer_labels.get(problem["id"], ("B", "D")),
             )
+        if profile:
+            problem["studyTracks"] = build_required_two_study_tracks(problem, profile)
         return
     taxonomy = problem.get("taxonomy", {})
     model_id = taxonomy.get("modelId")

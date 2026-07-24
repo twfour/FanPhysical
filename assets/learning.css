@@ -1027,6 +1027,233 @@
   border-top: 1px solid var(--line);
 }
 
+.study-track-tabs {
+  display: inline-flex;
+  gap: 4px;
+  margin-top: 14px;
+  padding: 4px;
+  border: 1px solid #d6dce5;
+  border-radius: 8px;
+  background: #eef1f5;
+}
+
+.study-track-tab {
+  min-height: 36px;
+  border: 0;
+  border-radius: 6px;
+  padding: 7px 14px;
+  color: #505967;
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.study-track-tab[aria-selected="true"] {
+  color: #fff;
+  background: #202936;
+}
+
+.study-track-overview {
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border: 1px solid #b9d7c7;
+  border-radius: 8px;
+  background: #f4fbf7;
+}
+
+.study-track-overview.is-competition {
+  border-color: #e4c7a4;
+  background: #fff9f1;
+}
+
+.study-track-overview-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.study-track-overview-heading > strong {
+  font-size: 18px;
+}
+
+.study-track-overview-heading > span,
+.study-track-resource-status {
+  border-radius: 999px;
+  padding: 3px 9px;
+  color: #245f44;
+  background: #dff3e7;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.study-track-overview.is-competition .study-track-overview-heading > span,
+.study-track-overview.is-competition .study-track-resource-status {
+  color: #855113;
+  background: #f8e5c8;
+}
+
+.problem-note-block .study-track-overview > p {
+  margin: 6px 0;
+  color: #414a56;
+  line-height: 1.65;
+}
+
+.problem-note-block .study-track-boundary {
+  padding-top: 8px;
+  border-top: 1px solid rgba(120, 126, 136, 0.22);
+}
+
+.problem-note-block .study-track-resource-status {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.study-track-resource-empty {
+  border: 1px dashed #d1a871;
+  border-radius: 7px;
+  padding: 12px 14px;
+  color: #76501f;
+  background: #fffaf3;
+}
+
+.virtual-experiment-block {
+  border-color: #a9c6d8;
+  background: #f6fbfe;
+}
+
+.virtual-lab-section {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #d5e0e7;
+}
+
+.virtual-lab-section > h3 {
+  margin: 0 0 12px;
+  font-size: 17px;
+}
+
+.virtual-lab-instruments {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.virtual-lab-instruments label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #cbd7df;
+  border-radius: 7px;
+  background: #fff;
+  padding: 9px 10px;
+  cursor: pointer;
+}
+
+.virtual-lab-instruments input {
+  width: 17px;
+  height: 17px;
+  accent-color: #1d648f;
+}
+
+.problem-note-block .virtual-lab-readiness,
+.problem-note-block .virtual-lab-fit-result,
+.problem-note-block .virtual-lab-score {
+  margin: 10px 0 0;
+  color: #40505d;
+  font-size: 14px;
+}
+
+.virtual-lab-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.virtual-lab-controls label {
+  display: grid;
+  gap: 6px;
+  border: 1px solid #cbd7df;
+  border-radius: 7px;
+  background: #fff;
+  padding: 10px;
+}
+
+.virtual-lab-controls strong {
+  color: #1d648f;
+  font-size: 14px;
+}
+
+.virtual-lab-table-wrap {
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+.virtual-lab-table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.virtual-lab-table-wrap th,
+.virtual-lab-table-wrap td {
+  border: 1px solid #d7e0e6;
+  padding: 7px 9px;
+  text-align: right;
+}
+
+.virtual-lab-table-wrap th:first-child,
+.virtual-lab-table-wrap td:first-child {
+  text-align: center;
+}
+
+.virtual-lab-fit-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.virtual-lab-fit-controls select {
+  min-height: 38px;
+  border: 1px solid #aebac5;
+  border-radius: 7px;
+  background: #fff;
+  padding: 6px 10px;
+  font: inherit;
+}
+
+.virtual-lab-fit-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 12px;
+  border: 1px solid #d4dee5;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.virtual-lab-section textarea {
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  border: 1px solid #aebac5;
+  border-radius: 7px;
+  background: #fff;
+  padding: 10px 12px;
+  color: #26313d;
+  font: inherit;
+  line-height: 1.65;
+}
+
+.problem-note-block .virtual-lab-score {
+  color: #a3263a;
+  font-weight: 800;
+}
+
 .exam-connection-heading {
   display: flex;
   align-items: baseline;
@@ -1347,6 +1574,11 @@
   }
 
   .problem-family-route {
+    grid-template-columns: 1fr;
+  }
+
+  .virtual-lab-instruments,
+  .virtual-lab-controls {
     grid-template-columns: 1fr;
   }
 

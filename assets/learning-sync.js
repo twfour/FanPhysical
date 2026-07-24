@@ -108,6 +108,9 @@ function getLearningSyncStoreDefinitions() {
     { name: "realLifeChecks", storageKey: realLifeRubricStorageKey },
     { name: "practiceMastery", storageKey: practiceMasteryStorageKey }
   ];
+  if (typeof virtualExperimentStorageKey !== "undefined") {
+    definitions.push({ name: "virtualExperiments", storageKey: virtualExperimentStorageKey });
+  }
   if (typeof learningCycleStorageKey !== "undefined") {
     definitions.push({ name: "learningCycle", storageKey: learningCycleStorageKey });
   }

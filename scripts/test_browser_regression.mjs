@@ -24,6 +24,7 @@ var MECHANICAL_HOMEWORK_ID = "lesson12_a_01_projectile_sea";
 var PROJECTILE_BASIC_ID = "projectileBasic";
 var PROJECTILE_ADVANCED_ID = "projectileBounce";
 var PROJECTILE_LUNAR_ID = "gravitation_course_08_lunar_throw";
+var VIRTUAL_LAB_ID = "required2_multiple_15_gear_turntable";
 var PREFETCH_PROBLEM_ID = "curve_training_16_rope_wrap_prism";
 var LEARNING_SYNC_TEST_PASSWORD = "fanphysics-learning-browser-test";
 var NOTEBOOKLM_TEST_PASSWORD = "fanphysics-notebook-browser-test";
@@ -328,6 +329,59 @@ async function main() {
     );
     assert.equal(await page.locator(".problem-notes .learning-sync-panel").count(), 0);
     assert.equal(await page.locator("#learningSyncHome .learning-sync-panel").count(), 1);
+    var trackBlock = page.locator(".exam-connections-block");
+    await expandNoteBlock(trackBlock, "study tracks");
+    assert.equal(await trackBlock.locator(".study-track-tab").count(), 2);
+    assert.equal(await trackBlock.locator(".study-track-panel.is-gaokao").isVisible(), true);
+    assert.equal(await trackBlock.locator(".study-track-panel.is-competition").isHidden(), true);
+    await trackBlock.getByRole("tab", { name: "竞赛衔接轨", exact: true }).click();
+    assert.equal(await trackBlock.locator(".study-track-panel.is-gaokao").isHidden(), true);
+    assert.equal(await trackBlock.locator(".study-track-panel.is-competition").isVisible(), true);
+    assert.match(
+      await trackBlock.locator(".study-track-resource-status").innerText(),
+      /暂无核验竞赛真题/
+    );
+    await trackBlock.getByRole("tab", { name: "高考轨", exact: true }).click();
+    await openSceneDirectly(page, "required2_single_10_orbit_transfer");
+    var verifiedTrackBlock = page.locator(".exam-connections-block");
+    await expandNoteBlock(verifiedTrackBlock, "verified competition track");
+    await verifiedTrackBlock.getByRole("tab", { name: "竞赛衔接轨", exact: true }).click();
+    assert.equal(
+      await verifiedTrackBlock.locator(".study-track-panel.is-competition .exam-connection-card").count(),
+      1
+    );
+    assert.match(
+      await verifiedTrackBlock.locator(".study-track-resource-status").innerText(),
+      /已有核验竞赛真题/
+    );
+    await openSceneDirectly(page, PROBLEM_ID);
+  });
+
+  await runCheck("虚拟实验采样与拟合", async function () {
+    await openSceneDirectly(page, VIRTUAL_LAB_ID);
+    var lab = page.locator(".virtual-experiment-block");
+    await requireOne(lab, "virtual experiment");
+    for (var instrument of ["forceSensor", "photogate", "ruler", "balance"]) {
+      await lab.locator('input[type="checkbox"][value="' + instrument + '"]').check();
+    }
+    await lab.getByRole("button", { name: "给力传感器调零", exact: true }).click();
+    var period = lab.locator('.virtual-lab-controls input[type="range"]').nth(2);
+    for (var value of ["0.8", "1.0", "1.2", "1.6", "2.2"]) {
+      await period.evaluate(function (input, nextValue) {
+        input.value = nextValue;
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+      }, value);
+      await lab.getByRole("button", { name: "采集一组数据", exact: true }).click();
+    }
+    assert.equal(await lab.locator(".virtual-lab-table-wrap tbody tr").count(), 5);
+    await lab.locator(".virtual-lab-fit-controls select").selectOption("inversePeriodSquared");
+    await lab.getByRole("button", { name: "线性拟合", exact: true }).click();
+    assert.match(await lab.locator(".virtual-lab-fit-result").innerText(), /R² = [01]\.\d{4}/);
+    var rSquared = Number((await lab.locator(".virtual-lab-fit-result").innerText()).split("R² = ")[1]);
+    assert.equal(rSquared >= 0.98, true);
+    await lab.locator("textarea").fill("实验结果表明向心力与周期平方的倒数近似成正比，拟合斜率对应 4π²mr，误差来自传感器分辨率。");
+    assert.equal(await lab.locator(".virtual-lab-score").innerText(), "实验完成度：100 / 100");
+    await openSceneDirectly(page, PROBLEM_ID);
   });
 
   await runCheck("动画验证", async function () {
@@ -659,7 +713,7 @@ async function main() {
   });
 
   assert.deepEqual(pageErrors, [], "uncaught page errors: " + pageErrors.join(" | "));
-  console.log("Browser regression passed: 14/14 checks");
+  console.log("Browser regression passed: 15/15 checks");
 }
 
 try {

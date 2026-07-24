@@ -61,6 +61,86 @@
       "loop": false
     }
   },
+  "experiment": {
+    "enabled": true,
+    "type": "centripetal_force_lab",
+    "title": "低摩擦转台：验证向心力与周期的关系",
+    "goal": "自行选择仪器、完成校准并采集数据，检验固定质量和半径时 \\(F_c\\) 是否与 \\(1/T^2\\) 成正比。",
+    "requiredInstruments": [
+      "forceSensor",
+      "photogate",
+      "ruler",
+      "balance"
+    ],
+    "instruments": [
+      {
+        "id": "forceSensor",
+        "label": "力传感器"
+      },
+      {
+        "id": "photogate",
+        "label": "光电门"
+      },
+      {
+        "id": "ruler",
+        "label": "米尺"
+      },
+      {
+        "id": "balance",
+        "label": "电子天平"
+      },
+      {
+        "id": "stopwatch",
+        "label": "手持秒表"
+      },
+      {
+        "id": "voltmeter",
+        "label": "电压表"
+      }
+    ],
+    "defaults": {
+      "mass": 0.2,
+      "radius": 0.4,
+      "period": 1.6
+    },
+    "controls": {
+      "mass": {
+        "label": "滑块质量",
+        "min": 0.1,
+        "max": 0.5,
+        "step": 0.05,
+        "decimals": 2,
+        "unit": "kg"
+      },
+      "radius": {
+        "label": "转动半径",
+        "min": 0.2,
+        "max": 0.6,
+        "step": 0.05,
+        "decimals": 2,
+        "unit": "m"
+      },
+      "period": {
+        "label": "转动周期",
+        "min": 0.8,
+        "max": 2.4,
+        "step": 0.2,
+        "decimals": 1,
+        "unit": "s"
+      }
+    },
+    "noise": {
+      "relative": 0.015,
+      "description": "力传感器读数含约 1.5% 的确定性随机误差。"
+    },
+    "fitModels": [
+      "period",
+      "periodSquared",
+      "inversePeriodSquared"
+    ],
+    "expectedRelation": "\\[F_c=\\frac{4\\pi^2mr}{T^2}\\]",
+    "minimumSamples": 5
+  },
   "knowledge": [
     "齿轮传动",
     "向心力",
@@ -377,5 +457,36 @@
         "label": "综合迁移"
       }
     ]
+  },
+  "studyTracks": {
+    "generatedBy": "backfill_learning_content_v1",
+    "defaultTrack": "gaokao",
+    "gaokao": {
+      "title": "高考轨",
+      "badge": "课内模型与规范表达",
+      "goal": "稳定掌握“齿轮转台与向心力”，在高考情境中完成识别、列式、计算和边界检查。",
+      "method": "先执行“先标出圆心方向，再判断哪些实际力提供径向合力”，再完成原题解析、近似题和高考真题迁移。",
+      "focus": [
+        "传动比换算",
+        "向心力图像分析"
+      ],
+      "completion": "能够独立完成原题与近似题，并说明真题改变了哪些条件。",
+      "verifiedCount": 1
+    },
+    "competition": {
+      "title": "竞赛衔接轨",
+      "badge": "模型升级与数学准备",
+      "goal": "从径向受力升级到非惯性系、变半径约束、角动量或稳定性判断。",
+      "method": "保留核心不变量“无论装置怎样变化，径向合力都必须等于质量与向心加速度的乘积”，再引入新增约束、近似或数学工具。",
+      "mathTools": [
+        "矢量投影",
+        "一元函数极值",
+        "角动量与能量联立"
+      ],
+      "boundary": "向心力仍是径向合力；科里奥利力等内容只在参考系确实需要时引入。",
+      "completion": "能先写出物理模型与近似条件，再完成推导、量纲检查和极限情况检验。",
+      "verifiedCount": 1,
+      "resourceStatus": "已有核验竞赛真题"
+    }
   }
 }
