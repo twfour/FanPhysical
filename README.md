@@ -118,13 +118,13 @@ POST /api/step-ai
 deploy/aliyun/README.md
 ```
 
-常规发布默认从本机通过 SSH 直接部署：
+常规发布默认让 ECS 从 GitHub 下载当前提交，避免本机上传链路不稳定：
 
 ```bash
-deploy/aliyun/deploy.sh
+deploy/aliyun/deploy_from_github.sh
 ```
 
-不触发 GitHub Actions 中的阿里云部署工作流；仓库的 `ALIYUN_HOST`、`ALIYUN_USER`、`ALIYUN_SSH_KEY` 三个 Secret 当前不作为部署依赖。
+脚本要求工作区干净且当前提交已经推送到 GitHub。`deploy/aliyun/deploy.sh` 保留为本机打包上传的备用方式。两种方式都不触发 GitHub Actions 中的阿里云部署工作流；仓库的 `ALIYUN_HOST`、`ALIYUN_USER`、`ALIYUN_SSH_KEY` 三个 Secret 当前不作为部署依赖。
 
 ## 运行时代码结构
 
