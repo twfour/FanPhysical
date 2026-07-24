@@ -32,6 +32,14 @@ function calculateLearningProgress() {
     realLifeRubricStorageKey,
     readLearningResponseStore(realLifeRubricStorageKey)
   );
+  var practiceStore = normalizeLearningStore(
+    practiceMasteryStorageKey,
+    readLearningResponseStore(practiceMasteryStorageKey)
+  );
+  var cycleStore = normalizeLearningStore(
+    learningCycleStorageKey,
+    readLearningResponseStore(learningCycleStorageKey)
+  );
   var totals = {
     completed: 0,
     available: 0,
@@ -42,8 +50,21 @@ function calculateLearningProgress() {
     rubricDone: 0,
     rubricTotal: 0
   };
+  var evidence = {
+    predictionAttempts: 0,
+    predictionCorrect: 0,
+    animationCorrections: 0,
+    postJudgments: 0,
+    postCorrect: 0,
+    practiceAttempts: 0,
+    practiceIndependent: 0,
+    reviewAttempts: 0,
+    reviewCorrect: 0
+  };
   var chapters = {};
   var weakKnowledge = {};
+  var familySignals = {};
+  var misconceptionTags = {};
 
   learningProgressCatalog.forEach(function (problem) {
     var chapterName = problem.chapter || "未分类";
@@ -103,6 +124,61 @@ function calculateLearningProgress() {
     chapter.rubricDone += rubricDone;
     chapter.rubricTotal += rubricTotal;
 
+    var familyId = problem.familyId || problem.id;
+    if (!familySignals[familyId]) {
+      familySignals[familyId] = {
+        id: familyId,
+        name: problem.familyName || familyId,
+        attempts: 0,
+        gaps: 0,
+        misconceptions: 0
+      };
+    }
+    var family = familySignals[familyId];
+    var cycleRecord = cycleStore[problem.id + ":cycle"];
+    var cycle = cycleRecord && !cycleRecord.deleted
+      ? parseLearningCycleValue(cycleRecord.value)
+      : {};
+    if (cycle.prediction && cycle.prediction.answer) {
+      evidence.predictionAttempts += 1;
+      family.attempts += 1;
+      if (cycle.prediction.correct === true) {
+        evidence.predictionCorrect += 1;
+      } else if (cycle.prediction.correct === false) {
+        family.gaps += 2;
+      }
+      if (cycle.prediction.postAnswer) {
+        evidence.postJudgments += 1;
+        if (cycle.prediction.postCorrect === true) evidence.postCorrect += 1;
+      }
+    }
+    if (cycle.misconceptionResponse) evidence.animationCorrections += 1;
+    if (cycle.misconceptionTag) {
+      misconceptionTags[cycle.misconceptionTag] = (misconceptionTags[cycle.misconceptionTag] || 0) + 1;
+      family.misconceptions += 1;
+    }
+    var reviewHistory = cycle.review && Array.isArray(cycle.review.history) ? cycle.review.history : [];
+    reviewHistory.forEach(function (item) {
+      evidence.reviewAttempts += 1;
+      family.attempts += 1;
+      if (item.correct === true) {
+        evidence.reviewCorrect += 1;
+      } else {
+        family.gaps += 1;
+      }
+    });
+    var practiceRecord = practiceStore[problem.id + ":practice"];
+    var practiceValue = practiceRecord && !practiceRecord.deleted ? practiceRecord.value : "";
+    if (practiceValue) {
+      evidence.practiceAttempts += 1;
+      family.attempts += 1;
+      if (practiceValue === "independent") {
+        evidence.practiceIndependent += 1;
+      } else {
+        family.gaps += practiceValue === "incorrect" ? 2 : 1;
+      }
+    }
+
     var hasLearningEvidence = problemCompleted > 0;
     var gap = problemAvailable - problemCompleted;
     if (hasLearningEvidence && gap > 0) {
@@ -127,7 +203,20 @@ function calculateLearningProgress() {
       return weakKnowledge[name];
     }).sort(function (a, b) {
       return b.weight - a.weight || b.problems - a.problems || a.name.localeCompare(b.name, "zh-CN");
-    }).slice(0, 6)
+    }).slice(0, 6),
+    evidence: evidence,
+    weakFamilies: Object.keys(familySignals).map(function (id) {
+      return familySignals[id];
+    }).filter(function (item) {
+      return item.attempts > 0 && item.gaps > 0;
+    }).sort(function (a, b) {
+      return b.gaps - a.gaps || b.misconceptions - a.misconceptions || a.name.localeCompare(b.name, "zh-CN");
+    }).slice(0, 3),
+    misconceptions: Object.keys(misconceptionTags).map(function (tag) {
+      return { name: tag, count: misconceptionTags[tag] };
+    }).sort(function (a, b) {
+      return b.count - a.count || a.name.localeCompare(b.name, "zh-CN");
+    }).slice(0, 5)
   };
 }
 
@@ -184,29 +273,29 @@ function renderLearningProgressOverview() {
 
   var progress = calculateLearningProgress();
   var totals = progress.totals;
-  var overallRatio = learningProgressRatio(totals.completed, totals.available);
+  var evidence = progress.evidence;
   summaryHost.appendChild(createLearningProgressMetric(
-    "学习完成度",
-    overallRatio + "%",
-    learningProgressValue(totals.completed, totals.available) + " 项学习任务",
+    "首次预测",
+    learningProgressRatio(evidence.predictionCorrect, evidence.predictionAttempts) + "%",
+    learningProgressValue(evidence.predictionCorrect, evidence.predictionAttempts) + " 次独立判断正确",
     "learningProgressOverallValue"
   ));
   summaryHost.appendChild(createLearningProgressMetric(
-    "探索完成",
-    learningProgressValue(totals.explorationDone, totals.explorationTotal),
-    "已提交的探索阶段",
+    "动画后修正",
+    learningProgressRatio(evidence.postCorrect, evidence.postJudgments) + "%",
+    learningProgressValue(evidence.postCorrect, evidence.postJudgments) + " 次二次判断正确",
     "learningProgressExplorationValue"
   ));
   summaryHost.appendChild(createLearningProgressMetric(
-    "迁移完成",
-    learningProgressValue(totals.transferDone, totals.transferTotal),
-    "已作答的现实同构题",
+    "近似题迁移",
+    learningProgressRatio(evidence.practiceIndependent, evidence.practiceAttempts) + "%",
+    learningProgressValue(evidence.practiceIndependent, evidence.practiceAttempts) + " 次独立完成",
     "learningProgressTransferValue"
   ));
   summaryHost.appendChild(createLearningProgressMetric(
-    "迁移得分",
-    learningProgressValue(totals.rubricDone, totals.rubricTotal),
-    "已掌握的评分要点",
+    "复习保持率",
+    learningProgressRatio(evidence.reviewCorrect, evidence.reviewAttempts) + "%",
+    learningProgressValue(evidence.reviewCorrect, evidence.reviewAttempts) + " 次延时复习正确",
     "learningProgressScoreValue"
   ));
 
@@ -244,24 +333,40 @@ function renderLearningProgressOverview() {
 
   var weakTitle = document.createElement("strong");
   weakTitle.className = "learning-progress-weak-title";
-  weakTitle.innerText = "待巩固知识点";
+  weakTitle.innerText = "最需要补的题族";
   weakHost.appendChild(weakTitle);
-  if (!progress.weakKnowledge.length) {
+  if (!progress.weakFamilies.length) {
     var empty = document.createElement("p");
     empty.className = "learning-progress-empty";
-    empty.innerText = totals.completed ? "当前已完成部分尚未出现待巩固信号。" : "完成探索和迁移自评后，这里会汇总待巩固知识点。";
+    empty.innerText = evidence.predictionAttempts || evidence.practiceAttempts
+      ? "当前作答尚未形成明显薄弱题族。"
+      : "完成预测、近似题或复习后，这里会显示最需要补的三个题族。";
     weakHost.appendChild(empty);
     return;
   }
   var list = document.createElement("div");
   list.className = "learning-progress-weak-list";
-  progress.weakKnowledge.forEach(function (item) {
+  progress.weakFamilies.forEach(function (item) {
     var chip = document.createElement("span");
     chip.innerText = item.name;
-    chip.title = "来自 " + item.problems + " 道已开始但尚未完成的题";
+    chip.title = item.gaps + " 个薄弱信号，来自预测、近似题或延时复习";
     list.appendChild(chip);
   });
   weakHost.appendChild(list);
+  if (progress.misconceptions.length) {
+    var misconceptionTitle = document.createElement("strong");
+    misconceptionTitle.className = "learning-progress-weak-title";
+    misconceptionTitle.innerText = "高频误区";
+    weakHost.appendChild(misconceptionTitle);
+    var misconceptionList = document.createElement("div");
+    misconceptionList.className = "learning-progress-weak-list";
+    progress.misconceptions.forEach(function (item) {
+      var chip = document.createElement("span");
+      chip.innerText = item.name + " · " + item.count;
+      misconceptionList.appendChild(chip);
+    });
+    weakHost.appendChild(misconceptionList);
+  }
 }
 
 function loadLearningProgressCatalog() {

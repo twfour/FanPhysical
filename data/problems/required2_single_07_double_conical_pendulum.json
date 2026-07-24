@@ -161,7 +161,8 @@
         "title": "高中物理必修二：复杂圆锥摆思路",
         "url": "https://www.bilibili.com/video/av46698292/",
         "watchFor": "复杂圆锥摆中怎样分别对各物体列竖直平衡与水平向心方程，而不是只比较绳张力大小。",
-        "matchReason": "本题是两个质量串联的圆锥摆构型，视频的多物体圆锥摆分析方法可以直接迁移。"
+        "matchReason": "本题是两个质量串联的圆锥摆构型，视频的多物体圆锥摆分析方法可以直接迁移。",
+        "kind": "课程讲解"
       }
     ],
     "authoritativeResources": [
@@ -197,7 +198,8 @@
       "number": "物理部分第7题",
       "matchLevel": "同一考点",
       "matchReason": "两题都涉及两个物体绕共同轴以相同角速度运动，需要联立各自的半径、向心力与整体几何关系。",
-      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L425"
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L425",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -211,25 +213,21 @@
     ],
     "prediction": {
       "title": "播放前预测：圆锥摆构型与参数",
-      "prompt": "观察动画前，解决“单选第7题：双球圆锥摆构型”时最合理的第一步是什么？",
-      "answer": "B",
+      "prompt": "若题目条件发生变化，分析“单选第7题：双球圆锥摆构型”时哪一步仍必须优先完成？",
+      "answer": "C",
       "explanation": "正确起点是“先标出圆心方向，再判断哪些实际力提供径向合力”。本题关系 \\[\\sum F_r=m\\frac{v^2}{r}=m\\omega^2r\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
           "value": "A",
-          "text": "先把题目中的所有数值代入最熟悉的公式",
+          "text": "先记住原题答案，再寻找能得到该答案的计算",
           "diagnosis": {
-            "tag": "先算后建模",
-            "feedback": "这样容易出现“把向心力当成物体额外受到的一种力”的问题。",
-            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
+            "tag": "结论倒推动机",
+            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
+            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
           }
         },
         {
           "value": "B",
-          "text": "先标出圆心方向，再判断哪些实际力提供径向合力"
-        },
-        {
-          "value": "C",
           "text": "只根据动画轨迹外形直接判断答案",
           "diagnosis": {
             "tag": "把示意图当成定量证据",
@@ -238,33 +236,37 @@
           }
         },
         {
+          "value": "C",
+          "text": "先标出圆心方向，再判断哪些实际力提供径向合力"
+        },
+        {
           "value": "D",
-          "text": "先记住原题答案，再寻找能得到该答案的计算",
+          "text": "先把题目中的所有数值代入最熟悉的公式",
           "diagnosis": {
-            "tag": "结论倒推动机",
-            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
-            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
+            "tag": "先算后建模",
+            "feedback": "这样容易出现“把向心力当成物体额外受到的一种力”的问题。",
+            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
           }
         }
       ]
     },
     "review": {
       "title": "延时复习：迁移“圆锥摆构型与参数”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
-      "answer": "B",
+      "prompt": "隔一段时间后再看同题族变式，下列迁移方法正确的是（ ）。",
+      "answer": "A",
       "explanation": "同题族迁移时应保留“无论装置怎样变化，径向合力都必须等于质量与向心加速度的乘积”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
-          "text": "题目名称相似，原题的数值答案可以直接沿用",
-          "diagnosis": {
-            "tag": "只看表面情境",
-            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
-          }
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
         },
         {
           "value": "B",
-          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "diagnosis": {
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+          }
         },
         {
           "value": "C",
@@ -276,13 +278,81 @@
         },
         {
           "value": "D",
-          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
           "diagnosis": {
-            "tag": "忽略分段",
-            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
           }
         }
       ]
+    }
+  },
+  "learningPath": {
+    "familyId": "conical-pendulum",
+    "familyName": "圆锥摆构型与参数",
+    "currentDifficulty": 4,
+    "currentLevel": "L3",
+    "mother": {
+      "id": "circular_daily_ex9_rattle_drum",
+      "title": "例9：拨浪鼓双球圆周",
+      "chapter": "圆周运动日常",
+      "difficulty": 3,
+      "variantLevel": "L1",
+      "role": "母题"
+    },
+    "familyFocus": {
+      "observe": "空间受力分解",
+      "misconception": "把向心力当成物体额外受到的一种力",
+      "invariant": "无论装置怎样变化，径向合力都必须等于质量与向心加速度的乘积",
+      "formula": "\\[v_A=\\omega r_A>v_B\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“空间构型判断”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“空间构型判断”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“空间构型判断”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "id": "bowlDoubleBall",
+        "title": "补充第13题：半球碗双球圆周运动",
+        "chapter": "圆周运动",
+        "difficulty": 3,
+        "variantLevel": "L1",
+        "role": "母题",
+        "virtual": false,
+        "label": "直接建模"
+      },
+      {
+        "label": "条件变化",
+        "difficulty": 3,
+        "goal": "判断参数或表示方式变化后，哪些关系保持不变。",
+        "task": "改变一个关键条件，比较变化前后的趋势、临界值或图像特征，并重新检查“圆锥摆参数关联”。",
+        "variantLevel": "L2",
+        "virtual": true,
+        "check": "能区分保持不变的模型关系与必须重算的“圆锥摆参数关联”。"
+      },
+      {
+        "id": "required2_single_07_double_conical_pendulum",
+        "title": "单选第7题：双球圆锥摆构型",
+        "chapter": "必修二结业测试",
+        "difficulty": 4,
+        "variantLevel": "L3",
+        "role": "综合题",
+        "virtual": false,
+        "label": "综合迁移"
+      }
+    ],
+    "foundation": {
+      "id": "circular_motion_string",
+      "title": "C12：旋转飞椅",
+      "chapter": "圆周运动",
+      "difficulty": 3,
+      "variantLevel": "L1",
+      "role": "母题"
     }
   }
 }

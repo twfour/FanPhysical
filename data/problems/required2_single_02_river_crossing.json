@@ -161,14 +161,16 @@
         "title": "高一物理：运动的合成与分解之小船渡河",
         "url": "https://www.bilibili.com/video/BV1SA411N7s4/",
         "watchFor": "分别辨认船相对水、水相对岸和船相对岸的速度方向，比较船头垂直与航迹垂直两种要求。",
-        "matchReason": "视频直接讨论有侧流条件下的小船渡河，与原题使用同一个相对速度三角形。"
+        "matchReason": "视频直接讨论有侧流条件下的小船渡河，与原题使用同一个相对速度三角形。",
+        "kind": "课程讲解"
       },
       {
         "platform": "YouTube",
         "title": "Relative Velocity and River Boat Problems",
         "url": "https://www.youtube.com/watch?v=UGTmOCJ0NKI",
         "watchFor": "观察水流只改变沿岸分量时，横河时间和下游漂移量分别由什么决定。",
-        "matchReason": "视频把河流中的船速作为相对速度实例，可直接核对原题两种渡河方案。"
+        "matchReason": "视频把河流中的船速作为相对速度实例，可直接核对原题两种渡河方案。",
+        "kind": "课程讲解"
       }
     ],
     "authoritativeResources": [
@@ -204,7 +206,8 @@
       "number": "物理部分第2题",
       "matchLevel": "同一考点",
       "matchReason": "两题都要先把二维运动拆成彼此独立的分运动，再由某一方向的时间约束判断另一方向的位移。",
-      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L348"
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L348",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -218,25 +221,12 @@
     ],
     "prediction": {
       "title": "播放前预测：渡河时间与速度合成",
-      "prompt": "观察动画前，解决“单选第2题：两种方式渡河时间比”时最合理的第一步是什么？",
-      "answer": "B",
+      "prompt": "若题目条件发生变化，分析“单选第2题：两种方式渡河时间比”时哪一步仍必须优先完成？",
+      "answer": "D",
       "explanation": "正确起点是“先区分船相对水、水相对岸和船相对岸的速度”。本题关系 \\[\\vec v_{\\mathrm{船/岸}}=\\vec v_{\\mathrm{船/水}}+\\vec v_{\\mathrm{水/岸}}\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
           "value": "A",
-          "text": "先把题目中的所有数值代入最熟悉的公式",
-          "diagnosis": {
-            "tag": "先算后建模",
-            "feedback": "这样容易出现“把船头方向直接当成船相对岸的航迹方向”的问题。",
-            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
-          }
-        },
-        {
-          "value": "B",
-          "text": "先区分船相对水、水相对岸和船相对岸的速度"
-        },
-        {
-          "value": "C",
           "text": "只根据动画轨迹外形直接判断答案",
           "diagnosis": {
             "tag": "把示意图当成定量证据",
@@ -245,28 +235,41 @@
           }
         },
         {
-          "value": "D",
+          "value": "B",
+          "text": "先把题目中的所有数值代入最熟悉的公式",
+          "diagnosis": {
+            "tag": "先算后建模",
+            "feedback": "这样容易出现“把船头方向直接当成船相对岸的航迹方向”的问题。",
+            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
+          }
+        },
+        {
+          "value": "C",
           "text": "先记住原题答案，再寻找能得到该答案的计算",
           "diagnosis": {
             "tag": "结论倒推动机",
             "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
             "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
           }
+        },
+        {
+          "value": "D",
+          "text": "先区分船相对水、水相对岸和船相对岸的速度"
         }
       ]
     },
     "review": {
       "title": "延时复习：迁移“渡河时间与速度合成”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
+      "prompt": "重新遇到“渡河时间与速度合成”的新情境时，哪种处理最可靠？",
       "answer": "B",
       "explanation": "同题族迁移时应保留“三种速度始终满足矢量和，渡河时间由对岸方向的速度分量决定”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
-          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
           "diagnosis": {
-            "tag": "只看表面情境",
-            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
           }
         },
         {
@@ -283,13 +286,72 @@
         },
         {
           "value": "D",
-          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
           "diagnosis": {
-            "tag": "忽略分段",
-            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
           }
         }
       ]
     }
+  },
+  "learningPath": {
+    "familyId": "river-time",
+    "familyName": "渡河时间与速度合成",
+    "currentDifficulty": 3,
+    "currentLevel": "L2",
+    "mother": {
+      "id": "required2_single_02_river_crossing",
+      "title": "单选第2题：两种方式渡河时间比",
+      "chapter": "必修二结业测试",
+      "difficulty": 3,
+      "variantLevel": "L2",
+      "role": "综合题"
+    },
+    "familyFocus": {
+      "observe": "速度矢量分解",
+      "misconception": "把船头方向直接当成船相对岸的航迹方向",
+      "invariant": "三种速度始终满足矢量和，渡河时间由对岸方向的速度分量决定",
+      "formula": "\\[\\vec v_{\\mathrm{船/岸}}=\\vec v_{\\mathrm{船/水}}+\\vec v_{\\mathrm{水/岸}}\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“速度矢量分解”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“速度矢量分解”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“速度矢量分解”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "label": "直接建模",
+        "difficulty": 2,
+        "goal": "在单一过程中直接调用“渡河时间与速度合成”的主关系。",
+        "task": "保留原模型，只给一组完整条件；先写 \\[\\vec v_{\\mathrm{船/岸}}=\\vec v_{\\mathrm{船/水}}+\\vec v_{\\mathrm{水/岸}}\\]，再说明“时间方案比较”如何进入方程。",
+        "variantLevel": "L1",
+        "virtual": true,
+        "check": "能先写出 \\[\\vec v_{\\mathrm{船/岸}}=\\vec v_{\\mathrm{船/水}}+\\vec v_{\\mathrm{水/岸}}\\]，再代入条件并得到量纲正确的结果。"
+      },
+      {
+        "id": "required2_single_02_river_crossing",
+        "title": "单选第2题：两种方式渡河时间比",
+        "chapter": "必修二结业测试",
+        "difficulty": 3,
+        "variantLevel": "L2",
+        "role": "综合题",
+        "virtual": false,
+        "label": "条件变化"
+      },
+      {
+        "label": "综合迁移",
+        "difficulty": 5,
+        "goal": "在多阶段或跨知识点情境中识别并复用该题族。",
+        "task": "把过程分段，并把“速度矢量分解”与另一条物理规律联立；说明分段点及最终边界检查。",
+        "variantLevel": "L3",
+        "virtual": true,
+        "check": "能正确分段、说明每段所用规律，并在连接处检查状态连续性与临界边界。"
+      }
+    ]
   }
 }

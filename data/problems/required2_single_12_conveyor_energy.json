@@ -172,14 +172,16 @@
         "title": "机场行李系统全流程功能视频",
         "url": "https://www.bilibili.com/video/BV1js4y1e7AV/",
         "watchFor": "行李在不同输送带之间进入、加速、转运的真实过程，尤其留意接触初期的相对滑动。",
-        "matchReason": "真实行李系统就是原题“物块落上传送带”的工程原型，能看见电机持续维持带速的必要性。"
+        "matchReason": "真实行李系统就是原题“物块落上传送带”的工程原型，能看见电机持续维持带速的必要性。",
+        "kind": "课程讲解"
       },
       {
         "platform": "哔哩哔哩",
         "title": "传送带模型系统归纳与分析",
         "url": "https://www.bilibili.com/video/BV1SS4y1u7we/",
         "watchFor": "绝对位移、相对位移、摩擦生热和电机做功分别使用哪一段距离。",
-        "matchReason": "它直接解释本题的能量账本：行李动能、接触面热量和电机额外做功不能混成同一个量。"
+        "matchReason": "它直接解释本题的能量账本：行李动能、接触面热量和电机额外做功不能混成同一个量。",
+        "kind": "课程讲解"
       }
     ],
     "authoritativeResources": [
@@ -215,7 +217,8 @@
       "number": "第13题",
       "matchLevel": "同一考点",
       "matchReason": "真题要求先判断包裹相对传送带的运动方向和摩擦力，再分段计算；这正是进一步分析摩擦生热与传送带额外耗能的运动学基础。",
-      "url": "https://kaosj.com/papers/2021/06/2021-liaoning-gaokao-physics-analysis/"
+      "url": "https://kaosj.com/papers/2021/06/2021-liaoning-gaokao-physics-analysis/",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -229,8 +232,8 @@
     ],
     "prediction": {
       "title": "播放前预测：传送带能量分配",
-      "prompt": "观察动画前，解决“单选第12题：传送带能量分配”时最合理的第一步是什么？",
-      "answer": "B",
+      "prompt": "暂不代入数值。面对“单选第12题：传送带能量分配”，应先锁定哪一项关系？",
+      "answer": "C",
       "explanation": "正确起点是“先分清物体对地位移、传送带位移和接触面的相对滑动路程”。本题关系 \\[Q=f_k s_{\\mathrm{rel}}\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
@@ -244,52 +247,52 @@
         },
         {
           "value": "B",
-          "text": "先分清物体对地位移、传送带位移和接触面的相对滑动路程"
-        },
-        {
-          "value": "C",
-          "text": "只根据动画轨迹外形直接判断答案",
-          "diagnosis": {
-            "tag": "把示意图当成定量证据",
-            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
-            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
-          }
-        },
-        {
-          "value": "D",
           "text": "先记住原题答案，再寻找能得到该答案的计算",
           "diagnosis": {
             "tag": "结论倒推动机",
             "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
             "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
           }
+        },
+        {
+          "value": "C",
+          "text": "先分清物体对地位移、传送带位移和接触面的相对滑动路程"
+        },
+        {
+          "value": "D",
+          "text": "只根据动画轨迹外形直接判断答案",
+          "diagnosis": {
+            "tag": "把示意图当成定量证据",
+            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
+            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
+          }
         }
       ]
     },
     "review": {
       "title": "延时复习：迁移“传送带能量分配”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
-      "answer": "B",
+      "prompt": "检验自己是否真正掌握“传送带能量分配”时，应选择哪种分析方式？",
+      "answer": "A",
       "explanation": "同题族迁移时应保留“摩擦生热由接触面的相对路程决定，机械能变化由研究系统所受外力功决定”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
-          "text": "题目名称相似，原题的数值答案可以直接沿用",
-          "diagnosis": {
-            "tag": "只看表面情境",
-            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
-          }
-        },
-        {
-          "value": "B",
           "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
         },
         {
-          "value": "C",
+          "value": "B",
           "text": "只要公式相同，就不需要重新判断研究对象和过程",
           "diagnosis": {
             "tag": "忽略模型前提",
             "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
+          }
+        },
+        {
+          "value": "C",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "diagnosis": {
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
           }
         },
         {
@@ -302,5 +305,64 @@
         }
       ]
     }
+  },
+  "learningPath": {
+    "familyId": "energy-allocation",
+    "familyName": "传送带能量分配",
+    "currentDifficulty": 4,
+    "currentLevel": "L3",
+    "mother": {
+      "id": "required2_single_12_conveyor_energy",
+      "title": "单选第12题：传送带能量分配",
+      "chapter": "必修二结业测试",
+      "difficulty": 4,
+      "variantLevel": "L3",
+      "role": "综合题"
+    },
+    "familyFocus": {
+      "observe": "能量流向分析",
+      "misconception": "把摩擦生热直接写成摩擦力乘物体对地位移",
+      "invariant": "摩擦生热由接触面的相对路程决定，机械能变化由研究系统所受外力功决定",
+      "formula": "\\[Q=f_k s_{\\mathrm{rel}}\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“能量流向分析”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“能量流向分析”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“能量流向分析”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "label": "直接建模",
+        "difficulty": 2,
+        "goal": "在单一过程中直接调用“传送带能量分配”的主关系。",
+        "task": "保留原模型，只给一组完整条件；先写 \\[Q=f_k s_{\\mathrm{rel}}\\]，再说明“摩擦生热计算”如何进入方程。",
+        "variantLevel": "L1",
+        "virtual": true,
+        "check": "能先写出 \\[Q=f_k s_{\\mathrm{rel}}\\]，再代入条件并得到量纲正确的结果。"
+      },
+      {
+        "label": "条件变化",
+        "difficulty": 3,
+        "goal": "判断参数或表示方式变化后，哪些关系保持不变。",
+        "task": "改变一个关键条件，比较变化前后的趋势、临界值或图像特征，并重新检查“摩擦生热计算”。",
+        "variantLevel": "L2",
+        "virtual": true,
+        "check": "能区分保持不变的模型关系与必须重算的“摩擦生热计算”。"
+      },
+      {
+        "id": "required2_single_12_conveyor_energy",
+        "title": "单选第12题：传送带能量分配",
+        "chapter": "必修二结业测试",
+        "difficulty": 4,
+        "variantLevel": "L3",
+        "role": "综合题",
+        "virtual": false,
+        "label": "综合迁移"
+      }
+    ]
   }
 }

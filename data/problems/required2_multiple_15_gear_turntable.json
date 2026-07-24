@@ -168,14 +168,16 @@
         "url": "https://www.bilibili.com/video/BV1pE411N7jU/",
         "duration": "03:59",
         "watchFor": "观察保持其他条件不变时，质量、半径和角速度分别怎样改变所需向心力。",
-        "matchReason": "实验验证原题图像斜率中的核心关系 \\(F_c=m\\omega^2r\\)；齿轮传动比和摩擦是原题额外加入的约束。"
+        "matchReason": "实验验证原题图像斜率中的核心关系 \\(F_c=m\\omega^2r\\)；齿轮传动比和摩擦是原题额外加入的约束。",
+        "kind": "实验演示"
       },
       {
         "platform": "YouTube",
         "title": "Activity 3: Centripetal Force Digital Lab",
         "url": "https://www.youtube.com/watch?v=eyyKuTOgpwk",
         "watchFor": "辨认旋转平台、弹簧和悬挂砝码分别承担的作用，并比较动态向心力与静态标定力。",
-        "matchReason": "视频使用旋转平台和力学测量装置验证向心力，和现实案例中的转台传感器测量过程对应。"
+        "matchReason": "视频使用旋转平台和力学测量装置验证向心力，和现实案例中的转台传感器测量过程对应。",
+        "kind": "课程讲解"
       }
     ],
     "authoritativeResources": [
@@ -211,7 +213,8 @@
       "number": "物理部分第8题",
       "matchLevel": "同一考点",
       "matchReason": "两题都要判断静摩擦力何时参与提供向心力以及临界条件如何变化；原题再叠加齿轮传动比和拉力图像。",
-      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L150"
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L150",
+      "relation": "原始核验"
     },
     {
       "type": "competition",
@@ -227,7 +230,8 @@
         "转动惯量",
         "纯滚动约束"
       ],
-      "url": "https://cpho.pku.edu.cn/assets/file/2021cpho/3821fsst.pdf"
+      "url": "https://cpho.pku.edu.cn/assets/file/2021cpho/3821fsst.pdf",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -241,12 +245,16 @@
     ],
     "prediction": {
       "title": "播放前预测：齿轮转台与向心力",
-      "prompt": "观察动画前，解决“多选第15题：齿轮转台拉力图像”时最合理的第一步是什么？",
-      "answer": "B",
+      "prompt": "暂不代入数值。面对“多选第15题：齿轮转台拉力图像”，应先锁定哪一项关系？",
+      "answer": "A",
       "explanation": "正确起点是“先标出圆心方向，再判断哪些实际力提供径向合力”。本题关系 \\[\\omega_B=\\frac{n_1}{n_2}\\omega,\\qquad F=mL\\left(\\frac{n_1}{n_2}\\right)^2\\omega^2-\\mu mg\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
           "value": "A",
+          "text": "先标出圆心方向，再判断哪些实际力提供径向合力"
+        },
+        {
+          "value": "B",
           "text": "先把题目中的所有数值代入最熟悉的公式",
           "diagnosis": {
             "tag": "先算后建模",
@@ -255,49 +263,33 @@
           }
         },
         {
-          "value": "B",
-          "text": "先标出圆心方向，再判断哪些实际力提供径向合力"
-        },
-        {
           "value": "C",
-          "text": "只根据动画轨迹外形直接判断答案",
-          "diagnosis": {
-            "tag": "把示意图当成定量证据",
-            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
-            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
-          }
-        },
-        {
-          "value": "D",
           "text": "先记住原题答案，再寻找能得到该答案的计算",
           "diagnosis": {
             "tag": "结论倒推动机",
             "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
             "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
           }
+        },
+        {
+          "value": "D",
+          "text": "只根据动画轨迹外形直接判断答案",
+          "diagnosis": {
+            "tag": "把示意图当成定量证据",
+            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
+            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
+          }
         }
       ]
     },
     "review": {
       "title": "延时复习：迁移“齿轮转台与向心力”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
-      "answer": "B",
+      "prompt": "原题数据和情境都发生变化后，下面哪种做法仍然成立？",
+      "answer": "C",
       "explanation": "同题族迁移时应保留“无论装置怎样变化，径向合力都必须等于质量与向心加速度的乘积”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
-          "text": "题目名称相似，原题的数值答案可以直接沿用",
-          "diagnosis": {
-            "tag": "只看表面情境",
-            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
-          }
-        },
-        {
-          "value": "B",
-          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
-        },
-        {
-          "value": "C",
           "text": "只要公式相同，就不需要重新判断研究对象和过程",
           "diagnosis": {
             "tag": "忽略模型前提",
@@ -305,14 +297,85 @@
           }
         },
         {
-          "value": "D",
+          "value": "B",
           "text": "动画看起来连续，就说明整个过程只能使用一个方程",
           "diagnosis": {
             "tag": "忽略分段",
             "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
           }
+        },
+        {
+          "value": "C",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+        },
+        {
+          "value": "D",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "diagnosis": {
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+          }
         }
       ]
     }
+  },
+  "learningPath": {
+    "familyId": "gear-turntable",
+    "familyName": "齿轮转台与向心力",
+    "currentDifficulty": 4,
+    "currentLevel": "L3",
+    "mother": {
+      "id": "required2_multiple_15_gear_turntable",
+      "title": "多选第15题：齿轮转台拉力图像",
+      "chapter": "必修二结业测试",
+      "difficulty": 4,
+      "variantLevel": "L3",
+      "role": "综合题"
+    },
+    "familyFocus": {
+      "observe": "传动比换算",
+      "misconception": "把向心力当成物体额外受到的一种力",
+      "invariant": "无论装置怎样变化，径向合力都必须等于质量与向心加速度的乘积",
+      "formula": "\\[\\omega_B=\\frac{n_1}{n_2}\\omega,\\qquad F=mL\\left(\\frac{n_1}{n_2}\\right)^2\\omega^2-\\mu mg\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“传动比换算”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“传动比换算”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“传动比换算”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "label": "直接建模",
+        "difficulty": 2,
+        "goal": "在单一过程中直接调用“齿轮转台与向心力”的主关系。",
+        "task": "保留原模型，只给一组完整条件；先写 \\[\\omega_B=\\frac{n_1}{n_2}\\omega,\\qquad F=mL\\left(\\frac{n_1}{n_2}\\right)^2\\omega^2-\\mu mg\\]，再说明“向心力图像分析”如何进入方程。",
+        "variantLevel": "L1",
+        "virtual": true,
+        "check": "能先写出 \\[\\omega_B=\\frac{n_1}{n_2}\\omega,\\qquad F=mL\\left(\\frac{n_1}{n_2}\\right)^2\\omega^2-\\mu mg\\]，再代入条件并得到量纲正确的结果。"
+      },
+      {
+        "label": "条件变化",
+        "difficulty": 3,
+        "goal": "判断参数或表示方式变化后，哪些关系保持不变。",
+        "task": "改变一个关键条件，比较变化前后的趋势、临界值或图像特征，并重新检查“向心力图像分析”。",
+        "variantLevel": "L2",
+        "virtual": true,
+        "check": "能区分保持不变的模型关系与必须重算的“向心力图像分析”。"
+      },
+      {
+        "id": "required2_multiple_15_gear_turntable",
+        "title": "多选第15题：齿轮转台拉力图像",
+        "chapter": "必修二结业测试",
+        "difficulty": 4,
+        "variantLevel": "L3",
+        "role": "综合题",
+        "virtual": false,
+        "label": "综合迁移"
+      }
+    ]
   }
 }

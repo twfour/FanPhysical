@@ -167,7 +167,8 @@
         "title": "高中物理：位移—时间、速度—时间图像专题",
         "url": "https://www.bilibili.com/video/BV1gm411R7Ey/",
         "watchFor": "速度图像斜率怎样给出加速度、图线下面积怎样给出位移，以及分段折线应如何解读。",
-        "matchReason": "原题所有受力、位移和追及判断都由同一张 \\(v-t\\) 图提取，视频覆盖了这套读图规则。"
+        "matchReason": "原题所有受力、位移和追及判断都由同一张 \\(v-t\\) 图提取，视频覆盖了这套读图规则。",
+        "kind": "课程讲解"
       }
     ],
     "authoritativeResources": [
@@ -203,7 +204,8 @@
       "number": "物理部分第2题",
       "matchLevel": "同一考点",
       "matchReason": "两题都要把速度图像拆成恒力加速、撤力减速等阶段，并利用图像斜率、面积与边界时刻判断过程量。",
-      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L689"
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L689",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -217,17 +219,17 @@
     ],
     "prediction": {
       "title": "播放前预测：恒力作用与速度图像",
-      "prompt": "观察动画前，解决“单选第11题：恒力作用的速度图像”时最合理的第一步是什么？",
+      "prompt": "观察动画前，解决“单选第11题：恒力作用的速度图像”时最合理的建模起点是什么？",
       "answer": "B",
       "explanation": "正确起点是“先确定研究对象和过程，再逐一判断各力做功的正负”。本题关系 \\[f=m\\frac{v_0}{t_0},\\quad F_1=\\frac{3mv_0}{t_0},\\quad F_2=\\frac{5mv_0}{4t_0}\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
           "value": "A",
-          "text": "先把题目中的所有数值代入最熟悉的公式",
+          "text": "先记住原题答案，再寻找能得到该答案的计算",
           "diagnosis": {
-            "tag": "先算后建模",
-            "feedback": "这样容易出现“把某一个力的功直接等同于动能变化”的问题。",
-            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
+            "tag": "结论倒推动机",
+            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
+            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
           }
         },
         {
@@ -245,35 +247,31 @@
         },
         {
           "value": "D",
-          "text": "先记住原题答案，再寻找能得到该答案的计算",
+          "text": "先把题目中的所有数值代入最熟悉的公式",
           "diagnosis": {
-            "tag": "结论倒推动机",
-            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
-            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
+            "tag": "先算后建模",
+            "feedback": "这样容易出现“把某一个力的功直接等同于动能变化”的问题。",
+            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
           }
         }
       ]
     },
     "review": {
       "title": "延时复习：迁移“恒力作用与速度图像”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
-      "answer": "B",
+      "prompt": "检验自己是否真正掌握“恒力作用与速度图像”时，应选择哪种分析方式？",
+      "answer": "D",
       "explanation": "同题族迁移时应保留“合力总功等于动能变化；某种能量的变化必须与对应做功过程匹配”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
-          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
           "diagnosis": {
-            "tag": "只看表面情境",
-            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
           }
         },
         {
           "value": "B",
-          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
-        },
-        {
-          "value": "C",
           "text": "只要公式相同，就不需要重新判断研究对象和过程",
           "diagnosis": {
             "tag": "忽略模型前提",
@@ -281,14 +279,77 @@
           }
         },
         {
-          "value": "D",
-          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "value": "C",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
           "diagnosis": {
-            "tag": "忽略分段",
-            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
           }
+        },
+        {
+          "value": "D",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
         }
       ]
     }
+  },
+  "learningPath": {
+    "familyId": "force-vt",
+    "familyName": "恒力作用与速度图像",
+    "currentDifficulty": 3,
+    "currentLevel": "L2",
+    "mother": {
+      "id": "required2_single_11_force_vt",
+      "title": "单选第11题：恒力作用的速度图像",
+      "chapter": "必修二结业测试",
+      "difficulty": 3,
+      "variantLevel": "L2",
+      "role": "综合题"
+    },
+    "familyFocus": {
+      "observe": "速度图像分段",
+      "misconception": "把某一个力的功直接等同于动能变化",
+      "invariant": "合力总功等于动能变化；某种能量的变化必须与对应做功过程匹配",
+      "formula": "\\[f=m\\frac{v_0}{t_0},\\quad F_1=\\frac{3mv_0}{t_0},\\quad F_2=\\frac{5mv_0}{4t_0}\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“速度图像分段”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“速度图像分段”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“速度图像分段”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "label": "直接建模",
+        "difficulty": 2,
+        "goal": "在单一过程中直接调用“恒力作用与速度图像”的主关系。",
+        "task": "保留原模型，只给一组完整条件；先写 \\[f=m\\frac{v_0}{t_0},\\quad F_1=\\frac{3mv_0}{t_0},\\quad F_2=\\frac{5mv_0}{4t_0}\\]，再说明“功与冲量辨析”如何进入方程。",
+        "variantLevel": "L1",
+        "virtual": true,
+        "check": "能先写出 \\[f=m\\frac{v_0}{t_0},\\quad F_1=\\frac{3mv_0}{t_0},\\quad F_2=\\frac{5mv_0}{4t_0}\\]，再代入条件并得到量纲正确的结果。"
+      },
+      {
+        "id": "required2_single_11_force_vt",
+        "title": "单选第11题：恒力作用的速度图像",
+        "chapter": "必修二结业测试",
+        "difficulty": 3,
+        "variantLevel": "L2",
+        "role": "综合题",
+        "virtual": false,
+        "label": "条件变化"
+      },
+      {
+        "label": "综合迁移",
+        "difficulty": 5,
+        "goal": "在多阶段或跨知识点情境中识别并复用该题族。",
+        "task": "把过程分段，并把“速度图像分段”与另一条物理规律联立；说明分段点及最终边界检查。",
+        "variantLevel": "L3",
+        "virtual": true,
+        "check": "能正确分段、说明每段所用规律，并在连接处检查状态连续性与临界边界。"
+      }
+    ]
   }
 }

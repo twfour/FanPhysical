@@ -527,6 +527,153 @@
   outline: 3px solid rgba(37, 99, 235, 0.16);
 }
 
+.problem-learning-path-block {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+.problem-learning-path-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.problem-family-route-title {
+  margin: 18px 0 10px;
+  font-size: 17px;
+}
+
+.problem-family-mother {
+  margin: 12px 0 0;
+  color: #3f4855;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.learning-cycle-second-judgment {
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid #d8dee7;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.problem-family-route {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.problem-family-route-item {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 7px;
+  padding: 12px;
+  border: 1px solid #d8dee7;
+  border-top: 3px solid #b43d48;
+  border-radius: 8px;
+  color: #202632;
+  background: #fff;
+  text-decoration: none;
+}
+
+.problem-family-route-item[data-level="L0"],
+.problem-family-route-item[data-level="L1"] {
+  border-top-color: #2f7d58;
+}
+
+.problem-family-route-item > span {
+  color: #626b78;
+  font-size: 13px;
+}
+
+.problem-family-route-item > p {
+  margin: 0;
+  color: #4d5664;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.practice-mastery {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #dfe3e8;
+}
+
+.practice-mastery-action {
+  padding: 7px 12px;
+  border: 1px solid #b9c0ca;
+  border-radius: 6px;
+  color: #3e4651;
+  background: #fff;
+  cursor: pointer;
+}
+
+.practice-mastery-action.is-selected {
+  border-color: #b7263d;
+  color: #fff;
+  background: #b7263d;
+}
+
+.exam-connection-relation {
+  padding: 2px 7px;
+  border-radius: 999px;
+  color: #49515e;
+  background: #edf0f4;
+}
+
+.problem-learning-path-link {
+  display: grid;
+  align-content: start;
+  gap: 5px;
+  min-width: 0;
+  border: 1px solid #cbd5e1;
+  border-left: 3px solid #64748b;
+  border-radius: 7px;
+  background: #fff;
+  padding: 11px 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.problem-learning-path-link:hover,
+.problem-learning-path-link:focus-visible {
+  border-color: #94a3b8;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.problem-learning-path-link.is-foundation {
+  border-left-color: #059669;
+}
+
+.problem-learning-path-link.is-challenge {
+  border-left-color: #dc2626;
+}
+
+.problem-learning-path-heading {
+  color: #475569;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.problem-learning-path-link strong {
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.problem-learning-path-link small {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 .exploration-stage-title,
 .real-life-transfer h3 {
   margin: 0 0 8px;
@@ -771,9 +918,27 @@
 }
 
 .real-life-video-duration {
+  border-radius: 999px;
+  background: #f1f5f9;
+  padding: 3px 8px;
   color: #64748b;
   font-size: 13px;
   font-variant-numeric: tabular-nums;
+}
+
+.real-life-video-card[data-resource-kind="现实录像"] .real-life-video-duration {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.real-life-video-card[data-resource-kind="实验演示"] .real-life-video-duration {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.real-life-video-card[data-resource-kind="动画解释"] .real-life-video-duration {
+  background: #fff7ed;
+  color: #c2410c;
 }
 
 .real-life-video-title {
@@ -1125,6 +1290,14 @@
   .learning-sync-form,
   .learning-sync-actions {
     justify-content: flex-start;
+  }
+
+  .problem-learning-path-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-family-route {
+    grid-template-columns: 1fr;
   }
 
   .real-life-videos-heading {

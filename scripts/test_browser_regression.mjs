@@ -390,6 +390,26 @@ async function main() {
     }, "hovered problem prefetch", 10000);
   });
 
+  await runCheck("题族路径与视频分类", async function () {
+    await openSceneDirectly(page, PROJECTILE_BASIC_ID);
+    var pathBlock = page.locator(".problem-learning-path-block");
+    await requireOne(pathBlock, "problem learning path");
+    assert.equal(await pathBlock.locator(".problem-learning-path-link").count() > 0, true);
+    assert.equal(await pathBlock.locator(".problem-family-route-item").count(), 4);
+    assert.match(await pathBlock.locator(".problem-family-mother").innerText(), /题族母题/);
+    assert.match(
+      await pathBlock.locator(".problem-learning-path-link").first().getAttribute("href") || "",
+      /[?&]scene=/
+    );
+    var videoKind = page.locator(".real-life-video-card[data-resource-kind]").first();
+    await requireOne(videoKind, "classified reality video");
+    assert.match(
+      await videoKind.getAttribute("data-resource-kind"),
+      /^(现实录像|实验演示|动画解释|课程讲解)$/
+    );
+    await openSceneDirectly(page, PROBLEM_ID);
+  });
+
   await runCheck("三点评分保存", async function () {
     var transfer = page.locator(".real-life-case-block .real-life-transfer");
     var textarea = transfer.locator("textarea");
@@ -422,13 +442,13 @@ async function main() {
   await runCheck("首页学习进度总览", async function () {
     await page.locator("#treeHome").click();
     await page.locator("#learningProgressOverallValue").waitFor({ state: "visible", timeout: 10000 });
-    assert.match(await page.locator("#learningProgressOverallValue").innerText(), /^[1-9]\d*%$/);
-    assert.match(await page.locator("#learningProgressExplorationValue").innerText(), /^1 \/ \d+$/);
-    assert.match(await page.locator("#learningProgressTransferValue").innerText(), /^1 \/ \d+$/);
-    assert.match(await page.locator("#learningProgressScoreValue").innerText(), /^2 \/ \d+$/);
+    assert.match(await page.locator("#learningProgressOverallValue").innerText(), /^\d+%$/);
+    assert.match(await page.locator("#learningProgressExplorationValue").innerText(), /^\d+%$/);
+    assert.match(await page.locator("#learningProgressTransferValue").innerText(), /^\d+%$/);
+    assert.match(await page.locator("#learningProgressScoreValue").innerText(), /^\d+%$/);
     var chapter = page.locator(".learning-progress-chapter").filter({ hasText: "必修二结业测试" });
     await requireOne(chapter, "required-two chapter progress");
-    assert.equal(await page.locator(".learning-progress-weak-list span").count() > 0, true);
+    assert.equal(await page.locator(".learning-progress-weak-title").first().innerText(), "最需要补的题族");
     assert.equal(await page.locator("#learningProgressSyncStatus").innerText(), "跨设备已同步");
   });
 
@@ -633,13 +653,14 @@ async function main() {
     assert.equal(await page.locator(".real-life-self-check-heading span").innerText(), "掌握 2 / 3");
     await page.locator("#treeHome").click();
     await page.locator("#learningProgressOverallValue").waitFor({ state: "visible", timeout: 10000 });
-    assert.match(await page.locator("#learningProgressExplorationValue").innerText(), /^1 \/ \d+$/);
-    assert.match(await page.locator("#learningProgressTransferValue").innerText(), /^1 \/ \d+$/);
-    assert.match(await page.locator("#learningProgressScoreValue").innerText(), /^2 \/ \d+$/);
+    assert.match(await page.locator("#learningProgressOverallValue").innerText(), /^\d+%$/);
+    assert.match(await page.locator("#learningProgressExplorationValue").innerText(), /^\d+%$/);
+    assert.match(await page.locator("#learningProgressTransferValue").innerText(), /^\d+%$/);
+    assert.match(await page.locator("#learningProgressScoreValue").innerText(), /^\d+%$/);
   });
 
   assert.deepEqual(pageErrors, [], "uncaught page errors: " + pageErrors.join(" | "));
-  console.log("Browser regression passed: 13/13 checks");
+  console.log("Browser regression passed: 14/14 checks");
 }
 
 try {

@@ -143,7 +143,8 @@
         "title": "星球的表面重力比较（中文字幕）",
         "url": "https://www.bilibili.com/video/BV1Uk4y1q7QN/",
         "watchFor": "不同天体表面重力的巨大差异，以及质量较大并不自动意味着表面重力更大。",
-        "matchReason": "视频的比较对象就是各天体表面重力，可用本题的 \\(g=GM/R^2\\) 逐个解释画面中的差异。"
+        "matchReason": "视频的比较对象就是各天体表面重力，可用本题的 \\(g=GM/R^2\\) 逐个解释画面中的差异。",
+        "kind": "课程讲解"
       }
     ],
     "authoritativeResources": [
@@ -179,7 +180,8 @@
       "number": "物理部分第8题",
       "matchLevel": "高度同构",
       "matchReason": "真题直接利用天体质量、半径的比例求月面重力加速度，再把结果用于悬停受力、自由落体和近月轨道判断。",
-      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L238"
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L238",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -193,22 +195,22 @@
     ],
     "prediction": {
       "title": "播放前预测：星球表面重力",
-      "prompt": "观察动画前，解决“单选第8题：星球表面重力”时最合理的第一步是什么？",
-      "answer": "B",
+      "prompt": "暂不代入数值。面对“单选第8题：星球表面重力”，应先锁定哪一项关系？",
+      "answer": "A",
       "explanation": "正确起点是“先确定中心天体、距离是球心距还是高度，再写万有引力关系”。本题关系 \\[F=G\\frac{Mm}{r^2}\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
           "value": "A",
-          "text": "先把题目中的所有数值代入最熟悉的公式",
-          "diagnosis": {
-            "tag": "先算后建模",
-            "feedback": "这样容易出现“把距地面高度直接代入万有引力公式中的球心距”的问题。",
-            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
-          }
+          "text": "先确定中心天体、距离是球心距还是高度，再写万有引力关系"
         },
         {
           "value": "B",
-          "text": "先确定中心天体、距离是球心距还是高度，再写万有引力关系"
+          "text": "先记住原题答案，再寻找能得到该答案的计算",
+          "diagnosis": {
+            "tag": "结论倒推动机",
+            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
+            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
+          }
         },
         {
           "value": "C",
@@ -221,35 +223,31 @@
         },
         {
           "value": "D",
-          "text": "先记住原题答案，再寻找能得到该答案的计算",
+          "text": "先把题目中的所有数值代入最熟悉的公式",
           "diagnosis": {
-            "tag": "结论倒推动机",
-            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
-            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
+            "tag": "先算后建模",
+            "feedback": "这样容易出现“把距地面高度直接代入万有引力公式中的球心距”的问题。",
+            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
           }
         }
       ]
     },
     "review": {
       "title": "延时复习：迁移“星球表面重力”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
-      "answer": "B",
+      "prompt": "重新遇到“星球表面重力”的新情境时，哪种处理最可靠？",
+      "answer": "C",
       "explanation": "同题族迁移时应保留“球对称天体外部的引力由中心距离和中心天体质量决定”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
-          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
           "diagnosis": {
-            "tag": "只看表面情境",
-            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
           }
         },
         {
           "value": "B",
-          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
-        },
-        {
-          "value": "C",
           "text": "只要公式相同，就不需要重新判断研究对象和过程",
           "diagnosis": {
             "tag": "忽略模型前提",
@@ -257,14 +255,77 @@
           }
         },
         {
+          "value": "C",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+        },
+        {
           "value": "D",
-          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
           "diagnosis": {
-            "tag": "忽略分段",
-            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
           }
         }
       ]
     }
+  },
+  "learningPath": {
+    "familyId": "surface-gravity",
+    "familyName": "星球表面重力",
+    "currentDifficulty": 2,
+    "currentLevel": "L2",
+    "mother": {
+      "id": "required2_single_08_planet_gravity",
+      "title": "单选第8题：星球表面重力",
+      "chapter": "必修二结业测试",
+      "difficulty": 2,
+      "variantLevel": "L2",
+      "role": "综合题"
+    },
+    "familyFocus": {
+      "observe": "比例法",
+      "misconception": "把距地面高度直接代入万有引力公式中的球心距",
+      "invariant": "球对称天体外部的引力由中心距离和中心天体质量决定",
+      "formula": "\\[F=G\\frac{Mm}{r^2}\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“比例法”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“比例法”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“比例法”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "label": "直接建模",
+        "difficulty": 2,
+        "goal": "在单一过程中直接调用“星球表面重力”的主关系。",
+        "task": "保留原模型，只给一组完整条件；先写 \\[F=G\\frac{Mm}{r^2}\\]，再说明“天体参数换算”如何进入方程。",
+        "variantLevel": "L1",
+        "virtual": true,
+        "check": "能先写出 \\[F=G\\frac{Mm}{r^2}\\]，再代入条件并得到量纲正确的结果。"
+      },
+      {
+        "id": "required2_single_08_planet_gravity",
+        "title": "单选第8题：星球表面重力",
+        "chapter": "必修二结业测试",
+        "difficulty": 2,
+        "variantLevel": "L2",
+        "role": "综合题",
+        "virtual": false,
+        "label": "条件变化"
+      },
+      {
+        "label": "综合迁移",
+        "difficulty": 5,
+        "goal": "在多阶段或跨知识点情境中识别并复用该题族。",
+        "task": "把过程分段，并把“比例法”与另一条物理规律联立；说明分段点及最终边界检查。",
+        "variantLevel": "L3",
+        "virtual": true,
+        "check": "能正确分段、说明每段所用规律，并在连接处检查状态连续性与临界边界。"
+      }
+    ]
   }
 }

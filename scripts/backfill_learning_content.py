@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -17,6 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBLEM_DIR = ROOT / "data" / "problems"
+HTML_PATH = ROOT / "classical-mechanics-demo.html"
 EXCLUDED_CHAPTERS = {"必修二结业测试"}
 HANDCRAFTED_LEARNING_CYCLE_IDS = {
     "lesson12_course_01_reference_plane",
@@ -293,6 +295,7 @@ VIDEO_BACKFILL_CHAPTERS = {
     "圆周运动日常",
     "圆周运动",
 }
+VIDEO_KINDS = {"现实录像", "实验演示", "动画解释", "课程讲解"}
 
 VIDEOS_BY_FAMILY = {
     "spring-force-reading": {
@@ -708,12 +711,33 @@ def curated_video(problem: dict) -> dict | None:
     result = {
         "platform": "哔哩哔哩",
         **copy.deepcopy(video),
+        "kind": classify_video(video),
         "matchReason": (
             f"视频直接覆盖“{problem['taxonomy']['familyName']}”题族的核心建模关系，"
             "观看时可把演示中的研究对象、受力或运动阶段逐一对应到当前题目。"
         ),
     }
     return result
+
+
+def classify_video(video: dict) -> str:
+    title = str(video.get("title") or "")
+    if re.search(r"实拍|慢动作|现场|纪录片|事故|比赛录像|发射直播|自动分拣机", title):
+        return "现实录像"
+    if re.search(r"动画|仿真|模拟|GeoGebra|可视化", title, re.I):
+        return "动画解释"
+    if re.search(r"实验|演示", title):
+        return "实验演示"
+    return "课程讲解"
+
+
+def normalize_video_kinds(problem: dict) -> None:
+    videos = problem.get("realLifeCase", {}).get("videos", [])
+    if not isinstance(videos, list):
+        return
+    for video in videos:
+        if isinstance(video, dict):
+            video["kind"] = classify_video(video)
 
 
 def load_problem(path: Path) -> dict:
@@ -726,6 +750,168 @@ def problem_paths() -> list[Path]:
         path for path in PROBLEM_DIR.glob("*.json")
         if path.name != "index.json"
     )
+
+
+def visible_problem_ids() -> set[str]:
+    html = HTML_PATH.read_text(encoding="utf-8")
+    return {
+        scene_id
+        for scene_id in re.findall(r'data-scene="([^"]+)"', html)
+        if scene_id not in {"home", "summerExam"}
+    }
+
+
+def learning_path_item(problem: dict) -> dict:
+    taxonomy = problem["taxonomy"]
+    return {
+        "id": problem["id"],
+        "title": problem["title"],
+        "chapter": problem["chapter"],
+        "difficulty": taxonomy["difficulty"],
+        "variantLevel": taxonomy["variantLevel"],
+        "role": taxonomy["role"],
+    }
+
+
+def family_training_task(problem: dict, level: str, formula: str) -> dict:
+    taxonomy = problem["taxonomy"]
+    skills = taxonomy.get("skills", [])
+    primary = skills[0] if skills else taxonomy["familyName"]
+    secondary = skills[1] if len(skills) > 1 else "适用条件"
+    definitions = {
+        "L0": {
+            "label": "概念识别",
+            "difficulty": 1,
+            "goal": f"辨认“{primary}”涉及的研究对象、方向和基本物理量。",
+            "task": f"不计算，指出题面中决定“{primary}”的条件，并说明公式中每个量的物理意义。",
+        },
+        "L1": {
+            "label": "直接建模",
+            "difficulty": 2,
+            "goal": f"在单一过程中直接调用“{taxonomy['familyName']}”的主关系。",
+            "task": f"保留原模型，只给一组完整条件；先写 {formula}，再说明“{secondary}”如何进入方程。",
+        },
+        "L2": {
+            "label": "条件变化",
+            "difficulty": 3,
+            "goal": f"判断参数或表示方式变化后，哪些关系保持不变。",
+            "task": f"改变一个关键条件，比较变化前后的趋势、临界值或图像特征，并重新检查“{secondary}”。",
+        },
+        "L3": {
+            "label": "综合迁移",
+            "difficulty": 5,
+            "goal": f"在多阶段或跨知识点情境中识别并复用该题族。",
+            "task": f"把过程分段，并把“{primary}”与另一条物理规律联立；说明分段点及最终边界检查。",
+        },
+    }
+    result = definitions[level]
+    result["variantLevel"] = level
+    result["virtual"] = True
+    result["check"] = {
+        "L0": f"能说清“{primary}”的对象、方向、量纲和适用条件。",
+        "L1": f"能先写出 {formula}，再代入条件并得到量纲正确的结果。",
+        "L2": f"能区分保持不变的模型关系与必须重算的“{secondary}”。",
+        "L3": "能正确分段、说明每段所用规律，并在连接处检查状态连续性与临界边界。",
+    }[level]
+    return result
+
+
+def build_learning_paths(problems: list[dict]) -> dict[str, dict]:
+    visible_ids = visible_problem_ids()
+    by_family: dict[str, list[dict]] = {}
+    for problem in problems:
+        taxonomy = problem.get("taxonomy", {})
+        family_id = taxonomy.get("familyId")
+        if problem.get("id") in visible_ids and family_id:
+            by_family.setdefault(family_id, []).append(problem)
+    result = {}
+    level_rank = {"L0": 0, "L1": 1, "L2": 2, "L3": 3}
+    for family_id, family in by_family.items():
+        mother = next(
+            (candidate for candidate in family if candidate["taxonomy"].get("role") == "母题"),
+            min(
+                family,
+                key=lambda item: (
+                    int(item["taxonomy"]["difficulty"]),
+                    level_rank.get(item["taxonomy"]["variantLevel"], 0),
+                    item["id"],
+                ),
+            ),
+        )
+        mother_taxonomy = mother["taxonomy"]
+        mother_formula = problem_formula(mother, MODEL_PROFILES[mother_taxonomy["modelId"]])
+        mother_mistakes = [
+            mistake
+            for step in mother.get("steps", [])
+            if isinstance(step, dict)
+            for mistake in step.get("commonMistakes", [])
+        ]
+        levels = {"L0": [], "L1": [], "L2": [], "L3": []}
+        for candidate in family:
+            levels[candidate["taxonomy"]["variantLevel"]].append(candidate)
+        for problem in family:
+            taxonomy = problem["taxonomy"]
+            current_rank = (
+                int(taxonomy["difficulty"]),
+                level_rank.get(taxonomy["variantLevel"], 0),
+            )
+            lower = []
+            higher = []
+            peers = []
+            for candidate in family:
+                if candidate["id"] == problem["id"]:
+                    continue
+                candidate_taxonomy = candidate["taxonomy"]
+                candidate_rank = (
+                    int(candidate_taxonomy["difficulty"]),
+                    level_rank.get(candidate_taxonomy["variantLevel"], 0),
+                )
+                if candidate_rank < current_rank:
+                    lower.append((candidate_rank, candidate))
+                elif candidate_rank > current_rank:
+                    higher.append((candidate_rank, candidate))
+                else:
+                    peers.append(candidate)
+            path = {
+                "familyId": family_id,
+                "familyName": taxonomy["familyName"],
+                "currentDifficulty": taxonomy["difficulty"],
+                "currentLevel": taxonomy["variantLevel"],
+                "mother": learning_path_item(mother),
+                "familyFocus": {
+                    "observe": (mother_taxonomy.get("skills") or [taxonomy["familyName"]])[0],
+                    "misconception": mother_mistakes[0] if mother_mistakes else MODEL_PROFILES[taxonomy["modelId"]]["misconception"],
+                    "invariant": MODEL_PROFILES[taxonomy["modelId"]]["invariant"],
+                    "formula": mother_formula,
+                },
+                "levels": [],
+            }
+            if lower:
+                path["foundation"] = learning_path_item(max(lower, key=lambda item: (item[0], item[1]["id"]))[1])
+            if peers:
+                path["peer"] = learning_path_item(sorted(peers, key=lambda item: item["id"])[0])
+            if higher:
+                path["challenge"] = learning_path_item(min(higher, key=lambda item: (item[0], item[1]["id"]))[1])
+            formula = problem_formula(problem, MODEL_PROFILES[taxonomy["modelId"]])
+            for level in ("L0", "L1", "L2", "L3"):
+                candidates = sorted(
+                    levels[level],
+                    key=lambda item: (int(item["taxonomy"]["difficulty"]), item["id"]),
+                )
+                if candidates:
+                    level_item = learning_path_item(candidates[0])
+                    level_item["virtual"] = False
+                    level_item["label"] = {
+                        "L0": "概念识别",
+                        "L1": "直接建模",
+                        "L2": "条件变化",
+                        "L3": "综合迁移",
+                    }[level]
+                else:
+                    level_item = family_training_task(problem, level, formula)
+                path["levels"].append(level_item)
+            result[problem["id"]] = path
+    return result
 
 
 def animation_preset(problem: dict, progress: float, use_high_value: bool) -> dict | None:
@@ -773,28 +959,37 @@ def build_student_exploration(problem: dict, profile: dict) -> dict:
     skills = taxonomy.get("skills", [])
     skill_text = "、".join(skills[:2]) or taxonomy["familyName"]
     formula = problem_formula(problem, profile)
+    family_focus = problem.get("learningPath", {}).get("familyFocus", {})
+    mistake_candidates = []
+    for step in problem.get("steps", []):
+        if isinstance(step, dict):
+            mistake_candidates.extend(step.get("commonMistakes", []))
+    first_mistake = family_focus.get("misconception") or (
+        mistake_candidates[0] if mistake_candidates else profile["misconception"]
+    )
+    family_observe = family_focus.get("observe") or (skills[0] if skills else taxonomy["familyName"])
     stages = [
         {
-            "title": f"先识别“{taxonomy['familyName']}”",
+            "title": f"先排除本题最容易出现的误判",
             "prompt": (
-                f"暂不代入数据。阅读“{problem['title']}”后，写出研究对象、过程边界，"
-                f"并说明“{skill_text}”中哪一个条件最先控制后续列式。"
+                f"暂不代入数据。阅读“{problem['title']}”后，判断为什么“{first_mistake}”会导致错误，"
+                f"再写出研究对象、过程边界和首先要确定的“{skill_text}”。"
             ),
-            "thought": f"我可能会看到熟悉的数值就直接套公式，忽略本题属于“{taxonomy['familyName']}”题族。",
+            "thought": f"最值得警惕的不是算错，而是：{first_mistake}。",
             "check": f"先执行：{profile['first']}。再检查题设中的方向、接触、阶段或临界条件是否已经进入模型。",
             "correction": f"本题解析中的关键关系为：\n\n{formula}\n\n先建立关系，再决定哪些数值需要代入。",
-            "takeaway": f"遇到同题族的新题，先复用模型结构，不复用表面数字。需要特别避免：{profile['misconception']}。",
+            "takeaway": f"本题族的母题动作是“{profile['first']}”；看到新情境时应复用这个动作，而不是复用答案。",
         },
         {
-            "title": "改变条件，检查结论是否仍成立",
+            "title": f"观察会使“{family_observe}”发生转折的条件",
             "prompt": (
-                f"若只改变动画中的一个参数或题设中的一个条件，哪些关系保持不变，"
-                f"哪些临界值、图像斜率或最终结论必须重新判断？"
+                f"改变动画中的一个关键参数，指出哪个时刻、方向、图像趋势或临界条件最先发生变化；"
+                f"再说明“{profile['invariant']}”为什么仍成立。"
             ),
-            "thought": "我可能会认为动画外观相似，就说明原来的数值结论仍然成立。",
+            "thought": f"若只比较动画外观，我可能忽略“{skills[-1] if skills else '边界条件'}”已经改变。",
             "check": f"把变化前后都放回关系：\n\n{formula}\n\n逐项区分模型不变量与由参数决定的结果。",
             "correction": f"真正保持的是：{profile['invariant']}。数值结论需要在新条件下重新计算并检查边界。",
-            "takeaway": "迁移题的关键不是换数，而是确认控制关系、系统边界和适用条件是否改变。",
+            "takeaway": f"与同题族其他题相比，本题真正需要追踪的是“{skill_text}”如何受条件变化控制。",
         },
     ]
     for index, stage in enumerate(stages):
@@ -864,6 +1059,9 @@ def build_real_life_case(problem: dict, profile: dict, exact_family_source: dict
         video = curated_video(problem)
         if video:
             result["videos"] = [video]
+    for video in result.get("videos", []):
+        if isinstance(video, dict):
+            video["kind"] = classify_video(video)
     return result
 
 
@@ -874,14 +1072,63 @@ def wrong_option(value: str, text: str, tag: str, feedback: str, prompt: str | N
     return {"value": value, "text": text, "diagnosis": diagnosis}
 
 
-def build_learning_cycle(problem: dict, profile: dict) -> dict:
+def stable_index(seed: str, size: int) -> int:
+    digest = hashlib.sha256(seed.encode("utf-8")).digest()
+    return int.from_bytes(digest[:4], "big") % size
+
+
+def relabel_choices(section: dict, seed: str, target_label: str) -> None:
+    options = section["options"]
+    correct_value = section["answer"]
+    correct_option = None
+    wrong_options = []
+    for index, option in enumerate(options):
+        order_key = hashlib.sha256(f"{seed}:{index}".encode("utf-8")).digest()
+        if option["value"] == correct_value:
+            correct_option = option
+        else:
+            wrong_options.append((order_key, option))
+    wrong_options.sort(key=lambda item: item[0])
+    labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    target_index = labels.index(target_label)
+    ordered = [item[1] for item in wrong_options]
+    ordered.insert(target_index, correct_option)
+    for index, option in enumerate(ordered):
+        option["value"] = labels[index]
+    section["answer"] = target_label
+    section["options"] = ordered
+
+
+def build_cycle_answer_labels(problems: list[dict]) -> dict[str, tuple[str, str]]:
+    playable = [
+        problem for problem in problems
+        if problem.get("animation", {}).get("enabled") is True
+        and problem.get("animation", {}).get("playable") is True
+    ]
+    playable.sort(key=lambda problem: hashlib.sha256(problem["id"].encode("utf-8")).digest())
+    labels = "ABCD"
+    return {
+        problem["id"]: (labels[index % 4], labels[(index + 2) % 4])
+        for index, problem in enumerate(playable)
+    }
+
+
+def build_learning_cycle(
+    problem: dict,
+    profile: dict,
+    answer_labels: tuple[str, str] = ("B", "D"),
+) -> dict:
     taxonomy = problem["taxonomy"]
     formula = problem_formula(problem, profile)
+    prediction_prompts = [
+        f"观察动画前，解决“{problem['title']}”时最合理的建模起点是什么？",
+        f"暂不代入数值。面对“{problem['title']}”，应先锁定哪一项关系？",
+        f"为了预测动画中的趋势或临界点，处理“{problem['title']}”时应先做什么？",
+        f"若题目条件发生变化，分析“{problem['title']}”时哪一步仍必须优先完成？",
+    ]
     prediction = {
         "title": f"播放前预测：{taxonomy['familyName']}",
-        "prompt": (
-            f"观察动画前，解决“{problem['title']}”时最合理的第一步是什么？"
-        ),
+        "prompt": prediction_prompts[stable_index(problem["id"] + ":prediction-prompt", len(prediction_prompts))],
         "answer": "B",
         "explanation": (
             f"正确起点是“{profile['first']}”。本题关系 {formula} "
@@ -912,9 +1159,15 @@ def build_learning_cycle(problem: dict, profile: dict) -> dict:
             ),
         ],
     }
+    review_prompts = [
+        "隔一段时间后再看同题族变式，下列迁移方法正确的是（ ）。",
+        f"重新遇到“{taxonomy['familyName']}”的新情境时，哪种处理最可靠？",
+        "原题数据和情境都发生变化后，下面哪种做法仍然成立？",
+        f"检验自己是否真正掌握“{taxonomy['familyName']}”时，应选择哪种分析方式？",
+    ]
     review = {
         "title": f"延时复习：迁移“{taxonomy['familyName']}”",
-        "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
+        "prompt": review_prompts[stable_index(problem["id"] + ":review-prompt", len(review_prompts))],
         "answer": "B",
         "explanation": (
             f"同题族迁移时应保留“{profile['invariant']}”这一模型不变量，"
@@ -945,6 +1198,8 @@ def build_learning_cycle(problem: dict, profile: dict) -> dict:
             ),
         ],
     }
+    relabel_choices(prediction, problem["id"] + ":prediction-options", answer_labels[0])
+    relabel_choices(review, problem["id"] + ":review-options", answer_labels[1])
     return {
         "generatedBy": GENERATOR_ID,
         "intervalDays": [1, 3, 7, 14, 30],
@@ -1014,11 +1269,11 @@ def infer_option_mode(problem: dict) -> str:
     return "independent-statements"
 
 
-def required_two_sources(problems: list[dict]) -> tuple[dict[str, dict], dict[str, dict]]:
+def verified_exam_sources(problems: list[dict]) -> tuple[dict[str, dict], dict[str, dict]]:
     by_family = {}
     by_model = {}
     for problem in problems:
-        if problem.get("chapter") != "必修二结业测试":
+        if not problem.get("examConnections"):
             continue
         taxonomy = problem.get("taxonomy", {})
         by_family.setdefault(taxonomy.get("familyId"), problem)
@@ -1026,9 +1281,24 @@ def required_two_sources(problems: list[dict]) -> tuple[dict[str, dict], dict[st
     return by_family, by_model
 
 
-def enrich_problem(problem: dict, by_family: dict[str, dict]) -> None:
+def enrich_problem(
+    problem: dict,
+    by_family: dict[str, dict],
+    by_model: dict[str, dict],
+    learning_paths: dict[str, dict],
+    cycle_answer_labels: dict[str, tuple[str, str]],
+) -> None:
     problem.pop("source", None)
     problem.pop("summary", None)
+    for connection in problem.get("examConnections", []):
+        if isinstance(connection, dict):
+            connection.setdefault("relation", "原始核验")
+    normalize_video_kinds(problem)
+    path = learning_paths.get(problem["id"])
+    if path:
+        problem["learningPath"] = copy.deepcopy(path)
+    else:
+        problem.pop("learningPath", None)
     if problem.get("chapter") in EXCLUDED_CHAPTERS:
         taxonomy = problem.get("taxonomy", {})
         profile = MODEL_PROFILES.get(taxonomy.get("modelId"))
@@ -1037,9 +1307,16 @@ def enrich_problem(problem: dict, by_family: dict[str, dict]) -> None:
             profile
             and animation.get("enabled") is True
             and animation.get("playable") is True
-            and not problem.get("learningCycle")
+            and (
+                not problem.get("learningCycle")
+                or problem.get("learningCycle", {}).get("generatedBy") == GENERATOR_ID
+            )
         ):
-            problem["learningCycle"] = build_learning_cycle(problem, profile)
+            problem["learningCycle"] = build_learning_cycle(
+                problem,
+                profile,
+                cycle_answer_labels.get(problem["id"], ("B", "D")),
+            )
         return
     taxonomy = problem.get("taxonomy", {})
     model_id = taxonomy.get("modelId")
@@ -1062,15 +1339,30 @@ def enrich_problem(problem: dict, by_family: dict[str, dict]) -> None:
     ):
         cycle = problem.get("learningCycle")
         if not cycle or cycle.get("generatedBy") == GENERATOR_ID:
-            problem["learningCycle"] = build_learning_cycle(problem, profile)
-    if exact_family_source and exact_family_source.get("examConnections"):
-        connections = copy.deepcopy(exact_family_source["examConnections"])
-        for item in connections:
-            item["matchReason"] = (
-                f"该真题与当前题同属“{taxonomy['familyName']}”题族，"
-                "核心约束、主方程和边界检查一致；差别主要在情境、数据或设问层级。"
+            problem["learningCycle"] = build_learning_cycle(
+                problem,
+                profile,
+                cycle_answer_labels.get(problem["id"], ("B", "D")),
             )
-        problem.setdefault("examConnections", connections)
+    exam_source = exact_family_source if exact_family_source and exact_family_source.get("examConnections") else by_model.get(model_id)
+    if exam_source and exam_source.get("examConnections"):
+        connections = copy.deepcopy(exam_source["examConnections"])
+        same_family = exam_source.get("taxonomy", {}).get("familyId") == taxonomy.get("familyId")
+        for item in connections:
+            item["relation"] = "同一题族" if same_family else "同一模型"
+            item["matchReason"] = (
+                (
+                    f"该真题与当前题同属“{taxonomy['familyName']}”题族，"
+                    "核心约束、主方程和边界检查一致；差别主要在情境、数据或设问层级。"
+                )
+                if same_family else
+                (
+                    f"该真题与当前题同属“{taxonomy['modelName']}”模型，但属于不同题族；"
+                    "用于综合迁移，需重新识别过程结构和边界条件。"
+                )
+            )
+        if not problem.get("examConnections"):
+            problem["examConnections"] = connections
 
 
 def render_json(problem: dict) -> str:
@@ -1084,11 +1376,13 @@ def main() -> int:
 
     paths = problem_paths()
     loaded = [(path, load_problem(path)) for path in paths]
-    by_family, _ = required_two_sources([problem for _, problem in loaded])
+    by_family, by_model = verified_exam_sources([problem for _, problem in loaded])
+    learning_paths = build_learning_paths([problem for _, problem in loaded])
+    cycle_answer_labels = build_cycle_answer_labels([problem for _, problem in loaded])
     pending = []
     for path, problem in loaded:
         original = render_json(problem)
-        enrich_problem(problem, by_family)
+        enrich_problem(problem, by_family, by_model, learning_paths, cycle_answer_labels)
         updated = render_json(problem)
         if updated == original:
             continue

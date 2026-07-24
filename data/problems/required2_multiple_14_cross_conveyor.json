@@ -167,14 +167,16 @@
         "title": "交叉带自动分拣机简介",
         "url": "https://www.bilibili.com/video/BV1i44y1j7Nc/",
         "watchFor": "包裹在运动方向互相垂直的输送机构之间转移时，两个速度分量怎样同时存在。",
-        "matchReason": "真实交叉带分拣设备对应题目的二维入带场景，说明为何不能把包裹轨迹按一维传送带处理。"
+        "matchReason": "真实交叉带分拣设备对应题目的二维入带场景，说明为何不能把包裹轨迹按一维传送带处理。",
+        "kind": "现实录像"
       },
       {
         "platform": "哔哩哔哩",
         "title": "传送带摩擦力分析：动画演示",
         "url": "https://www.bilibili.com/video/BV1LL411j7r7/",
         "watchFor": "先比较物块与带面的相对运动，再确定滑动摩擦方向；不要直接按对地速度反向判断。",
-        "matchReason": "视频给出摩擦方向的基础规则，本题只需把这条规则从一维推广到相互垂直的两个速度分量。"
+        "matchReason": "视频给出摩擦方向的基础规则，本题只需把这条规则从一维推广到相互垂直的两个速度分量。",
+        "kind": "动画解释"
       }
     ],
     "authoritativeResources": [
@@ -218,7 +220,8 @@
       "number": "第20题",
       "matchLevel": "综合迁移",
       "matchReason": "真题同样要求在传送带上判断相对运动与摩擦方向，并把分段运动继续连接到后续轨道；原题的升级点是二维初速度与带速互相垂直。",
-      "url": "https://gaokao.eol.cn/shiti/zhenti/202206/W020220616382592558821.pdf"
+      "url": "https://gaokao.eol.cn/shiti/zhenti/202206/W020220616382592558821.pdf",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -232,17 +235,17 @@
     ],
     "prediction": {
       "title": "播放前预测：垂直传送带与相对运动",
-      "prompt": "观察动画前，解决“多选第14题：垂直滑上传送带”时最合理的第一步是什么？",
+      "prompt": "暂不代入数值。面对“多选第14题：垂直滑上传送带”，应先锁定哪一项关系？",
       "answer": "B",
       "explanation": "正确起点是“先分清物体对地位移、传送带位移和接触面的相对滑动路程”。本题关系 \\[\\vec v_r=\\vec v_\\text{物}-\\vec v_\\text{带},\\quad s_r=\\frac{v_r^2}{2\\mu g},\\quad Q=\\mu mgs_r\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
           "value": "A",
-          "text": "先把题目中的所有数值代入最熟悉的公式",
+          "text": "先记住原题答案，再寻找能得到该答案的计算",
           "diagnosis": {
-            "tag": "先算后建模",
-            "feedback": "这样容易出现“把摩擦生热直接写成摩擦力乘物体对地位移”的问题。",
-            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
+            "tag": "结论倒推动机",
+            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
+            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
           }
         },
         {
@@ -260,35 +263,23 @@
         },
         {
           "value": "D",
-          "text": "先记住原题答案，再寻找能得到该答案的计算",
+          "text": "先把题目中的所有数值代入最熟悉的公式",
           "diagnosis": {
-            "tag": "结论倒推动机",
-            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
-            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
+            "tag": "先算后建模",
+            "feedback": "这样容易出现“把摩擦生热直接写成摩擦力乘物体对地位移”的问题。",
+            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
           }
         }
       ]
     },
     "review": {
       "title": "延时复习：迁移“垂直传送带与相对运动”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
-      "answer": "B",
+      "prompt": "检验自己是否真正掌握“垂直传送带与相对运动”时，应选择哪种分析方式？",
+      "answer": "D",
       "explanation": "同题族迁移时应保留“摩擦生热由接触面的相对路程决定，机械能变化由研究系统所受外力功决定”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
-          "text": "题目名称相似，原题的数值答案可以直接沿用",
-          "diagnosis": {
-            "tag": "只看表面情境",
-            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
-          }
-        },
-        {
-          "value": "B",
-          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
-        },
-        {
-          "value": "C",
           "text": "只要公式相同，就不需要重新判断研究对象和过程",
           "diagnosis": {
             "tag": "忽略模型前提",
@@ -296,14 +287,102 @@
           }
         },
         {
-          "value": "D",
+          "value": "B",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "diagnosis": {
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+          }
+        },
+        {
+          "value": "C",
           "text": "动画看起来连续，就说明整个过程只能使用一个方程",
           "diagnosis": {
             "tag": "忽略分段",
             "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
           }
+        },
+        {
+          "value": "D",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
         }
       ]
+    }
+  },
+  "learningPath": {
+    "familyId": "cross-conveyor",
+    "familyName": "垂直传送带与相对运动",
+    "currentDifficulty": 5,
+    "currentLevel": "L3",
+    "mother": {
+      "id": "lesson11_a_05_cross_conveyor",
+      "title": "A组第5题：垂直冲上传送带",
+      "chapter": "动能定理",
+      "difficulty": 5,
+      "variantLevel": "L1",
+      "role": "基础变式"
+    },
+    "familyFocus": {
+      "observe": "二维相对运动",
+      "misconception": "把相对位移某个分量当成划痕长度",
+      "invariant": "摩擦生热由接触面的相对路程决定，机械能变化由研究系统所受外力功决定",
+      "formula": "\\[\nW_f=\\Delta E_k=\\frac12m(2v^2)-\\frac12mv^2=\\frac12mv^2,\n\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“二维相对运动”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“二维相对运动”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“二维相对运动”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "id": "lesson11_a_05_cross_conveyor",
+        "title": "A组第5题：垂直冲上传送带",
+        "chapter": "动能定理",
+        "difficulty": 5,
+        "variantLevel": "L1",
+        "role": "基础变式",
+        "virtual": false,
+        "label": "直接建模"
+      },
+      {
+        "label": "条件变化",
+        "difficulty": 3,
+        "goal": "判断参数或表示方式变化后，哪些关系保持不变。",
+        "task": "改变一个关键条件，比较变化前后的趋势、临界值或图像特征，并重新检查“摩擦功与热量分配”。",
+        "variantLevel": "L2",
+        "virtual": true,
+        "check": "能区分保持不变的模型关系与必须重算的“摩擦功与热量分配”。"
+      },
+      {
+        "id": "projectile_b_09_conveyor",
+        "title": "B组第9题：传送带相对运动",
+        "chapter": "平抛运动",
+        "difficulty": 5,
+        "variantLevel": "L3",
+        "role": "综合题",
+        "virtual": false,
+        "label": "综合迁移"
+      }
+    ],
+    "foundation": {
+      "id": "lesson13_a_05_cross_conveyor_heat",
+      "title": "A 组第5题：垂直传送带相对运动",
+      "chapter": "功能关系",
+      "difficulty": 5,
+      "variantLevel": "L1",
+      "role": "基础变式"
+    },
+    "peer": {
+      "id": "projectile_b_09_conveyor",
+      "title": "B组第9题：传送带相对运动",
+      "chapter": "平抛运动",
+      "difficulty": 5,
+      "variantLevel": "L3",
+      "role": "综合题"
     }
   }
 }

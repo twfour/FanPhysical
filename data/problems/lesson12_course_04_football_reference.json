@@ -182,12 +182,12 @@
     "opening": "先把“例4：足球机械能与参考面”还原成可复用的物理模型。下面两步先要求预测和解释，再展开检验。",
     "stages": [
       {
-        "title": "先识别“重力势能参考面”",
-        "prompt": "暂不代入数据。阅读“例4：足球机械能与参考面”后，写出研究对象、过程边界，并说明“参考面选择、物理量逐项判断”中哪一个条件最先控制后续列式。",
-        "thought": "我可能会看到熟悉的数值就直接套公式，忽略本题属于“重力势能参考面”题族。",
+        "title": "先排除本题最容易出现的误判",
+        "prompt": "暂不代入数据。阅读“例4：足球机械能与参考面”后，判断为什么“把参考面以下的重力势能误写成正值”会导致错误，再写出研究对象、过程边界和首先要确定的“参考面选择、物理量逐项判断”。",
+        "thought": "最值得警惕的不是算错，而是：把参考面以下的重力势能误写成正值。",
         "check": "先执行：先选系统并检查是否只有保守力做功，再比较初末机械能。再检查题设中的方向、接触、阶段或临界条件是否已经进入模型。",
         "correction": "本题解析中的关键关系为：\n\n\\[E_{pA}=-mgh,\\qquad E_A=\\frac12mv_0^2-mgh,\\qquad E_B=E_A\\]\n\n先建立关系，再决定哪些数值需要代入。",
-        "takeaway": "遇到同题族的新题，先复用模型结构，不复用表面数字。需要特别避免：看到速度和高度变化就直接使用机械能守恒。",
+        "takeaway": "本题族的母题动作是“先选系统并检查是否只有保守力做功，再比较初末机械能”；看到新情境时应复用这个动作，而不是复用答案。",
         "animationPreset": {
           "params": {
             "mass": 0.5
@@ -198,12 +198,12 @@
         }
       },
       {
-        "title": "改变条件，检查结论是否仍成立",
-        "prompt": "若只改变动画中的一个参数或题设中的一个条件，哪些关系保持不变，哪些临界值、图像斜率或最终结论必须重新判断？",
-        "thought": "我可能会认为动画外观相似，就说明原来的数值结论仍然成立。",
+        "title": "观察会使“参考面选择”发生转折的条件",
+        "prompt": "改变动画中的一个关键参数，指出哪个时刻、方向、图像趋势或临界条件最先发生变化；再说明“机械能是否守恒取决于系统边界和非保守力做功，而不是取决于轨迹形状”为什么仍成立。",
+        "thought": "若只比较动画外观，我可能忽略“物理量逐项判断”已经改变。",
         "check": "把变化前后都放回关系：\n\n\\[E_{pA}=-mgh,\\qquad E_A=\\frac12mv_0^2-mgh,\\qquad E_B=E_A\\]\n\n逐项区分模型不变量与由参数决定的结果。",
         "correction": "真正保持的是：机械能是否守恒取决于系统边界和非保守力做功，而不是取决于轨迹形状。数值结论需要在新条件下重新计算并检查边界。",
-        "takeaway": "迁移题的关键不是换数，而是确认控制关系、系统边界和适用条件是否改变。",
+        "takeaway": "与同题族其他题相比，本题真正需要追踪的是“参考面选择、物理量逐项判断”如何受条件变化控制。",
         "animationPreset": {
           "params": {
             "mass": 1
@@ -248,7 +248,8 @@
         "title": "高中物理必修（二）8.3 重力势能",
         "url": "https://www.bilibili.com/video/BV1AVrvYjE7z/",
         "watchFor": "重力势能零面的选择、势能正负的含义，以及改变参考面为何不改变运动结果。",
-        "matchReason": "原题最容易误判的是负势能与机械能的关系；视频集中讲解的正是这一参考面问题。"
+        "matchReason": "原题最容易误判的是负势能与机械能的关系；视频集中讲解的正是这一参考面问题。",
+        "kind": "课程讲解"
       }
     ]
   },
@@ -263,12 +264,25 @@
     ],
     "prediction": {
       "title": "播放前预测：重力势能参考面",
-      "prompt": "观察动画前，解决“例4：足球机械能与参考面”时最合理的第一步是什么？",
-      "answer": "B",
+      "prompt": "观察动画前，解决“例4：足球机械能与参考面”时最合理的建模起点是什么？",
+      "answer": "A",
       "explanation": "正确起点是“先选系统并检查是否只有保守力做功，再比较初末机械能”。本题关系 \\[E_{pA}=-mgh,\\qquad E_A=\\frac12mv_0^2-mgh,\\qquad E_B=E_A\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
           "value": "A",
+          "text": "先选系统并检查是否只有保守力做功，再比较初末机械能"
+        },
+        {
+          "value": "B",
+          "text": "先记住原题答案，再寻找能得到该答案的计算",
+          "diagnosis": {
+            "tag": "结论倒推动机",
+            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
+            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
+          }
+        },
+        {
+          "value": "C",
           "text": "先把题目中的所有数值代入最熟悉的公式",
           "diagnosis": {
             "tag": "先算后建模",
@@ -277,49 +291,32 @@
           }
         },
         {
-          "value": "B",
-          "text": "先选系统并检查是否只有保守力做功，再比较初末机械能"
-        },
-        {
-          "value": "C",
+          "value": "D",
           "text": "只根据动画轨迹外形直接判断答案",
           "diagnosis": {
             "tag": "把示意图当成定量证据",
             "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
             "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
           }
-        },
-        {
-          "value": "D",
-          "text": "先记住原题答案，再寻找能得到该答案的计算",
-          "diagnosis": {
-            "tag": "结论倒推动机",
-            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
-            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
-          }
         }
       ]
     },
     "review": {
       "title": "延时复习：迁移“重力势能参考面”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
-      "answer": "B",
+      "prompt": "隔一段时间后再看同题族变式，下列迁移方法正确的是（ ）。",
+      "answer": "C",
       "explanation": "同题族迁移时应保留“机械能是否守恒取决于系统边界和非保守力做功，而不是取决于轨迹形状”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
-          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
           "diagnosis": {
-            "tag": "只看表面情境",
-            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
           }
         },
         {
           "value": "B",
-          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
-        },
-        {
-          "value": "C",
           "text": "只要公式相同，就不需要重新判断研究对象和过程",
           "diagnosis": {
             "tag": "忽略模型前提",
@@ -327,11 +324,15 @@
           }
         },
         {
+          "value": "C",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+        },
+        {
           "value": "D",
-          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
           "diagnosis": {
-            "tag": "忽略分段",
-            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
           }
         }
       ]
@@ -346,7 +347,85 @@
       "number": "物理选考第11题",
       "matchLevel": "同一考点",
       "matchReason": "该真题与当前题同属“重力势能参考面”题族，核心约束、主方程和边界检查一致；差别主要在情境、数据或设问层级。",
-      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Subjective_Questions/2010-2022_Physics_Open-ended_Questions.json#L295"
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Subjective_Questions/2010-2022_Physics_Open-ended_Questions.json#L295",
+      "relation": "原始核验"
     }
-  ]
+  ],
+  "learningPath": {
+    "familyId": "potential-reference",
+    "familyName": "重力势能参考面",
+    "currentDifficulty": 2,
+    "currentLevel": "L1",
+    "mother": {
+      "id": "lesson12_course_01_reference_plane",
+      "title": "例1：重力势能参考面",
+      "chapter": "机械能守恒定律",
+      "difficulty": 1,
+      "variantLevel": "L0",
+      "role": "母题"
+    },
+    "familyFocus": {
+      "observe": "参考面选择",
+      "misconception": "把参考面以下的重力势能误写成正值",
+      "invariant": "机械能是否守恒取决于系统边界和非保守力做功，而不是取决于轨迹形状",
+      "formula": "\\[W_G=mg(y_A-y_B),\\qquad \\Delta E_p=E_{pB}-E_{pA}=-W_G\\]"
+    },
+    "levels": [
+      {
+        "id": "lesson12_course_01_reference_plane",
+        "title": "例1：重力势能参考面",
+        "chapter": "机械能守恒定律",
+        "difficulty": 1,
+        "variantLevel": "L0",
+        "role": "母题",
+        "virtual": false,
+        "label": "概念识别"
+      },
+      {
+        "id": "lesson12_course_04_football_reference",
+        "title": "例4：足球机械能与参考面",
+        "chapter": "机械能守恒定律",
+        "difficulty": 2,
+        "variantLevel": "L1",
+        "role": "基础变式",
+        "virtual": false,
+        "label": "直接建模"
+      },
+      {
+        "id": "required2_single_05_oblique_throw",
+        "title": "单选第5题：斜抛机械能与参考面",
+        "chapter": "必修二结业测试",
+        "difficulty": 3,
+        "variantLevel": "L2",
+        "role": "综合题",
+        "virtual": false,
+        "label": "条件变化"
+      },
+      {
+        "label": "综合迁移",
+        "difficulty": 5,
+        "goal": "在多阶段或跨知识点情境中识别并复用该题族。",
+        "task": "把过程分段，并把“参考面选择”与另一条物理规律联立；说明分段点及最终边界检查。",
+        "variantLevel": "L3",
+        "virtual": true,
+        "check": "能正确分段、说明每段所用规律，并在连接处检查状态连续性与临界边界。"
+      }
+    ],
+    "foundation": {
+      "id": "lesson12_course_01_reference_plane",
+      "title": "例1：重力势能参考面",
+      "chapter": "机械能守恒定律",
+      "difficulty": 1,
+      "variantLevel": "L0",
+      "role": "母题"
+    },
+    "challenge": {
+      "id": "required2_single_05_oblique_throw",
+      "title": "单选第5题：斜抛机械能与参考面",
+      "chapter": "必修二结业测试",
+      "difficulty": 3,
+      "variantLevel": "L2",
+      "role": "综合题"
+    }
+  }
 }

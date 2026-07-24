@@ -143,7 +143,8 @@
         "title": "GeoGebra 图解摩天轮轮箱内物体的受力特点",
         "url": "https://www.bilibili.com/video/BV1nR4y1X7W1/",
         "watchFor": "轿厢保持水平时，物体在不同位置所需向心加速度的方向，以及支持力、重力和静摩擦如何分工。",
-        "matchReason": "视频对象就是摩天轮轿厢内物体，和本题场景及受力判断直接一致。"
+        "matchReason": "视频对象就是摩天轮轿厢内物体，和本题场景及受力判断直接一致。",
+        "kind": "动画解释"
       }
     ],
     "authoritativeResources": [
@@ -179,7 +180,8 @@
       "number": "第6题",
       "matchLevel": "高度同构",
       "matchReason": "情境同为始终保持水平的摩天轮座舱，核心都是先确定向心加速度方向，再由受力分解判断摩天轮作用力及其分量。",
-      "url": "https://www.shijuan123.com/zhenti/119.html"
+      "url": "https://www.shijuan123.com/zhenti/119.html",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -193,22 +195,22 @@
     ],
     "prediction": {
       "title": "播放前预测：圆周运动受力分解",
-      "prompt": "观察动画前，解决“单选第6题：摩天轮轿厢摩擦力”时最合理的第一步是什么？",
-      "answer": "B",
+      "prompt": "暂不代入数值。面对“单选第6题：摩天轮轿厢摩擦力”，应先锁定哪一项关系？",
+      "answer": "A",
       "explanation": "正确起点是“先标出圆心方向，再判断哪些实际力提供径向合力”。本题关系 \\[\\sum F_r=m\\frac{v^2}{r}=m\\omega^2r\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
           "value": "A",
+          "text": "先标出圆心方向，再判断哪些实际力提供径向合力"
+        },
+        {
+          "value": "B",
           "text": "先把题目中的所有数值代入最熟悉的公式",
           "diagnosis": {
             "tag": "先算后建模",
             "feedback": "这样容易出现“把向心力当成物体额外受到的一种力”的问题。",
             "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
           }
-        },
-        {
-          "value": "B",
-          "text": "先标出圆心方向，再判断哪些实际力提供径向合力"
         },
         {
           "value": "C",
@@ -232,8 +234,8 @@
     },
     "review": {
       "title": "延时复习：迁移“圆周运动受力分解”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
-      "answer": "B",
+      "prompt": "检验自己是否真正掌握“圆周运动受力分解”时，应选择哪种分析方式？",
+      "answer": "C",
       "explanation": "同题族迁移时应保留“无论装置怎样变化，径向合力都必须等于质量与向心加速度的乘积”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
@@ -246,15 +248,15 @@
         },
         {
           "value": "B",
-          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
-        },
-        {
-          "value": "C",
           "text": "只要公式相同，就不需要重新判断研究对象和过程",
           "diagnosis": {
             "tag": "忽略模型前提",
             "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
           }
+        },
+        {
+          "value": "C",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
         },
         {
           "value": "D",
@@ -265,6 +267,82 @@
           }
         }
       ]
+    }
+  },
+  "learningPath": {
+    "familyId": "circular-force",
+    "familyName": "圆周运动受力分解",
+    "currentDifficulty": 3,
+    "currentLevel": "L2",
+    "mother": {
+      "id": "circular_daily_ex1_banked_curve",
+      "title": "例1：弯道侧滑临界",
+      "chapter": "圆周运动日常",
+      "difficulty": 3,
+      "variantLevel": "L1",
+      "role": "母题"
+    },
+    "familyFocus": {
+      "observe": "向心方向确定",
+      "misconception": "把向心力当成物体额外受到的一种力",
+      "invariant": "无论装置怎样变化，径向合力都必须等于质量与向心加速度的乘积",
+      "formula": "\\[\\tan\\theta=\\frac{v_0^2}{rg}\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“向心加速度定向”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“向心加速度定向”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“向心加速度定向”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "id": "circular_daily_a2_airplane_turn",
+        "title": "A2：飞机水平盘旋升力",
+        "chapter": "圆周运动日常",
+        "difficulty": 3,
+        "variantLevel": "L1",
+        "role": "基础变式",
+        "virtual": false,
+        "label": "直接建模"
+      },
+      {
+        "id": "curve_training_13_banked_railway",
+        "title": "第13题：铁路弯道侧倾",
+        "chapter": "曲线运动",
+        "difficulty": 3,
+        "variantLevel": "L2",
+        "role": "条件变式",
+        "virtual": false,
+        "label": "条件变化"
+      },
+      {
+        "label": "综合迁移",
+        "difficulty": 5,
+        "goal": "在多阶段或跨知识点情境中识别并复用该题族。",
+        "task": "把过程分段，并把“向心加速度定向”与另一条物理规律联立；说明分段点及最终边界检查。",
+        "variantLevel": "L3",
+        "virtual": true,
+        "check": "能正确分段、说明每段所用规律，并在连接处检查状态连续性与临界边界。"
+      }
+    ],
+    "foundation": {
+      "id": "circular_motion_friction",
+      "title": "课7：汽车过弯最大速度",
+      "chapter": "圆周运动",
+      "difficulty": 3,
+      "variantLevel": "L1",
+      "role": "母题"
+    },
+    "peer": {
+      "id": "curve_training_13_banked_railway",
+      "title": "第13题：铁路弯道侧倾",
+      "chapter": "曲线运动",
+      "difficulty": 3,
+      "variantLevel": "L2",
+      "role": "条件变式"
     }
   }
 }

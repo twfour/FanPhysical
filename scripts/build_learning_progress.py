@@ -59,6 +59,8 @@ def build_progress_catalog():
                 "chapter": problem.get("chapter") or "未分类",
                 "title": problem.get("title") or problem.get("id"),
                 "knowledge": clean_string_list(problem.get("knowledge")),
+                "familyId": problem.get("taxonomy", {}).get("familyId") or problem.get("id"),
+                "familyName": problem.get("taxonomy", {}).get("familyName") or problem.get("title"),
                 "explorationStages": len(stages),
                 "hasTransfer": has_transfer,
                 "rubricPoints": min(3, len(rubric)) if has_transfer and isinstance(rubric, list) else 0,

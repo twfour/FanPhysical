@@ -2,6 +2,7 @@
 var studentExplorationStorageKey = "fanphysics:studentExploration:v1";
 var realLifeResponseStorageKey = "fanphysics:realLifeResponses:v1";
 var realLifeRubricStorageKey = "fanphysics:realLifeRubric:v1";
+var practiceMasteryStorageKey = "fanphysics:practiceMastery:v1";
 var learningSyncStatus = "unknown";
 var learningSyncAuthenticated = false;
 var learningSyncError = "";
@@ -103,7 +104,8 @@ function getLearningSyncStoreDefinitions() {
   var definitions = [
     { name: "exploration", storageKey: studentExplorationStorageKey },
     { name: "realLife", storageKey: realLifeResponseStorageKey },
-    { name: "realLifeChecks", storageKey: realLifeRubricStorageKey }
+    { name: "realLifeChecks", storageKey: realLifeRubricStorageKey },
+    { name: "practiceMastery", storageKey: practiceMasteryStorageKey }
   ];
   if (typeof learningCycleStorageKey !== "undefined") {
     definitions.push({ name: "learningCycle", storageKey: learningCycleStorageKey });

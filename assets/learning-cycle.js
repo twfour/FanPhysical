@@ -143,6 +143,47 @@ function renderLearningCyclePredictionFeedback(problem, block) {
     : selected && selected.diagnosis && selected.diagnosis.feedback;
   if (explanation) appendMarkdownChildren(feedback, explanation);
 
+  var secondJudgment = document.createElement("section");
+  secondJudgment.className = "learning-cycle-second-judgment";
+  var secondTitle = document.createElement("strong");
+  secondTitle.innerText = "动画后再判断";
+  secondJudgment.appendChild(secondTitle);
+  if (state.prediction.postAnswer) {
+    var secondResult = document.createElement("p");
+    secondResult.innerText = "动画前选择 " + state.prediction.answer + "，动画后选择 " +
+      state.prediction.postAnswer + "；" + (state.prediction.postCorrect ? "已修正为正确判断。" : "仍需结合解析继续修正。");
+    secondJudgment.appendChild(secondResult);
+  } else {
+    var secondChoices = createLearningCycleChoiceList(
+      definition,
+      "learning-cycle-post-" + problem.id,
+      ""
+    );
+    var secondSave = document.createElement("button");
+    secondSave.type = "button";
+    secondSave.className = "learning-secondary-action";
+    secondSave.innerText = "保存动画后判断";
+    secondSave.disabled = true;
+    secondChoices.addEventListener("change", function () {
+      secondSave.disabled = !selectedLearningCycleChoice(secondChoices);
+    });
+    secondSave.onclick = function () {
+      var nextState = getLearningCycleState(problem.id);
+      if (!nextState.prediction) return;
+      nextState.prediction.postAnswer = selectedLearningCycleChoice(secondChoices);
+      nextState.prediction.postCorrect = learningCycleAnswerIsCorrect(
+        definition,
+        nextState.prediction.postAnswer
+      );
+      nextState.prediction.postSubmittedAt = Date.now();
+      saveLearningCycleState(problem, nextState);
+      renderLearningCyclePredictionFeedback(problem, block);
+    };
+    secondJudgment.appendChild(secondChoices);
+    secondJudgment.appendChild(secondSave);
+  }
+  feedback.appendChild(secondJudgment);
+
   if (!correct && selected && selected.diagnosis && selected.diagnosis.prompt) {
     var repair = document.createElement("section");
     repair.className = "learning-cycle-repair";
@@ -386,6 +427,10 @@ function completeLearningCycleAnimation(sceneName) {
   if (!state.animationCompletedAt) {
     state.animationCompletedAt = Date.now();
     state.prediction.correct = learningCycleAnswerIsCorrect(problem.learningCycle.prediction, state.prediction.answer);
+    var selected = findLearningCycleOption(problem.learningCycle.prediction, state.prediction.answer);
+    if (!state.prediction.correct && selected && selected.diagnosis) {
+      state.misconceptionTag = selected.diagnosis.tag || "";
+    }
     scheduleInitialLearningCycleReview(problem, state);
     saveLearningCycleState(problem, state);
   }
@@ -394,6 +439,7 @@ function completeLearningCycleAnimation(sceneName) {
   var status = block && block.querySelector(".learning-cycle-status");
   if (status) status.innerText = "已完成动画检验";
   refreshLearningCycleReviewBlock(problem);
+  if (typeof refreshAdaptiveProblemLayout === "function") refreshAdaptiveProblemLayout(problem);
 }
 
 function learningCycleReviewIntervals(problem) {
@@ -485,6 +531,7 @@ function renderLearningCycleReviewBody(problem, block) {
       );
     appendMarkdownChildren(feedback, content + "\n\n下一次复习安排在 " + formatLearningCycleDate(review.dueAt) + "。");
     renderMath(feedback);
+    if (typeof refreshAdaptiveProblemLayout === "function") refreshAdaptiveProblemLayout(problem);
   };
 }
 

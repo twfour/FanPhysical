@@ -167,14 +167,16 @@
         "title": "有的卫星 90 分钟绕地球一圈，地面如何实时通信？",
         "url": "https://www.bilibili.com/video/av745643047/",
         "watchFor": "卫星降到地平线下方后为何失去直视链路，以及地面站和中继卫星怎样接力通信。",
-        "matchReason": "原题的遮挡时间本质就是地球挡住无线电视线；视频给出了这一几何条件的现实工程场景。"
+        "matchReason": "原题的遮挡时间本质就是地球挡住无线电视线；视频给出了这一几何条件的现实工程场景。",
+        "kind": "课程讲解"
       },
       {
         "platform": "哔哩哔哩",
         "title": "同步卫星能不能不在赤道上空？",
         "url": "https://www.bilibili.com/video/BV1uo4y157L5/",
         "watchFor": "同步与静止轨道的区别、同步卫星的轨道条件，以及轨道半径与周期的联系。",
-        "matchReason": "它补足原题的轨道动力学部分，便于把地球张角几何与同步卫星参数放进同一个模型。"
+        "matchReason": "它补足原题的轨道动力学部分，便于把地球张角几何与同步卫星参数放进同一个模型。",
+        "kind": "课程讲解"
       }
     ],
     "authoritativeResources": [
@@ -210,7 +212,8 @@
       "number": "物理部分第8题",
       "matchLevel": "高度同构",
       "matchReason": "两题都把同步卫星的轨道半径、中心天体密度和自转周期联立，核心消元关系完全一致。",
-      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L29"
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L29",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -224,22 +227,27 @@
     ],
     "prediction": {
       "title": "播放前预测：同步卫星与几何遮挡",
-      "prompt": "观察动画前，解决“多选第13题：地球张角与卫星参数”时最合理的第一步是什么？",
-      "answer": "B",
+      "prompt": "观察动画前，解决“多选第13题：地球张角与卫星参数”时最合理的建模起点是什么？",
+      "answer": "D",
       "explanation": "正确起点是“先确定中心天体、距离是球心距还是高度，再写万有引力关系”。本题关系 \\[\\sin\\theta=\\frac Rr,\\quad \\frac{a_I}{a_{II}}=\\left(\\frac Rr\\right)^2,\\quad \\frac{T_{II}}{T_0}=\\left(\\frac Rr\\right)^{3/2}\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
           "value": "A",
+          "text": "先记住原题答案，再寻找能得到该答案的计算",
+          "diagnosis": {
+            "tag": "结论倒推动机",
+            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
+            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
+          }
+        },
+        {
+          "value": "B",
           "text": "先把题目中的所有数值代入最熟悉的公式",
           "diagnosis": {
             "tag": "先算后建模",
             "feedback": "这样容易出现“把距地面高度直接代入万有引力公式中的球心距”的问题。",
             "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
           }
-        },
-        {
-          "value": "B",
-          "text": "先确定中心天体、距离是球心距还是高度，再写万有引力关系"
         },
         {
           "value": "C",
@@ -252,27 +260,22 @@
         },
         {
           "value": "D",
-          "text": "先记住原题答案，再寻找能得到该答案的计算",
-          "diagnosis": {
-            "tag": "结论倒推动机",
-            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
-            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
-          }
+          "text": "先确定中心天体、距离是球心距还是高度，再写万有引力关系"
         }
       ]
     },
     "review": {
       "title": "延时复习：迁移“同步卫星与几何遮挡”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
+      "prompt": "隔一段时间后再看同题族变式，下列迁移方法正确的是（ ）。",
       "answer": "B",
       "explanation": "同题族迁移时应保留“球对称天体外部的引力由中心距离和中心天体质量决定”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
-          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
           "diagnosis": {
-            "tag": "只看表面情境",
-            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
           }
         },
         {
@@ -281,21 +284,80 @@
         },
         {
           "value": "C",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "diagnosis": {
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+          }
+        },
+        {
+          "value": "D",
           "text": "只要公式相同，就不需要重新判断研究对象和过程",
           "diagnosis": {
             "tag": "忽略模型前提",
             "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
           }
-        },
-        {
-          "value": "D",
-          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
-          "diagnosis": {
-            "tag": "忽略分段",
-            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
-          }
         }
       ]
     }
+  },
+  "learningPath": {
+    "familyId": "geostationary",
+    "familyName": "同步卫星与几何遮挡",
+    "currentDifficulty": 4,
+    "currentLevel": "L3",
+    "mother": {
+      "id": "required2_multiple_13_geostationary",
+      "title": "多选第13题：地球张角与卫星参数",
+      "chapter": "必修二结业测试",
+      "difficulty": 4,
+      "variantLevel": "L3",
+      "role": "综合题"
+    },
+    "familyFocus": {
+      "observe": "轨道参数推导",
+      "misconception": "把距地面高度直接代入万有引力公式中的球心距",
+      "invariant": "球对称天体外部的引力由中心距离和中心天体质量决定",
+      "formula": "\\[\\sin\\theta=\\frac Rr,\\quad \\frac{a_I}{a_{II}}=\\left(\\frac Rr\\right)^2,\\quad \\frac{T_{II}}{T_0}=\\left(\\frac Rr\\right)^{3/2}\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“轨道参数推导”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“轨道参数推导”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“轨道参数推导”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "label": "直接建模",
+        "difficulty": 2,
+        "goal": "在单一过程中直接调用“同步卫星与几何遮挡”的主关系。",
+        "task": "保留原模型，只给一组完整条件；先写 \\[\\sin\\theta=\\frac Rr,\\quad \\frac{a_I}{a_{II}}=\\left(\\frac Rr\\right)^2,\\quad \\frac{T_{II}}{T_0}=\\left(\\frac Rr\\right)^{3/2}\\]，再说明“空间几何建模”如何进入方程。",
+        "variantLevel": "L1",
+        "virtual": true,
+        "check": "能先写出 \\[\\sin\\theta=\\frac Rr,\\quad \\frac{a_I}{a_{II}}=\\left(\\frac Rr\\right)^2,\\quad \\frac{T_{II}}{T_0}=\\left(\\frac Rr\\right)^{3/2}\\]，再代入条件并得到量纲正确的结果。"
+      },
+      {
+        "label": "条件变化",
+        "difficulty": 3,
+        "goal": "判断参数或表示方式变化后，哪些关系保持不变。",
+        "task": "改变一个关键条件，比较变化前后的趋势、临界值或图像特征，并重新检查“空间几何建模”。",
+        "variantLevel": "L2",
+        "virtual": true,
+        "check": "能区分保持不变的模型关系与必须重算的“空间几何建模”。"
+      },
+      {
+        "id": "required2_multiple_13_geostationary",
+        "title": "多选第13题：地球张角与卫星参数",
+        "chapter": "必修二结业测试",
+        "difficulty": 4,
+        "variantLevel": "L3",
+        "role": "综合题",
+        "virtual": false,
+        "label": "综合迁移"
+      }
+    ]
   }
 }

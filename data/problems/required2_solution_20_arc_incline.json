@@ -156,14 +156,16 @@
         "title": "碗池泵道小白入门进阶教学",
         "url": "https://www.bilibili.com/video/BV1C34y1773F/",
         "watchFor": "滑板从平地进入坡面和圆弧、跨过最低点再爬升的连续运动，以及每次往返的速度变化。",
-        "matchReason": "真实泵道提供原题光滑圆弧接粗糙斜坡的运动图景，能直观看到往返路程逐次改变。"
+        "matchReason": "真实泵道提供原题光滑圆弧接粗糙斜坡的运动图景，能直观看到往返路程逐次改变。",
+        "kind": "课程讲解"
       },
       {
         "platform": "哔哩哔哩",
         "title": "不用蹬板也能前进？Pumping 的物理原理",
         "url": "https://www.bilibili.com/video/BV1XY4y1L71Z/",
         "watchFor": "真实滑板者怎样通过改变姿态向系统输入能量，并把它与题目中无人驱动、只受摩擦耗散的理想模型对照。",
-        "matchReason": "同一泵道几何下，视频展示了现实中额外做功这一关键修正；去掉主动输入后就是原题的机械能递减模型。"
+        "matchReason": "同一泵道几何下，视频展示了现实中额外做功这一关键修正；去掉主动输入后就是原题的机械能递减模型。",
+        "kind": "课程讲解"
       }
     ],
     "authoritativeResources": [
@@ -199,7 +201,8 @@
       "number": "第25题",
       "matchLevel": "综合迁移",
       "matchReason": "两题都需要把斜面与光滑过渡轨道分段建模，利用动能定理追踪多次往返，并以临界位置结束过程；真题额外加入弹性碰撞。",
-      "url": "https://max.book118.com/html/2020/0404/8102114022002105.shtm"
+      "url": "https://max.book118.com/html/2020/0404/8102114022002105.shtm",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -213,12 +216,21 @@
     ],
     "prediction": {
       "title": "播放前预测：圆弧斜面往复与摩擦",
-      "prompt": "观察动画前，解决“解答第20题：圆弧斜面往复与总路程”时最合理的第一步是什么？",
-      "answer": "B",
+      "prompt": "为了预测动画中的趋势或临界点，处理“解答第20题：圆弧斜面往复与总路程”时应先做什么？",
+      "answer": "C",
       "explanation": "正确起点是“先按轨道接触、脱离和抛体阶段分段，并在连接点使用共同状态量”。本题关系 \\[E_1+W_{\\mathrm{nc}}=E_2,\\qquad \\sum F_r=m\\frac{v^2}{r}\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
           "value": "A",
+          "text": "只根据动画轨迹外形直接判断答案",
+          "diagnosis": {
+            "tag": "把示意图当成定量证据",
+            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
+            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
+          }
+        },
+        {
+          "value": "B",
           "text": "先把题目中的所有数值代入最熟悉的公式",
           "diagnosis": {
             "tag": "先算后建模",
@@ -227,17 +239,8 @@
           }
         },
         {
-          "value": "B",
-          "text": "先按轨道接触、脱离和抛体阶段分段，并在连接点使用共同状态量"
-        },
-        {
           "value": "C",
-          "text": "只根据动画轨迹外形直接判断答案",
-          "diagnosis": {
-            "tag": "把示意图当成定量证据",
-            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
-            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
-          }
+          "text": "先按轨道接触、脱离和抛体阶段分段，并在连接点使用共同状态量"
         },
         {
           "value": "D",
@@ -252,21 +255,21 @@
     },
     "review": {
       "title": "延时复习：迁移“圆弧斜面往复与摩擦”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
-      "answer": "B",
+      "prompt": "隔一段时间后再看同题族变式，下列迁移方法正确的是（ ）。",
+      "answer": "A",
       "explanation": "同题族迁移时应保留“能量关系决定速度大小，径向动力学和几何条件决定能否继续沿轨道运动”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+        },
+        {
+          "value": "B",
           "text": "题目名称相似，原题的数值答案可以直接沿用",
           "diagnosis": {
             "tag": "只看表面情境",
             "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
           }
-        },
-        {
-          "value": "B",
-          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
         },
         {
           "value": "C",
@@ -286,5 +289,64 @@
         }
       ]
     }
+  },
+  "learningPath": {
+    "familyId": "friction-roundtrip",
+    "familyName": "圆弧斜面往复与摩擦",
+    "currentDifficulty": 5,
+    "currentLevel": "L3",
+    "mother": {
+      "id": "required2_solution_20_arc_incline",
+      "title": "解答第20题：圆弧斜面往复与总路程",
+      "chapter": "必修二结业测试",
+      "difficulty": 5,
+      "variantLevel": "L3",
+      "role": "综合题"
+    },
+    "familyFocus": {
+      "observe": "往复过程划分",
+      "misconception": "只用能量求速度而不检查支持力或脱离条件",
+      "invariant": "能量关系决定速度大小，径向动力学和几何条件决定能否继续沿轨道运动",
+      "formula": "\\[E_1+W_{\\mathrm{nc}}=E_2,\\qquad \\sum F_r=m\\frac{v^2}{r}\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“往复过程划分”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“往复过程划分”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“往复过程划分”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "label": "直接建模",
+        "difficulty": 2,
+        "goal": "在单一过程中直接调用“圆弧斜面往复与摩擦”的主关系。",
+        "task": "保留原模型，只给一组完整条件；先写 \\[E_1+W_{\\mathrm{nc}}=E_2,\\qquad \\sum F_r=m\\frac{v^2}{r}\\]，再说明“分段函数建模”如何进入方程。",
+        "variantLevel": "L1",
+        "virtual": true,
+        "check": "能先写出 \\[E_1+W_{\\mathrm{nc}}=E_2,\\qquad \\sum F_r=m\\frac{v^2}{r}\\]，再代入条件并得到量纲正确的结果。"
+      },
+      {
+        "label": "条件变化",
+        "difficulty": 3,
+        "goal": "判断参数或表示方式变化后，哪些关系保持不变。",
+        "task": "改变一个关键条件，比较变化前后的趋势、临界值或图像特征，并重新检查“分段函数建模”。",
+        "variantLevel": "L2",
+        "virtual": true,
+        "check": "能区分保持不变的模型关系与必须重算的“分段函数建模”。"
+      },
+      {
+        "id": "required2_solution_20_arc_incline",
+        "title": "解答第20题：圆弧斜面往复与总路程",
+        "chapter": "必修二结业测试",
+        "difficulty": 5,
+        "variantLevel": "L3",
+        "role": "综合题",
+        "virtual": false,
+        "label": "综合迁移"
+      }
+    ]
   }
 }

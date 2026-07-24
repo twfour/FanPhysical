@@ -186,14 +186,16 @@
         "url": "https://www.bilibili.com/video/BV1H6YPz7Erk/",
         "duration": "04:59",
         "watchFor": "找出第一次点火抬高远地点、第二次点火圆化轨道的时刻，并比较两次点火前后的速度方向。",
-        "matchReason": "视频完整展示两圆轨道间的霍曼转移，直接对应原题的轨道 1、转移椭圆 2 和轨道 3。"
+        "matchReason": "视频完整展示两圆轨道间的霍曼转移，直接对应原题的轨道 1、转移椭圆 2 和轨道 3。",
+        "kind": "课程讲解"
       },
       {
         "platform": "NASA/JPL",
         "title": "火星霍曼转移与发射窗口动画",
         "url": "https://www.jpl.nasa.gov/edu/resources/lesson-plan/lets-go-to-mars-calculating-launch-windows/",
         "watchFor": "观察转移椭圆如何同时与出发轨道和目标轨道相切，以及提前或延后出发为什么会错过目标。",
-        "matchReason": "这是霍曼转移在地球到火星任务中的真实工程应用，并补充了原题理想模型未涉及的相位窗口。"
+        "matchReason": "这是霍曼转移在地球到火星任务中的真实工程应用，并补充了原题理想模型未涉及的相位窗口。",
+        "kind": "动画解释"
       }
     ],
     "authoritativeResources": [
@@ -229,7 +231,8 @@
       "number": "物理部分第7题",
       "matchLevel": "同一考点",
       "matchReason": "真题从能量与圆轨道速度分析轨道半径变化，原题进一步比较圆轨道和转移椭圆在切点处的速度、加速度及周期。",
-      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L139"
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L139",
+      "relation": "原始核验"
     },
     {
       "type": "competition",
@@ -245,7 +248,8 @@
         "角动量守恒",
         "极坐标下的椭圆方程"
       ],
-      "url": "https://cpho.pku.edu.cn/assets/file/2021cpho/3821jsllst.pdf"
+      "url": "https://cpho.pku.edu.cn/assets/file/2021cpho/3821jsllst.pdf",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -259,12 +263,21 @@
     ],
     "prediction": {
       "title": "播放前预测：圆轨道与转移椭圆",
-      "prompt": "观察动画前，解决“单选第10题：圆轨道与转移椭圆”时最合理的第一步是什么？",
-      "answer": "B",
+      "prompt": "暂不代入数值。面对“单选第10题：圆轨道与转移椭圆”，应先锁定哪一项关系？",
+      "answer": "C",
       "explanation": "正确起点是“先标出点火位置和点火前后轨道，再判断速度突变方向与新轨道形状”。本题关系 \\[\\varepsilon=-\\frac{GM}{2a},\\qquad T^2\\propto a^3,\\qquad a_g=\\frac{GM}{r^2}\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
           "value": "A",
+          "text": "只根据动画轨迹外形直接判断答案",
+          "diagnosis": {
+            "tag": "把示意图当成定量证据",
+            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
+            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
+          }
+        },
+        {
+          "value": "B",
           "text": "先把题目中的所有数值代入最熟悉的公式",
           "diagnosis": {
             "tag": "先算后建模",
@@ -273,17 +286,8 @@
           }
         },
         {
-          "value": "B",
-          "text": "先标出点火位置和点火前后轨道，再判断速度突变方向与新轨道形状"
-        },
-        {
           "value": "C",
-          "text": "只根据动画轨迹外形直接判断答案",
-          "diagnosis": {
-            "tag": "把示意图当成定量证据",
-            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
-            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
-          }
+          "text": "先标出点火位置和点火前后轨道，再判断速度突变方向与新轨道形状"
         },
         {
           "value": "D",
@@ -298,28 +302,28 @@
     },
     "review": {
       "title": "延时复习：迁移“圆轨道与转移椭圆”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
-      "answer": "B",
+      "prompt": "重新遇到“圆轨道与转移椭圆”的新情境时，哪种处理最可靠？",
+      "answer": "A",
       "explanation": "同题族迁移时应保留“瞬时点火改变速度而不改变当时位置，新轨道必须通过点火点”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
-          "text": "题目名称相似，原题的数值答案可以直接沿用",
-          "diagnosis": {
-            "tag": "只看表面情境",
-            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
-          }
-        },
-        {
-          "value": "B",
           "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
         },
         {
-          "value": "C",
+          "value": "B",
           "text": "只要公式相同，就不需要重新判断研究对象和过程",
           "diagnosis": {
             "tag": "忽略模型前提",
             "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
+          }
+        },
+        {
+          "value": "C",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "diagnosis": {
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
           }
         },
         {
@@ -331,6 +335,75 @@
           }
         }
       ]
+    }
+  },
+  "learningPath": {
+    "familyId": "hohmann-transfer",
+    "familyName": "圆轨道与转移椭圆",
+    "currentDifficulty": 4,
+    "currentLevel": "L3",
+    "mother": {
+      "id": "gravitation_course_02_ellipse_return",
+      "title": "例2：椭圆变轨返回",
+      "chapter": "万有引力与宇宙航行",
+      "difficulty": 4,
+      "variantLevel": "L1",
+      "role": "母题"
+    },
+    "familyFocus": {
+      "observe": "变轨前后状态比较",
+      "misconception": "认为加速点火后航天器会立刻移动到更高圆轨道",
+      "invariant": "瞬时点火改变速度而不改变当时位置，新轨道必须通过点火点",
+      "formula": "\\[v^2=GM\\left(\\frac2r-\\frac1a\\right)\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“轨道状态比较”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“轨道状态比较”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“轨道状态比较”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "id": "gravitation_course_02_ellipse_return",
+        "title": "例2：椭圆变轨返回",
+        "chapter": "万有引力与宇宙航行",
+        "difficulty": 4,
+        "variantLevel": "L1",
+        "role": "母题",
+        "virtual": false,
+        "label": "直接建模"
+      },
+      {
+        "id": "lesson9_hw_05_tianzhou_transfer",
+        "title": "作业第5题：天舟八号变轨对接",
+        "chapter": "行星运动与变轨等问题",
+        "difficulty": 4,
+        "variantLevel": "L2",
+        "role": "条件变式",
+        "virtual": false,
+        "label": "条件变化"
+      },
+      {
+        "id": "required2_single_10_orbit_transfer",
+        "title": "单选第10题：圆轨道与转移椭圆",
+        "chapter": "必修二结业测试",
+        "difficulty": 4,
+        "variantLevel": "L3",
+        "role": "综合题",
+        "virtual": false,
+        "label": "综合迁移"
+      }
+    ],
+    "foundation": {
+      "id": "lesson9_hw_05_tianzhou_transfer",
+      "title": "作业第5题：天舟八号变轨对接",
+      "chapter": "行星运动与变轨等问题",
+      "difficulty": 4,
+      "variantLevel": "L2",
+      "role": "条件变式"
     }
   }
 }

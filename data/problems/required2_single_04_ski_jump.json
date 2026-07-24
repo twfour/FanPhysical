@@ -167,14 +167,16 @@
         "title": "跳台滑雪第一视角，飞出去后竟然……",
         "url": "https://www.bilibili.com/video/BV1VWCgBfEfL/",
         "watchFor": "运动员离台后的腾空轨迹、倾斜着陆坡，以及速度方向与坡面方向的相对关系。",
-        "matchReason": "真实画面对应题目的水平抛出与斜坡相交情境，可直观看到为什么落点必须由轨迹和坡面共同确定。"
+        "matchReason": "真实画面对应题目的水平抛出与斜坡相交情境，可直观看到为什么落点必须由轨迹和坡面共同确定。",
+        "kind": "课程讲解"
       },
       {
         "platform": "哔哩哔哩",
         "title": "平抛斜面时间公式的重要应用",
         "url": "https://www.bilibili.com/video/BV14q4y1d7Ri/",
         "watchFor": "如何把平抛方程与斜面方程联立，先求飞行时间，再求落点高度和速度分量。",
-        "matchReason": "它直接覆盖本题的数学骨架，能把真实跳台画面还原成可计算的平抛落斜面模型。"
+        "matchReason": "它直接覆盖本题的数学骨架，能把真实跳台画面还原成可计算的平抛落斜面模型。",
+        "kind": "课程讲解"
       }
     ],
     "authoritativeResources": [
@@ -210,7 +212,8 @@
       "number": "物理部分第2题",
       "matchLevel": "同一考点",
       "matchReason": "真题与原题都从水平抛出出发，把平抛分运动、机械能和末速度方向连接起来；原题再追问重力的平均功率与瞬时功率。",
-      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L183"
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L183",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -224,25 +227,16 @@
     ],
     "prediction": {
       "title": "播放前预测：抛体过程中的功率",
-      "prompt": "观察动画前，解决“单选第4题：跳台滑雪功率”时最合理的第一步是什么？",
-      "answer": "B",
+      "prompt": "观察动画前，解决“单选第4题：跳台滑雪功率”时最合理的建模起点是什么？",
+      "answer": "A",
       "explanation": "正确起点是“先选坐标轴，把运动分解为互相独立且等时的水平、竖直分运动”。本题关系 \\[y=\\frac12gt^2=x\\tan\\theta,\\quad W_G=mgy,\\quad \\bar P=\\frac{W_G}{t},\\quad P_G=\\vec G\\cdot\\vec v=mgv_y\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
           "value": "A",
-          "text": "先把题目中的所有数值代入最熟悉的公式",
-          "diagnosis": {
-            "tag": "先算后建模",
-            "feedback": "这样容易出现“把轨迹方向误当成恒定的受力方向”的问题。",
-            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
-          }
-        },
-        {
-          "value": "B",
           "text": "先选坐标轴，把运动分解为互相独立且等时的水平、竖直分运动"
         },
         {
-          "value": "C",
+          "value": "B",
           "text": "只根据动画轨迹外形直接判断答案",
           "diagnosis": {
             "tag": "把示意图当成定量证据",
@@ -251,24 +245,41 @@
           }
         },
         {
-          "value": "D",
+          "value": "C",
           "text": "先记住原题答案，再寻找能得到该答案的计算",
           "diagnosis": {
             "tag": "结论倒推动机",
             "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
             "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
           }
+        },
+        {
+          "value": "D",
+          "text": "先把题目中的所有数值代入最熟悉的公式",
+          "diagnosis": {
+            "tag": "先算后建模",
+            "feedback": "这样容易出现“把轨迹方向误当成恒定的受力方向”的问题。",
+            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
+          }
         }
       ]
     },
     "review": {
       "title": "延时复习：迁移“抛体过程中的功率”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
-      "answer": "B",
+      "prompt": "检验自己是否真正掌握“抛体过程中的功率”时，应选择哪种分析方式？",
+      "answer": "C",
       "explanation": "同题族迁移时应保留“忽略空气阻力时，水平和竖直分运动共享同一时间，竖直加速度始终为重力加速度”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "diagnosis": {
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+          }
+        },
+        {
+          "value": "B",
           "text": "题目名称相似，原题的数值答案可以直接沿用",
           "diagnosis": {
             "tag": "只看表面情境",
@@ -276,26 +287,77 @@
           }
         },
         {
-          "value": "B",
+          "value": "C",
           "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
         },
         {
-          "value": "C",
+          "value": "D",
           "text": "只要公式相同，就不需要重新判断研究对象和过程",
           "diagnosis": {
             "tag": "忽略模型前提",
             "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
           }
-        },
-        {
-          "value": "D",
-          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
-          "diagnosis": {
-            "tag": "忽略分段",
-            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
-          }
         }
       ]
     }
+  },
+  "learningPath": {
+    "familyId": "projectile-power",
+    "familyName": "抛体过程中的功率",
+    "currentDifficulty": 3,
+    "currentLevel": "L2",
+    "mother": {
+      "id": "required2_single_04_ski_jump",
+      "title": "单选第4题：跳台滑雪功率",
+      "chapter": "必修二结业测试",
+      "difficulty": 3,
+      "variantLevel": "L2",
+      "role": "综合题"
+    },
+    "familyFocus": {
+      "observe": "速度分量求解",
+      "misconception": "把轨迹方向误当成恒定的受力方向",
+      "invariant": "忽略空气阻力时，水平和竖直分运动共享同一时间，竖直加速度始终为重力加速度",
+      "formula": "\\[y=\\frac12gt^2=x\\tan\\theta,\\quad W_G=mgy,\\quad \\bar P=\\frac{W_G}{t},\\quad P_G=\\vec G\\cdot\\vec v=mgv_y\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“速度分量求解”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“速度分量求解”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“速度分量求解”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "label": "直接建模",
+        "difficulty": 2,
+        "goal": "在单一过程中直接调用“抛体过程中的功率”的主关系。",
+        "task": "保留原模型，只给一组完整条件；先写 \\[y=\\frac12gt^2=x\\tan\\theta,\\quad W_G=mgy,\\quad \\bar P=\\frac{W_G}{t},\\quad P_G=\\vec G\\cdot\\vec v=mgv_y\\]，再说明“瞬时功率计算”如何进入方程。",
+        "variantLevel": "L1",
+        "virtual": true,
+        "check": "能先写出 \\[y=\\frac12gt^2=x\\tan\\theta,\\quad W_G=mgy,\\quad \\bar P=\\frac{W_G}{t},\\quad P_G=\\vec G\\cdot\\vec v=mgv_y\\]，再代入条件并得到量纲正确的结果。"
+      },
+      {
+        "id": "required2_single_04_ski_jump",
+        "title": "单选第4题：跳台滑雪功率",
+        "chapter": "必修二结业测试",
+        "difficulty": 3,
+        "variantLevel": "L2",
+        "role": "综合题",
+        "virtual": false,
+        "label": "条件变化"
+      },
+      {
+        "label": "综合迁移",
+        "difficulty": 5,
+        "goal": "在多阶段或跨知识点情境中识别并复用该题族。",
+        "task": "把过程分段，并把“速度分量求解”与另一条物理规律联立；说明分段点及最终边界检查。",
+        "variantLevel": "L3",
+        "virtual": true,
+        "check": "能正确分段、说明每段所用规律，并在连接处检查状态连续性与临界边界。"
+      }
+    ]
   }
 }

@@ -49,7 +49,8 @@ function enhanceProblemNotes(root) {
       if (hasCollapsibleSteps && isAnalysisNoteBlock(block)) {
         wireCollapsedAnalysisSteps(body, sceneName);
       } else if (index > 0 && kickerText !== "近似题" && block.dataset.keepExpanded !== "1") {
-        var startsExpanded = block.dataset.defaultExpanded === "1";
+        var startsExpanded = block.dataset.adaptiveCollapsed !== "1" &&
+          (block.dataset.adaptiveExpanded === "1" || block.dataset.defaultExpanded === "1");
         if (!startsExpanded) {
           block.classList.add("is-collapsed");
         }
@@ -75,8 +76,10 @@ function enhanceProblemNotes(root) {
 
 function wireCollapsedAnalysisSteps(body, sceneName) {
   var steps = body.querySelectorAll('details.analysis-step[data-collapsible-step="1"]');
-  steps.forEach(function (step) {
-    step.open = false;
+  var note = body.closest(".problem-notes");
+  var repairMode = note && note.dataset.learningMode === "repair";
+  steps.forEach(function (step, index) {
+    step.open = repairMode && index === 0;
     if (step.dataset.collapseEnhanced === "1") {
       return;
     }

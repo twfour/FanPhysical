@@ -11,6 +11,8 @@
         "加速度",
         "牛顿第一定律"
       ],
+      "familyId": "curve-concepts",
+      "familyName": "曲线运动方向与受力",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -24,6 +26,8 @@
         "非均匀水流",
         "轨迹斜率"
       ],
+      "familyId": "river-basic",
+      "familyName": "渡河时间与轨迹",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -38,6 +42,8 @@
         "平抛运动",
         "轨迹方程"
       ],
+      "familyId": "moving-platform-projectile",
+      "familyName": "运动载体投弹",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -52,6 +58,8 @@
         "线速度",
         "向心加速度"
       ],
+      "familyId": "circular-transmission",
+      "familyName": "同轴、皮带与齿轮传动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -66,6 +74,8 @@
         "匀变速曲线运动",
         "失重"
       ],
+      "familyId": "vector-motion-composition",
+      "familyName": "二维运动的矢量合成",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -80,6 +90,8 @@
         "比例关系",
         "末速度方向"
       ],
+      "familyId": "projectile-incline",
+      "familyName": "平抛与斜面相交",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -94,6 +106,8 @@
         "轨迹切线",
         "几何共点"
       ],
+      "familyId": "projectile-incline",
+      "familyName": "平抛与斜面相交",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -108,6 +122,8 @@
         "斜坡几何",
         "事件间隔"
       ],
+      "familyId": "moving-platform-projectile",
+      "familyName": "运动载体投弹",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -122,6 +138,8 @@
         "速度变化量",
         "力的合成"
       ],
+      "familyId": "vector-motion-composition",
+      "familyName": "二维运动的矢量合成",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -136,6 +154,8 @@
         "摩擦力方向",
         "向心力分解"
       ],
+      "familyId": "horizontal-circle-critical",
+      "familyName": "水平圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -150,6 +170,8 @@
         "渡河时间",
         "相对运动"
       ],
+      "familyId": "river-basic",
+      "familyName": "渡河时间与轨迹",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -164,6 +186,8 @@
         "摩擦力",
         "连接体受力"
       ],
+      "familyId": "constraint-velocity",
+      "familyName": "绳杆约束速度",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -178,6 +202,8 @@
         "侧向压力",
         "设计速度"
       ],
+      "familyId": "circular-force",
+      "familyName": "圆周运动受力分解",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -192,6 +218,8 @@
         "径向分力",
         "临界角速度"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -206,6 +234,8 @@
         "张力",
         "临界角速度"
       ],
+      "familyId": "horizontal-circle-critical",
+      "familyName": "水平圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -220,6 +250,8 @@
         "张力临界",
         "分段运动"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -234,6 +266,8 @@
         "初速度比",
         "速度增量"
       ],
+      "familyId": "projectile-basics",
+      "familyName": "平抛运动基本规律",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -248,6 +282,8 @@
         "机械能",
         "运动时间比较"
       ],
+      "familyId": "projectile-incline",
+      "familyName": "平抛与斜面相交",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -262,6 +298,8 @@
         "墙面几何",
         "位移反演"
       ],
+      "familyId": "projectile-barrier-target",
+      "familyName": "越障与靶面命中",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -276,6 +314,8 @@
         "临界速度",
         "末速度方向"
       ],
+      "familyId": "projectile-incline",
+      "familyName": "平抛与斜面相交",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -290,6 +330,8 @@
         "射程",
         "完全失重"
       ],
+      "familyId": "oblique-projectile-target",
+      "familyName": "斜抛命中与射程",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -304,6 +346,8 @@
         "垂直击墙",
         "参数调整"
       ],
+      "familyId": "oblique-projectile-target",
+      "familyName": "斜抛命中与射程",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -318,6 +362,8 @@
         "射程最值",
         "流量"
       ],
+      "familyId": "projectile-fluid-jet",
+      "familyName": "液体射流的抛体模型",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -332,6 +378,8 @@
         "斜面交点",
         "速度方向不变量"
       ],
+      "familyId": "projectile-incline",
+      "familyName": "平抛与斜面相交",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -346,6 +394,8 @@
         "相向运动",
         "相遇时间"
       ],
+      "familyId": "projectile-incline",
+      "familyName": "平抛与斜面相交",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -360,6 +410,8 @@
         "曲线运动",
         "速度合成"
       ],
+      "familyId": "cross-conveyor",
+      "familyName": "垂直传送带与相对运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -374,6 +426,8 @@
         "径向入孔",
         "参数反演"
       ],
+      "familyId": "projectile-circle",
+      "familyName": "平抛与圆弧相交",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -388,6 +442,8 @@
         "末速度",
         "最大法向距离"
       ],
+      "familyId": "projectile-incline",
+      "familyName": "平抛与斜面相交",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -402,6 +458,8 @@
         "自由落体",
         "速度合成"
       ],
+      "familyId": "projectile-basics",
+      "familyName": "平抛运动基本规律",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -416,6 +474,8 @@
         "平均速度",
         "国际单位制"
       ],
+      "familyId": "motion-quantity-concepts",
+      "familyName": "运动学基本量辨析",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -430,6 +490,8 @@
         "速度位移关系",
         "平均速度"
       ],
+      "familyId": "uniform-motion-graphs",
+      "familyName": "匀变速运动与图像",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -444,6 +506,8 @@
         "支持力",
         "静摩擦力"
       ],
+      "familyId": "quasistatic-equilibrium",
+      "familyName": "缓慢变化中的动态平衡",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -458,6 +522,8 @@
         "隔离法",
         "绳张力"
       ],
+      "familyId": "multi-rope-equilibrium",
+      "familyName": "多绳多接触平衡",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -472,6 +538,8 @@
         "共点力平衡",
         "整体法"
       ],
+      "familyId": "multi-rope-equilibrium",
+      "familyName": "多绳多接触平衡",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -486,6 +554,8 @@
         "力的分解",
         "整体与隔离"
       ],
+      "familyId": "multi-rope-equilibrium",
+      "familyName": "多绳多接触平衡",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -499,6 +569,8 @@
         "共点力平衡",
         "力的正交分解"
       ],
+      "familyId": "multi-rope-equilibrium",
+      "familyName": "多绳多接触平衡",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -513,6 +585,8 @@
         "斜面共同加速度",
         "圆槽约束"
       ],
+      "familyId": "equivalent-gravity",
+      "familyName": "等效重力与随体参考系",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -527,6 +601,8 @@
         "圆几何",
         "共点力平衡"
       ],
+      "familyId": "equivalent-gravity",
+      "familyName": "等效重力与随体参考系",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -541,6 +617,8 @@
         "冲量",
         "竖直上抛"
       ],
+      "familyId": "overweight-force-graph",
+      "familyName": "超重失重与力传感器图像",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -555,6 +633,8 @@
         "接触面摩擦",
         "共同加速度"
       ],
+      "familyId": "equivalent-gravity",
+      "familyName": "等效重力与随体参考系",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -569,6 +649,8 @@
         "相对运动",
         "临界静摩擦"
       ],
+      "familyId": "friction-relative-motion",
+      "familyName": "多物体摩擦与相对运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -583,6 +665,8 @@
         "牛顿第二定律",
         "重力分量"
       ],
+      "familyId": "spring-series-equilibrium",
+      "familyName": "串联弹簧与连接体平衡",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -597,6 +681,8 @@
         "刹车停止",
         "安全距离"
       ],
+      "familyId": "uniform-motion-graphs",
+      "familyName": "匀变速运动与图像",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -611,6 +697,8 @@
         "刹车停止",
         "速度上限"
       ],
+      "familyId": "pursuit-braking",
+      "familyName": "追及、刹车与安全距离",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -625,6 +713,8 @@
         "空气阻力",
         "降落伞"
       ],
+      "familyId": "vertical-multistage",
+      "familyName": "竖直多阶段运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -639,6 +729,8 @@
         "板块模型",
         "相对位移"
       ],
+      "familyId": "friction-relative-motion",
+      "familyName": "多物体摩擦与相对运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -653,6 +745,8 @@
         "向心加速度",
         "周期"
       ],
+      "familyId": "conical-pendulum",
+      "familyName": "圆锥摆构型与参数",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -665,6 +759,8 @@
         "圆周运动向心力",
         "受力分析"
       ],
+      "familyId": "circular-force",
+      "familyName": "圆周运动受力分解",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -679,6 +775,8 @@
         "角速度",
         "线速度"
       ],
+      "familyId": "circular-transmission",
+      "familyName": "同轴、皮带与齿轮传动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -692,6 +790,8 @@
         "匀速圆周运动",
         "时间相等关系"
       ],
+      "familyId": "rotating-target-timing",
+      "familyName": "旋转目标与穿越计时",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -705,6 +805,8 @@
         "同轴转动角速度相同",
         "皮带传动线速度相同"
       ],
+      "familyId": "circular-transmission",
+      "familyName": "同轴、皮带与齿轮传动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -718,6 +820,8 @@
         "匀速圆周运动",
         "牛顿第二定律"
       ],
+      "familyId": "circular-force",
+      "familyName": "圆周运动受力分解",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -731,6 +835,8 @@
         "圆周运动中的角速度相同",
         "牛顿第二定律"
       ],
+      "familyId": "circular-force",
+      "familyName": "圆周运动受力分解",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -745,6 +851,8 @@
         "临界滑动条件",
         "圆周运动"
       ],
+      "familyId": "horizontal-circle-critical",
+      "familyName": "水平圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -754,6 +862,8 @@
       "chapter": "圆周运动",
       "title": "例11：突然停止悬绳张力",
       "knowledge": [],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -767,6 +877,8 @@
         "圆周运动周期与半径关系 \\(T = \\frac{2\\pi r}{v}\\)",
         "机械能守恒"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -779,6 +891,8 @@
         "圆锥摆模型",
         "向心力分析"
       ],
+      "familyId": "conical-pendulum",
+      "familyName": "圆锥摆构型与参数",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -792,6 +906,8 @@
         "临界角速度",
         "受力分析"
       ],
+      "familyId": "conical-pendulum",
+      "familyName": "圆锥摆构型与参数",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -805,6 +921,8 @@
         "临界条件",
         "牛顿第二定律"
       ],
+      "familyId": "conical-pendulum",
+      "familyName": "圆锥摆构型与参数",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -820,6 +938,8 @@
         "线速度",
         "角速度"
       ],
+      "familyId": "circular-transmission",
+      "familyName": "同轴、皮带与齿轮传动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -835,6 +955,8 @@
         "线速度",
         "向心加速度"
       ],
+      "familyId": "circular-transmission",
+      "familyName": "同轴、皮带与齿轮传动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -850,6 +972,8 @@
         "周期与角速度关系",
         "向心加速度公式"
       ],
+      "familyId": "circular-transmission",
+      "familyName": "同轴、皮带与齿轮传动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -864,6 +988,8 @@
         "运动合成与分解",
         "周期性"
       ],
+      "familyId": "rotating-target-timing",
+      "familyName": "旋转目标与穿越计时",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -878,6 +1004,8 @@
         "向心加速度",
         "牛顿第二定律"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -891,6 +1019,8 @@
         "最大静摩擦力公式 \\(f_{\\max}=kmg\\)",
         "临界角速度分析"
       ],
+      "familyId": "horizontal-circle-critical",
+      "familyName": "水平圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -905,6 +1035,8 @@
         "向心力",
         "临界角速度"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -918,6 +1050,8 @@
         "向心力来源",
         "力的合成与分解"
       ],
+      "familyId": "conical-pendulum",
+      "familyName": "圆锥摆构型与参数",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -932,6 +1066,8 @@
         "弯道倾角",
         "静摩擦临界"
       ],
+      "familyId": "circular-force",
+      "familyName": "圆周运动受力分解",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -946,6 +1082,8 @@
         "静摩擦",
         "临界角速度"
       ],
+      "familyId": "horizontal-circle-critical",
+      "familyName": "水平圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -960,6 +1098,8 @@
         "超重",
         "向心力"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -974,6 +1114,8 @@
         "密度分层",
         "向心加速度"
       ],
+      "familyId": "centrifuge-density",
+      "familyName": "离心现象与密度分层",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -988,6 +1130,8 @@
         "侧倾",
         "临界速度"
       ],
+      "familyId": "circular-force",
+      "familyName": "圆周运动受力分解",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1002,6 +1146,8 @@
         "速度方向",
         "管道约束"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1016,6 +1162,8 @@
         "弹力图像",
         "临界速度"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1030,6 +1178,8 @@
         "最高点临界",
         "转轴作用力"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1044,6 +1194,8 @@
         "线速度",
         "绳张力"
       ],
+      "familyId": "conical-pendulum",
+      "familyName": "圆锥摆构型与参数",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1058,6 +1210,8 @@
         "分段函数",
         "传感器图像"
       ],
+      "familyId": "horizontal-circle-critical",
+      "familyName": "水平圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1072,6 +1226,8 @@
         "线速度",
         "向心加速度"
       ],
+      "familyId": "circular-transmission",
+      "familyName": "同轴、皮带与齿轮传动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1086,6 +1242,8 @@
         "力的分解",
         "向心力"
       ],
+      "familyId": "circular-force",
+      "familyName": "圆周运动受力分解",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1100,6 +1258,8 @@
         "附着力",
         "向心力"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1114,6 +1274,8 @@
         "最低点压力",
         "周期"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1128,6 +1290,8 @@
         "图像斜率",
         "最低点拉力"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1142,6 +1306,8 @@
         "静摩擦",
         "整体法"
       ],
+      "familyId": "horizontal-circle-critical",
+      "familyName": "水平圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1156,6 +1322,8 @@
         "向心力",
         "重力分量"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1170,6 +1338,8 @@
         "面积比例",
         "圆周运动"
       ],
+      "familyId": "horizontal-circle-critical",
+      "familyName": "水平圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1184,6 +1354,8 @@
         "静摩擦临界",
         "最大速度"
       ],
+      "familyId": "horizontal-circle-critical",
+      "familyName": "水平圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1197,6 +1369,8 @@
         "角动量守恒",
         "近日点与远日点"
       ],
+      "familyId": "kepler-orbit-law",
+      "familyName": "开普勒定律与椭圆轨道",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1210,6 +1384,8 @@
         "椭圆变轨",
         "半长轴"
       ],
+      "familyId": "hohmann-transfer",
+      "familyName": "圆轨道与转移椭圆",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1223,6 +1399,8 @@
         "球壳定理",
         "等效叠加"
       ],
+      "familyId": "shell-gravity-field",
+      "familyName": "球壳与均匀球体引力场",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1235,6 +1413,8 @@
         "球壳定理",
         "万有引力"
       ],
+      "familyId": "shell-gravity-field",
+      "familyName": "球壳与均匀球体引力场",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1248,6 +1428,8 @@
         "视重",
         "平均密度"
       ],
+      "familyId": "rotation-surface-gravity",
+      "familyName": "天体自转与视重临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1261,6 +1443,8 @@
         "轨道周期",
         "线速度"
       ],
+      "familyId": "orbit-parameter-inference",
+      "familyName": "观测数据反演天体参数",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1274,6 +1458,8 @@
         "万有引力",
         "向心力"
       ],
+      "familyId": "rotation-surface-gravity",
+      "familyName": "天体自转与视重临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1287,6 +1473,8 @@
         "近地重力",
         "天体质量与密度"
       ],
+      "familyId": "surface-gravity-throw",
+      "familyName": "星球表面重力与竖直运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1300,6 +1488,8 @@
         "穿地隧道",
         "简谐运动"
       ],
+      "familyId": "shell-gravity-field",
+      "familyName": "球壳与均匀球体引力场",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1313,6 +1503,8 @@
         "球内重力",
         "球壳定理"
       ],
+      "familyId": "shell-gravity-field",
+      "familyName": "球壳与均匀球体引力场",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1325,6 +1517,8 @@
         "开普勒第三定律",
         "卫星相对位置"
       ],
+      "familyId": "kepler-orbit-law",
+      "familyName": "开普勒定律与椭圆轨道",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1338,6 +1532,8 @@
         "近日点",
         "节气"
       ],
+      "familyId": "kepler-orbit-law",
+      "familyName": "开普勒定律与椭圆轨道",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1351,6 +1547,8 @@
         "万有引力加速度",
         "面积速度"
       ],
+      "familyId": "kepler-orbit-law",
+      "familyName": "开普勒定律与椭圆轨道",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1364,6 +1562,8 @@
         "地球自转",
         "万有引力"
       ],
+      "familyId": "rotation-surface-gravity",
+      "familyName": "天体自转与视重临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1377,6 +1577,8 @@
         "天体质量",
         "量纲判断"
       ],
+      "familyId": "surface-gravity-throw",
+      "familyName": "星球表面重力与竖直运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1390,6 +1592,8 @@
         "轨道周期",
         "中心天体质量"
       ],
+      "familyId": "orbit-parameter-inference",
+      "familyName": "观测数据反演天体参数",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1403,6 +1607,8 @@
         "竖直圆周运动",
         "图像斜率与截距"
       ],
+      "familyId": "surface-gravity-throw",
+      "familyName": "星球表面重力与竖直运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1416,6 +1622,8 @@
         "开普勒第三定律",
         "平均密度"
       ],
+      "familyId": "orbit-parameter-inference",
+      "familyName": "观测数据反演天体参数",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1429,6 +1637,8 @@
         "开普勒第三定律",
         "天体密度"
       ],
+      "familyId": "orbit-parameter-inference",
+      "familyName": "观测数据反演天体参数",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1442,6 +1652,8 @@
         "引力图像",
         "开普勒第三定律"
       ],
+      "familyId": "kepler-orbit-law",
+      "familyName": "开普勒定律与椭圆轨道",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1455,6 +1667,8 @@
         "同步卫星",
         "万有引力"
       ],
+      "familyId": "satellite-comparison",
+      "familyName": "卫星类型与轨道参数比较",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1467,6 +1681,8 @@
         "开普勒第三定律",
         "中心天体质量"
       ],
+      "familyId": "orbit-parameter-inference",
+      "familyName": "观测数据反演天体参数",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1480,6 +1696,8 @@
         "第一宇宙速度",
         "向心运动"
       ],
+      "familyId": "satellite-comparison",
+      "familyName": "卫星类型与轨道参数比较",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1493,6 +1711,8 @@
         "圆轨道速度",
         "模型判别"
       ],
+      "familyId": "satellite-comparison",
+      "familyName": "卫星类型与轨道参数比较",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1506,6 +1726,8 @@
         "覆盖几何",
         "开普勒第三定律"
       ],
+      "familyId": "satellite-coverage",
+      "familyName": "卫星覆盖、追及与地面轨迹",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1519,6 +1741,8 @@
         "圆轨道周期",
         "日全食"
       ],
+      "familyId": "satellite-coverage",
+      "familyName": "卫星覆盖、追及与地面轨迹",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1532,6 +1756,8 @@
         "相切几何",
         "圆轨道周期"
       ],
+      "familyId": "satellite-coverage",
+      "familyName": "卫星覆盖、追及与地面轨迹",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1545,6 +1771,8 @@
         "圆轨道速度",
         "引力加速度"
       ],
+      "familyId": "hohmann-transfer",
+      "familyName": "圆轨道与转移椭圆",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1558,6 +1786,8 @@
         "环月轨道",
         "失重"
       ],
+      "familyId": "satellite-comparison",
+      "familyName": "卫星类型与轨道参数比较",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1571,6 +1801,8 @@
         "开普勒第三定律",
         "追及角"
       ],
+      "familyId": "hohmann-transfer",
+      "familyName": "圆轨道与转移椭圆",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1584,6 +1816,8 @@
         "质心",
         "万有引力"
       ],
+      "familyId": "multi-star-dynamics",
+      "familyName": "双星与多星圆周运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1597,6 +1831,8 @@
         "质量转移",
         "角速度"
       ],
+      "familyId": "multi-star-dynamics",
+      "familyName": "双星与多星圆周运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1610,6 +1846,8 @@
         "引力合成",
         "匀速圆周运动"
       ],
+      "familyId": "multi-star-dynamics",
+      "familyName": "双星与多星圆周运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1623,6 +1861,8 @@
         "比例换算",
         "地表重力"
       ],
+      "familyId": "surface-gravity-throw",
+      "familyName": "星球表面重力与竖直运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1636,6 +1876,8 @@
         "同步转动",
         "圆轨道"
       ],
+      "familyId": "satellite-comparison",
+      "familyName": "卫星类型与轨道参数比较",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1649,6 +1891,8 @@
         "相对角速度",
         "开普勒第三定律"
       ],
+      "familyId": "satellite-coverage",
+      "familyName": "卫星覆盖、追及与地面轨迹",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1662,6 +1906,8 @@
         "距离图像",
         "中心天体质量"
       ],
+      "familyId": "satellite-coverage",
+      "familyName": "卫星覆盖、追及与地面轨迹",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1675,6 +1921,8 @@
         "交会对接",
         "引力加速度"
       ],
+      "familyId": "hohmann-transfer",
+      "familyName": "圆轨道与转移椭圆",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1688,6 +1936,8 @@
         "轨道倾角",
         "周期与半径"
       ],
+      "familyId": "satellite-coverage",
+      "familyName": "卫星覆盖、追及与地面轨迹",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1701,6 +1951,8 @@
         "临界自转",
         "黑洞半径"
       ],
+      "familyId": "compact-object-critical",
+      "familyName": "致密天体逃逸与自转临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1714,6 +1966,8 @@
         "图像截距",
         "星球参数"
       ],
+      "familyId": "surface-gravity-throw",
+      "familyName": "星球表面重力与竖直运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1727,6 +1981,8 @@
         "圆轨道速度",
         "相对角速度"
       ],
+      "familyId": "multi-star-dynamics",
+      "familyName": "双星与多星圆周运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1740,6 +1996,8 @@
         "角动量守恒",
         "机械能"
       ],
+      "familyId": "elliptic-orbit-energy",
+      "familyName": "椭圆轨道速度与能量",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1753,6 +2011,8 @@
         "牛顿第二定律",
         "匀加速直线运动"
       ],
+      "familyId": "constant-force-work",
+      "familyName": "恒力做功与过程判断",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1766,6 +2026,8 @@
         "静力平衡",
         "功的夹角"
       ],
+      "familyId": "moving-support-work",
+      "familyName": "运动接触面对物体做功",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1779,6 +2041,8 @@
         "摩擦力做功",
         "功能关系"
       ],
+      "familyId": "conveyor-work",
+      "familyName": "传送带摩擦功",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1792,6 +2056,8 @@
         "弧长",
         "力矩"
       ],
+      "familyId": "variable-direction-work",
+      "familyName": "变方向力做功",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1805,6 +2071,8 @@
         "变力做功",
         "图像面积"
       ],
+      "familyId": "variable-force-work",
+      "familyName": "变力做功与图像面积",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1818,6 +2086,8 @@
         "定滑轮",
         "几何约束"
       ],
+      "familyId": "variable-direction-work",
+      "familyName": "变方向力做功",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1831,6 +2101,8 @@
         "摩擦力做功",
         "微元法"
       ],
+      "familyId": "variable-direction-work",
+      "familyName": "变方向力做功",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1844,6 +2116,8 @@
         "变向运动",
         "瞬时功率"
       ],
+      "familyId": "power-velocity",
+      "familyName": "速度方向与瞬时功率",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1857,6 +2131,8 @@
         "切向平衡",
         "圆周运动"
       ],
+      "familyId": "power-velocity",
+      "familyName": "速度方向与瞬时功率",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1870,6 +2146,8 @@
         "恒功率",
         "瞬时功率"
       ],
+      "familyId": "vehicle-power",
+      "familyName": "机车恒功率与分段启动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1883,6 +2161,8 @@
         "平均功率",
         "额定功率"
       ],
+      "familyId": "vehicle-power",
+      "familyName": "机车恒功率与分段启动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1896,6 +2176,8 @@
         "恒牵引力",
         "恒功率"
       ],
+      "familyId": "vehicle-power",
+      "familyName": "机车恒功率与分段启动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1909,6 +2191,8 @@
         "刚体转动",
         "静摩擦力"
       ],
+      "familyId": "constant-force-work",
+      "familyName": "恒力做功与过程判断",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1922,6 +2206,8 @@
         "绳长变化",
         "几何比较"
       ],
+      "familyId": "variable-direction-work",
+      "familyName": "变方向力做功",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1935,6 +2221,8 @@
         "平均功率",
         "生活估算"
       ],
+      "familyId": "constant-force-work",
+      "familyName": "恒力做功与过程判断",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1948,6 +2236,8 @@
         "速度时间图像",
         "图像面积"
       ],
+      "familyId": "vehicle-power",
+      "familyName": "机车恒功率与分段启动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1961,6 +2251,8 @@
         "恒功率",
         "机车启动"
       ],
+      "familyId": "vehicle-power",
+      "familyName": "机车恒功率与分段启动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1974,6 +2266,8 @@
         "摩擦力做功",
         "动能定理"
       ],
+      "familyId": "moving-support-work",
+      "familyName": "运动接触面对物体做功",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -1987,6 +2281,8 @@
         "恒功率",
         "汽车启动"
       ],
+      "familyId": "vehicle-power",
+      "familyName": "机车恒功率与分段启动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2000,6 +2296,8 @@
         "功率",
         "摩擦力做功"
       ],
+      "familyId": "power-velocity",
+      "familyName": "速度方向与瞬时功率",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2013,6 +2311,8 @@
         "平均功率",
         "瞬时功率"
       ],
+      "familyId": "power-velocity",
+      "familyName": "速度方向与瞬时功率",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2026,6 +2326,8 @@
         "阻力做功",
         "平均牵引力"
       ],
+      "familyId": "kinetic-theorem-basic",
+      "familyName": "动能定理与力位移图像",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2039,6 +2341,8 @@
         "弹簧功",
         "机械能转化"
       ],
+      "familyId": "spring-work-energy",
+      "familyName": "弹簧功与动能变化",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2052,6 +2356,8 @@
         "摩擦功",
         "最小外力功"
       ],
+      "familyId": "work-friction-roundtrip",
+      "familyName": "往返运动与摩擦耗能",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2065,6 +2371,8 @@
         "图像斜率",
         "摩擦力"
       ],
+      "familyId": "kinetic-theorem-basic",
+      "familyName": "动能定理与力位移图像",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2078,6 +2386,8 @@
         "竖直圆周运动",
         "平抛与斜面"
       ],
+      "familyId": "track-energy-projectile",
+      "familyName": "轨道、临界与抛体综合",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2091,6 +2401,8 @@
         "能量差比较",
         "摩擦耗能"
       ],
+      "familyId": "work-friction-roundtrip",
+      "familyName": "往返运动与摩擦耗能",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2104,6 +2416,8 @@
         "恒功率运动",
         "动能定理"
       ],
+      "familyId": "vehicle-power",
+      "familyName": "机车恒功率与分段启动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2117,6 +2431,8 @@
         "机械能守恒",
         "摩擦功"
       ],
+      "familyId": "track-energy-projectile",
+      "familyName": "轨道、临界与抛体综合",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2130,6 +2446,8 @@
         "动能—路程图像",
         "摩擦生热"
       ],
+      "familyId": "conveyor-energy-cycle",
+      "familyName": "传送带能量与往返过程",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2143,6 +2461,8 @@
         "动能定理",
         "函数最值"
       ],
+      "familyId": "track-energy-projectile",
+      "familyName": "轨道、临界与抛体综合",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2156,6 +2476,8 @@
         "摩擦功",
         "全过程动能定理"
       ],
+      "familyId": "spring-work-energy",
+      "familyName": "弹簧功与动能变化",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2169,6 +2491,8 @@
         "摩擦力做功",
         "摩擦生热"
       ],
+      "familyId": "conveyor-energy-cycle",
+      "familyName": "传送带能量与往返过程",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2182,6 +2506,8 @@
         "动能定理",
         "摩擦功"
       ],
+      "familyId": "work-friction-roundtrip",
+      "familyName": "往返运动与摩擦耗能",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2195,6 +2521,8 @@
         "图像斜率",
         "变向阻力"
       ],
+      "familyId": "kinetic-theorem-basic",
+      "familyName": "动能定理与力位移图像",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2208,6 +2536,8 @@
         "相对运动",
         "摩擦力做功"
       ],
+      "familyId": "cross-conveyor",
+      "familyName": "垂直传送带与相对运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2221,6 +2551,8 @@
         "额定功率",
         "功率与功"
       ],
+      "familyId": "vehicle-power",
+      "familyName": "机车恒功率与分段启动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2234,6 +2566,8 @@
         "弹簧形变",
         "变力做功"
       ],
+      "familyId": "spring-work-energy",
+      "familyName": "弹簧功与动能变化",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2247,6 +2581,8 @@
         "最低点向心力",
         "绳张力"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2260,6 +2596,8 @@
         "冲量",
         "功能关系"
       ],
+      "familyId": "dissipative-energy-graph",
+      "familyName": "阻力作用与能量图像",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2274,6 +2612,8 @@
         "动能定理",
         "二次函数最值"
       ],
+      "familyId": "circle-projectile-transition",
+      "familyName": "圆周运动断约束后的抛体",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2287,6 +2627,8 @@
         "零势能参考面",
         "重力做功"
       ],
+      "familyId": "potential-reference",
+      "familyName": "重力势能参考面",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2300,6 +2642,8 @@
         "重力势能",
         "同初动能比较"
       ],
+      "familyId": "vertical-energy",
+      "familyName": "竖直运动中的能量比较",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2313,6 +2657,8 @@
         "曲线运动",
         "保守力"
       ],
+      "familyId": "conservation-condition",
+      "familyName": "机械能守恒条件",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2326,6 +2672,8 @@
         "参考面",
         "功与能"
       ],
+      "familyId": "potential-reference",
+      "familyName": "重力势能参考面",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2339,6 +2687,8 @@
         "圆周运动约束",
         "离轨抛体"
       ],
+      "familyId": "track-projectile",
+      "familyName": "圆弧轨道与离轨抛体",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2352,6 +2702,8 @@
         "系统机械能",
         "动能极值"
       ],
+      "familyId": "spring-compression",
+      "familyName": "落体压缩弹簧",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2365,6 +2717,8 @@
         "同轴转动",
         "角速度"
       ],
+      "familyId": "rigid-body-rotation",
+      "familyName": "刚性连接体转动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2378,6 +2732,8 @@
         "水柱运动",
         "大气压力做功"
       ],
+      "familyId": "continuous-body",
+      "familyName": "连续体重力势能",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2391,6 +2747,8 @@
         "机械能变化",
         "非保守力做功"
       ],
+      "familyId": "mechanical-energy-change",
+      "familyName": "非保守力与机械能变化",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2404,6 +2762,8 @@
         "弹簧分离",
         "机械能守恒"
       ],
+      "familyId": "spring-separation-graph",
+      "familyName": "弹簧分离与能量图像",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2417,6 +2777,8 @@
         "连接体机械能",
         "弹簧能量"
       ],
+      "familyId": "rope-spring-linkage",
+      "familyName": "绳弹簧连接系统",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2430,6 +2792,8 @@
         "机械能守恒",
         "重力做功"
       ],
+      "familyId": "vertical-energy",
+      "familyName": "竖直运动中的能量比较",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2443,6 +2807,8 @@
         "势能极小",
         "小球机械能"
       ],
+      "familyId": "spring-launch",
+      "familyName": "弹簧弹射与分离",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2456,6 +2822,8 @@
         "脱轨抛体",
         "机械能守恒"
       ],
+      "familyId": "track-projectile",
+      "familyName": "圆弧轨道与离轨抛体",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2469,6 +2837,8 @@
         "恒力做功",
         "斜面运动"
       ],
+      "familyId": "mechanical-energy-change",
+      "familyName": "非保守力与机械能变化",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2482,6 +2852,8 @@
         "匀速运动",
         "机械能变化"
       ],
+      "familyId": "power-energy",
+      "familyName": "功率与机械能变化",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2495,6 +2867,8 @@
         "连接体机械能",
         "瞬时加速度"
       ],
+      "familyId": "rope-slider",
+      "familyName": "滑轮绳约束连接体",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2508,6 +2882,8 @@
         "摩擦耗能",
         "临界状态"
       ],
+      "familyId": "spring-friction-buffer",
+      "familyName": "弹簧摩擦缓冲",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2521,6 +2897,8 @@
         "机械能守恒",
         "函数极值"
       ],
+      "familyId": "continuous-body",
+      "familyName": "连续体重力势能",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2534,6 +2912,8 @@
         "刚体机械能",
         "内力做功"
       ],
+      "familyId": "rigid-body-rotation",
+      "familyName": "刚性连接体转动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2547,6 +2927,8 @@
         "连接体机械能",
         "机械能极值"
       ],
+      "familyId": "rod-sliders",
+      "familyName": "刚杆连接滑块",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2560,6 +2942,8 @@
         "摩擦生热",
         "电动机做功"
       ],
+      "familyId": "conveyor-energy-cycle",
+      "familyName": "传送带能量与往返过程",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2573,6 +2957,8 @@
         "空气阻力",
         "能量图像"
       ],
+      "familyId": "dissipative-energy-graph",
+      "familyName": "阻力作用与能量图像",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2586,6 +2972,8 @@
         "图像斜率",
         "恒定阻力"
       ],
+      "familyId": "dissipative-energy-graph",
+      "familyName": "阻力作用与能量图像",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2599,6 +2987,8 @@
         "传送带",
         "电动机做功"
       ],
+      "familyId": "conveyor-energy-cycle",
+      "familyName": "传送带能量与往返过程",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2612,6 +3002,8 @@
         "圆周运动临界",
         "板块相对运动"
       ],
+      "familyId": "track-energy-projectile",
+      "familyName": "轨道、临界与抛体综合",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2626,6 +3018,8 @@
         "完全非弹性碰撞",
         "功能关系"
       ],
+      "familyId": "collision-composite",
+      "familyName": "碰撞前后的多过程能量",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2640,6 +3034,8 @@
         "动能定理",
         "弯道优化"
       ],
+      "familyId": "road-power-optimization",
+      "familyName": "弯道与功率优化",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2653,6 +3049,8 @@
         "弹性势能",
         "功能关系"
       ],
+      "familyId": "spring-dissipation",
+      "familyName": "弹簧系统与摩擦耗能",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2666,6 +3064,8 @@
         "摩擦功",
         "系统能量"
       ],
+      "familyId": "friction-system-energy",
+      "familyName": "板块系统的摩擦功",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2679,6 +3079,8 @@
         "电动机功率",
         "能量分配"
       ],
+      "familyId": "conveyor-energy-cycle",
+      "familyName": "传送带能量与往返过程",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2692,6 +3094,8 @@
         "恒定阻力",
         "竖直上抛"
       ],
+      "familyId": "dissipative-energy-graph",
+      "familyName": "阻力作用与能量图像",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2705,6 +3109,8 @@
         "矢量运动",
         "摩擦生热"
       ],
+      "familyId": "cross-conveyor",
+      "familyName": "垂直传送带与相对运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2718,6 +3124,8 @@
         "弹性势能",
         "能量比较"
       ],
+      "familyId": "spring-dissipation",
+      "familyName": "弹簧系统与摩擦耗能",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2731,6 +3139,8 @@
         "机械能损失",
         "摩擦生热"
       ],
+      "familyId": "dissipative-energy-graph",
+      "familyName": "阻力作用与能量图像",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2744,6 +3154,8 @@
         "划痕长度",
         "最短时间"
       ],
+      "familyId": "conveyor-energy-cycle",
+      "familyName": "传送带能量与往返过程",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2758,6 +3170,8 @@
         "平抛运动",
         "分段函数"
       ],
+      "familyId": "track-energy-projectile",
+      "familyName": "轨道、临界与抛体综合",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2771,6 +3185,8 @@
         "相对运动",
         "相遇条件"
       ],
+      "familyId": "same-acceleration-relative",
+      "familyName": "同加速度相对运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2784,6 +3200,8 @@
         "自由落体",
         "同加速度模型"
       ],
+      "familyId": "same-acceleration-relative",
+      "familyName": "同加速度相对运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2797,6 +3215,8 @@
         "追及相遇",
         "临界条件"
       ],
+      "familyId": "pursuit-braking",
+      "familyName": "追及、刹车与安全距离",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2810,6 +3230,8 @@
         "圆几何",
         "等时性"
       ],
+      "familyId": "incline-equal-time",
+      "familyName": "斜面运动与等时性",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2823,6 +3245,8 @@
         "图像读取",
         "牛顿第二定律"
       ],
+      "familyId": "vector-motion-composition",
+      "familyName": "二维运动的矢量合成",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2836,6 +3260,8 @@
         "受力分析",
         "切向与法向"
       ],
+      "familyId": "curve-concepts",
+      "familyName": "曲线运动方向与受力",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2849,6 +3275,8 @@
         "渡河模型",
         "分运动"
       ],
+      "familyId": "river-basic",
+      "familyName": "渡河时间与轨迹",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2862,6 +3290,8 @@
         "最短位移",
         "矢量合成"
       ],
+      "familyId": "river-optimal",
+      "familyName": "最短航程与临界渡河",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2875,6 +3305,8 @@
         "临界轨迹",
         "最小船速"
       ],
+      "familyId": "river-optimal",
+      "familyName": "最短航程与临界渡河",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2888,6 +3320,8 @@
         "速度投影",
         "关联速度"
       ],
+      "familyId": "constraint-velocity",
+      "familyName": "绳杆约束速度",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2901,6 +3335,8 @@
         "双约束",
         "向心力"
       ],
+      "familyId": "horizontal-circle-critical",
+      "familyName": "水平圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2914,6 +3350,8 @@
         "断绳抛体",
         "最值"
       ],
+      "familyId": "circle-projectile-transition",
+      "familyName": "圆周运动断约束后的抛体",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2927,6 +3365,8 @@
         "参考系",
         "速度分解"
       ],
+      "familyId": "relative-velocity",
+      "familyName": "参考系与相对速度",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2940,6 +3380,8 @@
         "斜面几何",
         "末速度方向"
       ],
+      "familyId": "projectile-incline",
+      "familyName": "平抛与斜面相交",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2953,6 +3395,8 @@
         "垂直斜面",
         "速度分解"
       ],
+      "familyId": "projectile-incline",
+      "familyName": "平抛与斜面相交",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2966,6 +3410,8 @@
         "圆弧坐标",
         "速度比"
       ],
+      "familyId": "projectile-circle",
+      "familyName": "平抛与圆弧相交",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2979,6 +3425,8 @@
         "区间判断",
         "厚墙模型"
       ],
+      "familyId": "projectile-window",
+      "familyName": "平抛穿越有限区域",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -2992,6 +3440,8 @@
         "临界过网",
         "落点判断"
       ],
+      "familyId": "projectile-barrier-target",
+      "familyName": "越障与靶面命中",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3005,6 +3455,8 @@
         "命中条件",
         "速度方向"
       ],
+      "familyId": "oblique-projectile-target",
+      "familyName": "斜抛命中与射程",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3018,6 +3470,8 @@
         "碰撞反弹",
         "分段运动"
       ],
+      "familyId": "projectile-bounce",
+      "familyName": "碰撞反弹后的分段抛体",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3031,6 +3485,8 @@
         "角速度",
         "穿筒时间"
       ],
+      "familyId": "rotating-target-timing",
+      "familyName": "旋转目标与穿越计时",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3044,6 +3500,8 @@
         "链传动",
         "角速度"
       ],
+      "familyId": "circular-transmission",
+      "familyName": "同轴、皮带与齿轮传动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3057,6 +3515,8 @@
         "向心力",
         "超重与失重"
       ],
+      "familyId": "vertical-circle-critical",
+      "familyName": "竖直圆周运动临界",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3070,6 +3530,8 @@
         "圆锥摆",
         "半球碗约束"
       ],
+      "familyId": "conical-pendulum",
+      "familyName": "圆锥摆构型与参数",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3084,6 +3546,8 @@
         "万有引力定律",
         "引力常量"
       ],
+      "familyId": "science-history",
+      "familyName": "引力理论证据链",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3098,6 +3562,8 @@
         "最短时间",
         "矢量分解"
       ],
+      "familyId": "river-time",
+      "familyName": "渡河时间与速度合成",
       "explorationStages": 3,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3112,6 +3578,8 @@
         "机械能守恒",
         "内力做功"
       ],
+      "familyId": "rope-projection",
+      "familyName": "绳约束速度投影",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3126,6 +3594,8 @@
         "平均功率",
         "瞬时功率"
       ],
+      "familyId": "projectile-power",
+      "familyName": "抛体过程中的功率",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3140,6 +3610,8 @@
         "势能参考面",
         "功率与能量"
       ],
+      "familyId": "potential-reference",
+      "familyName": "重力势能参考面",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3154,6 +3626,8 @@
         "摩擦力",
         "力的分解"
       ],
+      "familyId": "circular-force",
+      "familyName": "圆周运动受力分解",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3168,6 +3642,8 @@
         "向心力",
         "构型判断"
       ],
+      "familyId": "conical-pendulum",
+      "familyName": "圆锥摆构型与参数",
       "explorationStages": 3,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3182,6 +3658,8 @@
         "比例法",
         "天体参数"
       ],
+      "familyId": "surface-gravity",
+      "familyName": "星球表面重力",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3196,6 +3674,8 @@
         "万有引力",
         "天体密度"
       ],
+      "familyId": "celestial-density",
+      "familyName": "天体密度估测",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3210,6 +3690,8 @@
         "开普勒第三定律",
         "引力加速度"
       ],
+      "familyId": "hohmann-transfer",
+      "familyName": "圆轨道与转移椭圆",
       "explorationStages": 3,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3224,6 +3706,8 @@
         "功与冲量",
         "追及问题"
       ],
+      "familyId": "force-vt",
+      "familyName": "恒力作用与速度图像",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3238,6 +3722,8 @@
         "功能关系",
         "电能分配"
       ],
+      "familyId": "energy-allocation",
+      "familyName": "传送带能量分配",
       "explorationStages": 3,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3252,6 +3738,8 @@
         "天体密度",
         "信号遮挡"
       ],
+      "familyId": "geostationary",
+      "familyName": "同步卫星与几何遮挡",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3266,6 +3754,8 @@
         "摩擦生热",
         "传送带"
       ],
+      "familyId": "cross-conveyor",
+      "familyName": "垂直传送带与相对运动",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3280,6 +3770,8 @@
         "摩擦力",
         "函数图像"
       ],
+      "familyId": "gear-turntable",
+      "familyName": "齿轮转台与向心力",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3294,6 +3786,8 @@
         "机械能转移",
         "瞬时加速度"
       ],
+      "familyId": "counterweight-spring",
+      "familyName": "配重绳约束与弹簧",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3308,6 +3802,8 @@
         "平抛运动",
         "速度方向"
       ],
+      "familyId": "semicircle-projectile",
+      "familyName": "半圆轨道与抛体衔接",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3322,6 +3818,8 @@
         "竖直圆周运动",
         "平抛最值"
       ],
+      "familyId": "constrained-projectile",
+      "familyName": "绳球约束变化与抛体",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3336,6 +3834,8 @@
         "动能定理",
         "分段运动"
       ],
+      "familyId": "constant-power",
+      "familyName": "恒功率分段启动",
       "explorationStages": 3,
       "hasTransfer": true,
       "rubricPoints": 3
@@ -3351,6 +3851,8 @@
         "往复运动",
         "分段函数"
       ],
+      "familyId": "friction-roundtrip",
+      "familyName": "圆弧斜面往复与摩擦",
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3

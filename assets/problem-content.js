@@ -33,6 +33,10 @@ function renderProblemDataNotes(problem) {
     if (taxonomyBlock) {
       grid.appendChild(taxonomyBlock);
     }
+    var learningPathBlock = createProblemLearningPathBlock(problem);
+    if (learningPathBlock) {
+      grid.appendChild(learningPathBlock);
+    }
     if (predictionBlock) {
       grid.appendChild(predictionBlock);
     }
@@ -62,6 +66,7 @@ function renderProblemDataNotes(problem) {
     if (reviewBlock) {
       grid.appendChild(reviewBlock);
     }
+    applyAdaptiveProblemLayout(problem, note);
     return note;
 }
 
@@ -119,6 +124,155 @@ function createProblemTaxonomyBlock(problem) {
   link.innerText = "查看该模型的完整题族链";
   block.appendChild(link);
   return block;
+}
+
+function createProblemLearningPathBlock(problem) {
+  var path = problem && problem.learningPath;
+  if (!path || typeof path !== "object") {
+    return null;
+  }
+  var relations = [
+    { key: "foundation", label: "回到基础", description: "先补稳前置关系" },
+    { key: "peer", label: "同级巩固", description: "换情境检验迁移" },
+    { key: "challenge", label: "进入挑战", description: "增加条件与综合度" }
+  ];
+  var targets = relations.filter(function (relation) {
+    return path[relation.key] && path[relation.key].id;
+  });
+  if (!targets.length) {
+    return null;
+  }
+  var block = createProblemNoteBlock(
+    "学习路径",
+    path.familyName || "同题族进阶",
+    "当前：" + (path.currentLevel || "") + " · 难度 " + (path.currentDifficulty || "") + "/5"
+  );
+  block.classList.add("problem-learning-path-block");
+  block.dataset.keepExpanded = "1";
+  if (path.mother && path.mother.title) {
+    var mother = document.createElement("p");
+    mother.className = "problem-family-mother";
+    mother.innerText = "题族母题：" + path.mother.title + "；本题沿用母题的建模顺序，再处理当前变式条件。";
+    block.appendChild(mother);
+  }
+  var grid = document.createElement("div");
+  grid.className = "problem-learning-path-grid";
+  targets.forEach(function (relation) {
+    var target = path[relation.key];
+    var link = document.createElement("a");
+    link.className = "problem-learning-path-link is-" + relation.key;
+    link.href = "/classical-mechanics-demo.html?scene=" + encodeURIComponent(target.id);
+    link.onclick = function (event) {
+      if (typeof switchScene !== "function") return;
+      event.preventDefault();
+      switchScene(target.id);
+    };
+    var heading = document.createElement("span");
+    heading.className = "problem-learning-path-heading";
+    heading.innerText = relation.label;
+    var title = document.createElement("strong");
+    title.innerText = target.title;
+    var meta = document.createElement("small");
+    meta.innerText = relation.description + " · " + target.variantLevel +
+      " · 难度 " + target.difficulty + "/5";
+    link.appendChild(heading);
+    link.appendChild(title);
+    link.appendChild(meta);
+    grid.appendChild(link);
+  });
+  block.appendChild(grid);
+  var levels = Array.isArray(path.levels) ? path.levels : [];
+  if (levels.length) {
+    var routeTitle = document.createElement("h3");
+    routeTitle.className = "problem-family-route-title";
+    routeTitle.innerText = "题族四级训练";
+    block.appendChild(routeTitle);
+    var route = document.createElement("div");
+    route.className = "problem-family-route";
+    levels.forEach(function (level) {
+      var item = level.id ? document.createElement("a") : document.createElement("article");
+      item.className = "problem-family-route-item";
+      item.dataset.level = level.variantLevel || "";
+      if (level.id) {
+        item.href = "/classical-mechanics-demo.html?scene=" + encodeURIComponent(level.id);
+        item.onclick = function (event) {
+          if (typeof switchScene !== "function") return;
+          event.preventDefault();
+          switchScene(level.id);
+        };
+      }
+      var badge = document.createElement("span");
+      badge.innerText = (level.variantLevel || "") + " · " + (level.label || "");
+      var title = document.createElement("strong");
+      title.innerText = level.title || level.goal || "题族训练任务";
+      var copy = document.createElement("p");
+      copy.innerText = level.virtual ? level.task : ("实体题 · 难度 " + level.difficulty + "/5");
+      item.appendChild(badge);
+      item.appendChild(title);
+      item.appendChild(copy);
+      if (level.virtual && level.check) {
+        var check = document.createElement("small");
+        check.innerText = "自检：" + level.check;
+        item.appendChild(check);
+      }
+      route.appendChild(item);
+    });
+    block.appendChild(route);
+  }
+  return block;
+}
+
+function getProblemAdaptiveState(problem) {
+  var cycle = typeof getLearningCycleState === "function" ? getLearningCycleState(problem.id) : {};
+  var prediction = cycle.prediction || {};
+  var review = cycle.review || {};
+  var history = Array.isArray(review.history) ? review.history : [];
+  var recentCorrect = history.slice(-2).length === 2 && history.slice(-2).every(function (item) {
+    return item.correct === true;
+  });
+  var predictionCorrect = prediction.correct === true;
+  var predictionWrong = prediction.answer && prediction.correct === false;
+  return {
+    firstVisit: !prediction.answer,
+    needsRepair: Boolean(predictionWrong || review.lastCorrect === false),
+    mastered: Boolean(predictionCorrect && recentCorrect)
+  };
+}
+
+function applyAdaptiveProblemLayout(problem, note) {
+  if (!problem || !note) return;
+  var state = getProblemAdaptiveState(problem);
+  note.dataset.learningMode = state.mastered ? "mastered" : (state.needsRepair ? "repair" : "learning");
+  note.querySelectorAll(".student-exploration-block, [data-analysis-block='1']").forEach(function (block) {
+    if (state.mastered) {
+      block.dataset.adaptiveCollapsed = "1";
+      block.dataset.defaultExpanded = "0";
+    } else if (state.needsRepair && block.dataset.analysisBlock === "1") {
+      block.dataset.adaptiveExpanded = "1";
+      block.dataset.defaultExpanded = "1";
+    }
+  });
+  var path = problem.learningPath;
+  if (state.needsRepair && path && path.foundation && path.foundation.id) {
+    note.dataset.recommendedScene = path.foundation.id;
+  } else if (state.mastered && path && path.challenge && path.challenge.id) {
+    note.dataset.recommendedScene = path.challenge.id;
+  }
+}
+
+function refreshAdaptiveProblemLayout(problem) {
+  var note = problem && document.getElementById(problem.id + "Notes");
+  if (!note) return;
+  applyAdaptiveProblemLayout(problem, note);
+  var state = getProblemAdaptiveState(problem);
+  var exploration = note.querySelector(".student-exploration-block");
+  if (exploration && state.mastered) {
+    exploration.classList.add("is-collapsed");
+    var explorationToggle = exploration.querySelector(":scope > .note-toggle");
+    if (explorationToggle) explorationToggle.innerText = "展开";
+  }
+  var firstStep = note.querySelector("[data-analysis-block='1'] details.analysis-step");
+  if (firstStep && state.needsRepair) firstStep.open = true;
 }
 
 function createProblemNotebookLmBlock(problem) {
@@ -428,6 +582,33 @@ function createProblemPracticeBlock(problem) {
     appendMarkdownChildren(thinkingDetails, practice.thinking || practice.solutionIdea);
     block.appendChild(thinkingDetails);
   }
+  var mastery = document.createElement("div");
+  mastery.className = "practice-mastery";
+  var masteryTitle = document.createElement("strong");
+  masteryTitle.innerText = "完成情况";
+  mastery.appendChild(masteryTitle);
+  var saved = typeof getLearningResponse === "function"
+    ? getLearningResponse(practiceMasteryStorageKey, problem.id + ":practice")
+    : "";
+  [
+    { value: "independent", label: "独立完成" },
+    { value: "hinted", label: "提示后完成" },
+    { value: "incorrect", label: "暂未掌握" }
+  ].forEach(function (choice) {
+    var button = document.createElement("button");
+    button.type = "button";
+    button.innerText = choice.label;
+    button.className = "practice-mastery-action";
+    button.classList.toggle("is-selected", saved === choice.value);
+    button.onclick = function () {
+      writeLearningResponse(practiceMasteryStorageKey, problem.id + ":practice", choice.value);
+      mastery.querySelectorAll(".practice-mastery-action").forEach(function (item) {
+        item.classList.toggle("is-selected", item === button);
+      });
+    };
+    mastery.appendChild(button);
+  });
+  block.appendChild(mastery);
   return block;
 }
 
@@ -504,6 +685,12 @@ function createProblemExamConnectionCard(item) {
   matchLevel.className = "exam-connection-level";
   matchLevel.innerText = item.matchLevel;
   meta.appendChild(sourceType);
+  if (item.relation) {
+    var relation = document.createElement("span");
+    relation.className = "exam-connection-relation";
+    relation.innerText = item.relation;
+    meta.appendChild(relation);
+  }
   meta.appendChild(matchLevel);
   card.appendChild(meta);
 

@@ -167,7 +167,8 @@
         "title": "高中物理必修二：绳、杆末端速度分解问题",
         "url": "https://www.bilibili.com/video/BV1fZ4y1d7Z3/",
         "watchFor": "不可伸长绳约束中，物体速度怎样投影到绳方向，以及夹角改变时两端速率比怎样变化。",
-        "matchReason": "原题的核心正是斜绳长度变化率；视频所讲的绳端关联速度与题中小球、配重完全同构。"
+        "matchReason": "原题的核心正是斜绳长度变化率；视频所讲的绳端关联速度与题中小球、配重完全同构。",
+        "kind": "课程讲解"
       }
     ],
     "authoritativeResources": [
@@ -203,7 +204,8 @@
       "number": "物理部分第3题",
       "matchLevel": "综合迁移",
       "matchReason": "真题先考轻绳方向、张力与斜面受力；原题在此基础上增加绳长约束、速度投影和系统能量转移。",
-      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L502"
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L502",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -217,17 +219,17 @@
     ],
     "prediction": {
       "title": "播放前预测：绳约束速度投影",
-      "prompt": "观察动画前，解决“单选第3题：斜绳关联速度与能量”时最合理的第一步是什么？",
+      "prompt": "观察动画前，解决“单选第3题：斜绳关联速度与能量”时最合理的建模起点是什么？",
       "answer": "B",
       "explanation": "正确起点是“先写长度、接触或几何约束，再把各物体速度投影到共同约束方向”。本题关系 \\[s=\\sqrt{d^2+y^2},\\qquad v_2=\\frac{y}{s}v_1\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
           "value": "A",
-          "text": "先把题目中的所有数值代入最熟悉的公式",
+          "text": "只根据动画轨迹外形直接判断答案",
           "diagnosis": {
-            "tag": "先算后建模",
-            "feedback": "这样容易出现“把两个端点的速度大小直接判为相等”的问题。",
-            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
+            "tag": "把示意图当成定量证据",
+            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
+            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
           }
         },
         {
@@ -236,11 +238,11 @@
         },
         {
           "value": "C",
-          "text": "只根据动画轨迹外形直接判断答案",
+          "text": "先把题目中的所有数值代入最熟悉的公式",
           "diagnosis": {
-            "tag": "把示意图当成定量证据",
-            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
-            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
+            "tag": "先算后建模",
+            "feedback": "这样容易出现“把两个端点的速度大小直接判为相等”的问题。",
+            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
           }
         },
         {
@@ -256,24 +258,20 @@
     },
     "review": {
       "title": "延时复习：迁移“绳约束速度投影”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
-      "answer": "B",
+      "prompt": "原题数据和情境都发生变化后，下面哪种做法仍然成立？",
+      "answer": "D",
       "explanation": "同题族迁移时应保留“约束只要求沿有效约束方向的速度分量满足同一个几何关系”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
-          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
           "diagnosis": {
-            "tag": "只看表面情境",
-            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
           }
         },
         {
           "value": "B",
-          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
-        },
-        {
-          "value": "C",
           "text": "只要公式相同，就不需要重新判断研究对象和过程",
           "diagnosis": {
             "tag": "忽略模型前提",
@@ -281,14 +279,77 @@
           }
         },
         {
-          "value": "D",
-          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "value": "C",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
           "diagnosis": {
-            "tag": "忽略分段",
-            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
           }
+        },
+        {
+          "value": "D",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
         }
       ]
     }
+  },
+  "learningPath": {
+    "familyId": "rope-projection",
+    "familyName": "绳约束速度投影",
+    "currentDifficulty": 4,
+    "currentLevel": "L3",
+    "mother": {
+      "id": "required2_single_03_rope_constraint",
+      "title": "单选第3题：斜绳关联速度与能量",
+      "chapter": "必修二结业测试",
+      "difficulty": 4,
+      "variantLevel": "L3",
+      "role": "综合题"
+    },
+    "familyFocus": {
+      "observe": "关联速度投影",
+      "misconception": "把两个端点的速度大小直接判为相等",
+      "invariant": "约束只要求沿有效约束方向的速度分量满足同一个几何关系",
+      "formula": "\\[s=\\sqrt{d^2+y^2},\\qquad v_2=\\frac{y}{s}v_1\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“关联速度投影”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“关联速度投影”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“关联速度投影”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "label": "直接建模",
+        "difficulty": 2,
+        "goal": "在单一过程中直接调用“绳约束速度投影”的主关系。",
+        "task": "保留原模型，只给一组完整条件；先写 \\[s=\\sqrt{d^2+y^2},\\qquad v_2=\\frac{y}{s}v_1\\]，再说明“内力做功判断”如何进入方程。",
+        "variantLevel": "L1",
+        "virtual": true,
+        "check": "能先写出 \\[s=\\sqrt{d^2+y^2},\\qquad v_2=\\frac{y}{s}v_1\\]，再代入条件并得到量纲正确的结果。"
+      },
+      {
+        "label": "条件变化",
+        "difficulty": 3,
+        "goal": "判断参数或表示方式变化后，哪些关系保持不变。",
+        "task": "改变一个关键条件，比较变化前后的趋势、临界值或图像特征，并重新检查“内力做功判断”。",
+        "variantLevel": "L2",
+        "virtual": true,
+        "check": "能区分保持不变的模型关系与必须重算的“内力做功判断”。"
+      },
+      {
+        "id": "required2_single_03_rope_constraint",
+        "title": "单选第3题：斜绳关联速度与能量",
+        "chapter": "必修二结业测试",
+        "difficulty": 4,
+        "variantLevel": "L3",
+        "role": "综合题",
+        "virtual": false,
+        "label": "综合迁移"
+      }
+    ]
   }
 }

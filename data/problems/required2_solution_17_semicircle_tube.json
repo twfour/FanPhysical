@@ -150,7 +150,8 @@
         "title": "圆周运动的应用：竖直面圆周运动",
         "url": "https://www.bilibili.com/video/BV1St411y7AH/",
         "watchFor": "圆弧最低点、最高点怎样沿半径列向心力方程，以及约束力方向为何必须由方程结果判断。",
-        "matchReason": "本题前半段就是封闭圆管内的竖直圆周运动，视频覆盖速度、支持力和临界约束的共同模型。"
+        "matchReason": "本题前半段就是封闭圆管内的竖直圆周运动，视频覆盖速度、支持力和临界约束的共同模型。",
+        "kind": "课程讲解"
       }
     ],
     "authoritativeResources": [
@@ -186,7 +187,8 @@
       "number": "第8题",
       "matchLevel": "同一考点",
       "matchReason": "两题都沿圆弧轨道追踪速度、支持力和功，并要求把切向运动与径向向心条件分开处理；原题还接入离轨后的抛体运动。",
-      "url": "https://cdn.gaokzx.com/zixunzhan/202403/4fea6f1e-36d3-4777-ab5a-b8c80dc59ce7.pdf"
+      "url": "https://cdn.gaokzx.com/zixunzhan/202403/4fea6f1e-36d3-4777-ab5a-b8c80dc59ce7.pdf",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -200,8 +202,8 @@
     ],
     "prediction": {
       "title": "播放前预测：半圆轨道与抛体衔接",
-      "prompt": "观察动画前，解决“解答第17题：半圆管道与垂直落斜面”时最合理的第一步是什么？",
-      "answer": "B",
+      "prompt": "为了预测动画中的趋势或临界点，处理“解答第17题：半圆管道与垂直落斜面”时应先做什么？",
+      "answer": "C",
       "explanation": "正确起点是“先按轨道接触、脱离和抛体阶段分段，并在连接点使用共同状态量”。本题关系 \\[E_1+W_{\\mathrm{nc}}=E_2,\\qquad \\sum F_r=m\\frac{v^2}{r}\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
@@ -215,36 +217,40 @@
         },
         {
           "value": "B",
-          "text": "先按轨道接触、脱离和抛体阶段分段，并在连接点使用共同状态量"
-        },
-        {
-          "value": "C",
-          "text": "只根据动画轨迹外形直接判断答案",
-          "diagnosis": {
-            "tag": "把示意图当成定量证据",
-            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
-            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
-          }
-        },
-        {
-          "value": "D",
           "text": "先记住原题答案，再寻找能得到该答案的计算",
           "diagnosis": {
             "tag": "结论倒推动机",
             "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
             "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
           }
+        },
+        {
+          "value": "C",
+          "text": "先按轨道接触、脱离和抛体阶段分段，并在连接点使用共同状态量"
+        },
+        {
+          "value": "D",
+          "text": "只根据动画轨迹外形直接判断答案",
+          "diagnosis": {
+            "tag": "把示意图当成定量证据",
+            "feedback": "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
+            "prompt": "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。"
+          }
         }
       ]
     },
     "review": {
       "title": "延时复习：迁移“半圆轨道与抛体衔接”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
-      "answer": "B",
+      "prompt": "原题数据和情境都发生变化后，下面哪种做法仍然成立？",
+      "answer": "A",
       "explanation": "同题族迁移时应保留“能量关系决定速度大小，径向动力学和几何条件决定能否继续沿轨道运动”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+        },
+        {
+          "value": "B",
           "text": "题目名称相似，原题的数值答案可以直接沿用",
           "diagnosis": {
             "tag": "只看表面情境",
@@ -252,26 +258,81 @@
           }
         },
         {
-          "value": "B",
-          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
-        },
-        {
           "value": "C",
-          "text": "只要公式相同，就不需要重新判断研究对象和过程",
-          "diagnosis": {
-            "tag": "忽略模型前提",
-            "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
-          }
-        },
-        {
-          "value": "D",
           "text": "动画看起来连续，就说明整个过程只能使用一个方程",
           "diagnosis": {
             "tag": "忽略分段",
             "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
           }
+        },
+        {
+          "value": "D",
+          "text": "只要公式相同，就不需要重新判断研究对象和过程",
+          "diagnosis": {
+            "tag": "忽略模型前提",
+            "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
+          }
         }
       ]
     }
+  },
+  "learningPath": {
+    "familyId": "semicircle-projectile",
+    "familyName": "半圆轨道与抛体衔接",
+    "currentDifficulty": 5,
+    "currentLevel": "L3",
+    "mother": {
+      "id": "required2_solution_17_semicircle_tube",
+      "title": "解答第17题：半圆管道与垂直落斜面",
+      "chapter": "必修二结业测试",
+      "difficulty": 5,
+      "variantLevel": "L3",
+      "role": "综合题"
+    },
+    "familyFocus": {
+      "observe": "多阶段过程划分",
+      "misconception": "只用能量求速度而不检查支持力或脱离条件",
+      "invariant": "能量关系决定速度大小，径向动力学和几何条件决定能否继续沿轨道运动",
+      "formula": "\\[E_1+W_{\\mathrm{nc}}=E_2,\\qquad \\sum F_r=m\\frac{v^2}{r}\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“多阶段过程划分”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“多阶段过程划分”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“多阶段过程划分”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "label": "直接建模",
+        "difficulty": 2,
+        "goal": "在单一过程中直接调用“半圆轨道与抛体衔接”的主关系。",
+        "task": "保留原模型，只给一组完整条件；先写 \\[E_1+W_{\\mathrm{nc}}=E_2,\\qquad \\sum F_r=m\\frac{v^2}{r}\\]，再说明“速度方向约束”如何进入方程。",
+        "variantLevel": "L1",
+        "virtual": true,
+        "check": "能先写出 \\[E_1+W_{\\mathrm{nc}}=E_2,\\qquad \\sum F_r=m\\frac{v^2}{r}\\]，再代入条件并得到量纲正确的结果。"
+      },
+      {
+        "label": "条件变化",
+        "difficulty": 3,
+        "goal": "判断参数或表示方式变化后，哪些关系保持不变。",
+        "task": "改变一个关键条件，比较变化前后的趋势、临界值或图像特征，并重新检查“速度方向约束”。",
+        "variantLevel": "L2",
+        "virtual": true,
+        "check": "能区分保持不变的模型关系与必须重算的“速度方向约束”。"
+      },
+      {
+        "id": "required2_solution_17_semicircle_tube",
+        "title": "解答第17题：半圆管道与垂直落斜面",
+        "chapter": "必修二结业测试",
+        "difficulty": 5,
+        "variantLevel": "L3",
+        "role": "综合题",
+        "virtual": false,
+        "label": "综合迁移"
+      }
+    ]
   }
 }

@@ -15,7 +15,8 @@ REQUIRED_PROBLEM_FIELDS = ["id", "chapter", "title", "question", "steps", "knowl
 REQUIRED_STEP_FIELDS = ["title", "content"]
 REQUIRED_EXPLORATION_STAGE_FIELDS = ["title", "prompt", "thought", "check", "correction", "takeaway"]
 REQUIRED_REAL_LIFE_FIELDS = ["title", "scene", "mapping", "sharedModel", "question", "answer"]
-REQUIRED_REAL_LIFE_VIDEO_FIELDS = ["platform", "title", "url", "watchFor", "matchReason"]
+REQUIRED_REAL_LIFE_VIDEO_FIELDS = ["platform", "kind", "title", "url", "watchFor", "matchReason"]
+SUPPORTED_REAL_LIFE_VIDEO_KINDS = {"现实录像", "实验演示", "动画解释", "课程讲解"}
 REQUIRED_REAL_LIFE_RESOURCE_FIELDS = ["platform", "title", "url", "useFor", "matchReason"]
 REQUIRED_EXAM_CONNECTION_FIELDS = [
     "type",
@@ -181,6 +182,8 @@ def validate_real_life_case(path, problem):
                 for field in REQUIRED_REAL_LIFE_VIDEO_FIELDS:
                     if not is_non_empty_string(video.get(field)):
                         errors.append(f"{path.name}: realLifeCase video {index} needs {field}")
+                if video.get("kind") not in SUPPORTED_REAL_LIFE_VIDEO_KINDS:
+                    errors.append(f"{path.name}: realLifeCase video {index} has unsupported kind")
                 if not re.match(r"^https://", str(video.get("url", ""))):
                     errors.append(f"{path.name}: realLifeCase video {index} needs an HTTPS URL")
                 duration = video.get("duration")
@@ -277,6 +280,66 @@ def validate_learning_cycle(path, problem):
             errors.append(f"{path.name}: learningCycle {section_name} option values must be unique")
         if section.get("answer") not in values:
             errors.append(f"{path.name}: learningCycle {section_name} answer must match an option")
+    return errors
+
+
+def validate_learning_path(path, problem):
+    learning_path = problem.get("learningPath")
+    if learning_path is None:
+        return []
+    if not isinstance(learning_path, dict):
+        return [f"{path.name}: learningPath must be an object"]
+    errors = []
+    for field in ("familyId", "familyName", "currentDifficulty", "currentLevel"):
+        if field not in learning_path:
+            errors.append(f"{path.name}: learningPath needs {field}")
+    if learning_path.get("familyId") != problem.get("taxonomy", {}).get("familyId"):
+        errors.append(f"{path.name}: learningPath familyId must match taxonomy")
+    mother = learning_path.get("mother")
+    if not isinstance(mother, dict) or not mother.get("id") or not mother.get("title"):
+        errors.append(f"{path.name}: learningPath needs a family mother")
+    focus = learning_path.get("familyFocus")
+    if not isinstance(focus, dict):
+        errors.append(f"{path.name}: learningPath needs familyFocus")
+    else:
+        for field in ("observe", "misconception", "invariant", "formula"):
+            if not focus.get(field):
+                errors.append(f"{path.name}: learningPath familyFocus needs {field}")
+    targets = []
+    for relation in ("foundation", "peer", "challenge"):
+        target = learning_path.get(relation)
+        if target is None:
+            continue
+        if not isinstance(target, dict):
+            errors.append(f"{path.name}: learningPath {relation} must be an object")
+            continue
+        for field in ("id", "title", "chapter", "difficulty", "variantLevel", "role"):
+            if field not in target:
+                errors.append(f"{path.name}: learningPath {relation} needs {field}")
+        if target.get("id") == problem.get("id"):
+            errors.append(f"{path.name}: learningPath {relation} must target another problem")
+        if target.get("id") in targets:
+            errors.append(f"{path.name}: learningPath targets must be unique")
+        targets.append(target.get("id"))
+    levels = learning_path.get("levels")
+    if not isinstance(levels, list) or len(levels) != 4:
+        errors.append(f"{path.name}: learningPath needs exactly four L0-L3 levels")
+    else:
+        expected_levels = ["L0", "L1", "L2", "L3"]
+        for index, level in enumerate(levels):
+            if not isinstance(level, dict):
+                errors.append(f"{path.name}: learningPath level {index + 1} must be an object")
+                continue
+            if level.get("variantLevel") != expected_levels[index]:
+                errors.append(f"{path.name}: learningPath levels must be ordered L0-L3")
+            if level.get("virtual") is True:
+                for field in ("label", "difficulty", "goal", "task", "check"):
+                    if not level.get(field):
+                        errors.append(f"{path.name}: virtual learningPath {expected_levels[index]} needs {field}")
+            elif not level.get("id"):
+                errors.append(f"{path.name}: entity learningPath {expected_levels[index]} needs id")
+    if not targets and not levels:
+        errors.append(f"{path.name}: learningPath needs targets or a four-level route")
     return errors
 
 
@@ -413,6 +476,7 @@ def validate_problem(path):
     errors.extend(validate_student_exploration(path, problem))
     errors.extend(validate_real_life_case(path, problem))
     errors.extend(validate_learning_cycle(path, problem))
+    errors.extend(validate_learning_path(path, problem))
     errors.extend(validate_exam_connections(path, problem))
     errors.extend(validate_taxonomy(path, problem))
     return problem, animation_type, errors
@@ -477,6 +541,8 @@ def main():
     taxonomy_models = {}
     taxonomy_families = {}
     animation_type_counts = Counter()
+    prediction_answer_counts = Counter()
+    review_answer_counts = Counter()
     all_errors = []
     for position, entry in enumerate(entries, start=1):
         if not isinstance(entry, dict):
@@ -500,6 +566,14 @@ def main():
             continue
         all_errors.extend(errors)
         animation_type_counts[animation_type] += 1
+        cycle = problem.get("learningCycle", {})
+        if isinstance(cycle, dict):
+            prediction_answer = cycle.get("prediction", {}).get("answer")
+            review_answer = cycle.get("review", {}).get("answer")
+            if prediction_answer:
+                prediction_answer_counts[prediction_answer] += 1
+            if review_answer:
+                review_answer_counts[review_answer] += 1
         problem_id = problem.get("id")
         if problem_id in seen_ids:
             all_errors.append(f"{file_name}: duplicate id {problem_id}")
@@ -525,6 +599,15 @@ def main():
             )
 
     all_errors.extend(validate_chapter_guides(seen_chapters))
+    for label, counts in (
+        ("prediction", prediction_answer_counts),
+        ("review", review_answer_counts),
+    ):
+        if counts and (
+            set(counts).difference({"A", "B", "C", "D"})
+            or max(counts.values()) - min(counts.values()) > 4
+        ):
+            all_errors.append(f"learningCycle {label} answers are not balanced: {dict(counts)}")
 
     html = HTML_PATH.read_text(encoding="utf-8")
     tree_scene_ids = [

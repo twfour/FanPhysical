@@ -206,6 +206,9 @@ function createRealLifeLinkSection(links, settings) {
     } else if (/youtube/i.test(platformName)) {
       link.classList.add("is-youtube");
     }
+    if (item.kind) {
+      link.dataset.resourceKind = item.kind;
+    }
     link.setAttribute("aria-label", "打开" + platformName + "：" + item.title);
 
     var meta = document.createElement("div");
@@ -261,8 +264,9 @@ function createRealLifeLinkSection(links, settings) {
 function createRealLifeVideoSection(videos) {
   return createRealLifeLinkSection(videos, {
     title: "对应视频",
-    hint: "带着观看重点观察现实过程，再回到原题核对物理量与约束。",
+    hint: "先看资源类型：现实录像与实验用于观察现象，动画与课程用于解释模型。",
     fallbackPlatform: "视频",
+    metaField: "kind",
     focusLabel: "观看重点",
     actionLabel: "打开视频"
   });

@@ -169,7 +169,8 @@
         "title": "10 分钟秒懂机车启动：恒功率与恒加速度",
         "url": "https://www.bilibili.com/video/BV1LBGRzFE5g/",
         "watchFor": "车辆如何从最大牵引力阶段切换到恒功率阶段，以及速度升高后牵引力和加速度为何持续下降。",
-        "matchReason": "视频的分段启动曲线与本题玩具车的恒力、恒功率、匀速和滑行四阶段直接对应。"
+        "matchReason": "视频的分段启动曲线与本题玩具车的恒力、恒功率、匀速和滑行四阶段直接对应。",
+        "kind": "课程讲解"
       }
     ],
     "authoritativeResources": [
@@ -205,7 +206,8 @@
       "number": "第9题",
       "matchLevel": "高度同构",
       "matchReason": "真题把匀加速、匀速和匀减速三段连接起来，并同时使用牵引力做功与匀速阶段功率；与原题的恒力到额定功率启动结构直接对应。",
-      "url": "https://gaokao.eol.cn/shiti/zhenti/201506/t20150608_1269736.shtml"
+      "url": "https://gaokao.eol.cn/shiti/zhenti/201506/t20150608_1269736.shtml",
+      "relation": "原始核验"
     },
     {
       "type": "competition",
@@ -221,7 +223,8 @@
         "直流电机反电动势",
         "微分方程"
       ],
-      "url": "https://cpho.pku.edu.cn/assets/file/2021cpho/3821fsst.pdf"
+      "url": "https://cpho.pku.edu.cn/assets/file/2021cpho/3821fsst.pdf",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -235,8 +238,8 @@
     ],
     "prediction": {
       "title": "播放前预测：恒功率分段启动",
-      "prompt": "观察动画前，解决“解答第19题：玩具车恒力与恒功率启动”时最合理的第一步是什么？",
-      "answer": "B",
+      "prompt": "若题目条件发生变化，分析“解答第19题：玩具车恒力与恒功率启动”时哪一步仍必须优先完成？",
+      "answer": "D",
       "explanation": "正确起点是“先确定研究对象和过程，再逐一判断各力做功的正负”。本题关系 \\[\\sum W=\\Delta E_k\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
@@ -250,7 +253,12 @@
         },
         {
           "value": "B",
-          "text": "先确定研究对象和过程，再逐一判断各力做功的正负"
+          "text": "先记住原题答案，再寻找能得到该答案的计算",
+          "diagnosis": {
+            "tag": "结论倒推动机",
+            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
+            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
+          }
         },
         {
           "value": "C",
@@ -263,27 +271,22 @@
         },
         {
           "value": "D",
-          "text": "先记住原题答案，再寻找能得到该答案的计算",
-          "diagnosis": {
-            "tag": "结论倒推动机",
-            "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
-            "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
-          }
+          "text": "先确定研究对象和过程，再逐一判断各力做功的正负"
         }
       ]
     },
     "review": {
       "title": "延时复习：迁移“恒功率分段启动”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
+      "prompt": "检验自己是否真正掌握“恒功率分段启动”时，应选择哪种分析方式？",
       "answer": "B",
       "explanation": "同题族迁移时应保留“合力总功等于动能变化；某种能量的变化必须与对应做功过程匹配”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
-          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
           "diagnosis": {
-            "tag": "只看表面情境",
-            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
           }
         },
         {
@@ -300,13 +303,72 @@
         },
         {
           "value": "D",
-          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
           "diagnosis": {
-            "tag": "忽略分段",
-            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
           }
         }
       ]
     }
+  },
+  "learningPath": {
+    "familyId": "constant-power",
+    "familyName": "恒功率分段启动",
+    "currentDifficulty": 4,
+    "currentLevel": "L3",
+    "mother": {
+      "id": "required2_solution_19_toy_car_power",
+      "title": "解答第19题：玩具车恒力与恒功率启动",
+      "chapter": "必修二结业测试",
+      "difficulty": 4,
+      "variantLevel": "L3",
+      "role": "综合题"
+    },
+    "familyFocus": {
+      "observe": "分段运动建模",
+      "misconception": "把某一个力的功直接等同于动能变化",
+      "invariant": "合力总功等于动能变化；某种能量的变化必须与对应做功过程匹配",
+      "formula": "\\[\\sum W=\\Delta E_k\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“分段运动建模”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“分段运动建模”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“分段运动建模”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "label": "直接建模",
+        "difficulty": 2,
+        "goal": "在单一过程中直接调用“恒功率分段启动”的主关系。",
+        "task": "保留原模型，只给一组完整条件；先写 \\[\\sum W=\\Delta E_k\\]，再说明“恒功率方程”如何进入方程。",
+        "variantLevel": "L1",
+        "virtual": true,
+        "check": "能先写出 \\[\\sum W=\\Delta E_k\\]，再代入条件并得到量纲正确的结果。"
+      },
+      {
+        "label": "条件变化",
+        "difficulty": 3,
+        "goal": "判断参数或表示方式变化后，哪些关系保持不变。",
+        "task": "改变一个关键条件，比较变化前后的趋势、临界值或图像特征，并重新检查“恒功率方程”。",
+        "variantLevel": "L2",
+        "virtual": true,
+        "check": "能区分保持不变的模型关系与必须重算的“恒功率方程”。"
+      },
+      {
+        "id": "required2_solution_19_toy_car_power",
+        "title": "解答第19题：玩具车恒力与恒功率启动",
+        "chapter": "必修二结业测试",
+        "difficulty": 4,
+        "variantLevel": "L3",
+        "role": "综合题",
+        "virtual": false,
+        "label": "综合迁移"
+      }
+    ]
   }
 }

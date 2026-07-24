@@ -157,14 +157,16 @@
         "title": "万有引力是如何被发现的？牛顿和胡克为啥是死对头？",
         "url": "https://www.bilibili.com/video/BV1pb411x7oL/",
         "watchFor": "第谷、开普勒、胡克与牛顿如何把长期观测、经验规律和动力学解释接成一条证据链。",
-        "matchReason": "原题按科学史贡献辨析人物；视频能帮助区分谁提供数据、谁归纳规律、谁建立理论。"
+        "matchReason": "原题按科学史贡献辨析人物；视频能帮助区分谁提供数据、谁归纳规律、谁建立理论。",
+        "kind": "课程讲解"
       },
       {
         "platform": "哔哩哔哩",
         "title": "卡文迪许扭秤：称量地球的疯狂实验",
         "url": "https://www.bilibili.com/video/BV1oWpNzDEU7/",
         "watchFor": "扭秤如何把极微小的引力转化为可测偏转，以及实验如何给出地球平均密度和引力常量的数值尺度。",
-        "matchReason": "它补齐证据链最后一步：轨道观测先给出引力参数，精密实验再让地球质量可以被数值计算。"
+        "matchReason": "它补齐证据链最后一步：轨道观测先给出引力参数，精密实验再让地球质量可以被数值计算。",
+        "kind": "实验演示"
       }
     ],
     "authoritativeResources": [
@@ -200,7 +202,8 @@
       "number": "物理部分第1题",
       "matchLevel": "高度同构",
       "matchReason": "同样要求区分第谷的观测、开普勒的经验定律与牛顿的动力学解释，设问对象和判断层次与原题一致。",
-      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L304"
+      "url": "https://github.com/OpenLMLab/GAOKAO-Bench/blob/main/Data/Objective_Questions/2010-2022_Physics_MCQs.json#L304",
+      "relation": "原始核验"
     }
   ],
   "learningCycle": {
@@ -214,25 +217,12 @@
     ],
     "prediction": {
       "title": "播放前预测：引力理论证据链",
-      "prompt": "观察动画前，解决“单选第1题：万有引力科学史”时最合理的第一步是什么？",
-      "answer": "B",
+      "prompt": "暂不代入数值。面对“单选第1题：万有引力科学史”，应先锁定哪一项关系？",
+      "answer": "D",
       "explanation": "正确起点是“先确定中心天体、距离是球心距还是高度，再写万有引力关系”。本题关系 \\[F=G\\frac{m_1m_2}{r^2}\\] 只有在研究对象、方向、过程和边界确定后才有明确含义。",
       "options": [
         {
           "value": "A",
-          "text": "先把题目中的所有数值代入最熟悉的公式",
-          "diagnosis": {
-            "tag": "先算后建模",
-            "feedback": "这样容易出现“把距地面高度直接代入万有引力公式中的球心距”的问题。",
-            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
-          }
-        },
-        {
-          "value": "B",
-          "text": "先确定中心天体、距离是球心距还是高度，再写万有引力关系"
-        },
-        {
-          "value": "C",
           "text": "只根据动画轨迹外形直接判断答案",
           "diagnosis": {
             "tag": "把示意图当成定量证据",
@@ -241,19 +231,32 @@
           }
         },
         {
-          "value": "D",
+          "value": "B",
           "text": "先记住原题答案，再寻找能得到该答案的计算",
           "diagnosis": {
             "tag": "结论倒推动机",
             "feedback": "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
             "prompt": "暂时遮住答案，只写模型、主关系和边界检查。"
           }
+        },
+        {
+          "value": "C",
+          "text": "先把题目中的所有数值代入最熟悉的公式",
+          "diagnosis": {
+            "tag": "先算后建模",
+            "feedback": "这样容易出现“把距地面高度直接代入万有引力公式中的球心距”的问题。",
+            "prompt": "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。"
+          }
+        },
+        {
+          "value": "D",
+          "text": "先确定中心天体、距离是球心距还是高度，再写万有引力关系"
         }
       ]
     },
     "review": {
       "title": "延时复习：迁移“引力理论证据链”",
-      "prompt": "隔一段时间后再看同题族变式，下列处理方式正确的是（ ）。",
+      "prompt": "隔一段时间后再看同题族变式，下列迁移方法正确的是（ ）。",
       "answer": "B",
       "explanation": "同题族迁移时应保留“球对称天体外部的引力由中心距离和中心天体质量决定”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
@@ -287,5 +290,64 @@
         }
       ]
     }
+  },
+  "learningPath": {
+    "familyId": "science-history",
+    "familyName": "引力理论证据链",
+    "currentDifficulty": 1,
+    "currentLevel": "L0",
+    "mother": {
+      "id": "required2_single_01_history",
+      "title": "单选第1题：万有引力科学史",
+      "chapter": "必修二结业测试",
+      "difficulty": 1,
+      "variantLevel": "L0",
+      "role": "概念辨析"
+    },
+    "familyFocus": {
+      "observe": "科学史证据链",
+      "misconception": "把距地面高度直接代入万有引力公式中的球心距",
+      "invariant": "球对称天体外部的引力由中心距离和中心天体质量决定",
+      "formula": "\\[F=G\\frac{m_1m_2}{r^2}\\]"
+    },
+    "levels": [
+      {
+        "id": "required2_single_01_history",
+        "title": "单选第1题：万有引力科学史",
+        "chapter": "必修二结业测试",
+        "difficulty": 1,
+        "variantLevel": "L0",
+        "role": "概念辨析",
+        "virtual": false,
+        "label": "概念识别"
+      },
+      {
+        "label": "直接建模",
+        "difficulty": 2,
+        "goal": "在单一过程中直接调用“引力理论证据链”的主关系。",
+        "task": "保留原模型，只给一组完整条件；先写 \\[F=G\\frac{m_1m_2}{r^2}\\]，再说明“理论与实验区分”如何进入方程。",
+        "variantLevel": "L1",
+        "virtual": true,
+        "check": "能先写出 \\[F=G\\frac{m_1m_2}{r^2}\\]，再代入条件并得到量纲正确的结果。"
+      },
+      {
+        "label": "条件变化",
+        "difficulty": 3,
+        "goal": "判断参数或表示方式变化后，哪些关系保持不变。",
+        "task": "改变一个关键条件，比较变化前后的趋势、临界值或图像特征，并重新检查“理论与实验区分”。",
+        "variantLevel": "L2",
+        "virtual": true,
+        "check": "能区分保持不变的模型关系与必须重算的“理论与实验区分”。"
+      },
+      {
+        "label": "综合迁移",
+        "difficulty": 5,
+        "goal": "在多阶段或跨知识点情境中识别并复用该题族。",
+        "task": "把过程分段，并把“科学史证据链”与另一条物理规律联立；说明分段点及最终边界检查。",
+        "variantLevel": "L3",
+        "virtual": true,
+        "check": "能正确分段、说明每段所用规律，并在连接处检查状态连续性与临界边界。"
+      }
+    ]
   }
 }
