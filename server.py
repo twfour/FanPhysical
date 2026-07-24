@@ -39,6 +39,7 @@ from notebooklm_service import (
     load_notebooklm_link_overrides,
     load_problem_catalog,
     normalize_notebooklm_url,
+    notebooklm_chapter_path,
     notebooklm_password_matches,
     render_notebooklm_chapter_page,
     render_notebooklm_index,
@@ -265,6 +266,31 @@ def handle_notebooklm_link_update(handler):
     )
 
 
+def handle_notebooklm_links_get(handler):
+    try:
+        catalog = load_problem_catalog()
+        guides = load_chapter_guides()
+        overrides = load_notebooklm_link_overrides()
+    except (OSError, json.JSONDecodeError):
+        json_response(handler, 500, {"ok": False, "error": "catalog_unavailable"})
+        return
+
+    chapters = []
+    for chapter in group_problem_catalog(catalog):
+        guide = guides.get(chapter, {})
+        default_url = normalize_notebooklm_url(guide.get("notebooklmUrl", ""))
+        url = overrides.get(chapter, "") or default_url
+        if url:
+            chapters.append(
+                {
+                    "chapter": chapter,
+                    "url": url,
+                    "chapterPath": notebooklm_chapter_path(chapter),
+                }
+            )
+    json_response(handler, 200, {"ok": True, "chapters": chapters})
+
+
 
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
@@ -299,6 +325,9 @@ class Handler(SimpleHTTPRequestHandler):
             return
         if parsed.path == "/api/learning-state":
             handle_learning_state_get(self)
+            return
+        if parsed.path == "/api/notebooklm-links":
+            handle_notebooklm_links_get(self)
             return
         if parsed.path in {"/models", "/models/"}:
             try:
