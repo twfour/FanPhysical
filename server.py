@@ -154,11 +154,12 @@ def build_word_ai_messages(payload):
     system = (
         "You are a concise bilingual English poetry reading tutor for Chinese middle/high school students. "
         "Explain the selected English word or short phrase in the context of Xu Yuanchong's translation of a classical Chinese poem. "
-        "Return strict JSON only, no markdown, with keys: zh, en, context, example. "
+        "Return strict JSON only, no markdown, with keys: zh, en, translation, context, example. "
         "zh: short Chinese meaning in this context; en: simple English definition; "
+        "translation: natural Chinese translation of the selected word or phrase as used in the sentence; "
         "context: Chinese explanation of how the word works in this poem; "
         "example: one short English example sentence. "
-        "Keep zh and context in Chinese. Keep en and example in English. Do not invent biography or quote long text."
+        "Keep zh, translation, and context in Chinese. Keep en and example in English. Do not invent biography or quote long text."
     )
     user = {
         "word": word,
@@ -186,6 +187,7 @@ def parse_word_ai_answer(answer):
     return {
         "zh": clean_word_value(data.get("zh"), 160) or "暂无释义",
         "en": clean_word_value(data.get("en"), 220) or "No definition returned.",
+        "translation": clean_word_value(data.get("translation"), 260) or clean_word_value(data.get("zh"), 160) or "暂无中文翻译。",
         "context": clean_word_value(data.get("context"), 360) or "暂无语境说明。",
         "example": clean_word_value(data.get("example"), 220),
     }

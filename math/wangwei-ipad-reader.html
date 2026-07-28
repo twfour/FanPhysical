@@ -441,21 +441,16 @@
       line-height: 1.58;
     }
 
-    .word-popover-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 4px;
+    .word-popover-translation {
+      margin-top: 2px;
+      border: 1px solid rgba(155, 63, 36, .18);
+      border-radius: 8px;
+      background: rgba(155, 63, 36, .06);
+      padding: 10px 11px;
     }
 
-    .word-popover-links a {
-      border: 1px solid rgba(47, 93, 80, .25);
-      border-radius: 8px;
-      background: rgba(47, 93, 80, .08);
-      color: var(--accent-2);
-      padding: 7px 9px;
-      font: 800 12px/1 "Avenir Next", sans-serif;
-      text-decoration: none;
+    .word-popover-translation p:last-child {
+      margin-bottom: 0;
     }
 
     .progress {
@@ -561,13 +556,12 @@
         <p id="wordPopoverZh"></p>
         <p class="word-popover-label">English</p>
         <p id="wordPopoverEn"></p>
+        <div class="word-popover-translation">
+          <p class="word-popover-label">中文翻译</p>
+          <p id="wordPopoverTranslation"></p>
+        </div>
         <p class="word-popover-label">In This Poem</p>
         <p id="wordPopoverContext"></p>
-      </div>
-      <div class="word-popover-links">
-        <a id="wordCambridge" target="_blank" rel="noreferrer">Cambridge</a>
-        <a id="wordGoogle" target="_blank" rel="noreferrer">Google Translate</a>
-        <a id="wordYoudao" target="_blank" rel="noreferrer">有道</a>
       </div>
     </aside>
   </main>
@@ -632,10 +626,8 @@
     const wordPopoverWord = document.getElementById("wordPopoverWord");
     const wordPopoverZh = document.getElementById("wordPopoverZh");
     const wordPopoverEn = document.getElementById("wordPopoverEn");
+    const wordPopoverTranslation = document.getElementById("wordPopoverTranslation");
     const wordPopoverContext = document.getElementById("wordPopoverContext");
-    const wordCambridge = document.getElementById("wordCambridge");
-    const wordGoogle = document.getElementById("wordGoogle");
-    const wordYoudao = document.getElementById("wordYoudao");
     const wordPopoverClose = document.getElementById("wordPopoverClose");
 
     function applyScale() {
@@ -711,11 +703,8 @@
       wordPopoverWord.textContent = word;
       wordPopoverZh.textContent = "AI 正在解释...";
       wordPopoverEn.textContent = "Thinking in context...";
+      wordPopoverTranslation.textContent = "正在生成自然中文翻译...";
       wordPopoverContext.textContent = "会结合当前诗题、英文诗句和上下文解释这个词。";
-      const encoded = encodeURIComponent(word);
-      wordCambridge.href = `https://dictionary.cambridge.org/dictionary/english/${encoded}`;
-      wordGoogle.href = `https://translate.google.com/?sl=en&tl=zh-CN&text=${encoded}&op=translate`;
-      wordYoudao.href = `https://www.youdao.com/result?word=${encoded}&lang=en`;
       positionWordPopover(rect);
       wordPopover.classList.add("open");
       queryWordAi(word, selection, raw);
@@ -727,7 +716,8 @@
       const fallback = literaryGlossary[word] || {
         zh: "AI 暂时不可用，本地词表也暂无释义",
         en: "No local entry yet.",
-        context: "可以先用下方词典入口查询。"
+        translation: "暂无中文翻译。",
+        context: "可以稍后重新选择该词再试。"
       };
       try {
         const response = await fetch("/api/word-ai", {
@@ -748,11 +738,13 @@
         if (wordPopoverWord.textContent !== word) return;
         wordPopoverZh.textContent = data.explanation.zh || fallback.zh;
         wordPopoverEn.textContent = data.explanation.en || fallback.en;
+        wordPopoverTranslation.textContent = data.explanation.translation || fallback.translation || data.explanation.zh || fallback.zh;
         wordPopoverContext.textContent = data.explanation.context || fallback.context;
       } catch (error) {
         if (wordPopoverWord.textContent !== word) return;
         wordPopoverZh.textContent = fallback.zh;
         wordPopoverEn.textContent = fallback.en;
+        wordPopoverTranslation.textContent = fallback.translation || fallback.zh;
         wordPopoverContext.textContent = fallback.context + "（AI 解释暂时不可用：" + error.message + "）";
       }
     }
