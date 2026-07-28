@@ -612,6 +612,7 @@
       winding: { zh: "蜿蜒的；曲折的", en: "curving and turning repeatedly", context: "Often guides the eye slowly through a landscape." },
       withered: { zh: "枯萎的；衰败的", en: "dried up, faded, or weakened", context: "Can suggest age, decline, or the passing of time." }
     };
+    const activeStorageKey = "wangwei-reader-active-index";
     let active = 0;
     let scale = Number(localStorage.getItem("wangwei-reader-scale") || "0");
 
@@ -661,6 +662,7 @@
 
     function showPoem(index) {
       active = Math.max(0, Math.min(poems.length - 1, index));
+      localStorage.setItem(activeStorageKey, String(active));
       const poem = poems[active];
       title.textContent = `${poem.num}. ${poem.zhTitle}`;
       enTitle.textContent = poem.enTitle;
@@ -850,7 +852,8 @@
 
     applyScale();
     renderList();
-    showPoem(2);
+    const savedActive = Number(localStorage.getItem(activeStorageKey));
+    showPoem(Number.isInteger(savedActive) ? savedActive : 0);
   </script>
 </body>
 </html>
