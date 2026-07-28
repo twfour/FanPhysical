@@ -441,20 +441,8 @@
       line-height: 1.58;
     }
 
-    .word-popover-pinyin {
-      margin-top: 2px;
-      border: 1px solid rgba(155, 63, 36, .18);
-      border-radius: 8px;
-      background: rgba(155, 63, 36, .06);
-      padding: 10px 11px;
-    }
-
-    .word-popover-pinyin[hidden] {
+    .word-popover [hidden] {
       display: none;
-    }
-
-    .word-popover-pinyin p:last-child {
-      margin-bottom: 0;
     }
 
     .progress {
@@ -560,10 +548,8 @@
         <p id="wordPopoverZh"></p>
         <p class="word-popover-label" id="wordEnLabel">English</p>
         <p id="wordPopoverEn"></p>
-        <div class="word-popover-pinyin" id="wordPinyinBlock" hidden>
-          <p class="word-popover-label" id="wordPinyinLabel">拼音</p>
-          <p id="wordPopoverPinyin"></p>
-        </div>
+        <p class="word-popover-label" id="wordPinyinLabel" hidden>拼音</p>
+        <p id="wordPopoverPinyin" hidden></p>
         <p class="word-popover-label" id="wordContextLabel">In This Poem</p>
         <p id="wordPopoverContext"></p>
       </div>
@@ -631,7 +617,6 @@
     const wordPopoverWord = document.getElementById("wordPopoverWord");
     const wordZhLabel = document.getElementById("wordZhLabel");
     const wordEnLabel = document.getElementById("wordEnLabel");
-    const wordPinyinBlock = document.getElementById("wordPinyinBlock");
     const wordPinyinLabel = document.getElementById("wordPinyinLabel");
     const wordContextLabel = document.getElementById("wordContextLabel");
     const wordPopoverZh = document.getElementById("wordPopoverZh");
@@ -741,12 +726,14 @@
         wordEnLabel.textContent = "English Gloss";
         wordPinyinLabel.textContent = "拼音";
         wordContextLabel.textContent = "诗中用法";
-        wordPinyinBlock.hidden = false;
+        wordPinyinLabel.hidden = false;
+        wordPopoverPinyin.hidden = false;
       } else {
         wordZhLabel.textContent = "中文释义";
         wordEnLabel.textContent = "English";
         wordContextLabel.textContent = "In This Poem";
-        wordPinyinBlock.hidden = true;
+        wordPinyinLabel.hidden = true;
+        wordPopoverPinyin.hidden = true;
       }
     }
 
