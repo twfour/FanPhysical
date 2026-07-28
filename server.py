@@ -151,22 +151,36 @@ def build_word_ai_messages(payload):
     poem_title = clean_word_value(payload.get("poemTitle"), 80)
     poem_en_title = clean_word_value(payload.get("poemEnTitle"), 120)
     commentary_context = clean_word_value(payload.get("commentaryContext"), 500)
-    system = (
-        "You are a concise bilingual English poetry reading tutor for Chinese middle/high school students. "
-        "Explain the selected English word or short phrase in the context of Xu Yuanchong's translation of a classical Chinese poem. "
-        "Return strict JSON only, no markdown, with keys: zh, en, translation, context, example. "
-        "zh: short Chinese meaning in this context; en: simple English definition; "
-        "translation: natural Chinese translation of the selected word or phrase as used in the sentence; "
-        "context: Chinese explanation of how the word works in this poem; "
-        "example: one short English example sentence. "
-        "Keep zh, translation, and context in Chinese. Keep en and example in English. Do not invent biography or quote long text."
-    )
+    source_language = clean_word_value(payload.get("sourceLanguage"), 12)
+    if source_language == "zh":
+        system = (
+            "You are a concise Chinese classical-poetry dictionary tutor for Chinese middle/high school students. "
+            "Explain the selected classical Chinese word or phrase in Wang Wei's poem. "
+            "Return strict JSON only, no markdown, with keys: zh, en, translation, context, example. "
+            "zh: dictionary-style Chinese meaning; en: simple English gloss; "
+            "translation: natural modern-Chinese translation of the selected word or phrase in this line; "
+            "context: Chinese explanation of how the word works in the poem; "
+            "example: one short modern Chinese example sentence. "
+            "Keep zh, translation, context, and example in Chinese. Keep en in English. Do not invent biography or quote long text."
+        )
+    else:
+        system = (
+            "You are a concise bilingual English poetry reading tutor for Chinese middle/high school students. "
+            "Explain the selected English word or short phrase in the context of Xu Yuanchong's translation of a classical Chinese poem. "
+            "Return strict JSON only, no markdown, with keys: zh, en, translation, context, example. "
+            "zh: short Chinese meaning in this context; en: simple English definition; "
+            "translation: leave empty unless the user selected a Chinese word; "
+            "context: Chinese explanation of how the word works in this poem; "
+            "example: one short English example sentence. "
+            "Keep zh and context in Chinese. Keep en and example in English. Do not invent biography or quote long text."
+        )
     user = {
         "word": word,
         "sentence": sentence,
         "poemTitle": poem_title,
         "poemEnglishTitle": poem_en_title,
         "nearbyContext": commentary_context,
+        "sourceLanguage": source_language or "en",
     }
     return [
         {"role": "system", "content": system},
