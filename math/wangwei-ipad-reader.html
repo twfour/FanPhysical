@@ -708,21 +708,71 @@
       const range = selection.getRangeAt(0);
       const rect = range.getBoundingClientRect();
       if (!rect || (rect.width === 0 && rect.height === 0)) return;
-      const entry = literaryGlossary[word] || {
-        zh: "本地词表暂无释义",
-        en: "No local entry yet.",
-        context: "Use the dictionary links below for a fuller explanation."
-      };
       wordPopoverWord.textContent = word;
-      wordPopoverZh.textContent = entry.zh;
-      wordPopoverEn.textContent = entry.en;
-      wordPopoverContext.textContent = entry.context;
+      wordPopoverZh.textContent = "AI 正在解释...";
+      wordPopoverEn.textContent = "Thinking in context...";
+      wordPopoverContext.textContent = "会结合当前诗题、英文诗句和上下文解释这个词。";
       const encoded = encodeURIComponent(word);
       wordCambridge.href = `https://dictionary.cambridge.org/dictionary/english/${encoded}`;
       wordGoogle.href = `https://translate.google.com/?sl=en&tl=zh-CN&text=${encoded}&op=translate`;
       wordYoudao.href = `https://www.youdao.com/result?word=${encoded}&lang=en`;
       positionWordPopover(rect);
       wordPopover.classList.add("open");
+      queryWordAi(word, selection, raw);
+    }
+
+    async function queryWordAi(word, selection, rawSelection) {
+      const poem = poems[active];
+      const sentence = getSelectionSentence(selection, rawSelection);
+      const fallback = literaryGlossary[word] || {
+        zh: "AI 暂时不可用，本地词表也暂无释义",
+        en: "No local entry yet.",
+        context: "可以先用下方词典入口查询。"
+      };
+      try {
+        const response = await fetch("/api/word-ai", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            word,
+            sentence,
+            poemTitle: poem.zhTitle,
+            poemEnTitle: poem.enTitle,
+            commentaryContext: poem.english.replace(/\s+/g, " ").slice(0, 500)
+          })
+        });
+        const data = await response.json();
+        if (!response.ok || !data.ok || !data.explanation) {
+          throw new Error(data.error || "AI request failed");
+        }
+        if (wordPopoverWord.textContent !== word) return;
+        wordPopoverZh.textContent = data.explanation.zh || fallback.zh;
+        wordPopoverEn.textContent = data.explanation.en || fallback.en;
+        wordPopoverContext.textContent = data.explanation.context || fallback.context;
+      } catch (error) {
+        if (wordPopoverWord.textContent !== word) return;
+        wordPopoverZh.textContent = fallback.zh;
+        wordPopoverEn.textContent = fallback.en;
+        wordPopoverContext.textContent = fallback.context + "（AI 解释暂时不可用：" + error.message + "）";
+      }
+    }
+
+    function getSelectionSentence(selection, rawSelection) {
+      if (!selection || selection.rangeCount === 0) return rawSelection || "";
+      const range = selection.getRangeAt(0);
+      const block = range.startContainer.parentElement && range.startContainer.parentElement.closest("p");
+      if (!block) return rawSelection || "";
+      const text = block.textContent.replace(/\s+/g, " ").trim();
+      if (!text) return rawSelection || "";
+      const selected = rawSelection.trim();
+      const index = text.indexOf(selected);
+      if (index === -1) return text.slice(0, 260);
+      const left = Math.max(0, text.lastIndexOf(".", index), text.lastIndexOf(";", index), text.lastIndexOf("?", index), text.lastIndexOf("!", index));
+      const rightCandidates = [".", ";", "?", "!"]
+        .map((mark) => text.indexOf(mark, index + selected.length))
+        .filter((pos) => pos !== -1);
+      const right = rightCandidates.length ? Math.min(...rightCandidates) + 1 : text.length;
+      return text.slice(left, right).trim().slice(0, 260);
     }
 
     function positionWordPopover(rect) {

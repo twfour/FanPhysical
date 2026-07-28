@@ -114,16 +114,24 @@ def build_step_ai_messages(payload):
 
 
 def call_deepseek(payload):
+    return call_deepseek_messages(
+        build_step_ai_messages(payload),
+        temperature=0.2,
+        max_tokens=900,
+    )
+
+
+def call_deepseek_messages(messages, temperature=0.2, max_tokens=900):
     api_key = os.environ.get("DEEPSEEK_API_KEY")
     if not api_key:
         raise RuntimeError("Missing DEEPSEEK_API_KEY")
 
     body = {
         "model": DEEPSEEK_MODEL,
-        "messages": build_step_ai_messages(payload),
+        "messages": messages,
         "stream": False,
-        "temperature": 0.2,
-        "max_tokens": 900,
+        "temperature": temperature,
+        "max_tokens": max_tokens,
         "thinking": {"type": DEEPSEEK_THINKING},
     }
     data = json.dumps(body, ensure_ascii=False).encode("utf-8")

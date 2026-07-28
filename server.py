@@ -50,7 +50,7 @@ from model_system_service import (
     render_model_system_detail,
     render_model_system_index,
 )
-from step_ai_service import DEEPSEEK_MODEL, MAX_BODY_BYTES, call_deepseek
+from step_ai_service import DEEPSEEK_MODEL, MAX_BODY_BYTES, call_deepseek, call_deepseek_messages
 
 
 HOST = os.environ.get("HOST", "127.0.0.1")
@@ -62,6 +62,7 @@ LEARNING_AUTH_FAILURES = {}
 AUTH_WINDOW_SECONDS = 10 * 60
 AUTH_MAX_FAILURES = 6
 MAX_NOTEBOOKLM_EDIT_BODY_BYTES = 8_000
+MAX_WORD_AI_BODY_BYTES = 8_000
 LEARNING_STATE_PATH = Path(
     os.environ.get("LEARNING_STATE_PATH", str(NOTEBOOKLM_LINKS_PATH.with_name("learning-state.json")))
 ).expanduser()
@@ -134,6 +135,88 @@ def read_json_request(handler, max_body_bytes):
     if not isinstance(payload, dict):
         return None, "invalid_payload"
     return payload, None
+
+
+def clean_word_value(value, max_len=48):
+    if not isinstance(value, str):
+        return ""
+    value = value.strip()
+    value = value.replace("\n", " ")
+    return value[:max_len]
+
+
+def build_word_ai_messages(payload):
+    word = clean_word_value(payload.get("word"))
+    sentence = clean_word_value(payload.get("sentence"), 320)
+    poem_title = clean_word_value(payload.get("poemTitle"), 80)
+    poem_en_title = clean_word_value(payload.get("poemEnTitle"), 120)
+    commentary_context = clean_word_value(payload.get("commentaryContext"), 500)
+    system = (
+        "You are a concise bilingual English poetry reading tutor for Chinese middle/high school students. "
+        "Explain the selected English word or short phrase in the context of Xu Yuanchong's translation of a classical Chinese poem. "
+        "Return strict JSON only, no markdown, with keys: zh, en, context, example. "
+        "zh: short Chinese meaning in this context; en: simple English definition; "
+        "context: Chinese explanation of how the word works in this poem; "
+        "example: one short English example sentence. "
+        "Keep zh and context in Chinese. Keep en and example in English. Do not invent biography or quote long text."
+    )
+    user = {
+        "word": word,
+        "sentence": sentence,
+        "poemTitle": poem_title,
+        "poemEnglishTitle": poem_en_title,
+        "nearbyContext": commentary_context,
+    }
+    return [
+        {"role": "system", "content": system},
+        {"role": "user", "content": json.dumps(user, ensure_ascii=False)},
+    ]
+
+
+def parse_word_ai_answer(answer):
+    text = answer.strip()
+    if text.startswith("```"):
+        text = text.strip("`")
+        text = text.removeprefix("json").strip()
+    start = text.find("{")
+    end = text.rfind("}")
+    if start != -1 and end != -1 and end > start:
+        text = text[start : end + 1]
+    data = json.loads(text)
+    return {
+        "zh": clean_word_value(data.get("zh"), 160) or "暂无释义",
+        "en": clean_word_value(data.get("en"), 220) or "No definition returned.",
+        "context": clean_word_value(data.get("context"), 360) or "暂无语境说明。",
+        "example": clean_word_value(data.get("example"), 220),
+    }
+
+
+def handle_word_ai(handler):
+    payload, error = read_json_request(handler, MAX_WORD_AI_BODY_BYTES)
+    if error:
+        json_response(handler, 400 if error != "invalid_body_size" else 413, {"ok": False, "error": error})
+        return
+    word = clean_word_value(payload.get("word"))
+    if not word or len(word) > 48:
+        json_response(handler, 400, {"ok": False, "error": "invalid_word"})
+        return
+    try:
+        answer = call_deepseek_messages(build_word_ai_messages(payload), temperature=0.1, max_tokens=420)
+        explanation = parse_word_ai_answer(answer)
+    except RuntimeError as error:
+        json_response(handler, 500, {"ok": False, "error": str(error)})
+        return
+    except urllib.error.HTTPError as error:
+        detail = error.read().decode("utf-8", errors="replace")
+        json_response(handler, error.code, {"ok": False, "error": "deepseek_http_error", "detail": detail})
+        return
+    except (urllib.error.URLError, TimeoutError) as error:
+        json_response(handler, 502, {"ok": False, "error": "deepseek_network_error", "detail": str(error)})
+        return
+    except (json.JSONDecodeError, KeyError, TypeError, ValueError) as error:
+        json_response(handler, 502, {"ok": False, "error": "deepseek_bad_response", "detail": str(error)})
+        return
+    json_response(handler, 200, {"ok": True, "word": word, "explanation": explanation, "model": DEEPSEEK_MODEL})
 
 
 def handle_learning_auth(handler):
@@ -435,6 +518,9 @@ class Handler(SimpleHTTPRequestHandler):
             return
         if parsed.path == "/api/learning-logout":
             handle_learning_logout(self)
+            return
+        if parsed.path == "/api/word-ai":
+            handle_word_ai(self)
             return
         if parsed.path != "/api/step-ai":
             json_response(self, 404, {"ok": False, "error": "not_found"})
