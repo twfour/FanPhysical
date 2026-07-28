@@ -4,7 +4,8 @@ FanPhysics 与识花定位共用阿里云 ECS，但使用独立目录、用户�
 
 ## 资源约定
 
-- 域名：`physics.qinyibin.com`
+- 物理域名：`physics.qinyibin.com`
+- 诗歌域名：`poetry.qinyibin.com`
 - 应用目录：`/opt/fanphysics`
 - NotebookLM 持久数据：`/opt/fanphysics/shared/notebooklm-links.json`
 - 学习记录持久数据：`/opt/fanphysics/shared/learning-state.json`
@@ -42,10 +43,24 @@ deploy/aliyun/deploy.sh
 记录值：101.37.82.5
 ```
 
+诗歌读本使用单独域名，需额外添加：
+
+```text
+主机记录：poetry
+记录类型：A
+记录值：101.37.82.5
+```
+
 DNS 生效后启用 HTTPS：
 
 ```bash
 deploy/aliyun/enable_https.sh
+```
+
+诗歌域名 DNS 生效后启用 HTTPS：
+
+```bash
+DOMAIN=poetry.qinyibin.com deploy/aliyun/enable_https.sh
 ```
 
 部署脚本使用版本目录和符号链接原子切换，并只保留最近三个版本。NotebookLM 覆盖值和学习记录都保存在 `shared` 目录，不会被新版本覆盖。`.env` 不会打包上传；`install_env.sh` 仅提取运行所需的受保护变量，通过 SSH 安装为权限 `600` 的服务器环境文件。

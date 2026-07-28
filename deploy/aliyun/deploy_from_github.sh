@@ -94,6 +94,9 @@ if [[ -f "$NGINX_CONF" ]]; then
   cp "$NGINX_CONF" "$NGINX_BACKUP"
 fi
 cp "$APP_BASE/current/deploy/aliyun/nginx-https.conf" "$NGINX_CONF"
+if [[ -f /etc/nginx/ssl/poetry.qinyibin.com/fullchain.pem && -f /etc/nginx/ssl/poetry.qinyibin.com/privkey.pem ]]; then
+  cat "$APP_BASE/current/deploy/aliyun/nginx-poetry-https.conf" >> "$NGINX_CONF"
+fi
 
 systemctl daemon-reload
 systemctl restart fanphysics.service

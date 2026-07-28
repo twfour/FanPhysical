@@ -46,6 +46,9 @@ mkdir -p '$CERT_DIR'
   --fullchain-file '$CERT_DIR/fullchain.pem' \\
   --reloadcmd 'systemctl reload nginx'
 cp '$APP_DIR/deploy/aliyun/nginx-https.conf' '$NGINX_CONF'
+if [[ -f /etc/nginx/ssl/poetry.qinyibin.com/fullchain.pem && -f /etc/nginx/ssl/poetry.qinyibin.com/privkey.pem ]]; then
+  cat '$APP_DIR/deploy/aliyun/nginx-poetry-https.conf' >> '$NGINX_CONF'
+fi
 nginx -t
 systemctl reload nginx"
 
