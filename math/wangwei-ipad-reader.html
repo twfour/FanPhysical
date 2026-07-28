@@ -682,6 +682,7 @@
         ? range.commonAncestorContainer.parentElement
         : range.commonAncestorContainer;
       if (!node) return null;
+      if (title.contains(node)) return "zh";
       if (leftPane.contains(node)) return "zh";
       if (rightPane.contains(node)) return "en";
       return null;
@@ -784,6 +785,9 @@
     function getSelectionSentence(selection, rawSelection, sourceLanguage) {
       if (!selection || selection.rangeCount === 0) return rawSelection || "";
       const range = selection.getRangeAt(0);
+      if (title.contains(range.startContainer)) {
+        return title.textContent.replace(/^\d+\.\s*/, "").trim();
+      }
       const block = range.startContainer.parentElement && range.startContainer.parentElement.closest("p");
       if (!block) return rawSelection || "";
       const text = block.textContent.replace(/\s+/g, " ").trim();
@@ -822,13 +826,15 @@
     document.getElementById("smaller").addEventListener("click", () => { scale = Math.max(-4, scale - 1); applyScale(); });
     document.getElementById("larger").addEventListener("click", () => { scale = Math.min(7, scale + 1); applyScale(); });
     search.addEventListener("input", () => renderList(search.value));
+    title.addEventListener("mouseup", () => setTimeout(showWordPopover, 10));
+    title.addEventListener("touchend", () => setTimeout(showWordPopover, 220));
     leftPane.addEventListener("mouseup", () => setTimeout(showWordPopover, 10));
     leftPane.addEventListener("touchend", () => setTimeout(showWordPopover, 220));
     rightPane.addEventListener("mouseup", () => setTimeout(showWordPopover, 10));
     rightPane.addEventListener("touchend", () => setTimeout(showWordPopover, 220));
     wordPopoverClose.addEventListener("click", hideWordPopover);
     document.addEventListener("mousedown", (event) => {
-      if (!wordPopover.contains(event.target) && !rightPane.contains(event.target) && !leftPane.contains(event.target)) hideWordPopover();
+      if (!wordPopover.contains(event.target) && !title.contains(event.target) && !rightPane.contains(event.target) && !leftPane.contains(event.target)) hideWordPopover();
     });
     window.addEventListener("resize", hideWordPopover);
     window.addEventListener("keydown", (event) => {
