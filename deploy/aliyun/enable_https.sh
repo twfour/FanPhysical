@@ -32,7 +32,7 @@ TOKEN="fanphysics-https-check-$(date +%s)"
 ssh_exec "set -e; mkdir -p '$APP_DIR/.well-known/acme-challenge'; printf '$TOKEN' > '$APP_DIR/.well-known/acme-challenge/$TOKEN'"
 
 echo "==> Checking public DNS and HTTP challenge"
-if [[ "$(curl "${CURL_OPTS[@]}" -fsS "http://$DOMAIN/.well-known/acme-challenge/$TOKEN" 2>/dev/null || true)" != "$TOKEN" ]]; then
+if [[ "$(curl "${CURL_OPTS[@]}" --resolve "$DOMAIN:80:$ECS_IP" -fsS "http://$DOMAIN/.well-known/acme-challenge/$TOKEN" 2>/dev/null || true)" != "$TOKEN" ]]; then
   echo "HTTP challenge is not reachable for $DOMAIN. Add A record $DOMAIN -> 101.37.82.5 and wait for DNS propagation." >&2
   exit 1
 fi
