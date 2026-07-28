@@ -155,7 +155,7 @@ def build_word_ai_messages(payload):
     if source_language == "zh":
         system = (
             "You are a concise Chinese classical-poetry dictionary tutor for Chinese middle/high school students. "
-            "Explain the selected classical Chinese word or phrase in Wang Wei's poem. "
+            "Explain the selected classical Chinese word or phrase in a classical Chinese poem. "
             "Return strict JSON only, no markdown, with keys: zh, en, pinyin, context, example. "
             "zh: dictionary-style Chinese meaning; en: simple English gloss; "
             "pinyin: Hanyu Pinyin with tone marks for the selected Chinese word or phrase; "
@@ -169,7 +169,7 @@ def build_word_ai_messages(payload):
             "Explain the selected English word or short phrase in the context of Xu Yuanchong's translation of a classical Chinese poem. "
             "Return strict JSON only, no markdown, with keys: zh, en, pinyin, context, example. "
             "zh: short Chinese meaning in this context; en: simple English definition; "
-            "pinyin: leave empty unless the user selected a Chinese word; "
+            "pinyin: IPA phonetic transcription for the selected English word or short phrase, preferably American English; "
             "context: Chinese explanation of how the word works in this poem; "
             "example: one short English example sentence. "
             "Keep zh and context in Chinese. Keep en and example in English. Do not invent biography or quote long text."

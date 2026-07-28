@@ -672,7 +672,7 @@
       wordPopoverWord.textContent = word;
       wordPopoverZh.textContent = "AI 正在解释...";
       wordPopoverEn.textContent = sourceLanguage === "zh" ? "Preparing an English gloss..." : "Thinking in context...";
-      wordPopoverPinyin.textContent = sourceLanguage === "zh" ? "正在生成拼音..." : "";
+      wordPopoverPinyin.textContent = sourceLanguage === "zh" ? "正在生成拼音..." : "正在生成音标...";
       wordPopoverContext.textContent = sourceLanguage === "zh"
         ? "会结合当前诗题、中文诗句和赏析上下文解释这个词。"
         : "会结合当前诗题、英文诗句和上下文解释这个词。";
@@ -687,15 +687,14 @@
         wordEnLabel.textContent = "English Gloss";
         wordPinyinLabel.textContent = "拼音";
         wordContextLabel.textContent = "诗中用法";
-        wordPinyinLabel.hidden = false;
-        wordPopoverPinyin.hidden = false;
       } else {
         wordZhLabel.textContent = "中文释义";
         wordEnLabel.textContent = "English";
+        wordPinyinLabel.textContent = "音标";
         wordContextLabel.textContent = "In This Poem";
-        wordPinyinLabel.hidden = true;
-        wordPopoverPinyin.hidden = true;
       }
+      wordPinyinLabel.hidden = false;
+      wordPopoverPinyin.hidden = false;
     }
 
     async function queryWordAi(word, selection, rawSelection, sourceLanguage) {
@@ -704,7 +703,7 @@
       const fallback = {
         zh: "AI 暂时不可用，本地词表也暂无释义。",
         en: "No local entry yet.",
-        pinyin: "暂无拼音。",
+        pinyin: sourceLanguage === "zh" ? "暂无拼音。" : "音标暂缺。",
         context: "可以稍后重新选择该词再试。"
       };
       try {
@@ -727,17 +726,13 @@
         if (wordPopoverWord.textContent !== word) return;
         wordPopoverZh.textContent = data.explanation.zh || fallback.zh;
         wordPopoverEn.textContent = data.explanation.en || fallback.en;
-        if (sourceLanguage === "zh") {
-          wordPopoverPinyin.textContent = data.explanation.pinyin || fallback.pinyin;
-        }
+        wordPopoverPinyin.textContent = data.explanation.pinyin || fallback.pinyin || (sourceLanguage === "zh" ? "暂无拼音。" : "音标暂缺。");
         wordPopoverContext.textContent = data.explanation.context || fallback.context;
       } catch (error) {
         if (wordPopoverWord.textContent !== word) return;
         wordPopoverZh.textContent = fallback.zh;
         wordPopoverEn.textContent = fallback.en;
-        if (sourceLanguage === "zh") {
-          wordPopoverPinyin.textContent = fallback.pinyin;
-        }
+        wordPopoverPinyin.textContent = fallback.pinyin || (sourceLanguage === "zh" ? "暂无拼音。" : "音标暂缺。");
         wordPopoverContext.textContent = fallback.context + "（AI 解释暂时不可用：" + error.message + "）";
       }
     }
