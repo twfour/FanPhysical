@@ -441,7 +441,7 @@
       line-height: 1.58;
     }
 
-    .word-popover-translation {
+    .word-popover-pinyin {
       margin-top: 2px;
       border: 1px solid rgba(155, 63, 36, .18);
       border-radius: 8px;
@@ -449,11 +449,11 @@
       padding: 10px 11px;
     }
 
-    .word-popover-translation[hidden] {
+    .word-popover-pinyin[hidden] {
       display: none;
     }
 
-    .word-popover-translation p:last-child {
+    .word-popover-pinyin p:last-child {
       margin-bottom: 0;
     }
 
@@ -560,9 +560,9 @@
         <p id="wordPopoverZh"></p>
         <p class="word-popover-label" id="wordEnLabel">English</p>
         <p id="wordPopoverEn"></p>
-        <div class="word-popover-translation" id="wordTranslationBlock" hidden>
-          <p class="word-popover-label" id="wordTranslationLabel">现代汉语</p>
-          <p id="wordPopoverTranslation"></p>
+        <div class="word-popover-pinyin" id="wordPinyinBlock" hidden>
+          <p class="word-popover-label" id="wordPinyinLabel">拼音</p>
+          <p id="wordPopoverPinyin"></p>
         </div>
         <p class="word-popover-label" id="wordContextLabel">In This Poem</p>
         <p id="wordPopoverContext"></p>
@@ -630,12 +630,12 @@
     const wordPopoverWord = document.getElementById("wordPopoverWord");
     const wordZhLabel = document.getElementById("wordZhLabel");
     const wordEnLabel = document.getElementById("wordEnLabel");
-    const wordTranslationBlock = document.getElementById("wordTranslationBlock");
-    const wordTranslationLabel = document.getElementById("wordTranslationLabel");
+    const wordPinyinBlock = document.getElementById("wordPinyinBlock");
+    const wordPinyinLabel = document.getElementById("wordPinyinLabel");
     const wordContextLabel = document.getElementById("wordContextLabel");
     const wordPopoverZh = document.getElementById("wordPopoverZh");
     const wordPopoverEn = document.getElementById("wordPopoverEn");
-    const wordPopoverTranslation = document.getElementById("wordPopoverTranslation");
+    const wordPopoverPinyin = document.getElementById("wordPopoverPinyin");
     const wordPopoverContext = document.getElementById("wordPopoverContext");
     const wordPopoverClose = document.getElementById("wordPopoverClose");
 
@@ -724,7 +724,7 @@
       wordPopoverWord.textContent = word;
       wordPopoverZh.textContent = "AI 正在解释...";
       wordPopoverEn.textContent = sourceLanguage === "zh" ? "Preparing an English gloss..." : "Thinking in context...";
-      wordPopoverTranslation.textContent = sourceLanguage === "zh" ? "正在生成现代汉语解释..." : "";
+      wordPopoverPinyin.textContent = sourceLanguage === "zh" ? "正在生成拼音..." : "";
       wordPopoverContext.textContent = sourceLanguage === "zh"
         ? "会结合当前诗题、中文诗句和赏析上下文解释这个词。"
         : "会结合当前诗题、英文诗句和上下文解释这个词。";
@@ -737,14 +737,14 @@
       if (sourceLanguage === "zh") {
         wordZhLabel.textContent = "词语释义";
         wordEnLabel.textContent = "English Gloss";
-        wordTranslationLabel.textContent = "现代汉语";
+        wordPinyinLabel.textContent = "拼音";
         wordContextLabel.textContent = "诗中用法";
-        wordTranslationBlock.hidden = false;
+        wordPinyinBlock.hidden = false;
       } else {
         wordZhLabel.textContent = "中文释义";
         wordEnLabel.textContent = "English";
         wordContextLabel.textContent = "In This Poem";
-        wordTranslationBlock.hidden = true;
+        wordPinyinBlock.hidden = true;
       }
     }
 
@@ -754,7 +754,7 @@
       const fallback = literaryGlossary[word] || {
         zh: "AI 暂时不可用，本地词表也暂无释义",
         en: "No local entry yet.",
-        translation: "暂无现代汉语解释。",
+        pinyin: "暂无拼音。",
         context: "可以稍后重新选择该词再试。"
       };
       try {
@@ -778,7 +778,7 @@
         wordPopoverZh.textContent = data.explanation.zh || fallback.zh;
         wordPopoverEn.textContent = data.explanation.en || fallback.en;
         if (sourceLanguage === "zh") {
-          wordPopoverTranslation.textContent = data.explanation.translation || fallback.translation || data.explanation.zh || fallback.zh;
+          wordPopoverPinyin.textContent = data.explanation.pinyin || fallback.pinyin;
         }
         wordPopoverContext.textContent = data.explanation.context || fallback.context;
       } catch (error) {
@@ -786,7 +786,7 @@
         wordPopoverZh.textContent = fallback.zh;
         wordPopoverEn.textContent = fallback.en;
         if (sourceLanguage === "zh") {
-          wordPopoverTranslation.textContent = fallback.translation || fallback.zh;
+          wordPopoverPinyin.textContent = fallback.pinyin;
         }
         wordPopoverContext.textContent = fallback.context + "（AI 解释暂时不可用：" + error.message + "）";
       }

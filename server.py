@@ -156,20 +156,20 @@ def build_word_ai_messages(payload):
         system = (
             "You are a concise Chinese classical-poetry dictionary tutor for Chinese middle/high school students. "
             "Explain the selected classical Chinese word or phrase in Wang Wei's poem. "
-            "Return strict JSON only, no markdown, with keys: zh, en, translation, context, example. "
+            "Return strict JSON only, no markdown, with keys: zh, en, pinyin, context, example. "
             "zh: dictionary-style Chinese meaning; en: simple English gloss; "
-            "translation: natural modern-Chinese translation of the selected word or phrase in this line; "
+            "pinyin: Hanyu Pinyin with tone marks for the selected Chinese word or phrase; "
             "context: Chinese explanation of how the word works in the poem; "
             "example: one short modern Chinese example sentence. "
-            "Keep zh, translation, context, and example in Chinese. Keep en in English. Do not invent biography or quote long text."
+            "Keep zh, context, and example in Chinese. Keep en in English. Do not invent biography or quote long text."
         )
     else:
         system = (
             "You are a concise bilingual English poetry reading tutor for Chinese middle/high school students. "
             "Explain the selected English word or short phrase in the context of Xu Yuanchong's translation of a classical Chinese poem. "
-            "Return strict JSON only, no markdown, with keys: zh, en, translation, context, example. "
+            "Return strict JSON only, no markdown, with keys: zh, en, pinyin, context, example. "
             "zh: short Chinese meaning in this context; en: simple English definition; "
-            "translation: leave empty unless the user selected a Chinese word; "
+            "pinyin: leave empty unless the user selected a Chinese word; "
             "context: Chinese explanation of how the word works in this poem; "
             "example: one short English example sentence. "
             "Keep zh and context in Chinese. Keep en and example in English. Do not invent biography or quote long text."
@@ -201,7 +201,7 @@ def parse_word_ai_answer(answer):
     return {
         "zh": clean_word_value(data.get("zh"), 160) or "暂无释义",
         "en": clean_word_value(data.get("en"), 220) or "No definition returned.",
-        "translation": clean_word_value(data.get("translation"), 260) or clean_word_value(data.get("zh"), 160) or "暂无中文翻译。",
+        "pinyin": clean_word_value(data.get("pinyin"), 120),
         "context": clean_word_value(data.get("context"), 360) or "暂无语境说明。",
         "example": clean_word_value(data.get("example"), 220),
     }
