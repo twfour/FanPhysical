@@ -104,7 +104,7 @@
 
     .tools {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 8px;
       padding: 12px;
       border-bottom: 1px solid var(--line);
@@ -320,6 +320,36 @@
       letter-spacing: 0;
     }
 
+    #chinese.memorize-hidden .poem-lines {
+      position: relative;
+      min-height: 118px;
+      padding: 18px;
+      border: 1px dashed rgba(155, 63, 36, .28);
+      border-radius: 8px;
+      color: transparent;
+      text-shadow: none;
+      user-select: none;
+      background:
+        linear-gradient(135deg, rgba(155, 63, 36, .06), rgba(47, 93, 80, .05)),
+        rgba(255, 252, 244, .54);
+    }
+
+    #chinese.memorize-hidden .poem-lines .note-ref {
+      visibility: hidden;
+    }
+
+    #chinese.memorize-hidden .poem-lines::after {
+      content: "原文已隐藏，先背诵，再显示核对";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      color: var(--muted);
+      font: 750 15px/1.5 "Avenir Next", "Helvetica Neue", sans-serif;
+      text-align: center;
+    }
+
     .note-ref {
       font-size: .52em;
       line-height: 0;
@@ -501,6 +531,7 @@
       <section class="tools" aria-label="阅读设置">
         <button class="tool" id="smaller" title="缩小字号">A−</button>
         <button class="tool" id="larger" title="放大字号">A＋</button>
+        <button class="tool" id="toggleOriginal" title="隐藏原文用于背诵">藏原文</button>
       </section>
       <section class="search-wrap">
         <input class="search" id="search" type="search" placeholder="搜索诗题 / 英文题名" />
@@ -599,8 +630,10 @@
       withered: { zh: "枯萎的；衰败的", en: "dried up, faded, or weakened", context: "Can suggest age, decline, or the passing of time." }
     };
     const activeStorageKey = "wangwei-reader-active-index";
+    const originalStorageKey = "wangwei-reader-original-hidden";
     let active = 0;
     let scale = Number(localStorage.getItem("wangwei-reader-scale") || "0");
+    let originalHidden = localStorage.getItem(originalStorageKey) === "1";
 
     const list = document.getElementById("list");
     const search = document.getElementById("search");
@@ -610,6 +643,7 @@
     const poemTheme = document.getElementById("poemTheme");
     const chinese = document.getElementById("chinese");
     const english = document.getElementById("english");
+    const toggleOriginal = document.getElementById("toggleOriginal");
     const leftPane = document.getElementById("leftPane");
     const rightPane = document.getElementById("rightPane");
     const progress = document.getElementById("progress");
@@ -630,6 +664,13 @@
       document.documentElement.style.setProperty("--poem-size", `${23 + scale}px`);
       document.documentElement.style.setProperty("--en-size", `${23 + scale}px`);
       localStorage.setItem("wangwei-reader-scale", String(scale));
+    }
+
+    function applyOriginalVisibility() {
+      chinese.classList.toggle("memorize-hidden", originalHidden);
+      toggleOriginal.textContent = originalHidden ? "显原文" : "藏原文";
+      toggleOriginal.title = originalHidden ? "显示原文核对" : "隐藏原文用于背诵";
+      localStorage.setItem(originalStorageKey, originalHidden ? "1" : "0");
     }
 
     function renderList(filter = "") {
@@ -655,6 +696,7 @@
       poemTheme.textContent = poem.poemTheme;
       chinese.innerHTML = poem.chineseHtml;
       english.innerHTML = poem.englishHtml;
+      applyOriginalVisibility();
       leftPane.scrollTop = 0;
       rightPane.scrollTop = 0;
       progress.style.width = `${((active + 1) / poems.length) * 100}%`;
@@ -820,6 +862,7 @@
     document.getElementById("next").addEventListener("click", () => showPoem(active + 1));
     document.getElementById("smaller").addEventListener("click", () => { scale = Math.max(-4, scale - 1); applyScale(); });
     document.getElementById("larger").addEventListener("click", () => { scale = Math.min(7, scale + 1); applyScale(); });
+    toggleOriginal.addEventListener("click", () => { originalHidden = !originalHidden; applyOriginalVisibility(); });
     search.addEventListener("input", () => renderList(search.value));
     title.addEventListener("mouseup", () => setTimeout(showWordPopover, 10));
     title.addEventListener("touchend", () => setTimeout(showWordPopover, 220));
