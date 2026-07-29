@@ -110,6 +110,12 @@ POST /api/step-ai
 - `DEEPSEEK_TIMEOUT_SECONDS`：默认 `90`
 - `DEEPSEEK_MAX_RETRIES`：默认 `2`，仅对网络错误和 `429/5xx` 临时错误重试
 
+## PWA 应用安装
+
+主页面已注册 `service-worker.js` 并提供 `manifest.webmanifest`，在 HTTPS 生产环境或本机 `localhost` 访问时可安装到桌面。第一阶段只预缓存应用外壳、公共运行时、题目索引和学习进度目录；单题 JSON 按需联网加载，`/api/` 下的 AI、NotebookLM 与学习同步接口始终绕过 Service Worker 缓存。
+
+版本更新通过 `CACHE_NAME` 管理。新 Service Worker 安装完成后，页面会提示用户“立即更新”，确认后再切换版本并刷新，避免学习过程中突然重载。
+
 ## 阿里云 ECS 部署
 
 生产环境使用 `physics.qinyibin.com`，与识花定位共用 ECS，但采用独立服务、端口和发布目录。首次部署与 HTTPS 配置见：

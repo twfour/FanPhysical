@@ -103,10 +103,13 @@ async function requireOne(locator, label) {
 async function ensureTreeBranchOpen(page, label) {
   var summary = page.locator(".sidebar summary.tree-subfolder").filter({ hasText: label });
   await requireOne(summary, label + " tree branch");
-  var isOpen = await summary.evaluate(function (element) {
-    return Boolean(element.parentElement && element.parentElement.open);
+  await summary.evaluate(function (element) {
+    var parent = element.parentElement;
+    while (parent) {
+      if (parent.tagName === "DETAILS") parent.open = true;
+      parent = parent.parentElement;
+    }
   });
-  if (!isOpen) await summary.click();
 }
 
 async function expandNoteBlock(block, label) {
@@ -129,7 +132,7 @@ async function expandLearningBlocks(page) {
 async function openRegressionProblem(page) {
   await ensureTreeBranchOpen(page, "2026暑假班");
   await ensureTreeBranchOpen(page, "必修二结业测试");
-  var item = page.locator('button[data-scene="' + PROBLEM_ID + '"]');
+  var item = page.locator('.sidebar button[data-scene="' + PROBLEM_ID + '"]');
   await requireOne(item, "regression problem tree item");
   await item.click();
   await page.locator("#" + PROBLEM_ID + "Notes").waitFor({ state: "visible", timeout: 10000 });
@@ -256,6 +259,49 @@ async function main() {
     assert.equal(await page.locator('script[data-runtime-script="/assets/json-animation-scenes.js"]').count(), 0);
     assert.equal(await page.locator('script[data-runtime-script="/assets/circular-daily-scenes.js"]').count(), 0);
     assert.equal(await page.locator('script[data-runtime-script="/assets/summer-exam.js"]').count(), 0);
+  });
+
+  await runCheck("PWA 安装外壳", async function () {
+    assert.equal(await page.locator('link[rel="manifest"]').getAttribute("href"), "/manifest.webmanifest");
+    var manifest = await page.evaluate(async function () {
+      var response = await fetch("/manifest.webmanifest");
+      return { contentType: response.headers.get("content-type"), body: await response.json() };
+    });
+    assert.match(manifest.contentType || "", /manifest|json/);
+    assert.equal(manifest.body.name, "FanPhysics 动态模型库");
+    assert.equal(manifest.body.icons.length, 2);
+    await waitUntil(async function () {
+      return page.evaluate(async function () {
+        var registration = await navigator.serviceWorker.getRegistration("/");
+        return Boolean(registration && registration.active);
+      });
+    }, "the service worker to activate", 10000);
+    var cacheState = await page.evaluate(async function () {
+      var names = await caches.keys();
+      var cache = await caches.open(names.find(function (name) {
+        return name.indexOf("fanphysics-shell-") === 0;
+      }));
+      return {
+        shellCache: names.some(function (name) { return name.indexOf("fanphysics-shell-") === 0; }),
+        app: Boolean(await cache.match("/classical-mechanics-demo.html")),
+        index: Boolean(await cache.match("/data/problems/index.json")),
+        api: Boolean(await cache.match("/api/learning-state"))
+      };
+    });
+    assert.deepEqual(cacheState, { shellCache: true, app: true, index: true, api: false });
+    await context.setOffline(true);
+    try {
+      await page.reload({ waitUntil: "domcontentloaded" });
+      await page.locator(".brand-name").waitFor({ state: "visible", timeout: 10000 });
+      await waitUntil(async function () {
+        return page.evaluate(function () {
+          return Object.keys(window.problemIndexMap || {}).length > 0;
+        });
+      }, "the cached problem catalog to load offline", 10000);
+      assert.equal(await page.locator("#treeHome").isVisible(), true);
+    } finally {
+      await context.setOffline(false);
+    }
   });
 
   await runCheck("独立同步密码与登录恢复", async function () {
@@ -739,7 +785,7 @@ async function main() {
   });
 
   assert.deepEqual(pageErrors, [], "uncaught page errors: " + pageErrors.join(" | "));
-  console.log("Browser regression passed: 15/15 checks");
+  console.log("Browser regression passed: 16/16 checks");
 }
 
 try {
