@@ -7,6 +7,7 @@ FanPhysics 与识花定位共用阿里云 ECS，但使用独立目录、用户�
 - 物理域名：`physics.qinyibin.com`
 - 诗歌域名：`poetry.qinyibin.com`
 - 应用目录：`/opt/fanphysics`
+- 诗歌静态站点目录：`/opt/poetry`，本地源目录：`/Users/apple/Documents/Poetry`
 - NotebookLM 持久数据：`/opt/fanphysics/shared/notebooklm-links.json`
 - 学习记录持久数据：`/opt/fanphysics/shared/learning-state.json`
 - 环境变量：`/etc/fanphysics.env`
@@ -68,6 +69,28 @@ DOMAIN=poetry.qinyibin.com deploy/aliyun/enable_https.sh
 从旧版共用密码升级时，先补充 `LEARNING_SYNC_PASSWORD` 并重新执行 `deploy/aliyun/install_env.sh`，再发布新代码。HTTPS 模板使用新版 Nginx 的 `http2 on;` 指令；若线上已有旧配置，需要重新运行 HTTPS 配置脚本或手动同步模板后执行 `nginx -t`。
 
 仓库仍保留手动触发的 GitHub Actions 工作流作为历史备用，但当前不使用。
+
+## 诗歌站点独立部署
+
+`poetry.qinyibin.com` 的静态页面不再放在 FanPhysical 的 `math/` 目录下。诗歌读本源文件位于本机：
+
+```text
+/Users/apple/Documents/Poetry
+```
+
+线上由 Nginx 从 `/opt/poetry/current` 读取静态文件；`/api/word-ai` 仍代理到 FanPhysics 后端 `127.0.0.1:8010`。
+
+诗歌内容更新时，先发布静态站点：
+
+```bash
+/Users/apple/Documents/Poetry/deploy/aliyun/deploy_static.sh
+```
+
+如果修改了 `poetry.qinyibin.com` 的 Nginx 路由，再提交并发布 FanPhysical 配置：
+
+```bash
+deploy/aliyun/deploy_from_github.sh
+```
 
 ## 验证与排错
 
