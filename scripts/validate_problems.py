@@ -231,13 +231,13 @@ def validate_learning_cycle(path, problem):
         return [f"{path.name}: learningCycle must be an object"]
     animation = problem.get("animation", {})
     if animation.get("enabled") is not True or animation.get("playable") is not True:
-        errors.append(f"{path.name}: learningCycle prediction gate requires a playable animation")
+        errors.append(f"{path.name}: learningCycle review scheduling requires a playable animation")
     intervals = cycle.get("intervalDays")
     if not isinstance(intervals, list) or not intervals:
         errors.append(f"{path.name}: learningCycle intervalDays must be a non-empty list")
     elif any(isinstance(item, bool) or not isinstance(item, (int, float)) or item <= 0 for item in intervals):
         errors.append(f"{path.name}: learningCycle intervalDays must contain positive numbers")
-    for section_name in ("prediction", "review"):
+    for section_name in ("review",):
         section = cycle.get(section_name)
         if not isinstance(section, dict):
             errors.append(f"{path.name}: learningCycle needs {section_name}")
@@ -272,10 +272,6 @@ def validate_learning_cycle(path, problem):
                     errors.append(
                         f"{path.name}: learningCycle {section_name} wrong option {value} diagnosis needs {field}"
                     )
-            if section_name == "prediction" and not is_non_empty_string(diagnosis.get("prompt")):
-                errors.append(
-                    f"{path.name}: learningCycle prediction wrong option {value} diagnosis needs prompt"
-                )
         if len(values) != len(set(values)):
             errors.append(f"{path.name}: learningCycle {section_name} option values must be unique")
         if section.get("answer") not in values:

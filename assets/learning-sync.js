@@ -418,18 +418,9 @@ function createLearningSyncPanel() {
 
 function problemLearningStatusText(problem) {
   var state = typeof getLearningCycleState === "function" ? getLearningCycleState(problem.id) : {};
-  var prediction = state.prediction || {};
   var review = state.review || {};
   var parts = [];
-  if (!prediction.answer) {
-    parts.push("预测待完成");
-  } else if (!state.animationCompletedAt) {
-    parts.push("动画待检验");
-  } else if (prediction.correct === false) {
-    parts.push("存在待修正误区");
-  } else {
-    parts.push("预测已完成");
-  }
+  parts.push(state.animationCompletedAt ? "动画已完整观察" : "动画待观察");
   if (review.dueAt) {
     parts.push(
       Number(review.dueAt) <= Date.now()

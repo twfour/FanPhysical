@@ -1,5 +1,5 @@
 var CACHE_PREFIX = "fanphysics-shell-";
-var CACHE_NAME = CACHE_PREFIX + "20260729-pwa-1";
+var CACHE_NAME = CACHE_PREFIX + "20260729-direct-animation";
 var APP_SHELL = [
   "/",
   "/classical-mechanics-demo.html",

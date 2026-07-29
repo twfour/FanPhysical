@@ -136,7 +136,7 @@ deploy/aliyun/deploy_from_github.sh
 
 - `assets/app.js`：页面导航、题目加载、Canvas 生命周期、DOM/图表 LRU 缓存、相邻题预取、Markdown 与 MathJax 通用能力。
 - `assets/problem-content.js`：JSON 题干、选项、解析、NotebookLM 与近似题渲染。
-- `assets/learning-cycle.js`：播放前预测、错误选项误区诊断、修正记录、间隔复习排期与首页“今日复习”。
+- `assets/learning-cycle.js`：完整动画观察记录、间隔复习排期与首页“今日复习”。
 - `assets/problem-favorites.js`：收藏状态、收藏按钮与首页收藏卡片。
 - `assets/problem-note-interactions.js`：题目说明增强与解析步骤折叠。
 - `assets/step-conversation.js`：解析步骤的多轮提问与语音输入。

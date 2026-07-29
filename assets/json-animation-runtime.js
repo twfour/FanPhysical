@@ -453,10 +453,8 @@ function syncJsonTimeControl(sceneName) {
     value.innerText = state.time.toFixed(2) + "s";
   }
   if (play) {
-    var predictionLocked = typeof isLearningCyclePredictionComplete === "function" &&
-      !isLearningCyclePredictionComplete(sceneName);
-    play.disabled = predictionLocked;
-    play.innerText = predictionLocked ? "先完成预测" : (state.playing ? "暂停" : "播放");
+    play.disabled = false;
+    play.innerText = state.playing ? "暂停" : "播放";
   }
   if (isPhysicsSoundScene(sceneName)) {
     syncPhysicsSoundButton();

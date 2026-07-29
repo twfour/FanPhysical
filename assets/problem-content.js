@@ -20,7 +20,6 @@ function renderProblemDataNotes(problem) {
     note.appendChild(grid);
 
     var authoritativeResourcesBlock = createAuthoritativeResourcesBlock(problem);
-    var predictionBlock = createLearningCyclePredictionBlock(problem);
     var experimentBlock = typeof createVirtualExperimentBlock === "function"
       ? createVirtualExperimentBlock(problem)
       : null;
@@ -28,7 +27,7 @@ function renderProblemDataNotes(problem) {
     var realLifeBlock = createRealLifeCaseBlock(problem);
     var practiceBlock = createProblemPracticeBlock(problem);
     var notebookLmBlock = createProblemNotebookLmBlock(problem);
-    if (explorationBlock || realLifeBlock || authoritativeResourcesBlock || predictionBlock) {
+    if (explorationBlock || realLifeBlock || authoritativeResourcesBlock) {
       grid.appendChild(createProblemLearningStatusBar(problem));
     }
     grid.appendChild(createProblemQuestionBlock(problem));
@@ -42,9 +41,6 @@ function renderProblemDataNotes(problem) {
     var learningPathBlock = createProblemLearningPathBlock(problem);
     if (learningPathBlock) {
       grid.appendChild(learningPathBlock);
-    }
-    if (predictionBlock) {
-      grid.appendChild(predictionBlock);
     }
     if (explorationBlock) {
       grid.appendChild(explorationBlock);

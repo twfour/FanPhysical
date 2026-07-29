@@ -368,7 +368,7 @@ async function main() {
         return kicker && kicker.firstChild ? String(kicker.firstChild.nodeValue || "").trim() : "";
       });
     });
-    ["学习状态", "题目", "学习定位", "先预测", "初学者探索", "解析", "近似题"].forEach(
+    ["学习状态", "题目", "学习定位", "初学者探索", "解析", "近似题"].forEach(
       function (label, index) {
         assert.equal(contentOrder[index], label, "unexpected problem content order at " + label);
       }
@@ -431,14 +431,10 @@ async function main() {
   });
 
   await runCheck("动画验证", async function () {
-    var prediction = page.locator('.learning-cycle-prediction-block[data-scene="' + PROBLEM_ID + '"]');
-    await requireOne(prediction, "required-two prediction block");
-    await prediction.locator('input[type="radio"][value="B"]').check();
-    await prediction.locator('.learning-cycle-confidence input[value="3"]').check();
-    await prediction.getByRole("button", { name: "提交预测并解锁动画", exact: true }).click();
-    await waitUntil(async function () {
-      return await page.locator("#learningCycleCanvasGate").isHidden();
-    }, "required-two prediction gate to unlock");
+    assert.equal(await page.locator(".learning-cycle-prediction-block").count(), 0);
+    assert.equal(await page.locator("#learningCycleCanvasGate").count(), 0);
+    assert.equal(await page.locator("#canvas-holder canvas").isVisible(), true);
+    assert.equal(await page.locator("#jsonAnimPlayBtn").isEnabled(), true);
     var stage = page.locator(".student-exploration-block .exploration-stage-card").first();
     var verify = stage.getByRole("button", { name: "在动画中验证", exact: true });
     await requireOne(verify, "animation verification button");
@@ -631,7 +627,7 @@ async function main() {
     await runtimePage.close();
   });
 
-  await runCheck("预测、误区诊断与延时复习闭环", async function () {
+  await runCheck("动画直达与延时复习闭环", async function () {
     var learningPage = await context.newPage();
     learningPage.on("pageerror", function (error) {
       pageErrors.push(error.message);
@@ -639,19 +635,10 @@ async function main() {
     await learningPage.goto(baseUrl + "/classical-mechanics-demo.html", { waitUntil: "domcontentloaded" });
     await openSceneDirectly(learningPage, MECHANICAL_COURSE_ID);
 
-    var prediction = learningPage.locator('.learning-cycle-prediction-block[data-scene="' + MECHANICAL_COURSE_ID + '"]');
-    await requireOne(prediction, "mechanical-energy prediction block");
-    assert.equal(await learningPage.locator("#learningCycleCanvasGate").isVisible(), true);
-    assert.equal(await learningPage.locator("#jsonAnimPlayBtn").isDisabled(), true);
-    assert.equal(await learningPage.locator("#jsonAnimPlayBtn").innerText(), "先完成预测");
-
-    await prediction.locator('input[type="radio"][value="A"]').check();
-    await prediction.locator('.learning-cycle-confidence input[value="3"]').check();
-    await prediction.getByRole("button", { name: "提交预测并解锁动画", exact: true }).click();
-    await waitUntil(async function () {
-      return await learningPage.locator("#learningCycleCanvasGate").isHidden();
-    }, "prediction gate to unlock");
+    assert.equal(await learningPage.locator(".learning-cycle-prediction-block").count(), 0);
+    assert.equal(await learningPage.locator("#learningCycleCanvasGate").count(), 0);
     assert.equal(await learningPage.locator("#jsonAnimPlayBtn").isEnabled(), true);
+    assert.equal(await learningPage.locator("#canvas-holder canvas").isVisible(), true);
 
     await learningPage.evaluate(function (sceneName) {
       var state = getJsonAnimationState(sceneName);
@@ -659,15 +646,6 @@ async function main() {
       state.playing = true;
       syncCanvasLoop();
     }, MECHANICAL_COURSE_ID);
-    var predictionFeedback = prediction.locator(".learning-cycle-prediction-feedback");
-    await predictionFeedback.waitFor({ state: "visible", timeout: 10000 });
-    assert.match(await predictionFeedback.innerText(), /把势能值与势能差混在一起/);
-    assert.match(await predictionFeedback.innerText(), /发现一个可修正的误区/);
-
-    var repair = predictionFeedback.locator(".learning-cycle-repair textarea");
-    await repair.fill("势能零点改变会给两个位置同时加上同一公共项，势能差与重力做功不变。");
-    await predictionFeedback.getByRole("button", { name: "保存修正说明", exact: true }).click();
-    assert.match(await predictionFeedback.locator(".learning-save-status").innerText(), /已保存/);
 
     var review = learningPage.locator('.learning-cycle-review-block[data-scene="' + MECHANICAL_COURSE_ID + '"]');
     await requireOne(review, "mechanical-energy review block");
@@ -693,12 +671,9 @@ async function main() {
     assert.match(await review.locator(".learning-cycle-review-feedback").innerText(), /回答正确/);
 
     await openSceneDirectly(learningPage, MECHANICAL_COURSE_2_ID);
-    assert.equal(await learningPage.locator("#learningCycleCanvasGate").isVisible(), true);
-    assert.equal(await learningPage.locator("#jsonAnimPlayBtn").isDisabled(), true);
-    assert.match(
-      await learningPage.locator('.learning-cycle-prediction-block[data-scene="' + MECHANICAL_COURSE_2_ID + '"]').innerText(),
-      /等初动能不等于等势能/
-    );
+    assert.equal(await learningPage.locator("#learningCycleCanvasGate").count(), 0);
+    assert.equal(await learningPage.locator("#jsonAnimPlayBtn").isEnabled(), true);
+    assert.equal(await learningPage.locator("#canvas-holder canvas").isVisible(), true);
 
     await waitUntil(function () {
       var state = readLearningState(learningStatePath);

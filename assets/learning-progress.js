@@ -51,11 +51,8 @@ function calculateLearningProgress() {
     rubricTotal: 0
   };
   var evidence = {
-    predictionAttempts: 0,
-    predictionCorrect: 0,
-    animationCorrections: 0,
-    postJudgments: 0,
-    postCorrect: 0,
+    animationEligible: 0,
+    animationCompleted: 0,
     practiceAttempts: 0,
     practiceIndependent: 0,
     reviewAttempts: 0,
@@ -139,24 +136,8 @@ function calculateLearningProgress() {
     var cycle = cycleRecord && !cycleRecord.deleted
       ? parseLearningCycleValue(cycleRecord.value)
       : {};
-    if (cycle.prediction && cycle.prediction.answer) {
-      evidence.predictionAttempts += 1;
-      family.attempts += 1;
-      if (cycle.prediction.correct === true) {
-        evidence.predictionCorrect += 1;
-      } else if (cycle.prediction.correct === false) {
-        family.gaps += 2;
-      }
-      if (cycle.prediction.postAnswer) {
-        evidence.postJudgments += 1;
-        if (cycle.prediction.postCorrect === true) evidence.postCorrect += 1;
-      }
-    }
-    if (cycle.misconceptionResponse) evidence.animationCorrections += 1;
-    if (cycle.misconceptionTag) {
-      misconceptionTags[cycle.misconceptionTag] = (misconceptionTags[cycle.misconceptionTag] || 0) + 1;
-      family.misconceptions += 1;
-    }
+    evidence.animationEligible += 1;
+    if (cycle.animationCompletedAt) evidence.animationCompleted += 1;
     var reviewHistory = cycle.review && Array.isArray(cycle.review.history) ? cycle.review.history : [];
     reviewHistory.forEach(function (item) {
       evidence.reviewAttempts += 1;
@@ -275,15 +256,15 @@ function renderLearningProgressOverview() {
   var totals = progress.totals;
   var evidence = progress.evidence;
   summaryHost.appendChild(createLearningProgressMetric(
-    "首次预测",
-    learningProgressRatio(evidence.predictionCorrect, evidence.predictionAttempts) + "%",
-    learningProgressValue(evidence.predictionCorrect, evidence.predictionAttempts) + " 次独立判断正确",
+    "动画观察",
+    learningProgressRatio(evidence.animationCompleted, evidence.animationEligible) + "%",
+    learningProgressValue(evidence.animationCompleted, evidence.animationEligible) + " 题完整播放",
     "learningProgressOverallValue"
   ));
   summaryHost.appendChild(createLearningProgressMetric(
-    "动画后修正",
-    learningProgressRatio(evidence.postCorrect, evidence.postJudgments) + "%",
-    learningProgressValue(evidence.postCorrect, evidence.postJudgments) + " 次二次判断正确",
+    "初学者探索",
+    learningProgressRatio(totals.explorationDone, totals.explorationTotal) + "%",
+    learningProgressValue(totals.explorationDone, totals.explorationTotal) + " 个探索步骤完成",
     "learningProgressExplorationValue"
   ));
   summaryHost.appendChild(createLearningProgressMetric(
@@ -338,9 +319,9 @@ function renderLearningProgressOverview() {
   if (!progress.weakFamilies.length) {
     var empty = document.createElement("p");
     empty.className = "learning-progress-empty";
-    empty.innerText = evidence.predictionAttempts || evidence.practiceAttempts
+    empty.innerText = evidence.practiceAttempts || evidence.reviewAttempts
       ? "当前作答尚未形成明显薄弱题族。"
-      : "完成预测、近似题或复习后，这里会显示最需要补的三个题族。";
+      : "完成近似题或延时复习后，这里会显示最需要补的三个题族。";
     weakHost.appendChild(empty);
     return;
   }
@@ -349,7 +330,7 @@ function renderLearningProgressOverview() {
   progress.weakFamilies.forEach(function (item) {
     var chip = document.createElement("span");
     chip.innerText = item.name;
-    chip.title = item.gaps + " 个薄弱信号，来自预测、近似题或延时复习";
+    chip.title = item.gaps + " 个薄弱信号，来自近似题或延时复习";
     list.appendChild(chip);
   });
   weakHost.appendChild(list);

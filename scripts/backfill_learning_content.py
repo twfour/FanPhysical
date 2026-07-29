@@ -1158,45 +1158,6 @@ def build_learning_cycle(
 ) -> dict:
     taxonomy = problem["taxonomy"]
     formula = problem_formula(problem, profile)
-    prediction_prompts = [
-        f"观察动画前，解决“{problem['title']}”时最合理的建模起点是什么？",
-        f"暂不代入数值。面对“{problem['title']}”，应先锁定哪一项关系？",
-        f"为了预测动画中的趋势或临界点，处理“{problem['title']}”时应先做什么？",
-        f"若题目条件发生变化，分析“{problem['title']}”时哪一步仍必须优先完成？",
-    ]
-    prediction = {
-        "title": f"播放前预测：{taxonomy['familyName']}",
-        "prompt": prediction_prompts[stable_index(problem["id"] + ":prediction-prompt", len(prediction_prompts))],
-        "answer": "B",
-        "explanation": (
-            f"正确起点是“{profile['first']}”。本题关系 {formula} "
-            "只有在研究对象、方向、过程和边界确定后才有明确含义。"
-        ),
-        "options": [
-            wrong_option(
-                "A",
-                "先把题目中的所有数值代入最熟悉的公式",
-                "先算后建模",
-                f"这样容易出现“{profile['misconception']}”的问题。",
-                "先圈出研究对象、过程边界和方向，再写出不含数值的主方程。",
-            ),
-            {"value": "B", "text": profile["first"]},
-            wrong_option(
-                "C",
-                "只根据动画轨迹外形直接判断答案",
-                "把示意图当成定量证据",
-                "动画用于呈现关系，比例和参数仍须由题设与方程确定。",
-                "指出动画中哪一个量由参数控制，哪一个量必须通过公式计算。",
-            ),
-            wrong_option(
-                "D",
-                "先记住原题答案，再寻找能得到该答案的计算",
-                "结论倒推动机",
-                "先有结论会掩盖模型适用条件，条件改变后尤其容易误判。",
-                "暂时遮住答案，只写模型、主关系和边界检查。",
-            ),
-        ],
-    }
     review_prompts = [
         "隔一段时间后再看同题族变式，下列迁移方法正确的是（ ）。",
         f"重新遇到“{taxonomy['familyName']}”的新情境时，哪种处理最可靠？",
@@ -1236,12 +1197,10 @@ def build_learning_cycle(
             ),
         ],
     }
-    relabel_choices(prediction, problem["id"] + ":prediction-options", answer_labels[0])
     relabel_choices(review, problem["id"] + ":review-options", answer_labels[1])
     return {
         "generatedBy": GENERATOR_ID,
         "intervalDays": [1, 3, 7, 14, 30],
-        "prediction": prediction,
         "review": review,
     }
 
@@ -1372,6 +1331,9 @@ def enrich_problem(
         if isinstance(connection, dict):
             connection.setdefault("relation", "原始核验")
     normalize_video_kinds(problem)
+    learning_cycle = problem.get("learningCycle")
+    if isinstance(learning_cycle, dict):
+        learning_cycle.pop("prediction", None)
     path = learning_paths.get(problem["id"])
     if path:
         problem["learningPath"] = copy.deepcopy(path)

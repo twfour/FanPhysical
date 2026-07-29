@@ -48,10 +48,7 @@ function hasLearningCyclePrediction(problem) {
 }
 
 function isLearningCyclePredictionComplete(sceneName) {
-  var problem = problemDataMap[sceneName];
-  if (!hasLearningCyclePrediction(problem)) return true;
-  var state = getLearningCycleState(sceneName);
-  return Boolean(state.prediction && state.prediction.answer);
+  return true;
 }
 
 function findLearningCycleOption(definition, value) {
@@ -392,20 +389,15 @@ function applyAnimationPredictionGate(sceneName) {
   var holder = document.getElementById("canvas-holder");
   var controls = document.getElementById("jsonAnimationControls");
   if (!holder) return;
-  var problem = problemDataMap[sceneName];
-  var locked = Boolean(hasLearningCyclePrediction(problem) && !isLearningCyclePredictionComplete(sceneName));
-  var overlay = ensureLearningCycleCanvasOverlay();
-  holder.classList.toggle("is-prediction-locked", locked);
-  if (overlay) overlay.hidden = !locked;
+  var overlay = document.getElementById("learningCycleCanvasGate");
+  holder.classList.remove("is-prediction-locked");
+  if (overlay) overlay.remove();
   if (controls) {
-    controls.classList.toggle("is-prediction-locked", locked);
-    controls.querySelectorAll("input, select").forEach(function (input) {
-      input.disabled = locked;
-    });
+    controls.classList.remove("is-prediction-locked");
     var play = controls.querySelector("#jsonAnimPlayBtn");
     if (play) {
-      play.disabled = locked;
-      play.innerText = locked ? "先完成预测" : (getJsonAnimationState(sceneName).playing ? "暂停" : "播放");
+      play.disabled = false;
+      play.innerText = getJsonAnimationState(sceneName).playing ? "暂停" : "播放";
     }
   }
 }
@@ -422,23 +414,13 @@ function scheduleInitialLearningCycleReview(problem, state) {
 
 function completeLearningCycleAnimation(sceneName) {
   var problem = problemDataMap[sceneName];
-  if (!hasLearningCyclePrediction(problem)) return;
+  if (!problem || !problem.learningCycle || !problem.learningCycle.review) return;
   var state = getLearningCycleState(sceneName);
-  if (!state.prediction || !state.prediction.answer) return;
   if (!state.animationCompletedAt) {
     state.animationCompletedAt = Date.now();
-    state.prediction.correct = learningCycleAnswerIsCorrect(problem.learningCycle.prediction, state.prediction.answer);
-    var selected = findLearningCycleOption(problem.learningCycle.prediction, state.prediction.answer);
-    if (!state.prediction.correct && selected && selected.diagnosis) {
-      state.misconceptionTag = selected.diagnosis.tag || "";
-    }
     scheduleInitialLearningCycleReview(problem, state);
     saveLearningCycleState(problem, state);
   }
-  var block = document.querySelector('.learning-cycle-prediction-block[data-scene="' + sceneName + '"]');
-  if (block) renderLearningCyclePredictionFeedback(problem, block);
-  var status = block && block.querySelector(".learning-cycle-status");
-  if (status) status.innerText = "已完成动画检验";
   refreshLearningCycleReviewBlock(problem);
   if (typeof refreshAdaptiveProblemLayout === "function") refreshAdaptiveProblemLayout(problem);
 }
@@ -460,7 +442,7 @@ function renderLearningCycleReviewBody(problem, block) {
   if (!state.animationCompletedAt || !state.review) {
     var locked = document.createElement("p");
     locked.className = "learning-cycle-review-locked";
-    locked.innerText = "完成播放前预测和一次完整动画观察后，将自动安排第一次复习。";
+    locked.innerText = "完整播放一次动画后，将自动安排第一次复习。";
     host.appendChild(locked);
     return;
   }
@@ -598,7 +580,7 @@ function renderLearningReviewHome() {
     empty.className = "learning-review-empty";
     empty.innerText = states.length
       ? "下一次复习在 " + formatLearningCycleDate(states[0].review.dueAt) + "。间隔后再回忆，比连续重看更能检验是否真正掌握。"
-      : "完成机械能守恒定律课1或课2的预测与动画后，这里会自动生成复习任务。";
+      : "完整播放一道题的动画后，这里会自动生成复习任务。";
     host.appendChild(empty);
     return;
   }
