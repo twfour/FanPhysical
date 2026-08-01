@@ -35,7 +35,6 @@ echo "==> Packaging runtime files"
     step_ai_service.py \
     assets \
     data \
-    math \
     deploy/aliyun
 )
 
