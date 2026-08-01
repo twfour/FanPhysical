@@ -12,6 +12,14 @@
   <meta name="apple-mobile-web-app-title" content="FanPhysics" />
   <title>FanPhysics动态模型库</title>
   <script>
+    (function redirectLegacyChallengeLink() {
+      var scene = new URLSearchParams(window.location.search).get("scene");
+      if (/^mechanics_challenge_page_\d+$/.test(scene || "")) {
+        window.location.replace("http://problems.qinyibin.com/?scene=" + encodeURIComponent(scene));
+      }
+    }());
+  </script>
+  <script>
     window.MathJax = {
       startup: {
         typeset: false
@@ -97,218 +105,8 @@
               </div>
             </details>
             <!-- mechanics-challenge:start -->
-<details class="tree-node">
-  <summary class="tree-subfolder">力学难题集萃</summary>
-  <div class="tree-children">
-    <details class="tree-node">
-      <summary class="tree-subfolder">运动学</summary>
-      <div class="tree-children">
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_004" onclick="switchScene('mechanics_challenge_page_004')">题1-三角形折线路径</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_005" onclick="switchScene('mechanics_challenge_page_005')">题2-线性阻力直线运动</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_006" onclick="switchScene('mechanics_challenge_page_006')">题3-三次方阻力直线运动</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_007" onclick="switchScene('mechanics_challenge_page_007')">题4-斜坡抛体射程</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_008" onclick="switchScene('mechanics_challenge_page_008')">题5-等射程飞行时间</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_009" onclick="switchScene('mechanics_challenge_page_009')">题6-越墙最小初速度</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_010" onclick="switchScene('mechanics_challenge_page_010')">题7-水平抛射与反弹</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_011" onclick="switchScene('mechanics_challenge_page_011')">题8-导弹追踪曲线</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_012" onclick="switchScene('mechanics_challenge_page_012')">题9-圆柱解线渐开线</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_013" onclick="switchScene('mechanics_challenge_page_013')">题10-转杆小环螺线</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_014" onclick="switchScene('mechanics_challenge_page_014')">题11-两质点最短距离</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_015" onclick="switchScene('mechanics_challenge_page_015')">题12-线性河流往返</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_016" onclick="switchScene('mechanics_challenge_page_016')">题13-恒流指向航迹</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_017" onclick="switchScene('mechanics_challenge_page_017')">题14-滚动轮缘点速度</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_018" onclick="switchScene('mechanics_challenge_page_018')">题15-内滚圆盘接触点加速度</button>
-      </div>
-    </details>
-    <details class="tree-node">
-      <summary class="tree-subfolder">牛顿运动定律</summary>
-      <div class="tree-children">
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_019" onclick="switchScene('mechanics_challenge_page_019')">题1-〗 如力图 2.1.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_020" onclick="switchScene('mechanics_challenge_page_020')">题2-〗】如力图 2.2.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_021" onclick="switchScene('mechanics_challenge_page_021')">题3-如力图 2.3.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_022" onclick="switchScene('mechanics_challenge_page_022')">题4-如力图 2.4.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_023" onclick="switchScene('mechanics_challenge_page_023')">题9-如力图 2.5.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_024" onclick="switchScene('mechanics_challenge_page_024')">题6-如力图 2.6.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_025" onclick="switchScene('mechanics_challenge_page_025')">题7-〗如力图 2.7.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_026" onclick="switchScene('mechanics_challenge_page_026')">题8-〗如力图 2.8.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_027" onclick="switchScene('mechanics_challenge_page_027')">题9-如力图 2.9.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_028" onclick="switchScene('mechanics_challenge_page_028')">题10-〗 质量为 m 的物体以初速 wm 从地面竖直上抛</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_029" onclick="switchScene('mechanics_challenge_page_029')">题11-〗 两质点的质量均为 m</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_030" onclick="switchScene('mechanics_challenge_page_030')">题12-〗质量为 m 的抛射体初速为 w</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_031" onclick="switchScene('mechanics_challenge_page_031')">题13-竞赛力学问题</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_032" onclick="switchScene('mechanics_challenge_page_032')">题14-如力图 2.14.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_033" onclick="switchScene('mechanics_challenge_page_033')">题1-$〗】如力图 2.15.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_034" onclick="switchScene('mechanics_challenge_page_034')">题16-如力图 2.16.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_035" onclick="switchScene('mechanics_challenge_page_035')">题17-〗如力图 2.17.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_036" onclick="switchScene('mechanics_challenge_page_036')">题18-〗如力图 2.18.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_037" onclick="switchScene('mechanics_challenge_page_037')">题19-地球以角速度 w 自转</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_038" onclick="switchScene('mechanics_challenge_page_038')">题20-〗 1851 年</button>
-      </div>
-    </details>
-    <details class="tree-node">
-      <summary class="tree-subfolder">功、能和动量</summary>
-      <div class="tree-children">
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_039" onclick="switchScene('mechanics_challenge_page_039')">题1-如力图 3.1.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_040" onclick="switchScene('mechanics_challenge_page_040')">题2-〗 如力图 3.2.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_041" onclick="switchScene('mechanics_challenge_page_041')">题3-〗如力图 3.3.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_042" onclick="switchScene('mechanics_challenge_page_042')">题4-如力图 3.4.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_043" onclick="switchScene('mechanics_challenge_page_043')">题5-竞赛力学问题</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_044" onclick="switchScene('mechanics_challenge_page_044')">题6-如力图 3.6.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_045" onclick="switchScene('mechanics_challenge_page_045')">题7-〗 如力图 3.7.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_046" onclick="switchScene('mechanics_challenge_page_046')">题8-〗】如力图 3.8.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_047" onclick="switchScene('mechanics_challenge_page_047')">题9-如力图 3.9.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_048" onclick="switchScene('mechanics_challenge_page_048')">题10-如力图 3.10.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_049" onclick="switchScene('mechanics_challenge_page_049')">题11-〗 如力图 3.11.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_050" onclick="switchScene('mechanics_challenge_page_050')">题12-如力图 3.12.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_051" onclick="switchScene('mechanics_challenge_page_051')">题13-如力图 3.13.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_052" onclick="switchScene('mechanics_challenge_page_052')">题14-如力图 3.14.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_053" onclick="switchScene('mechanics_challenge_page_053')">题15-如力图 3.15.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_054" onclick="switchScene('mechanics_challenge_page_054')">题16-如力图 3.16.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_055" onclick="switchScene('mechanics_challenge_page_055')">题17-〗】地面上静止放置着质量为 M 的平板车</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_056" onclick="switchScene('mechanics_challenge_page_056')">题18-〗如力图 3.18.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_057" onclick="switchScene('mechanics_challenge_page_057')">题19-如力图 3.19.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_058" onclick="switchScene('mechanics_challenge_page_058')">题20-〗如力图 3.20.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_059" onclick="switchScene('mechanics_challenge_page_059')">题21-〗】如力图 3.21.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_060" onclick="switchScene('mechanics_challenge_page_060')">题22-〗如力图 3.22.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_061" onclick="switchScene('mechanics_challenge_page_061')">题23-〗如力图 3.23.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_062" onclick="switchScene('mechanics_challenge_page_062')">题24-小球从高度为刀处静止下落</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_063" onclick="switchScene('mechanics_challenge_page_063')">题2-S〗】如力图 3.25.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_064" onclick="switchScene('mechanics_challenge_page_064')">题26-如力图 3.26.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_065" onclick="switchScene('mechanics_challenge_page_065')">题27-如力图 3.27.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_066" onclick="switchScene('mechanics_challenge_page_066')">题28-一平板放置在光滑水平桌面上</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_067" onclick="switchScene('mechanics_challenge_page_067')">题29-如图 3.29.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_068" onclick="switchScene('mechanics_challenge_page_068')">题30-〗 三质点的质量分别为 mu ma</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_069" onclick="switchScene('mechanics_challenge_page_069')">题31-〗 质量为 M 的平板车静止在光滑地面上</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_070" onclick="switchScene('mechanics_challenge_page_070')">题32-如力图 3.32.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_071" onclick="switchScene('mechanics_challenge_page_071')">题33-如力图 3.33.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_072" onclick="switchScene('mechanics_challenge_page_072')">题34-竞赛力学问题</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_073" onclick="switchScene('mechanics_challenge_page_073')">题3-S〗一物体做直线运动</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_074" onclick="switchScene('mechanics_challenge_page_074')">题36-坚直下垂的绳子从静止自由下落</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_075" onclick="switchScene('mechanics_challenge_page_075')">题37-火稍从地面竖直向上发射.已知火箭自身质量为 M</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_076" onclick="switchScene('mechanics_challenge_page_076')">题38-〗如力图 3.38.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_077" onclick="switchScene('mechanics_challenge_page_077')">题39-球状小水滴在静止的雾气中下落</button>
-      </div>
-    </details>
-    <details class="tree-node">
-      <summary class="tree-subfolder">角动量、有心运动</summary>
-      <div class="tree-children">
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_078" onclick="switchScene('mechanics_challenge_page_078')">题1-竞赛力学问题</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_079" onclick="switchScene('mechanics_challenge_page_079')">题2-已知行星绕太阳沿椭圆轨道运动 (开普勒第一定律) .</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_080" onclick="switchScene('mechanics_challenge_page_080')">题3-〗如力图 4.3.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_081" onclick="switchScene('mechanics_challenge_page_081')">题4-空间两质点的质量分别为 ma 和 ma</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_082" onclick="switchScene('mechanics_challenge_page_082')">题5-竞赛力学问题</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_083" onclick="switchScene('mechanics_challenge_page_083')">题6-如力图 4.6.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_084" onclick="switchScene('mechanics_challenge_page_084')">题7-〗 如力图 4.7.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_085" onclick="switchScene('mechanics_challenge_page_085')">题7-〗 如力图 4.7.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_086" onclick="switchScene('mechanics_challenge_page_086')">题7-如力图 4.7.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_087" onclick="switchScene('mechanics_challenge_page_087')">题8-如力图 4.8.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_088" onclick="switchScene('mechanics_challenge_page_088')">题9-〗 如力图 4.9.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_089" onclick="switchScene('mechanics_challenge_page_089')">题10-〗 如力图 4.10.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_090" onclick="switchScene('mechanics_challenge_page_090')">题1-) 如力图 4.11.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_091" onclick="switchScene('mechanics_challenge_page_091')">题12-将宇宙飞船从地面发射到太阳系外</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_092" onclick="switchScene('mechanics_challenge_page_092')">题13-如力图 4.13.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_093" onclick="switchScene('mechanics_challenge_page_093')">题14-一质量为 mm 的行星绕质量为 M 的恒星运动</button>
-      </div>
-    </details>
-    <details class="tree-node">
-      <summary class="tree-subfolder">静力平衡</summary>
-      <div class="tree-children">
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_094" onclick="switchScene('mechanics_challenge_page_094')">题1-如力图 5.1.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_095" onclick="switchScene('mechanics_challenge_page_095')">题2-〗】如力图 5.2.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_096" onclick="switchScene('mechanics_challenge_page_096')">题3-〗如力图 5.3.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_097" onclick="switchScene('mechanics_challenge_page_097')">题4-如力图 5.4.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_098" onclick="switchScene('mechanics_challenge_page_098')">题5-竞赛力学问题</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_099" onclick="switchScene('mechanics_challenge_page_099')">题6-如力图 5.6.1 Ba</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_100" onclick="switchScene('mechanics_challenge_page_100')">题7-如力图 5.7.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_101" onclick="switchScene('mechanics_challenge_page_101')">题8-如力图 5.8.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_102" onclick="switchScene('mechanics_challenge_page_102')">题9-〗 如力图 5.9.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_103" onclick="switchScene('mechanics_challenge_page_103')">题10-〗 如力图 5.10.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_104" onclick="switchScene('mechanics_challenge_page_104')">题11-〗 如力图 5.11.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_105" onclick="switchScene('mechanics_challenge_page_105')">题12-〗如力图 5.12.1 所示</button>
-      </div>
-    </details>
-    <details class="tree-node">
-      <summary class="tree-subfolder">刚体动力学</summary>
-      <div class="tree-children">
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_106" onclick="switchScene('mechanics_challenge_page_106')">题1-竞赛力学问题</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_107" onclick="switchScene('mechanics_challenge_page_107')">题2-如力图 6.2.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_108" onclick="switchScene('mechanics_challenge_page_108')">题3-如力图 6.3.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_109" onclick="switchScene('mechanics_challenge_page_109')">题4-如力图 6.4.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_110" onclick="switchScene('mechanics_challenge_page_110')">题5-如力图 6.5.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_111" onclick="switchScene('mechanics_challenge_page_111')">题6-如力图 6.6.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_112" onclick="switchScene('mechanics_challenge_page_112')">题7-〗 如力图 6.7.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_114" onclick="switchScene('mechanics_challenge_page_114')">题8-竞赛力学问题</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_115" onclick="switchScene('mechanics_challenge_page_115')">题9-如力图 69.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_116" onclick="switchScene('mechanics_challenge_page_116')">题10-〗如力图 6.10.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_117" onclick="switchScene('mechanics_challenge_page_117')">题10-如力图611.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_118" onclick="switchScene('mechanics_challenge_page_118')">题12-〗如力图 6.12.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_119" onclick="switchScene('mechanics_challenge_page_119')">题13-〗如力图 6.13.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_120" onclick="switchScene('mechanics_challenge_page_120')">题14-在水平地面上有两个完全相同的均匀实心球</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_121" onclick="switchScene('mechanics_challenge_page_121')">题15-如力图 6.15.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_122" onclick="switchScene('mechanics_challenge_page_122')">题16-如力图 6.16.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_123" onclick="switchScene('mechanics_challenge_page_123')">题17-如力图 617.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_124" onclick="switchScene('mechanics_challenge_page_124')">题18-〗如力图 6.18.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_125" onclick="switchScene('mechanics_challenge_page_125')">题19-如力图 6.19.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_126" onclick="switchScene('mechanics_challenge_page_126')">题20-如力图 6.20.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_127" onclick="switchScene('mechanics_challenge_page_127')">题21-长为:的均匀细杆竖直地放置在光滑地面上</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_128" onclick="switchScene('mechanics_challenge_page_128')">题22-〗如力图 6.22.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_129" onclick="switchScene('mechanics_challenge_page_129')">题23-如力图 6.23.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_130" onclick="switchScene('mechanics_challenge_page_130')">题24-如力图 6.24.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_131" onclick="switchScene('mechanics_challenge_page_131')">题25-竞赛力学问题</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_132" onclick="switchScene('mechanics_challenge_page_132')">题26-如力图 6.26.1 所示</button>
-      </div>
-    </details>
-    <details class="tree-node">
-      <summary class="tree-subfolder">振动与波动</summary>
-      <div class="tree-children">
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_133" onclick="switchScene('mechanics_challenge_page_133')">题1-竞赛力学问题</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_134" onclick="switchScene('mechanics_challenge_page_134')">题2-〗如力图 7.2.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_135" onclick="switchScene('mechanics_challenge_page_135')">题3-如力图 7.3.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_136" onclick="switchScene('mechanics_challenge_page_136')">题4-牛顿曾证明: 一个均匀球壳</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_137" onclick="switchScene('mechanics_challenge_page_137')">题5-竞赛力学问题</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_138" onclick="switchScene('mechanics_challenge_page_138')">题6-如力图 7.6.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_139" onclick="switchScene('mechanics_challenge_page_139')">题7-〗如力图 7.7.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_140" onclick="switchScene('mechanics_challenge_page_140')">题8-如力图 7.8.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_141" onclick="switchScene('mechanics_challenge_page_141')">题9-如力图 7.9.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_142" onclick="switchScene('mechanics_challenge_page_142')">题10-〗在有些湖中</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_144" onclick="switchScene('mechanics_challenge_page_144')">题11-〗如力图 7.11.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_145" onclick="switchScene('mechanics_challenge_page_145')">题12-〗】如力图 7.12.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_146" onclick="switchScene('mechanics_challenge_page_146')">题13-如力图 7.13.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_147" onclick="switchScene('mechanics_challenge_page_147')">题14-如力图 7.14.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_148" onclick="switchScene('mechanics_challenge_page_148')">题15-〗】如力图 7.15.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_149" onclick="switchScene('mechanics_challenge_page_149')">题16-) 计算单摆周期时</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_150" onclick="switchScene('mechanics_challenge_page_150')">题17-对于谐振子</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_151" onclick="switchScene('mechanics_challenge_page_151')">题18-〗如力图 7.18.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_152" onclick="switchScene('mechanics_challenge_page_152')">题19-〗 如力图 7.19.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_153" onclick="switchScene('mechanics_challenge_page_153')">题20-〗】如力图 7.20.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_154" onclick="switchScene('mechanics_challenge_page_154')">题21-〗】如力图 7.21.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_155" onclick="switchScene('mechanics_challenge_page_155')">题22-〗如力图 7.22.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_156" onclick="switchScene('mechanics_challenge_page_156')">题23-〗如力图 7.23.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_157" onclick="switchScene('mechanics_challenge_page_157')">题24-如力图 7.24.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_158" onclick="switchScene('mechanics_challenge_page_158')">题25-如力图 7.25.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_159" onclick="switchScene('mechanics_challenge_page_159')">题26-〗】如力图 7.26.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_160" onclick="switchScene('mechanics_challenge_page_160')">题27-如力图 7.27.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_161" onclick="switchScene('mechanics_challenge_page_161')">题28-竞赛力学问题</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_163" onclick="switchScene('mechanics_challenge_page_163')">题29-如力图 7.29.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_164" onclick="switchScene('mechanics_challenge_page_164')">题30-质量为 m 的质点在弹性力和阻尼力的作用下沿 x 轴运动</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_165" onclick="switchScene('mechanics_challenge_page_165')">题31-如力图 7.31.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_166" onclick="switchScene('mechanics_challenge_page_166')">题32-竞赛力学问题</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_167" onclick="switchScene('mechanics_challenge_page_167')">题33-〗本世纪初曾提出一种地球模型</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_169" onclick="switchScene('mechanics_challenge_page_169')">题34-到晚上，地面辐射降温使空气层产生温度梯度</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_170" onclick="switchScene('mechanics_challenge_page_170')">题3-S] 在海洋中</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_172" onclick="switchScene('mechanics_challenge_page_172')">题36-如力图 7.36.1 所示</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_173" onclick="switchScene('mechanics_challenge_page_173')">题37-〗 无穷长防线</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_174" onclick="switchScene('mechanics_challenge_page_174')">题38-拉紧的弦线</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_175" onclick="switchScene('mechanics_challenge_page_175')">题39-音又与频率为 50.0 Hz 的标准声源同时发音时</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_176" onclick="switchScene('mechanics_challenge_page_176')">题40-〗 小提琴弦长为工</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_177" onclick="switchScene('mechanics_challenge_page_177')">题41-竞赛力学问题</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_179" onclick="switchScene('mechanics_challenge_page_179')">题42-〗】飞机在上空以速度 &quot;= 200 m/s 做水平飞行</button>
-        <button class="tree-item indent" data-scene="mechanics_challenge_page_180" onclick="switchScene('mechanics_challenge_page_180')">题43-如力图 7.43.1 所示</button>
-      </div>
-    </details>
-  </div>
-</details>
-<!-- mechanics-challenge:end -->
+            <a class="tree-item" href="http://problems.qinyibin.com/" rel="noopener">力学难题集萃（独立站 ↗）</a>
+            <!-- mechanics-challenge:end -->
             <details class="tree-node">
               <summary class="tree-subfolder">2026暑假班</summary>
               <div class="tree-children">

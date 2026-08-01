@@ -28,7 +28,7 @@ GENERATOR_ID = "backfill_learning_content_v1"
 # Imported challenge-book pages are curated independently. Keeping them out of
 # this generic backfill also prevents placeholder imports from reshaping the
 # learning paths of the established lesson bank.
-LEARNING_CONTENT_EXCLUDED_PREFIXES = ("mechanics_challenge_page_",)
+LEARNING_CONTENT_EXCLUDED_PREFIXES = ()
 
 COMPETITION_TRACKS = {
     "gravitation": {

@@ -721,8 +721,7 @@ var problemRuntimeScriptMap = {
   foundation_mechanics_model: ["/assets/scenes/foundation-mechanics.js"],
   functional_relation_model: ["/assets/scenes/functional-relations.js"],
   required_one_test_model: ["/assets/scenes/required-one-test.js"],
-  required_two_test_model: ["/assets/scenes/required-two-test.js"],
-  mechanics_challenge_model: ["/assets/scenes/mechanics-challenge-v2.js"]
+  required_two_test_model: ["/assets/scenes/required-two-test.js"]
 };
 
 function lessonQuestionSceneScript(problem, lessonNumber, courseScript, homeworkScript) {

@@ -75,7 +75,6 @@ SUPPORTED_ANIMATION_TYPES = {
     "bullet_cylinder",
     "required_one_test_model",
     "required_two_test_model",
-    "mechanics_challenge_model",
 }
 
 
