@@ -15,7 +15,7 @@
     (function redirectLegacyChallengeLink() {
       var scene = new URLSearchParams(window.location.search).get("scene");
       if (/^mechanics_challenge_page_\d+$/.test(scene || "")) {
-        window.location.replace("http://problems.qinyibin.com/?scene=" + encodeURIComponent(scene));
+        window.location.replace("/hard-problems/?scene=" + encodeURIComponent(scene));
       }
     }());
   </script>
@@ -105,7 +105,7 @@
               </div>
             </details>
             <!-- mechanics-challenge:start -->
-            <a class="tree-item" href="http://problems.qinyibin.com/" rel="noopener">力学难题集萃（独立站 ↗）</a>
+            <a class="tree-item" href="/hard-problems/">力学难题集萃（独立子项目 ↗）</a>
             <!-- mechanics-challenge:end -->
             <details class="tree-node">
               <summary class="tree-subfolder">2026暑假班</summary>
