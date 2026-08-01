@@ -25,6 +25,10 @@ HANDCRAFTED_LEARNING_CYCLE_IDS = {
     "lesson12_course_02_well_throw",
 }
 GENERATOR_ID = "backfill_learning_content_v1"
+# Imported challenge-book pages are curated independently. Keeping them out of
+# this generic backfill also prevents placeholder imports from reshaping the
+# learning paths of the established lesson bank.
+LEARNING_CONTENT_EXCLUDED_PREFIXES = ("mechanics_challenge_page_",)
 
 COMPETITION_TRACKS = {
     "gravitation": {
@@ -265,6 +269,87 @@ MODEL_PROFILES = {
         "resource": "work",
     },
 }
+
+
+MODEL_PROFILES.update({
+    "particle-motion": {
+        "first": "先确定参考系和约束，再用位置、速度和加速度连接全过程",
+        "principle": r"\[\vec v=\frac{d\vec r}{dt},\qquad \vec a=\frac{d\vec v}{dt}\]",
+        "misconception": "只看轨迹形状而忽略速度和加速度的矢量方向",
+        "invariant": "同一参考系中，位置对时间的变化依次决定速度和加速度",
+        "reality": "运动追踪与轨迹规划",
+        "scene": "运动追踪系统由连续位置数据重建速度和加速度，用于预测后续轨迹。",
+        "mapping": "题目中的质点、轨迹和时间对应现实中的运动目标、定位数据和采样时刻。",
+        "factors": ["真实测量含采样误差。", "阻力会改变理想运动规律。"],
+        "resource": "vector",
+    },
+    "force-motion": {
+        "first": "先隔离研究对象并选参考系，再沿合适方向列动力学方程",
+        "principle": r"\[\sum\vec F=m\vec a\]",
+        "misconception": "把相互作用力同时画在同一个研究对象上",
+        "invariant": "研究对象的加速度由它所受全部外力的矢量和决定",
+        "reality": "车辆动力学与结构载荷",
+        "scene": "车辆控制系统根据驱动力、阻力和接触力预测加速度与安全边界。",
+        "mapping": "题目中的物体和约束对应现实中的部件、接触面与连接结构。",
+        "factors": ["真实摩擦随状态变化。", "结构可能发生弹性形变。"],
+        "resource": "vector",
+    },
+    "energy-momentum": {
+        "first": "先选系统和过程边界，再分别检查能量与动量关系的适用条件",
+        "principle": r"\[W_{合}=\Delta E_k,\qquad \vec I=\Delta\vec p\]",
+        "misconception": "默认任意过程都同时满足机械能守恒和动量守恒",
+        "invariant": "守恒关系取决于系统边界、外力功和外力冲量",
+        "reality": "碰撞防护与能量回收",
+        "scene": "车辆缓冲结构和储能装置都需要追踪动量交换与能量去向。",
+        "mapping": "题目中的系统边界对应现实装置的受力范围，初末状态对应测量时刻。",
+        "factors": ["真实碰撞伴随形变和声热损耗。", "外界冲量可能不可忽略。"],
+        "resource": "work",
+    },
+    "angular-momentum": {
+        "first": "先选取矩心，判断外力矩，再研究角动量是否守恒",
+        "principle": r"\[\vec\tau=\frac{d\vec L}{dt}\]",
+        "misconception": "只要物体转动就默认角动量守恒",
+        "invariant": "关于所选矩心的角动量变化率等于外力矩",
+        "reality": "姿态控制与旋转机械",
+        "scene": "航天器和旋转设备通过控制外力矩改变角动量与姿态。",
+        "mapping": "题目中的转轴、力矩和角动量对应真实系统的旋转中心、执行器和转动状态。",
+        "factors": ["轴承摩擦会产生外力矩。", "真实物体质量分布可能变化。"],
+        "resource": "circular",
+    },
+    "static-equilibrium": {
+        "first": "先隔离对象，再同时检查合力和合力矩是否为零",
+        "principle": r"\[\sum\vec F=0,\qquad \sum\tau=0\]",
+        "misconception": "只列合力平衡而遗漏转动平衡",
+        "invariant": "静力平衡要求平动与转动两个层面均无加速度",
+        "reality": "桥梁、索具与支承结构",
+        "scene": "桥梁节点和吊装索具通过力与力矩平衡承受静载荷。",
+        "mapping": "题目中的绳、杆和接触面对应现实结构的索件、构件和支座。",
+        "factors": ["真实构件存在自重与形变。", "载荷可能缓慢变化。"],
+        "resource": "vector",
+    },
+    "rigid-body": {
+        "first": "把质心平动与绕质心转动分开列式，再加入滚动或接触约束",
+        "principle": r"\[\sum\vec F=M\vec a_C,\qquad \sum\tau_C=I_C\alpha\]",
+        "misconception": "只用质点模型而忽略转动惯量和力矩",
+        "invariant": "刚体运动可分解为质心平动与绕质心转动",
+        "reality": "车辆车轮与旋转机构",
+        "scene": "车轮、飞轮和机械臂同时具有整体平动与绕轴转动。",
+        "mapping": "题目中的刚体、质心和转轴对应真实部件的质量中心与运动副。",
+        "factors": ["真实刚体会发生微小形变。", "滚动接触可能出现滑动。"],
+        "resource": "circular",
+    },
+    "oscillation-wave": {
+        "first": "先找平衡位置与回复力，再确定周期、相位及耦合条件",
+        "principle": r"\[\ddot x+\omega^2x=0\]",
+        "misconception": "看到周期运动就直接认定为简谐运动",
+        "invariant": "线性回复力附近的运动由固有频率和初始条件决定",
+        "reality": "减振器、乐器与声波传播",
+        "scene": "建筑减振、机械隔振和声学系统都利用振动模态与波的传播规律。",
+        "mapping": "题目中的振子、弹簧和介质对应现实中的振动部件、耦合元件与传播介质。",
+        "factors": ["真实系统存在阻尼。", "大振幅时回复力可能非线性。"],
+        "resource": "spring",
+    },
+})
 
 
 RESOURCES = {
@@ -787,6 +872,7 @@ def problem_paths() -> list[Path]:
     return sorted(
         path for path in PROBLEM_DIR.glob("*.json")
         if path.name != "index.json"
+        and not any(path.stem.startswith(prefix) for prefix in LEARNING_CONTENT_EXCLUDED_PREFIXES)
     )
 
 
@@ -957,8 +1043,20 @@ def animation_preset(problem: dict, progress: float, use_high_value: bool) -> di
     if animation.get("enabled") is not True or animation.get("type") in {None, "none"}:
         return None
     params = animation.get("params", {})
+    if isinstance(params, dict):
+        param_entries = params.items()
+    elif isinstance(params, list):
+        param_entries = (
+            (definition.get("key"), definition)
+            for definition in params
+            if isinstance(definition, dict)
+        )
+    else:
+        param_entries = ()
     selected = {}
-    for key, definition in params.items():
+    for key, definition in param_entries:
+        if not isinstance(key, str) or not key:
+            continue
         if not isinstance(definition, dict):
             continue
         value = definition.get("max") if use_high_value else definition.get("value")

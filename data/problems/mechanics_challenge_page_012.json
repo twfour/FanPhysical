@@ -1,0 +1,139 @@
+{
+  "id": "mechanics_challenge_page_012",
+  "originalNumber": "题9",
+  "chapter": "运动学",
+  "title": "第9题：圆柱解线形成的渐开线",
+  "taxonomy": {
+    "module": "力学竞赛",
+    "topic": "运动学关系",
+    "modelId": "particle-motion",
+    "modelName": "质点运动与约束",
+    "familyId": "particle-motion",
+    "familyName": "质点运动与约束",
+    "role": "竞赛拓展",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "运动分解",
+      "边界条件"
+    ],
+    "prerequisites": [
+      "位移、速度与加速度"
+    ]
+  },
+  "question": "【题9】圆柱体固定不动，其轴线与水平面垂直。很轻的不可伸长柔软细线全部缠绕在圆柱体上且在同一水平面内，线末端系一小球，紧贴圆柱体表面。突然给小球一击，使之具有水平方向并与圆柱体垂直的初速度 \\(v_0\\)，于是细线开始从圆柱体上解开。设解开过程中细线与圆柱体之间无相对滑动，且重力可略。试求：1. 小球的加速度；2. 小球的轨迹方程。",
+  "images": [
+    {
+      "src": "assets/sources/mechanics-challenge/page-012.webp",
+      "alt": "《物理学难题集萃（力学）》运动学第9题原页",
+      "caption": "原题页面截取：原书第10页。"
+    }
+  ],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanics_challenge_model",
+    "variant": "kinematics_problem_09",
+    "playable": true,
+    "interactive": true,
+    "notes": "动画按 φ=√(2v₀t/r) 推进渐开线，细线直段长度始终满足 l=rφ。",
+    "params": [
+      {
+        "key": "radius",
+        "label": "圆柱半径 r",
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "value": 1,
+        "unit": "m"
+      },
+      {
+        "key": "v0",
+        "label": "小球速率 v₀",
+        "min": 1,
+        "max": 6,
+        "step": 0.5,
+        "value": 3,
+        "unit": "m/s"
+      },
+      {
+        "key": "maxAngle",
+        "label": "最大解线角 φmax",
+        "min": 2,
+        "max": 6,
+        "step": 0.5,
+        "value": 4,
+        "unit": "rad"
+      }
+    ],
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    },
+    "description": "显示圆柱、切点、解开的直线段、小球渐开线轨迹、速度方向和沿线加速度。"
+  },
+  "knowledge": [
+    "运动学关系",
+    "质点运动与约束"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "定义解线角并写出长度约束",
+      "content": "设圆柱半径为 \\(r\\)，细线与圆柱的切点从初始位置转过圆心角 \\(\\varphi\\)，已经解开的圆弧长度为 \\(r\\varphi\\)。由于细线不可伸长且与圆柱无相对滑动，切点到小球的直线段长度必须为\n\n\\[\\boxed{l=r\\varphi}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "证明小球速率保持不变",
+      "content": "忽略重力后，小球只受细线张力。细线直段始终与小球的瞬时速度垂直，因此张力的瞬时功率 \\(\\mathbf T\\cdot\\mathbf v=0\\)，不改变动能。故\n\n\\[\\boxed{|\\mathbf v|=v_0}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "建立小球位置的参数表示",
+      "content": "以圆心为原点，令 \\(\\mathbf e_r=(\\cos\\varphi,\\sin\\varphi)\\)、\\(\\mathbf e_\\varphi=(-\\sin\\varphi,\\cos\\varphi)\\)。按图示解线方向，小球位置为\n\n\\[\\mathbf r_P=r\\mathbf e_r-r\\varphi\\mathbf e_\\varphi.\\]\n\n因此\n\n\\[\\boxed{x=r(\\cos\\varphi+\\varphi\\sin\\varphi)},\\qquad \\boxed{y=r(\\sin\\varphi-\\varphi\\cos\\varphi)}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "由参数方程确定速度方向和时间关系",
+      "content": "对参数 \\(\\varphi\\) 求导：\n\n\\[\\frac{\\mathrm d\\mathbf r_P}{\\mathrm d\\varphi}=r\\varphi\\mathbf e_r.\\]\n\n所以速度 \\(\\mathbf v=r\\varphi\\dot\\varphi\\mathbf e_r\\)，方向沿切点的半径方向。由速率恒为 \\(v_0\\)：\n\n\\[r\\varphi\\dot\\varphi=v_0.\\]\n\n积分并使用 \\(t=0\\) 时 \\(\\varphi=0\\)，得到\n\n\\[\\boxed{\\varphi(t)=\\sqrt{\\frac{2v_0t}{r}}}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 5,
+      "title": "求加速度的方向和大小",
+      "content": "因为 \\(\\mathbf v=v_0\\mathbf e_r\\)，且 \\(\\mathrm d\\mathbf e_r/\\mathrm dt=\\dot\\varphi\\mathbf e_\\varphi\\)，所以\n\n\\[\\mathbf a=v_0\\dot\\varphi\\mathbf e_\\varphi=\\frac{v_0^2}{r\\varphi}\\mathbf e_\\varphi.\\]\n\n该方向正好沿细线由小球指向切点，大小为\n\n\\[\\boxed{a=\\frac{v_0^2}{r\\varphi}=\\frac{v_0^2}{l}}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 6,
+      "title": "检查轨迹和理想模型的起始极限",
+      "content": "当 \\(\\varphi=0\\) 时，参数方程给出初始点 \\((r,0)\\)；轨迹切向为 \\(\\mathbf e_r\\)，与初速度方向一致。由 \\(a=v_0^2/(r\\varphi)\\) 可见 \\(\\varphi\\to0^+\\) 时加速度形式上趋于无穷，这是“细线初始直段长度为零、瞬时受理想冲击”的数学奇异性；任意 \\(t>0\\) 时加速度均有限。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：同模型参数迁移",
+    "question": "保持原题物理结构不变，只改变一个关键参数。先预测结果的变化方向，再重新列出控制方程，并说明哪些关系保持不变。",
+    "answer": "答案取决于所选参数。合格答案应包含：变化前后的控制方程、模型不变量、重新计算的量以及边界条件检查。",
+    "thinking": "先识别“质点运动与约束”中的不变量，再区分参数变化引起的数值变化与模型结构变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": false,
+    "defaultExpanded": true,
+    "hideStepConversation": true
+  },
+  "presentation": {
+    "coreOnly": true
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "id": "mechanics_challenge_page_005",
+  "originalNumber": "题2",
+  "chapter": "运动学",
+  "title": "第2题：线性阻力下的直线运动",
+  "taxonomy": {
+    "module": "力学竞赛",
+    "topic": "运动学关系",
+    "modelId": "particle-motion",
+    "modelName": "质点运动与约束",
+    "familyId": "particle-motion",
+    "familyName": "质点运动与约束",
+    "role": "竞赛拓展",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "运动分解",
+      "边界条件"
+    ],
+    "prerequisites": [
+      "位移、速度与加速度"
+    ]
+  },
+  "question": "【题2】一质点以初速度 \\(v_0\\) 做直线运动，所受阻力与其速度成正比。试求当质点速度减为 \\(v_0/n\\)（\\(n>1\\)）时，质点经过的距离与质点所能行经的总距离之比。",
+  "images": [
+    {
+      "src": "assets/sources/mechanics-challenge/page-005.webp",
+      "alt": "《物理学难题集萃（力学）》运动学第2题原页",
+      "caption": "原题页面截取：原书第3页。"
+    }
+  ],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanics_challenge_model",
+    "variant": "kinematics_problem_02",
+    "playable": true,
+    "interactive": true,
+    "notes": "动画严格使用 m dv/dt=-kv、v/v₀=e^{-t/τ} 与 x/x∞=1-e^{-t/τ}。",
+    "params": [
+      {
+        "key": "n",
+        "label": "速度衰减倍数 n",
+        "min": 2,
+        "max": 10,
+        "step": 1,
+        "value": 4,
+        "unit": ""
+      },
+      {
+        "key": "tau",
+        "label": "时间常数 τ",
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "value": 1,
+        "unit": "s"
+      },
+      {
+        "key": "v0",
+        "label": "初速度 v₀",
+        "min": 1,
+        "max": 10,
+        "step": 0.5,
+        "value": 5,
+        "unit": "m/s"
+      }
+    ],
+    "timeline": {
+      "duration": 5,
+      "loop": false
+    },
+    "description": "橙色质点的位置由 x(t)=v₀τ(1-e^{-t/τ}) 计算；图中同时标出 v=v₀/n 的时刻与位移比。"
+  },
+  "knowledge": [
+    "运动学关系",
+    "质点运动与约束"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "明确模型、方向和初始条件",
+      "content": "取质点初速度方向为 \\(x\\) 轴正方向，并令 \\(x(0)=0\\)、\\(v(0)=v_0>0\\)。阻力大小与速率成正比，写成 \\(f=kv\\)（\\(k>0\\)）；在质点尚未停止前，阻力方向始终与速度相反，因此 \\(F_x=-kv\\)。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "由牛顿第二定律建立速度方程",
+      "content": "沿 \\(x\\) 方向应用牛顿第二定律：\n\n\\[m\\frac{\\mathrm dv}{\\mathrm dt}=-kv.\\]\n\n分离变量得到 \\(\\mathrm dv/v=-(k/m)\\mathrm dt\\)。引入时间常数 \\(\\tau=m/k\\)，并使用初始条件 \\(v(0)=v_0\\)，可得\n\n\\[\\boxed{v(t)=v_0e^{-t/\\tau}}.\\]\n\n速度只会指数趋近于零，不会在有限时间内突然变成零。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "积分得到位置随时间的关系",
+      "content": "由 \\(v=\\mathrm dx/\\mathrm dt\\)，\n\n\\[x(t)=\\int_0^t v_0e^{-t'/\\tau}\\,\\mathrm dt'=v_0\\tau(1-e^{-t/\\tau}).\\]\n\n因此\n\n\\[\\boxed{x(t)=v_0\\tau(1-e^{-t/\\tau})}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "确定质点所能行经的总距离",
+      "content": "题目所说的“总距离”是 \\(t\\to\\infty\\) 时位移的极限，而不是令某个有限时刻的速度等于零：\n\n\\[x_\\infty=\\lim_{t\\to\\infty}v_0\\tau(1-e^{-t/\\tau})=v_0\\tau=\\frac{mv_0}{k}.\\]\n\n所以 \\(\\boxed{x_\\infty=mv_0/k}\\)。也可用 \\(m v\\,\\mathrm dv/\\mathrm dx=-kv\\) 直接得到 \\(m\\,\\mathrm dv/\\mathrm dx=-k\\)，作为交叉验证。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 5,
+      "title": "求速度降为 v₀/n 的时刻和路程",
+      "content": "令 \\(v(t_n)=v_0/n\\)，则\n\n\\[e^{-t_n/\\tau}=\\frac1n,\\qquad \\boxed{t_n=\\tau\\ln n}.\\]\n\n代入位置式：\n\n\\[x_n=v_0\\tau\\left(1-\\frac1n\\right).\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 6,
+      "title": "计算所求比值并检查极限",
+      "content": "因此\n\n\\[\\boxed{\\frac{x_n}{x_\\infty}=1-\\frac1n=\\frac{n-1}{n}}.\\]\n\n检验：当 \\(n\\to1^+\\) 时，速度几乎未变，比值趋于 \\(0\\)；当 \\(n\\to\\infty\\) 时，速度趋近于零，比值趋于 \\(1\\)。两种极限均符合物理直觉。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：同模型参数迁移",
+    "question": "保持原题物理结构不变，只改变一个关键参数。先预测结果的变化方向，再重新列出控制方程，并说明哪些关系保持不变。",
+    "answer": "答案取决于所选参数。合格答案应包含：变化前后的控制方程、模型不变量、重新计算的量以及边界条件检查。",
+    "thinking": "先识别“质点运动与约束”中的不变量，再区分参数变化引起的数值变化与模型结构变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": false,
+    "defaultExpanded": true,
+    "hideStepConversation": true
+  },
+  "presentation": {
+    "coreOnly": true
+  }
+}

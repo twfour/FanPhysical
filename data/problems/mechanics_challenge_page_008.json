@@ -1,0 +1,139 @@
+{
+  "id": "mechanics_challenge_page_008",
+  "originalNumber": "题5",
+  "chapter": "运动学",
+  "title": "第5题：等射程抛体的飞行时间",
+  "taxonomy": {
+    "module": "力学竞赛",
+    "topic": "运动学关系",
+    "modelId": "particle-motion",
+    "modelName": "质点运动与约束",
+    "familyId": "particle-motion",
+    "familyName": "质点运动与约束",
+    "role": "竞赛拓展",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "运动分解",
+      "边界条件"
+    ],
+    "prerequisites": [
+      "位移、速度与加速度"
+    ]
+  },
+  "question": "【题5】两质点在地面上同一地点以相同速率 \\(v_0\\) 从不同抛射角抛出。试证明：当两质点的射程 \\(R\\) 相同时，它们在空中飞行时间的乘积为 \\(2R/g\\)。忽略空气阻力。",
+  "images": [
+    {
+      "src": "assets/sources/mechanics-challenge/page-008.webp",
+      "alt": "《物理学难题集萃（力学）》运动学第5题原页",
+      "caption": "原题页面截取：原书第6页。"
+    }
+  ],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanics_challenge_model",
+    "variant": "kinematics_problem_05",
+    "playable": true,
+    "interactive": true,
+    "notes": "两条轨迹分别按 α₁ 与 α₂=90°-α₁ 的抛体方程推进，并使用各自真实飞行时间。",
+    "params": [
+      {
+        "key": "alpha",
+        "label": "较小抛射角 α₁",
+        "min": 5,
+        "max": 44,
+        "step": 1,
+        "value": 30,
+        "unit": "°"
+      },
+      {
+        "key": "v0",
+        "label": "共同初速 v₀",
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "value": 20,
+        "unit": "m/s"
+      },
+      {
+        "key": "gravity",
+        "label": "重力加速度 g",
+        "min": 9.8,
+        "max": 10,
+        "step": 0.1,
+        "value": 9.8,
+        "unit": "m/s²"
+      }
+    ],
+    "timeline": {
+      "duration": 5,
+      "loop": false
+    },
+    "description": "两质点同步发射；低抛质点先落地，高抛质点继续运动至同一落点。"
+  },
+  "knowledge": [
+    "运动学关系",
+    "质点运动与约束"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "写出任一抛射角的分运动方程",
+      "content": "设抛射角为 \\(\\alpha\\)，以发射点为原点，水平方向和竖直方向的运动方程为\n\n\\[x=v_0\\cos\\alpha\\,t,\\qquad y=v_0\\sin\\alpha\\,t-\\frac12gt^2.\\]\n\n除去 \\(t=0\\)，再次回到地面 \\(y=0\\) 的时刻为 \\(T=2v_0\\sin\\alpha/g\\)。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "推导射程公式",
+      "content": "把飞行时间代入水平位移：\n\n\\[R=v_0\\cos\\alpha\\cdot\\frac{2v_0\\sin\\alpha}{g}=\\boxed{\\frac{v_0^2\\sin2\\alpha}{g}}.\\]\n\n本题两质点的 \\(v_0\\) 和 \\(g\\) 相同，因此等射程等价于 \\(\\sin2\\alpha_1=\\sin2\\alpha_2\\)。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "确定两个不同抛射角的关系",
+      "content": "在 \\(0<\\alpha_1,\\alpha_2<\\pi/2\\) 内，\\(\\sin2\\alpha_1=\\sin2\\alpha_2\\) 有两类解：\\(\\alpha_1=\\alpha_2\\) 或 \\(2\\alpha_1+2\\alpha_2=\\pi\\)。题目说明抛射角不同，故必须取\n\n\\[\\boxed{\\alpha_1+\\alpha_2=\\frac{\\pi}{2}}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "分别写出两质点的飞行时间",
+      "content": "两质点的飞行时间为\n\n\\[T_1=\\frac{2v_0\\sin\\alpha_1}{g},\\qquad T_2=\\frac{2v_0\\sin\\alpha_2}{g}.\\]\n\n由于 \\(\\alpha_2=\\pi/2-\\alpha_1\\)，有 \\(\\sin\\alpha_2=\\cos\\alpha_1\\)。高抛轨迹对应更长的飞行时间。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 5,
+      "title": "计算飞行时间的乘积",
+      "content": "因此\n\n\\[T_1T_2=\\frac{4v_0^2}{g^2}\\sin\\alpha_1\\cos\\alpha_1=\\frac{2v_0^2}{g^2}\\sin2\\alpha_1.\\]\n\n而共同射程为 \\(R=v_0^2\\sin2\\alpha_1/g\\)，所以\n\n\\[\\boxed{T_1T_2=\\frac{2R}{g}}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 6,
+      "title": "量纲与特殊情形检验",
+      "content": "右端 \\(2R/g\\) 的量纲为 \\(\\mathrm m/(\\mathrm{m/s^2})=\\mathrm{s^2}\\)，与 \\(T_1T_2\\) 一致。当两个角都趋近 \\(45^\\circ\\) 时，两条轨迹趋于重合，且 \\(T_1=T_2=\\sqrt{2}v_0/g\\)，仍满足 \\(T_1T_2=2R/g\\)。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：同模型参数迁移",
+    "question": "保持原题物理结构不变，只改变一个关键参数。先预测结果的变化方向，再重新列出控制方程，并说明哪些关系保持不变。",
+    "answer": "答案取决于所选参数。合格答案应包含：变化前后的控制方程、模型不变量、重新计算的量以及边界条件检查。",
+    "thinking": "先识别“质点运动与约束”中的不变量，再区分参数变化引起的数值变化与模型结构变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": false,
+    "defaultExpanded": true,
+    "hideStepConversation": true
+  },
+  "presentation": {
+    "coreOnly": true
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "id": "mechanics_challenge_page_014",
+  "originalNumber": "题11",
+  "chapter": "运动学",
+  "title": "第11题：两匀速质点的最短距离",
+  "taxonomy": {
+    "module": "力学竞赛",
+    "topic": "运动学关系",
+    "modelId": "particle-motion",
+    "modelName": "质点运动与约束",
+    "familyId": "particle-motion",
+    "familyName": "质点运动与约束",
+    "role": "竞赛拓展",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "运动分解",
+      "边界条件"
+    ],
+    "prerequisites": [
+      "位移、速度与加速度"
+    ]
+  },
+  "question": "【题11】如力图1.11.1所示，质点 \\(A\\) 和质点 \\(B\\) 同时从 \\(A,B\\) 两点出发，分别以速度 \\(v_1\\) 沿 \\(AB\\) 和以速度 \\(v_2\\) 沿 \\(BC\\) 做匀速直线运动，\\(BC\\) 和 \\(AB\\) 的夹角为 \\(\\alpha\\)，开始时两质点相距 \\(l\\)。试求两质点之间的最短距离。",
+  "images": [
+    {
+      "src": "assets/sources/mechanics-challenge/page-014.webp",
+      "alt": "《物理学难题集萃（力学）》运动学第11题原页",
+      "caption": "原题页面截取：原书第12页。"
+    }
+  ],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanics_challenge_model",
+    "variant": "kinematics_problem_11",
+    "playable": true,
+    "interactive": true,
+    "notes": "动画按两条匀速直线方程同步计算位置，并在 t=t* 时标出垂直于相对速度的最短连线。",
+    "params": [
+      {
+        "key": "separation",
+        "label": "初始距离 l",
+        "min": 5,
+        "max": 20,
+        "step": 1,
+        "value": 12,
+        "unit": "m"
+      },
+      {
+        "key": "v1",
+        "label": "质点A速度 v₁",
+        "min": 1,
+        "max": 6,
+        "step": 0.5,
+        "value": 3,
+        "unit": "m/s"
+      },
+      {
+        "key": "v2",
+        "label": "质点B速度 v₂",
+        "min": 1,
+        "max": 6,
+        "step": 0.5,
+        "value": 4,
+        "unit": "m/s"
+      },
+      {
+        "key": "alpha",
+        "label": "两路线夹角 α",
+        "min": 15,
+        "max": 80,
+        "step": 1,
+        "value": 45,
+        "unit": "°"
+      }
+    ],
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    },
+    "description": "两质点同步匀速运动；连接线长度和右侧距离曲线使用同一解析式。"
+  },
+  "knowledge": [
+    "运动学关系",
+    "质点运动与约束"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "建立坐标系并写出两个位置矢量",
+      "content": "取初始 \\(AB\\) 方向为 \\(x\\) 轴正方向，令质点 \\(A\\) 的初始位置为原点，质点 \\(B\\) 的初始位置为 \\((l,0)\\)。按原图，\\(B\\) 沿左上方运动，其速度分量为 \\((-v_2\\cos\\alpha,v_2\\sin\\alpha)\\)。因此\n\n\\[\\mathbf r_A=(v_1t,0),\\]\n\\[\\mathbf r_B=(l-v_2t\\cos\\alpha,\\ v_2t\\sin\\alpha).\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "写出相对位置和相对速度",
+      "content": "从 \\(A\\) 指向 \\(B\\) 的相对位置为\n\n\\[\\mathbf r=\\mathbf r_B-\\mathbf r_A=[l-(v_1+v_2\\cos\\alpha)t]\\mathbf e_x+v_2t\\sin\\alpha\\mathbf e_y.\\]\n\n相对速度是常矢量\n\n\\[\\boxed{\\mathbf u=-(v_1+v_2\\cos\\alpha)\\mathbf e_x+v_2\\sin\\alpha\\mathbf e_y}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "得到两质点间距的时间函数",
+      "content": "两质点距离 \\(d=|\\mathbf r|\\)，所以\n\n\\[\\boxed{d^2(t)=[l-(v_1+v_2\\cos\\alpha)t]^2+(v_2\\sin\\alpha\\,t)^2}.\\]\n\n这是关于 \\(t\\) 的开口向上的二次函数，因而存在唯一最小值。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "求达到最短距离的时刻",
+      "content": "令 \\(D=v_1^2+v_2^2+2v_1v_2\\cos\\alpha=|\\mathbf u|^2\\)。对 \\(d^2(t)\\) 求导并令其为零：\n\n\\[2Dt-2l(v_1+v_2\\cos\\alpha)=0.\\]\n\n因此\n\n\\[\\boxed{t_*=\\frac{l(v_1+v_2\\cos\\alpha)}{v_1^2+v_2^2+2v_1v_2\\cos\\alpha}}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 5,
+      "title": "计算最短距离",
+      "content": "把 \\(t_*\\) 代回距离式并化简，得到\n\n\\[\\boxed{d_{\\min}=\\frac{lv_2\\sin\\alpha}{\\sqrt{v_1^2+v_2^2+2v_1v_2\\cos\\alpha}}}.\\]\n\n也可在相对运动图中把它看成原点到直线 \\(\\mathbf r=\\mathbf r_0+\\mathbf u t\\) 的垂距：\\(d_{\\min}=|\\mathbf r_0\\times\\mathbf u|/|\\mathbf u|\\)。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 6,
+      "title": "用垂直条件检验极值",
+      "content": "距离最小时，相对位置必须与相对速度垂直：\n\n\\[\\mathbf r(t_*)\\cdot\\mathbf u=0.\\]\n\n代入上面的 \\(t_*\\) 可直接验证该式成立。由于 \\(D=|\\mathbf u|^2>0\\)，\\(d^2(t)\\) 的二阶导数为 \\(2D>0\\)，所以该驻点确为最小值而非最大值。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：同模型参数迁移",
+    "question": "保持原题物理结构不变，只改变一个关键参数。先预测结果的变化方向，再重新列出控制方程，并说明哪些关系保持不变。",
+    "answer": "答案取决于所选参数。合格答案应包含：变化前后的控制方程、模型不变量、重新计算的量以及边界条件检查。",
+    "thinking": "先识别“质点运动与约束”中的不变量，再区分参数变化引起的数值变化与模型结构变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": false,
+    "defaultExpanded": true,
+    "hideStepConversation": true
+  },
+  "presentation": {
+    "coreOnly": true
+  }
+}

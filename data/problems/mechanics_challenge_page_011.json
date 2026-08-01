@@ -1,0 +1,146 @@
+{
+  "id": "mechanics_challenge_page_011",
+  "originalNumber": "题8",
+  "chapter": "运动学",
+  "title": "第8题：匀速飞行目标的追踪曲线",
+  "taxonomy": {
+    "module": "力学竞赛",
+    "topic": "运动学关系",
+    "modelId": "particle-motion",
+    "modelName": "质点运动与约束",
+    "familyId": "particle-motion",
+    "familyName": "质点运动与约束",
+    "role": "竞赛拓展",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "运动分解",
+      "边界条件"
+    ],
+    "prerequisites": [
+      "位移、速度与加速度"
+    ]
+  },
+  "question": "【题8】飞行物自地面以匀速 \\(v_f\\) 向上空垂直飞行。在地面离飞行物起飞点相距 \\(L\\) 处发射一枚导弹，导弹与飞行物同时发射。导弹的速率 \\(v\\) 为常值，且 \\(v>v_f\\)，每一瞬时导弹均指向飞行物运动。1. 试求导弹的飞行轨迹；2. 导弹经多长时间击中飞行物？",
+  "images": [
+    {
+      "src": "assets/sources/mechanics-challenge/page-011.webp",
+      "alt": "《物理学难题集萃（力学）》运动学第8题原页",
+      "caption": "原题页面截取：原书第9页。"
+    }
+  ],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanics_challenge_model",
+    "variant": "kinematics_problem_08",
+    "playable": true,
+    "interactive": true,
+    "notes": "动画由追踪微分方程的精确参数解反算，导弹速度方向在每一时刻都沿导弹—目标视线。",
+    "params": [
+      {
+        "key": "distance",
+        "label": "初始水平距离 L",
+        "min": 5,
+        "max": 20,
+        "step": 1,
+        "value": 10,
+        "unit": "km"
+      },
+      {
+        "key": "targetSpeed",
+        "label": "飞行物速度 vf",
+        "min": 1,
+        "max": 5,
+        "step": 0.5,
+        "value": 3,
+        "unit": "km/min"
+      },
+      {
+        "key": "missileSpeed",
+        "label": "导弹速度 v",
+        "min": 6,
+        "max": 12,
+        "step": 0.5,
+        "value": 8,
+        "unit": "km/min"
+      }
+    ],
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    },
+    "description": "目标沿 x=L 竖直上升，导弹按定速纯追踪规律运动，终点为解析命中位置。"
+  },
+  "knowledge": [
+    "运动学关系",
+    "质点运动与约束"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "建立坐标系和追踪几何量",
+      "content": "以导弹发射点为原点，地面为 \\(x\\) 轴，竖直向上为 \\(y\\) 轴。时刻 \\(t\\)，飞行物坐标为 \\((L,v_ft)\\)，导弹坐标为 \\(P(x,y)\\)。定义两者的水平、竖直相对距离\n\n\\[u=L-x,\\qquad z=v_ft-y,\\qquad r=\\sqrt{u^2+z^2}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "把“始终指向目标”写成微分方程",
+      "content": "导弹速率恒为 \\(v\\)，且速度方向沿相对位置矢量 \\((u,z)\\)，因此\n\n\\[\\dot x=v\\frac{u}{r},\\qquad \\dot y=v\\frac{z}{r}.\\]\n\n相对量满足\n\n\\[\\dot u=-v\\frac{u}{r},\\qquad \\dot z=v_f-v\\frac{z}{r}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "求视线斜率随水平距离的变化",
+      "content": "令 \\(w=z/u\\)、\\(\\mu=v_f/v<1\\)。由上式可得 \\(\\dot w=v_f/u\\)，再除以 \\(\\dot u=-v/\\sqrt{1+w^2}\\)：\n\n\\[\\frac{\\mathrm dw}{\\sqrt{1+w^2}}=-\\mu\\frac{\\mathrm du}{u}.\\]\n\n初始时 \\(u=L,z=0\\)，积分得到\n\n\\[\\boxed{\\operatorname{arsinh}w=\\mu\\ln\\frac{L}{u}}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "用无量纲参数 q 表示相对位置",
+      "content": "令 \\(q=u/L=(L-x)/L\\)。由上一步\n\n\\[w=\\sinh\\left(\\mu\\ln\\frac1q\\right),\\]\n\n因此\n\n\\[z=uw=\\frac L2\\left(q^{1-\\mu}-q^{1+\\mu}\\right).\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 5,
+      "title": "积分得到时间参数式",
+      "content": "因为 \\(r/u=\\sqrt{1+w^2}=\\cosh(\\mu\\ln(1/q))\\)，有\n\n\\[\\frac{\\mathrm dt}{\\mathrm dq}=-\\frac Lv\\cosh\\left(\\mu\\ln\\frac1q\\right).\\]\n\n从初始 \\(q=1\\) 积分到任意 \\(q\\)：\n\n\\[\\boxed{t(q)=\\frac{L}{2v}\\left[\\frac{1-q^{1-\\mu}}{1-\\mu}+\\frac{1-q^{1+\\mu}}{1+\\mu}\\right]}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 6,
+      "title": "消去时间写出导弹轨迹",
+      "content": "导弹纵坐标为 \\(y=v_ft-z\\)。代入 \\(t(q)\\) 和 \\(z(q)\\)，化简得\n\n\\[\\boxed{\\frac yL=\\frac{\\mu}{1-\\mu^2}-\\frac{q^{1-\\mu}}{2(1-\\mu)}+\\frac{q^{1+\\mu}}{2(1+\\mu)}},\\qquad \\boxed{q=1-\\frac xL}.\\]\n\n这就是导弹的飞行轨迹。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 7,
+      "title": "令相对距离归零求命中时间",
+      "content": "命中时 \\(u\\to0\\)，即 \\(q\\to0\\)。在时间参数式中令 \\(q=0\\)：\n\n\\[t_*=\\frac{L}{2v}\\left(\\frac1{1-\\mu}+\\frac1{1+\\mu}\\right)=\\frac{L}{v(1-\\mu^2)}.\\]\n\n所以\n\n\\[\\boxed{t_*=\\frac{Lv}{v^2-v_f^2}}.\\]\n\n命中高度为 \\(y_*=v_ft_*\\)。当 \\(v\\to v_f^+\\) 时，命中时间趋于无穷，符合物理直觉。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：同模型参数迁移",
+    "question": "保持原题物理结构不变，只改变一个关键参数。先预测结果的变化方向，再重新列出控制方程，并说明哪些关系保持不变。",
+    "answer": "答案取决于所选参数。合格答案应包含：变化前后的控制方程、模型不变量、重新计算的量以及边界条件检查。",
+    "thinking": "先识别“质点运动与约束”中的不变量，再区分参数变化引起的数值变化与模型结构变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": false,
+    "defaultExpanded": true,
+    "hideStepConversation": true
+  },
+  "presentation": {
+    "coreOnly": true
+  }
+}

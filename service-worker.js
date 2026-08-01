@@ -1,5 +1,5 @@
 var CACHE_PREFIX = "fanphysics-shell-";
-var CACHE_NAME = CACHE_PREFIX + "20260729-direct-animation";
+var CACHE_NAME = CACHE_PREFIX + "20260731-kinematics-02-15";
 var APP_SHELL = [
   "/",
   "/classical-mechanics-demo.html",
@@ -70,7 +70,7 @@ function networkFirst(request, fallbackUrl) {
 }
 
 function staleWhileRevalidate(request) {
-  return caches.match(request, { ignoreSearch: true }).then(function (cached) {
+  return caches.match(request).then(function (cached) {
     var refresh = fetch(request).then(function (response) {
       if (response && response.ok) {
         caches.open(CACHE_NAME).then(function (cache) {
@@ -79,7 +79,7 @@ function staleWhileRevalidate(request) {
       }
       return response;
     }).catch(function () {
-      return cached;
+      return cached || caches.match(request, { ignoreSearch: true });
     });
     return cached || refresh;
   });

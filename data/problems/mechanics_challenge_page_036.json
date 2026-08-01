@@ -1,0 +1,114 @@
+{
+  "id": "mechanics_challenge_page_036",
+  "originalNumber": "题18",
+  "chapter": "牛顿运动定律",
+  "title": "第18题：〗如力图 2.18.1 所示",
+  "taxonomy": {
+    "module": "力学竞赛",
+    "topic": "牛顿运动定律",
+    "modelId": "force-motion",
+    "modelName": "受力与运动状态",
+    "familyId": "force-motion",
+    "familyName": "受力与运动状态",
+    "role": "竞赛拓展",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "受力分析",
+      "动力学方程"
+    ],
+    "prerequisites": [
+      "牛顿第二定律"
+    ]
+  },
+  "question": "【题 18〗如力图 2.18.1 所示，半径为丸的圆盘与水平面平行，绕通过盘中心 O 的竖直轴以\n角速度 w 匀速旋转. 盘边缘 4 点处的射手相对于圆盘以水平初速 wm 发射子弹，目标是直径 AB\n的另一端点 B. 设子弹速度远大于盘的转速，且发射子弹不影响圆盘的角速度，设空气阻力可\n忽略. 试问: 射手应瞄准何方才能击中目标? 从射手看来，子弹的轨迹如何?\n力图2.18.1",
+  "images": [
+    {
+      "src": "assets/sources/mechanics-challenge/page-036.webp",
+      "alt": "《物理学难题集萃（力学）》牛顿运动定律第18题原页",
+      "caption": "原书第34页；题面与图示以此印刷页为准。"
+    }
+  ],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanics_challenge_model",
+    "variant": "newton",
+    "playable": true,
+    "interactive": true,
+    "notes": "以受力与运动状态的通用状态量展示本题所属模型；原题细节以题面图示为准。",
+    "params": {
+      "amplitude": {
+        "label": "状态尺度",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "倍"
+      },
+      "rate": {
+        "label": "演化速率",
+        "value": 1,
+        "min": 0.4,
+        "max": 2,
+        "step": 0.1,
+        "unit": "倍"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "牛顿运动定律",
+    "受力与运动状态"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先依据原题图逐一标出研究对象、参考系、几何约束、初末状态与待求量；OCR 仅用于检索，公式和图中标注以原页为准。",
+      "knowledge": [
+        "读图",
+        "条件整理"
+      ],
+      "commonMistakes": [
+        "忽略图示中的方向、接触或几何约束"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "本题归入“受力与运动状态”。先写出该题族的基本关系，再判断是否需要分段、选取守恒量或增加约束方程。",
+      "knowledge": [
+        "受力分析",
+        "动力学方程"
+      ],
+      "commonMistakes": [
+        "看到熟悉物体便直接套公式，没有检查模型前提"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "验证",
+      "content": "完成推导后检查量纲、极限情形、方向符号和题设边界。原书未附本页答案，因此本导入页不虚构最终数值结论。",
+      "knowledge": [
+        "量纲检查",
+        "极限检验"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：同模型参数迁移",
+    "question": "保持原题物理结构不变，只改变一个关键参数。先预测结果的变化方向，再重新列出控制方程，并说明哪些关系保持不变。",
+    "answer": "答案取决于所选参数。合格答案应包含：变化前后的控制方程、模型不变量、重新计算的量以及边界条件检查。",
+    "thinking": "先识别“受力与运动状态”中的不变量，再区分参数变化引起的数值变化与模型结构变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "mechanics_challenge_page_144",
+  "originalNumber": "题11",
+  "chapter": "振动与波动",
+  "title": "第11题：〗如力图 7.11.1 所示",
+  "taxonomy": {
+    "module": "力学竞赛",
+    "topic": "振动与波动",
+    "modelId": "oscillation-wave",
+    "modelName": "振动系统与波传播",
+    "familyId": "oscillation-wave",
+    "familyName": "振动系统与波传播",
+    "role": "竞赛拓展",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "平衡位置",
+      "周期与相位"
+    ],
+    "prerequisites": [
+      "简谐运动"
+    ]
+  },
+  "question": "【题 11〗如力图 7.11.1 所示，质量为 mu 的滑块可在光滑水平直导轨上滑动. 滑块经长为 人、\n质量可略的细杆与质量为 ms 的重锤相连，细杆与重锤可绕滑块无摩擦地自由转动. 设 (= 0 时，\n细杆与导轨构成铅垂面，细杆与铬垂线夹角 Oo, 从静止释放开始摆动. 试求:\n1. 重锤 m, 的运动轨迹.\n2. 系统做小角摆动时，滑块位置随时间的变化.\nmy\noO\nx\nh Cc\nm2\ny\n力图 TAA",
+  "images": [
+    {
+      "src": "assets/sources/mechanics-challenge/page-144.webp",
+      "alt": "《物理学难题集萃（力学）》振动与波动第11题原页",
+      "caption": "原书第142页；题面与图示以此印刷页为准。"
+    }
+  ],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanics_challenge_model",
+    "variant": "oscillation",
+    "playable": true,
+    "interactive": true,
+    "notes": "以振动系统与波传播的通用状态量展示本题所属模型；原题细节以题面图示为准。",
+    "params": {
+      "amplitude": {
+        "label": "状态尺度",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "倍"
+      },
+      "rate": {
+        "label": "演化速率",
+        "value": 1,
+        "min": 0.4,
+        "max": 2,
+        "step": 0.1,
+        "unit": "倍"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "振动与波动",
+    "振动系统与波传播"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先依据原题图逐一标出研究对象、参考系、几何约束、初末状态与待求量；OCR 仅用于检索，公式和图中标注以原页为准。",
+      "knowledge": [
+        "读图",
+        "条件整理"
+      ],
+      "commonMistakes": [
+        "忽略图示中的方向、接触或几何约束"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "本题归入“振动系统与波传播”。先写出该题族的基本关系，再判断是否需要分段、选取守恒量或增加约束方程。",
+      "knowledge": [
+        "平衡位置",
+        "周期与相位"
+      ],
+      "commonMistakes": [
+        "看到熟悉物体便直接套公式，没有检查模型前提"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "验证",
+      "content": "完成推导后检查量纲、极限情形、方向符号和题设边界。原书未附本页答案，因此本导入页不虚构最终数值结论。",
+      "knowledge": [
+        "量纲检查",
+        "极限检验"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：同模型参数迁移",
+    "question": "保持原题物理结构不变，只改变一个关键参数。先预测结果的变化方向，再重新列出控制方程，并说明哪些关系保持不变。",
+    "answer": "答案取决于所选参数。合格答案应包含：变化前后的控制方程、模型不变量、重新计算的量以及边界条件检查。",
+    "thinking": "先识别“振动系统与波传播”中的不变量，再区分参数变化引起的数值变化与模型结构变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
+}

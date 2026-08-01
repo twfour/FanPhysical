@@ -1,0 +1,115 @@
+{
+  "id": "mechanics_challenge_page_106",
+  "originalNumber": "题1",
+  "chapter": "刚体动力学",
+  "title": "第1题：竞赛力学问题",
+  "taxonomy": {
+    "module": "力学竞赛",
+    "topic": "刚体动力学",
+    "modelId": "rigid-body",
+    "modelName": "平动与转动耦合",
+    "familyId": "rigid-body",
+    "familyName": "平动与转动耦合",
+    "role": "竞赛拓展",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "质心运动",
+      "转动方程"
+    ],
+    "prerequisites": [
+      "牛顿第二定律",
+      "力矩"
+    ]
+  },
+  "question": "第六章 刚体动力学\n【题 1) 汽车在后轮的推动下. 以加速度 @ 在地面上沿直线前进.已知汽车前轮与后轮的间距\n为21 质心位于前后轮的中央，离地高度为 刀 后轮与地面之间的摩擦系数为几 前轮为非驱动\n轮，与地面的摩擦可略. 试问: /至少为多大时，后轮不致打滑?\nTV\nh\nOt ©\n了me\nhk一2一\n力图 6L1",
+  "images": [
+    {
+      "src": "assets/sources/mechanics-challenge/page-106.webp",
+      "alt": "《物理学难题集萃（力学）》刚体动力学第1题原页",
+      "caption": "原书第104页；题面与图示以此印刷页为准。"
+    }
+  ],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanics_challenge_model",
+    "variant": "rigid",
+    "playable": true,
+    "interactive": true,
+    "notes": "以平动与转动耦合的通用状态量展示本题所属模型；原题细节以题面图示为准。",
+    "params": {
+      "amplitude": {
+        "label": "状态尺度",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "倍"
+      },
+      "rate": {
+        "label": "演化速率",
+        "value": 1,
+        "min": 0.4,
+        "max": 2,
+        "step": 0.1,
+        "unit": "倍"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "刚体动力学",
+    "平动与转动耦合"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先依据原题图逐一标出研究对象、参考系、几何约束、初末状态与待求量；OCR 仅用于检索，公式和图中标注以原页为准。",
+      "knowledge": [
+        "读图",
+        "条件整理"
+      ],
+      "commonMistakes": [
+        "忽略图示中的方向、接触或几何约束"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "本题归入“平动与转动耦合”。先写出该题族的基本关系，再判断是否需要分段、选取守恒量或增加约束方程。",
+      "knowledge": [
+        "质心运动",
+        "转动方程"
+      ],
+      "commonMistakes": [
+        "看到熟悉物体便直接套公式，没有检查模型前提"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "验证",
+      "content": "完成推导后检查量纲、极限情形、方向符号和题设边界。原书未附本页答案，因此本导入页不虚构最终数值结论。",
+      "knowledge": [
+        "量纲检查",
+        "极限检验"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：同模型参数迁移",
+    "question": "保持原题物理结构不变，只改变一个关键参数。先预测结果的变化方向，再重新列出控制方程，并说明哪些关系保持不变。",
+    "answer": "答案取决于所选参数。合格答案应包含：变化前后的控制方程、模型不变量、重新计算的量以及边界条件检查。",
+    "thinking": "先识别“平动与转动耦合”中的不变量，再区分参数变化引起的数值变化与模型结构变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
+}

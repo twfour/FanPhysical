@@ -1,0 +1,146 @@
+{
+  "id": "mechanics_challenge_page_013",
+  "originalNumber": "题10",
+  "chapter": "运动学",
+  "title": "第10题：匀速转杆上小环的阿基米德螺线",
+  "taxonomy": {
+    "module": "力学竞赛",
+    "topic": "运动学关系",
+    "modelId": "particle-motion",
+    "modelName": "质点运动与约束",
+    "familyId": "particle-motion",
+    "familyName": "质点运动与约束",
+    "role": "竞赛拓展",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "运动分解",
+      "边界条件"
+    ],
+    "prerequisites": [
+      "位移、速度与加速度"
+    ]
+  },
+  "question": "【题10】细杆绕端点 \\(O\\) 在平面内匀角速旋转，角速度为 \\(\\omega\\)，杆上一小环（可看作质点）相对杆做匀速运动，相对速度为 \\(v\\)。设 \\(t=0\\) 时刻小环位于杆的端点 \\(O\\)。1. 证明小环轨迹为阿基米德螺线；2. 求任意时刻的速度和加速度；3. 定性画出切向加速度和法向加速度。",
+  "images": [
+    {
+      "src": "assets/sources/mechanics-challenge/page-013.webp",
+      "alt": "《物理学难题集萃（力学）》运动学第10题原页",
+      "caption": "原题页面截取：原书第11页。"
+    }
+  ],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanics_challenge_model",
+    "variant": "kinematics_problem_10",
+    "playable": true,
+    "interactive": true,
+    "notes": "动画严格使用 r=vt、φ=ωt，并由极坐标运动学公式计算绝对速度和加速度。",
+    "params": [
+      {
+        "key": "relativeSpeed",
+        "label": "小环相对速度 v",
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "value": 1.5,
+        "unit": "m/s"
+      },
+      {
+        "key": "omega",
+        "label": "杆的角速度 ω",
+        "min": 0.3,
+        "max": 1.5,
+        "step": 0.1,
+        "value": 0.8,
+        "unit": "rad/s"
+      },
+      {
+        "key": "maxTime",
+        "label": "物理观察时长",
+        "min": 4,
+        "max": 10,
+        "step": 1,
+        "value": 8,
+        "unit": "s"
+      }
+    ],
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    },
+    "description": "杆与小环按真实时间运动；速度、加速度矢量及自然坐标分量随时间同步更新。"
+  },
+  "knowledge": [
+    "运动学关系",
+    "质点运动与约束"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "选择极坐标并写出两个独立运动",
+      "content": "以杆的固定端 \\(O\\) 为极点，以 \\(t=0\\) 时杆的方向为极轴。小环相对杆以恒定速率 \\(v\\) 向外运动，因此径向坐标为 \\(r=vt\\)；杆以恒定角速度 \\(\\omega\\) 转动，因此极角为 \\(\\varphi=\\omega t\\)。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "消去时间证明轨迹为阿基米德螺线",
+      "content": "由 \\(t=\\varphi/\\omega\\)，代入 \\(r=vt\\)：\n\n\\[\\boxed{r=\\frac v\\omega\\varphi}.\\]\n\n极径与极角成正比，这正是阿基米德螺线的定义；螺线相邻两圈的径向间距为 \\(2\\pi v/\\omega\\)。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "用极坐标速度公式求绝对速度",
+      "content": "极坐标速度为\n\n\\[\\mathbf V=\\dot r\\,\\mathbf e_r+r\\dot\\varphi\\,\\mathbf e_\\varphi.\\]\n\n代入 \\(\\dot r=v\\)、\\(r=vt\\)、\\(\\dot\\varphi=\\omega\\)：\n\n\\[\\boxed{\\mathbf V=v\\mathbf e_r+v\\omega t\\mathbf e_\\varphi},\\qquad \\boxed{V=v\\sqrt{1+\\omega^2t^2}}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "用极坐标加速度公式求绝对加速度",
+      "content": "极坐标加速度为\n\n\\[\\mathbf a=(\\ddot r-r\\dot\\varphi^2)\\mathbf e_r+(r\\ddot\\varphi+2\\dot r\\dot\\varphi)\\mathbf e_\\varphi.\\]\n\n本题 \\(\\ddot r=0\\)、\\(\\ddot\\varphi=0\\)，故\n\n\\[\\boxed{\\mathbf a=-v\\omega^2t\\mathbf e_r+2v\\omega\\mathbf e_\\varphi},\\]\n\\[\\boxed{a=v\\omega\\sqrt{4+\\omega^2t^2}}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 5,
+      "title": "求自然坐标系中的切向加速度",
+      "content": "自然坐标的切向加速度等于速率对时间的导数：\n\n\\[a_t=\\frac{\\mathrm dV}{\\mathrm dt}=\\frac{\\mathrm d}{\\mathrm dt}\\left[v\\sqrt{1+\\omega^2t^2}\\right].\\]\n\n所以\n\n\\[\\boxed{a_t=\\frac{v\\omega^2t}{\\sqrt{1+\\omega^2t^2}}}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 6,
+      "title": "求法向加速度",
+      "content": "利用 \\(a^2=a_t^2+a_n^2\\)：\n\n\\[a_n=\\sqrt{v^2\\omega^2(4+\\omega^2t^2)-\\frac{v^2\\omega^4t^2}{1+\\omega^2t^2}}.\\]\n\n化简得到\n\n\\[\\boxed{a_n=\\frac{v\\omega(2+\\omega^2t^2)}{\\sqrt{1+\\omega^2t^2}}}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 7,
+      "title": "检查初始值和长期变化趋势",
+      "content": "在 \\(t=0\\) 时，\\(V=v\\)、\\(a_t=0\\)、\\(a_n=2v\\omega\\)，与 \\(\\mathbf a=2v\\omega\\mathbf e_\\varphi\\) 一致。当 \\(t\\to\\infty\\) 时，\\(a_t\\to v\\omega\\)，而 \\(a_n\\sim v\\omega^2t\\) 持续增大；图表应呈现这一趋势。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：同模型参数迁移",
+    "question": "保持原题物理结构不变，只改变一个关键参数。先预测结果的变化方向，再重新列出控制方程，并说明哪些关系保持不变。",
+    "answer": "答案取决于所选参数。合格答案应包含：变化前后的控制方程、模型不变量、重新计算的量以及边界条件检查。",
+    "thinking": "先识别“质点运动与约束”中的不变量，再区分参数变化引起的数值变化与模型结构变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": false,
+    "defaultExpanded": true,
+    "hideStepConversation": true
+  },
+  "presentation": {
+    "coreOnly": true
+  }
+}

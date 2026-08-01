@@ -1,0 +1,139 @@
+{
+  "id": "mechanics_challenge_page_015",
+  "originalNumber": "题12",
+  "chapter": "运动学",
+  "title": "第12题：线性流速河流中的往返轨迹",
+  "taxonomy": {
+    "module": "力学竞赛",
+    "topic": "运动学关系",
+    "modelId": "particle-motion",
+    "modelName": "质点运动与约束",
+    "familyId": "particle-motion",
+    "familyName": "质点运动与约束",
+    "role": "竞赛拓展",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "运动分解",
+      "边界条件"
+    ],
+    "prerequisites": [
+      "位移、速度与加速度"
+    ]
+  },
+  "question": "【题12】宽 \\(L\\) 的河流，流速与离岸的距离成正比，已知两岸处流速为零，河中心的流速为 \\(v_0\\)。一小船以恒定的相对水流速度 \\(v_r\\) 垂直于水流从一岸驶向另一岸。在离岸 \\(L/4\\) 处突然掉头，以相对速度 \\(v_r/2\\) 垂直于水流驶回本岸。试求：1. 小船的运动轨迹；2. 返回本岸时与原出发点的距离。",
+  "images": [
+    {
+      "src": "assets/sources/mechanics-challenge/page-015.webp",
+      "alt": "《物理学难题集萃（力学）》运动学第12题原页",
+      "caption": "原题页面截取：原书第13页。"
+    }
+  ],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanics_challenge_model",
+    "variant": "kinematics_problem_12",
+    "playable": true,
+    "interactive": true,
+    "notes": "动画分去程和返程精确积分，水流速度随离岸距离按 u(y)=2v₀y/L 变化。",
+    "params": [
+      {
+        "key": "width",
+        "label": "河宽 L",
+        "min": 80,
+        "max": 300,
+        "step": 10,
+        "value": 160,
+        "unit": "m"
+      },
+      {
+        "key": "centerSpeed",
+        "label": "河中心流速 v₀",
+        "min": 1,
+        "max": 6,
+        "step": 0.5,
+        "value": 4,
+        "unit": "m/s"
+      },
+      {
+        "key": "boatSpeed",
+        "label": "去程相对速度 vr",
+        "min": 2,
+        "max": 8,
+        "step": 0.5,
+        "value": 5,
+        "unit": "m/s"
+      }
+    ],
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    },
+    "description": "小船到 y=L/4 时掉头；返程横渡速度减半，顺流速度仍由当前位置决定。"
+  },
+  "knowledge": [
+    "运动学关系",
+    "质点运动与约束"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "建立坐标系并确定近岸流速分布",
+      "content": "取顺流方向为 \\(x\\) 轴、由出发岸指向对岸为 \\(y\\) 轴，出发点为原点。河中心距岸 \\(L/2\\)，该处流速为 \\(v_0\\)；近岸区域流速与 \\(y\\) 成正比，因此\n\n\\[\\boxed{u(y)=\\frac{2v_0}{L}y},\\qquad 0\\le y\\le\\frac L2.\\]\n\n本题小船最远只到 \\(L/4\\)，所以全程都适用这一表达式。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 2,
+      "title": "求去程轨迹",
+      "content": "去程小船相对水流垂直驶向对岸，因此\n\n\\[\\dot x=u(y)=\\frac{2v_0y}{L},\\qquad \\dot y=v_r.\\]\n\n两式相除：\\(\\mathrm dx/\\mathrm dy=2v_0y/(Lv_r)\\)。由 \\(x=0,y=0\\) 积分得\n\n\\[\\boxed{x=\\frac{v_0}{Lv_r}y^2}.\\]\n\n去程轨迹是开口沿顺流方向的抛物线。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 3,
+      "title": "确定掉头点",
+      "content": "在 \\(y_1=L/4\\) 处掉头。代入去程轨迹：\n\n\\[\\boxed{x_1=\\frac{v_0L}{16v_r}}.\\]\n\n到达该点的时间为 \\(t_1=L/(4v_r)\\)。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 4,
+      "title": "建立返程微分方程",
+      "content": "返程时小船相对水流的速率为 \\(v_r/2\\)，方向指向本岸，所以\n\n\\[\\dot y=-\\frac{v_r}{2},\\qquad \\dot x=\\frac{2v_0y}{L}.\\]\n\n于是\n\n\\[\\frac{\\mathrm dx}{\\mathrm dy}=-\\frac{4v_0y}{Lv_r}.\\]",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 5,
+      "title": "积分得到返程轨迹",
+      "content": "从掉头点 \\((x_1,L/4)\\) 积分到任意返程位置 \\((x,y)\\)：\n\n\\[x-x_1=-\\frac{2v_0}{Lv_r}\\left(y^2-\\frac{L^2}{16}\\right).\\]\n\n因此\n\n\\[\\boxed{x=\\frac{3v_0L}{16v_r}-\\frac{2v_0}{Lv_r}y^2}.\\]\n\n返程也是抛物线，但弯曲方向与去程不同。",
+      "knowledge": [],
+      "commonMistakes": []
+    },
+    {
+      "stepId": 6,
+      "title": "求返回本岸的位置并检查连续性",
+      "content": "返岸时 \\(y=0\\)，所以\n\n\\[\\boxed{x_2=\\frac{3v_0L}{16v_r}}.\\]\n\n这就是返回处与出发点的距离。把 \\(y=L/4\\) 代入返程式，得到 \\(x=v_0L/(16v_r)=x_1\\)，说明两段轨迹在掉头点连续。返程耗时 \\(L/(2v_r)\\)，总时间为 \\(3L/(4v_r)\\)。",
+      "knowledge": [],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：同模型参数迁移",
+    "question": "保持原题物理结构不变，只改变一个关键参数。先预测结果的变化方向，再重新列出控制方程，并说明哪些关系保持不变。",
+    "answer": "答案取决于所选参数。合格答案应包含：变化前后的控制方程、模型不变量、重新计算的量以及边界条件检查。",
+    "thinking": "先识别“质点运动与约束”中的不变量，再区分参数变化引起的数值变化与模型结构变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": false,
+    "defaultExpanded": true,
+    "hideStepConversation": true
+  },
+  "presentation": {
+    "coreOnly": true
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "id": "mechanics_challenge_page_060",
+  "originalNumber": "题22",
+  "chapter": "功、能和动量",
+  "title": "第22题：〗如力图 3.22.1 所示",
+  "taxonomy": {
+    "module": "力学竞赛",
+    "topic": "功、能和动量",
+    "modelId": "energy-momentum",
+    "modelName": "守恒量与过程连接",
+    "familyId": "energy-momentum",
+    "familyName": "守恒量与过程连接",
+    "role": "竞赛拓展",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "过程分段",
+      "守恒定律"
+    ],
+    "prerequisites": [
+      "功和能",
+      "动量"
+    ]
+  },
+  "question": "【题 22〗如力图 3.22.1 所示，球 ABR 2 的质量分别为 m 和 ma, 放置在光滑水平地面上，\n球 1 以一定的水平初速 mo 向右沿两球连心线运动，球 2 则静止. 两球连心线右侧有一坚直弹性\n墙. 设两球之间以及球与墙之间的所有碰撞均为弹性碰撞. 为了使两球能发生、而且只能发生两\n次碰撞，试问: 两球的质量之比 maymz 应满足什么条件?\nYo O ;\n球1 球2\n力图3.22.1",
+  "images": [
+    {
+      "src": "assets/sources/mechanics-challenge/page-060.webp",
+      "alt": "《物理学难题集萃（力学）》功、能和动量第22题原页",
+      "caption": "原书第58页；题面与图示以此印刷页为准。"
+    }
+  ],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanics_challenge_model",
+    "variant": "energy",
+    "playable": true,
+    "interactive": true,
+    "notes": "以守恒量与过程连接的通用状态量展示本题所属模型；原题细节以题面图示为准。",
+    "params": {
+      "amplitude": {
+        "label": "状态尺度",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "倍"
+      },
+      "rate": {
+        "label": "演化速率",
+        "value": 1,
+        "min": 0.4,
+        "max": 2,
+        "step": 0.1,
+        "unit": "倍"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "功、能和动量",
+    "守恒量与过程连接"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先依据原题图逐一标出研究对象、参考系、几何约束、初末状态与待求量；OCR 仅用于检索，公式和图中标注以原页为准。",
+      "knowledge": [
+        "读图",
+        "条件整理"
+      ],
+      "commonMistakes": [
+        "忽略图示中的方向、接触或几何约束"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "本题归入“守恒量与过程连接”。先写出该题族的基本关系，再判断是否需要分段、选取守恒量或增加约束方程。",
+      "knowledge": [
+        "过程分段",
+        "守恒定律"
+      ],
+      "commonMistakes": [
+        "看到熟悉物体便直接套公式，没有检查模型前提"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "验证",
+      "content": "完成推导后检查量纲、极限情形、方向符号和题设边界。原书未附本页答案，因此本导入页不虚构最终数值结论。",
+      "knowledge": [
+        "量纲检查",
+        "极限检验"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：同模型参数迁移",
+    "question": "保持原题物理结构不变，只改变一个关键参数。先预测结果的变化方向，再重新列出控制方程，并说明哪些关系保持不变。",
+    "answer": "答案取决于所选参数。合格答案应包含：变化前后的控制方程、模型不变量、重新计算的量以及边界条件检查。",
+    "thinking": "先识别“守恒量与过程连接”中的不变量，再区分参数变化引起的数值变化与模型结构变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
+}

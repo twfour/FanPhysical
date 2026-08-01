@@ -19,6 +19,21 @@ function renderProblemDataNotes(problem) {
     grid.className = "problem-notes-grid";
     note.appendChild(grid);
 
+    var coreOnly = Boolean(problem.presentation && problem.presentation.coreOnly === true);
+    if (problem.analysisPresentation && problem.analysisPresentation.hideStepConversation === true) {
+      note.dataset.disableStepConversation = "1";
+    }
+    if (coreOnly) {
+      grid.appendChild(createProblemQuestionBlock(problem));
+      var coreAnalysisBlock = createProblemAnalysisBlock(problem);
+      coreAnalysisBlock.dataset.analysisBlock = "1";
+      if (problem.analysisPresentation && problem.analysisPresentation.defaultExpanded === true) {
+        coreAnalysisBlock.dataset.defaultExpanded = "1";
+      }
+      grid.appendChild(coreAnalysisBlock);
+      return note;
+    }
+
     var authoritativeResourcesBlock = createAuthoritativeResourcesBlock(problem);
     var experimentBlock = typeof createVirtualExperimentBlock === "function"
       ? createVirtualExperimentBlock(problem)
@@ -81,6 +96,9 @@ function createProblemQuestionBlock(problem) {
 }
 
 function createProblemTaxonomyBlock(problem) {
+  if (problem && problem.presentation && problem.presentation.coreOnly === true) {
+    return null;
+  }
   var taxonomy = problem && problem.taxonomy;
   if (!taxonomy || !taxonomy.modelId || !taxonomy.familyId) {
     return null;
@@ -129,6 +147,9 @@ function createProblemTaxonomyBlock(problem) {
 }
 
 function createProblemLearningPathBlock(problem) {
+  if (problem && problem.presentation && problem.presentation.coreOnly === true) {
+    return null;
+  }
   var path = problem && problem.learningPath;
   if (!path || typeof path !== "object") {
     return null;

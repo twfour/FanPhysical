@@ -7,6 +7,10 @@ var activeStepVoiceRecognition = null;
 var activeStepVoiceButton = null;
 var activeStepVoiceStatus = null;
 function addStepConversationPanels(body, sceneName) {
+  var problemNote = body && body.closest ? body.closest(".problem-notes") : null;
+  if (problemNote && problemNote.dataset.disableStepConversation === "1") {
+    return;
+  }
   var isCollapsedStep = body && body.matches
     ? body.matches('details.analysis-step[data-collapsible-step="1"]')
     : false;

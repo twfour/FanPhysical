@@ -1,0 +1,141 @@
+{
+  "id": "mechanics_challenge_page_004",
+  "originalNumber": "题1",
+  "chapter": "运动学",
+  "title": "第1题：三角形内竖直—水平折线路径",
+  "taxonomy": {
+    "module": "力学竞赛",
+    "topic": "运动学关系",
+    "modelId": "particle-motion",
+    "modelName": "质点运动与约束",
+    "familyId": "piecewise-gravity-path",
+    "familyName": "重力场中的折线路径时间",
+    "role": "竞赛拓展",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "分段运动",
+      "极值与极限路径"
+    ],
+    "prerequisites": [
+      "匀加速直线运动"
+    ]
+  },
+  "question": "如图1.1.1所示，直角三角形 \\(ABC\\) 在铅垂平面内，斜边 \\(AC\\) 与水平边 \\(BC\\) 的夹角为 \\(\\alpha\\)。一质点从 \\(A\\) 点由静止出发，在重力作用下到达 \\(C\\) 点。当所循路径为从 \\(A\\) 经 \\(AB\\) 和 \\(BC\\) 时，从 \\(A\\) 到 \\(B\\) 需时 \\(t_1\\)，从 \\(B\\) 到 \\(C\\) 需时 \\(t_2\\)；当所循路径为 \\(AC\\) 时，需时 \\(t_3\\)。假定质点拐折时不花费时间，且只改变速度方向而速度大小不变。\n\n1. 为使上述两条路径由 \\(A\\) 到 \\(C\\) 所需时间相等，即 \\(t_1+t_2=t_3\\)，角 \\(\\alpha\\) 应为多大？\n\n2. 设角 \\(\\alpha\\) 取上述值，且质点只能在三角形范围内沿竖直路径和水平路径从 \\(A\\) 点到达 \\(C\\) 点，显然有无穷多种选择。什么路径花费的时间最多？什么路径花费的时间最少？所需的最长时间与最短时间之比是多少？",
+  "images": [
+    {
+      "src": "assets/sources/mechanics-challenge/page-004.webp",
+      "alt": "《物理学难题集萃（力学）》第一章第1题原题页面",
+      "caption": "原题页面截取：原书第2页，力图1.1.1。"
+    }
+  ],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanics_challenge_model",
+    "variant": "kinematics_problem_01",
+    "playable": true,
+    "interactive": true,
+    "notes": "动画按真实分段运动时间推进；阶梯级数增加时，路径趋近斜边，运动时间趋近最大值。",
+    "params": {
+      "steps": {
+        "label": "阶梯级数",
+        "value": 4,
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "unit": "级"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "匀加速直线运动",
+    "分段运动",
+    "极值路径"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "设定几何量并求折线路径时间",
+      "content": "设 \\(AB=h\\)，则 \\(BC=h\\cot\\alpha\\)。质点沿 \\(AB\\) 自由下落：\n\n\\[t_1=\\sqrt{\\frac{2h}{g}},\\qquad v_B=gt_1=\\sqrt{2gh}.\\]\n\n在 \\(B\\) 点速度只改变方向、大小不变；沿水平边 \\(BC\\) 没有切向加速度，因此\n\n\\[t_2=\\frac{BC}{v_B}=\\frac{h\\cot\\alpha}{\\sqrt{2gh}}=\\frac{t_1}{2}\\cot\\alpha.\\]",
+      "knowledge": [
+        "自由落体",
+        "水平匀速运动"
+      ],
+      "commonMistakes": [
+        "误以为质点转入水平段后速度重新从零开始"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "求斜边路径时间",
+      "content": "沿斜边 \\(AC\\) 运动时，路程和切向加速度分别为\n\n\\[AC=\\frac{h}{\\sin\\alpha},\\qquad a_{AC}=g\\sin\\alpha.\\]\n\n质点从静止开始做匀加速运动，故\n\n\\[t_3=\\sqrt{\\frac{2AC}{a_{AC}}}=\\sqrt{\\frac{2h}{g\\sin^2\\alpha}}=\\frac{t_1}{\\sin\\alpha}.\\]",
+      "knowledge": [
+        "斜面运动",
+        "匀加速位移"
+      ],
+      "commonMistakes": [
+        "把斜边长度误写成 \\(h\\sin\\alpha\\)"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "由等时条件确定角度",
+      "content": "将 \\(t_1+t_2=t_3\\) 除以 \\(t_1\\)：\n\n\\[1+\\frac12\\cot\\alpha=\\frac1{\\sin\\alpha}.\\]\n\n整理得\n\n\\[2\\sin\\alpha+\\cos\\alpha=2.\\]\n\n由此得到 \\(\\sin\\alpha=1\\) 或 \\(\\sin\\alpha=3/5\\)。前者使 \\(BC=0\\)，三角形退化，应舍去。因此\n\n\\[\\boxed{\\sin\\alpha=\\frac35,\\quad \\cos\\alpha=\\frac45,\\quad \\tan\\alpha=\\frac34},\\]\n\n即 \\(\\boxed{\\alpha=\\arctan(3/4)\\approx36.87^\\circ}\\)。",
+      "knowledge": [
+        "三角恒等变形"
+      ],
+      "commonMistakes": [
+        "保留了使三角形退化的 \\(\\alpha=90^\\circ\\)"
+      ]
+    },
+    {
+      "stepId": 4,
+      "title": "证明所有竖直段的总时间相同",
+      "content": "以质点相对 \\(A\\) 点的竖直下降量为 \\(y\\)。由于拐折不改变速率，速率只由已下降的高度决定：\n\n\\[v(y)=\\sqrt{2gy}.\\]\n\n无论竖直路段被分成多少段，所有竖直段的总时间都是\n\n\\[T_{\\mathrm v}=\\int_0^h\\frac{\\mathrm dy}{\\sqrt{2gy}}=\\sqrt{\\frac{2h}{g}}=t_1.\\]\n\n所以不同路径的时间差只来自水平路段。",
+      "knowledge": [
+        "速率与下降高度",
+        "分段积分"
+      ],
+      "commonMistakes": [
+        "把每一段竖直运动都当成从静止开始"
+      ]
+    },
+    {
+      "stepId": 5,
+      "title": "确定最短路径",
+      "content": "水平运动越晚发生，下降高度越大、速率越大，水平段耗时越短。因此应先沿 \\(AB\\) 完成全部下降，再沿 \\(BC\\) 水平运动。最短路径为 \\(A\\to B\\to C\\)：\n\n\\[T_{\\min}=t_1+t_2=t_1\\left(1+\\frac12\\cot\\alpha\\right).\\]\n\n代入 \\(\\cot\\alpha=4/3\\)：\n\n\\[\\boxed{T_{\\min}=\\frac53t_1}.\\]",
+      "knowledge": [
+        "单调性",
+        "最短时间"
+      ],
+      "commonMistakes": [
+        "把几何距离最短误当成运动时间最短"
+      ]
+    },
+    {
+      "stepId": 6,
+      "title": "确定最长路径并求时间比",
+      "content": "为了使水平运动尽可能早地发生，路径必须始终贴近三角形的斜边边界。允许的极限路径是由无穷多个极小竖直段和水平段组成、趋近 \\(AC\\) 的阶梯线。斜边边界满足\n\n\\[\\mathrm dx=\\cot\\alpha\\,\\mathrm dy.\\]\n\n于是水平段总时间的上确界为\n\n\\[T_{\\mathrm h,max}=\\int_0^h\\frac{\\cot\\alpha\\,\\mathrm dy}{\\sqrt{2gy}}=t_1\\cot\\alpha.\\]\n\n故\n\n\\[T_{\\max}=t_1(1+\\cot\\alpha)=\\frac73t_1.\\]\n\n严格地说，有限级阶梯只能无限趋近该最大时间；无穷细阶梯为极限路径。最终\n\n\\[\\boxed{\\frac{T_{\\max}}{T_{\\min}}=\\frac{7/3}{5/3}=\\frac75}.\\]",
+      "knowledge": [
+        "极限路径",
+        "最长时间"
+      ],
+      "commonMistakes": [
+        "把直接沿斜边运动与只允许竖直、水平路段的极限阶梯运动混为一谈"
+      ]
+    }
+  ],
+  "analysisPresentation": {
+    "collapseEachStep": false,
+    "defaultExpanded": true,
+    "hideStepConversation": true
+  },
+  "presentation": {
+    "coreOnly": true
+  }
+}

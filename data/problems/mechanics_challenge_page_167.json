@@ -1,0 +1,114 @@
+{
+  "id": "mechanics_challenge_page_167",
+  "originalNumber": "题33",
+  "chapter": "振动与波动",
+  "title": "第33题：〗本世纪初曾提出一种地球模型",
+  "taxonomy": {
+    "module": "力学竞赛",
+    "topic": "振动与波动",
+    "modelId": "oscillation-wave",
+    "modelName": "振动系统与波传播",
+    "familyId": "oscillation-wave",
+    "familyName": "振动系统与波传播",
+    "role": "竞赛拓展",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "平衡位置",
+      "周期与相位"
+    ],
+    "prerequisites": [
+      "简谐运动"
+    ]
+  },
+  "question": "【题 33〗本世纪初曾提出一种地球模型，认为它是一个半径为 尺 的球体，从地球表面向内\n到半径 Ro AEA) PAT HEA ASHI, Re 以内的地芯为液态，如力图 7.33.1 Stas\nFEMUR AY, HTB P和横波 s 的速度分别为常量 ww 和 vs; 在地芯内，纵波的速度为常\n量 zcn，且 wcp< 四，而横波不传播.\n在地球表面已处发生了一次地震，产生的地震波在地球内传播，且被地球表面 X 处设置\n有地震仪的观察者观察到.已 点和区 点的角间隔 20 = LEOX，其中 0 为地球中心\n1. 试证明: 对于9< arecos 下 的那些X 点，从互点发出的地震波沿直线穿过地慢传播到\n基点的时间为 = 72508 at pik, v= up, MF stk, v= 0,\n2. 对于9> arceos We 的那些X 点, HORE p BEPEHUI ALY FE LAL PT BS X\nAi, TE OWE p BEER, 并求出对于 p Be O Fl i ZAR ASK, ROE i AE p BEE HHI\n和地芯界面上的入射角\n3. 利用下列数据和第 2 问中所得结果,画出9~i图形. R = 6370 km, Rc = 3470 km, vp = 10.85\nkm/s, w = 6.31 km/s, vcp = 9.02 km/s. 试问: 对于地球表面不同地点的观察者,从上述6~i 图形可\n得出什么物理结论?\n4. 在一次地震后, 某观察者测出 * 波相对忆波的时间延迟为 2 分 11 BD, 试用第 3 问中给出\n的数据确定地震地点与观察者之间的角间隔\n5. 在上述测量中, 观察者注意到某次 p BOA 波到达后, 地震仪上还有两个相间 6 分 37 秒\n的记录. 试解释这一结果, 并验证这与第 4 问所得的角间隔确实相符.\n【本题是 1986 年第 17 届 IPhO(国际中学生物理奥林匹克竞赛) 试题.】\nX\nI... --- 7\nwe O\nRe aya\n力图 733.1",
+  "images": [
+    {
+      "src": "assets/sources/mechanics-challenge/page-167.webp",
+      "alt": "《物理学难题集萃（力学）》振动与波动第33题原页",
+      "caption": "原书第165页；题面与图示以此印刷页为准。"
+    }
+  ],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanics_challenge_model",
+    "variant": "oscillation",
+    "playable": true,
+    "interactive": true,
+    "notes": "以振动系统与波传播的通用状态量展示本题所属模型；原题细节以题面图示为准。",
+    "params": {
+      "amplitude": {
+        "label": "状态尺度",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "倍"
+      },
+      "rate": {
+        "label": "演化速率",
+        "value": 1,
+        "min": 0.4,
+        "max": 2,
+        "step": 0.1,
+        "unit": "倍"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "振动与波动",
+    "振动系统与波传播"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先依据原题图逐一标出研究对象、参考系、几何约束、初末状态与待求量；OCR 仅用于检索，公式和图中标注以原页为准。",
+      "knowledge": [
+        "读图",
+        "条件整理"
+      ],
+      "commonMistakes": [
+        "忽略图示中的方向、接触或几何约束"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "本题归入“振动系统与波传播”。先写出该题族的基本关系，再判断是否需要分段、选取守恒量或增加约束方程。",
+      "knowledge": [
+        "平衡位置",
+        "周期与相位"
+      ],
+      "commonMistakes": [
+        "看到熟悉物体便直接套公式，没有检查模型前提"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "验证",
+      "content": "完成推导后检查量纲、极限情形、方向符号和题设边界。原书未附本页答案，因此本导入页不虚构最终数值结论。",
+      "knowledge": [
+        "量纲检查",
+        "极限检验"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：同模型参数迁移",
+    "question": "保持原题物理结构不变，只改变一个关键参数。先预测结果的变化方向，再重新列出控制方程，并说明哪些关系保持不变。",
+    "answer": "答案取决于所选参数。合格答案应包含：变化前后的控制方程、模型不变量、重新计算的量以及边界条件检查。",
+    "thinking": "先识别“振动系统与波传播”中的不变量，再区分参数变化引起的数值变化与模型结构变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
+}

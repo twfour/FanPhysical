@@ -1,0 +1,114 @@
+{
+  "id": "mechanics_challenge_page_165",
+  "originalNumber": "题31",
+  "chapter": "振动与波动",
+  "title": "第31题：如力图 7.31.1 所示",
+  "taxonomy": {
+    "module": "力学竞赛",
+    "topic": "振动与波动",
+    "modelId": "oscillation-wave",
+    "modelName": "振动系统与波传播",
+    "familyId": "oscillation-wave",
+    "familyName": "振动系统与波传播",
+    "role": "竞赛拓展",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "平衡位置",
+      "周期与相位"
+    ],
+    "prerequisites": [
+      "简谐运动"
+    ]
+  },
+  "question": "【题 31】如力图 7.31.1 所示，充满液体的容器在竖直方向上下振动，质量为 m 的重物由劲\n度系数为 的弹簧悬挂，浸没在液体之中. 设悬点随容器振动的规律为 xz = Acoswt 设液体的\n阻尼系数为 Y(弱阻尼), 并假定液体的浮力恒定.\n1. FF w= wo, 试求稳定后重物的振动表达式，其中 wo = Vk/m 为弹簧振子的固有圆频率\n2. Fi o> op, 试求稳定后重物的振动表达式\n3. Fi © > wo, 且当容器达到最高点时突然停止不动，试求此后重物的振动表达式.\n4. 试画出容器突然停止以前和以后的振动曲线\nx\nonl By\nI i\n力图731.1",
+  "images": [
+    {
+      "src": "assets/sources/mechanics-challenge/page-165.webp",
+      "alt": "《物理学难题集萃（力学）》振动与波动第31题原页",
+      "caption": "原书第163页；题面与图示以此印刷页为准。"
+    }
+  ],
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "mechanics_challenge_model",
+    "variant": "oscillation",
+    "playable": true,
+    "interactive": true,
+    "notes": "以振动系统与波传播的通用状态量展示本题所属模型；原题细节以题面图示为准。",
+    "params": {
+      "amplitude": {
+        "label": "状态尺度",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "倍"
+      },
+      "rate": {
+        "label": "演化速率",
+        "value": 1,
+        "min": 0.4,
+        "max": 2,
+        "step": 0.1,
+        "unit": "倍"
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "knowledge": [
+    "振动与波动",
+    "振动系统与波传播"
+  ],
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先依据原题图逐一标出研究对象、参考系、几何约束、初末状态与待求量；OCR 仅用于检索，公式和图中标注以原页为准。",
+      "knowledge": [
+        "读图",
+        "条件整理"
+      ],
+      "commonMistakes": [
+        "忽略图示中的方向、接触或几何约束"
+      ]
+    },
+    {
+      "stepId": 2,
+      "title": "建模",
+      "content": "本题归入“振动系统与波传播”。先写出该题族的基本关系，再判断是否需要分段、选取守恒量或增加约束方程。",
+      "knowledge": [
+        "平衡位置",
+        "周期与相位"
+      ],
+      "commonMistakes": [
+        "看到熟悉物体便直接套公式，没有检查模型前提"
+      ]
+    },
+    {
+      "stepId": 3,
+      "title": "验证",
+      "content": "完成推导后检查量纲、极限情形、方向符号和题设边界。原书未附本页答案，因此本导入页不虚构最终数值结论。",
+      "knowledge": [
+        "量纲检查",
+        "极限检验"
+      ],
+      "commonMistakes": []
+    }
+  ],
+  "practice": {
+    "title": "近似题：同模型参数迁移",
+    "question": "保持原题物理结构不变，只改变一个关键参数。先预测结果的变化方向，再重新列出控制方程，并说明哪些关系保持不变。",
+    "answer": "答案取决于所选参数。合格答案应包含：变化前后的控制方程、模型不变量、重新计算的量以及边界条件检查。",
+    "thinking": "先识别“振动系统与波传播”中的不变量，再区分参数变化引起的数值变化与模型结构变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-parameter-critical"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true
+  }
+}
