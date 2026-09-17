@@ -69,6 +69,7 @@ SUPPORTED_ANIMATION_TYPES = {
     "mechanical_energy_model",
     "foundation_mechanics_model",
     "functional_relation_model",
+    "momentum_model",
     "projectile",
     "spring_balance",
     "force_diagram",

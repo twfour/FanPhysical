@@ -1,0 +1,291 @@
+{
+  "id": "momentum_lesson1_hw_01_01_river_bend",
+  "chapter": "动量定理与动量守恒定律",
+  "title": "第1题：弯曲河道侧向压强",
+  "question": "半径为 \\(R\\) 的弯道宽 \\(d\\)、水深 \\(h\\)，水速 \\(v\\)、密度 \\(\rho\\)，且 \\(d\\ll R\\)。判断短时间内速度变化、动量变化及外侧河堤压强。",
+  "options": [
+    "A. 速度改变量沿切线",
+    "B. \\(|\\Delta v|=v^2\\Delta t/R\\)",
+    "C. \\(|\\Delta p|=\rho dh\\,v^2\\Delta t^2/R\\)",
+    "D. 外侧压强 \\(p=\rho dv^2/R\\)"
+  ],
+  "answer": "BD",
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "shared-solution"
+  },
+  "steps": [
+    {
+      "title": "条件提取",
+      "content": "先规定正方向并选择研究对象或系统，区分外力冲量与系统内力。"
+    },
+    {
+      "title": "建模与计算",
+      "content": "流体微元做近似圆周运动，\\(a=v^2/R\\)，所以 \\(|\\Delta v|=a\\Delta t\\) 指向圆心。单位时间过截面的质量流率为 \\(\rho dhv\\)，维持转弯所需侧向力给出压强差量级 \\(\rho dv^2/R\\)。"
+    },
+    {
+      "title": "结论与检查",
+      "content": "答案为 **BD**。检查动量的方向、单位以及所选系统在对应方向上是否满足守恒条件。"
+    }
+  ],
+  "knowledge": [
+    "动量定理",
+    "动量守恒",
+    "弯曲河道侧向压强"
+  ],
+  "practice": {
+    "title": "进阶近似题：变截面射流推力",
+    "question": "密度 \\(\rho\\) 的稳定射流以速度 \\(v_1\\) 进入弯管，以速度 \\(v_2\\) 沿与原方向夹角 \\(\u0007lpha\\) 射出，质量流率为 \\(\\dot m\\)。求管壁受力。",
+    "answer": "流体受力 \\(\u000bec F=\\dot m(\u000bec v_2-\u000bec v_1)\\)，管壁受力为其反作用力。",
+    "thinking": "选取单位时间流过的流体为控制体，分别写两个方向的动量流率。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "momentum_model",
+    "variant": "01_river_bend",
+    "playable": true,
+    "interactive": true,
+    "notes": "按“弯曲河道侧向压强”原题过程显示运动、系统边界和动量变化。",
+    "params": {
+      "mass": {
+        "label": "质量",
+        "value": 1,
+        "min": 0.2,
+        "max": 5,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "speed": {
+        "label": "特征速度",
+        "value": 6,
+        "min": 1,
+        "max": 12,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "factor": {
+        "label": "条件系数",
+        "value": 0.5,
+        "min": 0.1,
+        "max": 1.5,
+        "step": 0.1,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 6,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动量定理与动量守恒定律",
+    "modelId": "momentum-impulse",
+    "modelName": "动量与冲量",
+    "familyId": "momentum-flow",
+    "familyName": "连续介质动量流",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "系统与正方向选择",
+      "冲量动量关系"
+    ],
+    "prerequisites": [
+      "牛顿第二定律",
+      "机械能与功"
+    ]
+  },
+  "learningPath": {
+    "familyId": "momentum-flow",
+    "familyName": "连续介质动量流",
+    "currentDifficulty": 4,
+    "currentLevel": "L2",
+    "mother": {
+      "id": "momentum_lesson1_course_07_07_water_jet",
+      "title": "例7：水柱连续冲击煤层",
+      "chapter": "动量定理与动量守恒定律",
+      "difficulty": 3,
+      "variantLevel": "L1",
+      "role": "条件变式"
+    },
+    "familyFocus": {
+      "observe": "系统与正方向选择",
+      "misconception": "只比较速度大小而忽略动量方向，或未检查外力冲量便直接套用动量守恒",
+      "invariant": "动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量",
+      "formula": "\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“系统与正方向选择”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“系统与正方向选择”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“系统与正方向选择”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "id": "momentum_lesson1_course_07_07_water_jet",
+        "title": "例7：水柱连续冲击煤层",
+        "chapter": "动量定理与动量守恒定律",
+        "difficulty": 3,
+        "variantLevel": "L1",
+        "role": "条件变式",
+        "virtual": false,
+        "label": "直接建模"
+      },
+      {
+        "id": "momentum_lesson1_hw_04_04_wind_tunnel",
+        "title": "第4题：风洞悬浮与动量流",
+        "chapter": "动量定理与动量守恒定律",
+        "difficulty": 3,
+        "variantLevel": "L2",
+        "role": "条件变式",
+        "virtual": false,
+        "label": "条件变化"
+      },
+      {
+        "label": "综合迁移",
+        "difficulty": 5,
+        "goal": "在多阶段或跨知识点情境中识别并复用该题族。",
+        "task": "把过程分段，并把“系统与正方向选择”与另一条物理规律联立；说明分段点及最终边界检查。",
+        "variantLevel": "L3",
+        "virtual": true,
+        "check": "能正确分段、说明每段所用规律，并在连接处检查状态连续性与临界边界。"
+      }
+    ],
+    "foundation": {
+      "id": "momentum_lesson1_hw_04_04_wind_tunnel",
+      "title": "第4题：风洞悬浮与动量流",
+      "chapter": "动量定理与动量守恒定律",
+      "difficulty": 3,
+      "variantLevel": "L2",
+      "role": "条件变式"
+    },
+    "peer": {
+      "id": "momentum_lesson1_hw_07_07_hall_thruster",
+      "title": "第7题：霍尔推进器动量流",
+      "chapter": "动量定理与动量守恒定律",
+      "difficulty": 4,
+      "variantLevel": "L2",
+      "role": "条件变式"
+    }
+  },
+  "studentExploration": {
+    "generatedBy": "backfill_learning_content_v1",
+    "title": "从“连续介质动量流”开始探索",
+    "opening": "先把“第1题：弯曲河道侧向压强”还原成可复用的物理模型。下面两步先要求预测和解释，再展开检验。",
+    "stages": [
+      {
+        "title": "先排除本题最容易出现的误判",
+        "prompt": "暂不代入数据。阅读“第1题：弯曲河道侧向压强”后，判断为什么“只比较速度大小而忽略动量方向，或未检查外力冲量便直接套用动量守恒”会导致错误，再写出研究对象、过程边界和首先要确定的“系统与正方向选择、冲量动量关系”。",
+        "thought": "最值得警惕的不是算错，而是：只比较速度大小而忽略动量方向，或未检查外力冲量便直接套用动量守恒。",
+        "check": "先执行：先选研究对象或系统、规定正方向，再按方向检查外力冲量与初末动量。再检查题设中的方向、接触、阶段或临界条件是否已经进入模型。",
+        "correction": "本题解析中的关键关系为：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]\n\n先建立关系，再决定哪些数值需要代入。",
+        "takeaway": "本题族的母题动作是“先选研究对象或系统、规定正方向，再按方向检查外力冲量与初末动量”；看到新情境时应复用这个动作，而不是复用答案。",
+        "animationPreset": {
+          "params": {
+            "mass": 1
+          },
+          "progress": 0.0,
+          "play": true,
+          "caption": "已切换到“连续介质动量流”的起始观察状态，请核对动画与图表中的关键量。"
+        }
+      },
+      {
+        "title": "观察会使“系统与正方向选择”发生转折的条件",
+        "prompt": "改变动画中的一个关键参数，指出哪个时刻、方向、图像趋势或临界条件最先发生变化；再说明“动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量”为什么仍成立。",
+        "thought": "若只比较动画外观，我可能忽略“冲量动量关系”已经改变。",
+        "check": "把变化前后都放回关系：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]\n\n逐项区分模型不变量与由参数决定的结果。",
+        "correction": "真正保持的是：动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量。数值结论需要在新条件下重新计算并检查边界。",
+        "takeaway": "与同题族其他题相比，本题真正需要追踪的是“系统与正方向选择、冲量动量关系”如何受条件变化控制。",
+        "animationPreset": {
+          "params": {
+            "mass": 5
+          },
+          "progress": 0.72,
+          "play": false,
+          "caption": "已切换到“连续介质动量流”的条件变化状态，请核对动画与图表中的关键量。"
+        }
+      }
+    ]
+  },
+  "realLifeCase": {
+    "generatedBy": "backfill_learning_content_v1",
+    "title": "碰撞缓冲、火箭推进与流体冲击：现实中的“连续介质动量流”",
+    "scene": "安全气囊通过延长碰撞时间降低平均冲击力，推进器和射流装置则依靠持续喷出质量形成反向推力。",
+    "mapping": "题目中的碰撞时间、速度变化和连续流分别对应现实中的缓冲过程、动量交换与单位时间质量输运。 当前题目“第1题：弯曲河道侧向压强”训练的“系统与正方向选择、冲量动量关系”正是完成这种映射时需要识别的量。",
+    "sharedModel": "本题可使用关系：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]\n\n更一般的模型关系是：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]\n\n动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量，因而动画与现实案例共享同一控制结构。",
+    "realityFactors": [
+      "真实碰撞会伴随形变、声和热损耗。",
+      "连续流速度与密度可能随截面和时间变化。"
+    ],
+    "authoritativeResources": [
+      {
+        "platform": "OpenStax",
+        "kind": "开放教材（英文）",
+        "title": "功率、功与动能定理",
+        "url": "https://openstax.org/books/physics/pages/9-1-work-power-and-the-work-energy-theorem",
+        "useFor": "用交互或教材内容复核本题涉及的“系统与正方向选择、冲量动量关系”，并把资源中的变量对应回题目的动画与图表。",
+        "matchReason": "该资源覆盖“动量与冲量”的核心关系，可用于检验本题所属“连续介质动量流”题族的建模步骤。"
+      }
+    ],
+    "question": "把“第1题：弯曲河道侧向压强”改写成上述现实场景后，应测量哪三个物理量，怎样用同一主关系判断结果是否满足安全或运行边界？",
+    "answer": "先测量题目所对应的状态量、控制参数和边界量，再按“先选研究对象或系统、规定正方向，再按方向检查外力冲量与初末动量”建立模型。可先使用：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]\n\n把测量值代入后，还必须检查方向、接触、阶段或临界条件；只有主方程和边界条件同时满足，现实结论才成立。",
+    "rubric": [
+      "指出现实对象与题目研究对象、过程边界的对应关系。",
+      "写出或说明关系 \\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]，并解释关键变量。",
+      "说明至少一个现实修正因素，并完成安全或临界条件检查。"
+    ]
+  },
+  "learningCycle": {
+    "generatedBy": "backfill_learning_content_v1",
+    "intervalDays": [
+      1,
+      3,
+      7,
+      14,
+      30
+    ],
+    "review": {
+      "title": "延时复习：迁移“连续介质动量流”",
+      "prompt": "隔一段时间后再看同题族变式，下列迁移方法正确的是（ ）。",
+      "answer": "C",
+      "explanation": "同题族迁移时应保留“动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
+      "options": [
+        {
+          "value": "A",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "diagnosis": {
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+          }
+        },
+        {
+          "value": "B",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "diagnosis": {
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+          }
+        },
+        {
+          "value": "C",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+        },
+        {
+          "value": "D",
+          "text": "只要公式相同，就不需要重新判断研究对象和过程",
+          "diagnosis": {
+            "tag": "忽略模型前提",
+            "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
+          }
+        }
+      ]
+    }
+  }
+}

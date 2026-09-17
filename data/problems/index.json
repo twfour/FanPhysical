@@ -1076,6 +1076,94 @@
     {
       "id": "required2_solution_20_arc_incline",
       "file": "required2_solution_20_arc_incline.json"
+    },
+    {
+      "id": "momentum_lesson1_course_01_01_arc_fall",
+      "file": "momentum_lesson1_course_01_01_arc_fall.json"
+    },
+    {
+      "id": "momentum_lesson1_course_02_02_steel_ball_rebound",
+      "file": "momentum_lesson1_course_02_02_steel_ball_rebound.json"
+    },
+    {
+      "id": "momentum_lesson1_course_03_03_projectile_momentum",
+      "file": "momentum_lesson1_course_03_03_projectile_momentum.json"
+    },
+    {
+      "id": "momentum_lesson1_course_04_04_chord_slide",
+      "file": "momentum_lesson1_course_04_04_chord_slide.json"
+    },
+    {
+      "id": "momentum_lesson1_course_05_05_basketball_rebound",
+      "file": "momentum_lesson1_course_05_05_basketball_rebound.json"
+    },
+    {
+      "id": "momentum_lesson1_course_06_06_pendulum_impulse",
+      "file": "momentum_lesson1_course_06_06_pendulum_impulse.json"
+    },
+    {
+      "id": "momentum_lesson1_course_07_07_water_jet",
+      "file": "momentum_lesson1_course_07_07_water_jet.json"
+    },
+    {
+      "id": "momentum_lesson1_course_08_08_ring_friction",
+      "file": "momentum_lesson1_course_08_08_ring_friction.json"
+    },
+    {
+      "id": "momentum_lesson1_course_09_09_charged_collision",
+      "file": "momentum_lesson1_course_09_09_charged_collision.json"
+    },
+    {
+      "id": "momentum_lesson1_course_10_10_spring_wall",
+      "file": "momentum_lesson1_course_10_10_spring_wall.json"
+    },
+    {
+      "id": "momentum_lesson1_course_11_11_box_slider",
+      "file": "momentum_lesson1_course_11_11_box_slider.json"
+    },
+    {
+      "id": "momentum_lesson1_course_12_12_cart_track",
+      "file": "momentum_lesson1_course_12_12_cart_track.json"
+    },
+    {
+      "id": "momentum_lesson1_hw_01_01_river_bend",
+      "file": "momentum_lesson1_hw_01_01_river_bend.json"
+    },
+    {
+      "id": "momentum_lesson1_hw_02_02_spring_groove",
+      "file": "momentum_lesson1_hw_02_02_spring_groove.json"
+    },
+    {
+      "id": "momentum_lesson1_hw_03_03_force_time",
+      "file": "momentum_lesson1_hw_03_03_force_time.json"
+    },
+    {
+      "id": "momentum_lesson1_hw_04_04_wind_tunnel",
+      "file": "momentum_lesson1_hw_04_04_wind_tunnel.json"
+    },
+    {
+      "id": "momentum_lesson1_hw_05_05_collision_xt",
+      "file": "momentum_lesson1_hw_05_05_collision_xt.json"
+    },
+    {
+      "id": "momentum_lesson1_hw_06_06_blocks_cart",
+      "file": "momentum_lesson1_hw_06_06_blocks_cart.json"
+    },
+    {
+      "id": "momentum_lesson1_hw_07_07_hall_thruster",
+      "file": "momentum_lesson1_hw_07_07_hall_thruster.json"
+    },
+    {
+      "id": "momentum_lesson1_hw_08_08_pendulum_blocks",
+      "file": "momentum_lesson1_hw_08_08_pendulum_blocks.json"
+    },
+    {
+      "id": "momentum_lesson1_hw_09_09_plank_arc",
+      "file": "momentum_lesson1_hw_09_09_plank_arc.json"
+    },
+    {
+      "id": "momentum_lesson1_hw_10_10_game_track",
+      "file": "momentum_lesson1_hw_10_10_game_track.json"
     }
   ]
 }

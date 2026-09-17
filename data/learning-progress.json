@@ -3856,6 +3856,336 @@
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_course_01_01_arc_fall",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "例1：圆弧与自由落体",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "圆弧与自由落体"
+      ],
+      "familyId": "momentum-impulse",
+      "familyName": "动量变化与冲量",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_course_02_02_steel_ball_rebound",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "例2：钢球反弹的动量变化",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "钢球反弹的动量变化"
+      ],
+      "familyId": "momentum-impulse",
+      "familyName": "动量变化与冲量",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_course_03_03_projectile_momentum",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "例3：平抛动量变化",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "平抛动量变化"
+      ],
+      "familyId": "momentum-impulse",
+      "familyName": "动量变化与冲量",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_course_04_04_chord_slide",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "例4：圆弦下滑的动量与冲量",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "圆弦下滑的动量与冲量"
+      ],
+      "familyId": "momentum-impulse",
+      "familyName": "动量变化与冲量",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_course_05_05_basketball_rebound",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "例5：篮球落地反弹冲量",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "篮球落地反弹冲量"
+      ],
+      "familyId": "momentum-impulse",
+      "familyName": "动量变化与冲量",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_course_06_06_pendulum_impulse",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "例6：摆球下摆的分力冲量",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "摆球下摆的分力冲量"
+      ],
+      "familyId": "momentum-impulse",
+      "familyName": "动量变化与冲量",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_course_07_07_water_jet",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "例7：水柱连续冲击煤层",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "水柱连续冲击煤层"
+      ],
+      "familyId": "momentum-flow",
+      "familyName": "连续介质动量流",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_course_08_08_ring_friction",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "例8：变支持力圆环滑动",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "变支持力圆环滑动"
+      ],
+      "familyId": "momentum-force",
+      "familyName": "变力冲量与图像",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_course_09_09_charged_collision",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "例9：带电球碰撞守恒",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "带电球碰撞守恒"
+      ],
+      "familyId": "momentum-conservation",
+      "familyName": "系统动量守恒",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_course_10_10_spring_wall",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "例10：墙边双块弹簧系统",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "墙边双块弹簧系统"
+      ],
+      "familyId": "momentum-spring",
+      "familyName": "弹簧系统动量与能量",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_course_11_11_box_slider",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "例11：滑块在方盒内往返",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "滑块在方盒内往返"
+      ],
+      "familyId": "momentum-conservation",
+      "familyName": "系统动量守恒",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_course_12_12_cart_track",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "例12：小球滑上可动曲轨",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "小球滑上可动曲轨"
+      ],
+      "familyId": "momentum-conservation",
+      "familyName": "系统动量守恒",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_hw_01_01_river_bend",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "第1题：弯曲河道侧向压强",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "弯曲河道侧向压强"
+      ],
+      "familyId": "momentum-flow",
+      "familyName": "连续介质动量流",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_hw_02_02_spring_groove",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "第2题：弧槽小球碰弹簧",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "弧槽小球碰弹簧"
+      ],
+      "familyId": "momentum-conservation",
+      "familyName": "系统动量守恒",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_hw_03_03_force_time",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "第3题：变力拉动物块",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "变力拉动物块"
+      ],
+      "familyId": "momentum-force",
+      "familyName": "变力冲量与图像",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_hw_04_04_wind_tunnel",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "第4题：风洞悬浮与动量流",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "风洞悬浮与动量流"
+      ],
+      "familyId": "momentum-flow",
+      "familyName": "连续介质动量流",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_hw_05_05_collision_xt",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "第5题：碰撞位移时间图像",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "碰撞位移时间图像"
+      ],
+      "familyId": "momentum-collision",
+      "familyName": "碰撞图像反演",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_hw_06_06_blocks_cart",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "第6题：弹簧双块与平板车",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "弹簧双块与平板车"
+      ],
+      "familyId": "momentum-spring",
+      "familyName": "弹簧系统动量与能量",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_hw_07_07_hall_thruster",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "第7题：霍尔推进器动量流",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "霍尔推进器动量流"
+      ],
+      "familyId": "momentum-flow",
+      "familyName": "连续介质动量流",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_hw_08_08_pendulum_blocks",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "第8题：摆球推动双木块",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "摆球推动双木块"
+      ],
+      "familyId": "momentum-conservation",
+      "familyName": "系统动量守恒",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_hw_09_09_plank_arc",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "第9题：长木板与圆弧组合体",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "长木板与圆弧组合体"
+      ],
+      "familyId": "momentum-composite",
+      "familyName": "多阶段动量能量综合",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_lesson1_hw_10_10_game_track",
+      "chapter": "动量定理与动量守恒定律",
+      "title": "第10题：螺旋轨道与长木板综合",
+      "knowledge": [
+        "动量定理",
+        "动量守恒",
+        "螺旋轨道与长木板综合"
+      ],
+      "familyId": "momentum-composite",
+      "familyName": "多阶段动量能量综合",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
     }
   ]
 }

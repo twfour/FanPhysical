@@ -46,7 +46,7 @@ var problemNoteCacheOrder = [];
 var problemNoteCacheLimit = 8;
 var adjacentPrefetchHandle = null;
 var adjacentPrefetchUsesIdleCallback = false;
-var runtimeAssetVersion = "20260801-kinematics-15";
+var runtimeAssetVersion = "20260917-momentum-01";
 var canvasW = 1000;
 var canvasH = 500;
 var animRight = 570;
@@ -720,6 +720,7 @@ var problemRuntimeScriptMap = {
   ],
   foundation_mechanics_model: ["/assets/scenes/foundation-mechanics.js"],
   functional_relation_model: ["/assets/scenes/functional-relations.js"],
+  momentum_model: ["/assets/scenes/momentum.js"],
   required_one_test_model: ["/assets/scenes/required-one-test.js"],
   required_two_test_model: ["/assets/scenes/required-two-test.js"]
 };

@@ -272,6 +272,17 @@ MODEL_PROFILES = {
 
 
 MODEL_PROFILES.update({
+    "momentum-impulse": {
+        "first": "先选研究对象或系统、规定正方向，再按方向检查外力冲量与初末动量",
+        "principle": r"\[\vec I_{\mathrm{ext}}=\Delta\vec p,\qquad \vec I_{\mathrm{ext}}=0\Rightarrow\sum\vec p_{\mathrm i}=\sum\vec p_{\mathrm f}\]",
+        "misconception": "只比较速度大小而忽略动量方向，或未检查外力冲量便直接套用动量守恒",
+        "invariant": "动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量",
+        "reality": "碰撞缓冲、火箭推进与流体冲击",
+        "scene": "安全气囊通过延长碰撞时间降低平均冲击力，推进器和射流装置则依靠持续喷出质量形成反向推力。",
+        "mapping": "题目中的碰撞时间、速度变化和连续流分别对应现实中的缓冲过程、动量交换与单位时间质量输运。",
+        "factors": ["真实碰撞会伴随形变、声和热损耗。", "连续流速度与密度可能随截面和时间变化。"],
+        "resource": "work",
+    },
     "particle-motion": {
         "first": "先确定参考系和约束，再用位置、速度和加速度连接全过程",
         "principle": r"\[\vec v=\frac{d\vec r}{dt},\qquad \vec a=\frac{d\vec v}{dt}\]",
