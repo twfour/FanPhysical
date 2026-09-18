@@ -46,7 +46,7 @@ var problemNoteCacheOrder = [];
 var problemNoteCacheLimit = 8;
 var adjacentPrefetchHandle = null;
 var adjacentPrefetchUsesIdleCallback = false;
-var runtimeAssetVersion = "20260918-collision-01";
+var runtimeAssetVersion = "20260918-momentum-practice-01";
 var canvasW = 1000;
 var canvasH = 500;
 var animRight = 570;
@@ -722,6 +722,7 @@ var problemRuntimeScriptMap = {
   functional_relation_model: ["/assets/scenes/functional-relations.js"],
   momentum_model: ["/assets/scenes/momentum.js"],
   collision_recoil_model: ["/assets/scenes/collision-recoil.js"],
+  momentum_practice_model: ["/assets/scenes/collision-recoil.js", "/assets/scenes/momentum-practice.js"],
   required_one_test_model: ["/assets/scenes/required-one-test.js"],
   required_two_test_model: ["/assets/scenes/required-two-test.js"]
 };

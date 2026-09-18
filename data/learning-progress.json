@@ -4516,6 +4516,216 @@
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
+    },
+    {
+      "id": "momentum_practice_lesson3_course_01_football_header",
+      "chapter": "动量守恒定律习题课",
+      "title": "例1：足球头球冲量",
+      "knowledge": [
+        "动量守恒",
+        "动量综合",
+        "足球头球冲量"
+      ],
+      "familyId": "momentum-practice-impulse",
+      "familyName": "冲量辨析",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_practice_lesson3_course_02_pressure_washer",
+      "chapter": "动量守恒定律习题课",
+      "title": "例2：高压水枪冲洗汽车",
+      "knowledge": [
+        "动量守恒",
+        "动量综合",
+        "高压水枪冲洗汽车"
+      ],
+      "familyId": "momentum-practice-flow",
+      "familyName": "连续介质动量流",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_practice_lesson3_course_03_wind_tunnel",
+      "chapter": "动量守恒定律习题课",
+      "title": "例3：娱乐风洞悬浮",
+      "knowledge": [
+        "动量守恒",
+        "动量综合",
+        "娱乐风洞悬浮"
+      ],
+      "familyId": "momentum-practice-flow",
+      "familyName": "连续介质动量流",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_practice_lesson3_course_04_linear_drag_throw",
+      "chapter": "动量守恒定律习题课",
+      "title": "例4：线性阻力竖直上抛",
+      "knowledge": [
+        "动量守恒",
+        "动量综合",
+        "线性阻力竖直上抛"
+      ],
+      "familyId": "momentum-practice-drag",
+      "familyName": "阻力动量综合",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_practice_lesson3_course_05_moving_bowl",
+      "chapter": "动量守恒定律习题课",
+      "title": "例5：小球在可动半圆槽中",
+      "knowledge": [
+        "动量守恒",
+        "动量综合",
+        "小球在可动半圆槽中"
+      ],
+      "familyId": "momentum-practice-constraint",
+      "familyName": "可动约束与质心",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_practice_lesson3_course_06_two_planks_slider",
+      "chapter": "动量守恒定律习题课",
+      "title": "例6：双平板车上的滑块",
+      "knowledge": [
+        "动量守恒",
+        "动量综合",
+        "双平板车上的滑块"
+      ],
+      "familyId": "momentum-practice-friction",
+      "familyName": "多物体摩擦动量",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_practice_lesson3_course_07_possible_pendulum_height",
+      "chapter": "动量守恒定律习题课",
+      "title": "例7：等质量摆球碰撞的可能高度",
+      "knowledge": [
+        "动量守恒",
+        "动量综合",
+        "等质量摆球碰撞的可能高度"
+      ],
+      "familyId": "momentum-practice-collision",
+      "familyName": "碰撞可行性与传递",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_practice_lesson3_course_08_wall_ball_chain",
+      "chapter": "动量守恒定律习题课",
+      "title": "例8：挡板与十球连续碰撞",
+      "knowledge": [
+        "动量守恒",
+        "动量综合",
+        "挡板与十球连续碰撞"
+      ],
+      "familyId": "momentum-practice-collision",
+      "familyName": "碰撞可行性与传递",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_practice_lesson3_course_09_mobile_curved_tube",
+      "chapter": "动量守恒定律习题课",
+      "title": "例9：可动车载弯管再探",
+      "knowledge": [
+        "动量守恒",
+        "动量综合",
+        "可动车载弯管再探"
+      ],
+      "familyId": "momentum-practice-constraint",
+      "familyName": "可动约束与质心",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_practice_lesson3_course_10_gravity_assist",
+      "chapter": "动量守恒定律习题课",
+      "title": "例10：行星引力弹弓",
+      "knowledge": [
+        "动量守恒",
+        "动量综合",
+        "行星引力弹弓"
+      ],
+      "familyId": "momentum-practice-collision",
+      "familyName": "碰撞可行性与传递",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_practice_lesson3_course_11_sticky_carts_spring",
+      "chapter": "动量守恒定律习题课",
+      "title": "例11：粘连小车压缩弹簧",
+      "knowledge": [
+        "动量守恒",
+        "动量综合",
+        "粘连小车压缩弹簧"
+      ],
+      "familyId": "momentum-practice-spring",
+      "familyName": "弹簧动量能量",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_practice_lesson3_course_12_spring_velocity_graph",
+      "chapter": "动量守恒定律习题课",
+      "title": "例12：弹簧双块速度图像复习",
+      "knowledge": [
+        "动量守恒",
+        "动量综合",
+        "弹簧双块速度图像复习"
+      ],
+      "familyId": "momentum-practice-spring",
+      "familyName": "弹簧动量能量",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_practice_lesson3_course_13_pendulum_plank_step",
+      "chapter": "动量守恒定律习题课",
+      "title": "例13：摆球切线滑板碰台阶",
+      "knowledge": [
+        "动量守恒",
+        "动量综合",
+        "摆球切线滑板碰台阶"
+      ],
+      "familyId": "momentum-practice-composite",
+      "familyName": "多阶段动量综合",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "momentum_practice_lesson3_course_14_bullet_bag_cart",
+      "chapter": "动量守恒定律习题课",
+      "title": "例14：子弹砂袋悬挂小车",
+      "knowledge": [
+        "动量守恒",
+        "动量综合",
+        "子弹砂袋悬挂小车"
+      ],
+      "familyId": "momentum-practice-composite",
+      "familyName": "多阶段动量综合",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
     }
   ]
 }

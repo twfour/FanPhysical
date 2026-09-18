@@ -272,6 +272,17 @@ MODEL_PROFILES = {
 
 
 MODEL_PROFILES.update({
+    "momentum-practice": {
+        "first": "先按时间顺序拆分过程，为每一阶段重新选择系统并检查外力冲量",
+        "principle": r"\[\vec I_{\mathrm{ext}}=\Delta\vec p,\qquad \sum\vec p_{\mathrm i}=\sum\vec p_{\mathrm f}\]",
+        "misconception": "跨越碰撞、摩擦或断绳等阶段使用同一套守恒关系",
+        "invariant": "系统边界和过程阶段决定可用规律；动量、能量、质心和约束条件需要分别核验",
+        "reality": "碰撞试验、射流设备和可动机械系统",
+        "scene": "碰撞台、风洞、水枪、可动轨道和摆锤装置都需要按阶段追踪冲量、动量交换与能量去向。",
+        "mapping": "题目中的质点、载体、弹簧和流体分别对应试验物体、移动基座、储能元件和连续介质。",
+        "factors": ["真实阻力和碰撞力随时间变化。", "装置的转动、形变和摩擦会引入额外能量通道。"],
+        "resource": "work",
+    },
     "collision-recoil": {
         "first": "先划分碰撞、相互作用和分离阶段，再为每一阶段选择系统并规定正方向",
         "principle": r"\[\vec I_{\mathrm{ext}}=\Delta\vec p,\qquad \sum\vec p_{\mathrm i}=\sum\vec p_{\mathrm f}\]",

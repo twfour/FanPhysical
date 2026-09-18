@@ -1,5 +1,5 @@
 var CACHE_PREFIX = "fanphysics-shell-";
-var CACHE_NAME = CACHE_PREFIX + "20260918-collision-01";
+var CACHE_NAME = CACHE_PREFIX + "20260918-momentum-practice-01";
 var APP_SHELL = [
   "/",
   "/classical-mechanics-demo.html",

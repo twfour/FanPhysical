@@ -1252,6 +1252,62 @@
     {
       "id": "collision_lesson2_hw_12_plank_collision",
       "file": "collision_lesson2_hw_12_plank_collision.json"
+    },
+    {
+      "id": "momentum_practice_lesson3_course_01_football_header",
+      "file": "momentum_practice_lesson3_course_01_football_header.json"
+    },
+    {
+      "id": "momentum_practice_lesson3_course_02_pressure_washer",
+      "file": "momentum_practice_lesson3_course_02_pressure_washer.json"
+    },
+    {
+      "id": "momentum_practice_lesson3_course_03_wind_tunnel",
+      "file": "momentum_practice_lesson3_course_03_wind_tunnel.json"
+    },
+    {
+      "id": "momentum_practice_lesson3_course_04_linear_drag_throw",
+      "file": "momentum_practice_lesson3_course_04_linear_drag_throw.json"
+    },
+    {
+      "id": "momentum_practice_lesson3_course_05_moving_bowl",
+      "file": "momentum_practice_lesson3_course_05_moving_bowl.json"
+    },
+    {
+      "id": "momentum_practice_lesson3_course_06_two_planks_slider",
+      "file": "momentum_practice_lesson3_course_06_two_planks_slider.json"
+    },
+    {
+      "id": "momentum_practice_lesson3_course_07_possible_pendulum_height",
+      "file": "momentum_practice_lesson3_course_07_possible_pendulum_height.json"
+    },
+    {
+      "id": "momentum_practice_lesson3_course_08_wall_ball_chain",
+      "file": "momentum_practice_lesson3_course_08_wall_ball_chain.json"
+    },
+    {
+      "id": "momentum_practice_lesson3_course_09_mobile_curved_tube",
+      "file": "momentum_practice_lesson3_course_09_mobile_curved_tube.json"
+    },
+    {
+      "id": "momentum_practice_lesson3_course_10_gravity_assist",
+      "file": "momentum_practice_lesson3_course_10_gravity_assist.json"
+    },
+    {
+      "id": "momentum_practice_lesson3_course_11_sticky_carts_spring",
+      "file": "momentum_practice_lesson3_course_11_sticky_carts_spring.json"
+    },
+    {
+      "id": "momentum_practice_lesson3_course_12_spring_velocity_graph",
+      "file": "momentum_practice_lesson3_course_12_spring_velocity_graph.json"
+    },
+    {
+      "id": "momentum_practice_lesson3_course_13_pendulum_plank_step",
+      "file": "momentum_practice_lesson3_course_13_pendulum_plank_step.json"
+    },
+    {
+      "id": "momentum_practice_lesson3_course_14_bullet_bag_cart",
+      "file": "momentum_practice_lesson3_course_14_bullet_bag_cart.json"
     }
   ]
 }

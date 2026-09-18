@@ -1,0 +1,292 @@
+{
+  "id": "momentum_practice_lesson3_course_03_wind_tunnel",
+  "chapter": "动量守恒定律习题课",
+  "title": "例3：娱乐风洞悬浮",
+  "question": "质量为 \\(m\\) 的游客静止在半径为 \\(R\\) 的圆柱形竖直风洞内，受风投影面积为 \\(S\\)，空气密度为 \\(\\rho\\)，气流向上且撞击人体后速度变为零。判断悬浮风速及风速改变后的加速度（单选）。",
+  "options": [
+    "A. 风速不变时，受风面积改变仍能静止",
+    "B. 气流速度为 \\(\\sqrt{mg/(\\pi\\rho R^2)}\\)",
+    "C. 风速变为原来一半时，向下加速度为 \\(g/2\\)",
+    "D. 风速变为原来 2 倍时，向上加速度为 \\(3g\\)"
+  ],
+  "answer": "D",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "先划分过程并明确研究系统，再检查外力冲量、机械能变化和约束条件。",
+    "sharedFormula": "\\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "title": "条件提取",
+      "content": "标出关键时刻、速度方向、相互作用阶段及题目给出的临界条件。"
+    },
+    {
+      "title": "系统与规律",
+      "content": "逐阶段选择研究系统；动量、机械能和质心关系只在各自适用条件下使用。"
+    },
+    {
+      "title": "计算与判断",
+      "content": "风力为 \\(F=\\rho Sv^2\\)，悬浮时等于 \\(mg\\)。风速减半时风力为 \\(mg/4\\)，向下加速度为 \\(3g/4\\)；风速加倍时风力为 \\(4mg\\)，净力为 \\(3mg\\)，向上加速度为 \\(3g\\)。"
+    },
+    {
+      "title": "结论",
+      "content": "答案为 **D**。检查方向、量纲、能量范围及碰后分离条件。"
+    }
+  ],
+  "knowledge": [
+    "动量守恒",
+    "动量综合",
+    "娱乐风洞悬浮"
+  ],
+  "practice": {
+    "title": "进阶近似题：弯管射流受力",
+    "question": "稳定水流以速度 \\(v_1\\) 进入弯管，以速度 \\(v_2\\) 沿另一方向射出，质量流率为 \\(\\dot m\\)。求管壁受力。",
+    "answer": "\\(\\vec F_{\\rm fluid}=\\dot m(\\vec v_2-\\vec v_1)\\)，管壁受力反向。",
+    "thinking": "连续流问题按单位时间通过控制体的动量变化处理。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "momentum_practice_model",
+    "variant": "wind_tunnel",
+    "playable": true,
+    "interactive": true,
+    "notes": "按“娱乐风洞悬浮”原题过程显示运动、动量交换和关键临界状态。",
+    "params": {
+      "mass": {
+        "label": "基准质量",
+        "value": 1,
+        "min": 0.2,
+        "max": 5,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "speed": {
+        "label": "特征速度",
+        "value": 6,
+        "min": 1,
+        "max": 12,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "factor": {
+        "label": "条件系数",
+        "value": 0.5,
+        "min": 0.1,
+        "max": 1.5,
+        "step": 0.1,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "力学",
+    "topic": "动量守恒定律习题课",
+    "modelId": "momentum-practice",
+    "modelName": "动量守恒综合",
+    "familyId": "momentum-practice-flow",
+    "familyName": "连续介质动量流",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "分阶段选择系统",
+      "动量能量联合"
+    ],
+    "prerequisites": [
+      "动量定理",
+      "机械能与牛顿定律"
+    ]
+  },
+  "learningPath": {
+    "familyId": "momentum-practice-flow",
+    "familyName": "连续介质动量流",
+    "currentDifficulty": 3,
+    "currentLevel": "L2",
+    "mother": {
+      "id": "momentum_practice_lesson3_course_02_pressure_washer",
+      "title": "例2：高压水枪冲洗汽车",
+      "chapter": "动量守恒定律习题课",
+      "difficulty": 2,
+      "variantLevel": "L1",
+      "role": "条件变式"
+    },
+    "familyFocus": {
+      "observe": "分阶段选择系统",
+      "misconception": "跨越碰撞、摩擦或断绳等阶段使用同一套守恒关系",
+      "invariant": "系统边界和过程阶段决定可用规律；动量、能量、质心和约束条件需要分别核验",
+      "formula": "\\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“分阶段选择系统”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“分阶段选择系统”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“分阶段选择系统”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "id": "momentum_practice_lesson3_course_02_pressure_washer",
+        "title": "例2：高压水枪冲洗汽车",
+        "chapter": "动量守恒定律习题课",
+        "difficulty": 2,
+        "variantLevel": "L1",
+        "role": "条件变式",
+        "virtual": false,
+        "label": "直接建模"
+      },
+      {
+        "id": "momentum_practice_lesson3_course_03_wind_tunnel",
+        "title": "例3：娱乐风洞悬浮",
+        "chapter": "动量守恒定律习题课",
+        "difficulty": 3,
+        "variantLevel": "L2",
+        "role": "条件变式",
+        "virtual": false,
+        "label": "条件变化"
+      },
+      {
+        "label": "综合迁移",
+        "difficulty": 5,
+        "goal": "在多阶段或跨知识点情境中识别并复用该题族。",
+        "task": "把过程分段，并把“分阶段选择系统”与另一条物理规律联立；说明分段点及最终边界检查。",
+        "variantLevel": "L3",
+        "virtual": true,
+        "check": "能正确分段、说明每段所用规律，并在连接处检查状态连续性与临界边界。"
+      }
+    ],
+    "foundation": {
+      "id": "momentum_practice_lesson3_course_02_pressure_washer",
+      "title": "例2：高压水枪冲洗汽车",
+      "chapter": "动量守恒定律习题课",
+      "difficulty": 2,
+      "variantLevel": "L1",
+      "role": "条件变式"
+    }
+  },
+  "studentExploration": {
+    "generatedBy": "backfill_learning_content_v1",
+    "title": "从“连续介质动量流”开始探索",
+    "opening": "先把“例3：娱乐风洞悬浮”还原成可复用的物理模型。下面两步先要求预测和解释，再展开检验。",
+    "stages": [
+      {
+        "title": "先排除本题最容易出现的误判",
+        "prompt": "暂不代入数据。阅读“例3：娱乐风洞悬浮”后，判断为什么“跨越碰撞、摩擦或断绳等阶段使用同一套守恒关系”会导致错误，再写出研究对象、过程边界和首先要确定的“分阶段选择系统、动量能量联合”。",
+        "thought": "最值得警惕的不是算错，而是：跨越碰撞、摩擦或断绳等阶段使用同一套守恒关系。",
+        "check": "先执行：先按时间顺序拆分过程，为每一阶段重新选择系统并检查外力冲量。再检查题设中的方向、接触、阶段或临界条件是否已经进入模型。",
+        "correction": "本题解析中的关键关系为：\n\n\\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]\n\n先建立关系，再决定哪些数值需要代入。",
+        "takeaway": "本题族的母题动作是“先按时间顺序拆分过程，为每一阶段重新选择系统并检查外力冲量”；看到新情境时应复用这个动作，而不是复用答案。",
+        "animationPreset": {
+          "params": {
+            "mass": 1
+          },
+          "progress": 0.0,
+          "play": true,
+          "caption": "已切换到“连续介质动量流”的起始观察状态，请核对动画与图表中的关键量。"
+        }
+      },
+      {
+        "title": "观察会使“分阶段选择系统”发生转折的条件",
+        "prompt": "改变动画中的一个关键参数，指出哪个时刻、方向、图像趋势或临界条件最先发生变化；再说明“系统边界和过程阶段决定可用规律；动量、能量、质心和约束条件需要分别核验”为什么仍成立。",
+        "thought": "若只比较动画外观，我可能忽略“动量能量联合”已经改变。",
+        "check": "把变化前后都放回关系：\n\n\\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]\n\n逐项区分模型不变量与由参数决定的结果。",
+        "correction": "真正保持的是：系统边界和过程阶段决定可用规律；动量、能量、质心和约束条件需要分别核验。数值结论需要在新条件下重新计算并检查边界。",
+        "takeaway": "与同题族其他题相比，本题真正需要追踪的是“分阶段选择系统、动量能量联合”如何受条件变化控制。",
+        "animationPreset": {
+          "params": {
+            "mass": 5
+          },
+          "progress": 0.72,
+          "play": false,
+          "caption": "已切换到“连续介质动量流”的条件变化状态，请核对动画与图表中的关键量。"
+        }
+      }
+    ]
+  },
+  "realLifeCase": {
+    "generatedBy": "backfill_learning_content_v1",
+    "title": "碰撞试验、射流设备和可动机械系统：现实中的“连续介质动量流”",
+    "scene": "碰撞台、风洞、水枪、可动轨道和摆锤装置都需要按阶段追踪冲量、动量交换与能量去向。",
+    "mapping": "题目中的质点、载体、弹簧和流体分别对应试验物体、移动基座、储能元件和连续介质。 当前题目“例3：娱乐风洞悬浮”训练的“分阶段选择系统、动量能量联合”正是完成这种映射时需要识别的量。",
+    "sharedModel": "本题可使用关系：\n\n\\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]\n\n更一般的模型关系是：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]\n\n系统边界和过程阶段决定可用规律；动量、能量、质心和约束条件需要分别核验，因而动画与现实案例共享同一控制结构。",
+    "realityFactors": [
+      "真实阻力和碰撞力随时间变化。",
+      "装置的转动、形变和摩擦会引入额外能量通道。"
+    ],
+    "authoritativeResources": [
+      {
+        "platform": "OpenStax",
+        "kind": "开放教材（英文）",
+        "title": "功率、功与动能定理",
+        "url": "https://openstax.org/books/physics/pages/9-1-work-power-and-the-work-energy-theorem",
+        "useFor": "用交互或教材内容复核本题涉及的“分阶段选择系统、动量能量联合”，并把资源中的变量对应回题目的动画与图表。",
+        "matchReason": "该资源覆盖“动量守恒综合”的核心关系，可用于检验本题所属“连续介质动量流”题族的建模步骤。"
+      }
+    ],
+    "question": "把“例3：娱乐风洞悬浮”改写成上述现实场景后，应测量哪三个物理量，怎样用同一主关系判断结果是否满足安全或运行边界？",
+    "answer": "先测量题目所对应的状态量、控制参数和边界量，再按“先按时间顺序拆分过程，为每一阶段重新选择系统并检查外力冲量”建立模型。可先使用：\n\n\\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]\n\n把测量值代入后，还必须检查方向、接触、阶段或临界条件；只有主方程和边界条件同时满足，现实结论才成立。",
+    "rubric": [
+      "指出现实对象与题目研究对象、过程边界的对应关系。",
+      "写出或说明关系 \\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]，并解释关键变量。",
+      "说明至少一个现实修正因素，并完成安全或临界条件检查。"
+    ]
+  },
+  "learningCycle": {
+    "generatedBy": "backfill_learning_content_v1",
+    "intervalDays": [
+      1,
+      3,
+      7,
+      14,
+      30
+    ],
+    "review": {
+      "title": "延时复习：迁移“连续介质动量流”",
+      "prompt": "重新遇到“连续介质动量流”的新情境时，哪种处理最可靠？",
+      "answer": "A",
+      "explanation": "同题族迁移时应保留“系统边界和过程阶段决定可用规律；动量、能量、质心和约束条件需要分别核验”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
+      "options": [
+        {
+          "value": "A",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+        },
+        {
+          "value": "B",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "diagnosis": {
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+          }
+        },
+        {
+          "value": "C",
+          "text": "只要公式相同，就不需要重新判断研究对象和过程",
+          "diagnosis": {
+            "tag": "忽略模型前提",
+            "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
+          }
+        },
+        {
+          "value": "D",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "diagnosis": {
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+          }
+        }
+      ]
+    }
+  }
+}

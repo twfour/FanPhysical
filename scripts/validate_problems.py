@@ -71,6 +71,7 @@ SUPPORTED_ANIMATION_TYPES = {
     "functional_relation_model",
     "momentum_model",
     "collision_recoil_model",
+    "momentum_practice_model",
     "projectile",
     "spring_balance",
     "force_diagram",
