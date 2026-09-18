@@ -1,0 +1,291 @@
+{
+  "id": "collision_lesson2_hw_06_spring_velocity_graph",
+  "chapter": "碰撞与反冲",
+  "title": "第6题：弹簧双块速度图像",
+  "question": "轻弹簧两端连接质量为 \\(m_1、m_2\\) 的物块，静止在光滑水平面。令 \\(m_1\\) 瞬时获得向右 \\(3\\,\\mathrm{m/s}\\) 的速度，图示给出两物块速度随时间变化。根据图像判断弹簧状态、质量比和能量比（单选）。",
+  "options": [
+    "A. \\(t_1、t_3\\) 时弹簧均处于压缩状态且势能最大",
+    "B. \\(t_4\\) 时弹簧恢复原长，两物块回到出发位置",
+    "C. \\(m_1:m_2=2:3\\)",
+    "D. \\(t_3\\) 时 \\(E_k:E_p=1:2\\)"
+  ],
+  "answer": "C",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "先按碰撞、相互作用或反冲阶段划分过程，统一正方向并明确每一阶段的系统边界。",
+    "sharedFormula": "\\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "title": "条件提取",
+      "content": "标出碰前与碰后状态，规定正方向；短时碰撞先判断外力冲量能否忽略。"
+    },
+    {
+      "title": "系统与方程",
+      "content": "按阶段选择研究系统，动量守恒与机械能守恒分别检查，不能因动量守恒就默认动能不变。"
+    },
+    {
+      "title": "计算与判断",
+      "content": "由 \\(t_2\\) 时 \\(v_1=0,v_2=2\\) 与初态动量守恒得 \\(3m_1=2m_2\\)，故质量比 \\(2:3\\)。\\(t_4\\) 时弹簧恢复原长且速度状态回到初态，但质心一直向右运动，两物块不会回到原出发位置。\\(t_1、t_3\\) 分别是最大压缩与最大伸长；按总能量计算 \\(t_3\\) 时能量比不是 \\(1:2\\)。"
+    },
+    {
+      "title": "结论",
+      "content": "答案为 **C**。最后检查速度方向、总动量和碰后动能是否符合碰撞类型。"
+    }
+  ],
+  "knowledge": [
+    "动量守恒",
+    "碰撞与反冲",
+    "弹簧双块速度图像"
+  ],
+  "practice": {
+    "title": "进阶近似题：非等质量弹簧碰撞",
+    "question": "质量 \\(m_1\\) 的物块以 \\(v_0\\) 撞上与弹簧相连的质量 \\(m_2\\) 物块并粘连，弹簧另一端连接质量 \\(m_3\\)。求最大压缩量和 \\(m_3\\) 的最大速度。",
+    "answer": "先处理短时粘连，再对弹簧作用阶段联立总动量与机械能。",
+    "thinking": "碰撞阶段与弹簧缓慢作用阶段必须分开选系统，机械能不能跨越粘连碰撞直接守恒。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "collision_recoil_model",
+    "variant": "spring_velocity_graph",
+    "playable": true,
+    "interactive": true,
+    "notes": "按“弹簧双块速度图像”原题过程显示物体运动、动量交换和关键阶段。",
+    "params": {
+      "mass": {
+        "label": "基准质量",
+        "value": 1,
+        "min": 0.2,
+        "max": 5,
+        "step": 0.1,
+        "unit": "kg"
+      },
+      "speed": {
+        "label": "初速度",
+        "value": 6,
+        "min": 1,
+        "max": 12,
+        "step": 0.5,
+        "unit": "m/s"
+      },
+      "factor": {
+        "label": "质量比/条件",
+        "value": 0.5,
+        "min": 0.1,
+        "max": 1.5,
+        "step": 0.1,
+        "unit": ""
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "力学",
+    "topic": "碰撞与反冲",
+    "modelId": "collision-recoil",
+    "modelName": "碰撞与反冲",
+    "familyId": "collision-recoil-spring",
+    "familyName": "碰撞与弹簧耦合",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "分阶段选择系统",
+      "动量与能量联合"
+    ],
+    "prerequisites": [
+      "动量定理",
+      "机械能守恒"
+    ]
+  },
+  "learningPath": {
+    "familyId": "collision-recoil-spring",
+    "familyName": "碰撞与弹簧耦合",
+    "currentDifficulty": 4,
+    "currentLevel": "L2",
+    "mother": {
+      "id": "collision_lesson2_course_03_sticky_spring",
+      "title": "例3：粘连碰撞与弹簧储能",
+      "chapter": "碰撞与反冲",
+      "difficulty": 4,
+      "variantLevel": "L2",
+      "role": "条件变式"
+    },
+    "familyFocus": {
+      "observe": "分阶段选择系统",
+      "misconception": "只检查动量守恒，不检查碰后动能是否增加以及两物体是否已经分离",
+      "invariant": "短时作用中的总动量取决于外力冲量；机械能是否守恒和碰撞后的分离条件必须另行判断",
+      "formula": "\\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“分阶段选择系统”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“分阶段选择系统”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“分阶段选择系统”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "label": "直接建模",
+        "difficulty": 2,
+        "goal": "在单一过程中直接调用“碰撞与弹簧耦合”的主关系。",
+        "task": "保留原模型，只给一组完整条件；先写 \\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]，再说明“动量与能量联合”如何进入方程。",
+        "variantLevel": "L1",
+        "virtual": true,
+        "check": "能先写出 \\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]，再代入条件并得到量纲正确的结果。"
+      },
+      {
+        "id": "collision_lesson2_course_03_sticky_spring",
+        "title": "例3：粘连碰撞与弹簧储能",
+        "chapter": "碰撞与反冲",
+        "difficulty": 4,
+        "variantLevel": "L2",
+        "role": "条件变式",
+        "virtual": false,
+        "label": "条件变化"
+      },
+      {
+        "label": "综合迁移",
+        "difficulty": 5,
+        "goal": "在多阶段或跨知识点情境中识别并复用该题族。",
+        "task": "把过程分段，并把“分阶段选择系统”与另一条物理规律联立；说明分段点及最终边界检查。",
+        "variantLevel": "L3",
+        "virtual": true,
+        "check": "能正确分段、说明每段所用规律，并在连接处检查状态连续性与临界边界。"
+      }
+    ],
+    "peer": {
+      "id": "collision_lesson2_course_03_sticky_spring",
+      "title": "例3：粘连碰撞与弹簧储能",
+      "chapter": "碰撞与反冲",
+      "difficulty": 4,
+      "variantLevel": "L2",
+      "role": "条件变式"
+    }
+  },
+  "studentExploration": {
+    "generatedBy": "backfill_learning_content_v1",
+    "title": "从“碰撞与弹簧耦合”开始探索",
+    "opening": "先把“第6题：弹簧双块速度图像”还原成可复用的物理模型。下面两步先要求预测和解释，再展开检验。",
+    "stages": [
+      {
+        "title": "先排除本题最容易出现的误判",
+        "prompt": "暂不代入数据。阅读“第6题：弹簧双块速度图像”后，判断为什么“只检查动量守恒，不检查碰后动能是否增加以及两物体是否已经分离”会导致错误，再写出研究对象、过程边界和首先要确定的“分阶段选择系统、动量与能量联合”。",
+        "thought": "最值得警惕的不是算错，而是：只检查动量守恒，不检查碰后动能是否增加以及两物体是否已经分离。",
+        "check": "先执行：先划分碰撞、相互作用和分离阶段，再为每一阶段选择系统并规定正方向。再检查题设中的方向、接触、阶段或临界条件是否已经进入模型。",
+        "correction": "本题解析中的关键关系为：\n\n\\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]\n\n先建立关系，再决定哪些数值需要代入。",
+        "takeaway": "本题族的母题动作是“先划分碰撞、相互作用和分离阶段，再为每一阶段选择系统并规定正方向”；看到新情境时应复用这个动作，而不是复用答案。",
+        "animationPreset": {
+          "params": {
+            "mass": 1
+          },
+          "progress": 0.0,
+          "play": true,
+          "caption": "已切换到“碰撞与弹簧耦合”的起始观察状态，请核对动画与图表中的关键量。"
+        }
+      },
+      {
+        "title": "观察会使“分阶段选择系统”发生转折的条件",
+        "prompt": "改变动画中的一个关键参数，指出哪个时刻、方向、图像趋势或临界条件最先发生变化；再说明“短时作用中的总动量取决于外力冲量；机械能是否守恒和碰撞后的分离条件必须另行判断”为什么仍成立。",
+        "thought": "若只比较动画外观，我可能忽略“动量与能量联合”已经改变。",
+        "check": "把变化前后都放回关系：\n\n\\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]\n\n逐项区分模型不变量与由参数决定的结果。",
+        "correction": "真正保持的是：短时作用中的总动量取决于外力冲量；机械能是否守恒和碰撞后的分离条件必须另行判断。数值结论需要在新条件下重新计算并检查边界。",
+        "takeaway": "与同题族其他题相比，本题真正需要追踪的是“分阶段选择系统、动量与能量联合”如何受条件变化控制。",
+        "animationPreset": {
+          "params": {
+            "mass": 5
+          },
+          "progress": 0.72,
+          "play": false,
+          "caption": "已切换到“碰撞与弹簧耦合”的条件变化状态，请核对动画与图表中的关键量。"
+        }
+      }
+    ]
+  },
+  "realLifeCase": {
+    "generatedBy": "backfill_learning_content_v1",
+    "title": "碰撞试验、反冲推进与缓冲设计：现实中的“碰撞与弹簧耦合”",
+    "scene": "车辆碰撞试验、牛顿摆、火箭喷气和枪炮反冲都通过测量碰撞前后速度来追踪动量交换与能量去向。",
+    "mapping": "题目中的碰撞物体、可动载体和喷出质量对应现实中的试验小车、运载器与推进剂，速度变化对应冲量和反冲效果。 当前题目“第6题：弹簧双块速度图像”训练的“分阶段选择系统、动量与能量联合”正是完成这种映射时需要识别的量。",
+    "sharedModel": "本题可使用关系：\n\n\\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]\n\n更一般的模型关系是：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]\n\n短时作用中的总动量取决于外力冲量；机械能是否守恒和碰撞后的分离条件必须另行判断，因而动画与现实案例共享同一控制结构。",
+    "realityFactors": [
+      "真实碰撞存在形变、转动和声热损耗。",
+      "喷气与接触力通常随时间变化，不能只看峰值。"
+    ],
+    "authoritativeResources": [
+      {
+        "platform": "OpenStax",
+        "kind": "开放教材（英文）",
+        "title": "功率、功与动能定理",
+        "url": "https://openstax.org/books/physics/pages/9-1-work-power-and-the-work-energy-theorem",
+        "useFor": "用交互或教材内容复核本题涉及的“分阶段选择系统、动量与能量联合”，并把资源中的变量对应回题目的动画与图表。",
+        "matchReason": "该资源覆盖“碰撞与反冲”的核心关系，可用于检验本题所属“碰撞与弹簧耦合”题族的建模步骤。"
+      }
+    ],
+    "question": "把“第6题：弹簧双块速度图像”改写成上述现实场景后，应测量哪三个物理量，怎样用同一主关系判断结果是否满足安全或运行边界？",
+    "answer": "先测量题目所对应的状态量、控制参数和边界量，再按“先划分碰撞、相互作用和分离阶段，再为每一阶段选择系统并规定正方向”建立模型。可先使用：\n\n\\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]\n\n把测量值代入后，还必须检查方向、接触、阶段或临界条件；只有主方程和边界条件同时满足，现实结论才成立。",
+    "rubric": [
+      "指出现实对象与题目研究对象、过程边界的对应关系。",
+      "写出或说明关系 \\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]，并解释关键变量。",
+      "说明至少一个现实修正因素，并完成安全或临界条件检查。"
+    ]
+  },
+  "learningCycle": {
+    "generatedBy": "backfill_learning_content_v1",
+    "intervalDays": [
+      1,
+      3,
+      7,
+      14,
+      30
+    ],
+    "review": {
+      "title": "延时复习：迁移“碰撞与弹簧耦合”",
+      "prompt": "重新遇到“碰撞与弹簧耦合”的新情境时，哪种处理最可靠？",
+      "answer": "D",
+      "explanation": "同题族迁移时应保留“短时作用中的总动量取决于外力冲量；机械能是否守恒和碰撞后的分离条件必须另行判断”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
+      "options": [
+        {
+          "value": "A",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "diagnosis": {
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+          }
+        },
+        {
+          "value": "B",
+          "text": "只要公式相同，就不需要重新判断研究对象和过程",
+          "diagnosis": {
+            "tag": "忽略模型前提",
+            "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
+          }
+        },
+        {
+          "value": "C",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "diagnosis": {
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+          }
+        },
+        {
+          "value": "D",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+        }
+      ]
+    }
+  }
+}

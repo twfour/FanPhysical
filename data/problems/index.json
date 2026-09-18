@@ -1164,6 +1164,94 @@
     {
       "id": "momentum_lesson1_hw_10_10_game_track",
       "file": "momentum_lesson1_hw_10_10_game_track.json"
+    },
+    {
+      "id": "collision_lesson2_course_01_head_on_collision",
+      "file": "collision_lesson2_course_01_head_on_collision.json"
+    },
+    {
+      "id": "collision_lesson2_course_02_newton_cradle",
+      "file": "collision_lesson2_course_02_newton_cradle.json"
+    },
+    {
+      "id": "collision_lesson2_course_03_sticky_spring",
+      "file": "collision_lesson2_course_03_sticky_spring.json"
+    },
+    {
+      "id": "collision_lesson2_course_04_person_boat",
+      "file": "collision_lesson2_course_04_person_boat.json"
+    },
+    {
+      "id": "collision_lesson2_course_05_cannon_recoil",
+      "file": "collision_lesson2_course_05_cannon_recoil.json"
+    },
+    {
+      "id": "collision_lesson2_course_06_rocket_ejection",
+      "file": "collision_lesson2_course_06_rocket_ejection.json"
+    },
+    {
+      "id": "collision_lesson2_course_07_bullet_block",
+      "file": "collision_lesson2_course_07_bullet_block.json"
+    },
+    {
+      "id": "collision_lesson2_course_08_bullet_spring_blocks",
+      "file": "collision_lesson2_course_08_bullet_spring_blocks.json"
+    },
+    {
+      "id": "collision_lesson2_course_09_block_rider",
+      "file": "collision_lesson2_course_09_block_rider.json"
+    },
+    {
+      "id": "collision_lesson2_course_10_cart_pendulum",
+      "file": "collision_lesson2_course_10_cart_pendulum.json"
+    },
+    {
+      "id": "collision_lesson2_hw_01_skateboard_jump",
+      "file": "collision_lesson2_hw_01_skateboard_jump.json"
+    },
+    {
+      "id": "collision_lesson2_hw_02_collision_possible",
+      "file": "collision_lesson2_hw_02_collision_possible.json"
+    },
+    {
+      "id": "collision_lesson2_hw_03_mobile_u_tube",
+      "file": "collision_lesson2_hw_03_mobile_u_tube.json"
+    },
+    {
+      "id": "collision_lesson2_hw_04_cart_jump",
+      "file": "collision_lesson2_hw_04_cart_jump.json"
+    },
+    {
+      "id": "collision_lesson2_hw_05_billiard_chain",
+      "file": "collision_lesson2_hw_05_billiard_chain.json"
+    },
+    {
+      "id": "collision_lesson2_hw_06_spring_velocity_graph",
+      "file": "collision_lesson2_hw_06_spring_velocity_graph.json"
+    },
+    {
+      "id": "collision_lesson2_hw_07_pendulum_collision",
+      "file": "collision_lesson2_hw_07_pendulum_collision.json"
+    },
+    {
+      "id": "collision_lesson2_hw_08_bounce_big_ball",
+      "file": "collision_lesson2_hw_08_bounce_big_ball.json"
+    },
+    {
+      "id": "collision_lesson2_hw_09_acrobat_cart",
+      "file": "collision_lesson2_hw_09_acrobat_cart.json"
+    },
+    {
+      "id": "collision_lesson2_hw_10_mobile_curved_tube",
+      "file": "collision_lesson2_hw_10_mobile_curved_tube.json"
+    },
+    {
+      "id": "collision_lesson2_hw_11_ring_bullet_pendulum",
+      "file": "collision_lesson2_hw_11_ring_bullet_pendulum.json"
+    },
+    {
+      "id": "collision_lesson2_hw_12_plank_collision",
+      "file": "collision_lesson2_hw_12_plank_collision.json"
     }
   ]
 }

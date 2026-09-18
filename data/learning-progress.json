@@ -4186,6 +4186,336 @@
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_course_01_head_on_collision",
+      "chapter": "碰撞与反冲",
+      "title": "例1：对心碰撞速度的可能值",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "对心碰撞速度的可能值"
+      ],
+      "familyId": "collision-recoil-collision",
+      "familyName": "弹性碰撞与可行性",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_course_02_newton_cradle",
+      "chapter": "碰撞与反冲",
+      "title": "例2：质量递减牛顿摆",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "质量递减牛顿摆"
+      ],
+      "familyId": "collision-recoil-collision",
+      "familyName": "弹性碰撞与可行性",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_course_03_sticky_spring",
+      "chapter": "碰撞与反冲",
+      "title": "例3：粘连碰撞与弹簧储能",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "粘连碰撞与弹簧储能"
+      ],
+      "familyId": "collision-recoil-spring",
+      "familyName": "碰撞与弹簧耦合",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_course_04_person_boat",
+      "chapter": "碰撞与反冲",
+      "title": "例4：人走船动",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "人走船动"
+      ],
+      "familyId": "collision-recoil-recoil",
+      "familyName": "反冲与质心运动",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_course_05_cannon_recoil",
+      "chapter": "碰撞与反冲",
+      "title": "例5：炮车发射反冲",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "炮车发射反冲"
+      ],
+      "familyId": "collision-recoil-recoil",
+      "familyName": "反冲与质心运动",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_course_06_rocket_ejection",
+      "chapter": "碰撞与反冲",
+      "title": "例6：火箭连续喷气",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "火箭连续喷气"
+      ],
+      "familyId": "collision-recoil-recoil",
+      "familyName": "反冲与质心运动",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_course_07_bullet_block",
+      "chapter": "碰撞与反冲",
+      "title": "例7：子弹嵌入木块",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "子弹嵌入木块"
+      ],
+      "familyId": "collision-recoil-inelastic",
+      "familyName": "完全非弹性碰撞",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_course_08_bullet_spring_blocks",
+      "chapter": "碰撞与反冲",
+      "title": "例8：子弹木块弹簧系统",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "子弹木块弹簧系统"
+      ],
+      "familyId": "collision-recoil-spring",
+      "familyName": "碰撞与弹簧耦合",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_course_09_block_rider",
+      "chapter": "碰撞与反冲",
+      "title": "例9：粘连木块推动上层滑块",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "粘连木块推动上层滑块"
+      ],
+      "familyId": "collision-recoil-inelastic",
+      "familyName": "完全非弹性碰撞",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_course_10_cart_pendulum",
+      "chapter": "碰撞与反冲",
+      "title": "例10：碰撞后车载摆球",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "碰撞后车载摆球"
+      ],
+      "familyId": "collision-recoil-composite",
+      "familyName": "可动约束综合",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_hw_01_skateboard_jump",
+      "chapter": "碰撞与反冲",
+      "title": "第1题：滑板间往返跳跃",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "滑板间往返跳跃"
+      ],
+      "familyId": "collision-recoil-recoil",
+      "familyName": "反冲与质心运动",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_hw_02_collision_possible",
+      "chapter": "碰撞与反冲",
+      "title": "第2题：正碰末速度判定",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "正碰末速度判定"
+      ],
+      "familyId": "collision-recoil-collision",
+      "familyName": "弹性碰撞与可行性",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_hw_03_mobile_u_tube",
+      "chapter": "碰撞与反冲",
+      "title": "第3题：可动U形管中的小球",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "可动U形管中的小球"
+      ],
+      "familyId": "collision-recoil-composite",
+      "familyName": "可动约束综合",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_hw_04_cart_jump",
+      "chapter": "碰撞与反冲",
+      "title": "第4题：相向小车间跳跃",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "相向小车间跳跃"
+      ],
+      "familyId": "collision-recoil-recoil",
+      "familyName": "反冲与质心运动",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_hw_05_billiard_chain",
+      "chapter": "碰撞与反冲",
+      "title": "第5题：白球连续撞击红球",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "白球连续撞击红球"
+      ],
+      "familyId": "collision-recoil-collision",
+      "familyName": "弹性碰撞与可行性",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_hw_06_spring_velocity_graph",
+      "chapter": "碰撞与反冲",
+      "title": "第6题：弹簧双块速度图像",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "弹簧双块速度图像"
+      ],
+      "familyId": "collision-recoil-spring",
+      "familyName": "碰撞与弹簧耦合",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_hw_07_pendulum_collision",
+      "chapter": "碰撞与反冲",
+      "title": "第7题：摆球与静止球弹性碰撞",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "摆球与静止球弹性碰撞"
+      ],
+      "familyId": "collision-recoil-collision",
+      "familyName": "弹性碰撞与可行性",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_hw_08_bounce_big_ball",
+      "chapter": "碰撞与反冲",
+      "title": "第8题：小球叠放反弹",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "小球叠放反弹"
+      ],
+      "familyId": "collision-recoil-collision",
+      "familyName": "弹性碰撞与可行性",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_hw_09_acrobat_cart",
+      "chapter": "碰撞与反冲",
+      "title": "第9题：杂技演员跳笼",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "杂技演员跳笼"
+      ],
+      "familyId": "collision-recoil-recoil",
+      "familyName": "反冲与质心运动",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_hw_10_mobile_curved_tube",
+      "chapter": "碰撞与反冲",
+      "title": "第10题：可动车载弯管",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "可动车载弯管"
+      ],
+      "familyId": "collision-recoil-composite",
+      "familyName": "可动约束综合",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_hw_11_ring_bullet_pendulum",
+      "chapter": "碰撞与反冲",
+      "title": "第11题：滑环悬挂弹道摆",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "滑环悬挂弹道摆"
+      ],
+      "familyId": "collision-recoil-composite",
+      "familyName": "可动约束综合",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "collision_lesson2_hw_12_plank_collision",
+      "chapter": "碰撞与反冲",
+      "title": "第12题：粗糙木板碰撞后相对滑动",
+      "knowledge": [
+        "动量守恒",
+        "碰撞与反冲",
+        "粗糙木板碰撞后相对滑动"
+      ],
+      "familyId": "collision-recoil-inelastic",
+      "familyName": "完全非弹性碰撞",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
     }
   ]
 }

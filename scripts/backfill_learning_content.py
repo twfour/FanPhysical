@@ -272,6 +272,17 @@ MODEL_PROFILES = {
 
 
 MODEL_PROFILES.update({
+    "collision-recoil": {
+        "first": "先划分碰撞、相互作用和分离阶段，再为每一阶段选择系统并规定正方向",
+        "principle": r"\[\vec I_{\mathrm{ext}}=\Delta\vec p,\qquad \sum\vec p_{\mathrm i}=\sum\vec p_{\mathrm f}\]",
+        "misconception": "只检查动量守恒，不检查碰后动能是否增加以及两物体是否已经分离",
+        "invariant": "短时作用中的总动量取决于外力冲量；机械能是否守恒和碰撞后的分离条件必须另行判断",
+        "reality": "碰撞试验、反冲推进与缓冲设计",
+        "scene": "车辆碰撞试验、牛顿摆、火箭喷气和枪炮反冲都通过测量碰撞前后速度来追踪动量交换与能量去向。",
+        "mapping": "题目中的碰撞物体、可动载体和喷出质量对应现实中的试验小车、运载器与推进剂，速度变化对应冲量和反冲效果。",
+        "factors": ["真实碰撞存在形变、转动和声热损耗。", "喷气与接触力通常随时间变化，不能只看峰值。"],
+        "resource": "work",
+    },
     "momentum-impulse": {
         "first": "先选研究对象或系统、规定正方向，再按方向检查外力冲量与初末动量",
         "principle": r"\[\vec I_{\mathrm{ext}}=\Delta\vec p,\qquad \vec I_{\mathrm{ext}}=0\Rightarrow\sum\vec p_{\mathrm i}=\sum\vec p_{\mathrm f}\]",
