@@ -4430,7 +4430,7 @@
     {
       "id": "collision_lesson2_hw_07_pendulum_collision",
       "chapter": "碰撞与反冲",
-      "title": "第7题：摆球与静止球弹性碰撞",
+      "title": "多选第7题：摆球与静止球碰撞",
       "knowledge": [
         "动量守恒",
         "碰撞与反冲",
@@ -4445,7 +4445,7 @@
     {
       "id": "collision_lesson2_hw_08_bounce_big_ball",
       "chapter": "碰撞与反冲",
-      "title": "第8题：小球叠放反弹",
+      "title": "多选第8题：小球叠放反弹",
       "knowledge": [
         "动量守恒",
         "碰撞与反冲",
@@ -4460,7 +4460,7 @@
     {
       "id": "collision_lesson2_hw_09_acrobat_cart",
       "chapter": "碰撞与反冲",
-      "title": "第9题：杂技演员跳笼",
+      "title": "多选第9题：杂技演员跳笼",
       "knowledge": [
         "动量守恒",
         "碰撞与反冲",
@@ -4475,7 +4475,7 @@
     {
       "id": "collision_lesson2_hw_10_mobile_curved_tube",
       "chapter": "碰撞与反冲",
-      "title": "第10题：可动车载弯管",
+      "title": "多选第10题：可动车载弯管",
       "knowledge": [
         "动量守恒",
         "碰撞与反冲",
@@ -4490,7 +4490,7 @@
     {
       "id": "collision_lesson2_hw_11_ring_bullet_pendulum",
       "chapter": "碰撞与反冲",
-      "title": "第11题：滑环悬挂弹道摆",
+      "title": "多选第11题：滑环悬挂弹道摆",
       "knowledge": [
         "动量守恒",
         "碰撞与反冲",
@@ -4505,7 +4505,7 @@
     {
       "id": "collision_lesson2_hw_12_plank_collision",
       "chapter": "碰撞与反冲",
-      "title": "第12题：粗糙木板碰撞后相对滑动",
+      "title": "多选第12题：粗糙木板碰撞后相对滑动",
       "knowledge": [
         "动量守恒",
         "碰撞与反冲",
