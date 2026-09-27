@@ -72,7 +72,7 @@ function createStudentExplorationBlock(problem) {
   }
   var block = createProblemNoteBlock("初学者探索", exploration.title || "如果我第一次遇到这道题", exploration.opening || "");
   block.classList.add("student-exploration-block");
-  block.dataset.defaultExpanded = "1";
+  block.dataset.defaultExpanded = "0";
   stages.forEach(function (stage, index) {
     var responseKey = problem.id + ":stage:" + index;
     var savedResponse = getLearningResponse(studentExplorationStorageKey, responseKey);

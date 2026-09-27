@@ -8,7 +8,7 @@ CHAPTER = "碰撞与反冲"
 
 COURSE = [
     ("head_on_collision", "对心碰撞速度的可能值", r"质量为 \(m\) 的小球 \(A\) 以速度 \(v_0\) 在光滑水平面上运动，与质量为 \(2m\) 的静止小球 \(B\) 发生对心碰撞。碰撞后两球速度大小可能为（多选）。", [r"A. \(v_A=\frac13v_0,\ v_B=\frac23v_0\)", r"B. \(v_A=\frac25v_0,\ v_B=\frac7{10}v_0\)", r"C. \(v_A=\frac14v_0,\ v_B=\frac58v_0\)", r"D. \(v_A=\frac38v_0,\ v_B=\frac5{16}v_0\)"], "AC", r"先用动量守恒确定可能的方向组合，再检查碰后总动能不能超过碰前，同时要求碰后两球已经分离。A 对应弹性碰撞；C 可由 \(A\) 反弹得到且动能减少；B 会使碰后动能大于碰前；D 中 \(A\) 仍比前方的 \(B\) 快，两球继续接近，不能作为碰撞结束状态。", "collision", 3, "L2"),
-    ("newton_cradle", "质量递减牛顿摆", r"用长均为 \(l\) 的细绳悬挂四个刚性小球，碰撞无机械能损失，质量满足 \(m_1\gg m_2\gg m_3\gg m_4\)。将第一个小球拉起 \(60^\circ\) 后释放，求最后一个小球开始运动时的速度。", None, r"第一球到最低点前由机械能守恒得 \(u_1=\sqrt{gl}\)。每次都是一维弹性碰撞，静止目标球获得速度 \(u_{i+1}=\frac{2m_i}{m_i+m_{i+1}}u_i\)。故 \[v_4=\frac{8m_1m_2m_3}{(m_1+m_2)(m_2+m_3)(m_3+m_4)}\sqrt{gl}.\]", "collision", 4, "L2"),
+    ("newton_cradle", "质量递减牛顿摆", r"用长均为 \(l\) 的细绳悬挂四个刚性小球，碰撞无机械能损失，质量满足 \(m_1\gg m_2\gg m_3\gg m_4\)。将第一个小球拉起 \(60^\circ\) 后释放，求最后一个小球开始运动时的速度。", None, r"第一球到最低点前由机械能守恒得 \(u_1=\sqrt{gl}\)。每次都是一维弹性碰撞，静止目标球获得速度 \(u_{i+1}=\frac{2m_i}{m_i+m_{i+1}}u_i\)。故 \[v_4=\frac{8m_1m_2m_3}{(m_1+m_2)(m_2+m_3)(m_3+m_4)}\sqrt{gl}\approx8\sqrt{gl}.\]", "collision", 4, "L2"),
     ("sticky_spring", "粘连碰撞与弹簧储能", r"光滑水平面上有三个质量均为 \(m\) 的物块 \(A、B、C\)，开始时弹簧处于原长。物块 \(A\) 以速度 \(v_0\) 向右运动，与 \(B\) 相碰并粘连。求弹簧弹性势能最大值与 \(C\) 的最大速度。", None, r"粘连后 \(A、B\) 的速度为 \(v_0/2\)。弹簧最短时 \(AB\) 与 \(C\) 共速 \(v_0/3\)，由能量差得 \(E_{p\max}=mv_0^2/12\)。弹簧恢复原长时相当于质量 \(2m\) 与 \(m\) 的弹性作用，\(C\) 的最大速度为 \(2v_0/3\)。", "spring", 4, "L2"),
     ("person_boat", "人走船动", r"静止在水面上的小船长为 \(L\)、质量为 \(M\)，船最右端站有质量为 \(m\) 的人。忽略水的阻力，人从最右端走到最左端的过程中，小船移动的距离是多少？", None, r"水平方向外力冲量为零，系统质心水平位置不变。设船向右移动 \(x\)，人相对船向左走 \(L\)，则 \(Mx+m(x-L)=0\)，所以 \[x=\frac{mL}{M+m}.\]", "recoil", 2, "L1"),
     ("cannon_recoil", "炮车发射反冲", r"炮车质量为 \(M\)，炮弹质量为 \(m\)，发射前系统静止。炮弹射出炮口时相对地面速度为 \(v\)。忽略地面对炮车的摩擦，求水平发射时炮车速度；若炮身仰角为 \(\alpha\)，求炮身后退速度。", None, r"水平方向动量守恒。水平发射时 \(MV=mv\)，炮车反向速度大小 \(V=mv/M\)。斜向发射时只取炮弹水平动量，\[V=\frac{mv\cos\alpha}{M}.\]", "recoil", 2, "L1"),
@@ -42,12 +42,26 @@ PRACTICE = {
     "composite": ("进阶近似题：可动约束中的碰撞", r"小球进入可水平移动的曲管，在最高点发生完全非弹性碰撞后沿另一侧滑下。求载体位移、碰撞损失和最终速度。", "全过程分为入管、上升、碰撞、下滑四段，每段分别检查水平动量和机械能。", "可动约束题优先用质心位置处理位移，用水平动量处理共速，再用能量处理高度与损失。"),
 }
 
+CALCULATION_ANSWERS = {
+    "newton_cradle": r"\(v_4=\dfrac{8m_1m_2m_3}{(m_1+m_2)(m_2+m_3)(m_3+m_4)}\sqrt{gl}\approx8\sqrt{gl}\)",
+    "sticky_spring": r"\(E_{p\max}=\dfrac{mv_0^2}{12}\)，\(v_{C\max}=\dfrac{2v_0}{3}\)",
+    "person_boat": r"小船向右移动 \(\dfrac{mL}{M+m}\)",
+    "cannon_recoil": r"水平发射时 \(V=\dfrac{mv}{M}\)；仰角为 \(\alpha\) 时 \(V=\dfrac{mv\cos\alpha}{M}\)，方向均与炮弹水平分速度相反",
+    "rocket_ejection": r"\(v_2=v_0+\dfrac{mv}{M-m}+\dfrac{mv}{M-2m}\)",
+    "bullet_block": r"\(V=\dfrac{mv_0}{M+m}\)，\(F=\dfrac{mMv_0^2}{2(M+m)d}\)",
+    "bullet_spring_blocks": r"\(E_{p\max}=\dfrac{mv_0^2}{400}\)",
+    "block_rider": r"\(s_{\rm rel}=2.4\,\mathrm m\)",
+    "cart_pendulum": r"两车速度大小为 \(2.0\,\mathrm{m/s}\)，方向向左；\(\theta=\arccos0.64\approx50.2^\circ\)",
+}
+
 def make_problem(item, number, kind):
     if len(item) == 8:
         slug, name, question, answer, explanation, family, difficulty, level = item
         options = None
     else:
         slug, name, question, options, answer, explanation, family, difficulty, level = item
+    if options is None and answer is None:
+        answer = CALCULATION_ANSWERS.get(slug)
     prefix = "course" if kind == "course" else "hw"
     problem_id = f"collision_lesson2_{prefix}_{number:02d}_{slug}"
     ptitle, pq, pa, pt = PRACTICE[family]

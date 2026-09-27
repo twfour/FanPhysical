@@ -4040,7 +4040,7 @@
     {
       "id": "momentum_lesson1_hw_01_01_river_bend",
       "chapter": "动量定理与动量守恒定律",
-      "title": "第1题：弯曲河道侧向压强",
+      "title": "单选第1题：弯曲河道侧向压强",
       "knowledge": [
         "动量定理",
         "动量守恒",
@@ -4055,7 +4055,7 @@
     {
       "id": "momentum_lesson1_hw_02_02_spring_groove",
       "chapter": "动量定理与动量守恒定律",
-      "title": "第2题：弧槽小球碰弹簧",
+      "title": "单选第2题：弧槽小球碰弹簧",
       "knowledge": [
         "动量定理",
         "动量守恒",
@@ -4070,7 +4070,7 @@
     {
       "id": "momentum_lesson1_hw_03_03_force_time",
       "chapter": "动量定理与动量守恒定律",
-      "title": "第3题：变力拉动物块",
+      "title": "单选第3题：变力拉动物块",
       "knowledge": [
         "动量定理",
         "动量守恒",
@@ -4085,7 +4085,7 @@
     {
       "id": "momentum_lesson1_hw_04_04_wind_tunnel",
       "chapter": "动量定理与动量守恒定律",
-      "title": "第4题：风洞悬浮与动量流",
+      "title": "单选第4题：风洞悬浮与动量流",
       "knowledge": [
         "动量定理",
         "动量守恒",
@@ -4100,7 +4100,7 @@
     {
       "id": "momentum_lesson1_hw_05_05_collision_xt",
       "chapter": "动量定理与动量守恒定律",
-      "title": "第5题：碰撞位移时间图像",
+      "title": "单选第5题：碰撞位移时间图像",
       "knowledge": [
         "动量定理",
         "动量守恒",
@@ -4115,7 +4115,7 @@
     {
       "id": "momentum_lesson1_hw_06_06_blocks_cart",
       "chapter": "动量定理与动量守恒定律",
-      "title": "第6题：弹簧双块与平板车",
+      "title": "多选第6题：弹簧双块与平板车",
       "knowledge": [
         "动量定理",
         "动量守恒",
@@ -4130,7 +4130,7 @@
     {
       "id": "momentum_lesson1_hw_07_07_hall_thruster",
       "chapter": "动量定理与动量守恒定律",
-      "title": "第7题：霍尔推进器动量流",
+      "title": "多选第7题：霍尔推进器动量流",
       "knowledge": [
         "动量定理",
         "动量守恒",
@@ -4145,7 +4145,7 @@
     {
       "id": "momentum_lesson1_hw_08_08_pendulum_blocks",
       "chapter": "动量定理与动量守恒定律",
-      "title": "第8题：摆球推动双木块",
+      "title": "多选第8题：摆球推动双木块",
       "knowledge": [
         "动量定理",
         "动量守恒",
@@ -4160,7 +4160,7 @@
     {
       "id": "momentum_lesson1_hw_09_09_plank_arc",
       "chapter": "动量定理与动量守恒定律",
-      "title": "第9题：长木板与圆弧组合体",
+      "title": "解答第9题：长木板与圆弧组合体",
       "knowledge": [
         "动量定理",
         "动量守恒",
@@ -4175,7 +4175,7 @@
     {
       "id": "momentum_lesson1_hw_10_10_game_track",
       "chapter": "动量定理与动量守恒定律",
-      "title": "第10题：螺旋轨道与长木板综合",
+      "title": "解答第10题：螺旋轨道与长木板综合",
       "knowledge": [
         "动量定理",
         "动量守恒",

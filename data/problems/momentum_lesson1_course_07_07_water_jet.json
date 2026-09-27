@@ -2,9 +2,9 @@
   "id": "momentum_lesson1_course_07_07_water_jet",
   "chapter": "动量定理与动量守恒定律",
   "title": "例7：水柱连续冲击煤层",
-  "question": "直径 \\(d=30\\,\\mathrm{cm}\\) 的水柱以 \\(v=50\\,\\mathrm{m/s}\\) 垂直冲击煤层后速度变为零，水密度 \\(\rho=1.0\times10^3\\,\\mathrm{kg/m^3}\\)。求平均冲击力。",
+  "question": "直径 \\(d=30\\,\\mathrm{cm}\\) 的水柱以 \\(v=50\\,\\mathrm{m/s}\\) 垂直冲击煤层后速度变为零，水密度 \\(\\rho=1.0\\times10^3\\,\\mathrm{kg/m^3}\\)。求平均冲击力。",
   "options": null,
-  "answer": "\\(F=\rho Sv^2=\rho\\dfrac{\\pi d^2}{4}v^2\u0007pprox1.77\times10^5\\,\\mathrm N\\)。",
+  "answer": "\\(F=\\rho Sv^2=\\rho\\dfrac{\\pi d^2}{4}v^2\\approx1.77\\times10^5\\,\\mathrm N\\)。",
   "analysisPresentation": {
     "collapseEachStep": true,
     "optionMode": "shared-solution"
@@ -16,11 +16,11 @@
     },
     {
       "title": "建模与计算",
-      "content": "在 \\(\\Delta t\\) 内参与碰撞的水质量为 \\(\\Delta m=\rho Sv\\Delta t\\)，其动量改变量为 \\(\\Delta m\\,v\\)，再除以 \\(\\Delta t\\)。"
+      "content": "在 \\(\\Delta t\\) 内参与碰撞的水质量为 \\(\\Delta m=\\rho Sv\\Delta t\\)，其动量改变量为 \\(\\Delta m\\,v\\)，再除以 \\(\\Delta t\\)。"
     },
     {
       "title": "结论与检查",
-      "content": "答案为 **\\(F=\rho Sv^2=\rho\\dfrac{\\pi d^2}{4}v^2\u0007pprox1.77\times10^5\\,\\mathrm N\\)。**。检查动量的方向、单位以及所选系统在对应方向上是否满足守恒条件。"
+      "content": "答案为 **\\(F=\\rho Sv^2=\\rho\\dfrac{\\pi d^2}{4}v^2\\approx1.77\\times10^5\\,\\mathrm N\\)。**。检查动量的方向、单位以及所选系统在对应方向上是否满足守恒条件。"
     }
   ],
   "knowledge": [
@@ -30,8 +30,8 @@
   ],
   "practice": {
     "title": "进阶近似题：变截面射流推力",
-    "question": "密度 \\(\rho\\) 的稳定射流以速度 \\(v_1\\) 进入弯管，以速度 \\(v_2\\) 沿与原方向夹角 \\(\u0007lpha\\) 射出，质量流率为 \\(\\dot m\\)。求管壁受力。",
-    "answer": "流体受力 \\(\u000bec F=\\dot m(\u000bec v_2-\u000bec v_1)\\)，管壁受力为其反作用力。",
+    "question": "密度 \\(\\rho\\) 的稳定射流以速度 \\(v_1\\) 进入弯管，以速度 \\(v_2\\) 沿与原方向夹角 \\(\\alpha\\) 射出，质量流率为 \\(\\dot m\\)。求管壁受力。",
+    "answer": "流体受力 \\(\\vec F=\\dot m(\\vec v_2-\\vec v_1)\\)，管壁受力为其反作用力。",
     "thinking": "选取单位时间流过的流体为控制体，分别写两个方向的动量流率。",
     "difficulty": "equal-or-higher",
     "upgradeType": "same-concept-structural-transfer"
@@ -135,7 +135,7 @@
       },
       {
         "id": "momentum_lesson1_hw_04_04_wind_tunnel",
-        "title": "第4题：风洞悬浮与动量流",
+        "title": "单选第4题：风洞悬浮与动量流",
         "chapter": "动量定理与动量守恒定律",
         "difficulty": 3,
         "variantLevel": "L2",
@@ -155,7 +155,7 @@
     ],
     "challenge": {
       "id": "momentum_lesson1_hw_04_04_wind_tunnel",
-      "title": "第4题：风洞悬浮与动量流",
+      "title": "单选第4题：风洞悬浮与动量流",
       "chapter": "动量定理与动量守恒定律",
       "difficulty": 3,
       "variantLevel": "L2",
@@ -241,12 +241,16 @@
     "review": {
       "title": "延时复习：迁移“连续介质动量流”",
       "prompt": "原题数据和情境都发生变化后，下面哪种做法仍然成立？",
-      "answer": "A",
+      "answer": "C",
       "explanation": "同题族迁移时应保留“动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
-          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "diagnosis": {
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+          }
         },
         {
           "value": "B",
@@ -258,11 +262,7 @@
         },
         {
           "value": "C",
-          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
-          "diagnosis": {
-            "tag": "忽略分段",
-            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
-          }
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
         },
         {
           "value": "D",

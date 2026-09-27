@@ -106,7 +106,7 @@
     "currentLevel": "L2",
     "mother": {
       "id": "momentum_lesson1_hw_06_06_blocks_cart",
-      "title": "第6题：弹簧双块与平板车",
+      "title": "多选第6题：弹簧双块与平板车",
       "chapter": "动量定理与动量守恒定律",
       "difficulty": 3,
       "variantLevel": "L2",
@@ -139,7 +139,7 @@
       },
       {
         "id": "momentum_lesson1_hw_06_06_blocks_cart",
-        "title": "第6题：弹簧双块与平板车",
+        "title": "多选第6题：弹簧双块与平板车",
         "chapter": "动量定理与动量守恒定律",
         "difficulty": 3,
         "variantLevel": "L2",
@@ -159,7 +159,7 @@
     ],
     "foundation": {
       "id": "momentum_lesson1_hw_06_06_blocks_cart",
-      "title": "第6题：弹簧双块与平板车",
+      "title": "多选第6题：弹簧双块与平板车",
       "chapter": "动量定理与动量守恒定律",
       "difficulty": 3,
       "variantLevel": "L2",
@@ -245,20 +245,20 @@
     "review": {
       "title": "延时复习：迁移“弹簧系统动量与能量”",
       "prompt": "隔一段时间后再看同题族变式，下列迁移方法正确的是（ ）。",
-      "answer": "B",
+      "answer": "A",
       "explanation": "同题族迁移时应保留“动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
       "options": [
         {
           "value": "A",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+        },
+        {
+          "value": "B",
           "text": "只要公式相同，就不需要重新判断研究对象和过程",
           "diagnosis": {
             "tag": "忽略模型前提",
             "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
           }
-        },
-        {
-          "value": "B",
-          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
         },
         {
           "value": "C",

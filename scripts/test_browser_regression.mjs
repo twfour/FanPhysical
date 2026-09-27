@@ -129,7 +129,7 @@ async function expandLearningBlocks(page) {
   await expandNoteBlock(page.locator(".real-life-case-block"), "real-life case");
 }
 
-async function openRegressionProblem(page) {
+async function openRegressionProblem(page, verifyDefaultLayout) {
   await ensureTreeBranchOpen(page, "2026暑假班");
   await ensureTreeBranchOpen(page, "必修二结业测试");
   var item = page.locator('.sidebar button[data-scene="' + PROBLEM_ID + '"]');
@@ -148,8 +148,10 @@ async function openRegressionProblem(page) {
       authoritativeIndex: blocks.indexOf(grid.querySelector(".authoritative-resources-block"))
     };
   });
-  assert.equal(learningLayout.explorationCollapsed, false, "student exploration should start expanded");
-  assert.equal(learningLayout.realLifeCollapsed, false, "real-life case should start expanded");
+  if (verifyDefaultLayout) {
+    assert.equal(learningLayout.explorationCollapsed, true, "student exploration should start collapsed");
+    assert.equal(learningLayout.realLifeCollapsed, false, "real-life case should start expanded");
+  }
   assert.equal(
     learningLayout.authoritativeIndex,
     learningLayout.realLifeIndex + 1,
@@ -305,7 +307,7 @@ async function main() {
   });
 
   await runCheck("独立同步密码与登录恢复", async function () {
-    await openRegressionProblem(page);
+    await openRegressionProblem(page, true);
     assert.equal(await page.locator(".problem-notes .learning-sync-panel").count(), 0);
     assert.equal(await page.locator(".problem-learning-status-bar").count(), 1);
     await page.locator("#treeHome").click();
