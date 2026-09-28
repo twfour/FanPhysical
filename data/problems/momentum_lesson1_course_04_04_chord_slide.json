@@ -287,5 +287,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-lesson1/course-04-chord-slide.webp",
+      "alt": "圆弦下滑的动量与冲量原题配图"
+    }
+  ]
 }

@@ -274,5 +274,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-practice-lesson3/course-06-two-planks-slider.webp",
+      "alt": "双平板车上的滑块原题配图"
+    }
+  ]
 }

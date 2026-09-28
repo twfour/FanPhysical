@@ -287,5 +287,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-practice-lesson3/course-11-sticky-carts-spring.webp",
+      "alt": "粘连小车压缩弹簧原题配图"
+    }
+  ]
 }

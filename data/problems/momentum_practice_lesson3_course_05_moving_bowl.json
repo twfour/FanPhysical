@@ -287,5 +287,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-practice-lesson3/course-05-moving-bowl.webp",
+      "alt": "小球在可动半圆槽中原题配图"
+    }
+  ]
 }

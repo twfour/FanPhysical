@@ -288,5 +288,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-practice-lesson3/course-03-wind-tunnel.webp",
+      "alt": "娱乐风洞悬浮原题配图"
+    }
+  ]
 }

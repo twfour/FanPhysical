@@ -280,5 +280,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-lesson1/homework-08-pendulum-blocks.webp",
+      "alt": "摆球推动双木块原题配图"
+    }
+  ]
 }

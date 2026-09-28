@@ -279,5 +279,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-practice-lesson3/course-01-football-header.webp",
+      "alt": "足球头球冲量原题配图"
+    }
+  ]
 }

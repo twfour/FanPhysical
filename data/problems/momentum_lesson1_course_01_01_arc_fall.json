@@ -287,5 +287,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-lesson1/course-01-arc-fall.webp",
+      "alt": "圆弧与自由落体原题配图"
+    }
+  ]
 }

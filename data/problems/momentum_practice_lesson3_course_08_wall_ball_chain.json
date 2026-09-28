@@ -288,5 +288,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-practice-lesson3/course-08-wall-ball-chain.webp",
+      "alt": "挡板与十球连续碰撞原题配图"
+    }
+  ]
 }

@@ -282,5 +282,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-practice-lesson3/course-13-pendulum-plank-step.webp",
+      "alt": "摆球切线滑板碰台阶原题配图"
+    }
+  ]
 }

@@ -287,5 +287,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-lesson1/homework-01-river-bend.webp",
+      "alt": "弯曲河道侧向压强原题配图"
+    }
+  ]
 }

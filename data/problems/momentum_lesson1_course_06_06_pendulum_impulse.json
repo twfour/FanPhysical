@@ -282,5 +282,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-lesson1/course-06-pendulum-impulse.webp",
+      "alt": "摆球下摆的分力冲量原题配图"
+    }
+  ]
 }

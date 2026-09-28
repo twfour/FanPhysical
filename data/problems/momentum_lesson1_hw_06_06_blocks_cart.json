@@ -278,5 +278,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-lesson1/homework-06-blocks-cart.webp",
+      "alt": "弹簧双块与平板车原题配图"
+    }
+  ]
 }

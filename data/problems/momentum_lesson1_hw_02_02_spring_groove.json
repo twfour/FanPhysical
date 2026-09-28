@@ -296,5 +296,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-lesson1/homework-02-spring-groove.webp",
+      "alt": "弧槽小球碰弹簧原题配图"
+    }
+  ]
 }

@@ -282,5 +282,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-lesson1/course-02-steel-ball-rebound.webp",
+      "alt": "钢球反弹的动量变化原题配图"
+    }
+  ]
 }

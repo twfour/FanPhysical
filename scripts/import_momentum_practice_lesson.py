@@ -6,6 +6,22 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "problems"
 CHAPTER = "动量守恒定律习题课"
 
+PROBLEM_IMAGES = {
+    "football_header": "course-01-football-header.webp",
+    "pressure_washer": "course-02-pressure-washer.webp",
+    "wind_tunnel": "course-03-wind-tunnel.webp",
+    "moving_bowl": "course-05-moving-bowl.webp",
+    "two_planks_slider": "course-06-two-planks-slider.webp",
+    "possible_pendulum_height": "course-07-possible-pendulum-height.webp",
+    "wall_ball_chain": "course-08-wall-ball-chain.webp",
+    "mobile_curved_tube": "course-09-mobile-curved-tube.webp",
+    "gravity_assist": "course-10-gravity-assist.webp",
+    "sticky_carts_spring": "course-11-sticky-carts-spring.webp",
+    "spring_velocity_graph": "course-12-spring-velocity-graph.webp",
+    "pendulum_plank_step": "course-13-pendulum-plank-step.webp",
+    "bullet_bag_cart": "course-14-bullet-bag-cart.webp",
+}
+
 PROBLEMS = [
     ("football_header", "足球头球冲量", r"足球由静止下落，被运动员用头竖直顶起，离开头部后仍回到原下落点，空气阻力不可忽略。判断重力冲量、头部做功、动量变化和头部冲量（单选）。", ["A. 足球下落和上升过程重力的冲量相等", "B. 头向上顶球的过程中，头部对足球做正功", "C. 头向上顶球的过程中，足球的动量变化量大小为 0", "D. 头向上顶球的过程中，头对足球的冲量等于足球动量的变化量"], "B", r"受空气阻力时上升和下降过程不对称，重力冲量不相等。接触时头部作用力向上且球发生向上位移，头部做正功。接触阶段还有重力冲量，因此头部冲量不单独等于总动量变化。", "impulse", 2, "L1"),
     ("pressure_washer", "高压水枪冲洗汽车", r"高压水枪喷水柱直径为 \(D\)，水流速度为 \(v\)，水柱垂直汽车表面且冲击后速度为零，水密度为 \(\rho\)。判断质量流率、冲力和速度加倍后的压强（单选）。", [r"A. 单位时间喷水质量为 \(\rho\pi vD^2\)", r"B. 单位时间喷水质量为 \(\frac14\rho vD^2\)", r"C. 水柱对汽车平均冲力为 \(\frac14\rho D^2v^2\)", "D. 出水速度变为 2 倍时，水对汽车的压强变为 4 倍"], "D", r"水柱截面积为 \(S=\pi D^2/4\)，所以质量流率为 \(\dot m=\rho Sv=\rho\pi D^2v/4\)，A、B 均错。水流垂直撞车后停止，平均冲力为 \(F=\dot m v=\rho\pi D^2v^2/4\)，原选项 C 缺少 \(\pi\)，故 C 错。平均压强 \(p=F/S=\rho v^2\)，速度加倍时压强变为 4 倍，D 对。", "flow", 2, "L1"),
@@ -41,6 +57,7 @@ def make_problem(item, number):
     return {
         "id": problem_id, "chapter": CHAPTER, "title": f"例{number}：{name}", "question": question,
         "options": options, "answer": answer,
+        "images": ([{"src": f"assets/problem-images/momentum-practice-lesson3/{PROBLEM_IMAGES[slug]}", "alt": f"{name}原题配图"}] if slug in PROBLEM_IMAGES else []),
         "analysis": {"title": "解析", "sharedThinking": "先划分过程并明确研究系统，再检查外力冲量、机械能变化和约束条件。", "sharedFormula": r"\[\vec I_{\rm ext}=\Delta\vec p,\qquad \sum\vec p_{\rm i}=\sum\vec p_{\rm f}\]"},
         "analysisPresentation": {"collapseEachStep": True, "optionMode": "independent-statements" if options and any(x in question for x in ("判断", "说法")) else "shared-solution"},
         "steps": [
@@ -58,7 +75,10 @@ def make_problem(item, number):
 def main():
     created=[]
     for number,item in enumerate(PROBLEMS,1):
-        problem=make_problem(item,number); path=OUT/f"{problem['id']}.json"; path.write_text(json.dumps(problem,ensure_ascii=False,indent=2)+"\n",encoding="utf-8"); created.append((problem["id"],path.name))
+        problem=make_problem(item,number); path=OUT/f"{problem['id']}.json"
+        if path.exists():
+            existing=json.loads(path.read_text(encoding="utf-8")); existing.update(problem); problem=existing
+        path.write_text(json.dumps(problem,ensure_ascii=False,indent=2)+"\n",encoding="utf-8"); created.append((problem["id"],path.name))
     index_path=OUT/"index.json"; index=json.loads(index_path.read_text(encoding="utf-8")); known={item["id"] for item in index["problems"]}; index["problems"].extend({"id":pid,"file":name} for pid,name in created if pid not in known); index_path.write_text(json.dumps(index,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(f"created {len(created)} momentum practice problems")
 

@@ -287,5 +287,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-lesson1/homework-04-wind-tunnel.webp",
+      "alt": "风洞悬浮与动量流原题配图"
+    }
+  ]
 }

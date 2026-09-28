@@ -288,5 +288,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-practice-lesson3/course-10-gravity-assist.webp",
+      "alt": "行星引力弹弓原题配图"
+    }
+  ]
 }

@@ -287,5 +287,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-lesson1/course-05-basketball-rebound.webp",
+      "alt": "篮球落地反弹冲量原题配图"
+    }
+  ]
 }

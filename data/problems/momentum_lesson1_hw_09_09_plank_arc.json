@@ -273,5 +273,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-lesson1/homework-09-plank-arc.webp",
+      "alt": "长木板与圆弧组合体原题配图"
+    }
+  ]
 }

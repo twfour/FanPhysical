@@ -287,5 +287,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-practice-lesson3/course-12-spring-velocity-graph.webp",
+      "alt": "弹簧双块速度图像复习原题配图"
+    }
+  ]
 }

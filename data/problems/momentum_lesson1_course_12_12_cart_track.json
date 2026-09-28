@@ -288,5 +288,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-lesson1/course-12-cart-track.webp",
+      "alt": "小球滑上可动曲轨原题配图"
+    }
+  ]
 }

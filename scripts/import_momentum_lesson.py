@@ -6,6 +6,30 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "problems"
 CHAPTER = "动量定理与动量守恒定律"
 
+PROBLEM_IMAGES = {
+    "01_arc_fall": "course-01-arc-fall.webp",
+    "02_steel_ball_rebound": "course-02-steel-ball-rebound.webp",
+    "04_chord_slide": "course-04-chord-slide.webp",
+    "05_basketball_rebound": "course-05-basketball-rebound.webp",
+    "06_pendulum_impulse": "course-06-pendulum-impulse.webp",
+    "07_water_jet": "course-07-water-jet.webp",
+    "08_ring_friction": "course-08-ring-friction.webp",
+    "09_charged_collision": "course-09-charged-collision.webp",
+    "10_spring_wall": "course-10-spring-wall.webp",
+    "11_box_slider": "course-11-box-slider.webp",
+    "12_cart_track": "course-12-cart-track.webp",
+    "01_river_bend": "homework-01-river-bend.webp",
+    "02_spring_groove": "homework-02-spring-groove.webp",
+    "03_force_time": "homework-03-force-time.webp",
+    "04_wind_tunnel": "homework-04-wind-tunnel.webp",
+    "05_collision_xt": "homework-05-collision-xt.webp",
+    "06_blocks_cart": "homework-06-blocks-cart.webp",
+    "07_hall_thruster": "homework-07-hall-thruster.webp",
+    "08_pendulum_blocks": "homework-08-pendulum-blocks.webp",
+    "09_plank_arc": "homework-09-plank-arc.webp",
+    "10_game_track": "homework-10-game-track.webp",
+}
+
 COURSE = [
     ("01_arc_fall", "圆弧与自由落体", "如图，质量均为 \(m\) 的小物块 \(a\)、\(b\) 同时从 \(O\)、\(P\) 出发，\(a\) 自由下落，\(b\) 沿固定光滑四分之一圆弧由 \(P\) 滑至最低点 \(S\)。判断到达先后及两物块在 \(S\) 点的动量关系。（单选）", ["A. \(a\) 先到达，动量不同", "B. 同时到达，动量不同", "C. \(a\) 先到达，动量相同", "D. \(b\) 先到达，动量相同"], "A", "两物块下降高度均为 \(R\)，到达 \(S\) 时速率都为 \(\sqrt{2gR}\)。但 \(a\) 的速度竖直向下，\(b\) 在圆弧最低点的速度沿水平方向，故动量方向不同。自由落体时间小于沿圆弧下滑时间，所以 \(a\) 先到，选 A。", "impulse", 2, "L1"),
     ("02_steel_ball_rebound", "钢球反弹的动量变化", "质量为 \(0.1\,\mathrm{kg}\) 的钢球以 \(6\,\mathrm{m/s}\) 向右运动，撞墙后以 \(6\,\mathrm{m/s}\) 向左弹回。求碰撞前后动量及动量变化。", None, "取向右为正：\(p_1=0.6\,\mathrm{kg\cdot m/s}\)，\(p_2=-0.6\,\mathrm{kg\cdot m/s}\)，\(\Delta p=-1.2\,\mathrm{kg\cdot m/s}\)，大小为 \(1.2\,\mathrm{N\cdot s}\)。", "速度反向时动量变化不是零，而是末动量减初动量：\(\Delta p=m(-v)-mv=-2mv\)。", "impulse", 2, "L1"),
@@ -61,6 +85,7 @@ def make_problem(item, number, kind):
     problem = {
         "id": problem_id, "chapter": CHAPTER, "title": f"{label}：{name}", "question": question,
         "options": options, "answer": answer,
+        "images": ([{"src": f"assets/problem-images/momentum-lesson1/{PROBLEM_IMAGES[slug]}", "alt": f"{name}原题配图"}] if slug in PROBLEM_IMAGES else []),
         "analysisPresentation": {"collapseEachStep": True, "optionMode": "shared-solution"},
         "steps": [
             {"title": "条件提取", "content": "先规定正方向并选择研究对象或系统，区分外力冲量与系统内力。"},
@@ -119,11 +144,19 @@ def main():
     for number, item in enumerate(COURSE, 1):
         problem = make_problem(item, number, "course")
         path = OUT / f"{problem['id']}.json"
+        if path.exists():
+            existing = json.loads(path.read_text(encoding="utf-8"))
+            existing.update(problem)
+            problem = existing
         path.write_text(json.dumps(problem, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         created.append((problem["id"], path.name))
     for number, item in enumerate(HOMEWORK, 1):
         problem = make_problem(item, number, "homework")
         path = OUT / f"{problem['id']}.json"
+        if path.exists():
+            existing = json.loads(path.read_text(encoding="utf-8"))
+            existing.update(problem)
+            problem = existing
         path.write_text(json.dumps(problem, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         created.append((problem["id"], path.name))
     index_path = OUT / "index.json"

@@ -282,5 +282,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-practice-lesson3/course-14-bullet-bag-cart.webp",
+      "alt": "子弹砂袋悬挂小车原题配图"
+    }
+  ]
 }

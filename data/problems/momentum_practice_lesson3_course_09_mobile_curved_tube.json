@@ -287,5 +287,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-practice-lesson3/course-09-mobile-curved-tube.webp",
+      "alt": "可动车载弯管再探原题配图"
+    }
+  ]
 }

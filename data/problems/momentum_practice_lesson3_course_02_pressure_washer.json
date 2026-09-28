@@ -288,5 +288,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-practice-lesson3/course-02-pressure-washer.webp",
+      "alt": "高压水枪冲洗汽车原题配图"
+    }
+  ]
 }

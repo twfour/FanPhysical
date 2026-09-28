@@ -296,5 +296,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-practice-lesson3/course-07-possible-pendulum-height.webp",
+      "alt": "等质量摆球碰撞的可能高度原题配图"
+    }
+  ]
 }

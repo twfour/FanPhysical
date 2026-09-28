@@ -274,5 +274,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-lesson1/course-07-water-jet.webp",
+      "alt": "水柱连续冲击煤层原题配图"
+    }
+  ]
 }

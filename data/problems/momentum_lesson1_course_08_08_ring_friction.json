@@ -274,5 +274,11 @@
         }
       ]
     }
-  }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/momentum-lesson1/course-08-ring-friction.webp",
+      "alt": "变支持力圆环滑动原题配图"
+    }
+  ]
 }
