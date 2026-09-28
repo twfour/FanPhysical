@@ -10,6 +10,7 @@
     "D. 弹性地面上 \\(h_2\\approx h_1\\)"
   ],
   "answer": "BD",
+  "images": [{"src": "assets/problem-images/collision-recoil/homework-08-bounce-big-ball.webp", "alt": "小球叠放反弹原题配图"}],
   "analysis": {
     "title": "解析",
     "sharedThinking": "先按碰撞、相互作用或反冲阶段划分过程，统一正方向并明确每一阶段的系统边界。",

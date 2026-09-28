@@ -5,6 +5,7 @@
   "question": "\\(m_A=m_B=M\\)，\\(m_C=M/4\\)，摆长 \\(l=0.4\\,\\mathrm m\\)。载有摆球 \\(C\\) 的 \\(B\\) 车以 \\(3.6\\,\\mathrm{m/s}\\) 向左撞上静止的 \\(A\\) 车并粘连。碰撞时间极短。求 \\(C\\) 摆到最高点时两车速度及悬线与竖直方向夹角。取 \\(g=10\\,\\mathrm{m/s^2}\\)。",
   "options": null,
   "answer": "两车速度大小为 \\(2.0\\,\\mathrm{m/s}\\)，方向向左；\\(\\theta=\\arccos0.64\\approx50.2^\\circ\\)",
+  "images": [{"src": "assets/problem-images/collision-recoil/course-10-cart-pendulum.webp", "alt": "碰撞后车载摆球原题配图"}],
   "analysis": {
     "title": "解析",
     "sharedThinking": "先按碰撞、相互作用或反冲阶段划分过程，统一正方向并明确每一阶段的系统边界。",

@@ -5,6 +5,7 @@
   "question": "木块 \\(A、B\\) 由弹簧连接并静止在光滑水平面上，质量分别为 \\(99m\\) 和 \\(100m\\)。质量为 \\(m\\) 的子弹以速度 \\(v_0\\) 水平射入 \\(A\\) 并留在其中。求之后弹簧的最大弹性势能。",
   "options": null,
   "answer": "\\(E_{p\\max}=\\dfrac{mv_0^2}{400}\\)",
+  "images": [{"src": "assets/problem-images/collision-recoil/course-08-bullet-spring-blocks.webp", "alt": "子弹木块弹簧系统原题配图"}],
   "analysis": {
     "title": "解析",
     "sharedThinking": "先按碰撞、相互作用或反冲阶段划分过程，统一正方向并明确每一阶段的系统边界。",

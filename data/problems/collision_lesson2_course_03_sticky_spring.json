@@ -5,6 +5,7 @@
   "question": "光滑水平面上有三个质量均为 \\(m\\) 的物块 \\(A、B、C\\)，开始时弹簧处于原长。物块 \\(A\\) 以速度 \\(v_0\\) 向右运动，与 \\(B\\) 相碰并粘连。求弹簧弹性势能最大值与 \\(C\\) 的最大速度。",
   "options": null,
   "answer": "\\(E_{p\\max}=\\dfrac{mv_0^2}{12}\\)，\\(v_{C\\max}=\\dfrac{2v_0}{3}\\)",
+  "images": [{"src": "assets/problem-images/collision-recoil/course-03-sticky-spring.webp", "alt": "粘连碰撞与弹簧储能原题配图"}],
   "analysis": {
     "title": "解析",
     "sharedThinking": "先按碰撞、相互作用或反冲阶段划分过程，统一正方向并明确每一阶段的系统边界。",

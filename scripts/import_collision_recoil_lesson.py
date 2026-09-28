@@ -54,6 +54,28 @@ CALCULATION_ANSWERS = {
     "cart_pendulum": r"两车速度大小为 \(2.0\,\mathrm{m/s}\)，方向向左；\(\theta=\arccos0.64\approx50.2^\circ\)",
 }
 
+PROBLEM_IMAGES = {
+    "newton_cradle": "course-02-newton-cradle.webp",
+    "sticky_spring": "course-03-sticky-spring.webp",
+    "person_boat": "course-04-person-boat.webp",
+    "bullet_block": "course-07-bullet-block.webp",
+    "bullet_spring_blocks": "course-08-bullet-spring-blocks.webp",
+    "block_rider": "course-09-block-rider.webp",
+    "cart_pendulum": "course-10-cart-pendulum.webp",
+    "skateboard_jump": "homework-01-skateboard-jump.webp",
+    "collision_possible": "homework-02-collision-possible.webp",
+    "mobile_u_tube": "homework-03-mobile-u-tube.webp",
+    "cart_jump": "homework-04-cart-jump.webp",
+    "billiard_chain": "homework-05-billiard-chain.webp",
+    "spring_velocity_graph": "homework-06-spring-velocity-graph.webp",
+    "pendulum_collision": "homework-07-pendulum-collision.webp",
+    "bounce_big_ball": "homework-08-bounce-big-ball.webp",
+    "acrobat_cart": "homework-09-acrobat-cart.webp",
+    "mobile_curved_tube": "homework-10-mobile-curved-tube.webp",
+    "ring_bullet_pendulum": "homework-11-ring-bullet-pendulum.webp",
+    "plank_collision": "homework-12-plank-collision.webp",
+}
+
 def make_problem(item, number, kind):
     if len(item) == 8:
         slug, name, question, answer, explanation, family, difficulty, level = item
@@ -70,6 +92,10 @@ def make_problem(item, number, kind):
     problem = {
         "id": problem_id, "chapter": CHAPTER, "title": f"{label}：{name}", "question": question,
         "options": options, "answer": answer,
+        "images": ([{
+            "src": f"assets/problem-images/collision-recoil/{PROBLEM_IMAGES[slug]}",
+            "alt": f"{name}原题配图",
+        }] if slug in PROBLEM_IMAGES else []),
         "analysis": {
             "title": "解析",
             "sharedThinking": "先按碰撞、相互作用或反冲阶段划分过程，统一正方向并明确每一阶段的系统边界。",

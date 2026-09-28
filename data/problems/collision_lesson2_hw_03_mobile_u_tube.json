@@ -10,6 +10,7 @@
     "D. 从小球射入至运动到 U 形管圆弧部分最左端的过程中，U 形管对平行导槽的冲量大小为 \\(\\frac{\\sqrt2}{2}mv_0\\)，方向垂直导槽向上"
   ],
   "answer": "D",
+  "images": [{"src": "assets/problem-images/collision-recoil/homework-03-mobile-u-tube.webp", "alt": "可动U形管中的小球原题配图"}],
   "analysis": {
     "title": "解析",
     "sharedThinking": "先按碰撞、相互作用或反冲阶段划分过程，统一正方向并明确每一阶段的系统边界。",

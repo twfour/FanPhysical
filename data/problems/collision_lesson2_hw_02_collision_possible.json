@@ -10,6 +10,7 @@
     "D. \\(v'_A=-3\\,\\mathrm{m/s},\\ v'_B=12\\,\\mathrm{m/s}\\)"
   ],
   "answer": "C",
+  "images": [{"src": "assets/problem-images/collision-recoil/homework-02-collision-possible.webp", "alt": "正碰末速度判定原题配图"}],
   "analysis": {
     "title": "解析",
     "sharedThinking": "先按碰撞、相互作用或反冲阶段划分过程，统一正方向并明确每一阶段的系统边界。",

@@ -10,6 +10,7 @@
     "D. \\((1/3)^5v_0\\)"
   ],
   "answer": "C",
+  "images": [{"src": "assets/problem-images/collision-recoil/homework-05-billiard-chain.webp", "alt": "白球连续撞击红球原题配图"}],
   "analysis": {
     "title": "解析",
     "sharedThinking": "先按碰撞、相互作用或反冲阶段划分过程，统一正方向并明确每一阶段的系统边界。",

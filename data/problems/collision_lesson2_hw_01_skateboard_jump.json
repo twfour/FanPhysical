@@ -10,6 +10,7 @@
     "D. 同学跳离 B 的过程中对 B 的冲量大小为 \\(47.5\\,\\mathrm{N\\cdot s}\\)"
   ],
   "answer": "C",
+  "images": [{"src": "assets/problem-images/collision-recoil/homework-01-skateboard-jump.webp", "alt": "滑板间往返跳跃原题配图"}],
   "analysis": {
     "title": "解析",
     "sharedThinking": "先按碰撞、相互作用或反冲阶段划分过程，统一正方向并明确每一阶段的系统边界。",
