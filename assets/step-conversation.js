@@ -64,8 +64,8 @@ function addStepConversationPanels(body, sceneName) {
     var voiceButton = document.createElement("button");
     voiceButton.type = "button";
     voiceButton.className = "step-conversation-voice";
-    voiceButton.innerText = "口述提问";
-    voiceButton.title = "使用麦克风输入问题";
+    voiceButton.innerText = usesSystemKeyboardDictation() ? "键盘听写" : "口述提问";
+    voiceButton.title = usesSystemKeyboardDictation() ? "使用 iPad 键盘上的麦克风听写" : "使用麦克风输入问题";
     var sendButton = document.createElement("button");
     sendButton.type = "button";
     sendButton.className = "step-conversation-send";
@@ -78,13 +78,19 @@ function addStepConversationPanels(body, sceneName) {
     var status = document.createElement("p");
     status.className = "step-conversation-status";
     status.setAttribute("aria-live", "polite");
-    status.innerText = getSpeechRecognitionConstructor()
-      ? "口述内容会先填入输入框，可修改后发送"
-      : "当前浏览器不支持口述，可直接输入问题";
+    status.innerText = usesSystemKeyboardDictation()
+      ? "iPad 请使用键盘上的麦克风听写，文字可修改后发送"
+      : (getSpeechRecognitionConstructor()
+        ? "口述内容会先填入输入框，可修改后发送"
+        : "当前浏览器不支持口述，可直接输入问题");
     panel.appendChild(status);
 
-    voiceButton.disabled = !getSpeechRecognitionConstructor();
+    voiceButton.disabled = !usesSystemKeyboardDictation() && !getSpeechRecognitionConstructor();
     voiceButton.onclick = function () {
+      if (usesSystemKeyboardDictation()) {
+        startSystemKeyboardDictation(input, status);
+        return;
+      }
       if (activeStepVoiceButton === voiceButton) {
         stopStepVoiceRecognition(false);
         return;
@@ -212,7 +218,7 @@ function setStepConversationPending(panel, pending) {
   panel.dataset.pending = pending ? "1" : "0";
   panel._sendButton.disabled = pending;
   panel._clearButton.disabled = pending;
-  panel._voiceButton.disabled = pending || !getSpeechRecognitionConstructor();
+  panel._voiceButton.disabled = pending || (!usesSystemKeyboardDictation() && !getSpeechRecognitionConstructor());
 }
 
 async function askStepConversation(paragraph, panel, input, fallbackStepIndex, sceneName) {
@@ -268,6 +274,20 @@ async function askStepConversation(paragraph, panel, input, fallbackStepIndex, s
 
 function getSpeechRecognitionConstructor() {
   return window.SpeechRecognition || window.webkitSpeechRecognition || null;
+}
+
+function usesSystemKeyboardDictation() {
+  var userAgent = navigator.userAgent || "";
+  var isIOS = /iPad|iPhone|iPod/.test(userAgent);
+  var isTouchMac = /Macintosh/.test(userAgent) && navigator.maxTouchPoints > 1;
+  return isIOS || isTouchMac;
+}
+
+function startSystemKeyboardDictation(input, status) {
+  stopStepVoiceRecognition(true);
+  input.focus();
+  status.classList.remove("is-error");
+  status.innerText = "请点击 iPad 键盘上的麦克风开始听写；完成后可修改文字，再点发送";
 }
 
 function startStepVoiceRecognition(input, button, status) {
