@@ -723,6 +723,7 @@ var problemRuntimeScriptMap = {
   momentum_model: ["/assets/scenes/momentum.js"],
   collision_recoil_model: ["/assets/scenes/collision-recoil.js"],
   momentum_practice_model: ["/assets/scenes/collision-recoil.js", "/assets/scenes/momentum-practice.js"],
+  electric_field_model: ["/assets/scenes/electric-field.js"],
   required_one_test_model: ["/assets/scenes/required-one-test.js"],
   required_two_test_model: ["/assets/scenes/required-two-test.js"]
 };

@@ -4726,6 +4726,306 @@
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_course_01_field_definition",
+      "chapter": "电场强度与电势能",
+      "title": "例1：电场强度的定义",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "电场强度的定义"
+      ],
+      "familyId": "electric-definition",
+      "familyName": "电场定义与方向",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_course_02_dipole_field_lines",
+      "chapter": "电场强度与电势能",
+      "title": "例2：等量异种电荷的场强比较",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "等量异种电荷的场强比较"
+      ],
+      "familyId": "electric-superposition",
+      "familyName": "点电荷场强叠加",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_course_03_charged_ring_three_points",
+      "chapter": "电场强度与电势能",
+      "title": "例3：圆环三点电荷场强约束",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "圆环三点电荷场强约束"
+      ],
+      "familyId": "electric-superposition",
+      "familyName": "点电荷场强叠加",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_course_04_charged_pendulum",
+      "chapter": "电场强度与电势能",
+      "title": "例4：带电小球斜悬平衡",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "带电小球斜悬平衡"
+      ],
+      "familyId": "electric-equilibrium",
+      "familyName": "带电体受力平衡",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_course_05_two_ball_strings",
+      "chapter": "电场强度与电势能",
+      "title": "例5：串联带电小球平衡",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "串联带电小球平衡"
+      ],
+      "familyId": "electric-equilibrium",
+      "familyName": "带电体受力平衡",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_course_06_charged_ring_axis",
+      "chapter": "电场强度与电势能",
+      "title": "例6：均匀带电圆环轴线场强",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "均匀带电圆环轴线场强"
+      ],
+      "familyId": "electric-continuous-charge",
+      "familyName": "连续带电体场强",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_course_07_charged_hemisphere",
+      "chapter": "电场强度与电势能",
+      "title": "例7：均匀带电半球面场强",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "均匀带电半球面场强"
+      ],
+      "familyId": "electric-continuous-charge",
+      "familyName": "连续带电体场强",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_course_08_field_line_trajectory",
+      "chapter": "电场强度与电势能",
+      "title": "例8：场线与带电粒子轨迹",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "场线与带电粒子轨迹"
+      ],
+      "familyId": "electric-trajectory",
+      "familyName": "场线与粒子轨迹",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_course_09_negative_work_potential",
+      "chapter": "电场强度与电势能",
+      "title": "例9：电场力负功与电势能",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "电场力负功与电势能"
+      ],
+      "familyId": "electric-potential-energy",
+      "familyName": "电场功与电势能",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_course_10_potential_energy_curve",
+      "chapter": "电场强度与电势能",
+      "title": "例10：点电荷电势能图像",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "点电荷电势能图像"
+      ],
+      "familyId": "electric-potential-graph",
+      "familyName": "电势能图像",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_hw_01_arc_cut_field",
+      "chapter": "电场强度与电势能",
+      "title": "单选第1题：带电圆弧裁切",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "带电圆弧裁切"
+      ],
+      "familyId": "electric-continuous-charge",
+      "familyName": "连续带电体场强",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_hw_02_two_charges_uniform_field",
+      "chapter": "电场强度与电势能",
+      "title": "单选第2题：匀强电场中的双球悬挂",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "匀强电场中的双球悬挂"
+      ],
+      "familyId": "electric-superposition",
+      "familyName": "点电荷场强叠加",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_hw_03_electrostatic_smoke",
+      "chapter": "电场强度与电势能",
+      "title": "单选第3题：静电除烟演示",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "静电除烟演示"
+      ],
+      "familyId": "electric-application",
+      "familyName": "静电技术应用",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_hw_04_double_pendulum_field",
+      "chapter": "电场强度与电势能",
+      "title": "单选第4题：串联异号小球平衡",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "串联异号小球平衡"
+      ],
+      "familyId": "electric-equilibrium",
+      "familyName": "带电体受力平衡",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_hw_05_electrostatic_precipitator",
+      "chapter": "电场强度与电势能",
+      "title": "单选第5题：静电除尘器轨迹",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "静电除尘器轨迹"
+      ],
+      "familyId": "electric-application",
+      "familyName": "静电技术应用",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_hw_06_potential_curve_force",
+      "chapter": "电场强度与电势能",
+      "title": "单选第6题：电势能曲线与电场力",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "电势能曲线与电场力"
+      ],
+      "familyId": "electric-potential-graph",
+      "familyName": "电势能图像",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_hw_07_image_charge_plane",
+      "chapter": "电场强度与电势能",
+      "title": "单选第7题：导体平面的镜像电荷",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "导体平面的镜像电荷"
+      ],
+      "familyId": "electric-conductor",
+      "familyName": "导体与镜像法",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_hw_08_unequal_charge_field_lines",
+      "chapter": "电场强度与电势能",
+      "title": "多选第8题：不等量异号电荷场线",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "不等量异号电荷场线"
+      ],
+      "familyId": "electric-field-lines",
+      "familyName": "电场线判读",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_hw_09_square_four_charges",
+      "chapter": "电场强度与电势能",
+      "title": "多选第9题：正方形四电荷叠加",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "正方形四电荷叠加"
+      ],
+      "familyId": "electric-superposition",
+      "familyName": "点电荷场强叠加",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_lesson5_hw_10_electric_field_curve",
+      "chapter": "电场强度与电势能",
+      "title": "多选第10题：场强图像与能量变化",
+      "knowledge": [
+        "电场强度",
+        "电势能",
+        "场强图像与能量变化"
+      ],
+      "familyId": "electric-field-graph",
+      "familyName": "场强图像",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
     }
   ]
 }

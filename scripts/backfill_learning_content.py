@@ -272,6 +272,17 @@ MODEL_PROFILES = {
 
 
 MODEL_PROFILES.update({
+    "electric-field-potential": {
+        "first": "先区分源电荷、试探电荷和研究点，再利用对称性选择场强叠加、受力平衡或能量方法",
+        "principle": r"\[\vec E=\sum_i\vec E_i,\qquad \vec F=q\vec E,\qquad W_{AB}=-\Delta E_p\]",
+        "misconception": "把场强方向与负电荷受力方向混同，或把电场线、运动轨迹和等势线当成同一曲线",
+        "invariant": "源电荷与空间位置决定电场；场强按矢量叠加，电场力做功只由初末电势差决定",
+        "reality": "静电除尘、带电粒子控制与高压设备",
+        "scene": "静电除尘器、喷涂设备和粒子束装置利用非匀强电场控制带电颗粒的受力、轨迹和能量变化。",
+        "mapping": "题目中的点电荷、场线、试探电荷和势能曲线分别对应电极布局、局部场方向、带电颗粒和能量测量结果。",
+        "factors": ["真实空气可能发生电离和电荷泄漏。", "颗粒还会受到阻力、重力和碰撞影响。"],
+        "resource": "vector",
+    },
     "momentum-practice": {
         "first": "先按时间顺序拆分过程，为每一阶段重新选择系统并检查外力冲量",
         "principle": r"\[\vec I_{\mathrm{ext}}=\Delta\vec p,\qquad \sum\vec p_{\mathrm i}=\sum\vec p_{\mathrm f}\]",

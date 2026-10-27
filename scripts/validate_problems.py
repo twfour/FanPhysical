@@ -72,6 +72,7 @@ SUPPORTED_ANIMATION_TYPES = {
     "momentum_model",
     "collision_recoil_model",
     "momentum_practice_model",
+    "electric_field_model",
     "projectile",
     "spring_balance",
     "force_diagram",

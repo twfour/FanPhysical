@@ -1308,6 +1308,86 @@
     {
       "id": "momentum_practice_lesson3_course_14_bullet_bag_cart",
       "file": "momentum_practice_lesson3_course_14_bullet_bag_cart.json"
+    },
+    {
+      "id": "electric_lesson5_course_01_field_definition",
+      "file": "electric_lesson5_course_01_field_definition.json"
+    },
+    {
+      "id": "electric_lesson5_course_02_dipole_field_lines",
+      "file": "electric_lesson5_course_02_dipole_field_lines.json"
+    },
+    {
+      "id": "electric_lesson5_course_03_charged_ring_three_points",
+      "file": "electric_lesson5_course_03_charged_ring_three_points.json"
+    },
+    {
+      "id": "electric_lesson5_course_04_charged_pendulum",
+      "file": "electric_lesson5_course_04_charged_pendulum.json"
+    },
+    {
+      "id": "electric_lesson5_course_05_two_ball_strings",
+      "file": "electric_lesson5_course_05_two_ball_strings.json"
+    },
+    {
+      "id": "electric_lesson5_course_06_charged_ring_axis",
+      "file": "electric_lesson5_course_06_charged_ring_axis.json"
+    },
+    {
+      "id": "electric_lesson5_course_07_charged_hemisphere",
+      "file": "electric_lesson5_course_07_charged_hemisphere.json"
+    },
+    {
+      "id": "electric_lesson5_course_08_field_line_trajectory",
+      "file": "electric_lesson5_course_08_field_line_trajectory.json"
+    },
+    {
+      "id": "electric_lesson5_course_09_negative_work_potential",
+      "file": "electric_lesson5_course_09_negative_work_potential.json"
+    },
+    {
+      "id": "electric_lesson5_course_10_potential_energy_curve",
+      "file": "electric_lesson5_course_10_potential_energy_curve.json"
+    },
+    {
+      "id": "electric_lesson5_hw_01_arc_cut_field",
+      "file": "electric_lesson5_hw_01_arc_cut_field.json"
+    },
+    {
+      "id": "electric_lesson5_hw_02_two_charges_uniform_field",
+      "file": "electric_lesson5_hw_02_two_charges_uniform_field.json"
+    },
+    {
+      "id": "electric_lesson5_hw_03_electrostatic_smoke",
+      "file": "electric_lesson5_hw_03_electrostatic_smoke.json"
+    },
+    {
+      "id": "electric_lesson5_hw_04_double_pendulum_field",
+      "file": "electric_lesson5_hw_04_double_pendulum_field.json"
+    },
+    {
+      "id": "electric_lesson5_hw_05_electrostatic_precipitator",
+      "file": "electric_lesson5_hw_05_electrostatic_precipitator.json"
+    },
+    {
+      "id": "electric_lesson5_hw_06_potential_curve_force",
+      "file": "electric_lesson5_hw_06_potential_curve_force.json"
+    },
+    {
+      "id": "electric_lesson5_hw_07_image_charge_plane",
+      "file": "electric_lesson5_hw_07_image_charge_plane.json"
+    },
+    {
+      "id": "electric_lesson5_hw_08_unequal_charge_field_lines",
+      "file": "electric_lesson5_hw_08_unequal_charge_field_lines.json"
+    },
+    {
+      "id": "electric_lesson5_hw_09_square_four_charges",
+      "file": "electric_lesson5_hw_09_square_four_charges.json"
+    },
+    {
+      "id": "electric_lesson5_hw_10_electric_field_curve",
+      "file": "electric_lesson5_hw_10_electric_field_curve.json"
     }
   ]
 }
