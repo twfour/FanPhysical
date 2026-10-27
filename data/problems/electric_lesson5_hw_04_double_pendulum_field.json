@@ -12,8 +12,8 @@
   "answer": "C",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "对整体和 b 球分别列平衡方程；整体决定上段绳方向，b 球决定下段绳方向及偏角大小。",
+    "sharedFormula": "\\[\\tan\\alpha=\\frac{qE}{2mg},\\qquad \\tan\\beta=\\frac{qE}{mg}=2\\tan\\alpha\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -21,20 +21,24 @@
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "整体总电荷为 \\(+q\\)，水平合电场力向右；b 带负电，单独所受电场力向左。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "对整体和 b 球分别列平衡方程；整体决定上段绳方向，b 球决定下段绳方向及偏角大小。 \\[\\tan\\alpha=\\frac{qE}{2mg},\\qquad \\tan\\beta=\\frac{qE}{mg}=2\\tan\\alpha\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "整体总电荷为 \\(+q\\)，所受电场力向右，因此上段线向右下方倾斜。对 \\(b\\) 球，电场力向左，故下段线必须给出向右的拉力分量，\\(b\\) 位于 \\(a\\) 的左下方。由 \\(\\tan\\beta=2\\tan\\alpha\\) 可知下段偏角更大，只有图 C 符合。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **C**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **C**。"
     }
   ],
   "knowledge": [
@@ -302,5 +306,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "single-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "图 A",
+      "judgment": "两绳均竖直不能平衡水平电场力，错误。"
+    },
+    {
+      "option": "B",
+      "title": "图 B",
+      "judgment": "下段绳方向不能给 b 球向右的拉力分量，错误。"
+    },
+    {
+      "option": "C",
+      "title": "图 C",
+      "judgment": "上段向右下、下段向左下，且下段偏角更大，正确。"
+    },
+    {
+      "option": "D",
+      "title": "图 D",
+      "judgment": "下段相对竖直线的位置不符合 b 球的水平平衡，错误。"
+    }
+  ]
 }

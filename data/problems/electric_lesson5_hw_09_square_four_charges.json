@@ -12,29 +12,33 @@
   "answer": "BD",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "利用关于正方形中心的对称性分别比较场强和电势；场强是矢量，电势是标量。",
+    "sharedFormula": "\\[\\vec E=\\sum_i\\vec E_i,\\qquad \\varphi=\\sum_i\\frac{kq_i}{r_i},\\qquad W_{AB}=q(\\varphi_A-\\varphi_B)\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
-    "optionMode": "shared-solution"
+    "optionMode": "independent-statements"
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "四顶点电荷成中心反对称分布，L、N 关于 O 对称，M 位于下边中点。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "利用关于正方形中心的对称性分别比较场强和电势；场强是矢量，电势是标量。 \\[\\vec E=\\sum_i\\vec E_i,\\qquad \\varphi=\\sum_i\\frac{kq_i}{r_i},\\qquad W_{AB}=q(\\varphi_A-\\varphi_B)\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "由对称叠加，\\(L、N\\) 两点场强沿同一对角线反向，并非垂直；\\(M\\) 点竖直分量抵消，水平合场强沿切线向左。\\(M、O\\) 电势均为零，移动正电荷电场力不做功；\\(L、N\\) 电势相等，所以从 L 到 N 电场力做功为零。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **BD**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **BD**。"
     }
   ],
   "knowledge": [
@@ -302,5 +306,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "multiple-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "L、N 两点场强方向相互垂直",
+      "judgment": "错误。对称叠加后 L、N 场强沿同一方向关系判断，不是相互垂直。"
+    },
+    {
+      "option": "B",
+      "title": "M 点场强沿切线向左",
+      "judgment": "正确。M 点竖直分量抵消，水平分量合成后沿切线向左。"
+    },
+    {
+      "option": "C",
+      "title": "正电荷从 M 移到 O，电场力做正功",
+      "judgment": "错误。M、O 两点电势均为零，正电荷从 M 到 O 时电场力做功为零，不是正功。"
+    },
+    {
+      "option": "D",
+      "title": "正电荷从 L 移到 N，电场力做功为零",
+      "judgment": "正确。L、N 电势相等，所以电场力做功为零。"
+    }
+  ]
 }

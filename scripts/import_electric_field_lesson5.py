@@ -53,17 +53,152 @@ PRACTICE = {
     "field-graph":(r"给定分段 \(E-x\) 图像，求两点电势差、粒子电势能变化并判断转向位置。",r"电势差等于 \(-E-x\) 图下有向面积，再结合能量守恒。"),
 }
 
+DETAILS = {
+    "field_definition": {
+        "thinking": "区分电场本身与试探电荷所受的力。先固定场源和空间位置，再改变试探电荷检验定义式。",
+        "formula": r"\[\vec F=q\vec E\]",
+        "condition": "场源和研究点均未改变，变化的只有试探电荷，因此该点场强矢量不变。",
+        "judgments": ["错误。移去试探电荷不等于移去场源，该点场强仍存在。", "错误。电荷量变为四倍时静电力变为四倍，\(\vec F/q\) 不变。", "错误。负电荷受力方向反向，但场强方向不随试探电荷改变。", "正确。试探电荷变为 \(-2q\) 后，场强大小和方向均不变。"],
+    },
+    "dipole_field_lines": {
+        "thinking": "利用等量异号电荷关于中点的对称性，并分别检查连线上和中垂线上的矢量叠加。",
+        "formula": r"\[\vec E=\vec E_{+q}+\vec E_{-q},\qquad E_{\perp}(y)=\frac{2kqa}{(a^2+y^2)^{3/2}}\]",
+        "condition": "B、C 关于 O 对称且位于两电荷之间；E、F 位于中垂线上；A、D 位于两电荷外侧。",
+        "judgments": ["正确。B、C 两点的场强均由正电荷指向负电荷，大小也由对称性相等。", "错误。A、D 场强大小相等，但方向均由正电荷一侧指向负电荷一侧，并不相反。", "正确。中垂线上场强随 \(|y|\) 增大而减小，所以 O 点最大。", "错误。两电荷之间越靠近任一电荷场强越大，O 点反而是 B、O、C 中最小。"],
+    },
+    "charged_ring_three_points": {
+        "thinking": "三点到 O 距离相同，场强大小只与各点电荷量成正比。建立沿 BC 和垂直 BC 的分量方程。",
+        "formula": r"\[\vec E_O=-\frac{k}{R^2}\left(q_A\hat r_A+Q\hat r_B+q_C\hat r_C\right),\qquad q_A-q_C=Q\]",
+        "condition": "由圆周几何，AC 是直径且 \(\angle CAB=60^\circ\)，场强平行 BC 要求垂直 BC 的合分量为零。",
+        "judgments": ["正确。代入约束后沿 BC 的合分量恒由 B 指向 C。", "错误。合场强方向不是由 C 指向 B。", "正确。\(q_A=Q/2,q_C=-Q/2\) 满足 \(q_A-q_C=Q\)。", "正确。\(q_A=-Q,q_C=-2Q\) 也满足 \(q_A-q_C=Q\)。"],
+    },
+    "charged_pendulum": {
+        "thinking": "先由小球偏向判断电场力方向，再由负电荷受力方向与场强相反确定电场方向。",
+        "formula": r"\[T\sin60^\circ=qE,\qquad T\cos60^\circ=mg,\qquad E=\frac{mg\tan60^\circ}{q}\]",
+        "condition": "小球向右偏，平衡时水平电场力向右；小球电荷量为 \(-q\)。",
+        "judgments": ["由平衡方程得到该大小，且负电荷受力向右对应场强向左，因此 A 正确。", "大小正确但方向错误。", "使用了 \(\sin60^\circ\) 而不是水平、竖直分量之比 \(\tan60^\circ\)。", "大小和方向均不符合平衡条件。"],
+    },
+    "two_ball_strings": {
+        "thinking": "先把两球作为整体判断上段绳方向，再隔离乙球判断下段绳方向。",
+        "formula": r"\[\vec F_{E,\mathrm{all}}=(3q-q)\vec E=2q\vec E,\qquad \vec T_2+m\vec g-q\vec E=0\]",
+        "condition": "电场向左，甲的电场力向左且大小 \(3qE\)，乙的电场力向右且大小 \(qE\)。",
+        "judgments": ["上段绳方向不符合整体受力，错误。", "下段绳不能为图示方向，错误。", "上段由 O 向左下、下段由甲向右下，同时满足整体与乙球平衡，正确。", "上段绳方向与整体所受水平合力不符，错误。"],
+    },
+    "charged_ring_axis": {
+        "thinking": "取对称电荷元，先消去垂直轴线的分量，再把所有轴向分量积分。",
+        "formula": r"\[r=\sqrt{R^2+L^2},\qquad dE_x=\frac{kL\,dQ}{(R^2+L^2)^{3/2}},\qquad E_x=\frac{kQL}{(R^2+L^2)^{3/2}}\]",
+        "condition": "圆环均匀带电，P 位于对称轴上，因此所有非轴向分量成对抵消。",
+        "judgments": ["把圆环误当成距 P 为 L 的点电荷，错误。", "没有包含轴向距离 L，且量纲对应关系不完整，错误。", "由轴向分量积分得到，正确。", "分子应为 L 而不是 R，错误。"],
+    },
+    "charged_hemisphere": {
+        "thinking": "补上镜像半球组成完整均匀球壳，再利用关于球心的对称性把未知场强转移到同一点相加。",
+        "formula": r"\[E_{\mathrm{sphere}}=\frac{k(2Q)}{L^2},\qquad E+E_M=\frac{2kQ}{L^2}\]",
+        "condition": "M、N 到球心距离均为 L；补成的完整球壳总电荷量为 \(2Q\)，外部场等效于球心点电荷。",
+    },
+    "field_line_trajectory": {
+        "thinking": "轨迹切线只确定速度方向，轨迹凹侧确定合力方向；场线疏密用于比较场强和加速度。",
+        "formula": r"\[\vec a=\frac{q\vec E}{m},\qquad a=\frac{|q|E}{m}\]",
+        "condition": "粒子带正电且只受电场力，但题目没有给出其沿轨迹运动的先后方向。",
+        "judgments": ["错误。结合轨迹凹向只能确定 P 点电场方向指向凹侧，并非所述方向。", "错误。仅由轨迹形状不能判定粒子从 P 到 Q 还是从 Q 到 P。", "错误。速度大小需要由运动方向和电场力做功共同判断。", "正确。Q 附近场线更密，故 \(E_Q>E_P\)，从而 \(a_Q>a_P\)。"],
+    },
+    "negative_work_potential": {
+        "thinking": "先用电场力功与电势能变化的关系确定必然结论，再判断哪些量无法由功唯一确定。",
+        "formula": r"\[W_{ab}=-\Delta E_p=E_{p,a}-E_{p,b},\qquad \Delta E_k=W_E+W_{\mathrm{其他力}}\]",
+        "condition": "已知的只有正电荷从 a 到 b 时电场力做负功，未说明路径、场强分布和其他外力。",
+        "judgments": ["错误。电场力做功只确定两点电势差，不能比较两点场强大小。", "错误。只能确定 a 点电势高于 b 点，不能据此断定局部电场线一定沿 b 到 a。", "正确。\(W_{ab}<0\) 给出 \(E_{p,b}>E_{p,a}\)。", "正确。若其他力做的正功大于电场力负功的绝对值，动能可以增加。"],
+    },
+    "potential_energy_curve": {
+        "thinking": "对正试探电荷，势能曲线斜率的负值给场强方向；源电荷位置处的发散方向给源电荷符号。",
+        "formula": r"\[E_x=-\frac{1}{q}\frac{dE_p}{dx},\qquad W_E=-\Delta E_p\]",
+        "condition": "O 处曲线趋于正无穷、P 处趋于负无穷；C 是势能极大点，故 C 点曲线斜率为零。",
+        "judgments": ["错误。O 处源电荷为正，P 处源电荷为负，不是均为正。", "正确。B 到 C 曲线上升，\(dE_p/dx>0\)，所以 \(E_x<0\)。", "错误。C 点斜率为零，场强为零；A 点斜率不为零。", "正确。负电荷的势能曲线与图示反号，B 到 C 势能降低、C 到 D 势能升高，电场力先做正功后做负功。"],
+    },
+    "arc_cut_field": {
+        "thinking": "利用完整圆环场强为零，把 3/4 圆环等效为缺失 1/4 圆弧场强的反向量，再与半圆弧比较。",
+        "formula": r"\[E_{1/4}=\frac{\sqrt2k\lambda}{R}=E,\qquad E_{1/2}=\frac{2k\lambda}{R}=\sqrt2E\]",
+        "condition": "裁切前后线电荷密度 \(\lambda\) 和半径 R 不变；裁去原 3/4 圆环的三分之一后恰剩半圆。",
+        "judgments": ["比例不是 \(2/3\)，错误。", "场强不能按弧长直接取一半，错误。", "半圆场强为原 3/4 圆环场强的 \(\sqrt2\) 倍，正确。", "比值取倒，错误。"],
+    },
+    "two_charges_uniform_field": {
+        "thinking": "先由两球水平平衡确定电性和电荷量，再把两点电荷场与外加匀强电场在 N、M 两点作矢量叠加。",
+        "formula": r"\[|q_P|E=|q_Q|E=\frac{k|q_Pq_Q|}{d^2}\Rightarrow q_P=-q_Q,\qquad E=\frac{k|q|}{d^2}\]",
+        "condition": "P 在左、Q 在右，两根绳均竖直，说明每个球的水平合力分别为零。",
+        "judgments": ["正确。P 的库仑力向右，故其电场力应向左，P 带负电；Q 同理带正电，两个平衡式又给出电量相等。", "错误。竖直方向由各自绳拉力平衡重力，不能推出两球质量相等。", "错误。N 点两点电荷场均向左，叠加外场后仍不为零。", "错误。在等边三角形顶点 M，两点电荷场的竖直分量抵消、水平合量向左且恰为 E，与外场抵消，总场强为零。"],
+    },
+    "electrostatic_smoke": {
+        "thinking": "根据尖端放电判断电场是否均匀，再沿烟尘受力和迁移方向判断能量变化。",
+        "formula": r"\[\vec F=q\vec E,\qquad W_E=-\Delta E_p\]",
+        "condition": "锯条接负极、金属片接正极；尖锐锯齿附近场线密集并使空气电离。",
+        "judgments": ["错误。电极形状不对称，瓶内是明显的非匀强电场。", "错误。尖端附近电荷面密度大，场强较大。", "正确。烟尘获得负电后向正极金属片迁移并被吸附。", "错误。迁移由电场力驱动，电场力做正功，电势能降低。"],
+    },
+    "double_pendulum_field": {
+        "thinking": "对整体和 b 球分别列平衡方程；整体决定上段绳方向，b 球决定下段绳方向及偏角大小。",
+        "formula": r"\[\tan\alpha=\frac{qE}{2mg},\qquad \tan\beta=\frac{qE}{mg}=2\tan\alpha\]",
+        "condition": "整体总电荷为 \(+q\)，水平合电场力向右；b 带负电，单独所受电场力向左。",
+        "judgments": ["两绳均竖直不能平衡水平电场力，错误。", "下段绳方向不能给 b 球向右的拉力分量，错误。", "上段向右下、下段向左下，且下段偏角更大，正确。", "下段相对竖直线的位置不符合 b 球的水平平衡，错误。"],
+    },
+    "electrostatic_precipitator": {
+        "thinking": "由负放电极的电离过程判断烟尘电性，再用场线疏密比较 A、B 场强。",
+        "formula": r"\[\vec F=q\vec E,\qquad a=\frac{|q|E}{m}\]",
+        "condition": "B 比 A 更靠近细小的负放电极，放电极附近场线更密；烟尘最终运动到正集尘板。",
+        "judgments": ["错误。烟尘通常吸附负离子而带负电。", "错误。电场非匀强，场强和加速度均随位置变化。", "正确。B 附近场线更密，因此 \(E_B>E_A\)。", "错误。烟尘沿电场力方向迁移，电场力持续做正功，并非先负后正。"],
+    },
+    "potential_curve_force": {
+        "thinking": "源电荷位置会使势能曲线发散；曲线斜率决定电场力，曲线升降决定电场力做功正负。",
+        "formula": r"\[F_x=-\frac{dE_p}{dx},\qquad W_E=-\Delta E_p\]",
+        "condition": "从 x₁ 到 x₃ 曲线连续且没有新的发散点，x₂ 是势能极大点。",
+        "judgments": ["正确。x₁ 右侧没有源电荷造成的发散点，所以两个源电荷都位于 x₁ 左侧。", "错误。x₂ 处斜率为零，故电场力为零而非最大。", "错误。x₁ 到 x₂ 势能升高，电场力做负功；x₂ 到 x₃ 势能降低，电场力做正功，顺序相反。", "错误。场强大小由曲线斜率绝对值决定，并非简单地先增大后减小。"],
+    },
+    "image_charge_plane": {
+        "thinking": "在导体外区域用关于平面反对称的像电荷代替感应电荷，再在指定点叠加两个场强。",
+        "formula": r"\[E_{\rm real}=\frac{kq}{(h/2)^2}=\frac{4kq}{h^2},\qquad E_{\rm image}=\frac{kq}{(3h/2)^2}=\frac{4kq}{9h^2}\]",
+        "condition": "像电荷 \(-q\) 位于 z=-h；在 z=h/2 处，真实电荷和像电荷产生的场强均沿 z 轴负方向。",
+        "judgments": ["只计算了真实电荷，遗漏像电荷。", "只计算了像电荷，遗漏真实电荷。", "叠加系数错误。", "两场强同向相加得 \(E=40kq/(9h^2)\)，正确。"],
+    },
+    "unequal_charge_field_lines": {
+        "thinking": "箭头方向判断电荷正负，连接电荷的场线条数反映电荷量关系，局部疏密比较场强。",
+        "formula": r"\[\text{场线由正电荷出发、终止于负电荷},\qquad E\text{ 的大小由局部场线疏密定性表示}\]",
+        "condition": "图中场线从甲指向乙，甲一侧还有更多场线伸向远处，且 P 附近场线比 Q 附近密。",
+        "judgments": ["错误。甲为正电荷、乙为负电荷。", "正确。与甲相连的场线总数更多，说明 \(|q_甲|>|q_乙|\)。", "错误。场线给出瞬时加速度方向，曲线场线一般不是粒子运动轨迹。", "正确。P 附近场线更密，所以 \(E_P>E_Q\)。"],
+    },
+    "square_four_charges": {
+        "thinking": "利用关于正方形中心的对称性分别比较场强和电势；场强是矢量，电势是标量。",
+        "formula": r"\[\vec E=\sum_i\vec E_i,\qquad \varphi=\sum_i\frac{kq_i}{r_i},\qquad W_{AB}=q(\varphi_A-\varphi_B)\]",
+        "condition": "四顶点电荷成中心反对称分布，L、N 关于 O 对称，M 位于下边中点。",
+        "judgments": ["错误。对称叠加后 L、N 场强沿同一方向关系判断，不是相互垂直。", "正确。M 点竖直分量抵消，水平分量合成后沿切线向左。", "错误。M、O 两点电势均为零，正电荷从 M 到 O 时电场力做功为零，不是正功。", "正确。L、N 电势相等，所以电场力做功为零。"],
+    },
+    "electric_field_curve": {
+        "thinking": "场强图像的纵坐标给力的方向和大小，图下有向面积给电势差；速度还需要初始运动方向。",
+        "formula": r"\[F_x=qE_x,\qquad \Delta E_p=-q\int_{x_a}^{x_b}E_x\,dx\]",
+        "condition": "x₁ 到 x₄ 区间内 E 均不大于零，且 \(|E|\) 从 x₁ 到 x₃ 增大、从 x₃ 到 x₄ 减小。",
+        "judgments": ["错误。x₂ 到 x₄ 之间 E 为负，积分不为零，因此两点电势能不相等。", "正确。x₁ 到 x₃ 有 \(E<0\)，故 \(\Delta E_p=-q\int E\,dx>0\)。", "正确。\(|F|=q|E|\)，随图像先远离零轴再靠近零轴，所以先增大后减小。", "错误。速度变化还取决于初速度方向以及是否发生转向，不能仅由 E-x 图断定先增大后减小。"],
+    },
+}
+
+def restore_latex_escapes(value):
+    """Restore backslashes consumed by Python escape handling in compact text tables."""
+    if not isinstance(value, str):
+        return value
+    return (value.replace("\a", r"\a")
+                 .replace("\b", r"\b")
+                 .replace("\t", r"\t")
+                 .replace("\v", r"\v")
+                 .replace("\f", r"\f"))
+
 def make_problem(item, number, kind):
     slug=item["slug"]; prefix="course" if kind=="course" else "hw"; pid=f"electric_lesson5_{prefix}_{number:02d}_{slug}"
     label=f"例{number}" if kind=="course" else f"{'单选' if number<=7 else '多选'}第{number}题"
     pq,pt=PRACTICE[item["family"]]
-    problem={"id":pid,"chapter":CHAPTER,"title":f"{label}：{item['name']}","question":item["question"],"options":item["options"],"answer":item["answer"],
-      "analysis":{"title":"解析","sharedThinking":"先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。","sharedFormula":r"\[\vec E=\frac{\vec F}{q},\qquad \vec E=\sum_i\vec E_i,\qquad W_{AB}=-\Delta E_p\]"},
-      "analysisPresentation":{"collapseEachStep":True,"optionMode":"shared-solution"},
-      "steps":[{"title":"条件提取","content":"标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"},{"title":"模型与公式","content":"按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"},{"title":"推导与判断","content":item["explanation"]},{"title":"结论","content":f"答案为 **{item['answer']}**。最后检查场强方向、矢量分量和电场力做功符号。"}],
+    detail={key: ([restore_latex_escapes(text) for text in value] if isinstance(value,list) else restore_latex_escapes(value)) for key,value in DETAILS[slug].items()}
+    shared_mode=slug in {"charged_pendulum","two_ball_strings","charged_ring_axis","arc_cut_field","double_pendulum_field","image_charge_plane"}
+    problem={"id":pid,"chapter":CHAPTER,"title":f"{label}：{item['name']}","type":item["type"],"question":item["question"],"options":item["options"],"answer":item["answer"],
+      "analysis":{"title":"解析","sharedThinking":detail["thinking"],"sharedFormula":detail["formula"]},
+      "analysisPresentation":{"collapseEachStep":True,"optionMode":"shared-solution" if shared_mode else "independent-statements"},
+      "steps":[{"stepId":1,"title":"条件提取","content":detail["condition"]},{"stepId":2,"title":"模型与公式","content":detail["thinking"]+" "+detail["formula"]},{"stepId":3,"title":"推导","content":item["explanation"]},{"stepId":4,"title":"结论","content":f"答案为 **{item['answer']}**。"}],
       "knowledge":["电场强度","电势能",item["name"]],"practice":{"title":"进阶近似题：同考点结构迁移","question":pq,"answer":pt,"thinking":"先保留本题的物理不变量，再改变几何、符号或过程条件建立新方程。","difficulty":"equal-or-higher","upgradeType":"same-concept-structural-transfer"},
       "animation":{"enabled":True,"level":"animated","type":"electric_field_model","variant":slug,"playable":True,"interactive":True,"notes":f"按“{item['name']}”显示电荷、场强、运动或能量图像的关键变化。","params":{"charge":{"label":"电荷量","value":1,"min":-3,"max":3,"step":0.25,"unit":"q"},"field":{"label":"场强系数","value":1,"min":0.2,"max":2,"step":0.1,"unit":"E"},"distance":{"label":"距离系数","value":1,"min":0.5,"max":2,"step":0.1,"unit":"R"}},"timeline":{"duration":7,"loop":False}},
       "taxonomy":{"module":"电磁学","topic":CHAPTER,"modelId":"electric-field-potential","modelName":"电场强度与电势能","familyId":f"electric-{item['family']}","familyName":FAMILY_NAMES[item["family"]],"role":"母题" if kind=="course" and number==1 else ("综合题" if item["difficulty"]>=4 else "条件变式"),"difficulty":item["difficulty"],"variantLevel":item["level"],"skills":["场强矢量叠加","电场功与能量判断"],"prerequisites":["库仑定律","力的合成与分解"]}}
+    if item["options"]: problem["optionAnalyses"]=[{"option":chr(65+i),"title":option.split(". ",1)[-1],"judgment":judgment} for i,(option,judgment) in enumerate(zip(item["options"],detail["judgments"]))]
     if slug in IMAGE_MAP: problem["images"]=[{"src":f"assets/problem-images/electric-lesson5/{IMAGE_MAP[slug]}","alt":f"{item['name']}原题配图"}]
     return problem
 

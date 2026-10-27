@@ -12,29 +12,33 @@
   "answer": "BD",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "箭头方向判断电荷正负，连接电荷的场线条数反映电荷量关系，局部疏密比较场强。",
+    "sharedFormula": "\\[\\text{场线由正电荷出发、终止于负电荷},\\qquad E\\text{ 的大小由局部场线疏密定性表示}\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
-    "optionMode": "shared-solution"
+    "optionMode": "independent-statements"
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "图中场线从甲指向乙，甲一侧还有更多场线伸向远处，且 P 附近场线比 Q 附近密。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "箭头方向判断电荷正负，连接电荷的场线条数反映电荷量关系，局部疏密比较场强。 \\[\\text{场线由正电荷出发、终止于负电荷},\\qquad E\\text{ 的大小由局部场线疏密定性表示}\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "场线由甲发出并终止于乙，故甲正乙负；甲连接的场线更多，电荷量更大。曲线场线只给出各点场强方向，静止粒子的轨迹一般不与弯曲场线重合。\\(P\\) 附近场线更密，故 \\(E_P>E_Q\\)。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **BD**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **BD**。"
     }
   ],
   "knowledge": [
@@ -285,5 +289,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "multiple-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "甲带负电、乙带正电",
+      "judgment": "错误。甲为正电荷、乙为负电荷。"
+    },
+    {
+      "option": "B",
+      "title": "甲的电荷量大于乙的电荷量",
+      "judgment": "正确。与甲相连的场线总数更多，说明 \\(|q_甲|>|q_乙|\\)。"
+    },
+    {
+      "option": "C",
+      "title": "正粒子从 P 点静止释放后会沿弯曲场线运动到 Q 点",
+      "judgment": "错误。场线给出瞬时加速度方向，曲线场线一般不是粒子运动轨迹。"
+    },
+    {
+      "option": "D",
+      "title": "P 点场强大于 Q 点场强",
+      "judgment": "正确。P 附近场线更密，所以 \\(E_P>E_Q\\)。"
+    }
+  ]
 }

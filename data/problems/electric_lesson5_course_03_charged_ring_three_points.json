@@ -12,29 +12,33 @@
   "answer": "ACD",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "三点到 O 距离相同，场强大小只与各点电荷量成正比。建立沿 BC 和垂直 BC 的分量方程。",
+    "sharedFormula": "\\[\\vec E_O=-\\frac{k}{R^2}\\left(q_A\\hat r_A+Q\\hat r_B+q_C\\hat r_C\\right),\\qquad q_A-q_C=Q\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
-    "optionMode": "shared-solution"
+    "optionMode": "independent-statements"
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "由圆周几何，AC 是直径且 \\(\\angle CAB=60^\\circ\\)，场强平行 BC 要求垂直 BC 的合分量为零。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "三点到 O 距离相同，场强大小只与各点电荷量成正比。建立沿 BC 和垂直 BC 的分量方程。 \\[\\vec E_O=-\\frac{k}{R^2}\\left(q_A\\hat r_A+Q\\hat r_B+q_C\\hat r_C\\right),\\qquad q_A-q_C=Q\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "三点到圆心距离相等，把各场强沿水平、竖直方向分解。合场强平行 \\(BC\\) 要求竖直分量抵消，得到 \\(q_A-q_C=Q\\)；此时水平合场强恒沿 \\(B\\to C\\)。选项 C、D 的两组电荷都满足该约束。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **ACD**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **ACD**。"
     }
   ],
   "knowledge": [
@@ -302,5 +306,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "multiple-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "O 点场强沿 BC 由 B 指向 C",
+      "judgment": "正确。代入约束后沿 BC 的合分量恒由 B 指向 C。"
+    },
+    {
+      "option": "B",
+      "title": "O 点场强沿 BC 由 C 指向 B",
+      "judgment": "错误。合场强方向不是由 C 指向 B。"
+    },
+    {
+      "option": "C",
+      "title": "A、C 处电荷可以分别为 \\(+\\frac12Q、-\\frac12Q\\)",
+      "judgment": "正确。\\(q_A=Q/2,q_C=-Q/2\\) 满足 \\(q_A-q_C=Q\\)。"
+    },
+    {
+      "option": "D",
+      "title": "A、C 处电荷可以分别为 \\(-Q、-2Q\\)",
+      "judgment": "正确。\\(q_A=-Q,q_C=-2Q\\) 也满足 \\(q_A-q_C=Q\\)。"
+    }
+  ]
 }

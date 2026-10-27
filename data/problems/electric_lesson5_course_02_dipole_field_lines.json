@@ -12,29 +12,33 @@
   "answer": "AC",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "利用等量异号电荷关于中点的对称性，并分别检查连线上和中垂线上的矢量叠加。",
+    "sharedFormula": "\\[\\vec E=\\vec E_{+q}+\\vec E_{-q},\\qquad E_{\\perp}(y)=\\frac{2kqa}{(a^2+y^2)^{3/2}}\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
-    "optionMode": "shared-solution"
+    "optionMode": "independent-statements"
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "B、C 关于 O 对称且位于两电荷之间；E、F 位于中垂线上；A、D 位于两电荷外侧。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "利用等量异号电荷关于中点的对称性，并分别检查连线上和中垂线上的矢量叠加。 \\[\\vec E=\\vec E_{+q}+\\vec E_{-q},\\qquad E_{\\perp}(y)=\\frac{2kqa}{(a^2+y^2)^{3/2}}\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "等量异号电荷的电场关于连线中点中心对称。\\(B、C\\) 处合场强均由正电荷指向负电荷且大小相等；\\(A、D\\) 处方向也相同。中垂线上离 \\(O\\) 越远，两个场强的水平分量越小，因此 \\(O\\) 大于 \\(E、F\\)；在两电荷之间越靠近电荷场强越大，所以 \\(O\\) 不是 \\(B、O、C\\) 中最大。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **AC**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **AC**。"
     }
   ],
   "knowledge": [
@@ -294,5 +298,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "multiple-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "B、C 两点场强大小和方向都相同",
+      "judgment": "正确。B、C 两点的场强均由正电荷指向负电荷，大小也由对称性相等。"
+    },
+    {
+      "option": "B",
+      "title": "A、D 两点场强大小相等、方向相反",
+      "judgment": "错误。A、D 场强大小相等，但方向均由正电荷一侧指向负电荷一侧，并不相反。"
+    },
+    {
+      "option": "C",
+      "title": "E、O、F 三点中 O 点场强最大",
+      "judgment": "正确。中垂线上场强随 \\(|y|\\) 增大而减小，所以 O 点最大。"
+    },
+    {
+      "option": "D",
+      "title": "B、O、C 三点中 O 点场强最大",
+      "judgment": "错误。两电荷之间越靠近任一电荷场强越大，O 点反而是 B、O、C 中最小。"
+    }
+  ]
 }

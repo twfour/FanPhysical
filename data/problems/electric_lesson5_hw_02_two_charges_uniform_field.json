@@ -12,29 +12,33 @@
   "answer": "A",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "先由两球水平平衡确定电性和电荷量，再把两点电荷场与外加匀强电场在 N、M 两点作矢量叠加。",
+    "sharedFormula": "\\[|q_P|E=|q_Q|E=\\frac{k|q_Pq_Q|}{d^2}\\Rightarrow q_P=-q_Q,\\qquad E=\\frac{k|q|}{d^2}\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
-    "optionMode": "shared-solution"
+    "optionMode": "independent-statements"
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "P 在左、Q 在右，两根绳均竖直，说明每个球的水平合力分别为零。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "先由两球水平平衡确定电性和电荷量，再把两点电荷场与外加匀强电场在 N、M 两点作矢量叠加。 \\[|q_P|E=|q_Q|E=\\frac{k|q_Pq_Q|}{d^2}\\Rightarrow q_P=-q_Q,\\qquad E=\\frac{k|q|}{d^2}\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "两绳竖直说明每球水平方向合力为零，故两球异号且左负右正；分别列平衡式可知电量大小相等。质量只影响绳的拉力。由几何与叠加可得 \\(N\\) 点场强不为零，而 \\(M\\) 点两电荷场强的水平合量恰与匀强电场抵消。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **A**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **A**。"
     }
   ],
   "knowledge": [
@@ -302,5 +306,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "single-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "P 带负电、Q 带正电，且电量大小相等",
+      "judgment": "正确。P 的库仑力向右，故其电场力应向左，P 带负电；Q 同理带正电，两个平衡式又给出电量相等。"
+    },
+    {
+      "option": "B",
+      "title": "P、Q 质量一定相等",
+      "judgment": "错误。竖直方向由各自绳拉力平衡重力，不能推出两球质量相等。"
+    },
+    {
+      "option": "C",
+      "title": "叠加场中 N 点场强为零",
+      "judgment": "错误。N 点两点电荷场均向左，叠加外场后仍不为零。"
+    },
+    {
+      "option": "D",
+      "title": "叠加场中 M 点场强不为零",
+      "judgment": "错误。在等边三角形顶点 M，两点电荷场的竖直分量抵消、水平合量向左且恰为 E，与外场抵消，总场强为零。"
+    }
+  ]
 }

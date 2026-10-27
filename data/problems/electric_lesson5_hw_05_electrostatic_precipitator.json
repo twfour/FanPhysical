@@ -12,29 +12,33 @@
   "answer": "C",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "由负放电极的电离过程判断烟尘电性，再用场线疏密比较 A、B 场强。",
+    "sharedFormula": "\\[\\vec F=q\\vec E,\\qquad a=\\frac{|q|E}{m}\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
-    "optionMode": "shared-solution"
+    "optionMode": "independent-statements"
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "B 比 A 更靠近细小的负放电极，放电极附近场线更密；烟尘最终运动到正集尘板。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "由负放电极的电离过程判断烟尘电性，再用场线疏密比较 A、B 场强。 \\[\\vec F=q\\vec E,\\qquad a=\\frac{|q|E}{m}\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "烟尘受电离后通常带负电，最终被正集尘板吸附。放电极附近场线更密，图中 \\(B\\) 更靠近放电极，故 \\(E_B>E_A\\)。电场非匀强，所以加速度并非常量。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **C**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **C**。"
     }
   ],
   "knowledge": [
@@ -294,5 +298,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "single-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "烟尘颗粒带正电",
+      "judgment": "错误。烟尘通常吸附负离子而带负电。"
+    },
+    {
+      "option": "B",
+      "title": "颗粒做匀变速曲线运动",
+      "judgment": "错误。电场非匀强，场强和加速度均随位置变化。"
+    },
+    {
+      "option": "C",
+      "title": "A 点场强小于 B 点场强",
+      "judgment": "正确。B 附近场线更密，因此 \\(E_B>E_A\\)。"
+    },
+    {
+      "option": "D",
+      "title": "从 A 到 B 电场力先做负功后做正功",
+      "judgment": "错误。烟尘沿电场力方向迁移，电场力持续做正功，并非先负后正。"
+    }
+  ]
 }

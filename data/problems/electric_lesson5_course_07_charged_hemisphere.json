@@ -7,29 +7,33 @@
   "answer": "\\(E_M=\\dfrac{2kQ}{L^2}-E\\)",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "补上镜像半球组成完整均匀球壳，再利用关于球心的对称性把未知场强转移到同一点相加。",
+    "sharedFormula": "\\[E_{\\mathrm{sphere}}=\\frac{k(2Q)}{L^2},\\qquad E+E_M=\\frac{2kQ}{L^2}\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
-    "optionMode": "shared-solution"
+    "optionMode": "independent-statements"
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "M、N 到球心距离均为 L；补成的完整球壳总电荷量为 \\(2Q\\)，外部场等效于球心点电荷。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "补上镜像半球组成完整均匀球壳，再利用关于球心的对称性把未知场强转移到同一点相加。 \\[E_{\\mathrm{sphere}}=\\frac{k(2Q)}{L^2},\\qquad E+E_M=\\frac{2kQ}{L^2}\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "补上关于球心对称的另一个半球可组成总电荷量为 \\(2Q\\) 的均匀球壳。轴外点距球心为 \\(L\\)，完整球壳产生的场强为 \\(2kQ/L^2\\)。由镜像半球在 \\(N\\) 点的场强大小等于原半球在 \\(M\\) 点的场强，且两者与已知场强同向叠加，故 \\(E+E_M=2kQ/L^2\\)。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **\\(E_M=\\dfrac{2kQ}{L^2}-E\\)**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **\\(E_M=\\dfrac{2kQ}{L^2}-E\\)**。"
     }
   ],
   "knowledge": [
@@ -288,5 +292,6 @@
         }
       ]
     }
-  }
+  },
+  "type": "calculation"
 }

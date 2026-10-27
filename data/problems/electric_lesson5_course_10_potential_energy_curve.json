@@ -12,29 +12,33 @@
   "answer": "BD",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "对正试探电荷，势能曲线斜率的负值给场强方向；源电荷位置处的发散方向给源电荷符号。",
+    "sharedFormula": "\\[E_x=-\\frac{1}{q}\\frac{dE_p}{dx},\\qquad W_E=-\\Delta E_p\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
-    "optionMode": "shared-solution"
+    "optionMode": "independent-statements"
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "O 处曲线趋于正无穷、P 处趋于负无穷；C 是势能极大点，故 C 点曲线斜率为零。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "对正试探电荷，势能曲线斜率的负值给场强方向；源电荷位置处的发散方向给源电荷符号。 \\[E_x=-\\frac{1}{q}\\frac{dE_p}{dx},\\qquad W_E=-\\Delta E_p\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "对正试探电荷有 \\(E_x=-\\frac1q\\frac{dE_p}{dx}\\)。\\(B\\to C\\) 曲线上升，故场强沿负方向；\\(C\\) 为极值点，场强为零。负电荷的势能曲线与图示相反，所以从 B 到 C 势能降低、电场力做正功，从 C 到 D 势能升高、电场力做负功。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **BD**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **BD**。"
     }
   ],
   "knowledge": [
@@ -293,5 +297,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "multiple-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(q_1、q_2\\) 均为正且 \\(q_1>q_2\\)",
+      "judgment": "错误。O 处源电荷为正，P 处源电荷为负，不是均为正。"
+    },
+    {
+      "option": "B",
+      "title": "B、C 间场强沿 x 轴负方向",
+      "judgment": "正确。B 到 C 曲线上升，\\(dE_p/dx>0\\)，所以 \\(E_x<0\\)。"
+    },
+    {
+      "option": "C",
+      "title": "C 点场强大于 A 点场强",
+      "judgment": "错误。C 点斜率为零，场强为零；A 点斜率不为零。"
+    },
+    {
+      "option": "D",
+      "title": "负电荷从 B 移到 D，电场力先做正功后做负功",
+      "judgment": "正确。负电荷的势能曲线与图示反号，B 到 C 势能降低、C 到 D 势能升高，电场力先做正功后做负功。"
+    }
+  ]
 }

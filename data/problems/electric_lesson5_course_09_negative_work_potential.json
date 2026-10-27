@@ -12,29 +12,33 @@
   "answer": "CD",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "先用电场力功与电势能变化的关系确定必然结论，再判断哪些量无法由功唯一确定。",
+    "sharedFormula": "\\[W_{ab}=-\\Delta E_p=E_{p,a}-E_{p,b},\\qquad \\Delta E_k=W_E+W_{\\mathrm{其他力}}\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
-    "optionMode": "shared-solution"
+    "optionMode": "independent-statements"
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "已知的只有正电荷从 a 到 b 时电场力做负功，未说明路径、场强分布和其他外力。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "先用电场力功与电势能变化的关系确定必然结论，再判断哪些量无法由功唯一确定。 \\[W_{ab}=-\\Delta E_p=E_{p,a}-E_{p,b},\\qquad \\Delta E_k=W_E+W_{\\mathrm{其他力}}\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "由 \\(W_{ab}=-\\Delta E_p\\)，电场力做负功意味着 \\(E_{pb}>E_{pa}\\)。功只决定电势差，不能确定两点场强大小或电场线具体方向。若另有外力做更多正功，电荷动能仍可能增加。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **CD**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **CD**。"
     }
   ],
   "knowledge": [
@@ -279,5 +283,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "multiple-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "b 点场强一定比 a 点大",
+      "judgment": "错误。电场力做功只确定两点电势差，不能比较两点场强大小。"
+    },
+    {
+      "option": "B",
+      "title": "电场线方向一定从 b 指向 a",
+      "judgment": "错误。只能确定 a 点电势高于 b 点，不能据此断定局部电场线一定沿 b 到 a。"
+    },
+    {
+      "option": "C",
+      "title": "电荷在 b 点的电势能一定比在 a 点大",
+      "judgment": "正确。\\(W_{ab}<0\\) 给出 \\(E_{p,b}>E_{p,a}\\)。"
+    },
+    {
+      "option": "D",
+      "title": "电荷的动能可能增加",
+      "judgment": "正确。若其他力做的正功大于电场力负功的绝对值，动能可以增加。"
+    }
+  ]
 }

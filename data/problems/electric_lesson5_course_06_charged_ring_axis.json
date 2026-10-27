@@ -12,8 +12,8 @@
   "answer": "C",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "取对称电荷元，先消去垂直轴线的分量，再把所有轴向分量积分。",
+    "sharedFormula": "\\[r=\\sqrt{R^2+L^2},\\qquad dE_x=\\frac{kL\\,dQ}{(R^2+L^2)^{3/2}},\\qquad E_x=\\frac{kQL}{(R^2+L^2)^{3/2}}\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -21,20 +21,24 @@
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "圆环均匀带电，P 位于对称轴上，因此所有非轴向分量成对抵消。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "取对称电荷元，先消去垂直轴线的分量，再把所有轴向分量积分。 \\[r=\\sqrt{R^2+L^2},\\qquad dE_x=\\frac{kL\\,dQ}{(R^2+L^2)^{3/2}},\\qquad E_x=\\frac{kQL}{(R^2+L^2)^{3/2}}\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "把圆环分成成对对称的电荷元，垂直轴线的场强分量相互抵消，轴向分量相加。由 \\(r=\\sqrt{R^2+L^2}\\)、\\(\\cos\\alpha=L/r\\)，积分得 \\(E=kQL/(R^2+L^2)^{3/2}\\)。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **C**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **C**。"
     }
   ],
   "knowledge": [
@@ -301,5 +305,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "single-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(\\dfrac{kQ}{L^2}\\)",
+      "judgment": "把圆环误当成距 P 为 L 的点电荷，错误。"
+    },
+    {
+      "option": "B",
+      "title": "\\(\\dfrac{kQ}{R^2}\\)",
+      "judgment": "没有包含轴向距离 L，且量纲对应关系不完整，错误。"
+    },
+    {
+      "option": "C",
+      "title": "\\(\\dfrac{kLQ}{(R^2+L^2)^{3/2}}\\)",
+      "judgment": "由轴向分量积分得到，正确。"
+    },
+    {
+      "option": "D",
+      "title": "\\(\\dfrac{kRQ}{(R^2+L^2)^{3/2}}\\)",
+      "judgment": "分子应为 L 而不是 R，错误。"
+    }
+  ]
 }

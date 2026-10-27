@@ -12,29 +12,33 @@
   "answer": "BC",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "场强图像的纵坐标给力的方向和大小，图下有向面积给电势差；速度还需要初始运动方向。",
+    "sharedFormula": "\\[F_x=qE_x,\\qquad \\Delta E_p=-q\\int_{x_a}^{x_b}E_x\\,dx\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
-    "optionMode": "shared-solution"
+    "optionMode": "independent-statements"
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "x₁ 到 x₄ 区间内 E 均不大于零，且 \\(|E|\\) 从 x₁ 到 x₃ 增大、从 x₃ 到 x₄ 减小。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "场强图像的纵坐标给力的方向和大小，图下有向面积给电势差；速度还需要初始运动方向。 \\[F_x=qE_x,\\qquad \\Delta E_p=-q\\int_{x_a}^{x_b}E_x\\,dx\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "图示区间 \\(E<0\\)，对正电荷有 \\(dE_p/dx=-qE>0\\)，所以从 \\(x_1\\) 到 \\(x_3\\) 电势能增加。电场力大小为 \\(q|E|\\)，随曲线先远离零轴后靠近零轴，故先增大后减小。速度变化还取决于初速度方向和是否发生转向，不能直接判为先增后减。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **BC**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **BC**。"
     }
   ],
   "knowledge": [
@@ -285,5 +289,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "multiple-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "在 x2、x4 处电势能相等",
+      "judgment": "错误。x₂ 到 x₄ 之间 E 为负，积分不为零，因此两点电势能不相等。"
+    },
+    {
+      "option": "B",
+      "title": "从 x1 到 x3 电势能增大",
+      "judgment": "正确。x₁ 到 x₃ 有 \\(E<0\\)，故 \\(\\Delta E_p=-q\\int E\\,dx>0\\)。"
+    },
+    {
+      "option": "C",
+      "title": "从 x1 到 x4 电场力先增大后减小",
+      "judgment": "正确。\\(|F|=q|E|\\)，随图像先远离零轴再靠近零轴，所以先增大后减小。"
+    },
+    {
+      "option": "D",
+      "title": "从 x1 到 x4 速度先增大后减小",
+      "judgment": "错误。速度变化还取决于初速度方向以及是否发生转向，不能仅由 E-x 图断定先增大后减小。"
+    }
+  ]
 }

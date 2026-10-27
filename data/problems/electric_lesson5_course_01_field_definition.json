@@ -12,29 +12,33 @@
   "answer": "D",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "区分电场本身与试探电荷所受的力。先固定场源和空间位置，再改变试探电荷检验定义式。",
+    "sharedFormula": "\\[\\vec F=q\\vec E\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
-    "optionMode": "shared-solution"
+    "optionMode": "independent-statements"
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "场源和研究点均未改变，变化的只有试探电荷，因此该点场强矢量不变。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "区分电场本身与试探电荷所受的力。先固定场源和空间位置，再改变试探电荷检验定义式。 \\[\\vec F=q\\vec E\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "电场强度是源电荷产生的电场本身的性质，定义式 \\(\\vec E=\\vec F/q\\) 中试探电荷只用于测量。改变或移去试探电荷不会改变该点的 \\(\\vec E\\)；负试探电荷所受电场力方向与 \\(\\vec E\\) 相反。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **D**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **D**。"
     }
   ],
   "knowledge": [
@@ -279,5 +283,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "single-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "移去试探电荷后，该点电场强度为 0",
+      "judgment": "错误。移去试探电荷不等于移去场源，该点场强仍存在。"
+    },
+    {
+      "option": "B",
+      "title": "试探电荷电荷量变为 \\(4q\\) 后，该点场强变为 \\(4E\\)",
+      "judgment": "错误。电荷量变为四倍时静电力变为四倍，\\(\\vec F/q\\) 不变。"
+    },
+    {
+      "option": "C",
+      "title": "试探电荷变为 \\(-2q\\) 后，该点场强大小不变、方向相反",
+      "judgment": "错误。负电荷受力方向反向，但场强方向不随试探电荷改变。"
+    },
+    {
+      "option": "D",
+      "title": "试探电荷变为 \\(-2q\\) 后，该点场强大小和方向均不变",
+      "judgment": "正确。试探电荷变为 \\(-2q\\) 后，场强大小和方向均不变。"
+    }
+  ]
 }

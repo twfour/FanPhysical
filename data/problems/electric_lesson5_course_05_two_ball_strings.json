@@ -12,8 +12,8 @@
   "answer": "C",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "先把两球作为整体判断上段绳方向，再隔离乙球判断下段绳方向。",
+    "sharedFormula": "\\[\\vec F_{E,\\mathrm{all}}=(3q-q)\\vec E=2q\\vec E,\\qquad \\vec T_2+m\\vec g-q\\vec E=0\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -21,20 +21,24 @@
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "电场向左，甲的电场力向左且大小 \\(3qE\\)，乙的电场力向右且大小 \\(qE\\)。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "先把两球作为整体判断上段绳方向，再隔离乙球判断下段绳方向。 \\[\\vec F_{E,\\mathrm{all}}=(3q-q)\\vec E=2q\\vec E,\\qquad \\vec T_2+m\\vec g-q\\vec E=0\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "把两球看成整体，总电荷为 \\(+2q\\)，整体电场力向左，所以上段细线应向左下方倾斜。对乙球单独分析，负电荷所受电场力向右，下段细线对乙球的拉力必须含向左分量，因此乙球位于甲球右下方。只有图 C 同时满足。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **C**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **C**。"
     }
   ],
   "knowledge": [
@@ -302,5 +306,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "single-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "图 A",
+      "judgment": "上段绳方向不符合整体受力，错误。"
+    },
+    {
+      "option": "B",
+      "title": "图 B",
+      "judgment": "下段绳不能为图示方向，错误。"
+    },
+    {
+      "option": "C",
+      "title": "图 C",
+      "judgment": "上段由 O 向左下、下段由甲向右下，同时满足整体与乙球平衡，正确。"
+    },
+    {
+      "option": "D",
+      "title": "图 D",
+      "judgment": "上段绳方向与整体所受水平合力不符，错误。"
+    }
+  ]
 }

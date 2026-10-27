@@ -12,8 +12,8 @@
   "answer": "C",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "利用完整圆环场强为零，把 3/4 圆环等效为缺失 1/4 圆弧场强的反向量，再与半圆弧比较。",
+    "sharedFormula": "\\[E_{1/4}=\\frac{\\sqrt2k\\lambda}{R}=E,\\qquad E_{1/2}=\\frac{2k\\lambda}{R}=\\sqrt2E\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -21,20 +21,24 @@
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "裁切前后线电荷密度 \\(\\lambda\\) 和半径 R 不变；裁去原 3/4 圆环的三分之一后恰剩半圆。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "利用完整圆环场强为零，把 3/4 圆环等效为缺失 1/4 圆弧场强的反向量，再与半圆弧比较。 \\[E_{1/4}=\\frac{\\sqrt2k\\lambda}{R}=E,\\qquad E_{1/2}=\\frac{2k\\lambda}{R}=\\sqrt2E\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "\\(3/4\\) 圆环的场强等于被缺去的 \\(1/4\\) 圆弧场强的反向量，其大小为 \\(\\sqrt2k\\lambda/R\\)。半圆弧场强为 \\(2k\\lambda/R\\)，故比值为 \\(\\sqrt2\\)。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **C**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **C**。"
     }
   ],
   "knowledge": [
@@ -301,5 +305,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "single-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(\\frac23E\\)",
+      "judgment": "比例不是 \\(2/3\\)，错误。"
+    },
+    {
+      "option": "B",
+      "title": "\\(\\frac12E\\)",
+      "judgment": "场强不能按弧长直接取一半，错误。"
+    },
+    {
+      "option": "C",
+      "title": "\\(\\sqrt2E\\)",
+      "judgment": "半圆场强为原 3/4 圆环场强的 \\(\\sqrt2\\) 倍，正确。"
+    },
+    {
+      "option": "D",
+      "title": "\\(\\frac{\\sqrt2}{2}E\\)",
+      "judgment": "比值取倒，错误。"
+    }
+  ]
 }

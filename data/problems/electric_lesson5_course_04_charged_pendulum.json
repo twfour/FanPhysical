@@ -12,8 +12,8 @@
   "answer": "A",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "先由小球偏向判断电场力方向，再由负电荷受力方向与场强相反确定电场方向。",
+    "sharedFormula": "\\[T\\sin60^\\circ=qE,\\qquad T\\cos60^\\circ=mg,\\qquad E=\\frac{mg\\tan60^\\circ}{q}\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -21,20 +21,24 @@
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "小球向右偏，平衡时水平电场力向右；小球电荷量为 \\(-q\\)。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "先由小球偏向判断电场力方向，再由负电荷受力方向与场强相反确定电场方向。 \\[T\\sin60^\\circ=qE,\\qquad T\\cos60^\\circ=mg,\\qquad E=\\frac{mg\\tan60^\\circ}{q}\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "平衡时 \\(qE=mg\\tan60^\\circ\\)。小球向右偏，所受电场力向右；因小球带负电，电场方向与电场力相反，即水平向左。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **A**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **A**。"
     }
   ],
   "knowledge": [
@@ -294,5 +298,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "single-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(\\dfrac{mg\\tan60^\\circ}{q}\\)，水平向左",
+      "judgment": "由平衡方程得到该大小，且负电荷受力向右对应场强向左，因此 A 正确。"
+    },
+    {
+      "option": "B",
+      "title": "\\(\\dfrac{mg\\tan60^\\circ}{q}\\)，水平向右",
+      "judgment": "大小正确但方向错误。"
+    },
+    {
+      "option": "C",
+      "title": "\\(\\dfrac{mg\\sin60^\\circ}{q}\\)，水平向左",
+      "judgment": "使用了 \\(\\sin60^\\circ\\) 而不是水平、竖直分量之比 \\(\\tan60^\\circ\\)。"
+    },
+    {
+      "option": "D",
+      "title": "\\(\\dfrac{mg\\sin60^\\circ}{q}\\)，水平向右",
+      "judgment": "大小和方向均不符合平衡条件。"
+    }
+  ]
 }

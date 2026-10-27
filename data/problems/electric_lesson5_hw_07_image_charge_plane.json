@@ -12,8 +12,8 @@
   "answer": "D",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "在导体外区域用关于平面反对称的像电荷代替感应电荷，再在指定点叠加两个场强。",
+    "sharedFormula": "\\[E_{\\rm real}=\\frac{kq}{(h/2)^2}=\\frac{4kq}{h^2},\\qquad E_{\\rm image}=\\frac{kq}{(3h/2)^2}=\\frac{4kq}{9h^2}\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -21,20 +21,24 @@
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "像电荷 \\(-q\\) 位于 z=-h；在 z=h/2 处，真实电荷和像电荷产生的场强均沿 z 轴负方向。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "在导体外区域用关于平面反对称的像电荷代替感应电荷，再在指定点叠加两个场强。 \\[E_{\\rm real}=\\frac{kq}{(h/2)^2}=\\frac{4kq}{h^2},\\qquad E_{\\rm image}=\\frac{kq}{(3h/2)^2}=\\frac{4kq}{9h^2}\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "用镜像法把导体替换为位于 \\(z=-h\\) 的像电荷 \\(-q\\)。在 \\(z=h/2\\) 处，真电荷与像电荷产生的场强都向下，大小分别为 \\(4kq/h^2\\) 与 \\(4kq/(9h^2)\\)，相加得 \\(40kq/(9h^2)\\)。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **D**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **D**。"
     }
   ],
   "knowledge": [
@@ -285,5 +289,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "single-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(\\dfrac{4kq}{h^2}\\)",
+      "judgment": "只计算了真实电荷，遗漏像电荷。"
+    },
+    {
+      "option": "B",
+      "title": "\\(\\dfrac{4kq}{9h^2}\\)",
+      "judgment": "只计算了像电荷，遗漏真实电荷。"
+    },
+    {
+      "option": "C",
+      "title": "\\(\\dfrac{32kq}{9h^2}\\)",
+      "judgment": "叠加系数错误。"
+    },
+    {
+      "option": "D",
+      "title": "\\(\\dfrac{40kq}{9h^2}\\)",
+      "judgment": "两场强同向相加得 \\(E=40kq/(9h^2)\\)，正确。"
+    }
+  ]
 }

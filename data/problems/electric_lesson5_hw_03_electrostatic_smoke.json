@@ -12,29 +12,33 @@
   "answer": "C",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "根据尖端放电判断电场是否均匀，再沿烟尘受力和迁移方向判断能量变化。",
+    "sharedFormula": "\\[\\vec F=q\\vec E,\\qquad W_E=-\\Delta E_p\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
-    "optionMode": "shared-solution"
+    "optionMode": "independent-statements"
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "锯条接负极、金属片接正极；尖锐锯齿附近场线密集并使空气电离。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "根据尖端放电判断电场是否均匀，再沿烟尘受力和迁移方向判断能量变化。 \\[\\vec F=q\\vec E,\\qquad W_E=-\\Delta E_p\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "尖锐锯齿附近场强很强，空气电离后烟尘通常获得负电并在电场力作用下迁移到正极金属片。该过程中电场力做正功，烟尘电势能降低。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **C**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **C**。"
     }
   ],
   "knowledge": [
@@ -294,5 +298,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "single-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "瓶内是匀强电场",
+      "judgment": "错误。电极形状不对称，瓶内是明显的非匀强电场。"
+    },
+    {
+      "option": "B",
+      "title": "锯条附近场强较小",
+      "judgment": "错误。尖端附近电荷面密度大，场强较大。"
+    },
+    {
+      "option": "C",
+      "title": "烟尘最终吸附到金属片上",
+      "judgment": "正确。烟尘获得负电后向正极金属片迁移并被吸附。"
+    },
+    {
+      "option": "D",
+      "title": "烟尘被吸附过程中电势能增大",
+      "judgment": "错误。迁移由电场力驱动，电场力做正功，电势能降低。"
+    }
+  ]
 }

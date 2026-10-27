@@ -12,29 +12,33 @@
   "answer": "A",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "源电荷位置会使势能曲线发散；曲线斜率决定电场力，曲线升降决定电场力做功正负。",
+    "sharedFormula": "\\[F_x=-\\frac{dE_p}{dx},\\qquad W_E=-\\Delta E_p\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
-    "optionMode": "shared-solution"
+    "optionMode": "independent-statements"
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "从 x₁ 到 x₃ 曲线连续且没有新的发散点，x₂ 是势能极大点。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "源电荷位置会使势能曲线发散；曲线斜率决定电场力，曲线升降决定电场力做功正负。 \\[F_x=-\\frac{dE_p}{dx},\\qquad W_E=-\\Delta E_p\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "曲线在 \\(x_1\\) 右侧连续且无发散点，说明两个源电荷均位于 \\(x_1\\) 左侧。\\(x_2\\) 为势能极值，\\(dE_p/dx=0\\)，故电场力为零。\\(x_1\\to x_2\\) 势能增加、电场力做负功；随后势能降低、电场力做正功。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **A**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **A**。"
     }
   ],
   "knowledge": [
@@ -293,5 +297,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "single-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(Q_1、Q_2\\) 的位置都在 \\(x_1\\) 左侧",
+      "judgment": "正确。x₁ 右侧没有源电荷造成的发散点，所以两个源电荷都位于 x₁ 左侧。"
+    },
+    {
+      "option": "B",
+      "title": "\\(q\\) 在 \\(x_2\\) 处受到的电场力最大",
+      "judgment": "错误。x₂ 处斜率为零，故电场力为零而非最大。"
+    },
+    {
+      "option": "C",
+      "title": "\\(q\\) 从 \\(x_1\\) 到 \\(x_3\\) 时电场力先做正功后做负功",
+      "judgment": "错误。x₁ 到 x₂ 势能升高，电场力做负功；x₂ 到 x₃ 势能降低，电场力做正功，顺序相反。"
+    },
+    {
+      "option": "D",
+      "title": "从 \\(x_1\\) 到 \\(x_3\\) 场强先增大后减小",
+      "judgment": "错误。场强大小由曲线斜率绝对值决定，并非简单地先增大后减小。"
+    }
+  ]
 }

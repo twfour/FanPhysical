@@ -12,29 +12,33 @@
   "answer": "D",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先明确源电荷、试探电荷和研究点，再选择场强叠加、受力平衡或电势能关系。",
-    "sharedFormula": "\\[\\vec E=\\frac{\\vec F}{q},\\qquad \\vec E=\\sum_i\\vec E_i,\\qquad W_{AB}=-\\Delta E_p\\]"
+    "sharedThinking": "轨迹切线只确定速度方向，轨迹凹侧确定合力方向；场线疏密用于比较场强和加速度。",
+    "sharedFormula": "\\[\\vec a=\\frac{q\\vec E}{m},\\qquad a=\\frac{|q|E}{m}\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
-    "optionMode": "shared-solution"
+    "optionMode": "independent-statements"
   },
   "steps": [
     {
+      "stepId": 1,
       "title": "条件提取",
-      "content": "标出电荷正负、几何对称性、场线方向和题目所比较的物理量。"
+      "content": "粒子带正电且只受电场力，但题目没有给出其沿轨迹运动的先后方向。"
     },
     {
+      "stepId": 2,
       "title": "模型与公式",
-      "content": "按题意使用矢量叠加、平衡条件或场强/势能图像的斜率与面积关系。"
+      "content": "轨迹切线只确定速度方向，轨迹凹侧确定合力方向；场线疏密用于比较场强和加速度。 \\[\\vec a=\\frac{q\\vec E}{m},\\qquad a=\\frac{|q|E}{m}\\]"
     },
     {
-      "title": "推导与判断",
+      "stepId": 3,
+      "title": "推导",
       "content": "轨迹在某点的切线给速度方向，弯曲的凹侧给加速度方向，但不能据此唯一判定运动先后。电场线在 \\(Q\\) 附近更密，因此 \\(E_Q>E_P\\)，同一粒子有 \\(a_Q>a_P\\)。"
     },
     {
+      "stepId": 4,
       "title": "结论",
-      "content": "答案为 **D**。最后检查场强方向、矢量分量和电场力做功符号。"
+      "content": "答案为 **D**。"
     }
   ],
   "knowledge": [
@@ -285,5 +289,28 @@
         }
       ]
     }
-  }
+  },
+  "type": "single-choice",
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "P 点电场线方向斜向左上方",
+      "judgment": "错误。结合轨迹凹向只能确定 P 点电场方向指向凹侧，并非所述方向。"
+    },
+    {
+      "option": "B",
+      "title": "粒子一定从 Q 运动到 P",
+      "judgment": "错误。仅由轨迹形状不能判定粒子从 P 到 Q 还是从 Q 到 P。"
+    },
+    {
+      "option": "C",
+      "title": "粒子通过 Q 点时速度较小",
+      "judgment": "错误。速度大小需要由运动方向和电场力做功共同判断。"
+    },
+    {
+      "option": "D",
+      "title": "粒子通过 Q 点时加速度较大",
+      "judgment": "正确。Q 附近场线更密，故 \\(E_Q>E_P\\)，从而 \\(a_Q>a_P\\)。"
+    }
+  ]
 }
