@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_course_08_curved_equipotential",
+  "chapter": "电势、电势差与等势面",
+  "title": "例8：曲线等势面判读",
+  "type": "multiple-choice",
+  "question": "一簇关于 x 轴对称的等势面标为 0.2V、0.4V、0.6V，A、B 位于 x 轴。判断场强与电势能。",
+  "options": [
+    "A. A 点场强小于 B 点场强",
+    "B. A 点场强方向指向 x 轴负方向",
+    "C. \\(10^{-10}\\,C\\) 正电荷从 0.2V 到 0.6V，电场力做功 \\(4\\times10^{-11}J\\)",
+    "D. 电子从 A 到 B，电势能增大"
+  ],
+  "answer": "AD",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "等差等势面越密处场强越大，场强从高电势指向低电势；功要保留电势差符号。",
+    "sharedFormula": "\\[E\\approx\\frac{|\\Delta\\varphi|}{\\Delta x},\\qquad W=q(\\varphi_i-\\varphi_f)\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "等差等势面越密处场强越大，场强从高电势指向低电势；功要保留电势差符号。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[E\\approx\\frac{|\\Delta\\varphi|}{\\Delta x},\\qquad W=q(\\varphi_i-\\varphi_f)\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "B 附近等势面更密，因此场强更大。电势从左侧 0.6V 向右侧 0.2V 降低，场强沿 x 正向。正电荷从 0.2V 到 0.6V 做负功；电子从高电势 A 到低电势 B，电势能增大。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **AD**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "曲线等势面判读"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“曲线等势面判读”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "curved_equipotential",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“曲线等势面判读”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-equipotential",
+    "familyName": "等势面判读",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "A 点场强小于 B 点场强",
+      "judgment": "正确。"
+    },
+    {
+      "option": "B",
+      "title": "A 点场强方向指向 x 轴负方向",
+      "judgment": "错误，方向沿 x 正方向。"
+    },
+    {
+      "option": "C",
+      "title": "\\(10^{-10}\\,C\\) 正电荷从 0.2V 到 0.6V，电场力做功 \\(4\\times10^{-11}J\\)",
+      "judgment": "错误，应为负功。"
+    },
+    {
+      "option": "D",
+      "title": "电子从 A 到 B，电势能增大",
+      "judgment": "正确。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/course-08-curved-equipotential.webp",
+      "alt": "曲线等势面判读原题配图"
+    }
+  ]
+}

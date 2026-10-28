@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_course_07_central_charge_orbits",
+  "chapter": "电势、电势差与等势面",
+  "title": "例7：点电荷场中的两条轨迹",
+  "type": "multiple-choice",
+  "question": "正点电荷固定于 O，两虚线圆为等势线，M、N 为两带电粒子的轨迹，a、b、c、d、e 为交点。",
+  "options": [
+    "A. M 带负电，N 带正电",
+    "B. M 在 b 点动能小于在 a 点动能",
+    "C. N 在 d 点电势能等于在 e 点电势能",
+    "D. N 从 c 到 d 克服电场力做功"
+  ],
+  "answer": "ABC",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "由轨迹凹向判断电性；同一虚线圆上的点电势相等，再用能量守恒比较动能。",
+    "sharedFormula": "\\[E_k+E_p=\\text{常量},\\qquad E_p=q\\frac{kQ}{r}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "由轨迹凹向判断电性；同一虚线圆上的点电势相等，再用能量守恒比较动能。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[E_k+E_p=\\text{常量},\\qquad E_p=q\\frac{kQ}{r}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "M 轨迹向 O 弯曲故带负电，N 轨迹背离 O 弯曲故带正电。a 比 b 更靠近 O，M 在 a 的电势能更低、动能更大。d、e 在同一等势圆上，N 的电势能相等；正电 N 从 c 到 d 向外运动，电场力做正功。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **ABC**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "点电荷场中的两条轨迹"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“点电荷场中的两条轨迹”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "central_charge_orbits",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“点电荷场中的两条轨迹”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-trajectory",
+    "familyName": "等势线与粒子轨迹",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "M 带负电，N 带正电",
+      "judgment": "正确。"
+    },
+    {
+      "option": "B",
+      "title": "M 在 b 点动能小于在 a 点动能",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "N 在 d 点电势能等于在 e 点电势能",
+      "judgment": "正确。"
+    },
+    {
+      "option": "D",
+      "title": "N 从 c 到 d 克服电场力做功",
+      "judgment": "错误，不是克服电场力做功。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/course-07-orbit-equipotential.webp",
+      "alt": "点电荷场中的两条轨迹原题配图"
+    }
+  ]
+}

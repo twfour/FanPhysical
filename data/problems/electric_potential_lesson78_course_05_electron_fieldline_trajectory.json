@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_course_05_electron_fieldline_trajectory",
+  "chapter": "电势、电势差与等势面",
+  "title": "例5：电子轨迹与点电荷",
+  "type": "multiple-choice",
+  "question": "点电荷 Q 的一条电场线为 MN，虚线 AB 是电子仅受静电力的轨迹。比较 A、B 的加速度、电势和电势能。",
+  "options": [
+    "A. 电子一定从 A 向 B 运动",
+    "B. 若 aA>aB，则 Q 靠近 M 端且为正电荷",
+    "C. 无论 Q 正负均有 EpA<EpB",
+    "D. B 点电势可能高于 A 点"
+  ],
+  "answer": "BC",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "轨迹切线不能确定运动先后；轨迹凹侧确定电子受力，再结合电子电性确定点电荷位置和符号。",
+    "sharedFormula": "\\[a=\\frac{eE}{m},\\qquad E_p=-e\\varphi\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "轨迹切线不能确定运动先后；轨迹凹侧确定电子受力，再结合电子电性确定点电荷位置和符号。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[a=\\frac{eE}{m},\\qquad E_p=-e\\varphi\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "电子可沿同一轨迹双向运动。若 Q 在 M 端则为正且 A 更近；若 Q 在 N 端则为负。两种可能中均有 \\(\\varphi_A>\\varphi_B\\)，所以电子有 \\(E_{pA}<E_{pB}\\)。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **BC**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "电子轨迹与点电荷"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“电子轨迹与点电荷”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "electron_fieldline_trajectory",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“电子轨迹与点电荷”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-trajectory",
+    "familyName": "等势线与粒子轨迹",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "电子一定从 A 向 B 运动",
+      "judgment": "错误，轨迹不标明时间方向。"
+    },
+    {
+      "option": "B",
+      "title": "若 aA>aB，则 Q 靠近 M 端且为正电荷",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "无论 Q 正负均有 EpA<EpB",
+      "judgment": "正确。"
+    },
+    {
+      "option": "D",
+      "title": "B 点电势可能高于 A 点",
+      "judgment": "错误，两种可能均有 B 点电势低于 A 点。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/course-05-electron-trajectory.webp",
+      "alt": "电子轨迹与点电荷原题配图"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_hw_09_hydrogen_atom_energy",
+  "chapter": "电势、电势差与等势面",
+  "title": "多9：氢原子经典模型",
+  "type": "multiple-choice",
+  "question": "电子绕氢原子核做半径r的匀速圆周运动，核电荷+e、电子-e，取无穷远电势为零。",
+  "options": [
+    "A. \\(v=e\\sqrt{k/(mr)}\\)",
+    "B. \\(I=\\frac{e^2}{2\\pi r}\\sqrt{\\frac{k}{mr}}\\)",
+    "C. 一周库仑力做功 \\(2\\pi ke^2/r\\)",
+    "D. 总能量 \\(-ke^2/(2r)\\)"
+  ],
+  "answer": "ABD",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "库仑力提供向心力；等效电流为电荷量除以周期；圆周运动中向心力不做功。",
+    "sharedFormula": "\\[\\frac{ke^2}{r^2}=\\frac{mv^2}{r},\\quad I=\\frac eT=\\frac{ev}{2\\pi r},\\quad E=\\frac12mv^2-\\frac{ke^2}{r}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "库仑力提供向心力；等效电流为电荷量除以周期；圆周运动中向心力不做功。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[\\frac{ke^2}{r^2}=\\frac{mv^2}{r},\\quad I=\\frac eT=\\frac{ev}{2\\pi r},\\quad E=\\frac12mv^2-\\frac{ke^2}{r}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "由向心方程得A；代入周期得B。库仑力始终垂直速度，一周做功为零。动能ke²/(2r)，势能-ke²/r，总能量为-ke²/(2r)。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **ABD**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "氢原子经典模型"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“氢原子经典模型”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "hydrogen_atom_energy",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“氢原子经典模型”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-point-charge",
+    "familyName": "点电荷电势",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(v=e\\sqrt{k/(mr)}\\)",
+      "judgment": "正确。"
+    },
+    {
+      "option": "B",
+      "title": "\\(I=\\frac{e^2}{2\\pi r}\\sqrt{\\frac{k}{mr}}\\)",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "一周库仑力做功 \\(2\\pi ke^2/r\\)",
+      "judgment": "错误，做功为零。"
+    },
+    {
+      "option": "D",
+      "title": "总能量 \\(-ke^2/(2r)\\)",
+      "judgment": "正确。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/homework-09-hydrogen-atom.webp",
+      "alt": "氢原子经典模型原题配图"
+    }
+  ]
+}

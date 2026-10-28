@@ -1,0 +1,110 @@
+{
+  "id": "electric_potential_lesson78_course_09_parallel_plate_calculation",
+  "chapter": "电势、电势差与等势面",
+  "title": "例9：平行板电势与功",
+  "type": "calculation",
+  "question": "平行板间距 \\(d=1.2\\,cm\\)，电压 \\(U=240\\,V\\)，M 板接地。A 距 M 板 0.2cm，B 距 N 板 0.5cm，\\(q=-3\\times10^{-4}C\\)。求 A 点受力、电势与电势能、A 到 B 的电场力功，并判断 M 板上移 0.1cm 后 A 点电势变化。",
+  "options": null,
+  "answer": "\\(F=6.0\\,N\\)，\\(\\varphi_A=40V\\)，\\(E_{pA}=-1.2\\times10^{-2}J\\)，\\(W_{AB}=3.0\\times10^{-2}J\\)；A 点电势降低",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "把板间视为匀强电场，电势沿板间距离线性变化；移动接地板后重新计算板间距离和 A 到接地板距离。",
+    "sharedFormula": "\\[E=\\frac Ud,\\quad \\varphi=Ex,\\quad W_{AB}=q(\\varphi_A-\\varphi_B)\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "shared-solution"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "把板间视为匀强电场，电势沿板间距离线性变化；移动接地板后重新计算板间距离和 A 到接地板距离。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[E=\\frac Ud,\\quad \\varphi=Ex,\\quad W_{AB}=q(\\varphi_A-\\varphi_B)\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "\\(E=2.0\\times10^4V/m\\)，故 \\(F=|q|E=6.0N\\)。\\(\\varphi_A=E\\times0.002=40V\\)，\\(E_{pA}=q\\varphi_A=-1.2\\times10^{-2}J\\)。B 距 M 为 0.7cm，\\(\\varphi_B=140V\\)，所以 \\(W_{AB}=3.0\\times10^{-2}J\\)。M 上移后 A 到 M 的距离缩小且总板距也缩小，A 点电势降为约 \\(21.8V\\)。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **\\(F=6.0\\,N\\)，\\(\\varphi_A=40V\\)，\\(E_{pA}=-1.2\\times10^{-2}J\\)，\\(W_{AB}=3.0\\times10^{-2}J\\)；A 点电势降低**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "平行板电势与功"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“平行板电势与功”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "parallel_plate_calculation",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“平行板电势与功”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-uniform",
+    "familyName": "匀强电场与电势差",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/course-09-parallel-plates.webp",
+      "alt": "平行板电势与功原题配图"
+    }
+  ]
+}

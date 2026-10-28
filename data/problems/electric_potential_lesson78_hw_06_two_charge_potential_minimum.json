@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_hw_06_two_charge_potential_minimum",
+  "chapter": "电势、电势差与等势面",
+  "title": "单6：两电荷电势最低点",
+  "type": "single-choice",
+  "question": "点电荷M固定在x=-20cm、N在原点，x正半轴电势曲线过x0并在x=20cm取最小值。正电荷q从x0静止释放。",
+  "options": [
+    "A. M正、N负",
+    "B. x0处场强为0",
+    "C. |qM|:|qN|=4:1",
+    "D. q向右运动时电势能先增大后减小"
+  ],
+  "answer": "C",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "电势曲线斜率为负场强；极小点斜率为零，并用两点电荷场强抵消求电荷量比。",
+    "sharedFormula": "\\[E_x=-\\frac{d\\varphi}{dx},\\qquad \\frac{k|q_N|}{(0.20)^2}=\\frac{k|q_M|}{(0.40)^2}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "电势曲线斜率为负场强；极小点斜率为零，并用两点电荷场强抵消求电荷量比。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[E_x=-\\frac{d\\varphi}{dx},\\qquad \\frac{k|q_N|}{(0.20)^2}=\\frac{k|q_M|}{(0.40)^2}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "N处曲线趋正无穷，N为正；远处电势从负侧趋零，M为负且量值更大。x0只是零电势点而非零场强点。x=20cm场强为零，得到|qM|:|qN|=4:1。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **C**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "两电荷电势最低点"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“两电荷电势最低点”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "two_charge_potential_minimum",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“两电荷电势最低点”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-graph",
+    "familyName": "电势能图像",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "M正、N负",
+      "judgment": "错误，符号相反。"
+    },
+    {
+      "option": "B",
+      "title": "x0处场强为0",
+      "judgment": "错误，零场强在20cm。"
+    },
+    {
+      "option": "C",
+      "title": "|qM|:|qN|=4:1",
+      "judgment": "正确。"
+    },
+    {
+      "option": "D",
+      "title": "q向右运动时电势能先增大后减小",
+      "judgment": "错误，先减小后增大。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/homework-06-two-charge-curve.webp",
+      "alt": "两电荷电势最低点原题配图"
+    }
+  ]
+}

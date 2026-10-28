@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_hw_03_cell_membrane_ion",
+  "chapter": "电势、电势差与等势面",
+  "title": "单3：细胞膜钠离子减速",
+  "type": "single-choice",
+  "question": "初速度 v0 的正一价钠离子仅受膜内匀强电场力，从膜外 A 点刚好运动到膜内 B 点。A点电势φA，质量m，电荷e，膜厚d。",
+  "options": [
+    "A. \\(a=v_0^2/d\\)",
+    "B. \\(E=mv_0^2/(ed)\\)",
+    "C. \\(\\varphi_B=\\varphi_A+mv_0^2/e\\)",
+    "D. \\(E_{pB}=e\\varphi_A+mv_0^2/2\\)"
+  ],
+  "answer": "D",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "由末速度为零的匀减速运动求加速度，再用动能定理和能量守恒求场强与电势。",
+    "sharedFormula": "\\[0-v_0^2=-2ad,\\qquad e(\\varphi_A-\\varphi_B)=-\\frac12mv_0^2\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "由末速度为零的匀减速运动求加速度，再用动能定理和能量守恒求场强与电势。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[0-v_0^2=-2ad,\\qquad e(\\varphi_A-\\varphi_B)=-\\frac12mv_0^2\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "得到 \\(a=v_0^2/(2d)\\)、\\(E=mv_0^2/(2ed)\\)、\\(\\varphi_B=\\varphi_A+mv_0^2/(2e)\\)，从而 \\(E_{pB}=e\\varphi_A+mv_0^2/2\\)。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **D**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "细胞膜钠离子减速"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“细胞膜钠离子减速”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "cell_membrane_ion",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“细胞膜钠离子减速”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-uniform",
+    "familyName": "匀强电场与电势差",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(a=v_0^2/d\\)",
+      "judgment": "错误，应为 v₀²/(2d)。"
+    },
+    {
+      "option": "B",
+      "title": "\\(E=mv_0^2/(ed)\\)",
+      "judgment": "错误，缺少因子2。"
+    },
+    {
+      "option": "C",
+      "title": "\\(\\varphi_B=\\varphi_A+mv_0^2/e\\)",
+      "judgment": "错误，缺少因子2。"
+    },
+    {
+      "option": "D",
+      "title": "\\(E_{pB}=e\\varphi_A+mv_0^2/2\\)",
+      "judgment": "正确。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/homework-03-cell-membrane.webp",
+      "alt": "细胞膜钠离子减速原题配图"
+    }
+  ]
+}

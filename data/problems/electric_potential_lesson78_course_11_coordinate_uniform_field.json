@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_course_11_coordinate_uniform_field",
+  "chapter": "电势、电势差与等势面",
+  "title": "例11：坐标系三点电势",
+  "type": "multiple-choice",
+  "question": "匀强电场平行 xOy 平面，a(0,6cm)、b(8cm,0)、c(8cm,6cm) 电势分别为10V、17V、26V。",
+  "options": [
+    "A. 场强大小为2.5V/cm",
+    "B. 原点电势为1V",
+    "C. 电子在a点电势能比b点低7eV",
+    "D. 电子从b到c，电场力做功9eV"
+  ],
+  "answer": "ABD",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "匀强电场电势是坐标的一次函数，由三个点求电势梯度，再由电子电荷符号判断功和势能。",
+    "sharedFormula": "\\[\\varphi(x,y)=\\alpha x+\\beta y+\\varphi_O,\\qquad \\vec E=-\\nabla\\varphi\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "匀强电场电势是坐标的一次函数，由三个点求电势梯度，再由电子电荷符号判断功和势能。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[\\varphi(x,y)=\\alpha x+\\beta y+\\varphi_O,\\qquad \\vec E=-\\nabla\\varphi\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "由 c-b 得 \\(6\\beta=9\\)，由 c-a 得 \\(8\\alpha=16\\)，所以 \\(\\alpha=2,\\beta=1.5\\,V/cm\\)，\\(E=2.5V/cm\\)，\\(\\varphi_O=1V\\)。电子在 a 的势能为-10eV，在 b 为-17eV，a 比 b 高7eV；b 到 c 的电场力功为 \\((-e)(17-26)=9eV\\)。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **ABD**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "坐标系三点电势"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“坐标系三点电势”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "coordinate_uniform_field",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“坐标系三点电势”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-uniform",
+    "familyName": "匀强电场与电势差",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "场强大小为2.5V/cm",
+      "judgment": "正确。"
+    },
+    {
+      "option": "B",
+      "title": "原点电势为1V",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "电子在a点电势能比b点低7eV",
+      "judgment": "错误，应高7eV。"
+    },
+    {
+      "option": "D",
+      "title": "电子从b到c，电场力做功9eV",
+      "judgment": "正确。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/course-11-coordinate-potential.webp",
+      "alt": "坐标系三点电势原题配图"
+    }
+  ]
+}

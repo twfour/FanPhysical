@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_course_03_dipole_zero_potential",
+  "chapter": "电势、电势差与等势面",
+  "title": "例3：等量异种电荷对称点",
+  "type": "single-choice",
+  "question": "等量异种点电荷 \\(+q、-q\\) 位于 \\(M、N\\)，a、c 关于中点 O 对称，b、d 位于中垂线上。判断各点电势、场强和电势能。",
+  "options": [
+    "A. 中垂线上 O 点电势最高",
+    "B. 正电荷从 b 到 d 受力先减小后增大",
+    "C. 正电荷在 c 点电势能大于在 a 点",
+    "D. 负试探电荷从 a 到 b，电势能增大"
+  ],
+  "answer": "D",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "等量异种电荷连线中垂线为零电势面；连线上电势由正电荷一侧向负电荷一侧降低。",
+    "sharedFormula": "\\[\\varphi=k\\left(\\frac{q}{r_+}-\\frac{q}{r_-}\\right),\\qquad E_p=q_0\\varphi\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "等量异种电荷连线中垂线为零电势面；连线上电势由正电荷一侧向负电荷一侧降低。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[\\varphi=k\\left(\\frac{q}{r_+}-\\frac{q}{r_-}\\right),\\qquad E_p=q_0\\varphi\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "b、O、d 电势均为零。a 靠近正电荷而电势为正，c 靠近负电荷而电势为负。负试探电荷从 a 到 b 时，电势由正值降到零，其电势能反而增加。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **D**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "等量异种电荷对称点"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“等量异种电荷对称点”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "dipole_zero_potential",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“等量异种电荷对称点”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-equipotential",
+    "familyName": "等势面判读",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "中垂线上 O 点电势最高",
+      "judgment": "错误，中垂线上各点电势都为零。"
+    },
+    {
+      "option": "B",
+      "title": "正电荷从 b 到 d 受力先减小后增大",
+      "judgment": "错误，场强从 b 到 O 增大、再从 O 到 d 减小。"
+    },
+    {
+      "option": "C",
+      "title": "正电荷在 c 点电势能大于在 a 点",
+      "judgment": "错误，正电荷在 c 点电势能更小。"
+    },
+    {
+      "option": "D",
+      "title": "负试探电荷从 a 到 b，电势能增大",
+      "judgment": "正确。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/course-03-dipole-points.webp",
+      "alt": "等量异种电荷对称点原题配图"
+    }
+  ]
+}

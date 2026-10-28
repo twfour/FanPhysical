@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_course_12_two_charge_potential_curve",
+  "chapter": "电势、电势差与等势面",
+  "title": "例12：双点电荷电势曲线",
+  "type": "multiple-choice",
+  "question": "x轴上 a、b 两点放置 q1、q2，a、b 间电势曲线开口向上并在 p 点取最小值，且 ap>pb。",
+  "options": [
+    "A. a、b均为负电荷且q1一定大于q2",
+    "B. 关于p对称的c、d两点，Ec<Ed",
+    "C. 负检验电荷从d到p，电场力做负功",
+    "D. a、p间电场方向都指向a"
+  ],
+  "answer": "BC",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "由源电荷位置处电势趋于正无穷判断符号；曲线斜率的绝对值给场强，斜率符号给场强方向。",
+    "sharedFormula": "\\[E_x=-\\frac{d\\varphi}{dx},\\qquad E_p=q_0\\varphi\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "由源电荷位置处电势趋于正无穷判断符号；曲线斜率的绝对值给场强，斜率符号给场强方向。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[E_x=-\\frac{d\\varphi}{dx},\\qquad E_p=q_0\\varphi\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "a、b 均为正电荷。p 是场强为零点且更靠近 b，说明 q1>q2。图中对称点 d 的曲线更陡，故 Ed>Ec。负电荷从较高电势 d 到最低电势 p 时电势能增加，电场力做负功；a到p之间曲线下降，场强沿x正向。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **BC**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "双点电荷电势曲线"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“双点电荷电势曲线”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "two_charge_potential_curve",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“双点电荷电势曲线”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-graph",
+    "familyName": "电势能图像",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "a、b均为负电荷且q1一定大于q2",
+      "judgment": "错误，均为正电荷。"
+    },
+    {
+      "option": "B",
+      "title": "关于p对称的c、d两点，Ec<Ed",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "负检验电荷从d到p，电场力做负功",
+      "judgment": "正确。"
+    },
+    {
+      "option": "D",
+      "title": "a、p间电场方向都指向a",
+      "judgment": "错误，方向指向x正向。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/course-12-two-charge-potential.webp",
+      "alt": "双点电荷电势曲线原题配图"
+    }
+  ]
+}

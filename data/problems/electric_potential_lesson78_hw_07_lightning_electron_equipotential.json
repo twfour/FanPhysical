@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_hw_07_lightning_electron_equipotential",
+  "chapter": "电势、电势差与等势面",
+  "title": "单7：避雷针等势面与电子",
+  "type": "single-choice",
+  "question": "乌云经过建筑物上空，a、b、c、d为等差等势面，电子轨迹经过A、B。判断云层电性、场强及能量。",
+  "options": [
+    "A. 云层带正电",
+    "B. A点场强比B点大",
+    "C. 电子在A点电势能比B点大",
+    "D. 电子在A点速度比B点小"
+  ],
+  "answer": "B",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "由轨迹凹向确定电子受力，再反推电场方向和云层电性；等势面疏密比较场强。",
+    "sharedFormula": "\\[\\vec F=-e\\vec E,\\qquad E\\approx\\frac{|\\Delta\\varphi|}{\\Delta n}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "由轨迹凹向确定电子受力，再反推电场方向和云层电性；等势面疏密比较场强。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[\\vec F=-e\\vec E,\\qquad E\\approx\\frac{|\\Delta\\varphi|}{\\Delta n}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "电子受力与电场反向，结合轨迹可知电场指向负云层，因此云层带负电。A附近等势面更密，EA>EB。A电势更高，电子势能更低；只有电场力做功时A点动能更大。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **B**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "避雷针等势面与电子"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“避雷针等势面与电子”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "lightning_electron_equipotential",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“避雷针等势面与电子”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-trajectory",
+    "familyName": "等势线与粒子轨迹",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "云层带正电",
+      "judgment": "错误。"
+    },
+    {
+      "option": "B",
+      "title": "A点场强比B点大",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "电子在A点电势能比B点大",
+      "judgment": "错误。"
+    },
+    {
+      "option": "D",
+      "title": "电子在A点速度比B点小",
+      "judgment": "错误。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/homework-07-lightning-equipotential.webp",
+      "alt": "避雷针等势面与电子原题配图"
+    }
+  ]
+}

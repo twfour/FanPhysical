@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_hw_08_electric_pendulum_release",
+  "chapter": "电势、电势差与等势面",
+  "title": "单8：匀强场电摆释放",
+  "type": "single-choice",
+  "question": "长1.4m、质量 \\(1.0\\times10^{-2}kg\\)、电荷量 \\(2.0\\times10^{-8}C\\) 的正电小球在水平向右匀强电场中平衡，绳与竖直成37°。从左侧水平位置静止释放。",
+  "options": [
+    "A. \\(E=3.75\\times10^7N/C\\)",
+    "B. 平衡拉力0.17N",
+    "C. 0.5s时速度6.25m/s",
+    "D. 首次通过O正下方速度7m/s"
+  ],
+  "answer": "D",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "先由平衡求qE和合恒力，再以重力势能与电势能共同守恒求指定位置速度。",
+    "sharedFormula": "\\[qE=mg\\tan37^\\circ,\\quad T=mg/\\cos37^\\circ,\\quad \\Delta E_k=W_g+W_E\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先由平衡求qE和合恒力，再以重力势能与电势能共同守恒求指定位置速度。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[qE=mg\\tan37^\\circ,\\quad T=mg/\\cos37^\\circ,\\quad \\Delta E_k=W_g+W_E\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "E=3.75×10^6N/C，平衡拉力0.125N。由左侧水平位置到O正下方，重力做功mgl，电场力做功qEl，合功0.245J，得v=7m/s。0.5s速度不等于6.25m/s。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **D**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "匀强场电摆释放"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“匀强场电摆释放”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "electric_pendulum_release",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“匀强场电摆释放”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-energy",
+    "familyName": "电场功与电势能",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(E=3.75\\times10^7N/C\\)",
+      "judgment": "错误，指数应为10^6。"
+    },
+    {
+      "option": "B",
+      "title": "平衡拉力0.17N",
+      "judgment": "错误。"
+    },
+    {
+      "option": "C",
+      "title": "0.5s时速度6.25m/s",
+      "judgment": "错误。"
+    },
+    {
+      "option": "D",
+      "title": "首次通过O正下方速度7m/s",
+      "judgment": "正确。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/homework-08-electric-pendulum.webp",
+      "alt": "匀强场电摆释放原题配图"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "id": "electric_potential_lesson78_course_02_oil_drop_energy",
+  "chapter": "电势、电势差与等势面",
+  "title": "例2：匀强场油滴能量",
+  "type": "multiple-choice",
+  "question": "带电油滴在方向竖直向下的匀强电场中沿图示虚线从 a 运动到 b，不计空气阻力。判断能量变化。",
+  "options": [
+    "A. 动能减小",
+    "B. 电势能增加",
+    "C. 动能和电势能之和减小",
+    "D. 电势升高",
+    "E. 动能与重力势能之和变大"
+  ],
+  "answer": "CDE",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "由轨迹凹向判断电场力必须有向上分量，再分别使用重力势能、电势能和机械能守恒。",
+    "sharedFormula": "\\[\\Delta(E_k+E_{pg}+E_p)=0,\\qquad W_E=-\\Delta E_p\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "由轨迹凹向判断电场力必须有向上分量，再分别使用重力势能、电势能和机械能守恒。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[\\Delta(E_k+E_{pg}+E_p)=0,\\qquad W_E=-\\Delta E_p\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "油滴上升且轨迹向上弯曲，合力与竖直速度分量同向，故动能增加；重力势能增加。电场方向向下而电场力需向上，油滴带负电。b 点电势高于 a 点，负电荷电势能降低。因此动能与电势能之和减少，而动能与重力势能之和增加。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **CDE**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "匀强场油滴能量"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“匀强场油滴能量”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "oil_drop_energy",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“匀强场油滴能量”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-energy",
+    "familyName": "电场功与电势能",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "动能减小",
+      "judgment": "错误，合力向上且竖直速度分量向上，动能增加。"
+    },
+    {
+      "option": "B",
+      "title": "电势能增加",
+      "judgment": "错误，负电荷到高电势处电势能降低。"
+    },
+    {
+      "option": "C",
+      "title": "动能和电势能之和减小",
+      "judgment": "正确，由总机械能守恒，重力势能增加使该和减少。"
+    },
+    {
+      "option": "D",
+      "title": "电势升高",
+      "judgment": "正确，逆电场方向移动，电势升高。"
+    },
+    {
+      "option": "E",
+      "title": "动能与重力势能之和变大",
+      "judgment": "正确，电势能降低使该和增大。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/course-02-oil-drop.webp",
+      "alt": "匀强场油滴能量原题配图"
+    }
+  ]
+}

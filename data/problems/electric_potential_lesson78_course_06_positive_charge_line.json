@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_course_06_positive_charge_line",
+  "chapter": "电势、电势差与等势面",
+  "title": "例6：正点电荷等距三点",
+  "type": "multiple-choice",
+  "question": "正点电荷的同一径向电场线上有等距的 A、B、C 三点，A 离场源最近。比较电势、场强与负电荷电势能。",
+  "options": [
+    "A. 同一负电荷在 C 点电势能最大",
+    "B. \\(\\varphi_A>\\varphi_B>\\varphi_C\\)",
+    "C. \\(E_A>E_B>E_C\\)",
+    "D. \\(\\varphi_A-\\varphi_B=\\varphi_B-\\varphi_C\\)"
+  ],
+  "answer": "ABC",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "点电荷电势按 1/r 变化、场强按 1/r² 变化；等距离不代表等电势差。",
+    "sharedFormula": "\\[\\varphi=\\frac{kQ}{r},\\qquad E=\\frac{kQ}{r^2},\\qquad E_p=q\\varphi\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "点电荷电势按 1/r 变化、场强按 1/r² 变化；等距离不代表等电势差。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[\\varphi=\\frac{kQ}{r},\\qquad E=\\frac{kQ}{r^2},\\qquad E_p=q\\varphi\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "沿远离正点电荷方向，电势和场强均减小。负电荷的电势能随电势降低而增大。由于函数 1/r 非线性，相等距离上的电势差不相等。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **ABC**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "正点电荷等距三点"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“正点电荷等距三点”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "positive_charge_line",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“正点电荷等距三点”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-point-charge",
+    "familyName": "点电荷电势",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "同一负电荷在 C 点电势能最大",
+      "judgment": "正确。"
+    },
+    {
+      "option": "B",
+      "title": "\\(\\varphi_A>\\varphi_B>\\varphi_C\\)",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "\\(E_A>E_B>E_C\\)",
+      "judgment": "正确。"
+    },
+    {
+      "option": "D",
+      "title": "\\(\\varphi_A-\\varphi_B=\\varphi_B-\\varphi_C\\)",
+      "judgment": "错误，AB 段电势降落更大。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/course-06-point-charge-line.webp",
+      "alt": "正点电荷等距三点原题配图"
+    }
+  ]
+}

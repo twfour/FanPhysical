@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_course_04_electron_vt_field",
+  "chapter": "电势、电势差与等势面",
+  "title": "例4：电子速度图与场强",
+  "type": "single-choice",
+  "question": "负电荷从电场线上的 A 点静止释放，仅受静电力运动到 B，速度随时间增加但斜率逐渐减小。判断 A、B 点场强、电势和电势能关系。",
+  "options": [
+    "A. \\(E_A>E_B,\\ \\varphi_A>\\varphi_B\\)",
+    "B. \\(E_A<E_B,\\ \\varphi_A<\\varphi_B\\)",
+    "C. \\(E_A>E_B,\\ E_{pA}>E_{pB}\\)",
+    "D. \\(E_A<E_B,\\ E_{pA}<E_{pB}\\)"
+  ],
+  "answer": "C",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "v-t 图斜率给加速度，电子受力方向与场强方向相反；只有电场力做功时动能增加等于电势能减少。",
+    "sharedFormula": "\\[a=\\frac{dv}{dt}=\\frac{eE}{m},\\qquad \\Delta E_k=-\\Delta E_p\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "v-t 图斜率给加速度，电子受力方向与场强方向相反；只有电场力做功时动能增加等于电势能减少。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[a=\\frac{dv}{dt}=\\frac{eE}{m},\\qquad \\Delta E_k=-\\Delta E_p\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "图像斜率逐渐减小，故 \\(E_A>E_B\\)。电子从 A 到 B 动能增加，所以电势能降低，即 \\(E_{pA}>E_{pB}\\)。电子沿受力方向、逆电场方向运动，故 \\(\\varphi_A<\\varphi_B\\)。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **C**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "电子速度图与场强"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“电子速度图与场强”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "electron_vt_field",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“电子速度图与场强”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-graph",
+    "familyName": "电势能图像",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(E_A>E_B,\\ \\varphi_A>\\varphi_B\\)",
+      "judgment": "场强正确，电势关系错误。"
+    },
+    {
+      "option": "B",
+      "title": "\\(E_A<E_B,\\ \\varphi_A<\\varphi_B\\)",
+      "judgment": "场强关系错误。"
+    },
+    {
+      "option": "C",
+      "title": "\\(E_A>E_B,\\ E_{pA}>E_{pB}\\)",
+      "judgment": "两项均正确。"
+    },
+    {
+      "option": "D",
+      "title": "\\(E_A<E_B,\\ E_{pA}<E_{pB}\\)",
+      "judgment": "场强和电势能关系均错误。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/course-04-electron-vt.webp",
+      "alt": "电子速度图与场强原题配图"
+    }
+  ]
+}

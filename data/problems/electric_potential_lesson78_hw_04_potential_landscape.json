@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_hw_04_potential_landscape",
+  "chapter": "电势、电势差与等势面",
+  "title": "单4：四电荷电势地形",
+  "type": "single-choice",
+  "question": "四个等量点电荷位于正方形顶点，给出xOy平面电势地形图，OA=OB=OC。判断场强与沿路径电势变化。",
+  "options": [
+    "A. A、B场强相同",
+    "B. O点场强和电势均为零",
+    "C. A到B电势先升高后降低",
+    "D. 正电荷从O到C，电势能先增大后减小"
+  ],
+  "answer": "C",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "把地形高度视为电势，坡度方向和大小对应电场方向及大小；沿给定直线读取高度变化。",
+    "sharedFormula": "\\[\\vec E=-\\nabla\\varphi,\\qquad E_p=q\\varphi\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "把地形高度视为电势，坡度方向和大小对应电场方向及大小；沿给定直线读取高度变化。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[\\vec E=-\\nabla\\varphi,\\qquad E_p=q\\varphi\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "A、B处地形坡度方向不同，场强不相同；O虽处零电势附近但坡度不为零。沿A到B的剖面先越过电势高处再下降，因此C正确；O到C的电势并非先升后降。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **C**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "四电荷电势地形"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“四电荷电势地形”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "potential_landscape",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“四电荷电势地形”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-graph",
+    "familyName": "电势能图像",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "A、B场强相同",
+      "judgment": "错误。"
+    },
+    {
+      "option": "B",
+      "title": "O点场强和电势均为零",
+      "judgment": "错误。"
+    },
+    {
+      "option": "C",
+      "title": "A到B电势先升高后降低",
+      "judgment": "正确。"
+    },
+    {
+      "option": "D",
+      "title": "正电荷从O到C，电势能先增大后减小",
+      "judgment": "错误。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/homework-04-potential-landscape.webp",
+      "alt": "四电荷电势地形原题配图"
+    }
+  ]
+}

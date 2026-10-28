@@ -1,0 +1,104 @@
+{
+  "id": "electric_potential_lesson78_hw_01_field_work_calculation",
+  "chapter": "电势、电势差与等势面",
+  "title": "解1：场强电势与电势能计算",
+  "type": "calculation",
+  "question": "点电荷 \\(q=1.0\\times10^{-8}C\\) 在 A 点受力 \\(2.0\\times10^{-5}N\\)。从 A 移到零电势 O 点，电场力做功 \\(2.0\\times10^{-6}J\\)。求 A 点场强、\\(U_{AO}\\)、A 点电势和电势能。",
+  "options": null,
+  "answer": "\\(E_A=2.0\\times10^3N/C\\)，\\(U_{AO}=\\varphi_A=200V\\)，\\(E_{pA}=2.0\\times10^{-6}J\\)",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "依次使用场强定义、电场力功和电势能定义。",
+    "sharedFormula": "\\[E=F/q,\\quad W=qU_{AO},\\quad E_p=q\\varphi\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "shared-solution"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "依次使用场强定义、电场力功和电势能定义。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[E=F/q,\\quad W=qU_{AO},\\quad E_p=q\\varphi\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "代入可得 E=2000N/C；U_AO=W/q=200V。O为零电势，故φA=200V，EpA=qφA=2.0×10^-6J。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **\\(E_A=2.0\\times10^3N/C\\)，\\(U_{AO}=\\varphi_A=200V\\)，\\(E_{pA}=2.0\\times10^{-6}J\\)**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "场强电势与电势能计算"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“场强电势与电势能计算”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "field_work_calculation",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“场强电势与电势能计算”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-work",
+    "familyName": "电场功与电势差",
+    "role": "条件变式",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  }
+}

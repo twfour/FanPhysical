@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_hw_02_rough_plane_energy",
+  "chapter": "电势、电势差与等势面",
+  "title": "单2：粗糙面带电块往返",
+  "type": "single-choice",
+  "question": "正电小金属块以初动能 Ek 从 A 向左运动到 B 停止，损失动能的3/4转化为电势能，A点电势为零。",
+  "options": [
+    "A. 摩擦力是电场力的1/4",
+    "B. B点电势能为3Ek/4",
+    "C. 再回A点动能为3Ek/4",
+    "D. B点电势为-3Ek/(4q)"
+  ],
+  "answer": "B",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "把初动能损失分成电势能增加和摩擦生热，再分析返回过程。",
+    "sharedFormula": "\\[qEL=\\frac34E_k,\\qquad fL=\\frac14E_k\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "把初动能损失分成电势能增加和摩擦生热，再分析返回过程。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[qEL=\\frac34E_k,\\qquad fL=\\frac14E_k\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "故f/(qE)=1/3，B点电势能为3Ek/4且电势为正。返回时电场做功3Ek/4、摩擦耗散Ek/4，所以回A动能为Ek/2。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **B**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "粗糙面带电块往返"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“粗糙面带电块往返”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "rough_plane_energy",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“粗糙面带电块往返”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-energy",
+    "familyName": "电场功与电势能",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "摩擦力是电场力的1/4",
+      "judgment": "错误，应为1/3。"
+    },
+    {
+      "option": "B",
+      "title": "B点电势能为3Ek/4",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "再回A点动能为3Ek/4",
+      "judgment": "错误，应为Ek/2。"
+    },
+    {
+      "option": "D",
+      "title": "B点电势为-3Ek/(4q)",
+      "judgment": "错误，电势为正。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/homework-02-rough-plane.webp",
+      "alt": "粗糙面带电块往返原题配图"
+    }
+  ]
+}

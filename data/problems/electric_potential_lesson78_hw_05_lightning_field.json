@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_hw_05_lightning_field",
+  "chapter": "电势、电势差与等势面",
+  "title": "单5：积雨云与避雷针电场",
+  "type": "single-choice",
+  "question": "积雨云上正下负，地面感应正电。图示P、M、N在同一弯曲场线上且PM=MN。",
+  "options": [
+    "A. EP<EM<EN",
+    "B. UPM>UMN",
+    "C. 电子在P点电势能大于在N点",
+    "D. 放电电流由云层指向建筑物"
+  ],
+  "answer": "B",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "由场线疏密比较场强；等长线段上的电势差是场强沿路径积分；区分电子流与约定电流。",
+    "sharedFormula": "\\[U_{AB}=\\int_A^B\\vec E\\cdot d\\vec l\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "由场线疏密比较场强；等长线段上的电势差是场强沿路径积分；区分电子流与约定电流。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[U_{AB}=\\int_A^B\\vec E\\cdot d\\vec l\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "越靠近建筑物尖端场线越密，故EP>EM>EN。PM与MN等长但前段平均场强更大，所以UPM>UMN。P电势高于N，电子在P势能更低；约定电流方向与电子运动相反。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **B**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "积雨云与避雷针电场"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“积雨云与避雷针电场”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "lightning_field",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“积雨云与避雷针电场”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-application",
+    "familyName": "现实电场应用",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "EP<EM<EN",
+      "judgment": "错误，次序相反。"
+    },
+    {
+      "option": "B",
+      "title": "UPM>UMN",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "电子在P点电势能大于在N点",
+      "judgment": "错误。"
+    },
+    {
+      "option": "D",
+      "title": "放电电流由云层指向建筑物",
+      "judgment": "错误。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/homework-05-lightning-field.webp",
+      "alt": "积雨云与避雷针电场原题配图"
+    }
+  ]
+}

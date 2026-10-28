@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_hw_10_grid_uniform_field",
+  "chapter": "电势、电势差与等势面",
+  "title": "多10：九宫格匀强电场",
+  "type": "multiple-choice",
+  "question": "边长4cm的九宫格中，B点粒子源发射初动能10eV的α粒子。A点动能14eV，C点动能6eV，φB=0。",
+  "options": [
+    "A. φA=-4V，φC=4V",
+    "B. 16格点最高电势6V且α粒子不能到达",
+    "C. E=50√2V/m",
+    "D. 电子从B到C电势能增加2eV"
+  ],
+  "answer": "BC",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "由α粒子电荷+2e把动能变化换算为电势，再用相邻格点电势梯度求场强。",
+    "sharedFormula": "\\[E_k+q\\varphi=\\text{常量},\\qquad \\vec E=-\\nabla\\varphi\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "由α粒子电荷+2e把动能变化换算为电势，再用相邻格点电势梯度求场强。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[E_k+q\\varphi=\\text{常量},\\qquad \\vec E=-\\nabla\\varphi\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "总能量10eV，故φA=-2V、φC=2V。水平和竖直每格电势均变化2V，场强分量各为50V/m，合场强50√2V/m。16格点最高6V，对α粒子势能12eV，超过总能量而不可达。电子从B到C势能降低2eV。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **BC**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "九宫格匀强电场"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“九宫格匀强电场”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "grid_uniform_field",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“九宫格匀强电场”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-uniform",
+    "familyName": "匀强电场与电势差",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "φA=-4V，φC=4V",
+      "judgment": "错误，电势应为-2V和2V。"
+    },
+    {
+      "option": "B",
+      "title": "16格点最高电势6V且α粒子不能到达",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "E=50√2V/m",
+      "judgment": "正确。"
+    },
+    {
+      "option": "D",
+      "title": "电子从B到C电势能增加2eV",
+      "judgment": "错误，应降低2eV。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/homework-10-grid-field.webp",
+      "alt": "九宫格匀强电场原题配图"
+    }
+  ]
+}

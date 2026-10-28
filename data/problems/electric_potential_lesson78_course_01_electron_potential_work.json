@@ -1,0 +1,104 @@
+{
+  "id": "electric_potential_lesson78_course_01_electron_potential_work",
+  "chapter": "电势、电势差与等势面",
+  "title": "例1：电子移动与电势",
+  "type": "calculation",
+  "question": "将一电子从电场外一点 \\(P\\) 移至电场中某点 \\(A\\)，电场力做功 \\(40\\,\\mathrm{eV}\\)。求 \\(A\\) 点电势；若将等量正电荷从 \\(A\\) 移到电势为 \\(10\\,\\mathrm V\\) 的 \\(B\\) 点，求电场力做功。",
+  "options": null,
+  "answer": "\\(\\varphi_A=40\\,\\mathrm V\\)，\\(W_{AB}=30\\,\\mathrm{eV}=4.8\\times10^{-18}\\,\\mathrm J\\)",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "先以电场外 P 点为零电势点，用电场力功求 A 点电势，再更换为正电荷计算 A 到 B 的功。",
+    "sharedFormula": "\\[W_{PA}=q(\\varphi_P-\\varphi_A),\\qquad W_{AB}=q(\\varphi_A-\\varphi_B)\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "shared-solution"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先以电场外 P 点为零电势点，用电场力功求 A 点电势，再更换为正电荷计算 A 到 B 的功。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[W_{PA}=q(\\varphi_P-\\varphi_A),\\qquad W_{AB}=q(\\varphi_A-\\varphi_B)\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "电子电荷量为 \\(-e\\)，故 \\(40\\,\\mathrm{eV}=(-e)(0-\\varphi_A)\\)，得到 \\(\\varphi_A=40\\,\\mathrm V\\)。等量正电荷为 \\(+e\\)，所以 \\(W_{AB}=e(40-10)\\,\\mathrm V=30\\,\\mathrm{eV}=4.8\\times10^{-18}\\,\\mathrm J\\)。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **\\(\\varphi_A=40\\,\\mathrm V\\)，\\(W_{AB}=30\\,\\mathrm{eV}=4.8\\times10^{-18}\\,\\mathrm J\\)**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "电子移动与电势"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“电子移动与电势”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "electron_potential_work",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“电子移动与电势”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-work",
+    "familyName": "电场功与电势差",
+    "role": "母题",
+    "difficulty": 2,
+    "variantLevel": "L1",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  }
+}

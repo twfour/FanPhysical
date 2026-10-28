@@ -1,0 +1,137 @@
+{
+  "id": "electric_potential_lesson78_course_10_equal_potential_planes",
+  "chapter": "电势、电势差与等势面",
+  "title": "例10：等距等势面与电子",
+  "type": "multiple-choice",
+  "question": "匀强电场中等距等势面依次为 d、c、b、a。电子经过 d 时动能20eV，经过 c 时电势能-10eV，到 b 时速度为零。判断不正确项。",
+  "options": [
+    "A. a 的电势为 -20V",
+    "B. 场强大小为 200V/m",
+    "C. 电子经过 a 时电势能为 10eV",
+    "D. 电子动能为26eV时，电势能为-26eV"
+  ],
+  "answer": "A",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "用总能量守恒和等距等势面的等电势差关系，先求相邻电势差，再逐项判断。",
+    "sharedFormula": "\\[E_k+E_p=\\text{常量},\\qquad E=\\frac{|\\Delta\\varphi|}{\\Delta x}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "用总能量守恒和等距等势面的等电势差关系，先求相邻电势差，再逐项判断。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[E_k+E_p=\\text{常量},\\qquad E=\\frac{|\\Delta\\varphi|}{\\Delta x}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "设相邻等势面电势差为 Δφ。联立 d、c、b 三个状态得 Δφ=-10V，总能量为0。于是 φa=-10V而非-20V，场强为200V/m，a 点电子电势能10eV，且任意时刻 Ep=-Ek。本题原卷虽标为多选，但按题干“不正确的是”逐项核算后只有 A 不正确。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **A**。"
+    }
+  ],
+  "knowledge": [
+    "电势",
+    "电势差",
+    "等势面",
+    "等距等势面与电子"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“等距等势面与电子”的核心考点，改变电荷符号、空间位置或初始能量后，重新判断场强、电势与能量关系。",
+    "answer": "先确定电势差和电场方向，再用功与能量关系完成计算；答案随新条件确定。",
+    "thinking": "先找不变量，再处理电荷正负引起的方向和符号变化。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_potential_model",
+    "variant": "equal_potential_planes",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示“等距等势面与电子”的电势、受力和能量变化。",
+    "params": {
+      "charge": {
+        "label": "电荷量系数",
+        "value": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.25,
+        "unit": "q"
+      },
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "E"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电势、电势差与等势面",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "electric-potential-lesson78-uniform",
+    "familyName": "匀强电场与电势差",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电势高低判断",
+      "电场力功与能量关系"
+    ],
+    "prerequisites": [
+      "电场强度",
+      "功与能量"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "a 的电势为 -20V",
+      "judgment": "不正确，a 的电势为 -10V。"
+    },
+    {
+      "option": "B",
+      "title": "场强大小为 200V/m",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "电子经过 a 时电势能为 10eV",
+      "judgment": "正确。"
+    },
+    {
+      "option": "D",
+      "title": "电子动能为26eV时，电势能为-26eV",
+      "judgment": "正确。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/electric-potential-lesson78/course-10-equal-potential-planes.webp",
+      "alt": "等距等势面与电子原题配图"
+    }
+  ]
+}

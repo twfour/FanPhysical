@@ -46,7 +46,7 @@ var problemNoteCacheOrder = [];
 var problemNoteCacheLimit = 8;
 var adjacentPrefetchHandle = null;
 var adjacentPrefetchUsesIdleCallback = false;
-var runtimeAssetVersion = "20260927-exploration-collapse-01";
+var runtimeAssetVersion = "20261028-electric-potential-01";
 var canvasW = 1000;
 var canvasH = 500;
 var animRight = 570;
@@ -724,6 +724,7 @@ var problemRuntimeScriptMap = {
   collision_recoil_model: ["/assets/scenes/collision-recoil.js"],
   momentum_practice_model: ["/assets/scenes/collision-recoil.js", "/assets/scenes/momentum-practice.js"],
   electric_field_model: ["/assets/scenes/electric-field.js"],
+  electric_potential_model: ["/assets/scenes/electric-potential.js"],
   required_one_test_model: ["/assets/scenes/required-one-test.js"],
   required_two_test_model: ["/assets/scenes/required-two-test.js"]
 };

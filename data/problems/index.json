@@ -1388,6 +1388,94 @@
     {
       "id": "electric_lesson5_hw_10_electric_field_curve",
       "file": "electric_lesson5_hw_10_electric_field_curve.json"
+    },
+    {
+      "id": "electric_potential_lesson78_course_01_electron_potential_work",
+      "file": "electric_potential_lesson78_course_01_electron_potential_work.json"
+    },
+    {
+      "id": "electric_potential_lesson78_course_02_oil_drop_energy",
+      "file": "electric_potential_lesson78_course_02_oil_drop_energy.json"
+    },
+    {
+      "id": "electric_potential_lesson78_course_03_dipole_zero_potential",
+      "file": "electric_potential_lesson78_course_03_dipole_zero_potential.json"
+    },
+    {
+      "id": "electric_potential_lesson78_course_04_electron_vt_field",
+      "file": "electric_potential_lesson78_course_04_electron_vt_field.json"
+    },
+    {
+      "id": "electric_potential_lesson78_course_05_electron_fieldline_trajectory",
+      "file": "electric_potential_lesson78_course_05_electron_fieldline_trajectory.json"
+    },
+    {
+      "id": "electric_potential_lesson78_course_06_positive_charge_line",
+      "file": "electric_potential_lesson78_course_06_positive_charge_line.json"
+    },
+    {
+      "id": "electric_potential_lesson78_course_07_central_charge_orbits",
+      "file": "electric_potential_lesson78_course_07_central_charge_orbits.json"
+    },
+    {
+      "id": "electric_potential_lesson78_course_08_curved_equipotential",
+      "file": "electric_potential_lesson78_course_08_curved_equipotential.json"
+    },
+    {
+      "id": "electric_potential_lesson78_course_09_parallel_plate_calculation",
+      "file": "electric_potential_lesson78_course_09_parallel_plate_calculation.json"
+    },
+    {
+      "id": "electric_potential_lesson78_course_10_equal_potential_planes",
+      "file": "electric_potential_lesson78_course_10_equal_potential_planes.json"
+    },
+    {
+      "id": "electric_potential_lesson78_course_11_coordinate_uniform_field",
+      "file": "electric_potential_lesson78_course_11_coordinate_uniform_field.json"
+    },
+    {
+      "id": "electric_potential_lesson78_course_12_two_charge_potential_curve",
+      "file": "electric_potential_lesson78_course_12_two_charge_potential_curve.json"
+    },
+    {
+      "id": "electric_potential_lesson78_hw_01_field_work_calculation",
+      "file": "electric_potential_lesson78_hw_01_field_work_calculation.json"
+    },
+    {
+      "id": "electric_potential_lesson78_hw_02_rough_plane_energy",
+      "file": "electric_potential_lesson78_hw_02_rough_plane_energy.json"
+    },
+    {
+      "id": "electric_potential_lesson78_hw_03_cell_membrane_ion",
+      "file": "electric_potential_lesson78_hw_03_cell_membrane_ion.json"
+    },
+    {
+      "id": "electric_potential_lesson78_hw_04_potential_landscape",
+      "file": "electric_potential_lesson78_hw_04_potential_landscape.json"
+    },
+    {
+      "id": "electric_potential_lesson78_hw_05_lightning_field",
+      "file": "electric_potential_lesson78_hw_05_lightning_field.json"
+    },
+    {
+      "id": "electric_potential_lesson78_hw_06_two_charge_potential_minimum",
+      "file": "electric_potential_lesson78_hw_06_two_charge_potential_minimum.json"
+    },
+    {
+      "id": "electric_potential_lesson78_hw_07_lightning_electron_equipotential",
+      "file": "electric_potential_lesson78_hw_07_lightning_electron_equipotential.json"
+    },
+    {
+      "id": "electric_potential_lesson78_hw_08_electric_pendulum_release",
+      "file": "electric_potential_lesson78_hw_08_electric_pendulum_release.json"
+    },
+    {
+      "id": "electric_potential_lesson78_hw_09_hydrogen_atom_energy",
+      "file": "electric_potential_lesson78_hw_09_hydrogen_atom_energy.json"
+    },
+    {
+      "id": "electric_potential_lesson78_hw_10_grid_uniform_field",
+      "file": "electric_potential_lesson78_hw_10_grid_uniform_field.json"
     }
   ]
 }
