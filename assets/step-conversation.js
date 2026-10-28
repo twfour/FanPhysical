@@ -1,11 +1,8 @@
-// Multi-turn text and voice questions for solution steps.
+// Multi-turn text questions for solution steps.
 
 var stepConversationStorageKey = "fanphysics:stepConversations:v1";
 var stepConversationState = {};
 var stepConversationStateLoaded = false;
-var activeStepVoiceRecognition = null;
-var activeStepVoiceButton = null;
-var activeStepVoiceStatus = null;
 function addStepConversationPanels(body, sceneName) {
   var problemNote = body && body.closest ? body.closest(".problem-notes") : null;
   if (problemNote && problemNote.dataset.disableStepConversation === "1") {
@@ -59,44 +56,21 @@ function addStepConversationPanels(body, sceneName) {
     input.className = "step-conversation-input";
     input.rows = 2;
     input.maxLength = 1200;
-    input.placeholder = "口述或输入对这一步的疑问";
+    input.placeholder = "输入对这一步的疑问，按 Enter 发送";
     input.setAttribute("aria-label", "本步骤的问题");
-    var voiceButton = document.createElement("button");
-    voiceButton.type = "button";
-    voiceButton.className = "step-conversation-voice";
-    voiceButton.innerText = usesSystemKeyboardDictation() ? "键盘听写" : "口述提问";
-    voiceButton.title = usesSystemKeyboardDictation() ? "使用 iPad 键盘上的麦克风听写" : "使用麦克风输入问题";
     var sendButton = document.createElement("button");
     sendButton.type = "button";
     sendButton.className = "step-conversation-send";
     sendButton.innerText = "发送";
     composer.appendChild(input);
-    composer.appendChild(voiceButton);
     composer.appendChild(sendButton);
     panel.appendChild(composer);
 
     var status = document.createElement("p");
     status.className = "step-conversation-status";
     status.setAttribute("aria-live", "polite");
-    status.innerText = usesSystemKeyboardDictation()
-      ? "iPad 请使用键盘上的麦克风听写，文字可修改后发送"
-      : (getSpeechRecognitionConstructor()
-        ? "口述内容会先填入输入框，可修改后发送"
-        : "当前浏览器不支持口述，可直接输入问题");
+    status.innerText = "输入问题后按 Enter 或点击发送，可围绕本步骤连续追问";
     panel.appendChild(status);
-
-    voiceButton.disabled = !usesSystemKeyboardDictation() && !getSpeechRecognitionConstructor();
-    voiceButton.onclick = function () {
-      if (usesSystemKeyboardDictation()) {
-        startSystemKeyboardDictation(input, status);
-        return;
-      }
-      if (activeStepVoiceButton === voiceButton) {
-        stopStepVoiceRecognition(false);
-        return;
-      }
-      startStepVoiceRecognition(input, voiceButton, status);
-    };
     sendButton.onclick = function () {
       askStepConversation(paragraph, panel, input, paragraphIndex, sceneName);
     };
@@ -118,7 +92,6 @@ function addStepConversationPanels(body, sceneName) {
     };
 
     panel._historyElement = history;
-    panel._voiceButton = voiceButton;
     panel._sendButton = sendButton;
     panel._clearButton = clearButton;
     panel._statusElement = status;
@@ -218,7 +191,6 @@ function setStepConversationPending(panel, pending) {
   panel.dataset.pending = pending ? "1" : "0";
   panel._sendButton.disabled = pending;
   panel._clearButton.disabled = pending;
-  panel._voiceButton.disabled = pending || (!usesSystemKeyboardDictation() && !getSpeechRecognitionConstructor());
 }
 
 async function askStepConversation(paragraph, panel, input, fallbackStepIndex, sceneName) {
@@ -229,11 +201,10 @@ async function askStepConversation(paragraph, panel, input, fallbackStepIndex, s
   var status = panel._statusElement;
   if (!question) {
     status.classList.add("is-error");
-    status.innerText = "请先口述或输入问题";
+    status.innerText = "请先输入问题";
     input.focus();
     return;
   }
-  stopStepVoiceRecognition(true);
   var conversationId = panel.dataset.conversationId;
   var previousHistory = getStepConversation(conversationId).map(function (message) {
     return { role: message.role, content: message.content };
@@ -260,7 +231,7 @@ async function askStepConversation(paragraph, panel, input, fallbackStepIndex, s
     appendStepConversationMessage(conversationId, "assistant", data.answer);
     incrementStudentState(sceneName, context.stepId);
     renderStepConversation(panel._historyElement, conversationId);
-    status.innerText = "可以继续口述或输入追问";
+    status.innerText = "可以继续输入追问";
   } catch (error) {
     removeLastStepConversationMessage(conversationId, "user", question);
     renderStepConversation(panel._historyElement, conversationId);
@@ -269,130 +240,6 @@ async function askStepConversation(paragraph, panel, input, fallbackStepIndex, s
     status.innerText = "暂时无法回答，问题已保留。错误：" + error.message;
   } finally {
     setStepConversationPending(panel, false);
-  }
-}
-
-function getSpeechRecognitionConstructor() {
-  return window.SpeechRecognition || window.webkitSpeechRecognition || null;
-}
-
-function usesSystemKeyboardDictation() {
-  var userAgent = navigator.userAgent || "";
-  var isIOS = /iPad|iPhone|iPod/.test(userAgent);
-  var isTouchMac = /Macintosh/.test(userAgent) && navigator.maxTouchPoints > 1;
-  return isIOS || isTouchMac;
-}
-
-function startSystemKeyboardDictation(input, status) {
-  stopStepVoiceRecognition(true);
-  input.focus();
-  status.classList.remove("is-error");
-  status.innerText = "请点击 iPad 键盘上的麦克风开始听写；完成后可修改文字，再点发送";
-}
-
-function startStepVoiceRecognition(input, button, status) {
-  var Recognition = getSpeechRecognitionConstructor();
-  if (!Recognition) {
-    status.classList.add("is-error");
-    status.innerText = "当前浏览器不支持口述，请直接输入问题";
-    return;
-  }
-  stopStepVoiceRecognition(true);
-  var recognition = new Recognition();
-  var initialText = input.value.trim();
-  var finalTranscript = "";
-  var recognitionError = "";
-  recognition.lang = "zh-CN";
-  recognition.continuous = false;
-  recognition.interimResults = true;
-  recognition.maxAlternatives = 1;
-  activeStepVoiceRecognition = recognition;
-  activeStepVoiceButton = button;
-  activeStepVoiceStatus = status;
-  button.classList.add("is-listening");
-  button.innerText = "停止录音";
-  status.classList.remove("is-error");
-  status.innerText = "正在聆听，请说出问题...";
-
-  recognition.onresult = function (event) {
-    var interimTranscript = "";
-    for (var i = event.resultIndex; i < event.results.length; i += 1) {
-      var transcript = event.results[i][0].transcript;
-      if (event.results[i].isFinal) {
-        finalTranscript += transcript;
-      } else {
-        interimTranscript += transcript;
-      }
-    }
-    input.value = [initialText, finalTranscript + interimTranscript].filter(Boolean).join(" ");
-  };
-  recognition.onerror = function (event) {
-    var messages = {
-      "not-allowed": "没有获得麦克风权限",
-      "audio-capture": "没有检测到可用麦克风",
-      "no-speech": "没有听到清晰语音",
-      network: "语音识别网络不可用",
-      aborted: "录音已停止"
-    };
-    recognitionError = messages[event.error] || "语音识别失败";
-    if (event.error !== "aborted") {
-      status.classList.add("is-error");
-    }
-    status.innerText = recognitionError;
-  };
-  recognition.onend = function () {
-    if (activeStepVoiceRecognition === recognition) {
-      activeStepVoiceRecognition = null;
-      activeStepVoiceButton = null;
-      activeStepVoiceStatus = null;
-    }
-    button.classList.remove("is-listening");
-    button.innerText = "口述提问";
-    if (!recognitionError) {
-      status.innerText = input.value.trim()
-        ? "识别完成，可修改后发送"
-        : "没有识别到内容，请再试一次";
-    }
-  };
-  try {
-    recognition.start();
-  } catch (error) {
-    stopStepVoiceRecognition(true);
-    status.classList.add("is-error");
-    status.innerText = "无法启动麦克风：" + error.message;
-  }
-}
-
-function stopStepVoiceRecognition(abortRecognition) {
-  var recognition = activeStepVoiceRecognition;
-  var button = activeStepVoiceButton;
-  var status = activeStepVoiceStatus;
-  if (!recognition) {
-    return;
-  }
-  activeStepVoiceRecognition = null;
-  activeStepVoiceButton = null;
-  activeStepVoiceStatus = null;
-  try {
-    if (abortRecognition) {
-      recognition.onresult = null;
-      recognition.onerror = null;
-      recognition.onend = null;
-      recognition.abort();
-    } else {
-      recognition.stop();
-    }
-  } catch (error) {
-    return;
-  } finally {
-    if (button) {
-      button.classList.remove("is-listening");
-      button.innerText = "口述提问";
-    }
-    if (status && !abortRecognition) {
-      status.classList.remove("is-error");
-      status.innerText = "录音已停止，可修改后发送";
-    }
   }
 }
 

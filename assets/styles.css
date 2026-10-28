@@ -1300,7 +1300,7 @@ button.sound-action:disabled {
 
 .step-conversation-composer {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: stretch;
   gap: 8px;
   margin-top: 10px;
@@ -1325,7 +1325,6 @@ button.sound-action:disabled {
   outline: 3px solid rgba(37, 99, 235, 0.14);
 }
 
-.step-conversation-voice,
 .step-conversation-send {
   min-height: 46px;
   border: 1px solid #2563eb;
@@ -1335,17 +1334,6 @@ button.sound-action:disabled {
   font-size: 14px;
   font-weight: 900;
   cursor: pointer;
-}
-
-.step-conversation-voice {
-  background: #fff;
-  color: #1d4ed8;
-}
-
-.step-conversation-voice.is-listening {
-  border-color: #dc2626;
-  background: #fef2f2;
-  color: #b91c1c;
 }
 
 .step-conversation-send {
@@ -1775,11 +1763,11 @@ button.sound-action:disabled {
   }
 
   .step-conversation-composer {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 
   .step-conversation-input {
-    grid-column: 1 / -1;
+    grid-column: auto;
   }
 
 }

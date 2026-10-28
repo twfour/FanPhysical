@@ -440,7 +440,6 @@ function switchScene(sceneName, options) {
     if (isJsonAnimationScene(currentScene)) {
       getJsonAnimationState(currentScene).playing = false;
     }
-    stopStepVoiceRecognition(true);
     if (typeof silencePhysicsAudio === "function") {
       silencePhysicsAudio();
     }

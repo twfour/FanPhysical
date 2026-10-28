@@ -361,7 +361,8 @@ async function main() {
     assert.equal(await page.locator(".note-toggle").count() > 0, true, "note toggle should exist");
     assert.equal(await page.evaluate(function () {
       return typeof window.addStepConversationPanels === "function" &&
-        typeof window.startStepVoiceRecognition === "function";
+        typeof window.startStepVoiceRecognition === "undefined" &&
+        document.querySelectorAll(".step-conversation-voice").length === 0;
     }), true, "step conversation functions should be registered");
     var contentOrder = await page.locator(".problem-notes-grid").evaluate(function (grid) {
       return Array.from(grid.children).map(function (child) {
