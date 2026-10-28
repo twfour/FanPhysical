@@ -1,0 +1,136 @@
+{
+  "id": "coulomb_lesson4_hw_02_hanging_opposite_charge_angles",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "A2：悬球电性与偏角",
+  "type": "single-choice",
+  "question": "固定球 A 带 +Q。等质量小球 B 带 +q、C 带 -q，分别用不同长度细绳悬挂，平衡时均与 A 等高，偏角为 α、β。比较两角。",
+  "options": [
+    "A. α=β",
+    "B. α<β",
+    "C. α>β>0",
+    "D. β=0"
+  ],
+  "answer": "B",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "把悬点到 A 的水平距离记为 x、竖直高度记为 h。B 受斥力向右偏，C 受引力向左偏，因此 C 到 A 的距离更小。",
+    "sharedFormula": "\\[r_B=x+h\\tan\\alpha,\\quad r_C=x-h\\tan\\beta,\\quad \\tan\\theta=\\frac{kQq}{mgr^2}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "把悬点到 A 的水平距离记为 x、竖直高度记为 h。B 受斥力向右偏，C 受引力向左偏，因此 C 到 A 的距离更小。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[r_B=x+h\\tan\\alpha,\\quad r_C=x-h\\tan\\beta,\\quad \\tan\\theta=\\frac{kQq}{mgr^2}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "由几何关系有 \\(r_C<r_B\\)，所以 \\(F_C=kQq/r_C^2>F_B=kQq/r_B^2\\)。两球质量相同，平衡时 \\(\\tan\\beta=F_C/(mg)>F_B/(mg)=\\tan\\alpha\\)，故 \\(\\alpha<\\beta\\)。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **B**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "悬球电性与偏角"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“悬球电性与偏角”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "hanging_opposite_charge_angles",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示悬球电性与偏角。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-equilibrium",
+    "familyName": "库仑力平衡",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "α=β",
+      "judgment": "错误，两球到 A 的距离不同。"
+    },
+    {
+      "option": "B",
+      "title": "α<β",
+      "judgment": "正确，异号球更靠近 A，偏角更大。"
+    },
+    {
+      "option": "C",
+      "title": "α>β>0",
+      "judgment": "错误，大小关系相反。"
+    },
+    {
+      "option": "D",
+      "title": "β=0",
+      "judgment": "错误，C 受水平库仑引力，偏角不为零。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/homework-a2-hanging-charge.webp",
+      "alt": "悬球电性与偏角原题配图"
+    }
+  ]
+}

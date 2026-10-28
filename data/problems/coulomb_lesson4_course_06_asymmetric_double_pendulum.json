@@ -1,0 +1,136 @@
+{
+  "id": "coulomb_lesson4_course_06_asymmetric_double_pendulum",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "例6：共点悬挂距离调节",
+  "type": "single-choice",
+  "question": "带电小球 A、B 用等长 L 的丝线悬于 O 点，平衡距离为 d。要使距离变为 d/2，可采用哪种方法？",
+  "options": [
+    "A. A、B 质量都变为2倍",
+    "B. B 的质量变为8倍",
+    "C. A、B 电荷量都减半",
+    "D. A、B 电荷量都减半且 B 质量变为4倍"
+  ],
+  "answer": "B",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "由 B 球沿切线方向平衡，结合弦长与半角关系得到距离的三次方标度。",
+    "sharedFormula": "\\[d^3\\propto\\frac{Q_AQ_B}{m_B}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "由 B 球沿切线方向平衡，结合弦长与半角关系得到距离的三次方标度。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[d^3\\propto\\frac{Q_AQ_B}{m_B}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "要使 d 减半，右侧比例必须变为原来的 \\(1/8\\)。只有把参与切向平衡的 B 球质量增至8倍满足条件。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **B**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "共点悬挂距离调节"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“共点悬挂距离调节”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "asymmetric_double_pendulum",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示共点悬挂距离调节。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-equilibrium",
+    "familyName": "库仑力平衡",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "A、B 质量都变为2倍",
+      "judgment": "错误，只使比例变为1/2。"
+    },
+    {
+      "option": "B",
+      "title": "B 的质量变为8倍",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "A、B 电荷量都减半",
+      "judgment": "错误，电荷乘积变为1/4。"
+    },
+    {
+      "option": "D",
+      "title": "A、B 电荷量都减半且 B 质量变为4倍",
+      "judgment": "错误，比例变为1/16。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/course-06-double-pendulum.webp",
+      "alt": "共点悬挂距离调节原题配图"
+    }
+  ]
+}

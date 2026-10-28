@@ -1,0 +1,136 @@
+{
+  "id": "coulomb_lesson4_hw_04_induction_foil_sequence",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "A4：接触导体感应与分离",
+  "type": "multiple-choice",
+  "question": "相互接触的中性导体 A、B 下部贴有金属箔片，带正电小球 C 移近 A。判断箔片、电荷分布和操作顺序。",
+  "options": [
+    "A. A、B 的金属箔片都张开",
+    "B. A 左端带负电，B 右端带正电",
+    "C. 先移走 C 再分开 A、B，箔片仍张开",
+    "D. 先分开 A、B 再移走 C，箔片仍张开"
+  ],
+  "answer": "ABD",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "感应时近端聚集异号电荷、远端聚集同号电荷；是否保留电荷取决于先分离还是先移走感应源。",
+    "sharedFormula": "\\[Q_A+Q_B=0\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "感应时近端聚集异号电荷、远端聚集同号电荷；是否保留电荷取决于先分离还是先移走感应源。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[Q_A+Q_B=0\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "C 靠近时 A、B 两端异号分离，两侧箔片均因同号排斥张开。先移走 C 会复原中性；先分开则异号净电荷被锁定，移走 C 后仍张开。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **ABD**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "接触导体感应与分离"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“接触导体感应与分离”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "induction_foil_sequence",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示接触导体感应与分离。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-induction",
+    "familyName": "静电感应与接地",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "A、B 的金属箔片都张开",
+      "judgment": "正确。"
+    },
+    {
+      "option": "B",
+      "title": "A 左端带负电，B 右端带正电",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "先移走 C 再分开 A、B，箔片仍张开",
+      "judgment": "错误。"
+    },
+    {
+      "option": "D",
+      "title": "先分开 A、B 再移走 C，箔片仍张开",
+      "judgment": "正确。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/homework-a4-induction-foils.webp",
+      "alt": "接触导体感应与分离原题配图"
+    }
+  ]
+}

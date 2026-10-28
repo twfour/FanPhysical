@@ -1,0 +1,136 @@
+{
+  "id": "coulomb_lesson4_course_07_three_charge_equilibrium",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "例7：三电荷共线平衡",
+  "type": "single-choice",
+  "question": "光滑绝缘水平面上 A、B、C 三个带电小球沿直线排列并恰好平衡，哪组电荷可能实现？",
+  "options": [
+    "A. -9、+4、-36",
+    "B. +4、+9、+36",
+    "C. -3、+2、+8",
+    "D. +3、-2、+6"
+  ],
+  "answer": "A",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "共线三球平衡要求两端同号、中间异号，并满足中间电荷量的特定关系。",
+    "sharedFormula": "\\[|q_B|=\\frac{|q_Aq_C|}{(\\sqrt{|q_A|}+\\sqrt{|q_C|})^2}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "共线三球平衡要求两端同号、中间异号，并满足中间电荷量的特定关系。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[|q_B|=\\frac{|q_Aq_C|}{(\\sqrt{|q_A|}+\\sqrt{|q_C|})^2}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "A 中两端同为负，中间为正，且 \\(9\\times36/(3+6)^2=4\\)，满足平衡；其余选项违反电性或电荷量关系。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **A**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "三电荷共线平衡"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“三电荷共线平衡”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "three_charge_equilibrium",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示三电荷共线平衡。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-equilibrium",
+    "familyName": "库仑力平衡",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "-9、+4、-36",
+      "judgment": "正确。"
+    },
+    {
+      "option": "B",
+      "title": "+4、+9、+36",
+      "judgment": "错误，三球同号不能平衡。"
+    },
+    {
+      "option": "C",
+      "title": "-3、+2、+8",
+      "judgment": "错误，两端异号。"
+    },
+    {
+      "option": "D",
+      "title": "+3、-2、+6",
+      "judgment": "错误，电荷量关系不满足。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/course-07-three-charge-balance.webp",
+      "alt": "三电荷共线平衡原题配图"
+    }
+  ]
+}

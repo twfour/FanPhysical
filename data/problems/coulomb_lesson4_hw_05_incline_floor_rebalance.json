@@ -1,0 +1,136 @@
+{
+  "id": "coulomb_lesson4_hw_05_incline_floor_rebalance",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "A5：斜面与水平面双球",
+  "type": "multiple-choice",
+  "question": "带电小球 A、B 分别在光滑斜面和水平面。将 B 向左移动，A 沿斜面上移后重新平衡，比较支持力、推力和距离。",
+  "options": [
+    "A. 斜面对 A 的弹力增大",
+    "B. 水平面对 B 的弹力增大",
+    "C. 推力 F 变小",
+    "D. 两球距离变小"
+  ],
+  "answer": "BC",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "用 A 的三力平衡矢量三角形判断库仑力与斜面支持力，再对整体列竖直平衡。",
+    "sharedFormula": "\\[F=F_e\\cos\\theta_e,\\qquad N_B+N_A\\cos\\alpha=(m_A+m_B)g\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "用 A 的三力平衡矢量三角形判断库仑力与斜面支持力，再对整体列竖直平衡。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[F=F_e\\cos\\theta_e,\\qquad N_B+N_A\\cos\\alpha=(m_A+m_B)g\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "A 上移后库仑力与斜面支持力均减小，故球距增大；A 支持力竖直分量减小，使 B 支持力增大；库仑力减小且方向更偏离水平，推力减小。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **BC**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "斜面与水平面双球"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“斜面与水平面双球”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "incline_floor_rebalance",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示斜面与水平面双球。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-equilibrium",
+    "familyName": "库仑力平衡",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "斜面对 A 的弹力增大",
+      "judgment": "错误，应减小。"
+    },
+    {
+      "option": "B",
+      "title": "水平面对 B 的弹力增大",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "推力 F 变小",
+      "judgment": "正确。"
+    },
+    {
+      "option": "D",
+      "title": "两球距离变小",
+      "judgment": "错误，应增大。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/homework-a5-incline-floor.webp",
+      "alt": "斜面与水平面双球原题配图"
+    }
+  ]
+}

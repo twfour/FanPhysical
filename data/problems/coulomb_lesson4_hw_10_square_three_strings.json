@@ -1,0 +1,136 @@
+{
+  "id": "coulomb_lesson4_hw_10_square_three_strings",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "B10：正方形三球悬挂",
+  "type": "single-choice",
+  "question": "质量均为 m 的正带电小球 A、B、C 由三绳系于 O，OABC 构成边长 a 的正方形，绳2竖直，且 mg=kq₁²/a²。判断电荷与张力。",
+  "options": [
+    "A. q₁与q₃可以不相等",
+    "B. 绳1与绳2张力之比为1:√2",
+    "C. 绳2张力为2mg",
+    "D. q₁:q₂=2:1"
+  ],
+  "answer": "B",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "由左右对称先得 q₁=q₃，再对 A、B 分别作水平和竖直平衡。",
+    "sharedFormula": "\\[T_1=\\frac{3\\sqrt2}{4}mg,\\qquad T_2=\\frac32mg\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "由左右对称先得 q₁=q₃，再对 A、B 分别作水平和竖直平衡。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[T_1=\\frac{3\\sqrt2}{4}mg,\\qquad T_2=\\frac32mg\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "正方形平衡要求 q₁=q₃。联立 A 球两方向平衡得 \\(q_2/q_1=1/(2\\sqrt2)\\) 及 T₁；B 球得 T₂，故 \\(T_1:T_2=1:\\sqrt2\\)。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **B**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "正方形三球悬挂"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“正方形三球悬挂”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "square_three_strings",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示正方形三球悬挂。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-equilibrium",
+    "familyName": "库仑力平衡",
+    "role": "条件变式",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "q₁与q₃可以不相等",
+      "judgment": "错误。"
+    },
+    {
+      "option": "B",
+      "title": "绳1与绳2张力之比为1:√2",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "绳2张力为2mg",
+      "judgment": "错误。"
+    },
+    {
+      "option": "D",
+      "title": "q₁:q₂=2:1",
+      "judgment": "错误，应为2√2:1。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/homework-b10-square-strings.webp",
+      "alt": "正方形三球悬挂原题配图"
+    }
+  ]
+}

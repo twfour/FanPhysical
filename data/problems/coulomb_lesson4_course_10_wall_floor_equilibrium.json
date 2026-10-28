@@ -1,0 +1,136 @@
+{
+  "id": "coulomb_lesson4_course_10_wall_floor_equilibrium",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "例10：墙地双球再平衡",
+  "type": "single-choice",
+  "question": "同种电荷小球 A、B 分别位于光滑竖直墙面和水平地面。把 B 向左推动少许并重新平衡，与原来相比如何？",
+  "options": [
+    "A. 两球间距变大",
+    "B. B 所受推力变大",
+    "C. A 对墙压力变大",
+    "D. 地面对 B 支持力变大"
+  ],
+  "answer": "A",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "A 球竖直方向始终由库仑力分量平衡重力，结合图示几何分支判断新位置。",
+    "sharedFormula": "\\[F_e\\frac{\\Delta y}{r}=m_Ag\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "A 球竖直方向始终由库仑力分量平衡重力，结合图示几何分支判断新位置。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[F_e\\frac{\\Delta y}{r}=m_Ag\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "B 左移后，为保持 A 的竖直库仑分量不变，A 沿墙上移，题图所处分支上球间距增大；水平分量减小，墙压力和推力均减小，地面对 B 的支持力保持两球总重不变。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **A**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "墙地双球再平衡"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“墙地双球再平衡”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "wall_floor_equilibrium",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示墙地双球再平衡。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-equilibrium",
+    "familyName": "库仑力平衡",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "两球间距变大",
+      "judgment": "正确。"
+    },
+    {
+      "option": "B",
+      "title": "B 所受推力变大",
+      "judgment": "错误。"
+    },
+    {
+      "option": "C",
+      "title": "A 对墙压力变大",
+      "judgment": "错误。"
+    },
+    {
+      "option": "D",
+      "title": "地面对 B 支持力变大",
+      "judgment": "错误。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/course-10-wall-floor-balls.webp",
+      "alt": "墙地双球再平衡原题配图"
+    }
+  ]
+}

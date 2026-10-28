@@ -1,0 +1,130 @@
+{
+  "id": "coulomb_lesson4_course_04_opposite_contact_share",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "例4：异号双球接触分配",
+  "type": "single-choice",
+  "question": "相同金属球 A、B 带等量异号电荷，原吸引力为 F。不带电同样金属球 C 先接触 A、再接触 B 后移开，求 A、B 间作用力。",
+  "options": [
+    "A. F/8",
+    "B. F/4",
+    "C. 3F/8",
+    "D. 3F/4"
+  ],
+  "answer": "A",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "相同金属球接触后平分两球总电荷，按接触顺序追踪 A、B、C 的电荷。",
+    "sharedFormula": "\\[q_A'=\\frac q2,\\qquad q_B'=\\frac{-q+q/2}{2}=-\\frac q4\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "相同金属球接触后平分两球总电荷，按接触顺序追踪 A、B、C 的电荷。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[q_A'=\\frac q2,\\qquad q_B'=\\frac{-q+q/2}{2}=-\\frac q4\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "第一次接触后 A、C 各为 \\(q/2\\)；第二次 C 与 B 接触后，B、C 各为 \\(-q/4\\)。故 \\(F'=k|(q/2)(-q/4)|/r^2=F/8\\)。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **A**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "异号双球接触分配"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“异号双球接触分配”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "opposite_contact_share",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示异号双球接触分配。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-contact",
+    "familyName": "接触起电与电荷分配",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "F/8",
+      "judgment": "正确。"
+    },
+    {
+      "option": "B",
+      "title": "F/4",
+      "judgment": "错误。"
+    },
+    {
+      "option": "C",
+      "title": "3F/8",
+      "judgment": "错误。"
+    },
+    {
+      "option": "D",
+      "title": "3F/4",
+      "judgment": "错误。"
+    }
+  ]
+}

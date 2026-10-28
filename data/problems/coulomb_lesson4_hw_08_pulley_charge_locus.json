@@ -1,0 +1,136 @@
+{
+  "id": "coulomb_lesson4_hw_08_pulley_charge_locus",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "B8：定滑轮带电球轨迹",
+  "type": "multiple-choice",
+  "question": "O 正下方 h 处固定电荷 Q，带电球 B 经定滑轮牵引静止，AB=R。缓慢向下拉绳使 B 移动，判断重力、张力、距离与轨迹。",
+  "options": [
+    "A. \\(mg=kQqh/R^3\\)",
+    "B. 绳张力先增大后减小",
+    "C. A、B 距离不变",
+    "D. B 的轨迹是一段圆弧"
+  ],
+  "answer": "ACD",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "对 B 水平、竖直分量消去张力，可得 AB 距离恒定；轨迹因此是以 A 为圆心的圆弧。",
+    "sharedFormula": "\\[mg=\\frac{kQq}{r^2}\\frac{h}{r}=\\frac{kQqh}{r^3}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "对 B 水平、竖直分量消去张力，可得 AB 距离恒定；轨迹因此是以 A 为圆心的圆弧。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[mg=\\frac{kQq}{r^2}\\frac{h}{r}=\\frac{kQqh}{r^3}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "初态 r=R，得到 A。平衡过程中参数均不变，故 r 始终为 R，C、D 正确。张力 \\(T=mg\\,OB/h\\)，拉动时 OB 缩短，张力单调减小，B 错。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **ACD**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "定滑轮带电球轨迹"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“定滑轮带电球轨迹”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "pulley_charge_locus",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示定滑轮带电球轨迹。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-locus",
+    "familyName": "库仑力约束轨迹",
+    "role": "条件变式",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(mg=kQqh/R^3\\)",
+      "judgment": "正确。"
+    },
+    {
+      "option": "B",
+      "title": "绳张力先增大后减小",
+      "judgment": "错误。"
+    },
+    {
+      "option": "C",
+      "title": "A、B 距离不变",
+      "judgment": "正确。"
+    },
+    {
+      "option": "D",
+      "title": "B 的轨迹是一段圆弧",
+      "judgment": "正确。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/homework-b8-pulley-charge.webp",
+      "alt": "定滑轮带电球轨迹原题配图"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "id": "coulomb_lesson4_course_05_offcenter_cavity_force",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "例5：偏心球形空腔",
+  "type": "calculation",
+  "question": "半径 R 的绝缘介质球内均匀带总电荷 +Q。在右侧挖去半径 R/2、与外球面相切的球形空腔；点电荷 +q 位于球面外 R 处。求剩余带电体对 q 的作用力。",
+  "options": null,
+  "answer": "\\(F=\\frac{7kQq}{36R^2}\\)，方向水平向右",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "用“完整均匀带电球减去被挖小球”的叠加模型。",
+    "sharedFormula": "\\[E=\\frac{kQ}{(2R)^2}-\\frac{k(Q/8)}{(3R/2)^2}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "shared-solution"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "用“完整均匀带电球减去被挖小球”的叠加模型。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[E=\\frac{kQ}{(2R)^2}-\\frac{k(Q/8)}{(3R/2)^2}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "小球体积是原球的 \\(1/8\\)，被挖电荷为 \\(Q/8\\)。点电荷到大球心距离 \\(2R\\)，到空腔球心距离 \\(3R/2\\)，故 \\(E=7kQ/(36R^2)\\)，乘 q 得结论。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **\\(F=\\frac{7kQq}{36R^2}\\)，方向水平向右**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "偏心球形空腔"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“偏心球形空腔”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "offcenter_cavity_force",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示偏心球形空腔。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-superposition",
+    "familyName": "均匀带电体叠加",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L3",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/course-05-cavity-sphere.webp",
+      "alt": "偏心球形空腔原题配图"
+    }
+  ]
+}

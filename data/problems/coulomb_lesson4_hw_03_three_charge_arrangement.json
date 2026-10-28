@@ -1,0 +1,136 @@
+{
+  "id": "coulomb_lesson4_hw_03_three_charge_arrangement",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "A3：三球平衡摆放方法",
+  "type": "single-choice",
+  "question": "三个可自由移动带电小球 A、B、C 在光滑水平面上沿直线静止，判断电性、电荷量、摆放方法和距离关系。",
+  "options": [
+    "A. A、C 可能带异种电荷",
+    "B. 可能有 Q_A>Q_B>Q_C",
+    "C. 可先固定 C，摆好 A、B 平衡后再释放 C",
+    "D. r₁/r₂=Q_A/Q_C"
+  ],
+  "answer": "C",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "完整平衡构型中两端同号、中间异号；若按最终构型摆放，先固定一球不会改变另两球的受力平衡。",
+    "sharedFormula": "\\[\\frac{r_1}{r_2}=\\sqrt{\\frac{|Q_A|}{|Q_C|}}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "完整平衡构型中两端同号、中间异号；若按最终构型摆放，先固定一球不会改变另两球的受力平衡。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[\\frac{r_1}{r_2}=\\sqrt{\\frac{|Q_A|}{|Q_C|}}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "A 电性错误；中间电荷绝对值小于任一端球，B 不可能；按最终平衡位置先固定 C 再摆 A、B 可行；D 缺少平方根。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **C**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "三球平衡摆放方法"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“三球平衡摆放方法”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "three_charge_arrangement",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示三球平衡摆放方法。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-equilibrium",
+    "familyName": "库仑力平衡",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "A、C 可能带异种电荷",
+      "judgment": "错误。"
+    },
+    {
+      "option": "B",
+      "title": "可能有 Q_A>Q_B>Q_C",
+      "judgment": "错误。"
+    },
+    {
+      "option": "C",
+      "title": "可先固定 C，摆好 A、B 平衡后再释放 C",
+      "judgment": "正确。"
+    },
+    {
+      "option": "D",
+      "title": "r₁/r₂=Q_A/Q_C",
+      "judgment": "错误。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/homework-a3-three-charge-line.webp",
+      "alt": "三球平衡摆放方法原题配图"
+    }
+  ]
+}

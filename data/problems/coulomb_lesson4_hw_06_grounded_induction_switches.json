@@ -1,0 +1,136 @@
+{
+  "id": "coulomb_lesson4_hw_06_grounded_induction_switches",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "B6：双导体接地顺序",
+  "type": "single-choice",
+  "question": "接触的中性导体 M、N 两端可经 S₁、S₂ 接地，正电小球 P 位于 M 左侧。判断不同开关与分离顺序的结果。",
+  "options": [
+    "A. 两开关断开时 M 左端正、N 右端负",
+    "B. 两开关闭合时 M、N 均不带电",
+    "C. 只闭合 S₁，分开 MN 后移走 P，N 不带电",
+    "D. 只闭合 S₂，先移走 P 再分开 MN，M 带负电"
+  ],
+  "answer": "C",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "正电荷靠近时近端感应负电；接地允许电子与大地交换，操作顺序决定净电荷是否保留。",
+    "sharedFormula": "\\[Q_{\\rm conductor}+Q_{\\rm earth}=\\text{守恒}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "正电荷靠近时近端感应负电；接地允许电子与大地交换，操作顺序决定净电荷是否保留。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[Q_{\\rm conductor}+Q_{\\rm earth}=\\text{守恒}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "A 电性颠倒；两端接地时近端仍有感应负电；只接 M 端接地可中和 N 端正电，先分开后 N 保持中性；D 的顺序先移走 P，接地状态下电荷复原。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **C**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "双导体接地顺序"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“双导体接地顺序”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "grounded_induction_switches",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示双导体接地顺序。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-induction",
+    "familyName": "静电感应与接地",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "两开关断开时 M 左端正、N 右端负",
+      "judgment": "错误。"
+    },
+    {
+      "option": "B",
+      "title": "两开关闭合时 M、N 均不带电",
+      "judgment": "错误。"
+    },
+    {
+      "option": "C",
+      "title": "只闭合 S₁，分开 MN 后移走 P，N 不带电",
+      "judgment": "正确。"
+    },
+    {
+      "option": "D",
+      "title": "只闭合 S₂，先移走 P 再分开 MN，M 带负电",
+      "judgment": "错误。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/homework-b6-induction-switches.webp",
+      "alt": "双导体接地顺序原题配图"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "id": "coulomb_lesson4_course_02_polarized_metal_spheres",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "例2：异号金属球极化",
+  "type": "single-choice",
+  "question": "两个半径均为 R 的金属球分别带 +q₁、-q₂，球心距离为 3R，比较实际吸引力与把电荷集中在球心所得的库仑力。",
+  "options": [
+    "A. \\(F=kq_1q_2/(3R)^2\\)",
+    "B. \\(F>kq_1q_2/(3R)^2\\)",
+    "C. \\(F<kq_1q_2/(3R)^2\\)",
+    "D. 无法确定"
+  ],
+  "answer": "B",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "异号金属球相互吸引，表面电荷向相对的一侧聚集，等效作用距离小于球心距。",
+    "sharedFormula": "\\[F_{\\rm point}=k\\frac{q_1q_2}{(3R)^2}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "异号金属球相互吸引，表面电荷向相对的一侧聚集，等效作用距离小于球心距。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[F_{\\rm point}=k\\frac{q_1q_2}{(3R)^2}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "导体上的电荷可以重新分布。异号电荷在相对侧更密集，使近距离电荷之间的吸引贡献增强，因此实际吸引力大于球心点电荷近似值。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **B**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "异号金属球极化"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“异号金属球极化”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "polarized_metal_spheres",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示异号金属球极化。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-conductor",
+    "familyName": "导体极化",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(F=kq_1q_2/(3R)^2\\)",
+      "judgment": "错误，忽略了极化。"
+    },
+    {
+      "option": "B",
+      "title": "\\(F>kq_1q_2/(3R)^2\\)",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "\\(F<kq_1q_2/(3R)^2\\)",
+      "judgment": "错误。"
+    },
+    {
+      "option": "D",
+      "title": "无法确定",
+      "judgment": "错误，可判断大小关系。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/course-02-metal-spheres.webp",
+      "alt": "异号金属球极化原题配图"
+    }
+  ]
+}

@@ -1476,6 +1476,86 @@
     {
       "id": "electric_potential_lesson78_hw_10_grid_uniform_field",
       "file": "electric_potential_lesson78_hw_10_grid_uniform_field.json"
+    },
+    {
+      "id": "coulomb_lesson4_course_01_coulomb_limits",
+      "file": "coulomb_lesson4_course_01_coulomb_limits.json"
+    },
+    {
+      "id": "coulomb_lesson4_course_02_polarized_metal_spheres",
+      "file": "coulomb_lesson4_course_02_polarized_metal_spheres.json"
+    },
+    {
+      "id": "coulomb_lesson4_course_03_repeated_contact_limit",
+      "file": "coulomb_lesson4_course_03_repeated_contact_limit.json"
+    },
+    {
+      "id": "coulomb_lesson4_course_04_opposite_contact_share",
+      "file": "coulomb_lesson4_course_04_opposite_contact_share.json"
+    },
+    {
+      "id": "coulomb_lesson4_course_05_offcenter_cavity_force",
+      "file": "coulomb_lesson4_course_05_offcenter_cavity_force.json"
+    },
+    {
+      "id": "coulomb_lesson4_course_06_asymmetric_double_pendulum",
+      "file": "coulomb_lesson4_course_06_asymmetric_double_pendulum.json"
+    },
+    {
+      "id": "coulomb_lesson4_course_07_three_charge_equilibrium",
+      "file": "coulomb_lesson4_course_07_three_charge_equilibrium.json"
+    },
+    {
+      "id": "coulomb_lesson4_course_08_box_cut_string",
+      "file": "coulomb_lesson4_course_08_box_cut_string.json"
+    },
+    {
+      "id": "coulomb_lesson4_course_09_incline_three_charge_spring",
+      "file": "coulomb_lesson4_course_09_incline_three_charge_spring.json"
+    },
+    {
+      "id": "coulomb_lesson4_course_10_wall_floor_equilibrium",
+      "file": "coulomb_lesson4_course_10_wall_floor_equilibrium.json"
+    },
+    {
+      "id": "coulomb_lesson4_hw_01_point_charge_elementary_charge",
+      "file": "coulomb_lesson4_hw_01_point_charge_elementary_charge.json"
+    },
+    {
+      "id": "coulomb_lesson4_hw_02_hanging_opposite_charge_angles",
+      "file": "coulomb_lesson4_hw_02_hanging_opposite_charge_angles.json"
+    },
+    {
+      "id": "coulomb_lesson4_hw_03_three_charge_arrangement",
+      "file": "coulomb_lesson4_hw_03_three_charge_arrangement.json"
+    },
+    {
+      "id": "coulomb_lesson4_hw_04_induction_foil_sequence",
+      "file": "coulomb_lesson4_hw_04_induction_foil_sequence.json"
+    },
+    {
+      "id": "coulomb_lesson4_hw_05_incline_floor_rebalance",
+      "file": "coulomb_lesson4_hw_05_incline_floor_rebalance.json"
+    },
+    {
+      "id": "coulomb_lesson4_hw_06_grounded_induction_switches",
+      "file": "coulomb_lesson4_hw_06_grounded_induction_switches.json"
+    },
+    {
+      "id": "coulomb_lesson4_hw_07_two_cavity_spheres",
+      "file": "coulomb_lesson4_hw_07_two_cavity_spheres.json"
+    },
+    {
+      "id": "coulomb_lesson4_hw_08_pulley_charge_locus",
+      "file": "coulomb_lesson4_hw_08_pulley_charge_locus.json"
+    },
+    {
+      "id": "coulomb_lesson4_hw_09_three_stars_orbit",
+      "file": "coulomb_lesson4_hw_09_three_stars_orbit.json"
+    },
+    {
+      "id": "coulomb_lesson4_hw_10_square_three_strings",
+      "file": "coulomb_lesson4_hw_10_square_three_strings.json"
     }
   ]
 }

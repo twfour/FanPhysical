@@ -1,0 +1,136 @@
+{
+  "id": "coulomb_lesson4_course_08_box_cut_string",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "例8：木盒内双球断绳",
+  "type": "multiple-choice",
+  "question": "木盒内异号小球 A、B 分别由两根竖直细绳约束。静止时地面压力为 F_N，B 绳张力为 F。剪断 B 绳，判断木盒压力。",
+  "options": [
+    "A. 刚剪断仍为 F_N",
+    "B. 刚剪断为 F_N+F",
+    "C. 刚剪断为 F_N-F",
+    "D. B 向上运动过程中木盒压力逐渐增大"
+  ],
+  "answer": "BD",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "先分别写两球平衡，再比较剪断前后绳对木盒的竖直作用。",
+    "sharedFormula": "\\[F_e=mg+F,\\qquad T_A=mg+F_e\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先分别写两球平衡，再比较剪断前后绳对木盒的竖直作用。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[F_e=mg+F,\\qquad T_A=mg+F_e\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "剪断前 B 绳对盒有向上的 F；剪断瞬间该作用消失，而 A 绳张力尚未改变，所以压力增大 F。B 上升时球间距减小、吸引力和 A 绳张力增大，压力继续增大。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **BD**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "木盒内双球断绳"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“木盒内双球断绳”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "box_cut_string",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示木盒内双球断绳。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-transient",
+    "familyName": "静电系统瞬时变化",
+    "role": "母题",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "刚剪断仍为 F_N",
+      "judgment": "错误。"
+    },
+    {
+      "option": "B",
+      "title": "刚剪断为 F_N+F",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "刚剪断为 F_N-F",
+      "judgment": "错误。"
+    },
+    {
+      "option": "D",
+      "title": "B 向上运动过程中木盒压力逐渐增大",
+      "judgment": "正确。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/course-08-box-two-charges.webp",
+      "alt": "木盒内双球断绳原题配图"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "id": "coulomb_lesson4_hw_07_two_cavity_spheres",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "B7：双球空腔叠加",
+  "type": "single-choice",
+  "question": "两个半径 R、均匀带电 Q 的绝缘球相切，在连心线方向各挖去直径 R 的球形空腔。求两剩余部分间静电力。",
+  "options": [
+    "A. \\(15kQ^2/(64R^2)\\)",
+    "B. \\(49kQ^2/(256R^2)\\)",
+    "C. \\(89kQ^2/(576R^2)\\)",
+    "D. \\(5kQ^2/(36R^2)\\)"
+  ],
+  "answer": "C",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "每个剩余球等效为球心 +Q 与空腔中心 -Q/8 的叠加，计算四对作用力。",
+    "sharedFormula": "\\[F=\\frac{kQ^2}{(2R)^2}-2\\frac{kQ(Q/8)}{(3R/2)^2}+\\frac{k(Q/8)^2}{R^2}\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "每个剩余球等效为球心 +Q 与空腔中心 -Q/8 的叠加，计算四对作用力。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[F=\\frac{kQ^2}{(2R)^2}-2\\frac{kQ(Q/8)}{(3R/2)^2}+\\frac{k(Q/8)^2}{R^2}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "通分得 \\(F=(144-64+9)kQ^2/(576R^2)=89kQ^2/(576R^2)\\)，方向为斥力。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **C**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "双球空腔叠加"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“双球空腔叠加”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "two_cavity_spheres",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示双球空腔叠加。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-superposition",
+    "familyName": "均匀带电体叠加",
+    "role": "条件变式",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(15kQ^2/(64R^2)\\)",
+      "judgment": "错误。"
+    },
+    {
+      "option": "B",
+      "title": "\\(49kQ^2/(256R^2)\\)",
+      "judgment": "错误。"
+    },
+    {
+      "option": "C",
+      "title": "\\(89kQ^2/(576R^2)\\)",
+      "judgment": "正确。"
+    },
+    {
+      "option": "D",
+      "title": "\\(5kQ^2/(36R^2)\\)",
+      "judgment": "错误。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/homework-b7-two-cavity-spheres.webp",
+      "alt": "双球空腔叠加原题配图"
+    }
+  ]
+}

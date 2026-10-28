@@ -1,0 +1,136 @@
+{
+  "id": "coulomb_lesson4_hw_09_three_stars_orbit",
+  "chapter": "电荷守恒定律与库仑定律",
+  "title": "B9：三星拱月",
+  "type": "multiple-choice",
+  "question": "a、b、c 三个 +q 小球在半径 R 的圆周上等分并匀速转动；-6q 小球 d 位于圆心上方 h=√2R 处并由外力静止。判断速度、角速度、向心加速度和外力。",
+  "options": [
+    "A. \\(v=\\sqrt{kq^2/(3Rm)}\\)",
+    "B. \\(\\omega=\\sqrt{\\sqrt3kq^2/(3R^3m)}\\)",
+    "C. \\(a_c=\\sqrt3kq^2/(3mR^2)\\)",
+    "D. \\(F=2\\sqrt6kq^2/R^2\\)，竖直向上"
+  ],
+  "answer": "BC",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "分别求同圆三球的径向斥力与 d 球提供的径向吸引力，再处理 d 的竖直平衡。",
+    "sharedFormula": "\\[F_{\\rm in}=\\frac{kq^2}{\\sqrt3R^2}=m\\omega^2R\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "分别求同圆三球的径向斥力与 d 球提供的径向吸引力，再处理 d 的竖直平衡。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[F_{\\rm in}=\\frac{kq^2}{\\sqrt3R^2}=m\\omega^2R\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "由净向心力得 B、C。线速度应为 \\(\\sqrt{kq^2/(\\sqrt3mR)}\\)，A 分母错误。d 还受重力，外力应为 \\(mg+2\\sqrt6kq^2/R^2\\)，D 漏掉 mg。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **BC**。"
+    }
+  ],
+  "knowledge": [
+    "电荷守恒",
+    "库仑定律",
+    "三星拱月"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "在“三星拱月”模型中改变电荷符号、几何尺度或操作顺序，判断平衡条件与库仑力如何变化。",
+    "answer": "先确认电荷守恒与电性，再按新几何关系列库仑力和平衡方程。",
+    "thinking": "保持核心物理约束不变，重点检查距离平方、电荷分配和力的方向。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "coulomb_law_model",
+    "variant": "three_stars_orbit",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题演示三星拱月。",
+    "params": {
+      "charge": {
+        "label": "电荷系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "unit": "q"
+      },
+      "distance": {
+        "label": "距离系数",
+        "value": 1,
+        "min": 0.6,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "r"
+      }
+    },
+    "timeline": {
+      "duration": 7,
+      "loop": false
+    }
+  },
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "电荷守恒定律与库仑定律",
+    "modelId": "electric-field-potential",
+    "modelName": "电场强度与电势能",
+    "familyId": "coulomb-lesson4-orbit",
+    "familyName": "库仑力圆周运动",
+    "role": "条件变式",
+    "difficulty": 5,
+    "variantLevel": "L3",
+    "skills": [
+      "电荷守恒",
+      "库仑力受力分析"
+    ],
+    "prerequisites": [
+      "力的平衡",
+      "牛顿第二定律"
+    ]
+  },
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "\\(v=\\sqrt{kq^2/(3Rm)}\\)",
+      "judgment": "错误。"
+    },
+    {
+      "option": "B",
+      "title": "\\(\\omega=\\sqrt{\\sqrt3kq^2/(3R^3m)}\\)",
+      "judgment": "正确。"
+    },
+    {
+      "option": "C",
+      "title": "\\(a_c=\\sqrt3kq^2/(3mR^2)\\)",
+      "judgment": "正确。"
+    },
+    {
+      "option": "D",
+      "title": "\\(F=2\\sqrt6kq^2/R^2\\)，竖直向上",
+      "judgment": "错误。"
+    }
+  ],
+  "images": [
+    {
+      "src": "assets/problem-images/coulomb-lesson4/homework-b9-three-stars.webp",
+      "alt": "三星拱月原题配图"
+    }
+  ]
+}
