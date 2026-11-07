@@ -69,7 +69,7 @@ function addStepConversationPanels(body, sceneName) {
     var status = document.createElement("p");
     status.className = "step-conversation-status";
     status.setAttribute("aria-live", "polite");
-    status.innerText = "输入问题后按 Enter 或点击发送，可围绕本步骤连续追问";
+    status.innerText = "";
     panel.appendChild(status);
     sendButton.onclick = function () {
       askStepConversation(paragraph, panel, input, paragraphIndex, sceneName);
@@ -160,10 +160,6 @@ function renderStepConversation(target, conversationId) {
   var history = getStepConversation(conversationId);
   target.innerHTML = "";
   if (!history.length) {
-    var empty = document.createElement("p");
-    empty.className = "step-conversation-empty";
-    empty.innerText = "还没有提问。你可以围绕这一小步连续追问。";
-    target.appendChild(empty);
     return;
   }
   history.forEach(function (message) {
