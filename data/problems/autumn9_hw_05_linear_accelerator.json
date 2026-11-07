@@ -13,8 +13,8 @@
   "answer": "C",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "质子只在缝隙中被加速，在金属管内无电场而匀速。为使每次到达缝隙时电场方向都加速质子，交流电源需同步换向。",
+    "sharedFormula": "\\[\\frac12mv_{n+1}^2-\\frac12mv_n^2=eU,\\qquad L_n=v_nT\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -23,21 +23,36 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "质子只在缝隙中被加速，在金属管内无电场而匀速。为使每次到达缝隙时电场方向都加速质子，交流电源需同步换向。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[\\frac12mv_{n+1}^2-\\frac12mv_n^2=eU,\\qquad L_n=v_nT\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
+      "title": "完整推导",
       "content": "同步加速要求极性周期反转且 \\(L_n=v_nT\\)。由于存在初速度，长度比不能固定写成 \\(1:\\sqrt2\\)，C 错；跨过一次缝隙后满足动能定理，D 对。"
     },
     {
       "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：正确，电源极性需周期换向。\n\nB：正确，同一管内飞行时间 T 要求 L_n=v_nT。\n\nC：错误，存在初速度 v_0 时 A、B 管长比不是固定的 1:\\sqrt2。\n\nD：正确，跨过一次加速缝隙后 v=\\sqrt{v_0^2+2eU/m}。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "当 v_0 不为零时，速度序列是平方递增而非速度等差递增，因此相邻管长比不能直接套 1:\\sqrt2。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察每次过缝隙速度跳增、管内保持不变；右图呈开方增长。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **C**。"
     }

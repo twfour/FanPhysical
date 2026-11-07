@@ -13,8 +13,8 @@
   "answer": "C",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "两种粒子先经同一电压加速，再在相同几何和电压的偏转板中运动。分别写出入射速度和板内侧移后，q/m 会消去。",
+    "sharedFormula": "\\[v=\\sqrt{\\frac{2qU_1}{m}},\\qquad y=\\frac12\\frac{qU_2}{md}\\left(\\frac{L}{v}\\right)^2=\\frac{U_2L^2}{4dU_1}\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -23,21 +23,36 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "两种粒子先经同一电压加速，再在相同几何和电压的偏转板中运动。分别写出入射速度和板内侧移后，q/m 会消去。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[v=\\sqrt{\\frac{2qU_1}{m}},\\qquad y=\\frac12\\frac{qU_2}{md}\\left(\\frac{L}{v}\\right)^2=\\frac{U_2L^2}{4dU_1}\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
+      "title": "完整推导",
       "content": "由 \\(v^2=2qU_1/m\\) 可知速度不同；但 \\(y=\\frac12(qU_2/md)(L/v)^2=U_2L^2/(4dU_1)\\)，质量和电荷量消去，位移比为 \\(1:1\\)。"
     },
     {
       "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：错误，速度比由 q/m 决定。\n\nB：错误，代入氢核与氦核的 q/m 后不为 1:2。\n\nC：正确，侧移表达式中 q、m 完全消去。\n\nD：错误，两种粒子的侧移相等。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "速度依赖 q/m，偏移却不依赖 q/m；这是“同一加速电压后再偏转”的特有消去关系。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察两粒子入射速度不同，但在板端到达同一竖直位置。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **C**。"
     }

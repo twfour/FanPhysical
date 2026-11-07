@@ -13,8 +13,8 @@
   "answer": "C",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "水平锯齿电压把每个周期的时间从左到右展开，竖直信号电压给出同一时刻的纵坐标，屏幕轨迹是参数曲线 (x(t),y(t))。",
+    "sharedFormula": "\\[x(t)=k_xU_x(t),\\qquad y(t)=k_yU_y(t)\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -23,21 +23,36 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "水平锯齿电压把每个周期的时间从左到右展开，竖直信号电压给出同一时刻的纵坐标，屏幕轨迹是参数曲线 (x(t),y(t))。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[x(t)=k_xU_x(t),\\qquad y(t)=k_yU_y(t)\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
+      "title": "完整推导",
       "content": "锯齿电压每周期使光点从左向右匀速扫描，竖直电压决定同期纵坐标；按同一时刻配对 \\(x(t),y(t)\\)，得到 C。"
     },
     {
       "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：错误，纵向相位与扫描端点不符。\n\nB：错误，把回扫过程误画成可见主轨迹。\n\nC：正确，同一时刻配对两偏转电压得到该图形。\n\nD：错误，波形的上下变化次序与原信号不符。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "锯齿回扫时亮点迅速回到左端；相邻扫描周期的起点和终点必须与信号的周期相位一致。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察光点每周期从左向右扫描，而不是沿曲线来回运动。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **C**。"
     }

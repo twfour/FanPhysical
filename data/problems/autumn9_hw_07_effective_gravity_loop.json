@@ -13,8 +13,8 @@
   "answer": "A",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "重力与水平电场力均为恒力，可合成为恒定的“有效重力” mg\\prime。圆周临界点是有效重力方向的最高点，而不一定是几何最高点。",
+    "sharedFormula": "\\[g\\prime=\\sqrt{g^2+(|q|E/m)^2}=\\frac54g,\\quad v_A^2=3g\\prime R,\\quad 2g\\prime s=v_A^2\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -23,21 +23,36 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "重力与水平电场力均为恒力，可合成为恒定的“有效重力” mg\\prime。圆周临界点是有效重力方向的最高点，而不一定是几何最高点。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[g\\prime=\\sqrt{g^2+(|q|E/m)^2}=\\frac54g,\\quad v_A^2=3g\\prime R,\\quad 2g\\prime s=v_A^2\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
+      "title": "完整推导",
       "content": "合力方向恰沿斜面，大小对应 \\(g'=5g/4\\)。临界圆周由有效重力最高点条件得 \\(v_A^2=3g'R\\)，再用 \\(2g's=v_A^2\\)，得 \\(s=3R/2=1.2\\,\\mathrm m\\)。"
     },
     {
       "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：正确，s=3R/2=1.2 m。\n\nB：错误，大于临界所需距离。\n\nC：错误，不满足临界能量式。\n\nD：错误，不满足临界能量式。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "由最后两式立即得到 s=3R/2，与 g\\prime 的具体数值无关；代 R=0.8 m 得 1.2 m。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察有效重力方向与斜面一致，临界点位于该方向的圆周最高处。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **A**。"
     }

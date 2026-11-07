@@ -8,8 +8,8 @@
   "answer": "\\(v_0=\\sqrt{2eU_1/m}\\)，\\(y_1=U_2L_1^2/(4dU_1)\\)，\\(y_P=U_2L_1(L_1+2L_2)/(4dU_1)\\)",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "分成加速区、板内偏转区、离开极板后的匀速区。加速区求水平入射速度；板内作类平抛；板外沿出射切线飞向屏。",
+    "sharedFormula": "\\[eU_1=\\frac12mv_0^2,\\quad a_y=\\frac{eU_2}{md},\\quad t_1=\\frac{L_1}{v_0}\\]\\[y_1=\\frac12a_yt_1^2,\\quad v_y=a_yt_1,\\quad y_P=y_1+v_y\\frac{L_2}{v_0}\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -18,21 +18,31 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "分成加速区、板内偏转区、离开极板后的匀速区。加速区求水平入射速度；板内作类平抛；板外沿出射切线飞向屏。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[eU_1=\\frac12mv_0^2,\\quad a_y=\\frac{eU_2}{md},\\quad t_1=\\frac{L_1}{v_0}\\]\\[y_1=\\frac12a_yt_1^2,\\quad v_y=a_yt_1,\\quad y_P=y_1+v_y\\frac{L_2}{v_0}\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
-      "content": "加速区用 \\(eU_1=mv_0^2/2\\)。偏转区横向匀速、纵向匀加速，飞出后沿切线匀速运动；把板内侧移和板外侧移相加即可。"
+      "title": "完整推导",
+      "content": "加速区由 \\(eU_1=\\frac12mv_0^2\\)，得\n\\[v_0=\\sqrt{\\frac{2eU_1}{m}}.\\]\n电子在偏转板内的飞行时间为 \\(t_1=L_1/v_0\\)，偏转加速度大小为 \\(a_y=eU_2/(md)\\)，所以\n\\[y_1=\\frac12a_yt_1^2=\\frac{U_2L_1^2}{4dU_1},\\qquad v_y=a_yt_1.\\]\n离开极板后，电子以水平速度 \\(v_0\\)、竖直速度 \\(v_y\\) 匀速飞行 \\(t_2=L_2/v_0\\)，故\n\\[y_P=y_1+v_yt_2=\\frac{U_2L_1(L_1+2L_2)}{4dU_1}.\\]"
     },
     {
-      "stepId": 4,
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "令 U_2=0 时两个偏移量都应为零；偏移与 U_2 成正比、与 U_1 成反比，量纲均为长度。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察板内轨迹为抛物线、离板后变成直线；右图在板端处斜率连续。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **\\(v_0=\\sqrt{2eU_1/m}\\)，\\(y_1=U_2L_1^2/(4dU_1)\\)，\\(y_P=U_2L_1(L_1+2L_2)/(4dU_1)\\)**。"
     }

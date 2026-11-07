@@ -13,8 +13,8 @@
   "answer": "ABCD",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "电子经 10U 加速获得水平速度，在 XX\\prime 板间产生垂直加速度。板外保持出射速度分量不变，直到屏幕。",
+    "sharedFormula": "\\[v_0=\\sqrt{\\frac{20eU}{m}},\\quad a=\\frac{eU}{md},\\quad t_1=\\frac l{v_0},\\quad y=\\frac12at_1^2+at_1\\frac s{v_0}\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -23,21 +23,36 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "电子经 10U 加速获得水平速度，在 XX\\prime 板间产生垂直加速度。板外保持出射速度分量不变，直到屏幕。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[v_0=\\sqrt{\\frac{20eU}{m}},\\quad a=\\frac{eU}{md},\\quad t_1=\\frac l{v_0},\\quad y=\\frac12at_1^2+at_1\\frac s{v_0}\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
-      "content": "加速区先求 \\(v_0\\)。偏转方向加速度为 \\(eU/(md)\\)，板内时间 \\(l/v_0\\)，板后水平速度不变；逐项代入可得四项均成立。"
+      "title": "完整推导",
+      "content": "由加速电压 \\(10U\\) 得\n\\[10eU=\\frac12mv_0^2,\\qquad v_0=\\sqrt{\\frac{20eU}{m}}.\\]\n板内纵向加速度 \\(a=eU/(md)\\)，飞行时间 \\(t_1=l/v_0\\)。离板时纵向速度 \\(v_y=at_1\\)，而水平速度仍为 \\(v_0\\)。电场再做功 \\(eU\\)，于是\n\\[\\frac12mv^2=11eU,\\qquad v=\\sqrt{\\frac{22eU}{m}}.\\]\n总偏移为板内偏移与板外漂移之和：\n\\[x=\\frac12a\\left(\\frac l{v_0}\\right)^2+a\\frac l{v_0}\\frac s{v_0}=\\frac{l^2}{40d}+\\frac{sl}{20d}.\\]"
     },
     {
       "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：正确，由 e(10U)=mv_0²/2。\n\nB：正确，偏转电场再做功 eU，总动能对应 11eU。\n\nC：正确，板内与板外侧移相加得 l²/(40d)+sl/(20d)。\n\nD：正确，水平速度不变，总时间为 (l+s)/v_0。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "离开偏转板时总动能比入射多 eU，因此 v=\\sqrt{22eU/m}；总水平路程为 l+s，水平速度始终为 v_0。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察板内抛物线与板外切线在出口处平滑相接。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **ABCD**。"
     }

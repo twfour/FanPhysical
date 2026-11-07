@@ -13,8 +13,8 @@
   "answer": "C",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "导电溶液和外涂层相当于两极，塑料桶壁是介质；与恒压电源相连意味着 U 始终不变。",
+    "sharedFormula": "\\[C=\\varepsilon\\frac{S}{d},\\qquad Q=CU\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -23,21 +23,36 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "导电溶液和外涂层相当于两极，塑料桶壁是介质；与恒压电源相连意味着 U 始终不变。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[C=\\varepsilon\\frac{S}{d},\\qquad Q=CU\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
+      "title": "完整推导",
       "content": "恒压连接使 \\(U\\) 不变；有效正对面积减小时 \\(C\\) 减小，由 \\(Q=CU\\) 得电荷量减小。"
     },
     {
       "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：错误。液面升高使有效面积增大，电容增大。\n\nB：错误。恒压电源保持电压不变。\n\nC：正确。刮去涂层使 C 减小，因此 Q=CU 减小。\n\nD：错误。电压由电源固定。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "凡是改变液面或刮去涂层，本质都在改变有效正对面积 S；恒压条件下不能把 Q 不变当作前提。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察液面升高时有效面积、C 和 Q 同步增大。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **C**。"
     }

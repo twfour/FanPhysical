@@ -13,8 +13,8 @@
   "answer": "C",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "通常机械能定义为动能加重力势能，电场力属于外力，因此机械能变化等于电场力做功。",
+    "sharedFormula": "\\[\\Delta(E_k+E_{pg})=W_E=q\\vec E\\cdot\\Delta\\vec r\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -23,21 +23,36 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "通常机械能定义为动能加重力势能，电场力属于外力，因此机械能变化等于电场力做功。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[\\Delta(E_k+E_{pg})=W_E=q\\vec E\\cdot\\Delta\\vec r\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
+      "title": "完整推导",
       "content": "机械能的变化只由电场力功决定。沿电场力方向机械能增大，故在电场方向坐标最大的 C 点机械能最大。"
     },
     {
       "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：错误，动能最小点需由有效势能最高点判断，不是简单认定 E 点。\n\nB：错误，电势能极值位置由 qE 方向决定，B 不是最大点。\n\nC：正确，C 点沿电场力方向位移最大，电场做功最多。\n\nD：错误，E 点不是机械能最小位置。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "机械能极值只由沿电场力方向的位置坐标决定；动能极值还要同时考虑重力势能，不能混为一谈。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察小球沿圆周运动时机械能随电场方向投影变化，在 C 点达到最大。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **C**。"
     }

@@ -13,8 +13,8 @@
   "answer": "ABD",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "重力只改变竖直速度，水平电场力只改变水平速度。以到最高点 O 的时间为 T，则到等高点 N 的时间为 2T。",
+    "sharedFormula": "\\[v_x=a_xt,\\quad v_y=v_0-gt,\\quad E_k(t)=\\frac12m(a_xt)^2+\\frac12m(v_0-gt)^2\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -23,21 +23,36 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "重力只改变竖直速度，水平电场力只改变水平速度。以到最高点 O 的时间为 T，则到等高点 N 的时间为 2T。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[v_x=a_xt,\\quad v_y=v_0-gt,\\quad E_k(t)=\\frac12m(a_xt)^2+\\frac12m(v_0-gt)^2\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
+      "title": "完整推导",
       "content": "电场力只改变水平分速度，重力只改变竖直分速度。设到最高点的时间比例为 \\(\\tau\\)，有 \\(E_k=16\\tau^2+9(1-\\tau)^2\\)，最小值为 \\(144/25=5.76\\,\\mathrm J\\)；由水平位移的时间平方关系可得 N 点电场功 \\(64\\,\\mathrm J\\)。"
     },
     {
       "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：正确。机械能 E_k+E_pg 的增加量等于电场力做功 16 J。\n\nB：正确。到 N 时重力势能恢复，电场功为 64 J，所以动能为 9+64=73 J。\n\nC：错误。上升、下降两段水平位移之比为 1:3，电场功之比也是 1:3。\n\nD：正确。令时间比例为 τ，最小化 16τ²+9(1-τ)²，得 5.76 J。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "M 到 O 的水平位移与 M 到 N 的水平位移之比为 1:4，所以电场功也为 1:4；最小动能应在两个分速度都不为零的中间时刻。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察最高点只满足竖直速度为零，并不代表总速度或动能为零；右图最低点早于 O。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **ABD**。"
     }

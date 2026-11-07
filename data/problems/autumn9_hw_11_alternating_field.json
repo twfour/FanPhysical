@@ -13,8 +13,8 @@
   "answer": "A",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "水平速度恒为 v_0，横坐标可当作时间尺；纵向运动按电场换向时刻逐段使用匀变速公式，碰板后该粒子运动结束。",
+    "sharedFormula": "\\[x=v_0t,\\qquad y_{n+1}=y_n+v_{yn}\\Delta t+\\frac12a_n\\Delta t^2,\\quad v_{y,n+1}=v_{yn}+a_n\\Delta t\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -23,21 +23,36 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "水平速度恒为 v_0，横坐标可当作时间尺；纵向运动按电场换向时刻逐段使用匀变速公式，碰板后该粒子运动结束。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[x=v_0t,\\qquad y_{n+1}=y_n+v_{yn}\\Delta t+\\frac12a_n\\Delta t^2,\\quad v_{y,n+1}=v_{yn}+a_n\\Delta t\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
-      "content": "按电场每段恒定分段积分纵向位移和速度。最短碰板时间为 \\(\\sqrt2d/v_0\\)；最大动能为 \\(3mv_0^2/4\\)。C、D 两个相位发射的粒子都会先碰板，因此只有 A。"
+      "title": "完整推导",
+      "content": "电场幅值满足 \\(qE=mv_0^2/(2d)\\)，故纵向加速度大小 \\(a=v_0^2/(2d)\\)。从中线静止开始向某极板加速，最短碰板满足\n\\[\\frac d2=\\frac12at_{\\min}^2,\\qquad t_{\\min}=\\frac{\\sqrt2d}{v_0}.\\]\n对任意发射相位，把每个持续 \\(2d/v_0\\) 的恒场区间依次代入 \\(y=y_0+v_{y0}\\Delta t+\\frac12a\\Delta t^2\\)。逐段检查 \\(|y|<d/2\\) 可知 C、D 对应粒子都先碰板。碰板前纵向速度的最大允许值给出\n\\[E_{k,\\max}=\\frac12m(v_0^2+v_y^2)=\\frac34mv_0^2.\\]"
     },
     {
       "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：正确，首段抛物运动到最近极板的时间为 \\sqrt2d/v_0。\n\nB：错误，碰板前最大动能为 3mv_0²/4。\n\nC：错误，该相位发射的粒子先碰板。\n\nD：错误，该相位发射的粒子同样先碰板。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "判断能否从 O\\prime 射出前，必须先检查任一时刻是否达到 y=\\pm d/2；不能只计算 t=8d/v_0 时的纵坐标。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察不同发射相位的轨迹；C、D 对应粒子在到达 O\\prime 前先碰板。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **A**。"
     }

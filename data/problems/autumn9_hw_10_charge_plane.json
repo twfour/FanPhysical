@@ -13,8 +13,8 @@
   "answer": "AD",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "等量异号电荷的中垂面上任一点到两电荷等距，电势代数和为零；但场强不为零且垂直平面。电场力只改变支持力和摩擦力。",
+    "sharedFormula": "\\[\\varphi=0,\\quad E_p=q\\varphi=0,\\quad f=\\mu N,\\quad \\Delta E_k=W_g+W_f\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -23,21 +23,36 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "等量异号电荷的中垂面上任一点到两电荷等距，电势代数和为零；但场强不为零且垂直平面。电场力只改变支持力和摩擦力。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[\\varphi=0,\\quad E_p=q\\varphi=0,\\quad f=\\mu N,\\quad \\Delta E_k=W_g+W_f\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
+      "title": "完整推导",
       "content": "平面上电势处处为零，故势能不变，B 错。电场水平向左，要把物块压在平面上必须带负电，A 对。上下两段摩擦功关于 O 对称，结合到 B 停止可得 \\(v_O=v_0/\\sqrt2\\)，D 对；C 的式子未保证为正却称“大小”，不成立。"
     },
     {
       "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：正确。图示场强向左，要产生压向平面的电场力，q 必须为负。\n\nB：错误。整个平面电势为零，电势能恒定。\n\nC：错误。题给式可能为负，不能直接称为加速度大小。\n\nD：正确。对称摩擦功结合全程动能变化得 v_O=v_0/\\sqrt2。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "A、B 关于 O 对称，电场强度大小和支持力关于 O 对称，因而两半段摩擦功相等；用全程末速为零反推中点动能。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察电场力始终垂直于运动方向，电势能不变，但摩擦力随位置改变。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **AD**。"
     }

@@ -13,8 +13,8 @@
   "answer": "B",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "先由电势高低确定每组极板间的电场方向，再利用电子带负电，受力方向与电场方向相反。",
+    "sharedFormula": "\\[\\vec F=-e\\vec E,\\qquad x\\propto U_{XX\\prime},\\quad y\\propto U_{YY\\prime}\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -23,21 +23,36 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "先由电势高低确定每组极板间的电场方向，再利用电子带负电，受力方向与电场方向相反。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[\\vec F=-e\\vec E,\\qquad x\\propto U_{XX\\prime},\\quad y\\propto U_{YY\\prime}\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
+      "title": "完整推导",
       "content": "电子带负电，受力方向与电场方向相反。分别判断水平和竖直偏转：亮斑向左、向上，位于第二象限。"
     },
     {
       "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：错误，水平坐标不是正值。\n\nB：正确，亮斑左移且上移，位于第二象限。\n\nC：错误，竖直坐标不是负值。\n\nD：错误，水平、竖直方向均与第四象限不符。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "水平、竖直偏转必须分别判断，最后再合成象限；不要把电子受力方向直接当成电场方向。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察水平偏转向左、竖直偏转向上，亮斑进入第二象限。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **B**。"
     }

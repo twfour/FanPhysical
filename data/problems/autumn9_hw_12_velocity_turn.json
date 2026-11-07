@@ -13,8 +13,8 @@
   "answer": "BC",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "恒力意味着速度矢量端点随时间沿直线从 (0,v_0) 移到 (2v_0,0)。最小速度就是这条线段到速度空间原点的最短距离。",
+    "sharedFormula": "\\[\\Delta\\vec v=(2v_0,-v_0),\\quad \\vec v(t)=\\vec v_O+\\lambda\\Delta\\vec v,\\quad E_k=\\frac12mv^2\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -23,21 +23,36 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "恒力意味着速度矢量端点随时间沿直线从 (0,v_0) 移到 (2v_0,0)。最小速度就是这条线段到速度空间原点的最短距离。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[\\Delta\\vec v=(2v_0,-v_0),\\quad \\vec v(t)=\\vec v_O+\\lambda\\Delta\\vec v,\\quad E_k=\\frac12mv^2\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
-      "content": "匀强电场使速度矢量沿恒定加速度方向线性变化，\\(\\Delta\\vec v=(2,-1)v_0\\)。总动能增大故电势能降低；求速度线段到原点的最短距离，得 \\(v_{min}^2=4v_0^2/5\\)，即 \\(E_{k,min}=2mv_0^2/5\\)。"
+      "title": "完整推导",
+      "content": "设 \\(\\lambda=t/T\\)，则速度矢量为\n\\[\\vec v=(2\\lambda v_0,(1-\\lambda)v_0).\\]\n于是\n\\[v^2=v_0^2\\left[4\\lambda^2+(1-\\lambda)^2\\right]=v_0^2(5\\lambda^2-2\\lambda+1).\\]\n令二次函数在 \\(\\lambda=1/5\\) 处取最小值，得 \\(v_{\\min}^2=4v_0^2/5\\)，因此\n\\[E_{k,\\min}=\\frac12mv_{\\min}^2=\\frac25mv_0^2.\\]\n又因末动能 \\(2mv_0^2\\) 大于初动能 \\(mv_0^2/2\\)，电场力总功为正，A 点电势能更小。"
     },
     {
       "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：错误，只能确定 qE 的方向，不能单独确定 q 的正负。\n\nB：正确，动能增加说明电场力做正功，电势能降低。\n\nC：正确，线段到原点的最短距离给出 v_min²=4v_0²/5。\n\nD：错误，加速度方向斜率为 -1/2，不是 2。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "末动能大于初动能，电场力总功为正，所以电势能降低；电荷正负仅凭运动轨迹无法单独确定。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察速度端点先靠近原点再远离，右图动能先减小后增大。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **BC**。"
     }

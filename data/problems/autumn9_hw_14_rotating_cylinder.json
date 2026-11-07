@@ -13,8 +13,8 @@
   "answer": "AC",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "电子纵向偏移正比于进入偏转板瞬间的电压；圆筒转动把不同时刻的落点沿周向记录。剪开位置只改变展开图的初相位。",
+    "sharedFormula": "\\[y=\\frac{uL(L+2D)}{4dU_0},\\qquad u=200\\sin(2\\pi t),\\qquad T_{rot}=\\frac1n=0.5\\,\\mathrm s\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -23,21 +23,36 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "电子纵向偏移正比于进入偏转板瞬间的电压；圆筒转动把不同时刻的落点沿周向记录。剪开位置只改变展开图的初相位。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[y=\\frac{uL(L+2D)}{4dU_0},\\qquad u=200\\sin(2\\pi t),\\qquad T_{rot}=\\frac1n=0.5\\,\\mathrm s\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
-      "content": "最大偏转为 \\(7.5\\,\\mathrm{cm}\\)。圆筒一周 \\(0.5\\,\\mathrm s\\)，恰为电压半周期，因此相邻两周留下互为相反相位的轨迹；不同剪开相位可得到 A 或 C。"
+      "title": "完整推导",
+      "content": "偏转灵敏度公式给出\n\\[y=\\frac{uL(L+2D)}{4dU_0}.\\]\n代入 \\(L=d=D=0.10\\,\\mathrm m\\)、\\(U_0=200\\,\\mathrm V\\)、\\(|u|_{\\max}=200\\,\\mathrm V\\)，得 \\(|y|_{\\max}=0.075\\,\\mathrm m=7.5\\,\\mathrm{cm}\\)。电压周期 \\(T_u=1\\,\\mathrm s\\)，圆筒转动周期\n\\[T_{rot}=\\frac1n=0.5\\,\\mathrm s=\\frac12T_u.\\]\n因此相邻两圈记录的纵坐标相反，展开后得到两条关于中线对称的半周期轨迹；剪开相位不同，对应 A 或 C。"
     },
     {
       "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：正确，可对应从零相位处剪开。\n\nB：错误，一周不可能记录完整的单条正弦周期。\n\nC：正确，改变剪开初相位可得到交叉的互补轨迹。\n\nD：错误，最大偏移应为 7.5 cm，不是 15 cm。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "电压周期为 1 s，圆筒一周为 0.5 s，故相邻两周相差半周期、轨迹互为相反相位；最大偏移代数值为 7.5 cm。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察圆筒转一周时正弦信号只完成半周期，第二圈留下关于中线对称的轨迹。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **AC**。"
     }

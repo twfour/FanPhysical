@@ -13,8 +13,8 @@
   "answer": "ACD",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
-    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    "sharedThinking": "质点先在 P、M 间自由落体，再在 M、N 间同时受重力和电场力。原情形从 P 静止出发、到 N 恰好静止，是建立能量基准的关键。",
+    "sharedFormula": "\\[mgh+mgd+qU=0\\]"
   },
   "analysisPresentation": {
     "collapseEachStep": true,
@@ -23,21 +23,36 @@
   "steps": [
     {
       "stepId": 1,
-      "title": "条件提取",
-      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+      "title": "物理过程与条件",
+      "content": "质点先在 P、M 间自由落体，再在 M、N 间同时受重力和电场力。原情形从 P 静止出发、到 N 恰好静止，是建立能量基准的关键。"
     },
     {
       "stepId": 2,
-      "title": "对应公式",
-      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+      "title": "建模与专用公式",
+      "content": "\\[mgh+mgd+qU=0\\]"
     },
     {
       "stepId": 3,
-      "title": "推导过程",
+      "title": "完整推导",
       "content": "由初态得 \\(qU=-2mgd\\)。移动 A 板不改变极板电压及 P 到 N 的总重力势能差，故 A 对、B 错；B 板上移后由能量方程求得返回转折点，C 对；B 板下移使重力做功增加而电场功不变，D 对。"
     },
     {
       "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：正确。A 板上移只改变板间场强和作用距离，电场总功仍为 qU，P 到 N 的高度差也不变。\n\nB：错误。A 板下移同样不改变 P 到 N 的总重力功和电场总功，质点仍在 N 点速度为零。\n\nC：正确。B 板上移后重新列能量方程，返回转折点位于 A 板下方 h/3。\n\nD：正确。B 板下移使 P 到 N 的重力正功增大，而电场负功仍为 qU，质点到 N 时仍有动能。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "移动极板时分别检查三件事：电源是否仍连接、极板电压是否改变、P 到目标点的重力势能差是否改变。不能只凭板间场强变化判断。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "观察质点穿过 M 后的减速过程以及返回转折点；右图中动能在 P、N 两端均为零。"
+    },
+    {
+      "stepId": 7,
       "title": "结论",
       "content": "答案为 **ACD**。"
     }
