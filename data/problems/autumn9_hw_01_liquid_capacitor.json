@@ -1,0 +1,115 @@
+{
+  "id": "autumn9_hw_01_liquid_capacitor",
+  "chapter": "带电粒子在电场中的运动和示波器原理",
+  "title": "单1：液体电容器",
+  "type": "single-choice",
+  "question": "绝缘塑料桶外有导电涂层，桶内装导电溶液，二者接恒压电源构成电容器。判断液面高度或涂层面积变化时的电容、电压与电荷量变化。",
+  "options": [
+    "A. 液面升高，电容减小",
+    "B. 液面降低，电压减小",
+    "C. 刮去部分涂层，电荷量减小",
+    "D. 刮去部分涂层，电压增大"
+  ],
+  "answer": "C",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
+    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "shared-solution"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "恒压连接使 \\(U\\) 不变；有效正对面积减小时 \\(C\\) 减小，由 \\(Q=CU\\) 得电荷量减小。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **C**。"
+    }
+  ],
+  "knowledge": [
+    "带电粒子在电场中的运动",
+    "示波器原理",
+    "液体电容器"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“液体电容器”的核心模型，改变电场方向、初始速度或几何尺度后，重新求解并说明临界条件。",
+    "answer": "先画受力与速度矢量图，分阶段列式；最终答案由改变后的参数确定。",
+    "thinking": "不只替换数字：先判断哪些量保持不变，再检查运动是否仍能到达原题所述边界。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_particle_model",
+    "variant": "liquid_capacitor",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题独立建模。",
+    "params": {
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "E"
+      },
+      "speed": {
+        "label": "初速度系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "v"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/autumn-lesson9/homework-01-liquid-capacitor.webp",
+      "alt": "单1：液体电容器原题印刷配图"
+    }
+  ],
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "带电粒子在电场中的运动和示波器原理",
+    "modelId": "charged-particle-electric-field",
+    "modelName": "带电粒子电场运动",
+    "familyId": "autumn9-liquid-capacitor",
+    "familyName": "液体电容器",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "受力与运动分解",
+      "功与能量关系"
+    ],
+    "prerequisites": [
+      "匀强电场",
+      "运动学",
+      "动能定理"
+    ]
+  }
+}

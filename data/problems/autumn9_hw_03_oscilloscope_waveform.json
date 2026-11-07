@@ -1,0 +1,115 @@
+{
+  "id": "autumn9_hw_03_oscilloscope_waveform",
+  "chapter": "带电粒子在电场中的运动和示波器原理",
+  "title": "单3：示波器扫描波形",
+  "type": "single-choice",
+  "question": "示波管的竖直偏转电压为周期交变信号，水平偏转电压为周期性锯齿扫描电压。判断荧光屏上的稳定图形。",
+  "options": [
+    "A. 图 A",
+    "B. 图 B",
+    "C. 图 C",
+    "D. 图 D"
+  ],
+  "answer": "C",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
+    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "shared-solution"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "锯齿电压每周期使光点从左向右匀速扫描，竖直电压决定同期纵坐标；按同一时刻配对 \\(x(t),y(t)\\)，得到 C。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **C**。"
+    }
+  ],
+  "knowledge": [
+    "带电粒子在电场中的运动",
+    "示波器原理",
+    "示波器扫描波形"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“示波器扫描波形”的核心模型，改变电场方向、初始速度或几何尺度后，重新求解并说明临界条件。",
+    "answer": "先画受力与速度矢量图，分阶段列式；最终答案由改变后的参数确定。",
+    "thinking": "不只替换数字：先判断哪些量保持不变，再检查运动是否仍能到达原题所述边界。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_particle_model",
+    "variant": "oscilloscope_waveform",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题独立建模。",
+    "params": {
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "E"
+      },
+      "speed": {
+        "label": "初速度系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "v"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/autumn-lesson9/homework-03-oscilloscope-waveform.webp",
+      "alt": "单3：示波器扫描波形原题印刷配图"
+    }
+  ],
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "带电粒子在电场中的运动和示波器原理",
+    "modelId": "charged-particle-electric-field",
+    "modelName": "带电粒子电场运动",
+    "familyId": "autumn9-oscilloscope-waveform",
+    "familyName": "示波器扫描波形",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "受力与运动分解",
+      "功与能量关系"
+    ],
+    "prerequisites": [
+      "匀强电场",
+      "运动学",
+      "动能定理"
+    ]
+  }
+}

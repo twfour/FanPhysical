@@ -1,0 +1,115 @@
+{
+  "id": "autumn9_hw_13_proton_field",
+  "chapter": "带电粒子在电场中的运动和示波器原理",
+  "title": "多13：质子速度矢量变化",
+  "type": "multiple-choice",
+  "question": "质子在匀强电场中先后经过同一水平线上的 A、B，速度分别为 \\(\\sqrt3v\\)、\\(v\\)，方向与 AB 成 \\(30^\\circ\\) 斜向上、\\(60^\\circ\\) 斜向下，且 \\(AB=L\\)。判断电场方向、场强、时间和最小速度。",
+  "options": [
+    "A. 电场方向与水平线成 \\(60^\\circ\\) 斜向左下",
+    "B. \\(E=2mv^2/(qL)\\)",
+    "C. 运动时间为 \\(L/v\\)",
+    "D. 最小速度为 \\(v/2\\)"
+  ],
+  "answer": "ABC",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
+    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "shared-solution"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "分解两端速度，水平平均速度为 \\(v\\)，故 \\(t=L/v\\)。由 \\(\\Delta\\vec v/t\\) 得加速度方向和大小，进而得到 A、B；速度矢量线段到原点的最短距离为 \\(\\sqrt3v/2\\)，D 错。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **ABC**。"
+    }
+  ],
+  "knowledge": [
+    "带电粒子在电场中的运动",
+    "示波器原理",
+    "质子速度矢量变化"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“质子速度矢量变化”的核心模型，改变电场方向、初始速度或几何尺度后，重新求解并说明临界条件。",
+    "answer": "先画受力与速度矢量图，分阶段列式；最终答案由改变后的参数确定。",
+    "thinking": "不只替换数字：先判断哪些量保持不变，再检查运动是否仍能到达原题所述边界。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_particle_model",
+    "variant": "proton_field",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题独立建模。",
+    "params": {
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "E"
+      },
+      "speed": {
+        "label": "初速度系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "v"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/autumn-lesson9/homework-13-proton-field.webp",
+      "alt": "多13：质子速度矢量变化原题印刷配图"
+    }
+  ],
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "带电粒子在电场中的运动和示波器原理",
+    "modelId": "charged-particle-electric-field",
+    "modelName": "带电粒子电场运动",
+    "familyId": "autumn9-proton-field",
+    "familyName": "质子速度矢量变化",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "受力与运动分解",
+      "功与能量关系"
+    ],
+    "prerequisites": [
+      "匀强电场",
+      "运动学",
+      "动能定理"
+    ]
+  }
+}

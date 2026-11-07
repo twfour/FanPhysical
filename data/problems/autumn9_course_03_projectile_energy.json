@@ -1,0 +1,115 @@
+{
+  "id": "autumn9_course_03_projectile_energy",
+  "chapter": "带电粒子在电场中的运动和示波器原理",
+  "title": "例3：复合场抛体能量",
+  "type": "multiple-choice",
+  "question": "带电小球从竖直平行板间 M 点竖直上抛，M、N 等高，O 为最高点。M 点动能为 \\(9\\,\\mathrm J\\)，M 到 O 电场力做功 \\(16\\,\\mathrm J\\)，忽略阻力，判断能量结论。",
+  "options": [
+    "A. M 点机械能比 O 点少 \\(16\\,\\mathrm J\\)",
+    "B. 到 N 点动能为 \\(73\\,\\mathrm J\\)",
+    "C. 上升和下降过程电场力功之比为 \\(1:4\\)",
+    "D. M 到 N 过程中最小动能为 \\(5.76\\,\\mathrm J\\)"
+  ],
+  "answer": "ABD",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
+    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "shared-solution"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "电场力只改变水平分速度，重力只改变竖直分速度。设到最高点的时间比例为 \\(\\tau\\)，有 \\(E_k=16\\tau^2+9(1-\\tau)^2\\)，最小值为 \\(144/25=5.76\\,\\mathrm J\\)；由水平位移的时间平方关系可得 N 点电场功 \\(64\\,\\mathrm J\\)。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **ABD**。"
+    }
+  ],
+  "knowledge": [
+    "带电粒子在电场中的运动",
+    "示波器原理",
+    "复合场抛体能量"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“复合场抛体能量”的核心模型，改变电场方向、初始速度或几何尺度后，重新求解并说明临界条件。",
+    "answer": "先画受力与速度矢量图，分阶段列式；最终答案由改变后的参数确定。",
+    "thinking": "不只替换数字：先判断哪些量保持不变，再检查运动是否仍能到达原题所述边界。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_particle_model",
+    "variant": "projectile_energy",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题独立建模。",
+    "params": {
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "E"
+      },
+      "speed": {
+        "label": "初速度系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "v"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/autumn-lesson9/course-03-projectile-energy.webp",
+      "alt": "例3：复合场抛体能量原题印刷配图"
+    }
+  ],
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "带电粒子在电场中的运动和示波器原理",
+    "modelId": "charged-particle-electric-field",
+    "modelName": "带电粒子电场运动",
+    "familyId": "autumn9-projectile-energy",
+    "familyName": "复合场抛体能量",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "受力与运动分解",
+      "功与能量关系"
+    ],
+    "prerequisites": [
+      "匀强电场",
+      "运动学",
+      "动能定理"
+    ]
+  }
+}

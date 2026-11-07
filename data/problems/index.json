@@ -1556,6 +1556,74 @@
     {
       "id": "coulomb_lesson4_hw_10_square_three_strings",
       "file": "coulomb_lesson4_hw_10_square_three_strings.json"
+    },
+    {
+      "id": "autumn9_course_01_plate_holes_return",
+      "file": "autumn9_course_01_plate_holes_return.json"
+    },
+    {
+      "id": "autumn9_course_02_crt_deflection",
+      "file": "autumn9_course_02_crt_deflection.json"
+    },
+    {
+      "id": "autumn9_course_03_projectile_energy",
+      "file": "autumn9_course_03_projectile_energy.json"
+    },
+    {
+      "id": "autumn9_hw_01_liquid_capacitor",
+      "file": "autumn9_hw_01_liquid_capacitor.json"
+    },
+    {
+      "id": "autumn9_hw_02_crt_quadrant",
+      "file": "autumn9_hw_02_crt_quadrant.json"
+    },
+    {
+      "id": "autumn9_hw_03_oscilloscope_waveform",
+      "file": "autumn9_hw_03_oscilloscope_waveform.json"
+    },
+    {
+      "id": "autumn9_hw_04_ion_deflection",
+      "file": "autumn9_hw_04_ion_deflection.json"
+    },
+    {
+      "id": "autumn9_hw_05_linear_accelerator",
+      "file": "autumn9_hw_05_linear_accelerator.json"
+    },
+    {
+      "id": "autumn9_hw_06_atmosphere_field",
+      "file": "autumn9_hw_06_atmosphere_field.json"
+    },
+    {
+      "id": "autumn9_hw_07_effective_gravity_loop",
+      "file": "autumn9_hw_07_effective_gravity_loop.json"
+    },
+    {
+      "id": "autumn9_hw_08_electric_circle_energy",
+      "file": "autumn9_hw_08_electric_circle_energy.json"
+    },
+    {
+      "id": "autumn9_hw_09_crt_multiple",
+      "file": "autumn9_hw_09_crt_multiple.json"
+    },
+    {
+      "id": "autumn9_hw_10_charge_plane",
+      "file": "autumn9_hw_10_charge_plane.json"
+    },
+    {
+      "id": "autumn9_hw_11_alternating_field",
+      "file": "autumn9_hw_11_alternating_field.json"
+    },
+    {
+      "id": "autumn9_hw_12_velocity_turn",
+      "file": "autumn9_hw_12_velocity_turn.json"
+    },
+    {
+      "id": "autumn9_hw_13_proton_field",
+      "file": "autumn9_hw_13_proton_field.json"
+    },
+    {
+      "id": "autumn9_hw_14_rotating_cylinder",
+      "file": "autumn9_hw_14_rotating_cylinder.json"
     }
   ]
 }

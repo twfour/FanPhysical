@@ -1,0 +1,115 @@
+{
+  "id": "autumn9_hw_11_alternating_field",
+  "chapter": "带电粒子在电场中的运动和示波器原理",
+  "title": "多11：交变电场粒子源",
+  "type": "multiple-choice",
+  "question": "长 \\(8d\\)、间距 \\(d\\) 的水平平行板间存在周期反向的匀强电场。O 点粒子源持续以水平速度 \\(v_0\\) 发射正粒子，忽略重力及碰板后的运动，判断最短飞行时间、最大动能及不同时刻发射粒子的去向。",
+  "options": [
+    "A. 最短运动时间为 \\(\\sqrt2d/v_0\\)",
+    "B. 最大动能为 \\(5mv_0^2/4\\)",
+    "C. \\(t=d/(2v_0)\\) 发射者从 O' 射出",
+    "D. \\(t=3d/(2v_0)\\) 发射者从 O' 射出"
+  ],
+  "answer": "A",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
+    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "shared-solution"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "按电场每段恒定分段积分纵向位移和速度。最短碰板时间为 \\(\\sqrt2d/v_0\\)；最大动能为 \\(3mv_0^2/4\\)。C、D 两个相位发射的粒子都会先碰板，因此只有 A。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **A**。"
+    }
+  ],
+  "knowledge": [
+    "带电粒子在电场中的运动",
+    "示波器原理",
+    "交变电场粒子源"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“交变电场粒子源”的核心模型，改变电场方向、初始速度或几何尺度后，重新求解并说明临界条件。",
+    "answer": "先画受力与速度矢量图，分阶段列式；最终答案由改变后的参数确定。",
+    "thinking": "不只替换数字：先判断哪些量保持不变，再检查运动是否仍能到达原题所述边界。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_particle_model",
+    "variant": "alternating_field",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题独立建模。",
+    "params": {
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "E"
+      },
+      "speed": {
+        "label": "初速度系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "v"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/autumn-lesson9/homework-11-alternating-field.webp",
+      "alt": "多11：交变电场粒子源原题印刷配图"
+    }
+  ],
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "带电粒子在电场中的运动和示波器原理",
+    "modelId": "charged-particle-electric-field",
+    "modelName": "带电粒子电场运动",
+    "familyId": "autumn9-alternating-field",
+    "familyName": "交变电场粒子源",
+    "role": "条件变式",
+    "difficulty": 4,
+    "variantLevel": "L2",
+    "skills": [
+      "受力与运动分解",
+      "功与能量关系"
+    ],
+    "prerequisites": [
+      "匀强电场",
+      "运动学",
+      "动能定理"
+    ]
+  }
+}

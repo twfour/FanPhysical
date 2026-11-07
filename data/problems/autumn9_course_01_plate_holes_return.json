@@ -1,0 +1,115 @@
+{
+  "id": "autumn9_course_01_plate_holes_return",
+  "chapter": "带电粒子在电场中的运动和示波器原理",
+  "title": "例1：平行板小孔往返",
+  "type": "multiple-choice",
+  "question": "A、B 为相距 \\(d\\) 的水平平行金属板，中央分别有小孔 M、N。一带电质点从 A 板上方距 A 为 \\(h\\) 的 P 点静止下落，穿过 M 后到 N 孔速度恰为零并原路返回。保持极板接电源，判断移动极板后的结论。",
+  "options": [
+    "A. A 板上移少许，质点仍能返回",
+    "B. A 板下移少许，质点将穿过 N 孔",
+    "C. B 板上移 \\(d/2\\)，质点返回后的最高点在 A 板下方 \\(h/3\\)",
+    "D. B 板下移少许，质点将穿过 N 孔"
+  ],
+  "answer": "ACD",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。",
+    "sharedFormula": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "shared-solution"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取",
+      "content": "先辨认电场中的受力方向和不变量，再按运动阶段分别使用动能定理、分运动或速度矢量关系。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[qU=\\Delta E_k,\\qquad \\vec v=\\vec v_0+\\vec a t,\\qquad \\vec r=\\vec v_0t+\\tfrac12\\vec a t^2\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "推导过程",
+      "content": "由初态得 \\(qU=-2mgd\\)。移动 A 板不改变极板电压及 P 到 N 的总重力势能差，故 A 对、B 错；B 板上移后由能量方程求得返回转折点，C 对；B 板下移使重力做功增加而电场功不变，D 对。"
+    },
+    {
+      "stepId": 4,
+      "title": "结论",
+      "content": "答案为 **ACD**。"
+    }
+  ],
+  "knowledge": [
+    "带电粒子在电场中的运动",
+    "示波器原理",
+    "平行板小孔往返"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保持“平行板小孔往返”的核心模型，改变电场方向、初始速度或几何尺度后，重新求解并说明临界条件。",
+    "answer": "先画受力与速度矢量图，分阶段列式；最终答案由改变后的参数确定。",
+    "thinking": "不只替换数字：先判断哪些量保持不变，再检查运动是否仍能到达原题所述边界。",
+    "difficulty": "equal-or-higher",
+    "upgradeType": "same-concept-structural-transfer"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "electric_particle_model",
+    "variant": "plate_holes_return",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题独立建模。",
+    "params": {
+      "field": {
+        "label": "场强系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "E"
+      },
+      "speed": {
+        "label": "初速度系数",
+        "value": 1,
+        "min": 0.5,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "v"
+      }
+    },
+    "timeline": {
+      "duration": 8,
+      "loop": false
+    }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/autumn-lesson9/course-01-plate-holes.webp",
+      "alt": "例1：平行板小孔往返原题印刷配图"
+    }
+  ],
+  "taxonomy": {
+    "module": "电磁学",
+    "topic": "带电粒子在电场中的运动和示波器原理",
+    "modelId": "charged-particle-electric-field",
+    "modelName": "带电粒子电场运动",
+    "familyId": "autumn9-plate-holes-return",
+    "familyName": "平行板小孔往返",
+    "role": "母题",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "受力与运动分解",
+      "功与能量关系"
+    ],
+    "prerequisites": [
+      "匀强电场",
+      "运动学",
+      "动能定理"
+    ]
+  }
+}
