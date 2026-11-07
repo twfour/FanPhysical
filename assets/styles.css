@@ -1239,6 +1239,15 @@ button.sound-action:disabled {
   padding: 12px;
 }
 
+.step-conversation-history:empty,
+.step-conversation-status:empty {
+  display: none;
+}
+
+.step-conversation-history:empty + .step-conversation-composer {
+  margin-top: 0;
+}
+
 .step-conversation-empty {
   margin: auto 0;
   color: #64748b;
