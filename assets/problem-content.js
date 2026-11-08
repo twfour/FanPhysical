@@ -462,11 +462,16 @@ function getProblemAnalysisItems(problem) {
     return [];
   }
   if (shouldUseProblemOptionAnalyses(problem)) {
+    var leadSteps = Array.isArray(problem.analysisLeadSteps) ? problem.analysisLeadSteps : [];
     var optionItems = problem.optionAnalyses.map(function (item, index) {
       return normalizeProblemOptionAnalysis(item, index, false);
     });
+    var supplementSteps = Array.isArray(problem.analysisSupplementSteps) ? problem.analysisSupplementSteps : [];
     var sharedMethod = getProblemOptionSharedMethod(problem);
-    return sharedMethod ? [sharedMethod].concat(optionItems) : optionItems;
+    // Upgraded problems provide a complete analysis before the option checks.
+    // Keep the legacy shared-method card only when those lead steps are absent.
+    var items = leadSteps.length ? [] : (sharedMethod ? [sharedMethod] : []);
+    return items.concat(leadSteps, optionItems, supplementSteps);
   }
   return Array.isArray(problem.steps) ? problem.steps : [];
 }

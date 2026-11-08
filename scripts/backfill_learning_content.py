@@ -272,6 +272,17 @@ MODEL_PROFILES = {
 
 
 MODEL_PROFILES.update({
+    "charged-particle-electric-field": {
+        "first": "先判断电荷正负和电场方向，再把运动分成加速、偏转、离场或交变场等阶段",
+        "principle": r"\[\vec F=q\vec E,\qquad qU=\Delta E_k,\qquad \vec v=\vec v_0+\frac{q\vec E}{m}t\]",
+        "misconception": "把电场方向直接当成负电荷受力方向，或跨越电场变化阶段仍使用同一个匀变速方程",
+        "invariant": "匀强电场中带电粒子受恒力；电场力功由电势差决定，分段边界处位置和速度保持连续",
+        "reality": "示波器、粒子束控制与直线加速器",
+        "scene": "示波管、电子束设备和粒子加速器利用电压控制带电粒子的速度、偏转方向和落点。",
+        "mapping": "题目中的加速电压、偏转板和荧光屏分别对应粒子源、控制电极和探测面。",
+        "factors": ["真实粒子束存在速度分散和空间电荷效应。", "极板边缘场会使理想匀强电场近似产生偏差。"],
+        "resource": "vector",
+    },
     "electric-field-potential": {
         "first": "先区分源电荷、试探电荷和研究点，再利用对称性选择场强叠加、受力平衡或能量方法",
         "principle": r"\[\vec E=\sum_i\vec E_i,\qquad \vec F=q\vec E,\qquad W_{AB}=-\Delta E_p\]",
@@ -1285,12 +1296,27 @@ def build_cycle_answer_labels(problems: list[dict]) -> dict[str, tuple[str, str]
         if problem.get("animation", {}).get("enabled") is True
         and problem.get("animation", {}).get("playable") is True
     ]
-    playable.sort(key=lambda problem: hashlib.sha256(problem["id"].encode("utf-8")).digest())
     labels = "ABCD"
-    return {
-        problem["id"]: (labels[index % 4], labels[(index + 2) % 4])
-        for index, problem in enumerate(playable)
-    }
+    result = {}
+    for problem in playable:
+        existing = problem.get("learningCycle", {}).get("review", {}).get("answer")
+        review_label = existing if isinstance(existing, str) and existing in labels else labels[stable_index(problem["id"] + ":review-answer", 4)]
+        prediction_label = labels[(labels.index(review_label) + 2) % 4]
+        result[problem["id"]] = (prediction_label, review_label)
+    counts = {label: sum(pair[1] == label for pair in result.values()) for label in labels}
+    while max(counts.values()) - min(counts.values()) > 4:
+        source = max(labels, key=lambda label: counts[label])
+        target = min(labels, key=lambda label: counts[label])
+        candidates = [
+            problem_id for problem_id, pair in result.items()
+            if pair[1] == source and problem_id not in HANDCRAFTED_LEARNING_CYCLE_IDS
+        ]
+        candidates.sort(key=lambda problem_id: hashlib.sha256((problem_id + ":rebalance").encode("utf-8")).digest())
+        problem_id = candidates[0]
+        result[problem_id] = (labels[(labels.index(target) + 2) % 4], target)
+        counts[source] -= 1
+        counts[target] += 1
+    return result
 
 
 def build_learning_cycle(

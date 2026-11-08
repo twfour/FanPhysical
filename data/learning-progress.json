@@ -5026,6 +5026,913 @@
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_course_01_electron_potential_work",
+      "chapter": "电势、电势差与等势面",
+      "title": "例1：电子移动与电势",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "电子移动与电势"
+      ],
+      "familyId": "electric-potential-lesson78-work",
+      "familyName": "电场功与电势差",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_course_02_oil_drop_energy",
+      "chapter": "电势、电势差与等势面",
+      "title": "例2：匀强场油滴能量",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "匀强场油滴能量"
+      ],
+      "familyId": "electric-potential-lesson78-energy",
+      "familyName": "电场功与电势能",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_course_03_dipole_zero_potential",
+      "chapter": "电势、电势差与等势面",
+      "title": "例3：等量异种电荷对称点",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "等量异种电荷对称点"
+      ],
+      "familyId": "electric-potential-lesson78-equipotential",
+      "familyName": "等势面判读",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_course_04_electron_vt_field",
+      "chapter": "电势、电势差与等势面",
+      "title": "例4：电子速度图与场强",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "电子速度图与场强"
+      ],
+      "familyId": "electric-potential-lesson78-graph",
+      "familyName": "电势能图像",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_course_05_electron_fieldline_trajectory",
+      "chapter": "电势、电势差与等势面",
+      "title": "例5：电子轨迹与点电荷",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "电子轨迹与点电荷"
+      ],
+      "familyId": "electric-potential-lesson78-trajectory",
+      "familyName": "等势线与粒子轨迹",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_course_06_positive_charge_line",
+      "chapter": "电势、电势差与等势面",
+      "title": "例6：正点电荷等距三点",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "正点电荷等距三点"
+      ],
+      "familyId": "electric-potential-lesson78-point-charge",
+      "familyName": "点电荷电势",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_course_07_central_charge_orbits",
+      "chapter": "电势、电势差与等势面",
+      "title": "例7：点电荷场中的两条轨迹",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "点电荷场中的两条轨迹"
+      ],
+      "familyId": "electric-potential-lesson78-trajectory",
+      "familyName": "等势线与粒子轨迹",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_course_08_curved_equipotential",
+      "chapter": "电势、电势差与等势面",
+      "title": "例8：曲线等势面判读",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "曲线等势面判读"
+      ],
+      "familyId": "electric-potential-lesson78-equipotential",
+      "familyName": "等势面判读",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_course_09_parallel_plate_calculation",
+      "chapter": "电势、电势差与等势面",
+      "title": "例9：平行板电势与功",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "平行板电势与功"
+      ],
+      "familyId": "electric-potential-lesson78-uniform",
+      "familyName": "匀强电场与电势差",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_course_10_equal_potential_planes",
+      "chapter": "电势、电势差与等势面",
+      "title": "例10：等距等势面与电子",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "等距等势面与电子"
+      ],
+      "familyId": "electric-potential-lesson78-uniform",
+      "familyName": "匀强电场与电势差",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_course_11_coordinate_uniform_field",
+      "chapter": "电势、电势差与等势面",
+      "title": "例11：坐标系三点电势",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "坐标系三点电势"
+      ],
+      "familyId": "electric-potential-lesson78-uniform",
+      "familyName": "匀强电场与电势差",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_course_12_two_charge_potential_curve",
+      "chapter": "电势、电势差与等势面",
+      "title": "例12：双点电荷电势曲线",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "双点电荷电势曲线"
+      ],
+      "familyId": "electric-potential-lesson78-graph",
+      "familyName": "电势能图像",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_hw_01_field_work_calculation",
+      "chapter": "电势、电势差与等势面",
+      "title": "解1：场强电势与电势能计算",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "场强电势与电势能计算"
+      ],
+      "familyId": "electric-potential-lesson78-work",
+      "familyName": "电场功与电势差",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_hw_02_rough_plane_energy",
+      "chapter": "电势、电势差与等势面",
+      "title": "单2：粗糙面带电块往返",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "粗糙面带电块往返"
+      ],
+      "familyId": "electric-potential-lesson78-energy",
+      "familyName": "电场功与电势能",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_hw_03_cell_membrane_ion",
+      "chapter": "电势、电势差与等势面",
+      "title": "单3：细胞膜钠离子减速",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "细胞膜钠离子减速"
+      ],
+      "familyId": "electric-potential-lesson78-uniform",
+      "familyName": "匀强电场与电势差",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_hw_04_potential_landscape",
+      "chapter": "电势、电势差与等势面",
+      "title": "单4：四电荷电势地形",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "四电荷电势地形"
+      ],
+      "familyId": "electric-potential-lesson78-graph",
+      "familyName": "电势能图像",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_hw_05_lightning_field",
+      "chapter": "电势、电势差与等势面",
+      "title": "单5：积雨云与避雷针电场",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "积雨云与避雷针电场"
+      ],
+      "familyId": "electric-potential-lesson78-application",
+      "familyName": "现实电场应用",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_hw_06_two_charge_potential_minimum",
+      "chapter": "电势、电势差与等势面",
+      "title": "单6：两电荷电势最低点",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "两电荷电势最低点"
+      ],
+      "familyId": "electric-potential-lesson78-graph",
+      "familyName": "电势能图像",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_hw_07_lightning_electron_equipotential",
+      "chapter": "电势、电势差与等势面",
+      "title": "单7：避雷针等势面与电子",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "避雷针等势面与电子"
+      ],
+      "familyId": "electric-potential-lesson78-trajectory",
+      "familyName": "等势线与粒子轨迹",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_hw_08_electric_pendulum_release",
+      "chapter": "电势、电势差与等势面",
+      "title": "单8：匀强场电摆释放",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "匀强场电摆释放"
+      ],
+      "familyId": "electric-potential-lesson78-energy",
+      "familyName": "电场功与电势能",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_hw_09_hydrogen_atom_energy",
+      "chapter": "电势、电势差与等势面",
+      "title": "多9：氢原子经典模型",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "氢原子经典模型"
+      ],
+      "familyId": "electric-potential-lesson78-point-charge",
+      "familyName": "点电荷电势",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electric_potential_lesson78_hw_10_grid_uniform_field",
+      "chapter": "电势、电势差与等势面",
+      "title": "多10：九宫格匀强电场",
+      "knowledge": [
+        "电势",
+        "电势差",
+        "等势面",
+        "九宫格匀强电场"
+      ],
+      "familyId": "electric-potential-lesson78-uniform",
+      "familyName": "匀强电场与电势差",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_course_01_coulomb_limits",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "例1：库仑定律适用条件",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "库仑定律适用条件"
+      ],
+      "familyId": "coulomb-lesson4-concept",
+      "familyName": "点电荷与电荷守恒",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_course_02_polarized_metal_spheres",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "例2：异号金属球极化",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "异号金属球极化"
+      ],
+      "familyId": "coulomb-lesson4-conductor",
+      "familyName": "导体极化",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_course_03_repeated_contact_limit",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "例3：三球反复接触极限",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "三球反复接触极限"
+      ],
+      "familyId": "coulomb-lesson4-contact",
+      "familyName": "接触起电与电荷分配",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_course_04_opposite_contact_share",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "例4：异号双球接触分配",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "异号双球接触分配"
+      ],
+      "familyId": "coulomb-lesson4-contact",
+      "familyName": "接触起电与电荷分配",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_course_05_offcenter_cavity_force",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "例5：偏心球形空腔",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "偏心球形空腔"
+      ],
+      "familyId": "coulomb-lesson4-superposition",
+      "familyName": "均匀带电体叠加",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_course_06_asymmetric_double_pendulum",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "例6：共点悬挂距离调节",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "共点悬挂距离调节"
+      ],
+      "familyId": "coulomb-lesson4-equilibrium",
+      "familyName": "库仑力平衡",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_course_07_three_charge_equilibrium",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "例7：三电荷共线平衡",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "三电荷共线平衡"
+      ],
+      "familyId": "coulomb-lesson4-equilibrium",
+      "familyName": "库仑力平衡",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_course_08_box_cut_string",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "例8：木盒内双球断绳",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "木盒内双球断绳"
+      ],
+      "familyId": "coulomb-lesson4-transient",
+      "familyName": "静电系统瞬时变化",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_course_09_incline_three_charge_spring",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "例9：斜面三球与弹簧",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "斜面三球与弹簧"
+      ],
+      "familyId": "coulomb-lesson4-equilibrium",
+      "familyName": "库仑力平衡",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_course_10_wall_floor_equilibrium",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "例10：墙地双球再平衡",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "墙地双球再平衡"
+      ],
+      "familyId": "coulomb-lesson4-equilibrium",
+      "familyName": "库仑力平衡",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_hw_01_point_charge_elementary_charge",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "A1：点电荷与元电荷",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "点电荷与元电荷"
+      ],
+      "familyId": "coulomb-lesson4-concept",
+      "familyName": "点电荷与电荷守恒",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_hw_02_hanging_opposite_charge_angles",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "A2：悬球电性与偏角",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "悬球电性与偏角"
+      ],
+      "familyId": "coulomb-lesson4-equilibrium",
+      "familyName": "库仑力平衡",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_hw_03_three_charge_arrangement",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "A3：三球平衡摆放方法",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "三球平衡摆放方法"
+      ],
+      "familyId": "coulomb-lesson4-equilibrium",
+      "familyName": "库仑力平衡",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_hw_04_induction_foil_sequence",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "A4：接触导体感应与分离",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "接触导体感应与分离"
+      ],
+      "familyId": "coulomb-lesson4-induction",
+      "familyName": "静电感应与接地",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_hw_05_incline_floor_rebalance",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "A5：斜面与水平面双球",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "斜面与水平面双球"
+      ],
+      "familyId": "coulomb-lesson4-equilibrium",
+      "familyName": "库仑力平衡",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_hw_06_grounded_induction_switches",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "B6：双导体接地顺序",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "双导体接地顺序"
+      ],
+      "familyId": "coulomb-lesson4-induction",
+      "familyName": "静电感应与接地",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_hw_07_two_cavity_spheres",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "B7：双球空腔叠加",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "双球空腔叠加"
+      ],
+      "familyId": "coulomb-lesson4-superposition",
+      "familyName": "均匀带电体叠加",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_hw_08_pulley_charge_locus",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "B8：定滑轮带电球轨迹",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "定滑轮带电球轨迹"
+      ],
+      "familyId": "coulomb-lesson4-locus",
+      "familyName": "库仑力约束轨迹",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_hw_09_three_stars_orbit",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "B9：三星拱月",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "三星拱月"
+      ],
+      "familyId": "coulomb-lesson4-orbit",
+      "familyName": "库仑力圆周运动",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "coulomb_lesson4_hw_10_square_three_strings",
+      "chapter": "电荷守恒定律与库仑定律",
+      "title": "B10：正方形三球悬挂",
+      "knowledge": [
+        "电荷守恒",
+        "库仑定律",
+        "正方形三球悬挂"
+      ],
+      "familyId": "coulomb-lesson4-equilibrium",
+      "familyName": "库仑力平衡",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_course_01_plate_holes_return",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "例1：平行板小孔往返",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "平行板小孔往返"
+      ],
+      "familyId": "autumn9-plate-holes-return",
+      "familyName": "平行板小孔往返",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_course_02_crt_deflection",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "例2：示波管加速与偏转",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "示波管加速与偏转"
+      ],
+      "familyId": "autumn9-crt-deflection",
+      "familyName": "示波管加速与偏转",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_course_03_projectile_energy",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "例3：复合场抛体能量",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "复合场抛体能量"
+      ],
+      "familyId": "autumn9-projectile-energy",
+      "familyName": "复合场抛体能量",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_hw_01_liquid_capacitor",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "单1：液体电容器",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "液体电容器"
+      ],
+      "familyId": "autumn9-liquid-capacitor",
+      "familyName": "液体电容器",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_hw_02_crt_quadrant",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "单2：示波器亮斑象限",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "示波器亮斑象限"
+      ],
+      "familyId": "autumn9-crt-quadrant",
+      "familyName": "示波器亮斑象限",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_hw_03_oscilloscope_waveform",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "单3：示波器扫描波形",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "示波器扫描波形"
+      ],
+      "familyId": "autumn9-oscilloscope-waveform",
+      "familyName": "示波器扫描波形",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_hw_04_ion_deflection",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "单4：氢氦离子偏转",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "氢氦离子偏转"
+      ],
+      "familyId": "autumn9-ion-deflection",
+      "familyName": "氢氦离子偏转",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_hw_05_linear_accelerator",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "单5：直线加速器漂移管",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "直线加速器漂移管"
+      ],
+      "familyId": "autumn9-linear-accelerator",
+      "familyName": "直线加速器漂移管",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_hw_06_atmosphere_field",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "单6：大气电场电势图",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "大气电场电势图"
+      ],
+      "familyId": "autumn9-atmosphere-field",
+      "familyName": "大气电场电势图",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_hw_07_effective_gravity_loop",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "单7：电场中的竖直圆周",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "电场中的竖直圆周"
+      ],
+      "familyId": "autumn9-effective-gravity-loop",
+      "familyName": "电场中的竖直圆周",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_hw_08_electric_circle_energy",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "单8：匀强场圆轨道能量",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "匀强场圆轨道能量"
+      ],
+      "familyId": "autumn9-electric-circle-energy",
+      "familyName": "匀强场圆轨道能量",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_hw_09_crt_multiple",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "多9：示波管偏转计算",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "示波管偏转计算"
+      ],
+      "familyId": "autumn9-crt-multiple",
+      "familyName": "示波管偏转计算",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_hw_10_charge_plane",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "多10：异号电荷与竖直粗糙面",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "异号电荷与竖直粗糙面"
+      ],
+      "familyId": "autumn9-charge-plane",
+      "familyName": "异号电荷与竖直粗糙面",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_hw_11_alternating_field",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "多11：交变电场粒子源",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "交变电场粒子源"
+      ],
+      "familyId": "autumn9-alternating-field",
+      "familyName": "交变电场粒子源",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_hw_12_velocity_turn",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "多12：匀强场速度转向",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "匀强场速度转向"
+      ],
+      "familyId": "autumn9-velocity-turn",
+      "familyName": "匀强场速度转向",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_hw_13_proton_field",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "多13：质子速度矢量变化",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "质子速度矢量变化"
+      ],
+      "familyId": "autumn9-proton-field",
+      "familyName": "质子速度矢量变化",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn9_hw_14_rotating_cylinder",
+      "chapter": "带电粒子在电场中的运动和示波器原理",
+      "title": "多14：旋转圆筒记录波形",
+      "knowledge": [
+        "带电粒子在电场中的运动",
+        "示波器原理",
+        "旋转圆筒记录波形"
+      ],
+      "familyId": "autumn9-rotating-cylinder",
+      "familyName": "旋转圆筒记录波形",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
     }
   ]
 }

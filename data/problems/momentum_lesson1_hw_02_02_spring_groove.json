@@ -16,16 +16,39 @@
   },
   "steps": [
     {
-      "title": "条件提取",
+      "stepId": 1,
+      "title": "物理过程与条件",
       "content": "先规定正方向并选择研究对象或系统，区分外力冲量与系统内力。"
     },
     {
-      "title": "建模与计算",
-      "content": "小球与槽在接触固定弹簧时受到外冲量，动量并非始终守恒，A 错；下滑时槽获得动能，小球对槽做正功，B 对；弹簧使小球速度反向，动量改变，C 错；理想反弹后小球与等质量槽同向等速向左，小球不能追上槽并再次进入，D 错。"
+      "stepId": 2,
+      "title": "建模与专用公式",
+      "content": "\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_i=\\sum\\vec p_f\\]"
     },
     {
-      "title": "结论与检查",
-      "content": "答案为 **B**。检查动量的方向、单位以及所选系统在对应方向上是否满足守恒条件。"
+      "stepId": 3,
+      "title": "完整分析与推导",
+      "content": "小球与槽在接触固定弹簧时受到外冲量，动量并非始终守恒，A 错；下滑时槽获得动能，小球对槽做正功，B 对；弹簧使小球速度反向，动量改变，C 错；理想反弹后小球与等质量槽同向等速向左，小球不能追上槽并再次进入，D 错。\n\nA：与上述方程或物理约束不符，错误。\n\nB：与上述推导结果一致，正确。\n\nC：与上述方程或物理约束不符，错误。\n\nD：与上述方程或物理约束不符，错误。\n\nA：与上述方程或物理约束不符，错误。\n\nB：与上述推导结果一致，正确。\n\nC：与上述方程或物理约束不符，错误。\n\nD：与上述方程或物理约束不符，错误。"
+    },
+    {
+      "stepId": 4,
+      "title": "逐项判断",
+      "content": "A：与上述方程或物理约束不符，错误。\n\nB：与上述推导结果一致，正确。\n\nC：与上述方程或物理约束不符，错误。\n\nD：与上述方程或物理约束不符，错误。"
+    },
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "复核所选系统和正方向，确认对应方向上的外力冲量；再检查动量的矢量方向、单位以及末状态是否可达。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "按“弧槽小球碰弹簧”原题过程显示运动、系统边界和动量变化。 播放时重点观察“系统与正方向选择、冲量动量关系”；对照右侧图像检查转折点、碰撞/平衡时刻或能量与动量变化是否和推导一致。"
+    },
+    {
+      "stepId": 7,
+      "title": "结论",
+      "content": "答案为 **B**。"
     }
   ],
   "knowledge": [
@@ -116,7 +139,7 @@
       "observe": "系统与正方向选择",
       "misconception": "只比较速度大小而忽略动量方向，或未检查外力冲量便直接套用动量守恒",
       "invariant": "动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量",
-      "formula": "\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]"
+      "formula": "\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_i=\\sum\\vec p_f\\]"
     },
     "levels": [
       {
@@ -194,7 +217,7 @@
         "prompt": "暂不代入数据。阅读“单选第2题：弧槽小球碰弹簧”后，判断为什么“只比较速度大小而忽略动量方向，或未检查外力冲量便直接套用动量守恒”会导致错误，再写出研究对象、过程边界和首先要确定的“系统与正方向选择、冲量动量关系”。",
         "thought": "最值得警惕的不是算错，而是：只比较速度大小而忽略动量方向，或未检查外力冲量便直接套用动量守恒。",
         "check": "先执行：先选研究对象或系统、规定正方向，再按方向检查外力冲量与初末动量。再检查题设中的方向、接触、阶段或临界条件是否已经进入模型。",
-        "correction": "本题解析中的关键关系为：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]\n\n先建立关系，再决定哪些数值需要代入。",
+        "correction": "本题解析中的关键关系为：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_i=\\sum\\vec p_f\\]\n\n先建立关系，再决定哪些数值需要代入。",
         "takeaway": "本题族的母题动作是“先选研究对象或系统、规定正方向，再按方向检查外力冲量与初末动量”；看到新情境时应复用这个动作，而不是复用答案。",
         "animationPreset": {
           "params": {
@@ -209,7 +232,7 @@
         "title": "观察会使“系统与正方向选择”发生转折的条件",
         "prompt": "改变动画中的一个关键参数，指出哪个时刻、方向、图像趋势或临界条件最先发生变化；再说明“动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量”为什么仍成立。",
         "thought": "若只比较动画外观，我可能忽略“冲量动量关系”已经改变。",
-        "check": "把变化前后都放回关系：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]\n\n逐项区分模型不变量与由参数决定的结果。",
+        "check": "把变化前后都放回关系：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_i=\\sum\\vec p_f\\]\n\n逐项区分模型不变量与由参数决定的结果。",
         "correction": "真正保持的是：动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量。数值结论需要在新条件下重新计算并检查边界。",
         "takeaway": "与同题族其他题相比，本题真正需要追踪的是“系统与正方向选择、冲量动量关系”如何受条件变化控制。",
         "animationPreset": {
@@ -228,7 +251,7 @@
     "title": "碰撞缓冲、火箭推进与流体冲击：现实中的“系统动量守恒”",
     "scene": "安全气囊通过延长碰撞时间降低平均冲击力，推进器和射流装置则依靠持续喷出质量形成反向推力。",
     "mapping": "题目中的碰撞时间、速度变化和连续流分别对应现实中的缓冲过程、动量交换与单位时间质量输运。 当前题目“单选第2题：弧槽小球碰弹簧”训练的“系统与正方向选择、冲量动量关系”正是完成这种映射时需要识别的量。",
-    "sharedModel": "本题可使用关系：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]\n\n更一般的模型关系是：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]\n\n动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量，因而动画与现实案例共享同一控制结构。",
+    "sharedModel": "本题可使用关系：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_i=\\sum\\vec p_f\\]\n\n更一般的模型关系是：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]\n\n动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量，因而动画与现实案例共享同一控制结构。",
     "realityFactors": [
       "真实碰撞会伴随形变、声和热损耗。",
       "连续流速度与密度可能随截面和时间变化。"
@@ -244,10 +267,10 @@
       }
     ],
     "question": "把“单选第2题：弧槽小球碰弹簧”改写成上述现实场景后，应测量哪三个物理量，怎样用同一主关系判断结果是否满足安全或运行边界？",
-    "answer": "先测量题目所对应的状态量、控制参数和边界量，再按“先选研究对象或系统、规定正方向，再按方向检查外力冲量与初末动量”建立模型。可先使用：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]\n\n把测量值代入后，还必须检查方向、接触、阶段或临界条件；只有主方程和边界条件同时满足，现实结论才成立。",
+    "answer": "先测量题目所对应的状态量、控制参数和边界量，再按“先选研究对象或系统、规定正方向，再按方向检查外力冲量与初末动量”建立模型。可先使用：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_i=\\sum\\vec p_f\\]\n\n把测量值代入后，还必须检查方向、接触、阶段或临界条件；只有主方程和边界条件同时满足，现实结论才成立。",
     "rubric": [
       "指出现实对象与题目研究对象、过程边界的对应关系。",
-      "写出或说明关系 \\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]，并解释关键变量。",
+      "写出或说明关系 \\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_i=\\sum\\vec p_f\\]，并解释关键变量。",
       "说明至少一个现实修正因素，并完成安全或临界条件检查。"
     ]
   },
@@ -302,5 +325,10 @@
       "src": "assets/problem-images/momentum-lesson1/homework-02-spring-groove.webp",
       "alt": "弧槽小球碰弹簧原题配图"
     }
-  ]
+  ],
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "先规定正方向并选择研究对象或系统，区分外力冲量与系统内力。",
+    "sharedFormula": "\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_i=\\sum\\vec p_f\\]"
+  }
 }

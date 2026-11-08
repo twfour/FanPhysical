@@ -10,7 +10,12 @@
     "D. 同学跳离 B 的过程中对 B 的冲量大小为 \\(47.5\\,\\mathrm{N\\cdot s}\\)"
   ],
   "answer": "C",
-  "images": [{"src": "assets/problem-images/collision-recoil/homework-01-skateboard-jump.webp", "alt": "滑板间往返跳跃原题配图"}],
+  "images": [
+    {
+      "src": "assets/problem-images/collision-recoil/homework-01-skateboard-jump.webp",
+      "alt": "滑板间往返跳跃原题配图"
+    }
+  ],
   "analysis": {
     "title": "解析",
     "sharedThinking": "先按碰撞、相互作用或反冲阶段划分过程，统一正方向并明确每一阶段的系统边界。",
@@ -277,18 +282,18 @@
       "options": [
         {
           "value": "A",
-          "text": "题目名称相似，原题的数值答案可以直接沿用",
-          "diagnosis": {
-            "tag": "只看表面情境",
-            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
-          }
-        },
-        {
-          "value": "B",
           "text": "动画看起来连续，就说明整个过程只能使用一个方程",
           "diagnosis": {
             "tag": "忽略分段",
             "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+          }
+        },
+        {
+          "value": "B",
+          "text": "只要公式相同，就不需要重新判断研究对象和过程",
+          "diagnosis": {
+            "tag": "忽略模型前提",
+            "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
           }
         },
         {
@@ -297,13 +302,69 @@
         },
         {
           "value": "D",
-          "text": "只要公式相同，就不需要重新判断研究对象和过程",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
           "diagnosis": {
-            "tag": "忽略模型前提",
-            "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
           }
         }
       ]
     }
-  }
+  },
+  "analysisLeadSteps": [
+    {
+      "stepId": 1,
+      "title": "物理过程与条件",
+      "content": "先按碰撞、相互作用或反冲阶段划分过程，统一正方向并明确每一阶段的系统边界。"
+    },
+    {
+      "stepId": 2,
+      "title": "建模与专用公式",
+      "content": "\\[\\vec I_{\\rm ext}=\\Delta\\vec p,\\qquad \\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "完整分析与推导",
+      "content": "按阶段选择研究系统，动量守恒与机械能守恒分别检查，不能因动量守恒就默认动能不变。\n\n全过程只有水平方向合外力冲量为零，因此系统水平方向动量守恒，但完整的矢量动量不守恒，A 错。人从 \\(B\\) 向左跳离时，\\(B\\) 受到向右的作用力而加速，B 错。最终人与 \\(A\\) 共速，且两滑板速度相同，故三者共同速度为 \\(v=47.5\\times20/50=19\\,\\mathrm{m/s}\\)，C 对。D 把滑板 \\(B\\) 从初始静止到最终状态的总动量变化 \\(2.5\\times19=47.5\\,\\mathrm{N\\cdot s}\\) 错当成仅跳离阶段的冲量；跳离前 \\(B\\) 已经运动，故 D 错。"
+    }
+  ],
+  "analysisSupplementSteps": [
+    {
+      "stepId": 5,
+      "title": "答案复核",
+      "content": "先用总动量检查计算，再按碰撞类型核对动能是否可能增加，并确认碰后速度满足分离或共同运动条件。"
+    },
+    {
+      "stepId": 6,
+      "title": "动画观察点",
+      "content": "按“滑板间往返跳跃”原题过程显示物体运动、动量交换和关键阶段。 播放时重点观察“分阶段选择系统、动量与能量联合”；对照右侧图像检查转折点、碰撞/平衡时刻或能量与动量变化是否和推导一致。"
+    },
+    {
+      "stepId": 7,
+      "title": "结论",
+      "content": "答案为 **C**。"
+    }
+  ],
+  "optionAnalyses": [
+    {
+      "option": "A",
+      "title": "A. 同学与两滑板组成的系统动量守恒",
+      "judgment": "与上述方程或物理约束不符，错误。"
+    },
+    {
+      "option": "B",
+      "title": "B. 同学跳离滑板 B 时，B 的速度减小",
+      "judgment": "与上述方程或物理约束不符，错误。"
+    },
+    {
+      "option": "C",
+      "title": "C. 最终同学与滑板 A 的共同速度为 \\(19\\,\\mathrm{m/s}\\)",
+      "judgment": "与上述推导结果一致，正确。"
+    },
+    {
+      "option": "D",
+      "title": "D. 同学跳离 B 的过程中对 B 的冲量大小为 \\(47.5\\,\\mathrm{N\\cdot s}\\)",
+      "judgment": "与上述方程或物理约束不符，错误。"
+    }
+  ]
 }
