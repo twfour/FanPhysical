@@ -34,12 +34,7 @@
     {
       "stepId": 3,
       "title": "完整分析与推导",
-      "content": "由净向心力得 B、C。线速度应为 \\(\\sqrt{kq^2/(\\sqrt3mR)}\\)，A 分母错误。d 还受重力，外力应为 \\(mg+2\\sqrt6kq^2/R^2\\)，D 漏掉 mg。\n\nA：错误。\n\nB：正确。\n\nC：正确。\n\nD：错误。"
-    },
-    {
-      "stepId": 4,
-      "title": "逐项判断",
-      "content": "A：错误。\n\nB：正确。\n\nC：正确。\n\nD：错误。"
+      "content": "由净向心力得 B、C。线速度应为 \\(\\sqrt{kq^2/(\\sqrt3mR)}\\)，A 分母错误。d 还受重力，外力应为 \\(mg+2\\sqrt6kq^2/R^2\\)，D 漏掉 mg。"
     },
     {
       "stepId": 5,

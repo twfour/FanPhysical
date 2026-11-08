@@ -34,12 +34,7 @@
     {
       "stepId": 3,
       "title": "完整分析与推导",
-      "content": "得到 \\(a=v_0^2/(2d)\\)、\\(E=mv_0^2/(2ed)\\)、\\(\\varphi_B=\\varphi_A+mv_0^2/(2e)\\)，从而 \\(E_{pB}=e\\varphi_A+mv_0^2/2\\)。\n\nA：错误，应为 v₀²/(2d)。\n\nB：错误，缺少因子2。\n\nC：错误，缺少因子2。\n\nD：正确。"
-    },
-    {
-      "stepId": 4,
-      "title": "逐项判断",
-      "content": "A：错误，应为 v₀²/(2d)。\n\nB：错误，缺少因子2。\n\nC：错误，缺少因子2。\n\nD：正确。"
+      "content": "得到 \\(a=v_0^2/(2d)\\)、\\(E=mv_0^2/(2ed)\\)、\\(\\varphi_B=\\varphi_A+mv_0^2/(2e)\\)，从而 \\(E_{pB}=e\\varphi_A+mv_0^2/2\\)。"
     },
     {
       "stepId": 5,

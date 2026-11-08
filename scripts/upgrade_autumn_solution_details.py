@@ -91,7 +91,7 @@ def existing_parts(problem):
             process = content
         if not formula and re.search('公式|方程', title):
             formula = content
-        if re.search('计算|推导|建模|判断|系统|方程', title) and content not in {process, formula}:
+        if re.search('计算|推导|建模|系统|方程', title) and not re.search('逐项|选项', title) and content not in {process, formula}:
             derivation.append(content)
     if not derivation:
         derivation = [text(step.get('content')) for step in steps[1:-1]]
@@ -138,8 +138,6 @@ def upgrade(problem):
             ]
     else:
         steps = list(common)
-        if option_lines:
-            steps.append({'stepId': 4, 'title': '逐项判断', 'content': '\n\n'.join(option_lines)})
         steps.extend([
             {'stepId': 5, 'title': '答案复核', 'content': review},
             {'stepId': 6, 'title': '动画观察点', 'content': observation},

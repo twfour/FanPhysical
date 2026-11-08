@@ -34,12 +34,7 @@
     {
       "stepId": 3,
       "title": "完整分析与推导",
-      "content": "联立 B、C 平衡得 \\(q_C=4q_0/7\\)，并得题给间距。A 所受库仑合力沿斜面向下为 \\(2mg\\sin\\alpha\\)，弹簧还需平衡重力，故伸长量为 \\(3mg\\sin\\alpha/k_0\\)。\n\nA：正确。\n\nB：错误，应为3倍。\n\nC：错误，缺少 \\(\\sin\\alpha\\)。\n\nD：正确。"
-    },
-    {
-      "stepId": 4,
-      "title": "逐项判断",
-      "content": "A：正确。\n\nB：错误，应为3倍。\n\nC：错误，缺少 \\(\\sin\\alpha\\)。\n\nD：正确。"
+      "content": "联立 B、C 平衡得 \\(q_C=4q_0/7\\)，并得题给间距。A 所受库仑合力沿斜面向下为 \\(2mg\\sin\\alpha\\)，弹簧还需平衡重力，故伸长量为 \\(3mg\\sin\\alpha/k_0\\)。"
     },
     {
       "stepId": 5,

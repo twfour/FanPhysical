@@ -34,12 +34,7 @@
     {
       "stepId": 3,
       "title": "完整分析与推导",
-      "content": "由几何关系有 \\(r_C<r_B\\)，所以 \\(F_C=kQq/r_C^2>F_B=kQq/r_B^2\\)。两球质量相同，平衡时 \\(\\tan\\beta=F_C/(mg)>F_B/(mg)=\\tan\\alpha\\)，故 \\(\\alpha<\\beta\\)。\n\nA：错误，两球到 A 的距离不同。\n\nB：正确，异号球更靠近 A，偏角更大。\n\nC：错误，大小关系相反。\n\nD：错误，C 受水平库仑引力，偏角不为零。"
-    },
-    {
-      "stepId": 4,
-      "title": "逐项判断",
-      "content": "A：错误，两球到 A 的距离不同。\n\nB：正确，异号球更靠近 A，偏角更大。\n\nC：错误，大小关系相反。\n\nD：错误，C 受水平库仑引力，偏角不为零。"
+      "content": "由几何关系有 \\(r_C<r_B\\)，所以 \\(F_C=kQq/r_C^2>F_B=kQq/r_B^2\\)。两球质量相同，平衡时 \\(\\tan\\beta=F_C/(mg)>F_B/(mg)=\\tan\\alpha\\)，故 \\(\\alpha<\\beta\\)。"
     },
     {
       "stepId": 5,

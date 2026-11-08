@@ -34,7 +34,7 @@
     {
       "stepId": 3,
       "title": "完整分析与推导",
-      "content": "按阶段选择研究系统，动量守恒与机械能守恒分别检查，不能因动量守恒就默认动能不变。\n\n碰撞后 \\(AB\\) 速度为 \\(24/5=4.8\\,\\mathrm{m/s}\\)，最终三者共速 \\(4\\,\\mathrm{m/s}\\)。摩擦产生的热量为 \\(Q=\\frac12\\times5\\times4.8^2-\\frac12\\times6\\times4^2=9.6\\,\\mathrm J\\)。由 \\(Q=\\mu m_Cgs_{\\rm rel}\\) 得 \\(s_{\\rm rel}=2.4\\,\\mathrm m\\)。"
+      "content": "碰撞后 \\(AB\\) 速度为 \\(24/5=4.8\\,\\mathrm{m/s}\\)，最终三者共速 \\(4\\,\\mathrm{m/s}\\)。摩擦产生的热量为 \\(Q=\\frac12\\times5\\times4.8^2-\\frac12\\times6\\times4^2=9.6\\,\\mathrm J\\)。由 \\(Q=\\mu m_Cgs_{\\rm rel}\\) 得 \\(s_{\\rm rel}=2.4\\,\\mathrm m\\)。"
     },
     {
       "stepId": 5,
