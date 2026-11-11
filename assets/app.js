@@ -46,7 +46,7 @@ var problemNoteCacheOrder = [];
 var problemNoteCacheLimit = 8;
 var adjacentPrefetchHandle = null;
 var adjacentPrefetchUsesIdleCallback = false;
-var runtimeAssetVersion = "20261107-electric-particle-01";
+var runtimeAssetVersion = "20261111-electrostatics-capacitor-01";
 var canvasW = 1000;
 var canvasH = 500;
 var animRight = 570;
@@ -725,6 +725,7 @@ var problemRuntimeScriptMap = {
   coulomb_law_model: ["/assets/scenes/coulomb-law.js"],
   electric_field_model: ["/assets/scenes/electric-field.js"],
   electric_potential_model: ["/assets/scenes/electric-potential.js"],
+  electrostatics_capacitor_model: ["/assets/scenes/electrostatics-capacitor.js"],
   electric_particle_model: ["/assets/scenes/electric-particle.js"],
   required_one_test_model: ["/assets/scenes/required-one-test.js"],
   required_two_test_model: ["/assets/scenes/required-two-test.js"]

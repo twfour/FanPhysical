@@ -272,6 +272,17 @@ MODEL_PROFILES = {
 
 
 MODEL_PROFILES.update({
+    "electrostatics-capacitor": {
+        "first": "先判断导体是否接地、电容器是否接电源以及二极管是否导通，再锁定电势、电压或电荷量中的不变量",
+        "principle": r"\[\vec E_{\mathrm{导体内}}=0,\qquad C=\frac{\varepsilon S}{d},\qquad Q=CU\]",
+        "misconception": "把静电平衡导体内部总场为零误解成感应电荷附加场为零，或在恒压与恒荷条件之间直接套用同一结论",
+        "invariant": "静电平衡由等势和内部零场约束；电容器的连接状态决定 U 或 Q 是否保持不变，几何和介质决定 C",
+        "reality": "静电屏蔽、电容传感与高压除尘",
+        "scene": "屏蔽腔体、电容式麦克风、指纹传感器、静电除尘器和充放电电路都通过边界条件控制电荷分布、电场与电流。",
+        "mapping": "题目中的金属导体、极板、介质和开关分别对应现实装置的屏蔽外壳、传感电极、被测材料与电路连接状态。",
+        "factors": ["真实电容器存在边缘场、漏电和寄生电容。", "空气湿度与尖端曲率会改变放电阈值。"],
+        "resource": "vector",
+    },
     "charged-particle-electric-field": {
         "first": "先判断电荷正负和电场方向，再把运动分成加速、偏转、离场或交变场等阶段",
         "principle": r"\[\vec F=q\vec E,\qquad qU=\Delta E_k,\qquad \vec v=\vec v_0+\frac{q\vec E}{m}t\]",

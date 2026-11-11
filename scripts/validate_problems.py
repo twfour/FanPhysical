@@ -75,6 +75,7 @@ SUPPORTED_ANIMATION_TYPES = {
     "coulomb_law_model",
     "electric_field_model",
     "electric_potential_model",
+    "electrostatics_capacitor_model",
     "electric_particle_model",
     "projectile",
     "spring_balance",

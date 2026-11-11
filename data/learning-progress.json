@@ -5933,6 +5933,336 @@
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_course_01_cavity_shielding",
+      "chapter": "静电平衡与电容器",
+      "title": "例1：空腔导体与静电屏蔽",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "空腔导体与静电屏蔽"
+      ],
+      "familyId": "conductor-shielding",
+      "familyName": "静电屏蔽与空腔导体",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_course_02_grounded_plate",
+      "chapter": "静电平衡与电容器",
+      "title": "例2：接地金属板感应",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "接地金属板感应"
+      ],
+      "familyId": "conductor-induction",
+      "familyName": "导体静电感应",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_course_03_capacitance_definition",
+      "chapter": "静电平衡与电容器",
+      "title": "例3：电容定义计算",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "电容定义计算"
+      ],
+      "familyId": "capacitor-definition",
+      "familyName": "电容定义",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_course_04_capacitive_sensors",
+      "chapter": "静电平衡与电容器",
+      "title": "例4：四类电容式传感器",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "四类电容式传感器"
+      ],
+      "familyId": "capacitor-sensor",
+      "familyName": "电容式传感器",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_course_05_connected_plate_distance",
+      "chapter": "静电平衡与电容器",
+      "title": "例5：恒压电容器减小板距",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "恒压电容器减小板距"
+      ],
+      "familyId": "capacitor-geometry",
+      "familyName": "平行板几何变化",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_course_06_isolated_plate_distance",
+      "chapter": "静电平衡与电容器",
+      "title": "例6：断电电容器减小板距",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "断电电容器减小板距"
+      ],
+      "familyId": "capacitor-geometry",
+      "familyName": "平行板几何变化",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_course_07_rc_discharge",
+      "chapter": "静电平衡与电容器",
+      "title": "例7：电容器充放电图像",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "电容器充放电图像"
+      ],
+      "familyId": "capacitor-rc",
+      "familyName": "电容器充放电",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_01_lightning_rod",
+      "chapter": "静电平衡与电容器",
+      "title": "单选第1题：避雷针尖端放电",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "避雷针尖端放电"
+      ],
+      "familyId": "conductor-application",
+      "familyName": "静电技术应用",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_02_grounded_sphere_center",
+      "chapter": "静电平衡与电容器",
+      "title": "单选第2题：接地金属球球心附加场",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "接地金属球球心附加场"
+      ],
+      "familyId": "conductor-induction",
+      "familyName": "导体静电感应",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_03_induced_field_vectors",
+      "chapter": "静电平衡与电容器",
+      "title": "单选第3题：金属球内外附加场方向",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "金属球内外附加场方向"
+      ],
+      "familyId": "conductor-induction",
+      "familyName": "导体静电感应",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_04_cavity_electroscope",
+      "chapter": "静电平衡与电容器",
+      "title": "单选第4题：空腔导体与验电器",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "空腔导体与验电器"
+      ],
+      "familyId": "conductor-shielding",
+      "familyName": "静电屏蔽与空腔导体",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_05_oil_drop_switch",
+      "chapter": "静电平衡与电容器",
+      "title": "单选第5题：油滴与变距电容器",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "油滴与变距电容器"
+      ],
+      "familyId": "capacitor-dynamics",
+      "familyName": "电容器与带电体动力学",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_06_diode_capacitor",
+      "chapter": "静电平衡与电容器",
+      "title": "单选第6题：二极管限制的变距电容器",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "二极管限制的变距电容器"
+      ],
+      "familyId": "capacitor-dynamics",
+      "familyName": "电容器与带电体动力学",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_07_fingerprint_sensor",
+      "chapter": "静电平衡与电容器",
+      "title": "多选第7题：指纹电容传感器",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "指纹电容传感器"
+      ],
+      "familyId": "capacitor-sensor",
+      "familyName": "电容式传感器",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_08_cola_straw",
+      "chapter": "静电平衡与电容器",
+      "title": "多选第8题：可乐吸管电容触发",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "可乐吸管电容触发"
+      ],
+      "familyId": "capacitor-sensor",
+      "familyName": "电容式传感器",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_09_dielectric_polarization",
+      "chapter": "静电平衡与电容器",
+      "title": "多选第9题：电介质极化与电容",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "电介质极化与电容"
+      ],
+      "familyId": "capacitor-dielectric",
+      "familyName": "电介质极化",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_10_insulated_conductor",
+      "chapter": "静电平衡与电容器",
+      "title": "多选第10题：绝缘导体静电感应",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "绝缘导体静电感应"
+      ],
+      "familyId": "conductor-induction",
+      "familyName": "导体静电感应",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_11_electrostatic_dust",
+      "chapter": "静电平衡与电容器",
+      "title": "多选第11题：静电除尘装置",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "静电除尘装置"
+      ],
+      "familyId": "conductor-application",
+      "familyName": "静电技术应用",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_12_electrometer_overlap",
+      "chapter": "静电平衡与电容器",
+      "title": "多选第12题：静电计判断电容变化",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "静电计判断电容变化"
+      ],
+      "familyId": "capacitor-measurement",
+      "familyName": "电容测量",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_13_millikan_oil",
+      "chapter": "静电平衡与电容器",
+      "title": "多选第13题：密立根油滴与平行板",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "密立根油滴与平行板"
+      ],
+      "familyId": "capacitor-dynamics",
+      "familyName": "电容器与带电体动力学",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_14_capacitor_microphone",
+      "chapter": "静电平衡与电容器",
+      "title": "多选第14题：电容式麦克风",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "电容式麦克风"
+      ],
+      "familyId": "capacitor-sensor",
+      "familyName": "电容式传感器",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "electrostatics_capacitor_hw_15_meltblown_sensor",
+      "chapter": "静电平衡与电容器",
+      "title": "多选第15题：熔喷布厚度传感器",
+      "knowledge": [
+        "静电平衡",
+        "电容器",
+        "熔喷布厚度传感器"
+      ],
+      "familyId": "capacitor-sensor",
+      "familyName": "电容式传感器",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
     }
   ]
 }

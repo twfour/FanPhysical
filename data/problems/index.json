@@ -1624,6 +1624,94 @@
     {
       "id": "autumn9_hw_14_rotating_cylinder",
       "file": "autumn9_hw_14_rotating_cylinder.json"
+    },
+    {
+      "id": "electrostatics_capacitor_course_01_cavity_shielding",
+      "file": "electrostatics_capacitor_course_01_cavity_shielding.json"
+    },
+    {
+      "id": "electrostatics_capacitor_course_02_grounded_plate",
+      "file": "electrostatics_capacitor_course_02_grounded_plate.json"
+    },
+    {
+      "id": "electrostatics_capacitor_course_03_capacitance_definition",
+      "file": "electrostatics_capacitor_course_03_capacitance_definition.json"
+    },
+    {
+      "id": "electrostatics_capacitor_course_04_capacitive_sensors",
+      "file": "electrostatics_capacitor_course_04_capacitive_sensors.json"
+    },
+    {
+      "id": "electrostatics_capacitor_course_05_connected_plate_distance",
+      "file": "electrostatics_capacitor_course_05_connected_plate_distance.json"
+    },
+    {
+      "id": "electrostatics_capacitor_course_06_isolated_plate_distance",
+      "file": "electrostatics_capacitor_course_06_isolated_plate_distance.json"
+    },
+    {
+      "id": "electrostatics_capacitor_course_07_rc_discharge",
+      "file": "electrostatics_capacitor_course_07_rc_discharge.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_01_lightning_rod",
+      "file": "electrostatics_capacitor_hw_01_lightning_rod.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_02_grounded_sphere_center",
+      "file": "electrostatics_capacitor_hw_02_grounded_sphere_center.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_03_induced_field_vectors",
+      "file": "electrostatics_capacitor_hw_03_induced_field_vectors.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_04_cavity_electroscope",
+      "file": "electrostatics_capacitor_hw_04_cavity_electroscope.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_05_oil_drop_switch",
+      "file": "electrostatics_capacitor_hw_05_oil_drop_switch.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_06_diode_capacitor",
+      "file": "electrostatics_capacitor_hw_06_diode_capacitor.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_07_fingerprint_sensor",
+      "file": "electrostatics_capacitor_hw_07_fingerprint_sensor.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_08_cola_straw",
+      "file": "electrostatics_capacitor_hw_08_cola_straw.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_09_dielectric_polarization",
+      "file": "electrostatics_capacitor_hw_09_dielectric_polarization.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_10_insulated_conductor",
+      "file": "electrostatics_capacitor_hw_10_insulated_conductor.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_11_electrostatic_dust",
+      "file": "electrostatics_capacitor_hw_11_electrostatic_dust.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_12_electrometer_overlap",
+      "file": "electrostatics_capacitor_hw_12_electrometer_overlap.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_13_millikan_oil",
+      "file": "electrostatics_capacitor_hw_13_millikan_oil.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_14_capacitor_microphone",
+      "file": "electrostatics_capacitor_hw_14_capacitor_microphone.json"
+    },
+    {
+      "id": "electrostatics_capacitor_hw_15_meltblown_sensor",
+      "file": "electrostatics_capacitor_hw_15_meltblown_sensor.json"
     }
   ]
 }

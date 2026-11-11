@@ -431,11 +431,31 @@
         "连续流用单位时间动量变化求力，线性阻力运动需建立分段微分方程。"
       ],
       "formulas": [
-        {"title": "冲量—动量关系", "latex": "\\[\\vec I_{\\rm ext}=\\Delta\\vec p\\]", "note": "冲量和动量变化都是矢量，必须先规定正方向。"},
-        {"title": "系统动量守恒", "latex": "\\[\\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]", "note": "只在相应方向合外力冲量为零时成立。"},
-        {"title": "质心位移", "latex": "\\[\\sum m_i\\Delta x_i=0\\]", "note": "用于无水平外力作用下的内部相对运动。"},
-        {"title": "连续流作用力", "latex": "\\[\\vec F=\\dot m(\\vec v_{\\rm out}-\\vec v_{\\rm in})\\]", "note": "先确定控制体及单位时间通过的质量。"},
-        {"title": "线性阻力", "latex": "\\[m\\frac{dv}{dt}=\\sum F-kv\\]", "note": "上升和下降时阻力方向不同，应分段求解。"}
+        {
+          "title": "冲量—动量关系",
+          "latex": "\\[\\vec I_{\\rm ext}=\\Delta\\vec p\\]",
+          "note": "冲量和动量变化都是矢量，必须先规定正方向。"
+        },
+        {
+          "title": "系统动量守恒",
+          "latex": "\\[\\sum\\vec p_{\\rm i}=\\sum\\vec p_{\\rm f}\\]",
+          "note": "只在相应方向合外力冲量为零时成立。"
+        },
+        {
+          "title": "质心位移",
+          "latex": "\\[\\sum m_i\\Delta x_i=0\\]",
+          "note": "用于无水平外力作用下的内部相对运动。"
+        },
+        {
+          "title": "连续流作用力",
+          "latex": "\\[\\vec F=\\dot m(\\vec v_{\\rm out}-\\vec v_{\\rm in})\\]",
+          "note": "先确定控制体及单位时间通过的质量。"
+        },
+        {
+          "title": "线性阻力",
+          "latex": "\\[m\\frac{dv}{dt}=\\sum F-kv\\]",
+          "note": "上升和下降时阻力方向不同，应分段求解。"
+        }
       ]
     },
     "碰撞与反冲": {
@@ -538,10 +558,26 @@
         "多个点电荷同时作用时，先分别求库仑力，再按矢量叠加；连续带电体常可用补偿法处理。"
       ],
       "formulas": [
-        {"title": "电荷守恒与量子化", "latex": "\\[Q_{\\rm total}=\\text{常量},\\qquad q=ne\\]", "note": "n 为整数，e 为元电荷。"},
-        {"title": "库仑定律", "latex": "\\[F=k\\frac{|q_1q_2|}{r^2}\\]", "note": "力沿两点电荷连线，同号相斥、异号相吸。"},
-        {"title": "力的叠加", "latex": "\\[\\vec F=\\sum_i\\vec F_i\\]", "note": "先判断每个分力方向，再合成。"},
-        {"title": "相同金属球接触", "latex": "\\[q'_1=q'_2=\\frac{q_1+q_2}{2}\\]", "note": "仅适用于半径相同、充分接触后再分开的金属球。"}
+        {
+          "title": "电荷守恒与量子化",
+          "latex": "\\[Q_{\\rm total}=\\text{常量},\\qquad q=ne\\]",
+          "note": "n 为整数，e 为元电荷。"
+        },
+        {
+          "title": "库仑定律",
+          "latex": "\\[F=k\\frac{|q_1q_2|}{r^2}\\]",
+          "note": "力沿两点电荷连线，同号相斥、异号相吸。"
+        },
+        {
+          "title": "力的叠加",
+          "latex": "\\[\\vec F=\\sum_i\\vec F_i\\]",
+          "note": "先判断每个分力方向，再合成。"
+        },
+        {
+          "title": "相同金属球接触",
+          "latex": "\\[q'_1=q'_2=\\frac{q_1+q_2}{2}\\]",
+          "note": "仅适用于半径相同、充分接触后再分开的金属球。"
+        }
       ]
     },
     "电场强度与电势能": {
@@ -552,10 +588,26 @@
         "电场力做功等于电势能减少量，场强可由电势或电势能随位置变化的斜率判断。"
       ],
       "formulas": [
-        {"title": "电场强度定义", "latex": "\\[\\vec E=\\frac{\\vec F}{q}\\]", "note": "正试探电荷受力方向与场强方向相同。"},
-        {"title": "点电荷场强与叠加", "latex": "\\[E=k\\frac{|Q|}{r^2},\\qquad \\vec E=\\sum_i\\vec E_i\\]", "note": "先求各分场强，再按矢量合成。"},
-        {"title": "电场功与电势能", "latex": "\\[W_{AB}=E_{pA}-E_{pB}=-\\Delta E_p\\]", "note": "电场力做正功时电势能降低。"},
-        {"title": "一维图像关系", "latex": "\\[E_x=-\\frac{d\\varphi}{dx}=-\\frac1q\\frac{dE_p}{dx}\\]", "note": "势能曲线的斜率给出场强方向和大小。"}
+        {
+          "title": "电场强度定义",
+          "latex": "\\[\\vec E=\\frac{\\vec F}{q}\\]",
+          "note": "正试探电荷受力方向与场强方向相同。"
+        },
+        {
+          "title": "点电荷场强与叠加",
+          "latex": "\\[E=k\\frac{|Q|}{r^2},\\qquad \\vec E=\\sum_i\\vec E_i\\]",
+          "note": "先求各分场强，再按矢量合成。"
+        },
+        {
+          "title": "电场功与电势能",
+          "latex": "\\[W_{AB}=E_{pA}-E_{pB}=-\\Delta E_p\\]",
+          "note": "电场力做正功时电势能降低。"
+        },
+        {
+          "title": "一维图像关系",
+          "latex": "\\[E_x=-\\frac{d\\varphi}{dx}=-\\frac1q\\frac{dE_p}{dx}\\]",
+          "note": "势能曲线的斜率给出场强方向和大小。"
+        }
       ]
     },
     "电势、电势差与等势面": {
@@ -566,10 +618,26 @@
         "等势面越密处场强越大；匀强电场中沿场强方向的电势差与距离成正比。"
       ],
       "formulas": [
-        {"title": "电势与电势能", "latex": "\\[E_p=q\\varphi\\]", "note": "电荷为负时，电势越高，电势能反而越低。"},
-        {"title": "电场力做功", "latex": "\\[W_{AB}=qU_{AB}=q(\\varphi_A-\\varphi_B)=-\\Delta E_p\\]", "note": "计算时同时保留电荷和电势差的正负号。"},
-        {"title": "匀强电场", "latex": "\\[U=Ed,\\qquad E=\\frac{|\\Delta\\varphi|}{d}\\]", "note": "其中 d 是沿电场方向的投影距离。"},
-        {"title": "点电荷电势", "latex": "\\[\\varphi=k\\frac{Q}{r},\\qquad E_p=k\\frac{Qq}{r}\\]", "note": "电势按代数和叠加，场强按矢量和叠加。"}
+        {
+          "title": "电势与电势能",
+          "latex": "\\[E_p=q\\varphi\\]",
+          "note": "电荷为负时，电势越高，电势能反而越低。"
+        },
+        {
+          "title": "电场力做功",
+          "latex": "\\[W_{AB}=qU_{AB}=q(\\varphi_A-\\varphi_B)=-\\Delta E_p\\]",
+          "note": "计算时同时保留电荷和电势差的正负号。"
+        },
+        {
+          "title": "匀强电场",
+          "latex": "\\[U=Ed,\\qquad E=\\frac{|\\Delta\\varphi|}{d}\\]",
+          "note": "其中 d 是沿电场方向的投影距离。"
+        },
+        {
+          "title": "点电荷电势",
+          "latex": "\\[\\varphi=k\\frac{Q}{r},\\qquad E_p=k\\frac{Qq}{r}\\]",
+          "note": "电势按代数和叠加，场强按矢量和叠加。"
+        }
       ]
     },
     "带电粒子在电场中的运动和示波器原理": {
@@ -580,10 +648,26 @@
         "交变电场必须按电压换向时刻分段，示波器图形由同一时刻的水平、竖直偏转共同决定。"
       ],
       "formulas": [
-        {"title": "电场加速", "latex": "\\[qU=\\Delta E_k,\\qquad v=\\sqrt{v_0^2+\\frac{2qU}{m}}\\]", "note": "保留 qU 的符号，先判断加速还是减速。"},
-        {"title": "板内偏转", "latex": "\\[t=\\frac{L}{v_0},\\qquad y=\\frac12\\frac{qU}{md}t^2\\]", "note": "横向速度不变时，轨迹为抛物线。"},
-        {"title": "示波管偏移", "latex": "\\[Y=\\frac{U_2L(L+2D)}{4dU_1}\\]", "note": "D 为偏转板右端到荧光屏的距离。"},
-        {"title": "速度矢量", "latex": "\\[\\vec v=\\vec v_0+\\frac{q\\vec E}{m}t\\]", "note": "速度端点在速度空间沿直线移动，便于求最小速度。"}
+        {
+          "title": "电场加速",
+          "latex": "\\[qU=\\Delta E_k,\\qquad v=\\sqrt{v_0^2+\\frac{2qU}{m}}\\]",
+          "note": "保留 qU 的符号，先判断加速还是减速。"
+        },
+        {
+          "title": "板内偏转",
+          "latex": "\\[t=\\frac{L}{v_0},\\qquad y=\\frac12\\frac{qU}{md}t^2\\]",
+          "note": "横向速度不变时，轨迹为抛物线。"
+        },
+        {
+          "title": "示波管偏移",
+          "latex": "\\[Y=\\frac{U_2L(L+2D)}{4dU_1}\\]",
+          "note": "D 为偏转板右端到荧光屏的距离。"
+        },
+        {
+          "title": "速度矢量",
+          "latex": "\\[\\vec v=\\vec v_0+\\frac{q\\vec E}{m}t\\]",
+          "note": "速度端点在速度空间沿直线移动，便于求最小速度。"
+        }
       ]
     },
     "必修二结业测试": {
@@ -623,6 +707,31 @@
           "title": "机械能与功能关系",
           "latex": "\\[W_{\\mathrm{nonconservative}}=\\Delta E_{\\mathrm{mech}}\\]",
           "note": "机械能不守恒时用非保守力做功衡量其变化。"
+        }
+      ]
+    },
+    "静电平衡与电容器": {
+      "overview": "本章从静电平衡导体的等势与内部零场出发，研究静电感应、屏蔽、尖端放电以及平行板电容器在恒压、恒荷、介质变化和充放电条件下的规律。",
+      "laws": [
+        "静电平衡时导体内部场强为零，导体是等势体，净电荷分布在表面，表面外电场垂直于表面。",
+        "平行板电容由极板面积、板距和介质决定；连接电源时电压不变，断开电源时极板电荷量不变。",
+        "电容器充放电过程中，电流—时间图像下的面积等于转移的电荷量。"
+      ],
+      "formulas": [
+        {
+          "title": "静电平衡条件",
+          "latex": "\\[\\vec E_{\\mathrm{导体内}}=0,\\qquad \\varphi_{\\mathrm{导体}}=\\text{常量}\\]",
+          "note": "零场指总场为零，感应电荷产生的附加场通常不为零。"
+        },
+        {
+          "title": "平行板电容",
+          "latex": "\\[C=\\frac{\\varepsilon S}{d},\\qquad Q=CU,\\qquad E=\\frac Ud\\]",
+          "note": "使用前先判断 U、Q、S、d 和介质中哪些量保持不变。"
+        },
+        {
+          "title": "充放电电荷量",
+          "latex": "\\[Q=\\int i\\,\\mathrm dt\\]",
+          "note": "更换电阻改变放电快慢，但完整放电的总电荷量由初始状态决定。"
         }
       ]
     }
