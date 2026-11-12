@@ -28,7 +28,7 @@ CROPS = {
     "homework-12-electrometer": (4, (845, 520, 1185, 745)),
     "homework-13-millikan": (4, (650, 790, 1185, 1090)),
     "homework-14-microphone": (4, (770, 1110, 1185, 1385)),
-    "homework-15-meltblown": (4, (735, 1410, 1185, 1735)),
+    "homework-15-meltblown": (4, (820, 1320, 1190, 1510)),
 }
 
 
