@@ -34,7 +34,7 @@
     {
       "stepId": 3,
       "title": "完整推导",
-      "content": "由 \\(v^2=2qU_1/m\\) 可知速度不同；但 \\(y=\\frac12(qU_2/md)(L/v)^2=U_2L^2/(4dU_1)\\)，质量和电荷量消去，位移比为 \\(1:1\\)。"
+      "content": "氢核满足 \\(q_H=e,m_H=m_p\\)，氦核满足 \\(q_{He}=2e,m_{He}=4m_p\\)。经同一电压加速后\n\\[v=\\sqrt{\\frac{2qU_1}{m}},\\qquad \\frac{v_H}{v_{He}}=\\sqrt{\\frac{e/m_p}{2e/(4m_p)}}=\\sqrt2.\\]\n所以速度比既不是 \\(1:1\\)，也不是 \\(1:2\\)，A、B 错误。板内侧移为\n\\[y=\\frac12\\frac{qU_2}{md}\\left(\\frac L v\\right)^2\n=\\frac12\\frac{qU_2}{md}\\frac{L^2m}{2qU_1}\n=\\frac{U_2L^2}{4dU_1}.\\]\n其中 \\(q,m\\) 完全消去，两粒子的侧移比为 \\(1:1\\)，C 正确、D 错误。"
     },
     {
       "stepId": 4,
@@ -54,7 +54,7 @@
     {
       "stepId": 7,
       "title": "结论",
-      "content": "答案为 **C**。"
+      "content": "答案为 \\(\\boxed{\\mathrm{C}}\\)。"
     }
   ],
   "knowledge": [

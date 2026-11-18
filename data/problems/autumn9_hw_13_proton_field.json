@@ -34,7 +34,7 @@
     {
       "stepId": 3,
       "title": "完整推导",
-      "content": "分解两端速度：\n\\[\\vec v_A=\\left(\\frac32v,\\frac{\\sqrt3}{2}v\\right),\\qquad \\vec v_B=\\left(\\frac12v,-\\frac{\\sqrt3}{2}v\\right).\\]\n水平方向平均速度为 \\(v\\)，故 \\(t=L/v\\)。再由\n\\[\\vec a=\\frac{\\vec v_B-\\vec v_A}{t}=\\left(-\\frac{v^2}{L},-\\frac{\\sqrt3v^2}{L}\\right)\\]\n可得 \\(|a|=2v^2/L\\)，方向斜向左下，与水平成 \\(60^\\circ\\)。质子带正电，所以 \\(E=ma/q=2mv^2/(qL)\\)。速度线段到原点的最短距离为 \\(\\sqrt3v/2\\)。"
+      "content": "分解两端速度：\n\\[\\vec v_A=\\left(\\frac32v,\\frac{\\sqrt3}{2}v\\right),\\qquad\n\\vec v_B=\\left(\\frac12v,-\\frac{\\sqrt3}{2}v\\right).\\]\n水平平均速度为 \\((3v/2+v/2)/2=v\\)，所以\n\\[t=\\frac{L}{v},\\]\nC 正确。加速度为\n\\[\\vec a=\\frac{\\vec v_B-\\vec v_A}{t}\n=\\left(-\\frac{v^2}{L},-\\frac{\\sqrt3v^2}{L}\\right),\\]\n故 \\(|a|=2v^2/L\\)，方向与水平成 \\(60^\\circ\\) 斜向左下。质子带正电，电场与加速度同向，且\n\\[E=\\frac{ma}{q}=\\frac{2mv^2}{qL},\\]\nA、B 正确。速度矢量线段到原点的最短距离为\n\\[v_{\\min}=\\frac{|\\vec v_A\\times\\Delta\\vec v|}{|\\Delta\\vec v|}=\\frac{\\sqrt3}{2}v,\\]\n不是 \\(v/2\\)，D 错误。"
     },
     {
       "stepId": 4,
@@ -54,7 +54,7 @@
     {
       "stepId": 7,
       "title": "结论",
-      "content": "答案为 **ABC**。"
+      "content": "答案为 \\(\\boxed{\\mathrm{ABC}}\\)。"
     }
   ],
   "knowledge": [

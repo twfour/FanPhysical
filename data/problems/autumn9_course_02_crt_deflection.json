@@ -29,7 +29,7 @@
     {
       "stepId": 3,
       "title": "完整推导",
-      "content": "加速区由 \\(eU_1=\\frac12mv_0^2\\)，得\n\\[v_0=\\sqrt{\\frac{2eU_1}{m}}.\\]\n电子在偏转板内的飞行时间为 \\(t_1=L_1/v_0\\)，偏转加速度大小为 \\(a_y=eU_2/(md)\\)，所以\n\\[y_1=\\frac12a_yt_1^2=\\frac{U_2L_1^2}{4dU_1},\\qquad v_y=a_yt_1.\\]\n离开极板后，电子以水平速度 \\(v_0\\)、竖直速度 \\(v_y\\) 匀速飞行 \\(t_2=L_2/v_0\\)，故\n\\[y_P=y_1+v_yt_2=\\frac{U_2L_1(L_1+2L_2)}{4dU_1}.\\]"
+      "content": "加速区由动能定理\n\\[eU_1=\\frac12mv_0^2\\quad\\Rightarrow\\quad v_0=\\sqrt{\\frac{2eU_1}{m}}.\\]\n板内电场强度 \\(E=U_2/d\\)，电子偏转加速度大小\n\\[a_y=\\frac{eE}{m}=\\frac{eU_2}{md},\\qquad t_1=\\frac{L_1}{v_0}.\\]\n因此板内侧移\n\\[y_1=\\frac12a_yt_1^2=\\frac12\\frac{eU_2}{md}\\frac{L_1^2}{v_0^2}=\\frac{U_2L_1^2}{4dU_1}.\\]\n离板时 \\(v_y=a_yt_1\\)，板外飞行时间 \\(t_2=L_2/v_0\\)，故\n\\[y_P=y_1+v_yt_2=\\frac{U_2L_1(L_1+2L_2)}{4dU_1}.\\]"
     },
     {
       "stepId": 5,
@@ -44,7 +44,7 @@
     {
       "stepId": 7,
       "title": "结论",
-      "content": "答案为 **\\(v_0=\\sqrt{2eU_1/m}\\)，\\(y_1=U_2L_1^2/(4dU_1)\\)，\\(y_P=U_2L_1(L_1+2L_2)/(4dU_1)\\)**。"
+      "content": "答案为 \\(v_0=\\sqrt{2eU_1/m}\\)，\\(y_1=U_2L_1^2/(4dU_1)\\)，\\(y_P=U_2L_1(L_1+2L_2)/(4dU_1)\\)。"
     }
   ],
   "knowledge": [

@@ -34,7 +34,7 @@
     {
       "stepId": 3,
       "title": "完整推导",
-      "content": "合力方向恰沿斜面，大小对应 \\(g'=5g/4\\)。临界圆周由有效重力最高点条件得 \\(v_A^2=3g'R\\)，再用 \\(2g's=v_A^2\\)，得 \\(s=3R/2=1.2\\,\\mathrm m\\)。"
+      "content": "电场力大小为 \\(|q|E=3mg/4\\)，与重力垂直，故有效重力加速度\n\\[g'=\\sqrt{g^2+\\left(\\frac{3g}{4}\\right)^2}=\\frac54g.\\]\n其方向与斜面平行。小球恰能完成圆周运动时，在有效重力方向的最高点满足临界条件；结合从 A 到该点的能量关系可得\n\\[v_A^2=3g'R.\\]\n小球从斜面释放点到 A 的过程中\n\\[2g's=v_A^2=3g'R\\quad\\Rightarrow\\quad s=\\frac{3R}{2}.\\]\n代入 \\(R=0.8\\,\\mathrm m\\)：\n\\[s=\\frac32\\times0.8\\,\\mathrm m=1.2\\,\\mathrm m,\\]\n对应 A。"
     },
     {
       "stepId": 4,
@@ -54,7 +54,7 @@
     {
       "stepId": 7,
       "title": "结论",
-      "content": "答案为 **A**。"
+      "content": "答案为 \\(\\boxed{\\mathrm{A}}\\)。"
     }
   ],
   "knowledge": [

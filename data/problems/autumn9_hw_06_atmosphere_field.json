@@ -34,7 +34,7 @@
     {
       "stepId": 3,
       "title": "完整推导",
-      "content": "横轴为电势、纵轴为高度，\\(E=|d\\varphi/dh|\\) 是图线斜率的倒数。随高度增加，倒数减小，故场强减小。"
+      "content": "图中电势由地面的 \\(0\\) 增至电离层附近约 \\(300\\,\\mathrm{kV}\\)，因此电场方向由高电势指向低电势，即竖直向下，A 错误。电容器两极带等量异号电荷，题给储存电荷量约为 \\(5.0\\times10^5\\,\\mathrm C\\)，地面带电量的大小也是 \\(5.0\\times10^5\\,\\mathrm C\\)，不是 \\(2.5\\times10^5\\,\\mathrm C\\)，B 错误。\n\n由 \\(C=Q/U\\)，\n\\[C\\approx\\frac{5.0\\times10^5}{300\\times10^3}\\,\\mathrm F\n=\\frac53\\,\\mathrm F\\approx1.67\\,\\mathrm F,\\]\n不是 \\(0.6\\,\\mathrm F\\)，C 错误。又因\n\\[|E|=\\left|\\frac{\\mathrm d\\varphi}{\\mathrm dh}\\right|,\\]\n而图中横轴为 \\(\\varphi\\)、纵轴为 \\(h\\)，随高度增大曲线的 \\(\\mathrm dh/\\mathrm d\\varphi\\) 增大，其倒数 \\(\\mathrm d\\varphi/\\mathrm dh\\) 减小，所以场强减小，D 正确。"
     },
     {
       "stepId": 4,
@@ -54,7 +54,7 @@
     {
       "stepId": 7,
       "title": "结论",
-      "content": "答案为 **D**。"
+      "content": "答案为 \\(\\boxed{\\mathrm{D}}\\)。"
     }
   ],
   "knowledge": [

@@ -34,7 +34,7 @@
     {
       "stepId": 3,
       "title": "完整推导",
-      "content": "电场幅值满足 \\(qE=mv_0^2/(2d)\\)，故纵向加速度大小 \\(a=v_0^2/(2d)\\)。从中线静止开始向某极板加速，最短碰板满足\n\\[\\frac d2=\\frac12at_{\\min}^2,\\qquad t_{\\min}=\\frac{\\sqrt2d}{v_0}.\\]\n对任意发射相位，把每个持续 \\(2d/v_0\\) 的恒场区间依次代入 \\(y=y_0+v_{y0}\\Delta t+\\frac12a\\Delta t^2\\)。逐段检查 \\(|y|<d/2\\) 可知 C、D 对应粒子都先碰板。碰板前纵向速度的最大允许值给出\n\\[E_{k,\\max}=\\frac12m(v_0^2+v_y^2)=\\frac34mv_0^2.\\]"
+      "content": "由题设电场幅值可得纵向加速度大小\n\\[a=\\frac{qE}{m}=\\frac{v_0^2}{2d}.\\]\n从中线以零纵向初速度向极板运动，最短碰板过程满足\n\\[\\frac d2=\\frac12at_{\\min}^2\n\\Rightarrow t_{\\min}=\\sqrt{\\frac d a}=\\frac{\\sqrt2d}{v_0},\\]\nA 正确。碰板前纵向速度的最大允许值满足 \\(v_y^2=2a(d/2)=v_0^2/2\\)，所以总动能最大值\n\\[E_{k,\\max}=\\frac12m\\left(v_0^2+\\frac{v_0^2}{2}\\right)=\\frac34mv_0^2,\\]\n不是 \\(5mv_0^2/4\\)，B 错误。对 C、D 所给发射相位，必须按每段恒场分别使用\n\\[y_{n+1}=y_n+v_{yn}\\Delta t+\\frac12a_n\\Delta t^2,\\qquad\nv_{y,n+1}=v_{yn}+a_n\\Delta t.\\]\n逐段检查会先出现 \\(|y|=d/2\\)，即粒子先碰板，不能从 \\(O'\\) 射出，C、D 错误。"
     },
     {
       "stepId": 4,
@@ -54,7 +54,7 @@
     {
       "stepId": 7,
       "title": "结论",
-      "content": "答案为 **A**。"
+      "content": "答案为 \\(\\boxed{\\mathrm{A}}\\)。"
     }
   ],
   "knowledge": [

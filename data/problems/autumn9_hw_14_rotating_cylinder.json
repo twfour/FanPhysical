@@ -34,7 +34,7 @@
     {
       "stepId": 3,
       "title": "完整推导",
-      "content": "偏转灵敏度公式给出\n\\[y=\\frac{uL(L+2D)}{4dU_0}.\\]\n代入 \\(L=d=D=0.10\\,\\mathrm m\\)、\\(U_0=200\\,\\mathrm V\\)、\\(|u|_{\\max}=200\\,\\mathrm V\\)，得 \\(|y|_{\\max}=0.075\\,\\mathrm m=7.5\\,\\mathrm{cm}\\)。电压周期 \\(T_u=1\\,\\mathrm s\\)，圆筒转动周期\n\\[T_{rot}=\\frac1n=0.5\\,\\mathrm s=\\frac12T_u.\\]\n因此相邻两圈记录的纵坐标相反，展开后得到两条关于中线对称的半周期轨迹；剪开相位不同，对应 A 或 C。"
+      "content": "偏转灵敏度公式为\n\\[y=\\frac{uL(L+2D)}{4dU_0}.\\]\n代入 \\(L=d=D=0.10\\,\\mathrm m\\)、\\(U_0=200\\,\\mathrm V\\)、\\(|u|_{\\max}=200\\,\\mathrm V\\)：\n\\[|y|_{\\max}=\\frac{200\\times0.10\\times(0.10+2\\times0.10)}{4\\times0.10\\times200}\n=0.075\\,\\mathrm m=7.5\\,\\mathrm{cm}.\\]\n信号 \\(u=200\\sin(2\\pi t)\\) 的周期为 \\(T_u=1\\,\\mathrm s\\)。圆筒转速为 \\(2\\,\\mathrm{r/s}\\)，故\n\\[T_{rot}=\\frac12\\,\\mathrm s=\\frac12T_u.\\]\n一周只记录半个正弦周期，下一周记录相反相位的另半周期；不同剪开线只改变展开图初相位，因此 A、C 正确，B、D 错误。"
     },
     {
       "stepId": 4,
@@ -54,7 +54,7 @@
     {
       "stepId": 7,
       "title": "结论",
-      "content": "答案为 **AC**。"
+      "content": "答案为 \\(\\boxed{\\mathrm{AC}}\\)。"
     }
   ],
   "knowledge": [

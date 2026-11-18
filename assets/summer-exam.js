@@ -16,7 +16,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`\(u_0+2u_1\)` }
     ],
     answer: ["C"],
-    explanation: String.raw`由 \(\mathrm dx/\mathrm dy=u(y)/v\)，求导得 \(u(y)=u_0+u_1\sin^2(\pi y/d)\)。当 \(y=d/2\) 时水速最大，故 \(u_{\max}=u_0+u_1\)。`
+    explanation: String.raw`<p><strong>建立关系：</strong>船沿垂直河岸方向的速度恒为 \(v\)，故 \(\mathrm dy/\mathrm dt=v\)，横向水速满足 \(u(y)=\mathrm dx/\mathrm dt=v\,\mathrm dx/\mathrm dy\)。</p><p><strong>求导化简：</strong>\[\frac{\mathrm dx}{\mathrm dy}=\frac{u_0}{v}+\frac{u_1}{v}\left[\frac12-\frac12\cos\left(\frac{2\pi y}{d}\right)\right],\]所以 \[u(y)=u_0+\frac{u_1}{2}\left[1-\cos\left(\frac{2\pi y}{d}\right)\right]=u_0+u_1\sin^2\left(\frac{\pi y}{d}\right).\]</p><p><strong>取最大值：</strong>当 \(y=d/2\) 时 \(\sin^2(\pi y/d)=1\)，于是 \(u_{\max}=u_0+u_1\)，对应 \(\boxed{\mathrm C}\)。</p>`
   },
   {
     id: "single-02",
@@ -31,7 +31,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`\(\dfrac{3H}{4}\)` }
     ],
     answer: ["D"],
-    explanation: String.raw`孔深为 \(h\) 时射程满足 \(L^2\propto h(H-h)\)。两个不同孔同射程时有 \(h_1+h_2=H\)，所以 \(h_2=3H/4\)。`
+    explanation: String.raw`<p><strong>出流速度：</strong>孔在液面下深度为 \(h\)，由托里拆利定律 \(v=\sqrt{2gh}\)。孔距地面的高度为 \(H-h\)，水滴下落时间为 \(t=\sqrt{2(H-h)/g}\)。</p><p><strong>射程：</strong>\[L=vt=2\sqrt{h(H-h)},\qquad L^2=4h(H-h).\]</p><p><strong>同射程条件：</strong>\(h_1(H-h_1)=h_2(H-h_2)\)。两个孔高度不同，故 \(h_1+h_2=H\)。代入 \(h_1=H/4\)，得 \[h_2=H-\frac H4=\frac{3H}{4},\]对应 \(\boxed{\mathrm D}\)。</p>`
   },
   {
     id: "single-03",
@@ -46,7 +46,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`\(\lambda^2\)` }
     ],
     answer: ["A"],
-    explanation: String.raw`无滑动给出两轮边缘线速度相等。由 \(a_c=v^2/r\)，从动轮半径是主动轮的 \(\lambda\) 倍，故 \(a_1/a_0=1/\lambda\)。`
+    explanation: String.raw`<p><strong>无滑动约束：</strong>主动轮边缘速度 \(v_0=\omega_0r\)，从动轮边缘速度 \(v_1=\omega_1\lambda r\)，皮带不打滑给出 \(v_1=v_0\)。</p><p><strong>向心加速度之比：</strong>\[\frac{a_1}{a_0}=\frac{v_1^2/(\lambda r)}{v_0^2/r}=\frac1\lambda.\]</p><p>所以数值因子为 \(1/\lambda\)，对应 \(\boxed{\mathrm A}\)。</p>`
   },
   {
     id: "single-04",
@@ -61,7 +61,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`\(mg+m\dfrac{v^2}{r}\)` }
     ],
     answer: ["D"],
-    explanation: String.raw`最低点的向心方向竖直向上，径向方程为 \(N-mg=mv^2/r\)，所以 \(N=mg+mv^2/r\)。`
+    explanation: String.raw`<p><strong>确定方向：</strong>汽车位于圆弧桥最低点，圆心在汽车上方，因此向心加速度方向竖直向上，大小为 \(a_n=v^2/r\)。</p><p><strong>列径向方程：</strong>取向上为正，\[N-mg=m\frac{v^2}{r}.\]</p><p><strong>解出支持力：</strong>\[N=mg+m\frac{v^2}{r},\]对应 \(\boxed{\mathrm D}\)。</p>`
   },
   {
     id: "single-05",
@@ -76,7 +76,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`\(\sqrt{2\pi R/g}\)` }
     ],
     answer: ["B"],
-    explanation: String.raw`赤道解体临界满足 \(\omega^2R=g\)，所以 \(\omega_{\max}=\sqrt{g/R}\)，进而 \(T_{\min}=2\pi/\omega_{\max}=2\pi\sqrt{R/g}\)。`
+    explanation: String.raw`<p><strong>临界条件：</strong>赤道处物质刚好不脱离时支持力为零，万有引力提供全部向心力，因此 \[m\omega^2R=mg.\]</p><p><strong>求临界角速度：</strong>\[\omega_{\max}=\sqrt{\frac gR}.\]</p><p><strong>换算周期：</strong>周期越小角速度越大，故最小周期为 \[T_{\min}=\frac{2\pi}{\omega_{\max}}=2\pi\sqrt{\frac Rg},\]对应 \(\boxed{\mathrm B}\)。选项 C 的量纲也不是时间。</p>`
   },
   {
     id: "single-06",
@@ -91,7 +91,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`\(\dfrac{25}{4}\)` }
     ],
     answer: ["C"],
-    explanation: String.raw`由开普勒第三定律的动力学形式 \(M\propto r^3/T^2\)，质量比为 \((1/4)^3/(1/10)^2=25/16\)。`
+    explanation: String.raw`<p><strong>动力学关系：</strong>圆轨道满足 \(GMm/r^2=m4\pi^2r/T^2\)，所以 \[M=\frac{4\pi^2r^3}{GT^2}.\]</p><p><strong>作比并代入：</strong>\[\frac{M_\star}{M_\odot}=\left(\frac{r_\star}{r_\oplus}\right)^3\left(\frac{T_\oplus}{T_\star}\right)^2=\left(\frac14\right)^3\left(10\right)^2=\frac{100}{64}=\frac{25}{16}.\]</p><p>对应 \(\boxed{\mathrm C}\)。</p>`
   },
   {
     id: "single-07",
@@ -106,7 +106,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`\(3.12\times10^4\,\mathrm J\)` }
     ],
     answer: ["C"],
-    explanation: String.raw`拉力 \(T=m(g+a)=9200\,\mathrm N\)，位移 \(h=at^2/2=3\,\mathrm m\)，故 \(W=Th=2.76\times10^4\,\mathrm J\)。`
+    explanation: String.raw`<p><strong>求拉力：</strong>由 \(T-mg=ma\)，\[T=m(g+a)=800(10+1.5)=9200\,\mathrm N.\]</p><p><strong>求位移：</strong>货物由静止做匀加速运动，\[h=\frac12at^2=\frac12\times1.5\times2^2=3.0\,\mathrm m.\]</p><p><strong>求功：</strong>拉力与位移同向，\[W=Th=9200\times3.0=27600\,\mathrm J=2.76\times10^4\,\mathrm J,\]对应 \(\boxed{\mathrm C}\)。</p>`
   },
   {
     id: "single-08",
@@ -121,7 +121,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`\(9\,\mathrm{m/s}\)` }
     ],
     answer: ["B"],
-    explanation: String.raw`最高点临界条件为 \(v_t^2=gR\)。由最低点到最高点应用能量关系，得 \(v_b^2=v_t^2+4gR=5gR=45\)，故 \(v_b=3\sqrt5\,\mathrm{m/s}\)。`
+    explanation: String.raw`<p><strong>最高点临界：</strong>恰不断轨时支持力为零，\[mg=m\frac{v_t^2}{R}\Rightarrow v_t^2=gR=10\times0.9=9.\]</p><p><strong>最低点到最高点：</strong>高度增加 \(2R\)，机械能守恒：\[\frac12mv_b^2=\frac12mv_t^2+mg(2R),\]故 \[v_b^2=v_t^2+4gR=9+4\times10\times0.9=45.\]</p><p>因此 \[v_b=\sqrt{45}=3\sqrt5\,\mathrm{m/s},\]对应 \(\boxed{\mathrm B}\)。</p>`
   },
   {
     id: "single-09",
@@ -136,7 +136,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`\(90^\circ\)` }
     ],
     answer: ["D"],
-    explanation: String.raw`令 \(c=\cos\varphi\)，由圆弧段能量关系和离轨后的斜抛上升量可得 \(H/R=2-c^2-c^3\)。令 \(H=2R\)，在允许范围内只有 \(c=0\)，故 \(\varphi=90^\circ\)。`
+    explanation: String.raw`<p><strong>分段建模：</strong>圆弧段先用机械能守恒求离轨速度，再把离轨速度分解，计算斜抛阶段继续上升的高度。令 \(c=\cos\varphi\)，整理两段高度可得 \[\frac HR=2-c^2-c^3.\]</p><p><strong>代入题设高度：</strong>\[2-c^2-c^3=2\Rightarrow c^2(1+c)=0.\]</p><p>在题图对应的 \(0^\circ\leq\varphi\leq90^\circ\) 范围内 \(c\geq0\)，只能取 \(c=0\)。因此 \[\cos\varphi=0\Rightarrow\varphi=90^\circ,\]对应 \(\boxed{\mathrm D}\)。</p>`
   },
   {
     id: "single-10",
@@ -151,7 +151,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`\(2.5\,\mathrm{kg}\)` }
     ],
     answer: ["B"],
-    explanation: String.raw`最高点动能为零，机械能等于重力势能，因此 \(90=mg\times6\)，解得 \(m=1.5\,\mathrm{kg}\)。`
+    explanation: String.raw`<p><strong>读取图像：</strong>物体在 \(h=6\,\mathrm m\) 处到达最高点，此时 \(v=0\)，所以机械能全部为重力势能，图中对应 \(E=90\,\mathrm J\)。</p><p><strong>代入：</strong>取零势能面为 \(h=0\)，\[E=mgh\Rightarrow90=m\times10\times6.\]</p><p><strong>求质量：</strong>\[m=\frac{90}{60}=1.5\,\mathrm{kg},\]对应 \(\boxed{\mathrm B}\)。</p>`
   },
   {
     id: "multiple-01",
@@ -166,7 +166,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`该运动不是加速度矢量恒定的匀变速运动` }
     ],
     answer: ["A", "B", "D"],
-    explanation: String.raw`速率增大给出 \(a_t\gt0\)；轨迹弯曲且 \(v\) 增大、\(R\) 减小，使 \(a_n=v^2/R\) 增大。切线、法线方向和两分量之比都在变化，所以合加速度方向不恒定。`
+    explanation: String.raw`<p><strong>分解加速度：</strong>沿轨迹切向有 \(a_t=\mathrm dv/\mathrm dt\)。速率均匀增大，所以 \(a_t\gt0\)，A 正确。</p><p>法向分量为 \[a_n=\frac{v^2}{R}.\]运动中 \(v\) 增大而 \(R\) 减小，因此 \(a_n\) 增大，B 正确。</p><p><strong>判断方向：</strong>切线和法线方向都随位置改变，且 \(a_n/a_t\) 也改变，合加速度方向不可能保持不变，C 错误；加速度矢量不恒定，所以不是匀变速运动，D 正确。答案为 \(\boxed{\mathrm{A,B,D}}\)。</p>`
   },
   {
     id: "multiple-02",
@@ -181,7 +181,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`二者落地速度方向相同` }
     ],
     answer: ["A", "B", "C"],
-    explanation: String.raw`水平位移比等于时间比，而 \(t_B/t_A=1/\sin\theta=2\)，故 \(\theta=30^\circ\)。两物体初速度大小相同、下降高度相同且无耗散，末速度大小相等；运动约束不同，末速度方向不同。`
+    explanation: String.raw`<p><strong>时间与位移：</strong>两物体水平初速度相同，故 \(x_B/x_A=t_B/t_A=2\)。斜面运动的时间与平抛时间满足 \[\frac{t_B}{t_A}=\frac1{\sin\theta}.\]因此 \(1/\sin\theta=2\)，得 \(\sin\theta=1/2\)，即 \(\theta=30^\circ\)，A、B 正确。</p><p><strong>末速度大小：</strong>两者初速度大小相同、下降高度均为 \(H\)，且过程无耗散，\[v_f^2=v_0^2+2gH,\]所以末速度大小相等，C 正确。</p><p>B 的末速度沿斜面，A 的末速度由水平、竖直分量合成，方向一般不同，D 错误。答案为 \(\boxed{\mathrm{A,B,C}}\)。</p>`
   },
   {
     id: "multiple-03",
@@ -196,7 +196,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`半径改为 \(\lambda r\) 后，两临界速度均乘 \(\sqrt\lambda\)，最低点临界张力仍为 \(6mg\)` }
     ],
     answer: ["A", "B", "D"],
-    explanation: String.raw`最高点临界张力为零，故 \(v_t^2=gr\)。能量关系给出 \(v_b^2=5gr\)；最低点径向方程 \(T_b-mg=mv_b^2/r\)，所以 \(T_b=6mg\)。`
+    explanation: String.raw`<p><strong>最高点临界：</strong>轻绳只能拉不能推，恰能通过最高点时 \(T_t=0\)，所以 \[mg=m\frac{v_t^2}{r}\Rightarrow v_t=\sqrt{gr}.\]A 正确。</p><p><strong>最低点临界速度：</strong>由最低点到最高点升高 \(2r\)，\[\frac12mv_b^2=\frac12mv_t^2+2mgr,\]代入 \(v_t^2=gr\)，得 \(v_b^2=5gr\)，即 \(v_b=\sqrt{5gr}\)，B 正确。</p><p><strong>最低点张力：</strong>\[T_b-mg=m\frac{v_b^2}{r}=5mg\Rightarrow T_b=6mg,\]故 C 错。半径变为 \(\lambda r\) 时两临界速度均乘 \(\sqrt\lambda\)，而张力结果仍为 \(6mg\)，D 正确。答案为 \(\boxed{\mathrm{A,B,D}}\)。</p>`
   },
   {
     id: "multiple-04",
@@ -211,7 +211,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`向心力突变必然导致速率瞬间突变` }
     ],
     answer: ["A", "B"],
-    explanation: String.raw`速率不变时 \(F_c=mv^2/r\)、\(T=2\pi r/v\)，所以力与半径成反比、周期与半径成正比，角速度变为原来的 \(1/\lambda\)。径向冲量可改变速度方向而不必改变速率。`
+    explanation: String.raw`<p><strong>向心力：</strong>速率保持 \(v\) 不变，\[F_1=\frac{mv^2}{r},\qquad F_2=\frac{mv^2}{\lambda r},\]所以 \(F_2/F_1=1/\lambda\)，A 正确。</p><p><strong>周期与角速度：</strong>\[T_1=\frac{2\pi r}{v},\qquad T_2=\frac{2\pi\lambda r}{v}=\lambda T_1,\]故 B 正确；\(\omega=v/r\)，所以 \(\omega_2/\omega_1=1/\lambda\)，C 错。</p><p>径向作用可主要改变速度方向，不必使速率瞬间改变，D 错。答案为 \(\boxed{\mathrm{A,B}}\)。</p>`
   },
   {
     id: "multiple-05",
@@ -226,7 +226,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`近日点与远日点的速度比增大` }
     ],
     answer: ["A", "B", "D"],
-    explanation: String.raw`近、远点角动量守恒给出 \(r_pv_p=r_av_a\)，引力加速度满足 \(g\propto1/r^2\)。半长轴不变时周期不变；偏心率增大使 \(r_a/r_p\) 增大，速度比随之增大。`
+    explanation: String.raw`<p><strong>速度比：</strong>近、远点速度均与径向垂直，由角动量守恒 \[mr_pv_p=mr_av_a\Rightarrow\frac{v_p}{v_a}=\frac{r_a}{r_p},\]A 正确。</p><p><strong>引力加速度比：</strong>\[g=\frac{GM}{r^2}\Rightarrow\frac{g_p}{g_a}=\left(\frac{r_a}{r_p}\right)^2,\]B 正确。</p><p>开普勒第三定律 \(T^2\propto a^3\)，半长轴 \(a\) 不变则周期不变，C 错。偏心率增大时 \(r_p=a(1-e)\) 减小、\(r_a=a(1+e)\) 增大，因此 \(r_a/r_p\) 增大，D 正确。答案为 \(\boxed{\mathrm{A,B,D}}\)。</p>`
   },
   {
     id: "multiple-06",
@@ -241,7 +241,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`转移轨道远地点速度小于半径 \(r_2\) 圆轨道速度，因此第二次点火仍需沿速度方向加速` }
     ],
     answer: ["A", "B", "D"],
-    explanation: String.raw`霍曼轨道的半长轴为两圆轨道半径的平均值，飞行过程是转移椭圆的半个周期。近地点第一次加速使速度高于原圆轨道速度；到远地点时速度低于目标圆轨道速度，需要再次顺向加速圆化。`
+    explanation: String.raw`<p><strong>转移轨道几何：</strong>近、远地点分别为 \(r_1,r_2\)，故椭圆半长轴 \[a_t=\frac{r_1+r_2}{2},\]A 正确。</p><p><strong>飞行时间：</strong>椭圆周期 \(T_t=2\pi\sqrt{a_t^3/(GM)}\)，转移只走半个周期，\[t=\frac{T_t}{2}=\pi\sqrt{\frac{a_t^3}{GM}},\]B 正确。</p><p>第一次点火必须顺向加速，故转移轨道近地点速度高于原圆轨道速度，C 错；远地点转移速度低于目标圆轨道速度，第二次仍需顺向加速，D 正确。答案为 \(\boxed{\mathrm{A,B,D}}\)。</p>`
   },
   {
     id: "multiple-07",
@@ -256,7 +256,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`车辆可在有限时间内严格达到极限速度` }
     ],
     answer: ["A", "B", "C"],
-    explanation: String.raw`由 \(P=Fv\) 得牵引力随速度增大而减小。牛顿第二定律给出 \(a=(P/v-f)/m\)，当 \(v\to P/f\) 时加速度趋于零，因此极限速度只能渐近达到。`
+    explanation: String.raw`<p><strong>牵引力：</strong>恒功率满足 \(P=Fv\)，所以 \[F=\frac Pv,\]A 正确。</p><p><strong>加速度：</strong>沿运动方向应用牛顿第二定律，\[F-f=ma\Rightarrow a(v)=\frac{P/v-f}{m},\]B 正确。</p><p><strong>极限速度：</strong>当 \(a=0\) 时 \(P/v_m=f\)，故 \[v_m=\frac Pf,\]C 正确。随着 \(v\) 接近 \(v_m\)，加速度趋近于零，达到过程是渐近的，不会在有限时间内严格达到，D 错误。答案为 \(\boxed{\mathrm{A,B,C}}\)。</p>`
   },
   {
     id: "multiple-08",
@@ -271,7 +271,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`该过程产生热量 \(4\,\mathrm J\)` }
     ],
     answer: ["A", "B", "C"],
-    explanation: String.raw`滑块速度由 \(-3\) 变到 \(+1\)，加速度为 \(+2\)，故时间为 \(2\,\mathrm s\)。相对速度由 \(-4\) 匀变到零，相对路程为 \(4\,\mathrm m\)，热量 \(Q=f\Delta s_{rel}=8\,\mathrm J\)。`
+    explanation: String.raw`<p><strong>加速度：</strong>摩擦力向右，\[a=\frac fm=\frac21=2\,\mathrm{m/s^2},\]故 A 正确。</p><p><strong>达到同速所需时间：</strong>\[t=\frac{v-v_0}{a}=\frac{1-(-3)}2=2\,\mathrm s,\]B 正确。</p><p><strong>相对滑动路程：</strong>初相对速度大小为 \(1-(-3)=4\,\mathrm{m/s}\)，末相对速度为零，因此 \[\Delta s_{\rm rel}=\frac{4+0}{2}\times2=4\,\mathrm m,\]C 正确。</p><p><strong>生热：</strong>\[Q=f\Delta s_{\rm rel}=2\times4=8\,\mathrm J,\]不是 \(4\,\mathrm J\)，D 错。答案为 \(\boxed{\mathrm{A,B,C}}\)。</p>`
   },
   {
     id: "multiple-09",
@@ -286,7 +286,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`\(x_{\max}=\dfrac{mg+\sqrt{m^2g^2+2kmgH}}{k}\)` }
     ],
     answer: ["A", "B", "D"],
-    explanation: String.raw`全过程能量守恒给出 A。速度最大时合力为零，故 \(kx=mg\)。最大压缩处速度为零，代入能量式并取正根得到 D；它位于速度最大点之后。`
+    explanation: String.raw`<p><strong>任意压缩量：</strong>以释放点为初态，重力势能减少 \(mg(H+x)\)，转化为动能和弹性势能：\[mg(H+x)=\frac12mv^2+\frac12kx^2,\]A 正确。</p><p><strong>速度最大位置：</strong>速度最大时加速度为零，\[mg-kx=0\Rightarrow x=\frac{mg}{k},\]B 正确；这不是最大压缩位置，故 C 错。</p><p><strong>最大压缩量：</strong>令 \(v=0\)，得到 \(kx^2-2mgx-2mgH=0\)。取正根：\[x_{\max}=\frac{mg+\sqrt{m^2g^2+2kmgH}}{k},\]D 正确。答案为 \(\boxed{\mathrm{A,B,D}}\)。</p>`
   },
   {
     id: "multiple-10",
@@ -301,7 +301,7 @@ var summerExamQuestions = [
       { key: "D", text: String.raw`电动机额外做功不等于木块动能增加量，因为还要补偿摩擦产生的内能` }
     ],
     answer: ["A", "B", "D"],
-    explanation: String.raw`加速度为 \(\mu g=3\,\mathrm{m/s^2}\)，达到带速需 \(2\,\mathrm s\)。木块位移 \(6\,\mathrm m\)，带面位移 \(12\,\mathrm m\)，相对路程为 \(6\,\mathrm m\)。故 \(Q=27\,\mathrm J\)，电动机额外做功为 \(54\,\mathrm J\)。`
+    explanation: String.raw`<p><strong>运动时间：</strong>木块加速度 \[a=\mu g=0.30\times10=3.0\,\mathrm{m/s^2},\]达到 \(6\,\mathrm{m/s}\) 所需时间 \[t=\frac va=\frac63=2.0\,\mathrm s.\]</p><p><strong>相对路程：</strong>木块位移 \(x_b=at^2/2=6\,\mathrm m\)，传送带位移 \(x_c=vt=12\,\mathrm m\)，所以 \[\Delta s_{\rm rel}=x_c-x_b=6\,\mathrm m,\]A 正确。</p><p><strong>热量与电动机功：</strong>摩擦力 \(f=\mu mg=0.30\times1.5\times10=4.5\,\mathrm N\)，\[Q=f\Delta s_{\rm rel}=4.5\times6=27\,\mathrm J,\]B 正确。电动机额外做功 \[W_{\rm motor}=fx_c=4.5\times12=54\,\mathrm J,\]故 C 错；它等于木块动能增加量 \(27\,\mathrm J\) 与生热 \(27\,\mathrm J\) 之和，D 正确。答案为 \(\boxed{\mathrm{A,B,D}}\)。</p>`
   }
 ];
 
@@ -381,7 +381,7 @@ function createSummerExamQuestion(question, number) {
 
   var answer = document.createElement("p");
   answer.className = "summer-exam-answer";
-  answer.innerText = "正确答案：" + question.answer.join("、");
+  answer.innerHTML = "正确答案：\\(\\boxed{\\mathrm{" + question.answer.join(",") + "}}\\)";
 
   var explanation = document.createElement("div");
   explanation.className = "summer-exam-explanation";
@@ -414,9 +414,9 @@ function renderSummerExam() {
   summerExamRendered = true;
 }
 
-function renderSummerExamMath() {
+function renderSummerExamMath(force) {
   renderSummerExam();
-  if (summerExamMathRendered) return;
+  if (summerExamMathRendered && !force) return;
   var panel = document.getElementById("summerExamPanel");
   if (!panel || !window.MathJax || !window.MathJax.typesetPromise) return;
   window.MathJax.typesetPromise([panel]).then(function () {
@@ -516,7 +516,7 @@ function gradeSummerExam(event) {
   document.getElementById("summerExamAnsweredCount").innerText = answered + " / 20";
   document.getElementById("summerExamResultMessage").innerText = summerExamResultMessage(total, unanswered);
   summerExamHasResult = true;
-  renderSummerExamMath();
+  renderSummerExamMath(true);
   result.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 

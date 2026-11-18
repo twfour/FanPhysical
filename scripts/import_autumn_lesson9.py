@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 import json
+import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -8,8 +10,8 @@ CHAPTER = '带电粒子在电场中的运动和示波器原理'
 
 ITEMS = [
 ('course_01_plate_holes_return','例1：平行板小孔往返','multiple-choice','ACD','plate_holes_return','course-01-plate-holes',
-'A、B 为相距 \(d\) 的水平平行金属板，中央分别有小孔 M、N。一带电质点从 A 板上方距 A 为 \(h\) 的 P 点静止下落，穿过 M 后到 N 孔速度恰为零并原路返回。保持极板接电源，判断移动极板后的结论。',
-['A. A 板上移少许，质点仍能返回','B. A 板下移少许，质点将穿过 N 孔','C. B 板上移 \(d/2\)，质点返回后的最高点在 A 板下方 \(h/3\)','D. B 板下移少许，质点将穿过 N 孔'],
+'A、B 为相距 \(d\) 的水平平行金属板，中央分别有小孔 M、N。一带电质点从 A 板上方距 A 为 \(d\) 的 P 点静止下落，穿过 M 后到 N 孔速度恰为零并原路返回。保持极板接电源，判断移动极板后的结论。',
+['A. A 板上移少许，质点仍能返回','B. A 板下移少许，质点将穿过 N 孔','C. B 板上移 \(d/2\)，质点返回后的最低点距 A 点 \(d/3\)','D. B 板下移少许，质点将穿过 N 孔'],
 '由初态得 \(qU=-2mgd\)。移动 A 板不改变极板电压及 P 到 N 的总重力势能差，故 A 对、B 错；B 板上移后由能量方程求得返回转折点，C 对；B 板下移使重力做功增加而电场功不变，D 对。'),
 ('course_02_crt_deflection','例2：示波管加速与偏转','calculation','\(v_0=\sqrt{2eU_1/m}\)，\(y_1=U_2L_1^2/(4dU_1)\)，\(y_P=U_2L_1(L_1+2L_2)/(4dU_1)\)','crt_deflection','course-02-crt',
 '真空示波管中电子由静止经加速电压 \(U_1\) 后，垂直进入板长 \(L_1\)、间距 \(d\)、电压 \(U_2\) 的偏转电场，板端到荧光屏距离为 \(L_2\)。求入射速度、离开偏转场的侧移量和屏上偏移量。',None,
@@ -120,7 +122,7 @@ def problem(row):
     steps.extend([
       {'stepId':5,'title':'答案复核','content':detail['check']},
       {'stepId':6,'title':'动画观察点','content':detail['observe']},
-      {'stepId':7,'title':'结论','content':f'答案为 **{answer}**。'}])
+      {'stepId':7,'title':'结论','content':(f'答案为 \\(\\boxed{{\\mathrm{{{answer}}}}}\\)。' if kind in {'single-choice','multiple-choice'} else f'答案为 \\[\\boxed{{{answer}}}\\]。')}])
     return restore_latex({
       'id':pid,'chapter':CHAPTER,'title':title,'type':kind,'question':question,'options':options,'answer':answer,
       'analysis':{'title':'解析','sharedThinking':thinking,'sharedFormula':formula},
@@ -143,3 +145,4 @@ for row in ITEMS:
         index['problems'].append({'id':data['id'],'file':f"{data['id']}.json"})
 index_path.write_text(json.dumps(index,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print('wrote',len(ITEMS),'problems')
+subprocess.run([sys.executable, str(ROOT / 'scripts/enhance_autumn_lesson9_solutions.py')], check=True)
