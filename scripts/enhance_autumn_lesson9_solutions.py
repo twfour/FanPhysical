@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -122,6 +123,189 @@ A、B 正确。速度矢量线段到原点的最短距离为
 一周只记录半个正弦周期，下一周记录相反相位的另半周期；不同剪开线只改变展开图初相位，因此 A、C 正确，B、D 错误。''',
 }
 
+OPTION_JUDGMENTS = {
+    "autumn9_course_01_plate_holes_return": r'''A：正确。A 板移动只改变板间场强和作用距离，电源仍保持电压 \(U\) 不变，电场总功仍为 \(qU\)。
+
+B：错误。A 板下移同样不改变 P 到 N 的总重力功与电场总功，质点仍在 N 点速度为零。
+
+C：正确。B 板上移 \(d/2\) 后板距变为 \(d/2\)，由 \(mg(d+x)-4mgx=0\) 得最低点距 A 点 \(x=d/3\)。
+
+D：正确。B 板下移使 P 到 N 的重力正功增大，而电场总功仍为 \(qU\)，质点将以非零速度穿过 N。''',
+    "autumn9_course_03_projectile_energy": r'''A：正确。机械能 \(E_k+E_{pg}\) 的增加量等于电场力做功 \(16\,\mathrm J\)。
+
+B：正确。到 N 点时重力势能恢复，电场功为 \(4\times16=64\,\mathrm J\)，所以 \(E_{kN}=9+64=73\,\mathrm J\)。
+
+C：错误。上升段与下降段的电场功分别为 \(16\,\mathrm J\) 和 \(48\,\mathrm J\)，比为 \(1:3\)。
+
+D：正确。最小化 \(E_k(\tau)=16\tau^2+9(1-\tau)^2\)，得到 \(E_{k,\min}=144/25\,\mathrm J=5.76\,\mathrm J\)。''',
+    "autumn9_hw_01_liquid_capacitor": r'''A：错误。液面升高使有效正对面积 \(S\) 增大，因此 \(C=\varepsilon S/d\) 增大。
+
+B：错误。电容器始终连接恒压电源，电压 \(U\) 不变。
+
+C：正确。刮去部分涂层使 \(S\) 和 \(C\) 减小，由 \(Q=CU\) 可知电荷量减小。
+
+D：错误。电压由恒压电源固定，不随涂层面积改变。''',
+    "autumn9_hw_02_crt_quadrant": r'''A：错误。电子束的水平偏转方向向左，横坐标不是正值。
+
+B：正确。亮斑同时向左、向上偏转，位于第二象限。
+
+C：错误。亮斑向上偏转，纵坐标不是负值。
+
+D：错误。水平和竖直偏转方向均与第四象限不符。''',
+    "autumn9_hw_03_oscilloscope_waveform": r'''A：错误。该图的纵向相位与水平扫描端点不匹配。
+
+B：错误。该图把快速回扫过程误画成了可见的主轨迹。
+
+C：正确。按照同一时刻配对 \(x(t)=k_xU_x(t)\) 与 \(y(t)=k_yU_y(t)\)，得到图 C。
+
+D：错误。图中波形上下变化的时间次序与原信号不符。''',
+    "autumn9_hw_04_ion_deflection": r'''A：错误。速度由 \(v=\sqrt{2qU_1/m}\) 决定，两者速度比不是 \(1:1\)。
+
+B：错误。代入 \(q_H=e,m_H=m_p\) 与 \(q_{He}=2e,m_{He}=4m_p\)，得到 \(v_H:v_{He}=\sqrt2:1\)，不是 \(1:2\)。
+
+C：正确。侧移 \(y=U_2L^2/(4dU_1)\) 中 \(q,m\) 完全消去，故位移比为 \(1:1\)。
+
+D：错误。两种粒子的板内侧移相等，不是 \(1:2\)。''',
+    "autumn9_hw_05_linear_accelerator": r'''A：正确。为使质子每次跨越缝隙时都加速，电源极性必须周期性换向。
+
+B：正确。各管内飞行时间均为 \(T\)，故 \(L_n=v_nT\)，管长与进入该管的速度成正比。
+
+C：错误。实际有 \(L_A:L_B=v_0:\sqrt{v_0^2+2eU/m}\)，并不恒为 \(1:\sqrt2\)。
+
+D：正确。由 \(eU=\tfrac12m(v^2-v_0^2)\) 得 \(v=\sqrt{v_0^2+2eU/m}\)。''',
+    "autumn9_hw_06_atmosphere_field": r'''A：错误。电势随高度升高，电场由高电势指向低电势，因此方向竖直向下。
+
+B：错误。题给电容器储存电荷量约为 \(5.0\times10^5\,\mathrm C\)，地面带电量大小不是 \(2.5\times10^5\,\mathrm C\)。
+
+C：错误。\(C=Q/U\approx(5.0\times10^5)/(300\times10^3)\,\mathrm F\approx1.67\,\mathrm F\)，不是 \(0.6\,\mathrm F\)。
+
+D：正确。\(|E|=|\mathrm d\varphi/\mathrm dh|\)，随高度增加该导数的绝对值减小。''',
+    "autumn9_hw_07_effective_gravity_loop": r'''A：正确。由 \(2g's=3g'R\) 得 \(s=3R/2=3\times0.8/2\,\mathrm m=1.2\,\mathrm m\)。
+
+B：错误。\(2.2\,\mathrm m\) 大于临界释放距离。
+
+C：错误。\(2.0\,\mathrm m\) 不满足临界能量关系。
+
+D：错误。\(2.1\,\mathrm m\) 不满足临界能量关系。''',
+    "autumn9_hw_08_electric_circle_energy": r'''A：错误。动能最小点需要由重力势能与电势能组成的有效势能共同判断，不能直接认定为 E 点。
+
+B：错误。电势能极值由 \(E_p=q\varphi\) 和电场力方向决定，B 点不是最大值位置。
+
+C：正确。由 \(\Delta(E_k+E_{pg})=W_E\)，C 点沿电场力方向的位移最大，机械能最大。
+
+D：错误。E 点不是机械能最小位置。''',
+    "autumn9_hw_09_crt_multiple": r'''A：正确。由 \(10eU=mv_0^2/2\) 得 \(v_0=\sqrt{20eU/m}\)。
+
+B：正确。偏转电场再做功 \(eU\)，总动能为 \(11eU\)，故 \(v=\sqrt{22eU/m}\)。
+
+C：正确。板内与板外侧移相加得 \(x=l^2/(40d)+sl/(20d)\)。
+
+D：正确。水平速度始终为 \(v_0\)，故 \(t=(l+s)/v_0=(l+s)\sqrt{m/(20eU)}\)。''',
+    "autumn9_hw_10_charge_plane": r'''A：正确。图示场强向左，要产生压向平面的电场力，物块电荷量必须满足 \(q<0\)。
+
+B：错误。该平面上 \(\varphi=0\)，所以电势能 \(E_p=q\varphi\) 恒定。
+
+C：错误。题给代数式可能为负，不能不取绝对值就称为加速度大小。
+
+D：正确。由对称摩擦功和动能定理得到 \(v_O=v_0/\sqrt2=(\sqrt2/2)v_0\)。''',
+    "autumn9_hw_11_alternating_field": r'''A：正确。由 \(d/2=at_{\min}^2/2\) 及 \(a=v_0^2/(2d)\)，得 \(t_{\min}=\sqrt2d/v_0\)。
+
+B：错误。碰板前最大动能为 \(E_{k,\max}=3mv_0^2/4\)，不是 \(5mv_0^2/4\)。
+
+C：错误。在 \(t=d/(2v_0)\) 发射的粒子到达 \(O'\) 前先碰板。
+
+D：错误。在 \(t=3d/(2v_0)\) 发射的粒子同样先碰板。''',
+    "autumn9_hw_12_velocity_turn": r'''A：错误。轨迹只能确定电场力 \(q\vec E\) 的方向，不能单独确定 \(q\) 的正负。
+
+B：正确。末动能大于初动能，电场力做正功，因此 A 点电势能比 O 点小。
+
+C：正确。\(v_{\min}^2=4v_0^2/5\)，所以 \(E_{k,\min}=mv_{\min}^2/2=2mv_0^2/5\)。
+
+D：错误。\(\Delta\vec v=(2v_0,-v_0)\)，电场力方向斜率为 \(-1/2\)，不是 \(2\)。''',
+    "autumn9_hw_13_proton_field": r'''A：正确。由 \(\vec a=(-v^2/L,-\sqrt3v^2/L)\) 可知电场斜向左下，与水平线成 \(60^\circ\)。
+
+B：正确。\(|a|=2v^2/L\)，由 \(qE=ma\) 得 \(E=2mv^2/(qL)\)。
+
+C：正确。水平平均速度为 \(v\)，所以运动时间 \(t=L/v\)。
+
+D：错误。速度矢量线段到原点的最短距离为 \(v_{\min}=\sqrt3v/2\)，不是 \(v/2\)。''',
+    "autumn9_hw_14_rotating_cylinder": r'''A：正确。该图可对应从信号零相位位置剪开圆筒记录纸。
+
+B：错误。圆筒一周为 \(0.5\,\mathrm s\)，只记录电压信号的半个周期，不会形成单条完整正弦周期。
+
+C：正确。改变剪开位置等价于改变展开图初相位，可以得到交叉的互补轨迹。
+
+D：错误。最大偏移为 \(7.5\,\mathrm{cm}\)，不是 \(15\,\mathrm{cm}\)。''',
+}
+
+INLINE_REPLACEMENTS = [
+    (r"XX\prime", r"\(XX'\)"),
+    (r"O\prime", r"\(O'\)"),
+    (r"10U", r"\(10U\)"),
+    (r"C、D", r"\(C\)、\(D\)"),
+    (r"1:\sqrt2", r"\(1:\sqrt{2}\)"),
+    (r"v=\sqrt{22eU/m}", r"\(v=\sqrt{22eU/m}\)"),
+    (r"\sqrt3v/2", r"\(\sqrt{3}v/2\)"),
+    (r"y=\pm d/2", r"\(y=\pm d/2\)"),
+    (r"t=8d/v_0", r"\(t=8d/v_0\)"),
+    (r"s=3R/2", r"\(s=3R/2\)"),
+    (r"R=0.8 m", r"\(R=0.8\,\mathrm m\)"),
+    (r"1.2 m", r"\(1.2\,\mathrm m\)"),
+    (r"7.5 cm", r"\(7.5\,\mathrm{cm}\)"),
+    (r"0.5 s", r"\(0.5\,\mathrm s\)"),
+    (r"1 s", r"\(1\,\mathrm s\)"),
+    (r"|a|=2v²/L", r"\(|a|=2v^2/L\)"),
+    (r"dφ/dh", r"\(\mathrm d\varphi/\mathrm dh\)"),
+    (r"dh/dφ", r"\(\mathrm dh/\mathrm d\varphi\)"),
+    (r"|E|", r"\(|E|\)"),
+    (r"mg\prime", r"\(mg'\)"),
+    (r"g\prime", r"\(g'\)"),
+    (r"E_k+E_pg", r"\(E_k+E_{pg}\)"),
+    (r"Q=CU", r"\(Q=CU\)"),
+    (r"q/m", r"\(q/m\)"),
+    (r"qU", r"\(qU\)"),
+    (r"qE", r"\(qE\)"),
+    (r"eU", r"\(eU\)"),
+    (r"l+s", r"\(l+s\)"),
+    (r"v_0", r"\(v_0\)"),
+    (r"U_2=0", r"\(U_2=0\)"),
+    (r"U_2", r"\(U_2\)"),
+    (r"U_1", r"\(U_1\)"),
+    (r"L_n=v_nT", r"\(L_n=v_nT\)"),
+    (r"L_n", r"\(L_n\)"),
+    (r"v_n", r"\(v_n\)"),
+    (r"(0,\(v_0\))", r"\((0,v_0)\)"),
+    (r"(2\(v_0\),0)", r"\((2v_0,0)\)"),
+    (r"(x(t),y(t))", r"\((x(t),y(t))\)"),
+    (r"1:4", r"\(1:4\)"),
+    (r"2T", r"\(2T\)"),
+]
+
+
+def normalize_analysis_text(text):
+    text = (text.replace(r"\(v=\sqrt{22\(eU\)/m}\)", r"\(v=\sqrt{22eU/m}\)")
+                .replace(r"\(t=8d/\(v_0\)\)", r"\(t=8d/v_0\)"))
+    parts = re.split(r"(\\\(.*?\\\)|\\\[.*?\\\])", text, flags=re.S)
+    for index in range(0, len(parts), 2):
+        outside = parts[index]
+        protected = []
+        for old, new in INLINE_REPLACEMENTS:
+            if old not in outside:
+                continue
+            marker = f"@@MATH{len(protected)}@@"
+            outside = outside.replace(old, marker)
+            protected.append((marker, new))
+        # Point and plate labels are mathematical symbols too, but option labels
+        # such as “A：正确” are left untouched in the dedicated option block.
+        outside = re.sub(r"(?<![A-Za-z0-9_\\])([A-Z])(?=[、，。；与和点板管到间两端处为])", r"\\(\1\\)", outside)
+        outside = outside.replace("高度 h", r"高度 \(h\)").replace("电势 φ", r"电势 \(\varphi\)")
+        outside = outside.replace("面积 S", r"面积 \(S\)").replace("电压 U", r"电压 \(U\)")
+        outside = outside.replace("把 Q 不变", r"把 \(Q\) 不变").replace("、C 和 Q", r"、\(C\) 和 \(Q\)")
+        for marker, value in protected:
+            outside = outside.replace(marker, value)
+        parts[index] = outside
+    return "".join(parts)
+
 
 def latex_answer(problem):
     answer = problem["answer"]
@@ -143,11 +327,22 @@ for path in sorted(PROBLEMS.glob("autumn9_*.json")):
         problem["options"] = [option.replace("返回后的最高点在 A 板下方 \\(h/3\\)", "返回后的最低点距 A 点 \\(d/3\\)") for option in problem["options"]]
     derivation = DERIVATIONS.get(problem["id"])
     if derivation:
+        derivation = derivation.replace(r"\sqrt2", r"\sqrt{2}").replace(r"\sqrt3", r"\sqrt{3}")
         replace_step(problem.get("steps"), "完整推导", derivation)
         replace_step(problem.get("analysisLeadSteps"), "完整推导", derivation)
+    option_judgment = OPTION_JUDGMENTS.get(problem["id"])
+    if option_judgment:
+        option_judgment = option_judgment.replace(r"\sqrt2", r"\sqrt{2}").replace(r"\sqrt3", r"\sqrt{3}")
+        replace_step(problem.get("steps"), "逐项判断", option_judgment)
     conclusion = latex_answer(problem)
     replace_step(problem.get("steps"), "结论", conclusion)
     replace_step(problem.get("analysisSupplementSteps"), "结论", conclusion)
+    if isinstance(problem.get("analysis"), dict) and problem["analysis"].get("sharedThinking"):
+        problem["analysis"]["sharedThinking"] = normalize_analysis_text(problem["analysis"]["sharedThinking"])
+    for collection_name in ("steps", "analysisLeadSteps", "analysisSupplementSteps"):
+        for step in problem.get(collection_name) or []:
+            if step.get("title") not in {"建模与专用公式", "逐项判断", "结论"}:
+                step["content"] = normalize_analysis_text(step.get("content", ""))
     path.write_text(json.dumps(problem, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 print(f"enhanced {len(list(PROBLEMS.glob('autumn9_*.json')))} problems; detailed {len(DERIVATIONS)} numeric/formula problems")

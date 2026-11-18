@@ -13,7 +13,7 @@
   "answer": "D",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "图中纵轴为高度 h、横轴为电势 φ。场强不是图线的普通斜率，而是 dφ/dh，即所画曲线斜率 dh/dφ 的倒数。",
+    "sharedThinking": "图中纵轴为高度 \\(h\\)、横轴为电势 \\(\\varphi\\)。场强不是图线的普通斜率，而是 \\(\\mathrm d\\varphi/\\mathrm dh\\)，即所画曲线斜率 \\(\\mathrm dh/\\mathrm d\\varphi\\) 的倒数。",
     "sharedFormula": "\\[E_h=-\\frac{d\\varphi}{dh},\\qquad C=\\frac{Q}{U}\\]"
   },
   "analysisPresentation": {
@@ -24,7 +24,7 @@
     {
       "stepId": 1,
       "title": "物理过程与条件",
-      "content": "图中纵轴为高度 h、横轴为电势 φ。场强不是图线的普通斜率，而是 dφ/dh，即所画曲线斜率 dh/dφ 的倒数。"
+      "content": "图中纵轴为高度 \\(h\\)、横轴为电势 \\(\\varphi\\)。场强不是图线的普通斜率，而是 \\(\\mathrm d\\varphi/\\mathrm dh\\)，即所画曲线斜率 \\(\\mathrm dh/\\mathrm d\\varphi\\) 的倒数。"
     },
     {
       "stepId": 2,
@@ -39,17 +39,17 @@
     {
       "stepId": 4,
       "title": "逐项判断",
-      "content": "A：错误，电势向上升高，所以电场竖直向下。\n\nB：错误，与题给储存电荷量不符。\n\nC：错误，由 Q/U 计算的数量级不为 0.6 F。\n\nD：正确，dφ/dh 随高度减小。"
+      "content": "A：错误。电势随高度升高，电场由高电势指向低电势，因此方向竖直向下。\n\nB：错误。题给电容器储存电荷量约为 \\(5.0\\times10^5\\,\\mathrm C\\)，地面带电量大小不是 \\(2.5\\times10^5\\,\\mathrm C\\)。\n\nC：错误。\\(C=Q/U\\approx(5.0\\times10^5)/(300\\times10^3)\\,\\mathrm F\\approx1.67\\,\\mathrm F\\)，不是 \\(0.6\\,\\mathrm F\\)。\n\nD：正确。\\(|E|=|\\mathrm d\\varphi/\\mathrm dh|\\)，随高度增加该导数的绝对值减小。"
     },
     {
       "stepId": 5,
       "title": "答案复核",
-      "content": "先认清坐标轴再读斜率；电势随高度升高说明电场方向向下。题给电荷量和总电势差还要统一数量级后才能求 C。"
+      "content": "先认清坐标轴再读斜率；电势随高度升高说明电场方向向下。题给电荷量和总电势差还要统一数量级后才能求 \\(C\\)。"
     },
     {
       "stepId": 6,
       "title": "动画观察点",
-      "content": "观察等高度增量对应的电势增量逐渐减小，说明 |E| 随高度减小。"
+      "content": "观察等高度增量对应的电势增量逐渐减小，说明 \\(|E|\\) 随高度减小。"
     },
     {
       "stepId": 7,

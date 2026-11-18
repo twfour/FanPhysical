@@ -13,7 +13,7 @@
   "answer": "A",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "重力与水平电场力均为恒力，可合成为恒定的“有效重力” mg\\prime。圆周临界点是有效重力方向的最高点，而不一定是几何最高点。",
+    "sharedThinking": "重力与水平电场力均为恒力，可合成为恒定的“有效重力” \\(mg'\\)。圆周临界点是有效重力方向的最高点，而不一定是几何最高点。",
     "sharedFormula": "\\[g\\prime=\\sqrt{g^2+(|q|E/m)^2}=\\frac54g,\\quad v_A^2=3g\\prime R,\\quad 2g\\prime s=v_A^2\\]"
   },
   "analysisPresentation": {
@@ -24,7 +24,7 @@
     {
       "stepId": 1,
       "title": "物理过程与条件",
-      "content": "重力与水平电场力均为恒力，可合成为恒定的“有效重力” mg\\prime。圆周临界点是有效重力方向的最高点，而不一定是几何最高点。"
+      "content": "重力与水平电场力均为恒力，可合成为恒定的“有效重力” \\(mg'\\)。圆周临界点是有效重力方向的最高点，而不一定是几何最高点。"
     },
     {
       "stepId": 2,
@@ -34,17 +34,17 @@
     {
       "stepId": 3,
       "title": "完整推导",
-      "content": "电场力大小为 \\(|q|E=3mg/4\\)，与重力垂直，故有效重力加速度\n\\[g'=\\sqrt{g^2+\\left(\\frac{3g}{4}\\right)^2}=\\frac54g.\\]\n其方向与斜面平行。小球恰能完成圆周运动时，在有效重力方向的最高点满足临界条件；结合从 A 到该点的能量关系可得\n\\[v_A^2=3g'R.\\]\n小球从斜面释放点到 A 的过程中\n\\[2g's=v_A^2=3g'R\\quad\\Rightarrow\\quad s=\\frac{3R}{2}.\\]\n代入 \\(R=0.8\\,\\mathrm m\\)：\n\\[s=\\frac32\\times0.8\\,\\mathrm m=1.2\\,\\mathrm m,\\]\n对应 A。"
+      "content": "电场力大小为 \\(|q|E=3mg/4\\)，与重力垂直，故有效重力加速度\n\\[g'=\\sqrt{g^2+\\left(\\frac{3g}{4}\\right)^2}=\\frac54g.\\]\n其方向与斜面平行。小球恰能完成圆周运动时，在有效重力方向的最高点满足临界条件；结合从 A 到该点的能量关系可得\n\\[v_A^2=3g'R.\\]\n小球从斜面释放点到 A 的过程中\n\\[2g's=v_A^2=3g'R\\quad\\Rightarrow\\quad s=\\frac{3R}{2}.\\]\n代入 \\(R=0.8\\,\\mathrm m\\)：\n\\[s=\\frac32\\times0.8\\,\\mathrm m=1.2\\,\\mathrm m,\\]\n对应 \\(A\\)。"
     },
     {
       "stepId": 4,
       "title": "逐项判断",
-      "content": "A：正确，s=3R/2=1.2 m。\n\nB：错误，大于临界所需距离。\n\nC：错误，不满足临界能量式。\n\nD：错误，不满足临界能量式。"
+      "content": "A：正确。由 \\(2g's=3g'R\\) 得 \\(s=3R/2=3\\times0.8/2\\,\\mathrm m=1.2\\,\\mathrm m\\)。\n\nB：错误。\\(2.2\\,\\mathrm m\\) 大于临界释放距离。\n\nC：错误。\\(2.0\\,\\mathrm m\\) 不满足临界能量关系。\n\nD：错误。\\(2.1\\,\\mathrm m\\) 不满足临界能量关系。"
     },
     {
       "stepId": 5,
       "title": "答案复核",
-      "content": "由最后两式立即得到 s=3R/2，与 g\\prime 的具体数值无关；代 R=0.8 m 得 1.2 m。"
+      "content": "由最后两式立即得到 \\(s=3R/2\\)，与 \\(g'\\) 的具体数值无关；代 \\(R=0.8\\,\\mathrm m\\) 得 \\(1.2\\,\\mathrm m\\)。"
     },
     {
       "stepId": 6,

@@ -13,7 +13,7 @@
   "answer": "ABC",
   "analysis": {
     "title": "解析",
-    "sharedThinking": "把 A、B 两点速度分解到水平和竖直方向。匀强电场下加速度恒定，平均水平速度乘时间等于 L。",
+    "sharedThinking": "把 \\(A\\)、B 两点速度分解到水平和竖直方向。匀强电场下加速度恒定，平均水平速度乘时间等于 \\(L\\)。",
     "sharedFormula": "\\[\\vec v_A=(\\tfrac32v,\\tfrac{\\sqrt3}{2}v),\\quad \\vec v_B=(\\tfrac12v,-\\tfrac{\\sqrt3}{2}v)\\]\\[t=\\frac{L}{v},\\qquad \\vec a=\\frac{\\vec v_B-\\vec v_A}{t}\\]"
   },
   "analysisPresentation": {
@@ -24,7 +24,7 @@
     {
       "stepId": 1,
       "title": "物理过程与条件",
-      "content": "把 A、B 两点速度分解到水平和竖直方向。匀强电场下加速度恒定，平均水平速度乘时间等于 L。"
+      "content": "把 \\(A\\)、B 两点速度分解到水平和竖直方向。匀强电场下加速度恒定，平均水平速度乘时间等于 \\(L\\)。"
     },
     {
       "stepId": 2,
@@ -34,22 +34,22 @@
     {
       "stepId": 3,
       "title": "完整推导",
-      "content": "分解两端速度：\n\\[\\vec v_A=\\left(\\frac32v,\\frac{\\sqrt3}{2}v\\right),\\qquad\n\\vec v_B=\\left(\\frac12v,-\\frac{\\sqrt3}{2}v\\right).\\]\n水平平均速度为 \\((3v/2+v/2)/2=v\\)，所以\n\\[t=\\frac{L}{v},\\]\nC 正确。加速度为\n\\[\\vec a=\\frac{\\vec v_B-\\vec v_A}{t}\n=\\left(-\\frac{v^2}{L},-\\frac{\\sqrt3v^2}{L}\\right),\\]\n故 \\(|a|=2v^2/L\\)，方向与水平成 \\(60^\\circ\\) 斜向左下。质子带正电，电场与加速度同向，且\n\\[E=\\frac{ma}{q}=\\frac{2mv^2}{qL},\\]\nA、B 正确。速度矢量线段到原点的最短距离为\n\\[v_{\\min}=\\frac{|\\vec v_A\\times\\Delta\\vec v|}{|\\Delta\\vec v|}=\\frac{\\sqrt3}{2}v,\\]\n不是 \\(v/2\\)，D 错误。"
+      "content": "分解两端速度：\n\\[\\vec v_A=\\left(\\frac32v,\\frac{\\sqrt{3}}{2}v\\right),\\qquad\n\\vec v_B=\\left(\\frac12v,-\\frac{\\sqrt{3}}{2}v\\right).\\]\n水平平均速度为 \\((3v/2+v/2)/2=v\\)，所以\n\\[t=\\frac{L}{v},\\]\nC 正确。加速度为\n\\[\\vec a=\\frac{\\vec v_B-\\vec v_A}{t}\n=\\left(-\\frac{v^2}{L},-\\frac{\\sqrt{3}v^2}{L}\\right),\\]\n故 \\(|a|=2v^2/L\\)，方向与水平成 \\(60^\\circ\\) 斜向左下。质子带正电，电场与加速度同向，且\n\\[E=\\frac{ma}{q}=\\frac{2mv^2}{qL},\\]\n\\(A\\)、B 正确。速度矢量线段到原点的最短距离为\n\\[v_{\\min}=\\frac{|\\vec v_A\\times\\Delta\\vec v|}{|\\Delta\\vec v|}=\\frac{\\sqrt{3}}{2}v,\\]\n不是 \\(v/2\\)，D 错误。"
     },
     {
       "stepId": 4,
       "title": "逐项判断",
-      "content": "A：正确，加速度和电场均斜向左下，与水平成 60°。\n\nB：正确，由 qE=ma 得 E=2mv²/(qL)。\n\nC：正确，水平平均速度为 v，所以 t=L/v。\n\nD：错误，最小速度为 \\sqrt3v/2。"
+      "content": "A：正确。由 \\(\\vec a=(-v^2/L,-\\sqrt{3}v^2/L)\\) 可知电场斜向左下，与水平线成 \\(60^\\circ\\)。\n\nB：正确。\\(|a|=2v^2/L\\)，由 \\(qE=ma\\) 得 \\(E=2mv^2/(qL)\\)。\n\nC：正确。水平平均速度为 \\(v\\)，所以运动时间 \\(t=L/v\\)。\n\nD：错误。速度矢量线段到原点的最短距离为 \\(v_{\\min}=\\sqrt{3}v/2\\)，不是 \\(v/2\\)。"
     },
     {
       "stepId": 5,
       "title": "答案复核",
-      "content": "由速度差得 |a|=2v²/L；质子带正电，因此 E 与 a 同向。最小速度仍用速度线段到原点的距离求。"
+      "content": "由速度差得 \\(|a|=2v^2/L\\)；质子带正电，因此 E 与 a 同向。最小速度仍用速度线段到原点的距离求。"
     },
     {
       "stepId": 6,
       "title": "动画观察点",
-      "content": "观察速度矢量端点沿直线向左下移动，最接近原点时速度为 \\sqrt3v/2。"
+      "content": "观察速度矢量端点沿直线向左下移动，最接近原点时速度为 \\(\\sqrt{3}v/2\\)。"
     },
     {
       "stepId": 7,
