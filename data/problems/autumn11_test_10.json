@@ -8,7 +8,7 @@
   "analysis": {
     "title": "解析",
     "sharedThinking": "由速度相等判断弹簧形变量极值，由相对速度最大且换向判断原长位置，再用动量守恒求质量、能量守恒求弹性势能。",
-    "sharedFormula": "\\[m_Av_A+m_Bv_B=3,\\qquad E=\\frac12m_A(3)^2=4.5\\,\\mathrm J\\]",
+    "sharedFormula": "\\[m_Av_A+m_Bv_B=3\\,\\mathrm{kg\\cdot m/s},\\qquad E=\\frac12m_Av_0^2=4.5\\,\\mathrm J\\]",
     "optionAnalyses": [
       {
         "label": "A",
@@ -16,7 +16,7 @@
       },
       {
         "label": "B",
-        "judgment": "B 错误：\\(t_2\\) 为原长附近，不是最近。"
+        "judgment": "B 错误：\\(t_2\\) 为弹簧恢复原长的时刻，不是两物体相距最近的时刻。"
       },
       {
         "label": "C",
@@ -24,7 +24,7 @@
       },
       {
         "label": "D",
-        "judgment": "D 正确：\\(E_p=4.5-1.5=3\\,\\mathrm J\\)。"
+        "judgment": "D 正确：\\(E_p=4.5\\,\\mathrm J-1.5\\,\\mathrm J=3.0\\,\\mathrm J\\)。"
       }
     ]
   },
@@ -41,12 +41,12 @@
     {
       "stepId": 2,
       "title": "对应公式",
-      "content": "\\[m_Av_A+m_Bv_B=3,\\qquad E=\\frac12m_A(3)^2=4.5\\,\\mathrm J\\]"
+      "content": "\\[m_Av_A+m_Bv_B=3\\,\\mathrm{kg\\cdot m/s},\\qquad E=\\frac12m_Av_0^2=4.5\\,\\mathrm J\\]"
     },
     {
       "stepId": 3,
       "title": "完整推导",
-      "content": "图示 \\(t_2\\) 时 \\(v_A=-1,v_B=2\\)，故 \\(3=-1+2m_B\\)，得 \\(m_B=2\\,\\mathrm{kg}\\)。\\(t_1,t_3\\) 两物体同速，分别对应最大伸长与最大压缩；\\(t_3\\) 时共同速度为 \\(1\\,\\mathrm{m/s}\\)，动能为 \\(1.5\\,\\mathrm J\\)，故弹性势能为 \\(3\\,\\mathrm J\\)。"
+      "content": "图示 \\(t_2\\) 时 \\(v_A=-1\\,\\mathrm{m/s}\\)、\\(v_B=2\\,\\mathrm{m/s}\\)，由动量守恒 \\(3\\,\\mathrm{kg\\cdot m/s}=m_Av_A+m_Bv_B\\)，得 \\(m_B=2\\,\\mathrm{kg}\\)。在 \\(t_1\\)、\\(t_3\\) 时两物体同速，分别对应最大伸长与最大压缩；\\(t_3\\) 时共同速度为 \\(1\\,\\mathrm{m/s}\\)，系统动能为 \\(1.5\\,\\mathrm J\\)，故弹性势能为 \\(E_p=4.5\\,\\mathrm J-1.5\\,\\mathrm J=3.0\\,\\mathrm J\\)。"
     },
     {
       "stepId": 4,

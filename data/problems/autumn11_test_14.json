@@ -33,7 +33,7 @@
     {
       "stepId": 4,
       "title": "答案",
-      "content": "(1) 向右；(2) \\(0.15\\,\\mathrm F\\)；(3) \\(R_1<R_2\\)"
+      "content": "\\[\\boxed{\\begin{aligned}(1)&\\ \\text{向右}\\\\(2)&\\ C=0.15\\,\\mathrm F\\\\(3)&\\ R_1<R_2\\end{aligned}}\\]"
     }
   ],
   "knowledge": [

@@ -3,7 +3,7 @@
   "chapter": "秋季课时11：电场和动量（高考）测试题",
   "title": "第16题：匀强电场中的功与电势",
   "type": "calculation",
-  "question": "水平向右的匀强电场中，\\(ab\\) 与场强平行，\\(bc\\) 与场强成 \\(60^\\circ\\)，\\(ab=6\\,\\mathrm{cm}\\)，\\(bc=12\\,\\mathrm{cm}\\)。将 \\(q=4\\times10^{-4}\\,\\mathrm C\\) 的正电荷从 a 移到 b，静电力做功 \\(1.2\\times10^{-3}\\,\\mathrm J\\)。(1) 求场强；(2) 求 \\(U_{bc}\\)；(3) 若 \\(\\varphi_b=2\\,\\mathrm V\\)，求电荷在 c 点的电势能。",
+  "question": "水平向右的匀强电场中，\\(ab\\) 与场强平行，\\(bc\\) 与场强成 \\(60^\\circ\\)，\\(ab=6\\,\\mathrm{cm}\\)，\\(bc=12\\,\\mathrm{cm}\\)。将 \\(q=4\\times10^{-4}\\,\\mathrm C\\) 的正电荷从 \\(a\\) 移到 \\(b\\)，静电力做功 \\(1.2\\times10^{-3}\\,\\mathrm J\\)。(1) 求场强；(2) 求 \\(U_{bc}\\)；(3) 若 \\(\\varphi_b=2\\,\\mathrm V\\)，求电荷在 \\(c\\) 点的电势能。",
   "answer": "(1) \\(E=50\\,\\mathrm{V/m}\\)；(2) \\(U_{bc}=3.0\\,\\mathrm V\\)；(3) \\(E_{pc}=-4.0\\times10^{-4}\\,\\mathrm J\\)",
   "analysis": {
     "title": "解析",
@@ -33,7 +33,7 @@
     {
       "stepId": 4,
       "title": "答案",
-      "content": "(1) \\(E=50\\,\\mathrm{V/m}\\)；(2) \\(U_{bc}=3.0\\,\\mathrm V\\)；(3) \\(E_{pc}=-4.0\\times10^{-4}\\,\\mathrm J\\)"
+      "content": "\\[\\boxed{\\begin{aligned}(1)&\\ E=50\\,\\mathrm{V/m}\\\\(2)&\\ U_{bc}=3.0\\,\\mathrm V\\\\(3)&\\ E_{pc}=-4.0\\times10^{-4}\\,\\mathrm J\\end{aligned}}\\]"
     }
   ],
   "knowledge": [

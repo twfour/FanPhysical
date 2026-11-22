@@ -3,7 +3,7 @@
   "chapter": "秋季课时11：电场和动量（高考）测试题",
   "title": "第18题：X 射线管电子偏转",
   "type": "calculation",
-  "question": "X 射线管中电子由静止经 \\(U_0=1.82\\times10^4\\,\\mathrm V\\) 加速，再沿中线进入长 \\(L=20\\,\\mathrm{cm}\\)、间距 \\(d=16\\,\\mathrm{cm}\\) 的偏转板，板间电压初值 \\(U=2.184\\times10^4\\,\\mathrm V\\)。中线距靶台竖直高度 \\(h=45\\,\\mathrm{cm}\\)，靶台长度 \\(AB=10\\,\\mathrm{cm}\\)，中心为 C。电子质量 \\(m=9.1\\times10^{-31}\\,\\mathrm{kg}\\)，电荷量大小 \\(e=1.6\\times10^{-19}\\,\\mathrm C\\)。(1) 求入射速度；(2) 求 C 到 N 板右端的水平距离；(3) 求电子能打在靶台 ACB 上时的板间电压范围。",
+  "question": "X 射线管中电子由静止经 \\(U_0=1.82\\times10^4\\,\\mathrm V\\) 加速，再沿中线进入长 \\(L=20\\,\\mathrm{cm}\\)、间距 \\(d=16\\,\\mathrm{cm}\\) 的偏转板，板间电压初值 \\(U=2.184\\times10^4\\,\\mathrm V\\)。中线距靶台竖直高度 \\(h=45\\,\\mathrm{cm}\\)，靶台长度 \\(AB=10\\,\\mathrm{cm}\\)，中心为 \\(C\\)。电子质量 \\(m=9.1\\times10^{-31}\\,\\mathrm{kg}\\)，电荷量大小 \\(e=1.6\\times10^{-19}\\,\\mathrm C\\)。(1) 求入射速度；(2) 求 \\(C\\) 到 \\(N\\) 板右端的水平距离；(3) 求电子能打在靶台 \\(ACB\\) 上时的板间电压范围。",
   "answer": "(1) \\(v_0=8.0\\times10^7\\,\\mathrm{m/s}\\)；(2) \\(x_C=0.50\\,\\mathrm m\\)；(3) \\(2.0\\times10^4\\,\\mathrm V\\le U\\le2.4\\times10^4\\,\\mathrm V\\)",
   "analysis": {
     "title": "解析",
@@ -33,7 +33,7 @@
     {
       "stepId": 4,
       "title": "答案",
-      "content": "(1) \\(v_0=8.0\\times10^7\\,\\mathrm{m/s}\\)；(2) \\(x_C=0.50\\,\\mathrm m\\)；(3) \\(2.0\\times10^4\\,\\mathrm V\\le U\\le2.4\\times10^4\\,\\mathrm V\\)"
+      "content": "\\[\\boxed{\\begin{aligned}(1)&\\ v_0=8.0\\times10^7\\,\\mathrm{m/s}\\\\(2)&\\ x_C=0.50\\,\\mathrm m\\\\(3)&\\ 2.0\\times10^4\\,\\mathrm V\\le U\\le2.4\\times10^4\\,\\mathrm V\\end{aligned}}\\]"
     }
   ],
   "knowledge": [
