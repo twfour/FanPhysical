@@ -16,11 +16,11 @@
       },
       {
         "label": "B",
-        "judgment": "B 错误：\\(U_{da}=-1.0\\,\\mathrm{mV}\\)。"
+        "judgment": "B 错误：\\(U_{da}=-1.5\\,\\mathrm{mV}\\)，符号与题述不符。"
       },
       {
         "label": "C",
-        "judgment": "C 正确：中点附近等势线更密。"
+        "judgment": "C 正确：沿中垂线接近中点时场强增大，越过中点后减小。"
       },
       {
         "label": "D",
@@ -46,7 +46,7 @@
     {
       "stepId": 3,
       "title": "完整推导",
-      "content": "a 在 \\(+1.5\\,\\mathrm{mV}\\) 等势线上，d 在 \\(+0.5\\,\\mathrm{mV}\\) 等势线上，因此 \\(U_{da}=\\varphi_d-\\varphi_a=-1.0\\,\\mathrm{mV}\\)。从 c 沿中垂线到 d，先接近电荷中点再远离，场强先增后减。"
+      "content": "a 在 \\(+1.5\\,\\mathrm{mV}\\) 等势线上；c、d 位于等量异号电荷连线的中垂线上，到两电荷距离相等，电势均为零。因此 \\(U_{da}=\\varphi_d-\\varphi_a=-1.5\\,\\mathrm{mV}\\)。从 c 沿中垂线到 d，先接近电荷中点再远离，场强先增后减。"
     },
     {
       "stepId": 4,
