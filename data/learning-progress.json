@@ -6263,6 +6263,258 @@
       "explorationStages": 2,
       "hasTransfer": true,
       "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_01",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第1题：摩擦起电",
+      "knowledge": [
+        "电场与动量综合测试",
+        "摩擦起电"
+      ],
+      "familyId": "autumn11-test-01",
+      "familyName": "摩擦起电",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_02",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第2题：熔喷布静电过滤",
+      "knowledge": [
+        "电场与动量综合测试",
+        "熔喷布静电过滤"
+      ],
+      "familyId": "autumn11-test-02",
+      "familyName": "熔喷布静电过滤",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_03",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第3题：导体静电平衡",
+      "knowledge": [
+        "电场与动量综合测试",
+        "导体静电平衡"
+      ],
+      "familyId": "autumn11-test-03",
+      "familyName": "导体静电平衡",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_04",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第4题：静电除烟",
+      "knowledge": [
+        "电场与动量综合测试",
+        "静电除烟"
+      ],
+      "familyId": "autumn11-test-04",
+      "familyName": "静电除烟",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_05",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第5题：带电球缓慢牵引",
+      "knowledge": [
+        "电场与动量综合测试",
+        "带电球缓慢牵引"
+      ],
+      "familyId": "autumn11-test-05",
+      "familyName": "带电球缓慢牵引",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_06",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第6题：心脏等势面",
+      "knowledge": [
+        "电场与动量综合测试",
+        "心脏等势面"
+      ],
+      "familyId": "autumn11-test-06",
+      "familyName": "心脏等势面",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_07",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第7题：人车质心位移",
+      "knowledge": [
+        "电场与动量综合测试",
+        "人车质心位移"
+      ],
+      "familyId": "autumn11-test-07",
+      "familyName": "人车质心位移",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_08",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第8题：两球动量碰撞",
+      "knowledge": [
+        "电场与动量综合测试",
+        "两球动量碰撞"
+      ],
+      "familyId": "autumn11-test-08",
+      "familyName": "两球动量碰撞",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_09",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第9题：四轴无人机悬停",
+      "knowledge": [
+        "电场与动量综合测试",
+        "四轴无人机悬停"
+      ],
+      "familyId": "autumn11-test-09",
+      "familyName": "四轴无人机悬停",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_10",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第10题：弹簧双块速度图",
+      "knowledge": [
+        "电场与动量综合测试",
+        "弹簧双块速度图"
+      ],
+      "familyId": "autumn11-test-10",
+      "familyName": "弹簧双块速度图",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_11",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第11题：动量守恒条件",
+      "knowledge": [
+        "电场与动量综合测试",
+        "动量守恒条件"
+      ],
+      "familyId": "autumn11-test-11",
+      "familyName": "动量守恒条件",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_12",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第12题：点电荷电势曲线",
+      "knowledge": [
+        "电场与动量综合测试",
+        "点电荷电势曲线"
+      ],
+      "familyId": "autumn11-test-12",
+      "familyName": "点电荷电势曲线",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_13",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第13题：多物块连续弹性碰撞",
+      "knowledge": [
+        "电场与动量综合测试",
+        "多物块连续弹性碰撞"
+      ],
+      "familyId": "autumn11-test-13",
+      "familyName": "多物块连续弹性碰撞",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_14",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第14题：电容器充放电实验",
+      "knowledge": [
+        "电场与动量综合测试",
+        "电容器充放电实验"
+      ],
+      "familyId": "autumn11-test-14",
+      "familyName": "电容器充放电实验",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_15",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第15题：示波器扫描波形",
+      "knowledge": [
+        "电场与动量综合测试",
+        "示波器扫描波形"
+      ],
+      "familyId": "autumn11-test-15",
+      "familyName": "示波器扫描波形",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_16",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第16题：匀强电场中的功与电势",
+      "knowledge": [
+        "电场与动量综合测试",
+        "匀强电场中的功与电势"
+      ],
+      "familyId": "autumn11-test-16",
+      "familyName": "匀强电场中的功与电势",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_17",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第17题：摆球推动双木块",
+      "knowledge": [
+        "电场与动量综合测试",
+        "摆球推动双木块"
+      ],
+      "familyId": "autumn11-test-17",
+      "familyName": "摆球推动双木块",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
+    },
+    {
+      "id": "autumn11_test_18",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "title": "第18题：X 射线管电子偏转",
+      "knowledge": [
+        "电场与动量综合测试",
+        "X 射线管电子偏转"
+      ],
+      "familyId": "autumn11-test-18",
+      "familyName": "X 射线管电子偏转",
+      "explorationStages": 2,
+      "hasTransfer": true,
+      "rubricPoints": 3
     }
   ]
 }

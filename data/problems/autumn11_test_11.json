@@ -1,0 +1,288 @@
+{
+  "id": "autumn11_test_11",
+  "chapter": "秋季课时11：电场和动量（高考）测试题",
+  "title": "第11题：动量守恒条件",
+  "type": "multiple-choice",
+  "question": "对题图所示四种情景，下列说法正确的是（　　）",
+  "answer": "CD",
+  "analysis": {
+    "title": "解析",
+    "sharedThinking": "先明确系统，再判断所考方向的外力冲量是否为零。",
+    "sharedFormula": "\\[\\Delta\\vec p_{\\text{系统}}=\\vec I_{\\text{外}}\\]",
+    "optionAnalyses": [
+      {
+        "label": "A",
+        "judgment": "A 错误：有弹簧外力冲量。"
+      },
+      {
+        "label": "B",
+        "judgment": "B 错误：有地面摩擦外力。"
+      },
+      {
+        "label": "C",
+        "judgment": "C 正确：系统水平动量守恒。"
+      },
+      {
+        "label": "D",
+        "judgment": "D 正确：系统水平方向动量守恒。"
+      }
+    ]
+  },
+  "analysisPresentation": {
+    "collapseEachStep": true,
+    "optionMode": "independent-statements"
+  },
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "条件提取与物理模型",
+      "content": "先明确系统，再判断所考方向的外力冲量是否为零。"
+    },
+    {
+      "stepId": 2,
+      "title": "对应公式",
+      "content": "\\[\\Delta\\vec p_{\\text{系统}}=\\vec I_{\\text{外}}\\]"
+    },
+    {
+      "stepId": 3,
+      "title": "完整推导",
+      "content": "A 中固定弹簧给系统外力冲量；B 中地面对人的摩擦是外力；C 中磁力是系统内力且水平外力为零；D 中地面支持力竖直，系统水平方向外力为零。"
+    },
+    {
+      "stepId": 4,
+      "title": "答案",
+      "content": "\\[\\boxed{\\text{CD}}\\]"
+    }
+  ],
+  "knowledge": [
+    "电场与动量综合测试",
+    "动量守恒条件"
+  ],
+  "practice": {
+    "title": "进阶近似题：同考点迁移",
+    "question": "保留“动量守恒条件”的核心物理模型，改变一个关键约束或增加一个相邻过程，重新判断结论并写出必要的临界条件。",
+    "answer": "答案应由改变后的条件重新列式确定，不能只替换原题数字。",
+    "thinking": "先识别原题不变量，再判断新增条件改变了受力、系统边界、能量转化还是运动阶段。"
+  },
+  "animation": {
+    "enabled": true,
+    "level": "animated",
+    "type": "momentum_model",
+    "variant": "momentum_test_11",
+    "playable": true,
+    "interactive": true,
+    "notes": "按原题模型展示关键状态变化。",
+    "params": {
+      "rate": {
+        "label": "过程速率",
+        "value": 1,
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1
+      }
+    }
+  },
+  "images": [
+    {
+      "src": "assets/problem-images/autumn-lesson11/question-11.webp",
+      "alt": "第11题原题印刷配图"
+    }
+  ],
+  "taxonomy": {
+    "module": "力学",
+    "topic": "秋季课时11：电场和动量（高考）测试题",
+    "modelId": "momentum-impulse",
+    "modelName": "动量与冲量",
+    "familyId": "autumn11-test-11",
+    "familyName": "动量守恒条件",
+    "role": "条件变式",
+    "difficulty": 3,
+    "variantLevel": "L2",
+    "skills": [
+      "物理模型识别",
+      "分阶段推导"
+    ],
+    "prerequisites": [
+      "电场基础",
+      "动量与能量"
+    ]
+  },
+  "options": [
+    "A. 子弹打进与固定弹簧相连的木块后一起运动，子弹和木块系统动量守恒",
+    "B. 两同学在地面上传接篮球，两同学和篮球系统动量守恒",
+    "C. 绑有磁铁的两小车在光滑水平地面上相向运动，两车系统动量守恒",
+    "D. 小球从光滑水平面上的可动斜槽顶端释放，离槽前小球和斜槽系统水平方向动量守恒"
+  ],
+  "learningPath": {
+    "familyId": "autumn11-test-11",
+    "familyName": "动量守恒条件",
+    "currentDifficulty": 3,
+    "currentLevel": "L2",
+    "mother": {
+      "id": "autumn11_test_11",
+      "title": "第11题：动量守恒条件",
+      "chapter": "秋季课时11：电场和动量（高考）测试题",
+      "difficulty": 3,
+      "variantLevel": "L2",
+      "role": "条件变式"
+    },
+    "familyFocus": {
+      "observe": "物理模型识别",
+      "misconception": "只比较速度大小而忽略动量方向，或未检查外力冲量便直接套用动量守恒",
+      "invariant": "动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量",
+      "formula": "\\[\\boxed{\\text{CD}}\\]"
+    },
+    "levels": [
+      {
+        "label": "概念识别",
+        "difficulty": 1,
+        "goal": "辨认“物理模型识别”涉及的研究对象、方向和基本物理量。",
+        "task": "不计算，指出题面中决定“物理模型识别”的条件，并说明公式中每个量的物理意义。",
+        "variantLevel": "L0",
+        "virtual": true,
+        "check": "能说清“物理模型识别”的对象、方向、量纲和适用条件。"
+      },
+      {
+        "label": "直接建模",
+        "difficulty": 2,
+        "goal": "在单一过程中直接调用“动量守恒条件”的主关系。",
+        "task": "保留原模型，只给一组完整条件；先写 \\[\\boxed{\\text{CD}}\\]，再说明“分阶段推导”如何进入方程。",
+        "variantLevel": "L1",
+        "virtual": true,
+        "check": "能先写出 \\[\\boxed{\\text{CD}}\\]，再代入条件并得到量纲正确的结果。"
+      },
+      {
+        "id": "autumn11_test_11",
+        "title": "第11题：动量守恒条件",
+        "chapter": "秋季课时11：电场和动量（高考）测试题",
+        "difficulty": 3,
+        "variantLevel": "L2",
+        "role": "条件变式",
+        "virtual": false,
+        "label": "条件变化"
+      },
+      {
+        "label": "综合迁移",
+        "difficulty": 5,
+        "goal": "在多阶段或跨知识点情境中识别并复用该题族。",
+        "task": "把过程分段，并把“物理模型识别”与另一条物理规律联立；说明分段点及最终边界检查。",
+        "variantLevel": "L3",
+        "virtual": true,
+        "check": "能正确分段、说明每段所用规律，并在连接处检查状态连续性与临界边界。"
+      }
+    ]
+  },
+  "studentExploration": {
+    "generatedBy": "backfill_learning_content_v1",
+    "title": "从“动量守恒条件”开始探索",
+    "opening": "先把“第11题：动量守恒条件”还原成可复用的物理模型。下面两步先要求预测和解释，再展开检验。",
+    "stages": [
+      {
+        "title": "先排除本题最容易出现的误判",
+        "prompt": "暂不代入数据。阅读“第11题：动量守恒条件”后，判断为什么“只比较速度大小而忽略动量方向，或未检查外力冲量便直接套用动量守恒”会导致错误，再写出研究对象、过程边界和首先要确定的“物理模型识别、分阶段推导”。",
+        "thought": "最值得警惕的不是算错，而是：只比较速度大小而忽略动量方向，或未检查外力冲量便直接套用动量守恒。",
+        "check": "先执行：先选研究对象或系统、规定正方向，再按方向检查外力冲量与初末动量。再检查题设中的方向、接触、阶段或临界条件是否已经进入模型。",
+        "correction": "本题解析中的关键关系为：\n\n\\[\\boxed{\\text{CD}}\\]\n\n先建立关系，再决定哪些数值需要代入。",
+        "takeaway": "本题族的母题动作是“先选研究对象或系统、规定正方向，再按方向检查外力冲量与初末动量”；看到新情境时应复用这个动作，而不是复用答案。",
+        "animationPreset": {
+          "params": {
+            "rate": 1
+          },
+          "progress": 0.0,
+          "play": true,
+          "caption": "已切换到“动量守恒条件”的起始观察状态，请核对动画与图表中的关键量。"
+        }
+      },
+      {
+        "title": "观察会使“物理模型识别”发生转折的条件",
+        "prompt": "改变动画中的一个关键参数，指出哪个时刻、方向、图像趋势或临界条件最先发生变化；再说明“动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量”为什么仍成立。",
+        "thought": "若只比较动画外观，我可能忽略“分阶段推导”已经改变。",
+        "check": "把变化前后都放回关系：\n\n\\[\\boxed{\\text{CD}}\\]\n\n逐项区分模型不变量与由参数决定的结果。",
+        "correction": "真正保持的是：动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量。数值结论需要在新条件下重新计算并检查边界。",
+        "takeaway": "与同题族其他题相比，本题真正需要追踪的是“物理模型识别、分阶段推导”如何受条件变化控制。",
+        "animationPreset": {
+          "params": {
+            "rate": 2
+          },
+          "progress": 0.72,
+          "play": false,
+          "caption": "已切换到“动量守恒条件”的条件变化状态，请核对动画与图表中的关键量。"
+        }
+      }
+    ]
+  },
+  "realLifeCase": {
+    "generatedBy": "backfill_learning_content_v1",
+    "title": "碰撞缓冲、火箭推进与流体冲击：现实中的“动量守恒条件”",
+    "scene": "安全气囊通过延长碰撞时间降低平均冲击力，推进器和射流装置则依靠持续喷出质量形成反向推力。",
+    "mapping": "题目中的碰撞时间、速度变化和连续流分别对应现实中的缓冲过程、动量交换与单位时间质量输运。 当前题目“第11题：动量守恒条件”训练的“物理模型识别、分阶段推导”正是完成这种映射时需要识别的量。",
+    "sharedModel": "本题可使用关系：\n\n\\[\\boxed{\\text{CD}}\\]\n\n更一般的模型关系是：\n\n\\[\\vec I_{\\mathrm{ext}}=\\Delta\\vec p,\\qquad \\vec I_{\\mathrm{ext}}=0\\Rightarrow\\sum\\vec p_{\\mathrm i}=\\sum\\vec p_{\\mathrm f}\\]\n\n动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量，因而动画与现实案例共享同一控制结构。",
+    "realityFactors": [
+      "真实碰撞会伴随形变、声和热损耗。",
+      "连续流速度与密度可能随截面和时间变化。"
+    ],
+    "authoritativeResources": [
+      {
+        "platform": "OpenStax",
+        "kind": "开放教材（英文）",
+        "title": "功率、功与动能定理",
+        "url": "https://openstax.org/books/physics/pages/9-1-work-power-and-the-work-energy-theorem",
+        "useFor": "用交互或教材内容复核本题涉及的“物理模型识别、分阶段推导”，并把资源中的变量对应回题目的动画与图表。",
+        "matchReason": "该资源覆盖“动量与冲量”的核心关系，可用于检验本题所属“动量守恒条件”题族的建模步骤。"
+      }
+    ],
+    "question": "把“第11题：动量守恒条件”改写成上述现实场景后，应测量哪三个物理量，怎样用同一主关系判断结果是否满足安全或运行边界？",
+    "answer": "先测量题目所对应的状态量、控制参数和边界量，再按“先选研究对象或系统、规定正方向，再按方向检查外力冲量与初末动量”建立模型。可先使用：\n\n\\[\\boxed{\\text{CD}}\\]\n\n把测量值代入后，还必须检查方向、接触、阶段或临界条件；只有主方程和边界条件同时满足，现实结论才成立。",
+    "rubric": [
+      "指出现实对象与题目研究对象、过程边界的对应关系。",
+      "写出或说明关系 \\[\\boxed{\\text{CD}}\\]，并解释关键变量。",
+      "说明至少一个现实修正因素，并完成安全或临界条件检查。"
+    ]
+  },
+  "learningCycle": {
+    "generatedBy": "backfill_learning_content_v1",
+    "intervalDays": [
+      1,
+      3,
+      7,
+      14,
+      30
+    ],
+    "review": {
+      "title": "延时复习：迁移“动量守恒条件”",
+      "prompt": "重新遇到“动量守恒条件”的新情境时，哪种处理最可靠？",
+      "answer": "C",
+      "explanation": "同题族迁移时应保留“动量关系始终取决于所选系统、方向与过程边界；内力只能交换系统内部各部分的动量”这一模型不变量，同时根据新条件重算参数结果并重新检查边界。",
+      "options": [
+        {
+          "value": "A",
+          "text": "题目名称相似，原题的数值答案可以直接沿用",
+          "diagnosis": {
+            "tag": "只看表面情境",
+            "feedback": "同一模型不等于同一参数，数值答案通常不能直接迁移。"
+          }
+        },
+        {
+          "value": "B",
+          "text": "动画看起来连续，就说明整个过程只能使用一个方程",
+          "diagnosis": {
+            "tag": "忽略分段",
+            "feedback": "接触、受力或运动性质改变时，即使画面连续也必须分段。"
+          }
+        },
+        {
+          "value": "C",
+          "text": "保留核心模型，重新代入条件并检查适用范围与临界边界"
+        },
+        {
+          "value": "D",
+          "text": "只要公式相同，就不需要重新判断研究对象和过程",
+          "diagnosis": {
+            "tag": "忽略模型前提",
+            "feedback": "公式的物理量定义依赖研究对象、方向和过程边界。"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,5 +1,4 @@
 {
-  "version": 2,
   "problems": [
     {
       "id": "curve_training_01_concepts",
@@ -1712,6 +1711,78 @@
     {
       "id": "electrostatics_capacitor_hw_15_meltblown_sensor",
       "file": "electrostatics_capacitor_hw_15_meltblown_sensor.json"
+    },
+    {
+      "id": "autumn11_test_01",
+      "file": "autumn11_test_01.json"
+    },
+    {
+      "id": "autumn11_test_02",
+      "file": "autumn11_test_02.json"
+    },
+    {
+      "id": "autumn11_test_03",
+      "file": "autumn11_test_03.json"
+    },
+    {
+      "id": "autumn11_test_04",
+      "file": "autumn11_test_04.json"
+    },
+    {
+      "id": "autumn11_test_05",
+      "file": "autumn11_test_05.json"
+    },
+    {
+      "id": "autumn11_test_06",
+      "file": "autumn11_test_06.json"
+    },
+    {
+      "id": "autumn11_test_07",
+      "file": "autumn11_test_07.json"
+    },
+    {
+      "id": "autumn11_test_08",
+      "file": "autumn11_test_08.json"
+    },
+    {
+      "id": "autumn11_test_09",
+      "file": "autumn11_test_09.json"
+    },
+    {
+      "id": "autumn11_test_10",
+      "file": "autumn11_test_10.json"
+    },
+    {
+      "id": "autumn11_test_11",
+      "file": "autumn11_test_11.json"
+    },
+    {
+      "id": "autumn11_test_12",
+      "file": "autumn11_test_12.json"
+    },
+    {
+      "id": "autumn11_test_13",
+      "file": "autumn11_test_13.json"
+    },
+    {
+      "id": "autumn11_test_14",
+      "file": "autumn11_test_14.json"
+    },
+    {
+      "id": "autumn11_test_15",
+      "file": "autumn11_test_15.json"
+    },
+    {
+      "id": "autumn11_test_16",
+      "file": "autumn11_test_16.json"
+    },
+    {
+      "id": "autumn11_test_17",
+      "file": "autumn11_test_17.json"
+    },
+    {
+      "id": "autumn11_test_18",
+      "file": "autumn11_test_18.json"
     }
   ]
 }
