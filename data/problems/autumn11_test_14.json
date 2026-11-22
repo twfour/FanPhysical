@@ -33,7 +33,7 @@
     {
       "stepId": 4,
       "title": "答案",
-      "content": "\\[\\boxed{\\begin{aligned}(1)&\\ \\text{向右}\\\\(2)&\\ C=0.15\\,\\mathrm F\\\\(3)&\\ R_1<R_2\\end{aligned}}\\]"
+      "content": "\\[(1)\\quad\\boxed{\\text{向右}}\\]\n\n\\[(2)\\quad\\boxed{C\\approx0.15\\,\\mathrm F}\\]\n\n\\[(3)\\quad\\boxed{R_1<R_2}\\]"
     }
   ],
   "knowledge": [

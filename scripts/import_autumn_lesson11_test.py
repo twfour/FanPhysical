@@ -79,7 +79,7 @@ choice(13, "多物块连续弹性碰撞", "multiple-choice", "CD",
 NON_CHOICE = [
 {
 "number":14,"title":"电容器充放电实验","type":"fill-in","answer":"(1) 向右；(2) \\(0.15\\,\\mathrm F\\)；(3) \\(R_1<R_2\\)",
-"answerLatex":"\\[\\boxed{\\begin{aligned}(1)&\\ \\text{向右}\\\\(2)&\\ C=0.15\\,\\mathrm F\\\\(3)&\\ R_1<R_2\\end{aligned}}\\]",
+"answerLatex":"\\[(1)\\quad\\boxed{\\text{向右}}\\]\n\n\\[(2)\\quad\\boxed{C\\approx0.15\\,\\mathrm F}\\]\n\n\\[(3)\\quad\\boxed{R_1<R_2}\\]",
 "question":"图甲电源电动势 \\(E=8\\,\\mathrm V\\)。先将开关接 1 给初始不带电的电容器充电，充满后接 2 放电，电流—时间曲线如图乙。回答：(1) 接 2 时，通过 \\(R_0\\) 的电流方向；(2) 已知充电曲线面积 \\(S_1=1233\\,\\mathrm{mA\\cdot s}\\)，求电容；(3) 比较 \\(R_1,R_2\\)。",
 "thinking":"电流—时间图像面积等于转移电荷量；初始电流由总串联电阻决定。充电和放电时电容器电流方向相反。", "formula":"\\[Q=\\int I\\,\\mathrm dt=S_1,\\qquad C=Q/E,\\qquad I_0=E/R_{\\text{总}}\\]", "derivation":"接 1 充电时曲线为正，接 2 放电时曲线为负，因此通过 \\(R_0\\) 的放电电流向右。\\(Q=1233\\,\\mathrm{mA\\cdot s}=1.233\\,\\mathrm C\\)，所以 \\(C=1.233/8=0.154125\\,\\mathrm F\\approx0.15\\,\\mathrm F\\)。充电初值约 \\(7\\,\\mathrm{mA}\\)，放电初值约 \\(5\\,\\mathrm{mA}\\)，两过程都经过 \\(R_0\\)，故充电支路总电阻更小，即 \\(R_0+R_1<R_0+R_2\\)，所以 \\(R_1<R_2\\)。"},
 {
