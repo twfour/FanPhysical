@@ -416,6 +416,8 @@ class Handler(SimpleHTTPRequestHandler):
         return super().translate_path(path)
 
     def do_GET(self):
+        if self.path == "/fan" or self.path.startswith("/fan/") or self.path.startswith("/fan?"):
+            self.path = self.path[4:] or "/"
         parsed = urlparse(self.path)
         if parsed.path == "/api/health":
             json_response(self, 200, {"ok": True})
@@ -522,6 +524,8 @@ class Handler(SimpleHTTPRequestHandler):
         super().do_GET()
 
     def do_POST(self):
+        if self.path == "/fan" or self.path.startswith("/fan/") or self.path.startswith("/fan?"):
+            self.path = self.path[4:] or "/"
         parsed = urlparse(self.path)
         if parsed.path == "/api/notebooklm-link":
             handle_notebooklm_link_update(self)

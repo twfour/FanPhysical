@@ -1,31 +1,31 @@
 var CACHE_PREFIX = "fanphysics-shell-";
-var CACHE_NAME = CACHE_PREFIX + "20261111-electrostatics-capacitor-01";
+var CACHE_NAME = CACHE_PREFIX + "20261127-fan-subpath-01";
 var APP_SHELL = [
-  "/",
-  "/classical-mechanics-demo.html",
-  "/manifest.webmanifest",
-  "/icons/fanphysics-192.png",
-  "/icons/fanphysics-512.png",
-  "/assets/styles.css",
-  "/assets/learning.css",
-  "/assets/vendor/p5.min.js",
-  "/assets/learning-sync.js",
-  "/assets/learning-progress.js",
-  "/assets/learning-blocks.js",
-  "/assets/virtual-experiment.js",
-  "/assets/problem-content.js",
-  "/assets/learning-cycle.js",
-  "/assets/problem-favorites.js",
-  "/assets/notebooklm-home.js",
-  "/assets/problem-note-interactions.js",
-  "/assets/step-conversation.js",
-  "/assets/scene-registry.js",
-  "/assets/scenes/common.js",
-  "/assets/json-animation-runtime.js",
-  "/assets/app.js",
-  "/assets/pwa.js",
-  "/data/problems/index.json",
-  "/data/learning-progress.json"
+  "/fan/",
+  "/fan/classical-mechanics-demo.html",
+  "/fan/manifest.webmanifest",
+  "/fan/icons/fanphysics-192.png",
+  "/fan/icons/fanphysics-512.png",
+  "/fan/assets/styles.css",
+  "/fan/assets/learning.css",
+  "/fan/assets/vendor/p5.min.js",
+  "/fan/assets/learning-sync.js",
+  "/fan/assets/learning-progress.js",
+  "/fan/assets/learning-blocks.js",
+  "/fan/assets/virtual-experiment.js",
+  "/fan/assets/problem-content.js",
+  "/fan/assets/learning-cycle.js",
+  "/fan/assets/problem-favorites.js",
+  "/fan/assets/notebooklm-home.js",
+  "/fan/assets/problem-note-interactions.js",
+  "/fan/assets/step-conversation.js",
+  "/fan/assets/scene-registry.js",
+  "/fan/assets/scenes/common.js",
+  "/fan/assets/json-animation-runtime.js",
+  "/fan/assets/app.js",
+  "/fan/assets/pwa.js",
+  "/fan/data/problems/index.json",
+  "/fan/data/learning-progress.json"
 ];
 
 self.addEventListener("install", function (event) {
@@ -89,19 +89,19 @@ self.addEventListener("fetch", function (event) {
   var request = event.request;
   if (request.method !== "GET") return;
   var url = new URL(request.url);
-  if (url.origin !== self.location.origin || url.pathname.indexOf("/api/") === 0) return;
+  if (url.origin !== self.location.origin || url.pathname.indexOf("/fan/api/") === 0) return;
   if (request.mode === "navigate") {
-    event.respondWith(networkFirst(request, "/classical-mechanics-demo.html"));
+    event.respondWith(networkFirst(request, "/fan/classical-mechanics-demo.html"));
     return;
   }
-  if (url.pathname === "/data/problems/index.json" || url.pathname === "/data/learning-progress.json") {
+  if (url.pathname === "/fan/data/problems/index.json" || url.pathname === "/fan/data/learning-progress.json") {
     event.respondWith(networkFirst(request));
     return;
   }
   if (
-    url.pathname.indexOf("/assets/") === 0 ||
-    url.pathname.indexOf("/icons/") === 0 ||
-    url.pathname === "/manifest.webmanifest"
+    url.pathname.indexOf("/fan/assets/") === 0 ||
+    url.pathname.indexOf("/fan/icons/") === 0 ||
+    url.pathname === "/fan/manifest.webmanifest"
   ) {
     event.respondWith(staleWhileRevalidate(request));
   }

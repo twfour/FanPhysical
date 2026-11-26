@@ -80,7 +80,7 @@
   }
 
   function loadNotebookLinks() {
-    fetch("/api/notebooklm-links", { credentials: "same-origin" })
+    fetch("/fan/api/notebooklm-links", { credentials: "same-origin" })
       .then(function (response) {
         if (!response.ok) {
           throw new Error("NotebookLM links unavailable");

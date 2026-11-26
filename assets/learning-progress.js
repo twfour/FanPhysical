@@ -352,7 +352,7 @@ function renderLearningProgressOverview() {
 
 function loadLearningProgressCatalog() {
   if (learningProgressLoadPromise) return learningProgressLoadPromise;
-  learningProgressLoadPromise = fetch("/data/learning-progress.json", {
+  learningProgressLoadPromise = fetch("/fan/data/learning-progress.json", {
     cache: "no-store"
   }).then(function (response) {
     if (!response.ok) throw new Error("progress_catalog_" + response.status);

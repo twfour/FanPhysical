@@ -264,9 +264,9 @@ async function main() {
   });
 
   await runCheck("PWA 安装外壳", async function () {
-    assert.equal(await page.locator('link[rel="manifest"]').getAttribute("href"), "/manifest.webmanifest");
+    assert.equal(await page.locator('link[rel="manifest"]').getAttribute("href"), "/fan/manifest.webmanifest");
     var manifest = await page.evaluate(async function () {
-      var response = await fetch("/manifest.webmanifest");
+      var response = await fetch("/fan/manifest.webmanifest");
       return { contentType: response.headers.get("content-type"), body: await response.json() };
     });
     assert.match(manifest.contentType || "", /manifest|json/);
@@ -285,7 +285,7 @@ async function main() {
       }));
       return {
         shellCache: names.some(function (name) { return name.indexOf("fanphysics-shell-") === 0; }),
-        app: Boolean(await cache.match("/classical-mechanics-demo.html")),
+        app: Boolean(await cache.match("/fan/classical-mechanics-demo.html")),
         index: Boolean(await cache.match("/data/problems/index.json")),
         api: Boolean(await cache.match("/api/learning-state"))
       };

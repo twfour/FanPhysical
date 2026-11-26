@@ -139,7 +139,7 @@ function createProblemTaxonomyBlock(problem) {
 
   var link = document.createElement("a");
   link.className = "problem-taxonomy-link";
-  link.href = "/models/" + encodeURIComponent(taxonomy.modelId) +
+  link.href = "/fan/models/" + encodeURIComponent(taxonomy.modelId) +
     "#family-" + encodeURIComponent(taxonomy.familyId);
   link.innerText = "查看该模型的完整题族链";
   block.appendChild(link);

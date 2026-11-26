@@ -209,7 +209,7 @@ async function checkLearningSyncSession() {
   if (learningSyncStatus !== "unknown" || learningSyncCheckPromise) return learningSyncCheckPromise;
   learningSyncStatus = "checking";
   updateLearningSyncPanels();
-  learningSyncCheckPromise = fetch("/api/learning-state", {
+  learningSyncCheckPromise = fetch("/fan/api/learning-state", {
     credentials: "same-origin",
     cache: "no-store"
   }).then(function (response) {
@@ -242,7 +242,7 @@ async function authenticateLearningSync(password) {
   learningSyncError = "";
   updateLearningSyncPanels();
   try {
-    var response = await fetch("/api/learning-auth", {
+    var response = await fetch("/fan/api/learning-auth", {
       method: "POST",
       credentials: "same-origin",
       headers: { "Content-Type": "application/json" },
@@ -281,7 +281,7 @@ async function syncLearningStateNow() {
   learningSyncError = "";
   updateLearningSyncPanels();
   try {
-    var response = await fetch("/api/learning-state", {
+    var response = await fetch("/fan/api/learning-state", {
       method: "POST",
       credentials: "same-origin",
       headers: { "Content-Type": "application/json" },
@@ -322,7 +322,7 @@ function scheduleLearningStateSync() {
 
 async function logoutLearningSync() {
   try {
-    await fetch("/api/learning-logout", {
+    await fetch("/fan/api/learning-logout", {
       method: "POST",
       credentials: "same-origin",
       headers: { "Content-Type": "application/json" },

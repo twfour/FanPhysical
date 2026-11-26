@@ -215,7 +215,7 @@ async function askStepConversation(paragraph, panel, input, fallbackStepIndex, s
   status.innerText = "AI 正在结合当前步骤回答...";
 
   try {
-    var response = await fetch("/api/step-ai", {
+    var response = await fetch("/fan/api/step-ai", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(context)

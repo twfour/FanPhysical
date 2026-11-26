@@ -49,7 +49,7 @@ function initializeFanPhysicsPwa() {
   navigator.serviceWorker.addEventListener("controllerchange", function () {
     if (fanPhysicsRefreshingForUpdate) window.location.reload();
   });
-  navigator.serviceWorker.register("/service-worker.js", { scope: "/" }).then(function (registration) {
+  navigator.serviceWorker.register("/fan/service-worker.js", { scope: "/fan/" }).then(function (registration) {
     watchPwaRegistration(registration);
   }).catch(function (error) {
     console.warn("PWA registration failed", error);
